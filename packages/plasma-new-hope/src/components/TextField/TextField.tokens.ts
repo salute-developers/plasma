@@ -136,14 +136,14 @@ export const tokens = {
     titleCaptionLineHeight: '--plasma-textfield__title-caption-line-height',
 
     /** Токены для helpers */
-    helpersPadding: '--plasma-textfield__helpers-padding',
+    leftHelperPadding: '--plasma-textfield__left-helper-padding',
 
-    helpersFontFamily: '--plasma-textfield__helpers-font-family',
-    helpersFontStyle: '--plasma-textfield__helpers-font-style',
-    helpersFontSize: '--plasma-textfield__helpers-font-size',
-    helpersFontWeight: '--plasma-textfield__helpers-font-weight',
-    helpersLetterSpacing: '--plasma-textfield__helpers-letter-spacing',
-    helpersLineHeight: '--plasma-textfield__helpers-line-height',
+    leftHelperFontFamily: '--plasma-textfield__left-helper-font-family',
+    leftHelperFontStyle: '--plasma-textfield__left-helper-font-style',
+    leftHelperFontSize: '--plasma-textfield__left-helper-font-size',
+    leftHelperFontWeight: '--plasma-textfield__left-helper-font-weight',
+    leftHelperLetterSpacing: '--plasma-textfield__left-helper-letter-spacing',
+    leftHelperLineHeight: '--plasma-textfield__left-helper-line-height',
 
     leftHelperColor: '--plasma-textfield__left-helper-color',
     leftHelperColorFocus: '--plasma-textfield__left-helper-color-focus',
@@ -152,6 +152,14 @@ export const tokens = {
     rightHelperColor: '--plasma-textfield__right-helper-color',
     rightHelperColorFocus: '--plasma-textfield__right-helper-color-focus',
     rightHelperColorReadOnly: '--plasma-textfield__right-helper-color-readonly',
+    rightHelperOffset: '--plasma-textfield__right-helper-offset',
+
+    rightHelperFontFamily: '--plasma-textfield__right-helper-font-family',
+    rightHelperFontStyle: '--plasma-textfield__right-helper-font-style',
+    rightHelperFontSize: '--plasma-textfield__right-helper-font-size',
+    rightHelperFontWeight: '--plasma-textfield__right-helper-font-weight',
+    rightHelperLetterSpacing: '--plasma-textfield__right-helper-letter-spacing',
+    rightHelperLineHeight: '--plasma-textfield__right-helper-line-height',
 
     /** Токены вспомогательного текста */
     textBeforeColor: '--plasma-textfield__before-text-color',

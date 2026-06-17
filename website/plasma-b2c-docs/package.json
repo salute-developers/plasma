@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-b2c-docs",
-  "version": "0.248.0-next-sbcom.0",
+  "version": "0.249.0-dev.0",
   "description": "Plasma Documentation.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -33,12 +33,12 @@
     "@docusaurus/preset-classic": "3.6.1",
     "@docusaurus/theme-live-codeblock": "3.6.1",
     "@mdx-js/react": "3.0.0",
-    "@salutejs/plasma-b2c": "1.621.0-next-sbcom.0",
-    "@salutejs/plasma-docs-ui": "0.534.0-next-sbcom.0",
-    "@salutejs/plasma-icons": "1.239.0-next-sbcom.0",
-    "@salutejs/plasma-tokens-b2c": "0.67.0-next-sbcom.0",
-    "@salutejs/plasma-tokens-web": "1.71.0-next-sbcom.0",
-    "@salutejs/plasma-typo": "0.44.0-next-sbcom.0",
+    "@salutejs/plasma-b2c": "1.622.0-dev.0",
+    "@salutejs/plasma-docs-ui": "0.535.0-dev.0",
+    "@salutejs/plasma-icons": "1.240.0-dev.0",
+    "@salutejs/plasma-tokens-b2c": "0.68.0-dev.0",
+    "@salutejs/plasma-tokens-web": "1.72.0-dev.0",
+    "@salutejs/plasma-typo": "0.45.0-dev.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",
     "docusaurus-theme-search-typesense": "^0.25.0",
@@ -63,15 +63,7 @@
     "typescript": "5.2.2"
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }

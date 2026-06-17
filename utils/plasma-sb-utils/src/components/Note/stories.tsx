@@ -13,8 +13,10 @@ const getIconSize = (size?: string, isScalable?: boolean) => {
     return 'xs';
 };
 
-export const createDefaultStory = (NoteComponent: any) => {
-    return ({ enableContentBefore, enableHeightControl, ...args }: any) => {
+export const createDefaultStory = (NoteComponent: any, Components: any) => {
+    const { LinkButton } = Components;
+
+    return ({ enableContentBefore, enableHeightControl, hasActionContent, ...args }: any) => {
         return (
             <div style={{ height: '100vh' }}>
                 <NoteComponent
@@ -27,6 +29,15 @@ export const createDefaultStory = (NoteComponent: any) => {
                         ) : undefined
                     }
                     height={enableHeightControl ? args.height : undefined}
+                    actionContent={
+                        hasActionContent ? (
+                            <LinkButton
+                                text="Label"
+                                size={args.size}
+                                view={args.view === 'default' ? 'positive' : args.view}
+                            />
+                        ) : undefined
+                    }
                     {...args}
                 />
             </div>

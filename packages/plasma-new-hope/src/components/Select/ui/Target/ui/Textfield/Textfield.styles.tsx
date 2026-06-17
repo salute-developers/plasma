@@ -30,7 +30,10 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.placeholderColorFocus}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
 
-    ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorHover});
+    ${textFieldTokens.backgroundColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColorHover})`};
+    ${textFieldTokens.borderColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
 
     ${textFieldTokens.optionalColor}: var(${tokens.textFieldOptionalColor});
@@ -93,14 +96,14 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.titleCaptionLetterSpacing}: var(${tokens.textFieldTitleCaptionLetterSpacing});
     ${textFieldTokens.titleCaptionLineHeight}: var(${tokens.textFieldTitleCaptionLineHeight});
 
-    ${textFieldTokens.helpersPadding}: var(${tokens.textFieldHelpersPadding});
+    ${textFieldTokens.leftHelperPadding}: var(${tokens.textFieldLeftHelperPadding});
 
-    ${textFieldTokens.helpersFontFamily}: var(${tokens.textFieldHelpersFontFamily});
-    ${textFieldTokens.helpersFontStyle}: var(${tokens.textFieldHelpersFontStyle});
-    ${textFieldTokens.helpersFontSize}: var(${tokens.textFieldHelpersFontSize});
-    ${textFieldTokens.helpersFontWeight}: var(${tokens.textFieldHelpersFontWeight});
-    ${textFieldTokens.helpersLetterSpacing}: var(${tokens.textFieldHelpersLetterSpacing});
-    ${textFieldTokens.helpersLineHeight}: var(${tokens.textFieldHelpersLineHeight});
+    ${textFieldTokens.leftHelperFontFamily}: var(${tokens.textFieldLeftHelperFontFamily});
+    ${textFieldTokens.leftHelperFontStyle}: var(${tokens.textFieldLeftHelperFontStyle});
+    ${textFieldTokens.leftHelperFontSize}: var(${tokens.textFieldLeftHelperFontSize});
+    ${textFieldTokens.leftHelperFontWeight}: var(${tokens.textFieldLeftHelperFontWeight});
+    ${textFieldTokens.leftHelperLetterSpacing}: var(${tokens.textFieldLeftHelperLetterSpacing});
+    ${textFieldTokens.leftHelperLineHeight}: var(${tokens.textFieldLeftHelperLineHeight});
 
     ${textFieldTokens.textBeforeColor}: var(${tokens.textFieldTextBeforeColor});
     ${textFieldTokens.textAfterColor}: var(${tokens.textFieldTextAfterColor});

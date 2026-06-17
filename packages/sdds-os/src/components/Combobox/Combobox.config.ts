@@ -5,6 +5,7 @@ export const config = {
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',
+        chipView: 'secondary',
         hintView: 'default',
         hintSize: 'm',
     },
@@ -265,13 +266,13 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
-                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
@@ -386,13 +387,13 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
-                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -483,6 +484,53 @@ export const config = {
                 ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             outer: css``,
+        },
+        chipView: {
+            default: css`
+                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
+                ${tokens.textFieldChipColorHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-solid-default);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--inverse-text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnly}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
+            secondary: css`
+                ${tokens.textFieldChipColor}: var(--text-primary);
+                ${tokens.textFieldChipColorHover}: var(--text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-solid-secondary);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-secondary-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--text-secondary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-secondary);
+                ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-solid-secondary);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
+            accent: css`
+                ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipColorHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-accent);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--on-dark-text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--on-dark-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnly}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
         },
         hintView: {
             default: css`

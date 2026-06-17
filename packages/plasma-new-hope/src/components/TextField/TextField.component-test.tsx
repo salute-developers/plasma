@@ -23,6 +23,7 @@ const componentProps = {
     label: 'Label',
     labelPlacement: 'outer' as TextFieldProps['labelPlacement'],
     leftHelper: 'Helper text',
+    rightHelper: 'Right helper',
     contentLeft: <IconPlasma color="inherit" size="s" />,
     contentRight: <IconEye color="inherit" size="s" />,
 };

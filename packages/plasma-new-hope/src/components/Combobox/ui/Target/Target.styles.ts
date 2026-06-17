@@ -7,16 +7,24 @@ import { tokens as comboboxTokens } from '../../Combobox.tokens';
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
 
-export const StyledTextField = styled(TextField)`
+export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.color}: var(${comboboxTokens.textFieldColor});
     ${textFieldTokens.clearColor}: var(${comboboxTokens.textFieldColor});
 
-    ${textFieldTokens.backgroundColor}: var(${comboboxTokens.textFieldBackgroundColor});
-    ${textFieldTokens.backgroundColorHover}: var(${comboboxTokens.textFieldBackgroundColorHover});
+    ${textFieldTokens.backgroundColor}: ${({ opened }) =>
+    opened
+        ? `var(${comboboxTokens.textFieldBackgroundColorFocus})`
+        : `var(${comboboxTokens.textFieldBackgroundColor})`};
+    ${textFieldTokens.backgroundColorHover}: ${({ opened }) =>
+    opened
+        ? `var(${comboboxTokens.textFieldBackgroundColorFocus})`
+        : `var(${comboboxTokens.textFieldBackgroundColorHover})`};
     ${textFieldTokens.backgroundColorFocus}: var(${comboboxTokens.textFieldBackgroundColorFocus});
 
-    ${textFieldTokens.borderColor}: var(${comboboxTokens.textFieldBorderColor});
-    ${textFieldTokens.borderColorHover}: var(${comboboxTokens.textFieldBorderColorHover});
+    ${textFieldTokens.borderColor}: ${({ opened }) =>
+    opened ? `var(${comboboxTokens.textFieldBorderColorFocus})` : `var(${comboboxTokens.textFieldBorderColor})`};
+    ${textFieldTokens.borderColorHover}: ${({ opened }) =>
+    opened ? `var(${comboboxTokens.textFieldBorderColorFocus})` : `var(${comboboxTokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${comboboxTokens.textFieldBorderColorFocus});
 
     ${textFieldTokens.colorReadOnly}: var(${comboboxTokens.textFieldColorReadOnly});
@@ -98,14 +106,14 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.leftHelperColor}: var(${comboboxTokens.textFieldLeftHelperColor});
     ${textFieldTokens.leftHelperColorFocus}: var(${comboboxTokens.textFieldLeftHelperColorFocus});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${comboboxTokens.textFieldLeftHelperColorReadOnly});
-    ${textFieldTokens.helpersPadding}: var(${comboboxTokens.textFieldHelpersPadding});
+    ${textFieldTokens.leftHelperPadding}: var(${comboboxTokens.textFieldLeftHelperPadding});
 
-    ${textFieldTokens.helpersFontFamily}: var(${comboboxTokens.textFieldHelpersFontFamily});
-    ${textFieldTokens.helpersFontStyle}: var(${comboboxTokens.textFieldHelpersFontStyle});
-    ${textFieldTokens.helpersFontSize}: var(${comboboxTokens.textFieldHelpersFontSize});
-    ${textFieldTokens.helpersFontWeight}: var(${comboboxTokens.textFieldHelpersFontWeight});
-    ${textFieldTokens.helpersLetterSpacing}: var(${comboboxTokens.textFieldHelpersLetterSpacing});
-    ${textFieldTokens.helpersLineHeight}: var(${comboboxTokens.textFieldHelpersLineHeight});
+    ${textFieldTokens.leftHelperFontFamily}: var(${comboboxTokens.textFieldLeftHelperFontFamily});
+    ${textFieldTokens.leftHelperFontStyle}: var(${comboboxTokens.textFieldLeftHelperFontStyle});
+    ${textFieldTokens.leftHelperFontSize}: var(${comboboxTokens.textFieldLeftHelperFontSize});
+    ${textFieldTokens.leftHelperFontWeight}: var(${comboboxTokens.textFieldLeftHelperFontWeight});
+    ${textFieldTokens.leftHelperLetterSpacing}: var(${comboboxTokens.textFieldLeftHelperLetterSpacing});
+    ${textFieldTokens.leftHelperLineHeight}: var(${comboboxTokens.textFieldLeftHelperLineHeight});
 
     ${textFieldTokens.textBeforeColor}: var(${comboboxTokens.textFieldTextBeforeColor});
     ${textFieldTokens.textAfterColor}: var(${comboboxTokens.textFieldTextAfterColor});
@@ -119,7 +127,9 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.hintTargetSize}: var(${comboboxTokens.textFieldHintTargetSize});
     ${textFieldTokens.hintIconColor}: var(${comboboxTokens.textFieldHintIconColor});
     ${textFieldTokens.hintInnerLabelPlacementOffset}: var(${comboboxTokens.textFieldHintInnerLabelPlacementOffset});
-    ${textFieldTokens.clearHintInnerLabelPlacementOffset}: var(${comboboxTokens.textFieldClearHintInnerLabelPlacementOffset});
+    ${textFieldTokens.clearHintInnerLabelPlacementOffset}: var(${
+    comboboxTokens.textFieldClearHintInnerLabelPlacementOffset
+});
     ${textFieldTokens.tooltipBackgroundColor}: var(${comboboxTokens.textFieldTooltipBackgroundColor});
     ${textFieldTokens.tooltipBoxShadow}: var(${comboboxTokens.textFieldTooltipBoxShadow});
     ${textFieldTokens.tooltipColor}: var(${comboboxTokens.textFieldTooltipColor});
@@ -180,10 +190,18 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.indicatorSizeOuter}: var(${comboboxTokens.textFieldIndicatorSizeOuter});
     ${textFieldTokens.indicatorLabelPlacementInner}: var(${comboboxTokens.textFieldIndicatorLabelPlacementInner});
     ${textFieldTokens.indicatorLabelPlacementOuter}: var(${comboboxTokens.textFieldIndicatorLabelPlacementOuter});
-    ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${comboboxTokens.textFieldIndicatorLabelPlacementInnerRight});
-    ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${comboboxTokens.textFieldIndicatorLabelPlacementOuterRight});
-    ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${comboboxTokens.textFieldClearIndicatorLabelPlacementInner});
-    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${comboboxTokens.textFieldClearIndicatorLabelPlacementInnerRight});
+    ${textFieldTokens.indicatorLabelPlacementInnerRight}: var(${
+    comboboxTokens.textFieldIndicatorLabelPlacementInnerRight
+});
+    ${textFieldTokens.indicatorLabelPlacementOuterRight}: var(${
+    comboboxTokens.textFieldIndicatorLabelPlacementOuterRight
+});
+    ${textFieldTokens.clearIndicatorLabelPlacementInner}: var(${
+    comboboxTokens.textFieldClearIndicatorLabelPlacementInner
+});
+    ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${
+    comboboxTokens.textFieldClearIndicatorLabelPlacementInnerRight
+});
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${comboboxTokens.textFieldClearIndicatorHintInnerRight});
     ${textFieldTokens.boxShadow}: var(${comboboxTokens.textFieldBoxShadow});
 `;

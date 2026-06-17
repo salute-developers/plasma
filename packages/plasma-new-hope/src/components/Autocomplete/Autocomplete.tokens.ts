@@ -86,14 +86,14 @@ export const tokens = {
 
     textFieldLeftHelperColor: '--plasma-autocomplete-textfield-left-helper-color',
     textFieldLeftHelperColorReadOnly: '--plasma-autocomplete-textfield-left-helper-color-readonly',
-    textFieldHelpersPadding: '--plasma-autocomplete-textfield-helpers-padding',
+    textFieldLeftHelperPadding: '--plasma-autocomplete-textfield-left-helper-padding',
 
-    textFieldHelpersFontFamily: '--plasma-autocomplete-textfield-helpers-font-family',
-    textFieldHelpersFontStyle: '--plasma-autocomplete-textfield-helpers-font-style',
-    textFieldHelpersFontSize: '--plasma-autocomplete-textfield-helpers-font-size',
-    textFieldHelpersFontWeight: '--plasma-autocomplete-textfield-helpers-font-weight',
-    textFieldHelpersLetterSpacing: '--plasma-autocomplete-textfield-helpers-letter-spacing',
-    textFieldHelpersLineHeight: '--plasma-autocomplete-textfield-helpers-line-height',
+    textFieldLeftHelperFontFamily: '--plasma-autocomplete-textfield-left-helper-font-family',
+    textFieldLeftHelperFontStyle: '--plasma-autocomplete-textfield-left-helper-font-style',
+    textFieldLeftHelperFontSize: '--plasma-autocomplete-textfield-left-helper-font-size',
+    textFieldLeftHelperFontWeight: '--plasma-autocomplete-textfield-left-helper-font-weight',
+    textFieldLeftHelperLetterSpacing: '--plasma-autocomplete-textfield-left-helper-letter-spacing',
+    textFieldLeftHelperLineHeight: '--plasma-autocomplete-textfield-left-helper-line-height',
 
     textFieldTextBeforeColor: '--plasma-autocomplete-textfield-before-text-color',
     textFieldTextAfterColor: '--plasma-autocomplete-textfield-after-text-color',

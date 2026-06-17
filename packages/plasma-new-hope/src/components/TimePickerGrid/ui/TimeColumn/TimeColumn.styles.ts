@@ -28,16 +28,16 @@ export const StyledTimeItem = styled.div`
     letter-spacing: var(${tokens.itemLetterSpacing});
     line-height: var(${tokens.itemLineHeight});
 
-    &:hover {
+    &.${classes.itemDisabled} {
+        cursor: not-allowed;
+        opacity: var(${tokens.disabledOpacity});
+    }
+
+    &:not(.${classes.itemDisabled}):hover {
         background: var(${tokens.itemBackgroundHover});
     }
     &.${classes.timeItemActive} {
         background: var(${tokens.itemBackgroundActive});
-    }
-
-    &.${classes.itemDisabled} {
-        cursor: not-allowed;
-        opacity: var(${tokens.disabledOpacity});
     }
 
     ${addFocus({

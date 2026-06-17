@@ -1,3 +1,9 @@
+export const privateTokens = {
+    inputActualHeight: '--plasma_private-textarea-input-actual-height',
+    wrapperPaddingBottomInnerLabel: '--plasma_private-textarea-inner-label-padding-bottom',
+    dividerColor: '--plasma_private-textarea-divider-color',
+};
+
 export const classes = {
     /** Класс отвечающий за поднятие и уменьшение плейсхолдера */
     innerPlaceholderUp: 'inner-placeholder-up',
@@ -103,12 +109,13 @@ export const tokens = {
 
     /** Отступы для блока подписей */
     helpersPaddingTop: '--plasma-textarea-helpers-padding-top',
-    clearHelpersPaddingTop: '--plasma-textarea-clear-helpers-padding-top',
-    clearHelpersPaddingLeft: '--plasma-textarea-clear-helpers-padding-left',
-    clearHelpersPaddingRight: '--plasma-textarea-clear-helpers-padding-right',
     helpersPaddingRight: '--plasma-textarea-helpers-padding-right',
     helpersPaddingBottom: '--plasma-textarea-helpers-padding-bottom',
     helpersPaddingLeft: '--plasma-textarea-helpers-padding-left',
+    outsideHelpersPaddingTop: '--plasma-textarea-outside-helpers-padding-top',
+    outsideHelpersPaddingBottom: '--plasma-textarea-outside-helpers-padding-bottom',
+    outsideHelpersPaddingLeft: '--plasma-textarea-outside-helpers-padding-left',
+    outsideHelpersPaddingRight: '--plasma-textarea-outside-helpers-padding-right',
     helpersOffset: '--plasma-textarea-helpers-offset',
 
     /** Позиционирование контента справа */

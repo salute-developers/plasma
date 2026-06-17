@@ -17,8 +17,8 @@ import React from 'react';
 import { TimePicker } from '@salutejs/sdds-dfa';
 
 export function App() {
-    const handleTimeChange = (event) => {
-        console.log('Выбрано время:', event.target.value);
+    const handleTimeChange = (event, formattedValues) => {
+        console.log('Выбрано время:', formattedValues.value);
     };
 
     return (
@@ -34,6 +34,23 @@ export function App() {
 }
 ```
 
+:::note Изменение сигнатуры `onChange`
+Колбэк `onChange` теперь принимает **второй аргумент** `formattedValues: TimePickerChangeEvent` — нормализованный объект с текущим значением времени, который всегда имеет одинаковую структуру вне зависимости от способа ввода (ручной ввод или выбор из выпадающего списка).
+
+```ts
+type TimePickerChangeEvent = {
+    value?: string;
+    timeValues: {
+        hour?: number | null;
+        minute?: number | null;
+        second?: number | null;
+    };
+};
+```
+
+Рекомендуется использовать `formattedValues` вместо первого аргумента `event`, тип которого в качестве `TimePickerChangeEvent` является **устаревшим (deprecated)**.
+:::
+
 ### Управление внешним видом
 
 Размер `TimePicker` задаётся с помощью свойства `size`:
@@ -47,6 +64,7 @@ export function App() {
         export function App() {
             return (
                 <div style={{ display: "flex", flexDirection: "column", gap: "32px"}}>
+                    <TimePicker view="default" size="xl" placeholder="Очень большой размер" />
                     <TimePicker view="default" size="l" placeholder="Большой размер" />
                     <TimePicker view="default" size="m" placeholder="Средний размер" />
                     <TimePicker view="default" size="s" placeholder="Маленький размер" />
@@ -125,6 +143,32 @@ export function App() {
 - `Arrow Up/Down` - навигация по значениям
 - `Arrow Left/Right` - переход между колонками
 - `Tab` - переход к следующему значению
+
+### Ограничение допустимого времени
+
+С помощью свойств `min` и `max` можно задать допустимый диапазон времени.
+Значения вне этого диапазона отображаются как недоступные в выпадающем списке.
+
+Оба свойства принимают строку в формате `HH:mm:ss` или объект `Date`.
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                columnsQuantity={3}
+                value="15:00:00"
+                min="12:00:00"
+                max="20:00:00"
+                placeholder="00:00:00"
+            />
+        </div>
+    );
+}
+```
 
 ## Props
 

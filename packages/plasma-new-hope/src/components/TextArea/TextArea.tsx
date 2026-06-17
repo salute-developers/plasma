@@ -27,7 +27,7 @@ import {
     StyledContentWrapper,
     StyledHeaderSlot,
 } from './TextArea.styles';
-import { classes } from './TextArea.tokens';
+import { classes, privateTokens } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as readOnlyCSS } from './variations/_read-only/base';
@@ -316,7 +316,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         width: innerWidth,
                         height: computedHeight,
                         ...(hasExplicitHeight && {
-                            '--plasma_private-textarea-input-actual-height': '100%',
+                            [privateTokens.inputActualHeight]: '100%',
                         }),
                         ...style,
                     } as React.CSSProperties
@@ -408,6 +408,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         hasHelper={hasHelper}
                         hasHeader={hasHeader}
                         hasExplicitHeight={hasExplicitHeight}
+                        isClear={clear || appearance === 'clear'}
                     >
                         {headerSlot && !clear && <StyledHeaderSlot>{headerSlot}</StyledHeaderSlot>}
 

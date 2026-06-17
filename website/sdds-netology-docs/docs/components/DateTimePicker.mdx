@@ -503,6 +503,40 @@ import { DateTimePicker } from '@salutejs/sdds-netology';
 }
 ```
 
+### Ограничение допустимого времени на граничных датах
+
+Свойства `min` и `max` принимают объект `Date`. Они ограничивают как диапазон дат в календаре,
+так и допустимое время — но только на граничном дне.
+
+Например, если `min = new Date(2024, 0, 15, 9, 0, 0)`, то:
+- в календаре нельзя выбрать дату раньше 15 января 2024
+- при выборе 15 января часы до 09:00 будут недоступны в таймпикере
+- на любой другой дате все значения времени доступны
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-netology';
+
+export function App() {
+    return (
+        <div style={{height: '700px'}}>
+            <DateTimePicker
+                label="С ограничением времени"
+                placeholder="DD.MM.YYYY HH:mm:ss"
+                dateFormat="DD.MM.YYYY"
+                timeFormat="HH:mm:ss"
+                min={new Date(2024, 0, 15, 9, 0, 0)}
+                max={new Date(2024, 11, 15, 18, 0, 0)}
+                includeEdgeDates
+                maskWithFormat
+                lang="ru"
+                usePortal
+            />
+        </div>
+    );
+}
+```
+
 ## Props
 
 <PropsTable name="DateTimePicker" exclude={['css']} />

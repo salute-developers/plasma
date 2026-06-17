@@ -1,41 +1,90 @@
 name: 'Prepare environment'
 
-description: 'Setup node.js env and install all dependencies'
+description: |
+    Setup Node.js and install dependencies. Cache writes are disabled in untrusted contexts
+    (fork PRs via pull_request_target) to prevent poisoning of shared caches.
+
+    IMPORTANT: when invoked from a pull_request_target workflow, this action MUST be referenced
+    by a remote ref (e.g. `salute-developers/plasma/.github/actions/prepare-environment@dev`),
+    NOT by a local path (`./.github/actions/prepare-environment`). A local `uses:` loads the
+    action from the checked-out workspace — if that workspace was checked out from the PR
+    (refs/pull/N/merge), the trust-detection step itself comes from attacker-controlled code
+    and the protection is bypassed.
 
 runs:
-  using: "composite"
-  steps:
-    - name: Setup Node.js
-      uses: actions/setup-node@v6
-      with:
-        node-version-file: '.nvmrc'
-        cache: 'npm'
+    using: 'composite'
+    steps:
+        - name: Determine trust context
+          id: trust
+          shell: bash
+          env:
+              EVENT_NAME: ${{ github.event_name }}
+              HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+              BASE_REPO: ${{ github.repository }}
+          run: |
+              if [ "$EVENT_NAME" = "pull_request_target" ] && [ "$HEAD_REPO" != "$BASE_REPO" ]; then
+                echo "untrusted=true" >> "$GITHUB_OUTPUT"
+                echo "::notice::Running in UNTRUSTED context (external fork PR). Cache writes are disabled."
+              else
+                echo "untrusted=false" >> "$GITHUB_OUTPUT"
+              fi
 
-    - name: Cache node modules
-      id: node_modules
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          node-modules-${{ hashFiles('package-lock.json') }}
-          node-modules-
+        - name: Setup Node.js
+          uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+          with:
+              node-version-file: '.nvmrc'
 
-    - name: Cache dependencies
-      id: cache
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache
-        key: cache-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          cache-${{ hashFiles('package-lock.json') }}
-          cache-
+        - name: Cache ~/.npm (trusted — restore + save)
+          if: steps.trust.outputs.untrusted == 'false'
+          uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+          with:
+              path: ~/.npm
+              # Только точное совпадение ключа (без restore-keys) — относится и к этому шагу,
+              # и к untrusted-restore ниже. Miss → чистая установка. Partial-match по
+              # мутированному lockfile позволил бы тихо подмешать attacker-controlled tarballs
+              # к проверенным — смысл как раз в том, чтобы такого не допустить.
+              key: npm-trusted-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-    - name: Setup packages
-      shell: bash
-      if: ${{ steps.cache.outputs.cache-hit != 'true' || steps.node_modules.outputs.cache-hit != 'true' }}
-      run: npm ci --no-progress
+        - name: Restore ~/.npm (untrusted — read trusted cache, no save)
+          if: steps.trust.outputs.untrusted == 'true'
+          uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+          with:
+              path: ~/.npm
+              # Тот же ключ, что и у trusted-save шага ↑ — fork PR'ы переиспользуют проверенный кэш.
+              # Защита от записи обеспечивается типом action (actions/cache/restore без post-step
+              # save), а не scoping'ом ключа. Отдельный -untrusted- namespace гарантировал бы
+              # вечный miss — никто в этом action никогда не пишет в такой ключ.
+              key: npm-trusted-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
 
-    - name: Apply patches for fix maxBuffer issue
-      shell: bash
-      run: npx patch-package
+        - name: Cache Cypress binary (trusted — restore + save)
+          if: steps.trust.outputs.untrusted == 'false'
+          uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+          with:
+              path: ~/.cache/Cypress
+              # Версия Cypress зафиксирована в package-lock.json, поэтому хэш lockfile —
+              # достаточный и детерминированный ключ.
+              key: cypress-trusted-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+        - name: Restore Cypress binary (untrusted — read trusted cache, no save)
+          if: steps.trust.outputs.untrusted == 'true'
+          uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+          with:
+              path: ~/.cache/Cypress
+              # Тот же ключ, что и у trusted-save ↑. Обоснование — см. npm restore шаг.
+              key: cypress-trusted-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+        - name: Install dependencies
+          shell: bash
+          run: npm ci --no-progress
+
+        - name: Verify Cypress install
+          # Доп. проверка целостности: сверяет SHA256 кэшированного бинаря с тем,
+          # что прописан в установленном cypress-пакете. Основная защита от подмены —
+          # запрет записи в кэш в untrusted-контексте (шаги Cache/Restore выше);
+          # verify ловит рассинхрон версия/бинарь и любые повреждения кэша.
+          shell: bash
+          run: npx cypress verify
+
+        - name: Apply patches
+          shell: bash
+          run: node_modules/.bin/patch-package

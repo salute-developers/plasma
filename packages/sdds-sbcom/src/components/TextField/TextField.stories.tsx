@@ -1,4 +1,4 @@
-import React, { ComponentProps, ChangeEvent, useState, CSSProperties } from 'react';
+import React, { ChangeEvent, ComponentProps, CSSProperties, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { getTextFieldStories } from '@salutejs/plasma-sb-utils';
 import { IconChatOutline, IconCrossSmall, IconSearch } from '@salutejs/plasma-icons';
@@ -26,7 +26,6 @@ const { meta: META, Default, Chips } = getTextFieldStories({
     componentConfig: config,
     defaultArgs: {
         ...config.defaults,
-        rightHelper: 'Подсказка к полю справа',
         titleCaption: '',
         hasHint: false,
         enableContentLeft: false,

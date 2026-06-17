@@ -46,7 +46,7 @@ export const createMeta = ({
             textAfter: '',
             placeholder: 'Заполните поле',
             leftHelper: 'Подсказка к полю слева',
-            rightHelper: '',
+            rightHelper: 'Подсказка к полю справа',
             disabled: false,
             readOnly: false,
             enableContentLeft: true,

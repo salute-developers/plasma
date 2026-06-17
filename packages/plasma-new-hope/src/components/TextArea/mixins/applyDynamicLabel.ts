@@ -1,4 +1,4 @@
-import { classes, tokens } from '../TextArea.tokens';
+import { classes, tokens, privateTokens } from '../TextArea.tokens';
 
 const {
     innerPlaceholderUp,
@@ -14,12 +14,12 @@ const {
 export const applyDynamicLabel = `
     .${innerPlaceholderUp} {
         .${styledTextArea} {
-            height: calc(var(--plasma_private-textarea-input-actual-height) - var(${tokens.labelInnerTop}) - var(${tokens.labelInnerTopHelper}, 0px));
+            height: calc(var(${privateTokens.inputActualHeight}) - var(${tokens.labelInnerTop}) - var(${tokens.labelInnerTopHelper}, 0px));
         }
 
         .${styledTextAreaWrapper} {
             padding-top: calc(calc(var(${tokens.labelInnerTop}) + var(${tokens.labelInnerFontSize})) + var(${tokens.labelInnerMarginBottom}));
-            padding-bottom: var(${tokens.inputPaddingBottomInnerLabel}, var(${tokens.inputPaddingBottom}));
+            padding-bottom: var(${privateTokens.wrapperPaddingBottomInnerLabel});
         }
             
         .${hasHeaderSlot} {

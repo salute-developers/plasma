@@ -8,15 +8,19 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.inputBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-card-hover);
+                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-card-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-card);
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-primary-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.helpersBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-card-hover);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-card-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-card);
+
+                ${tokens.borderColor}: var(--outline-transparent-primary);
+                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
+                ${tokens.borderColorFocus}: var(--outline-solid-default);
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
@@ -47,7 +51,47 @@ export const config = {
                 ${tokens.dividerColorFocus}: var(--surface-accent);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
+            `,
+            warning: css`
+                ${tokens.inputBackgroundColor}: var(--surface-transparent-warning);
+                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-warning-hover);
+                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-warning-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-warning);
+
+                ${tokens.helpersBackgroundColor}: var(--surface-transparent-warning);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-warning-hover);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-warning-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-warning);
+
+                ${tokens.inputColor}: var(--text-primary);
+                ${tokens.inputColorFocus}: var(--text-primary);
+                ${tokens.inputCaretColor}: var(--text-warning);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.rightHelperColor}: var(--text-secondary);
+
+                ${tokens.rightContentColor}: var(--text-secondary);
+                ${tokens.rightContentColorHover}: var(--text-secondary-hover);
+                ${tokens.rightContentColorActive}: var(--text-secondary-active);
+
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
+
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+
+                ${tokens.dividerColor}: var(--surface-warning);
+                ${tokens.dividerColorHover}: var(--surface-warning);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
             `,
             negative: css`
                 ${tokens.inputBackgroundColor}: var(--surface-transparent-negative);
@@ -89,7 +133,6 @@ export const config = {
                 ${tokens.dividerColorFocus}: var(--surface-accent);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
-                ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
         },
         size: {
@@ -99,6 +142,7 @@ export const config = {
                 ${tokens.inputMinHeight}: 1.125rem;
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0 0;
+                ${tokens.borderSize}: 0.0625rem;
 
                 ${tokens.inputPaddingTop}: 0.875rem;
                 ${tokens.inputPaddingRight}: 1rem;
@@ -116,7 +160,7 @@ export const config = {
                 ${tokens.rightContentRight}: 0.875rem;
                 ${tokens.rightContentHeight}: 1.25rem;
 
-                ${tokens.labelMarginBottom}: 0.625rem;
+                ${tokens.labelMarginBottom}: 0.25rem;
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -234,8 +278,9 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
-                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.readOnlyOpacity}: 1;
+                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.borderColor}: var(--outline-transparent-primary);
                 ${tokens.inputColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;

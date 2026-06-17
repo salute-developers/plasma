@@ -19,13 +19,13 @@ export const classes = {
     secondTextField: 'slider-second-text-field',
     activeRangeValue: 'slider-active-range-value',
     verticalOrientation: 'slider-vertical-orientation',
+    valuePlacementTop: 'slider-value-placement-top',
+    valuePlacementBottom: 'slider-value-placement-bottom',
     valuePlacementLeft: 'slider-value-placement-left',
+    valuePlacementRight: 'slider-value-placement-right',
+    valuePlacementNone: 'slider-value-placement-none',
     reversed: 'slider-reversed',
     pointerHidden: 'slider-pointer-hidden',
-};
-
-export const privateTokens = {
-    thumbSize: '--sdds-core_private-thumb-size',
 };
 
 export const tokens = {
@@ -62,10 +62,13 @@ export const tokens = {
     doubleBoxShadow: '--plasma-slider-double-box-shadow',
 
     thumbSize: '--plasma-slider-thumb-size',
-    thumbSizeLarge: '--plasma-slider-thumb-size-large',
-    thumbBorder: '--plasma-slider-thumb-border',
+    thumbHeight: '--plasma-slider-thumb-height',
+    thumbBorderStyle: '--plasma-slider-thumb-border-style',
+    thumbBorderWidth: '--plasma-slider-thumb-border-width',
+    thumbBorderRadius: '--plasma-slider-thumb-border-radius',
     thumbBorderColor: '--plasma-slider-thumb-border-color',
     thumbBackgroundColor: '--plasma-slider-thumb-background-color',
+    thumbInnerContent: '--plasma-slider-thumb-inner-content',
 
     thumbFocusBorderColor: '--plasma-slider-thumb-focus-border-color',
 

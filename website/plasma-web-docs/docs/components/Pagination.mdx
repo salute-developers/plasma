@@ -170,6 +170,29 @@ export function App() {
 }
 ```
 
+Свойство `textQuickJump` задаёт текст-метку перед полем, а `placeholderQuickJump` — placeholder внутри поля:
+
+```tsx live
+import React from 'react';
+import { Pagination } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
+            <Pagination size="xs" slots={9} count={200} hasQuickJump />
+            <Pagination
+                size="xs"
+                slots={9}
+                count={200}
+                hasQuickJump
+                textQuickJump="Перейти на стр."
+                placeholderQuickJump="№"
+            />
+        </div>
+    );
+}
+```
+
 ## Вспомогательный текст
 
 С помощью свойства `helperText` можно добавить произвольный текст рядом с пагинацией.

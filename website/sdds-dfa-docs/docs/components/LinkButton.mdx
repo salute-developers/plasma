@@ -65,6 +65,13 @@ export function App() {
 
 ### Вид кнопки
 Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
++ `"default"` – по умолчанию;
++ `"accent"` – акцентная;
++ `"secondary"` – вторичная;
++ `"info"` – информационная;
++ `"positive"` – успешное завершение;
++ `"warning"` – предупреждение;
++ `"negative"` – ошибка.
 
 ```tsx live
 import React from 'react';
@@ -76,9 +83,11 @@ export function App() {
             <LinkButton text="Кнопка" size="s" view="default" />
             <LinkButton text="Кнопка" size="s" view="accent" />
             <LinkButton text="Кнопка" size="s" view="secondary" />
+            <LinkButton text="Кнопка" size="s" view="info" />
             <LinkButton text="Кнопка" size="s" view="positive" />
             <LinkButton text="Кнопка" size="s" view="warning" />
             <LinkButton text="Кнопка" size="s" view="negative" />
+            <LinkButton text="Кнопка" size="s" view="info" />
         </div>
     );
 }

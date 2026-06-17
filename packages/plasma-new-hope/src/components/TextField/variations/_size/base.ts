@@ -7,7 +7,8 @@ import {
     InputContainer,
     InputWrapper,
     Label,
-    StyledHelpers,
+    StyledLeftHelper,
+    StyledRightHelper,
     StyledContentRight,
     StyledContentRightWrapper,
     StyledHintWrapper,
@@ -88,15 +89,26 @@ export const base = css`
         line-height: var(${tokens.titleCaptionLineHeight});
     }
 
-    ${StyledHelpers} {
-        padding: var(${tokens.helpersPadding});
+    ${StyledLeftHelper} {
+        padding: var(${tokens.leftHelperPadding});
 
-        font-family: var(${tokens.helpersFontFamily});
-        font-size: var(${tokens.helpersFontSize});
-        font-style: var(${tokens.helpersFontStyle});
-        font-weight: var(${tokens.helpersFontWeight});
-        letter-spacing: var(${tokens.helpersLetterSpacing});
-        line-height: var(${tokens.helpersLineHeight});
+        font-family: var(${tokens.leftHelperFontFamily});
+        font-size: var(${tokens.leftHelperFontSize});
+        font-style: var(${tokens.leftHelperFontStyle});
+        font-weight: var(${tokens.leftHelperFontWeight});
+        letter-spacing: var(${tokens.leftHelperLetterSpacing});
+        line-height: var(${tokens.leftHelperLineHeight});
+    }
+
+    ${StyledRightHelper} {
+        padding: var(${tokens.rightHelperOffset});
+
+        font-family: var(${tokens.rightHelperFontFamily});
+        font-size: var(${tokens.rightHelperFontSize});
+        font-style: var(${tokens.rightHelperFontStyle});
+        font-weight: var(${tokens.rightHelperFontWeight});
+        letter-spacing: var(${tokens.rightHelperLetterSpacing});
+        line-height: var(${tokens.rightHelperLineHeight});
     }
 
     ${StyledTextBefore}, ${StyledTextAfter} {

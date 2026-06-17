@@ -726,6 +726,16 @@ describeFn('Dropdown', () => {
         cy.pressKey('Escape');
         cy.get('@onToggle').its('callCount').should('equal', 8);
         cy.get('@onToggle').should('have.been.calledWith', false);
+
+        cy.pressKey('Enter');
+        cy.get('[id$="tree_level_1"]').should('be.visible');
+        cy.get('@onToggle').its('callCount').should('equal', 9);
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.pressKey('Escape');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.get('@onToggle').its('callCount').should('equal', 10);
+        cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
     it('behavior: nesting lists within scroll', { scrollBehavior: false }, () => {

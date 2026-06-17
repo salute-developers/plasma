@@ -132,7 +132,7 @@ import TabItem from '@theme/TabItem';
         import { IconDone } from '@salutejs/plasma-icons';
 
         export function App() {
-            const sizes = ['xl', 'l', 'm', 's', 'xs']
+            const sizes = ['m']
 
             return (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2rem' }}>
@@ -165,7 +165,7 @@ import TabItem from '@theme/TabItem';
             return (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                     <DateTimePicker
-                        size="s"
+                        size="m"
                         label="Одиночный календарь"
                         leftHelper="Подсказка к полю"
                         placeholder="Введите дату"
@@ -174,7 +174,7 @@ import TabItem from '@theme/TabItem';
                         usePortal
                     />
                     <DateTimePicker
-                        size="s"
+                        size="m"
                         isDouble
                         label="Двойной календарь"
                         leftHelper="Подсказка к полю"
@@ -457,6 +457,40 @@ import { DateTimePicker } from '@salutejs/sdds-platform-ai';
                     size: 'm'
                 }}
                 renderFromDate={new Date('2025-07-01')}
+            />
+        </div>
+    );
+}
+```
+
+### Ограничение допустимого времени на граничных датах
+
+Свойства `min` и `max` принимают объект `Date`. Они ограничивают как диапазон дат в календаре,
+так и допустимое время — но только на граничном дне.
+
+Например, если `min = new Date(2024, 0, 15, 9, 0, 0)`, то:
+- в календаре нельзя выбрать дату раньше 15 января 2024
+- при выборе 15 января часы до 09:00 будут недоступны в таймпикере
+- на любой другой дате все значения времени доступны
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    return (
+        <div style={{height: '700px'}}>
+            <DateTimePicker
+                label="С ограничением времени"
+                placeholder="DD.MM.YYYY HH:mm:ss"
+                dateFormat="DD.MM.YYYY"
+                timeFormat="HH:mm:ss"
+                min={new Date(2024, 0, 15, 9, 0, 0)}
+                max={new Date(2024, 11, 15, 18, 0, 0)}
+                includeEdgeDates
+                maskWithFormat
+                lang="ru"
+                usePortal
             />
         </div>
     );

@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { CellTextboxProps } from './ui/CellTextbox/CellTextbox.types';
 
@@ -11,7 +11,7 @@ type CustomCellProps = {
     size?: string;
 
     /**
-     * Размер
+     * Вид
      */
     view?: string;
 
@@ -58,4 +58,4 @@ type CustomCellProps = {
     description?: string;
 };
 
-export type CellProps = CustomCellProps & CellTextboxProps;
+export type CellProps = HTMLAttributes<HTMLDivElement> & CustomCellProps & CellTextboxProps;

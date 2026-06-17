@@ -711,6 +711,60 @@ import { DatePicker } from '@salutejs/sdds-finai';
     </TabItem>
 </Tabs>
 
+### Независимый выбор дат
+
+Поля начальной и конечной даты заполняются независимо — в любом порядке.
+
+При выборе даты через календарь применяется **умный своп**: если введённые даты расположены в неправильном порядке, они автоматически меняются местами.
+
+При заполнении только второго поля фокус автоматически переходит к первому для завершения диапазона.
+
+```tsx live
+import React from 'react';
+import { DatePickerRange } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <DatePickerRange
+            label="Независимый выбор"
+            leftHelper="Попробуйте заполнить второй инпут раньше первого"
+            format="DD.MM.YYYY"
+            lang="ru"
+            placement="bottom"
+            usePortal
+        />
+    );
+}
+```
+
+### Ограничение диапазона дат
+
+Свойства `min` и `max` задают допустимый диапазон дат. Свойство `includeEdgeDates` включает граничные даты в допустимый диапазон.
+
+```tsx live
+import React from 'react';
+import { DatePickerRange } from '@salutejs/sdds-finai';
+
+export function App() {
+    const today = new Date();
+    const nextMonth = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate());
+
+    return (
+        <DatePickerRange
+            label="С ограничением дат"
+            leftHelper="Доступны даты от сегодня до следующего месяца включительно"
+            format="DD.MM.YYYY"
+            lang="ru"
+            min={today}
+            max={nextMonth}
+            includeEdgeDates
+            placement="bottom"
+            usePortal
+        />
+    );
+}
+```
+
 ## Props
 
 ### DatePicker

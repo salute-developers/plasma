@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { tokens, classes } from '../../TextArea.tokens';
+import { tokens, classes, privateTokens } from '../../TextArea.tokens';
 import { StyledTextAreaWrapper, TitleCaption } from '../../TextArea.styles';
 
 const { styledContainer, styledTextAreaWrapper, styledHelpers } = classes;
@@ -16,20 +16,30 @@ export const base = css`
         background-color: var(${tokens.backgroundColor});
         transition: box-shadow 0.1s ease-in-out;
         border-radius: var(${tokens.borderRadius});
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColor}), var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
+        box-shadow: var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.borderColor});
+            transition: box-shadow 0.1s ease-in-out;
+            pointer-events: none;
+        }
     }
 
     .${styledTextAreaWrapper} {
         transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.inputBorderColor});
+        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColor});
 
         /* INFO: Отступ справа, чтобы scrollbar не перекрывал рамку и был отступ от края */
-        padding-right: calc(var(${tokens.borderSize}, 1px) + var(${tokens.scrollbarMarginRight}, 0px));
+        padding-right: calc(var(${tokens.borderSize}, 0.0625rem) + var(${tokens.scrollbarMarginRight}, 0rem));
     }
 
     &:focus-within:not([readonly]) .${styledTextAreaWrapper} {
         background-color: var(${tokens.inputBackgroundColorFocus});
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.inputBorderColorFocus});
+        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorFocus});
 
         &:after {
             box-shadow: var(${tokens.boxShadowSecondary}, inset 0 0 0 0 transparent);
@@ -38,7 +48,11 @@ export const base = css`
 
     &:focus-within:not([readonly]) .${styledContainer} {
         background-color: var(${tokens.backgroundColorFocus});
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColorFocus}), var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
+        box-shadow: var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
+
+        &::after {
+            box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.borderColorFocus});
+        }
     }
 
     &:focus-within:not([readonly]) .${styledHelpers} {
@@ -47,11 +61,15 @@ export const base = css`
 
     &:hover:${exclusionSelectors} .${styledContainer} {
         background-color: var(${tokens.backgroundColorHover});
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.borderColorHover}), var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
+        box-shadow: var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
+
+        &::after {
+            box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.borderColorHover});
+        }
     }
 
     &:hover:${exclusionSelectors} .${styledTextAreaWrapper} {
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.inputBorderColorHover});
+        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorHover});
         background-color: var(${tokens.inputBackgroundColorHover});
     }
 
@@ -60,7 +78,7 @@ export const base = css`
     }
 
     &:active:${exclusionSelectors} .${styledTextAreaWrapper} {
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px) var(${tokens.inputBorderColorActive});
+        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorActive});
         background-color: var(${tokens.inputBackgroundColorActive});
     }
 
@@ -76,7 +94,7 @@ export const base = css`
         ${StyledTextAreaWrapper} {
             position: relative;
 
-            --plasma_private-textarea-divider-color: var(${tokens.dividerColor});
+            ${privateTokens.dividerColor}: var(${tokens.dividerColor});
 
             &:before {
                 content: '';
@@ -85,20 +103,20 @@ export const base = css`
                 width: 100%;
                 bottom: 0;
                 left: 0;
-                background-color: var(--plasma_private-textarea-divider-color);
+                background-color: var(${privateTokens.dividerColor});
                 transition: background-color 0.1s ease-in;
             }
         }
 
         &:not([readonly]) ${StyledTextAreaWrapper}:hover {
-            --plasma_private-textarea-divider-color: var(
+            ${privateTokens.dividerColor}: var(
                 ${tokens.dividerColorHover},
                 var(${tokens.dividerColor})
             );
         }
 
         &:not([readonly]) ${StyledTextAreaWrapper}:focus-within {
-            --plasma_private-textarea-divider-color: var(
+            ${privateTokens.dividerColor}: var(
                 ${tokens.dividerColorFocus},
                 var(${tokens.dividerColor})
             );

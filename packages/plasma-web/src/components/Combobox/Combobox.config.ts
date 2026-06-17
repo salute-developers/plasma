@@ -5,6 +5,7 @@ export const config = {
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',
+        chipView: 'secondary',
         hintView: 'default',
         hintSize: 'm',
     },
@@ -276,13 +277,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-l-line-height);
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
-                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -398,13 +399,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
-                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -520,13 +521,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
-                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -642,13 +643,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
-                ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.textFieldHelpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.textFieldHelpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.textFieldHelpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.textFieldHelpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.textFieldHelpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldLeftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldLeftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldLeftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -744,6 +745,53 @@ export const config = {
                 ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             outer: css``,
+        },
+        chipView: {
+            default: css`
+                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
+                ${tokens.textFieldChipColorHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-solid-default);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--inverse-text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnly}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-solid-default);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
+            secondary: css`
+                ${tokens.textFieldChipColor}: var(--text-primary);
+                ${tokens.textFieldChipColorHover}: var(--text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--text-secondary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
+            accent: css`
+                ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipColorHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackground}: var(--surface-accent);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
+                ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-secondary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--on-dark-text-secondary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--on-dark-text-primary);
+
+                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnly}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-accent);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
         },
         hintView: {
             default: css`

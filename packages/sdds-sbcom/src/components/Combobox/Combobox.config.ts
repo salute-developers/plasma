@@ -3,10 +3,17 @@ import {
     bodyL,
     bodyM,
     bodyS,
+    inverseTextPrimary,
+    inverseTextSecondary,
     onDarkTextPrimary,
+    onDarkTextSecondary,
+    surfaceAccent,
+    surfaceAccentHover,
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceSolidDefaultHover,
     surfaceTransparentNegative,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
@@ -35,6 +42,7 @@ export const config = {
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',
+        chipView: 'secondary',
         hintView: 'default',
         hintSize: 'm',
     },
@@ -296,7 +304,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -423,7 +431,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -550,7 +558,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -689,7 +697,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
-                ${tokens.textFieldHelpersPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.textFieldHelpersFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -810,6 +818,53 @@ export const config = {
                 ${tokens.textFieldLabelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             outer: css``,
+        },
+        chipView: {
+            default: css`
+                ${tokens.textFieldChipColor}: ${inverseTextPrimary};
+                ${tokens.textFieldChipColorHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.textFieldChipCloseIconColor}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${inverseTextPrimary};
+
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnly}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
+            secondary: css`
+                ${tokens.textFieldChipColor}: ${textPrimary};
+                ${tokens.textFieldChipColorHover}: ${textPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.textFieldChipCloseIconColor}: ${textSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${textSecondary};
+
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldChipColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${textPrimary};
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
+            accent: css`
+                ${tokens.textFieldChipColor}: ${onDarkTextPrimary};
+                ${tokens.textFieldChipColorHover}: ${onDarkTextPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceAccent};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceAccentHover};
+                ${tokens.textFieldChipCloseIconColor}: ${onDarkTextSecondary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${onDarkTextSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${onDarkTextPrimary};
+
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceAccent};
+                ${tokens.textFieldChipColorReadOnly}: ${onDarkTextPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceAccent};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${onDarkTextPrimary};
+                ${tokens.textFieldChipOpacityReadonly}: 1;
+            `,
         },
         hintView: {
             default: css`

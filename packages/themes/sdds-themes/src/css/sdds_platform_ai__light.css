@@ -532,11 +532,14 @@
   --inverse-surface-transparent-negative-minor-active: #FA5F0508;
   --background-primary-brightness: #F9F9F9FF;
   --background-primary: #FFFFFFFF;
-  --background-secondary: #EFEFF5FF;
+  --background-secondary: #F5F5F5;
   --dark-background-primary: #080808;
+  --dark-background-secondary: #0D0D0DFF;
   --light-background-primary: #F9F9F9;
+  --light-background-secondary: #F5F5F5;
   --inverse-background-primary: #080808;
   --inverse-background-primary-brightness: #171717FF;
+  --inverse-background-secondary: #0D0D0DFF;
   --overlay-soft: #F9F9F98F;
   --overlay-hard: #F9F9F9F5;
   --overlay-blur: #F9F9F947;
@@ -619,6 +622,9 @@
   --outline-info: #118CDF;
   --outline-negative: #F31B31;
   --outline-solid-default: #080808;
+  --outline-primary-white: #FFFFFFFF;
+  --outline-primary-white-hover: #CCCCCCFF;
+  --outline-primary-white-active: #E6E6E6FF;
   --on-dark-outline-solid-primary-hover: #545454FF;
   --on-dark-outline-solid-primary-active: #171717FF;
   --on-dark-outline-solid-secondary-hover: #ABABABFF;
@@ -688,6 +694,9 @@
   --on-dark-outline-solid-default-active: #616161FF;
   --on-dark-outline-info: #118CDF;
   --on-dark-outline-negative: #F31B31;
+  --on-dark-outline-primary-white: #4E4E4E;
+  --on-dark-outline-primary-white-hover: #ABABABFF;
+  --on-dark-outline-primary-white-active: #363636FF;
   --on-light-outline-solid-primary-hover: #ABABABFF;
   --on-light-outline-solid-primary-active: #C4C4C4FF;
   --on-light-outline-solid-secondary-hover: #DBDBDBFF;
@@ -757,6 +766,9 @@
   --on-light-outline-solid-default-active: #080808FF;
   --on-light-outline-info: #118CDF;
   --on-light-outline-negative: #F31B31;
+  --on-light-outline-primary-white: #FFFFFFFF;
+  --on-light-outline-primary-white-hover: #CCCCCCFF;
+  --on-light-outline-primary-white-active: #E6E6E6FF;
   --inverse-outline-solid-primary-hover: #545454FF;
   --inverse-outline-solid-primary-active: #171717FF;
   --inverse-outline-solid-secondary-hover: #ABABABFF;
@@ -826,6 +838,9 @@
   --inverse-outline-solid-default-active: #616161FF;
   --inverse-outline-info: #118CDF;
   --inverse-outline-negative: #F31B31;
+  --inverse-outline-primary-white: #4E4E4E;
+  --inverse-outline-primary-white-hover: #ABABABFF;
+  --inverse-outline-primary-white-active: #363636FF;
   --data-yellow: #F3A912;
   --data-yellow-hover: #F5B638FF;
   --data-yellow-active: #E49C0CFF;

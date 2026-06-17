@@ -11,7 +11,6 @@ type ProgressProps = ComponentProps<typeof Progress>;
 const { meta: META, Default } = getProgressStories({
     component: Progress,
     componentConfig: config,
-    disablePropsList: ['size'],
 });
 
 const meta: Meta<ProgressProps> = {

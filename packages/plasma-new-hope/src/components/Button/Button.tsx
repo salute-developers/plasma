@@ -83,6 +83,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 value={value}
                 disabled={disabled}
                 focused={focused || outlined}
+                tabIndex={disabled ? -1 : 0}
                 className={cx(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
                 style={
                     {
