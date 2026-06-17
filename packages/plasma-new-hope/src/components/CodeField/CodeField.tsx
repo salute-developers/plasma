@@ -46,6 +46,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 itemErrorBehavior = 'remove-symbol',
                 codeErrorBehavior = 'remove-code',
                 autoComplete = 'one-time-code',
+                inputMode,
                 setIsError,
                 onChange,
                 onFullCodeEnter,
@@ -329,6 +330,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                                                         [classes.hoverEnabled]:
                                                             !disabled && inputCorrectIndex >= originalValue.length,
                                                     })}
+                                                    inputMode={inputMode}
                                                     value={code[inputCorrectIndex] || ''}
                                                     onChange={(e: ChangeEvent<HTMLInputElement>) => {
                                                         handleChange(e, inputCorrectIndex);
