@@ -7,16 +7,8 @@
     "access": "public"
   },
   "license": "MIT",
-  "files": [
-    "dist",
-    "types"
-  ],
-  "keywords": [
-    "design-system",
-    "react-components",
-    "ui-kit",
-    "react"
-  ],
+  "files": ["dist", "types"],
+  "keywords": ["design-system", "react-components", "ui-kit", "react"],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -103,26 +95,15 @@
     "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
     "postbuild:emotion": "rm -rf src-emotion",
     "generate:typings": "rm -rf types && tsc",
-    "storybook": "npm run storybook:sc",
-    "prestorybook:emotion": "npm run prebuild:emotion",
-    "storybook:emotion": "USE_EMOTION_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
-    "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
+    "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "typescript-coverage": "npx typescript-coverage-report > /dev/null",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": [
-      "src/**/*.component-test.tsx",
-      "src/**/*.stories.tsx",
-      "src/**/*.styles.ts"
-    ],
+    "ignoreFiles": ["src/**/*.component-test.tsx", "src/**/*.stories.tsx", "src/**/*.styles.ts"],
     "atLeast": 99.9
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
-  "sideEffects": [
-    "*.css"
-  ]
+  "contributors": ["salute.developers@gmail.com"],
+  "sideEffects": ["*.css"]
 }
