@@ -236,7 +236,7 @@ type TextAreaPropsExtends = TextAreaPropsBase & {
      * Влияет на выбор предустановленного набора токенов
      * @default default
      */
-    appearance?: 'default' | 'clear';
+    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Размер контрола.
      */
