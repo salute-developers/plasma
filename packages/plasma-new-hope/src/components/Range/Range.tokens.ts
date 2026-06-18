@@ -219,6 +219,7 @@ export const tokens = {
     textFieldBorderColorReadOnly: '--plasma-range-textfield-border-color-readonly',
     textFieldPlaceholderColorReadOnly: '--plasma-range-textfield-placeholder-color-readonly',
 
+    textFieldSizing: '--plasma-range-textfield-sizing',
     textFieldHeight: '--plasma-range-textfield-height',
     textFieldBorderWidth: '--plasma-range-textfield-border-width',
     textFieldBorderRadius: '--plasma-range-textfield-border-radius',

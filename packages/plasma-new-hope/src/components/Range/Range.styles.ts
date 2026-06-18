@@ -29,6 +29,8 @@ export const StyledContentRight = styled(EmbedIconButtonUI)``;
 export const StyledInput = styled(TextField)`
     width: 100%;
 
+    ${textFieldTokens.fieldSizing}: var(${tokens.textFieldSizing});
+
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.placeholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});

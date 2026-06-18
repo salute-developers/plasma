@@ -64,6 +64,7 @@ export const tokens = {
     optionalColor: '--plasma-textfield__optional-color',
 
     height: '--plasma-textfield-height',
+    fieldSizing: '--plasma-textfield-sizing',
     borderWidth: '--plasma-textfield-border-width',
     borderRadius: '--plasma-textfield-border-radius',
 
@@ -234,6 +235,12 @@ export const tokens = {
     chipClearContentMarginLeft: '--plasma-textfield__chip-clear-content-margin-left',
     chipClearContentMarginRight: '--plasma-textfield__chip-clear-content-margin-right',
     chipOpacityReadonly: '--plasma-textfield__chip-opacity-readonly',
+    chipsFlexWrap: '--plasma-textfield__chips-flex-wrap',
+
+    scrollableWrapperOverflow: '--plasma-textfield__scrollable-wrapper-overflow',
+    scrollableWrapperHeight: '--plasma-textfield__scrollable-wrapper-height',
+
+    inputContainerDisplay: '--plasma-textfield__input-container-display',
 
     focusColor: '--plasma-textfield-focus-color',
 
