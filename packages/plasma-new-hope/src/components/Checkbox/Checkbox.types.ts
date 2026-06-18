@@ -1,18 +1,33 @@
-import type { InputHTMLAttributes } from '../../types';
+import type { InputHTMLAttributes } from 'src/types';
+import type { ReactNode } from 'react';
 
 export interface BaseboxProps {
     /**
-     * Уникальный идентификатор control
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленного набора токенов
+     * @default default
+     */
+    appearance?: string;
+    /**
+     * Размер компонента
+     */
+    size?: string;
+    /**
+     * Вид компонента
+     */
+    view?: string;
+    /**
+     * Уникальный идентификатор компонента
      */
     id?: string;
     /**
      * Метка-подпись к элементу
      */
-    label?: React.ReactNode;
+    label?: ReactNode;
     /**
      * Описание элемента
      */
-    description?: React.ReactNode;
+    description?: ReactNode;
     /**
      * Title и description в одну строку или с переносом строк
      */
@@ -21,18 +36,18 @@ export interface BaseboxProps {
      * Неопределенное состояние компонента - когда часть потомков не выбрана.
      */
     indeterminate?: boolean;
-    appearance?: string;
-    size?: string;
-    view?: string;
+    /**
+     * Компонента находиться в фокусе
+     */
     focused?: boolean;
     /**
      * Кастомная иконка галочки.
      */
-    checkIcon?: React.ReactNode;
+    checkIcon?: ReactNode;
     /**
      * Кастомная иконка indeterminate-состояния.
      */
-    indeterminateIcon?: React.ReactNode;
+    indeterminateIcon?: ReactNode;
 }
 
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>, BaseboxProps {}
