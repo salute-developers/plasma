@@ -1,14 +1,22 @@
 {
   "name": "@salutejs/sdds-platform-ai",
-  "version": "0.353.0-dev.0",
+  "version": "0.354.0-next-sbcom.0",
   "description": "Salute Design System / React UI kit for SDDS PLATFORM-AI web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
-  "files": ["dist", "types"],
-  "keywords": ["design-system", "react-components", "ui-kit", "react"],
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "design-system",
+    "react-components",
+    "ui-kit",
+    "react"
+  ],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -32,8 +40,8 @@
     "styled-components": "^5.3.1"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.366.0-dev.0",
-    "@salutejs/sdds-themes": "0.68.0-dev.0"
+    "@salutejs/plasma-new-hope": "0.367.0-next-sbcom.0",
+    "@salutejs/sdds-themes": "0.69.0-next-sbcom.0"
   },
   "devDependencies": {
     "@babel/cli": "7.24.1",
@@ -52,10 +60,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.229.0-dev.0",
-    "@salutejs/plasma-cy-utils": "0.159.0-dev.0",
-    "@salutejs/plasma-icons": "1.240.0-dev.0",
-    "@salutejs/plasma-sb-utils": "0.230.0-dev.0",
+    "@salutejs/plasma-core": "1.230.0-next-sbcom.0",
+    "@salutejs/plasma-cy-utils": "0.160.0-next-sbcom.0",
+    "@salutejs/plasma-icons": "1.241.0-next-sbcom.0",
+    "@salutejs/plasma-sb-utils": "0.231.0-next-sbcom.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -88,9 +96,17 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": ["src/**/*.component-test.tsx", "src/**/*.stories.tsx", "src/**/*.styles.ts"],
+    "ignoreFiles": [
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx",
+      "src/**/*.styles.ts"
+    ],
     "atLeast": 99.9
   },
-  "contributors": ["salute.developers@gmail.com"],
-  "sideEffects": ["*.css"]
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
+  "sideEffects": [
+    "*.css"
+  ]
 }

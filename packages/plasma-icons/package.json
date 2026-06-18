@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-icons",
-  "version": "1.240.0-dev.0",
+  "version": "1.241.0-next-sbcom.0",
   "description": "Salute Design System Icons",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -113,6 +113,10 @@
     "build:css": "rollup -c",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
-  "contributors": ["salute.developers@gmail.com"],
-  "sideEffects": ["*.css"]
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
+  "sideEffects": [
+    "*.css"
+  ]
 }
