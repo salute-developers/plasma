@@ -48,6 +48,12 @@ export interface BaseboxProps {
      * Кастомная иконка indeterminate-состояния.
      */
     indeterminateIcon?: ReactNode;
+    /**
+     * Состояние readOnly применяется исключительно к текстовым полям.
+     * @deprecated
+     * @see https://html.spec.whatwg.org/multipage/input.html#do-not-apply
+     */
+    readOnly?: boolean;
 }
 
-export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'>, BaseboxProps {}
+export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'readOnly'>, BaseboxProps {}
