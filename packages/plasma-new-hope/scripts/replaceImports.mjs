@@ -45,7 +45,7 @@ function parseArgs(argv) {
 
     return {
         ...MODES[mode],
-        targetDirs: [`${root}/components`, `${root}/examples`],
+        targetDirs: [`${root}/components`, `${root}/examples`, `${root}/hocs`],
         engineFiles: [`${root}/engines/index.ts`, `${root}/engines/common.tsx`],
     };
 }

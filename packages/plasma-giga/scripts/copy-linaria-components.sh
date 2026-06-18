@@ -13,18 +13,23 @@ for component in $components; do
 
 done;
 
+# copy hocs
+mkdir -p src-css/hocs/
+cp -R src/hocs/. src-css/hocs/
+echo "export * from './hocs';" >> src-css/index.ts
+
 # remove unused tests
 rm -rf src-css/components/**/*.component-test.tsx
 rm -rf src-css/components/**/*.stories.tsx
 
 # plasma-new-hope/styled-components
-files=$(find src-css/components -name '*.ts' -or -name '*.tsx');
+files=$(find src-css/components src-css/hocs -name '*.ts' -or -name '*.tsx');
 
 for file in $files; do
     echo $file;
 done;
 
-# plasma-new-hope/styled-components => plasma-new-hope
+# plasma-new-hope/styled-components => plasma-new-hope/css
 perl -p -i -e "s/\/styled-components/\/css/g" $files
 
 #TODO: #1024 удалить обертку styled в спиннере
