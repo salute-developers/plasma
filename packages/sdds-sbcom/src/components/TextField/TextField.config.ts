@@ -41,6 +41,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    textWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
