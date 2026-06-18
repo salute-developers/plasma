@@ -35,7 +35,7 @@ export type AutocompleteProps<T extends SuggestionItemType = SuggestionItemType>
     /**
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
-    portal?: string | React.RefObject<HTMLElement>;
+    portal?: string | React.RefObject<HTMLElement | null>;
     /**
      * CSS-свойство z-index для выпадающего списка.
      */
