@@ -40,7 +40,7 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * В каком контейнере позиционируется (по умолчанию document), можно также указать id элемента или ref для него.
      */
-    frame?: 'document' | string | React.RefObject<HTMLElement>;
+    frame?: 'document' | string | React.RefObject<HTMLElement | null>;
     /**
      * Если `frame` отличается от `document` применяет `position='fixed'`
      *  @description Может быть полезно, когда во frame происходит дополнительная стилизация содержимого компонента,
