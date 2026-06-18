@@ -158,11 +158,11 @@ export const config = {
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -226,17 +226,17 @@ export const config = {
 
                 ${tokens.leftHelperPadding}: 0.25rem 0 0 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
