@@ -310,4 +310,32 @@ describeFn('Steps', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('custom height, orientation=vertical', () => {
+        const itemsWithHeight: StepItemProps[] = [
+            { indicator: 1, title: 'Title', content: 'Content', status: 'completed', height: '8rem' },
+            { indicator: 2, title: 'Title', content: 'Content', status: 'active', height: '8rem' },
+            { indicator: 3, title: 'Title', content: 'Content', status: 'inactive' },
+        ];
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Steps items={itemsWithHeight} orientation="vertical" hasLine />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('custom width, orientation=horizontal', () => {
+        const itemsWithWidth: StepItemProps[] = [
+            { indicator: 1, title: 'Title', content: 'Content', status: 'completed', width: '200px' },
+            { indicator: 2, title: 'Title', content: 'Content', status: 'active' },
+            { indicator: 3, title: 'Title', content: 'Content', status: 'inactive', width: '200px' },
+        ];
+
+        mount(<Steps items={itemsWithWidth} />);
+
+        cy.matchImageSnapshot();
+    });
 });
