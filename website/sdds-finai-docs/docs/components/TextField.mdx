@@ -72,7 +72,8 @@ import ReadonlyExample from '../_examples/_textfield/_readonly.mdx'
 
 <Tabs>
     <TabItem value="appearance" label="Appearance" default>
-        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`
+        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`.
+        `appearance="viewMode"` — режим просмотра.
 
         ```tsx live
         import React, {useState} from 'react';
@@ -102,8 +103,17 @@ import ReadonlyExample from '../_examples/_textfield/_readonly.mdx'
                         view="positive"
                         appearance="clear"
                         hasDivider
-                        label="Appearance clear"
+                        label="Appearance clear с разделителем"
                         placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        view="default"
+                        appearance="viewMode"
+                        label="Appearance viewMode"
+                        value="Значение только для просмотра"
+                        readOnly
                         contentLeft={<IconBellFill size="s" color="inherit" />}
                         contentRight={<IconDone size="s" color="inherit" />}
                     />
