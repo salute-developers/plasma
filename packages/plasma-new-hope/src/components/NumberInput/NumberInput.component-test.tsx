@@ -356,4 +356,19 @@ describeFn('NumberInput', () => {
         mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="decrement" />);
         cy.get('button').first().should('have.attr', 'tabindex', '0');
     });
+
+    it('prop: onChange', () => {
+        mount(
+            <NumberInput
+                value={5}
+                min={0}
+                max={10}
+                onChange={(_event, value) => {
+                    expect(value).to.eq(6);
+                }}
+            />,
+        );
+
+        cy.get('button').last().click();
+    });
 });

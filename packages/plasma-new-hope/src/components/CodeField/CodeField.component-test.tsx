@@ -152,4 +152,19 @@ describeFn('CodeField', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        mount(
+            <CodeField
+                codeLength={4}
+                autoFocus
+                autoComplete="off"
+                onChange={(value) => {
+                    expect(value).to.eq('1');
+                }}
+            />,
+        );
+
+        cy.focused().type('1');
+    });
 });

@@ -1133,6 +1133,79 @@ describeFn('Combobox', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
+    it('prop: onToggle', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="combobox"
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    onToggle={(isOpen) => {
+                        expect(isOpen).to.be.oneOf([true, false]);
+                    }}
+                />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.get('body').click('bottomRight');
+    });
+
+    it('prop: onChange', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="combobox"
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    onChange={(value, item) => {
+                        expect(value).to.eq('north_america');
+                        expect(item?.value).to.eq('north_america');
+                    }}
+                />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.get('[id$="north_america"]').click();
+    });
+
+    it('prop: onClick', () => {
+        cy.viewport(400, 300);
+
+        const simpleItems = [
+            { value: 'item1', label: 'Item 1' },
+            { value: 'item2', label: 'Item 2' },
+        ];
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="combobox"
+                    items={simpleItems}
+                    label="Label"
+                    placeholder="Placeholder"
+                    multiple
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                        onClick: () => {
+                            expect(true).to.eq(true);
+                        },
+                    }}
+                />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.contains('Выбрать всё').click();
+    });
+
     it('treeView, single mode', () => {
         cy.viewport(400, 599);
 

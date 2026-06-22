@@ -338,4 +338,24 @@ describeFn('Steps', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        const clickableItems: StepItemProps[] = [
+            { title: 'Step 1', indicator: 1, status: 'active' },
+            { title: 'Step 2', indicator: 2, status: 'inactive' },
+        ];
+
+        mount(
+            <Steps
+                items={clickableItems}
+                onChange={(item, index, prevIndex) => {
+                    expect(index).to.eq(1);
+                    expect(prevIndex).to.eq(0);
+                    expect(item.title).to.eq('Step 2');
+                }}
+            />,
+        );
+
+        cy.contains('Step 2').click();
+    });
 });

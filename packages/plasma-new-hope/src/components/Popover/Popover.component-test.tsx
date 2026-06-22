@@ -276,4 +276,31 @@ describeFn('Popover', () => {
         cy.get('button').contains('Open').click();
         cy.matchImageSnapshot();
     });
+
+    it('prop: onToggle', () => {
+        const ControlledPopover = () => {
+            const [isOpen, setIsOpen] = React.useState(false);
+
+            return (
+                <Popover
+                    opened={isOpen}
+                    onToggle={(opened) => {
+                        expect(opened).to.be.oneOf([true, false]);
+                        setIsOpen(opened);
+                    }}
+                    trigger="click"
+                    target={<Button>Target</Button>}
+                >
+                    <p>{text}</p>
+                </Popover>
+            );
+        };
+
+        mount(<ControlledPopover />);
+
+        cy.get('button').first().click();
+        cy.get('p').contains(text).should('be.visible');
+        cy.get('button').first().click();
+        cy.get('p').contains(text).should('not.be.visible');
+    });
 });

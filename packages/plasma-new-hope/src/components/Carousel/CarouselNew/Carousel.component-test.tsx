@@ -220,4 +220,24 @@ describeFn('Carousel', () => {
         cy.get('[data-carousel-index="17"]').should('not.exist');
         cy.get('[data-carousel-index="3"]').should('not.exist');
     });
+
+    it('prop: onChangeIndex', () => {
+        cy.viewport(700, 500);
+
+        mount(
+            <div style={{ width: '600px' }}>
+                <Carousel
+                    onChangeIndex={(index) => {
+                        expect(index).to.eq(1);
+                    }}
+                >
+                    {items.map((item, i) => (
+                        <StyledCard key={i}>{item.title}</StyledCard>
+                    ))}
+                </Carousel>
+            </div>,
+        );
+
+        cy.get('.carousel-right-control-button').click();
+    });
 });

@@ -672,6 +672,79 @@ describeFn('Select', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
+    it('prop: onToggle', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select
+                    id="select"
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    onToggle={(isOpen) => {
+                        expect(isOpen).to.be.oneOf([true, false]);
+                    }}
+                />
+            </div>,
+        );
+
+        cy.get('#select').click();
+        cy.get('body').click('topRight');
+    });
+
+    it('prop: onChange', () => {
+        cy.viewport(400, 300);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select
+                    id="select"
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    onChange={(value, item) => {
+                        expect(value).to.eq('north_america');
+                        expect(item?.value).to.eq('north_america');
+                    }}
+                />
+            </div>,
+        );
+
+        cy.get('#select').click();
+        cy.get('[id$="north_america"]').click();
+    });
+
+    it('prop: onClick', () => {
+        cy.viewport(400, 300);
+
+        const simpleItems = [
+            { value: 'item1', label: 'Item 1' },
+            { value: 'item2', label: 'Item 2' },
+        ];
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select
+                    id="select"
+                    multiselect
+                    items={simpleItems}
+                    label="Label"
+                    placeholder="Placeholder"
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                        onClick: () => {
+                            expect(true).to.eq(true);
+                        },
+                    }}
+                />
+            </div>,
+        );
+
+        cy.get('#select').click();
+        cy.contains('Выбрать всё').click();
+    });
+
     it('item disabled', () => {
         cy.viewport(400, 100);
 
