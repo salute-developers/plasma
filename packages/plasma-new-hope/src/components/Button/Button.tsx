@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import type { CSSProperties } from 'react';
 import cls from 'classnames';
+import { gradientTextClass, gradientTextVars, gradientTextWrapperClass } from 'src/mixins';
 
 import type { RootProps } from '../../engines';
 import { convertRoundnessMatrix } from '../../utils/roundness';
-import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -50,6 +50,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             style,
             stretching = 'auto',
             additionalContent,
+            textGradientOption,
             ...rest
         } = props;
 
@@ -84,12 +85,20 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 disabled={disabled}
                 focused={focused || outlined}
                 tabIndex={disabled ? -1 : 0}
-                className={cx(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
+                className={cls(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className, {
+                    [gradientTextWrapperClass]:
+                        textGradientOption?.textGradient ||
+                        textGradientOption?.textGradientHover ||
+                        textGradientOption?.textGradientActive,
+                })}
                 style={
                     {
                         ...style,
                         '--plasma_computed-btn-br': buttonBorderRadius,
                         '--plasma_private-blur': blur,
+                        [gradientTextVars.gradient]: textGradientOption?.textGradient,
+                        [gradientTextVars.gradientHover]: textGradientOption?.textGradientHover,
+                        [gradientTextVars.gradientActive]: textGradientOption?.textGradientActive,
                     } as CSSProperties
                 }
                 {...rest}
@@ -99,7 +108,9 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                         <StyledContentLeft hasContentMargin={hasRightContentMargin}>{contentLeft}</StyledContentLeft>
                     )}
                     {txt ? (
-                        <ButtonText className={!additionalContent ? contentRelaxedClass : ''}>{txt}</ButtonText>
+                        <ButtonText className={cls(!additionalContent ? contentRelaxedClass : '', gradientTextClass)}>
+                            {txt}
+                        </ButtonText>
                     ) : (
                         children
                     )}

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { getIconSize } from './fixtures';
+
 const BellIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg width="100%" viewBox="0 0 24 24" fill="none" {...props}>
         <path
@@ -9,20 +11,29 @@ const BellIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
-const getIconSize = (size: string) => {
-    switch (size) {
-        case 'l':
-            return '1rem';
-        case 'xs':
-            return '0.625rem';
-        default:
-            return '0.75rem';
-    }
-};
-
 export const createDefaultStory = (Badge: any) => {
-    return ({ enableContentLeft, enableContentRight, enableText, size, appearance, ...rest }: any) => {
+    return ({
+        enableContentLeft,
+        enableContentRight,
+        enableText,
+        enableTextGradient,
+        textGradient,
+        textGradientHover,
+        textGradientActive,
+        size,
+        appearance,
+        ...rest
+    }: any) => {
         const iconSize = getIconSize(size);
+
+        const textGradientOption = enableTextGradient
+            ? {
+                  textGradient: textGradient || undefined,
+                  textGradientHover: textGradientHover || undefined,
+                  textGradientActive: textGradientActive || undefined,
+              }
+            : undefined;
+
         return (
             <Badge
                 contentLeft={
@@ -31,6 +42,7 @@ export const createDefaultStory = (Badge: any) => {
                 contentRight={enableContentRight ? <BellIcon width={iconSize} height={iconSize} /> : undefined}
                 size={size}
                 appearance={appearance !== 'default' ? appearance : undefined}
+                textGradientOption={textGradientOption}
                 {...rest}
             />
         );

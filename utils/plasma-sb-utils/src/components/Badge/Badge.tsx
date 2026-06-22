@@ -16,9 +16,23 @@ type CreateBadgeStoriesProps = {
 
 export const getBadgeStories = (config: CreateBadgeStoriesProps) => {
     const { component, componentConfig, ...rest } = config;
-    const componentConfigVariations = getConfigVariations(componentConfig);
-    const meta = createMeta({ component, componentConfig: componentConfigVariations, ...rest });
+
+    const badgeConfig = getConfigVariations(componentConfig);
+
+    const meta = createMeta({
+        component,
+        componentConfig: badgeConfig,
+        ...rest,
+    });
+
     const DefaultStoryComponent = createDefaultStory(component);
-    const Default = { render: (args: any) => <DefaultStoryComponent {...args} /> };
-    return { meta, Default };
+
+    const Default = {
+        render: (args: any) => <DefaultStoryComponent {...args} />,
+    };
+
+    return {
+        meta,
+        Default,
+    };
 };

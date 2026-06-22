@@ -1,7 +1,7 @@
 import React, { CSSProperties, forwardRef } from 'react';
-
-import type { RootProps } from '../../engines';
-import { cx } from '../../utils';
+import { gradientTextClass, gradientTextVars, gradientTextWrapperClass } from 'src/mixins';
+import cls from 'classnames';
+import type { RootProps } from 'src/engines';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -29,6 +29,7 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
             transparent = false,
             clear = false,
             maxWidth = 'auto',
+            textGradientOption,
             ...rest
         } = props;
 
@@ -45,14 +46,14 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
                 return (
                     <>
                         <StyledContentLeft>{contentLeft}</StyledContentLeft>
-                        {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                        {txt ? <StyledContentMain className={gradientTextClass}>{txt}</StyledContentMain> : children}
                     </>
                 );
             }
 
             return (
                 <>
-                    {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                    {txt ? <StyledContentMain className={gradientTextClass}>{txt}</StyledContentMain> : children}
                     {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
                 </>
             );
@@ -61,7 +62,9 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
         return (
             <Root
                 ref={ref}
-                className={cx(pilledClass, transparentClass, clearClass, truncateClass, iconOnlyClass, className)}
+                className={cls(pilledClass, transparentClass, clearClass, truncateClass, iconOnlyClass, className, {
+                    [gradientTextWrapperClass]: textGradientOption?.textGradient,
+                })}
                 view={view}
                 size={size}
                 pilled={pilled}
@@ -73,6 +76,7 @@ export const badgeRoot = (Root: RootProps<HTMLDivElement, BadgeRootProps>) =>
                         maxWidth,
                         [privateTokens.customBackground]: customBackgroundColor,
                         [privateTokens.customColor]: customColor,
+                        [gradientTextVars.gradient]: textGradientOption?.textGradient,
                     } as CSSProperties
                 }
                 {...rest}

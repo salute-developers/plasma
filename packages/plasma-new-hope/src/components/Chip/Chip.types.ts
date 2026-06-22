@@ -1,5 +1,7 @@
 import type { ButtonHTMLAttributes, PropsWithChildren, ReactNode, MouseEvent } from 'react';
 
+import type { TextGradientProps } from '../../types';
+
 type CustomChipProps = {
     /**
      * Текстовая надпись
@@ -59,6 +61,10 @@ type CustomChipProps = {
      */
     onClickClose?: (event: MouseEvent<HTMLDivElement>) => void;
     appearance?: string;
+    /**
+     * Своства для окраски текста чипа в градиентный цвет
+     */
+    textGradientOption?: TextGradientProps;
 } & PropsWithChildren;
 
 export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement>, CustomChipProps {}

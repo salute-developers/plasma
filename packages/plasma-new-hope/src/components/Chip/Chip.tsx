@@ -1,8 +1,10 @@
 import React, { forwardRef, MouseEvent } from 'react';
+import type { CSSProperties } from 'react';
+import { gradientTextClass, gradientTextVars, gradientTextWrapperClass } from 'src/mixins';
+import cls from 'classnames';
 
 import type { RootProps } from '../../engines';
 import { IconClose } from '../_Icon/Icons/IconClose';
-import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -31,6 +33,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             pilled = false,
             readOnly = false,
             disabled = false,
+            textGradientOption,
             // @ts-ignore
             _forceChipManipulationWithReadonly,
             // @ts-ignore
@@ -68,7 +71,19 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             <Root
                 type="button"
                 ref={ref}
-                className={cx(pilledClass, classes.chipItem, className)}
+                className={cls(pilledClass, classes.chipItem, className, {
+                    [gradientTextWrapperClass]:
+                        textGradientOption?.textGradient ||
+                        textGradientOption?.textGradientHover ||
+                        textGradientOption?.textGradientActive,
+                })}
+                style={
+                    {
+                        [gradientTextVars.gradient]: textGradientOption?.textGradient,
+                        [gradientTextVars.gradientHover]: textGradientOption?.textGradientHover,
+                        [gradientTextVars.gradientActive]: textGradientOption?.textGradientActive,
+                    } as CSSProperties
+                }
                 tabIndex={readOnly ? -1 : 0}
                 onClick={handleClick}
                 disabled={disabled}
@@ -77,7 +92,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 {...rest}
             >
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-                {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                {txt ? <StyledContentMain className={gradientTextClass}>{txt}</StyledContentMain> : children}
                 {contentRight && <StyledContentRight hasClear={hasClear}>{contentRight}</StyledContentRight>}
                 {hasClear &&
                     (contentClearButton || (

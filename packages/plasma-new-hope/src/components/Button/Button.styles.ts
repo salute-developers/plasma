@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import { applyEllipsis, addFocus, withTextGradient } from 'src/mixins';
+import { component, mergeConfig } from 'src/engines';
 
-import { applyEllipsis, addFocus } from '../../mixins';
-import { component, mergeConfig } from '../../engines';
 import { spinnerConfig, spinnerTokens } from '../Spinner';
 
 import { classes, tokens } from './Button.tokens';
@@ -107,6 +107,8 @@ export const base = css`
         width: var(${tokens.buttonHeight});
         padding: 0;
     }
+
+    ${withTextGradient()}
 `;
 
 // INFO: Для возможности переиспользования стилей в других компонентах

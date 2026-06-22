@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import type { Pin } from '../../utils/roundness';
 import { Blur } from '../../mixins';
-import type { AsProps } from '../../types';
+import type { AsProps, TextGradientProps } from '../../types';
 
 type Stretching = 'fixed' | 'filled' | 'auto';
 type ContentPlacing = 'default' | 'relaxed';
@@ -125,6 +125,10 @@ type CustomButtonProps = {
      * @deprecated для кнопок без прозрачности не работает
      */
     blur?: Blur;
+    /**
+     * Своства для окраски текста кнопки в градиентный цвет
+     */
+    textGradientOption?: TextGradientProps;
 };
 
 export type ButtonProps<T = HTMLElement> = {} & Omit<ButtonHTMLAttributes<T>, 'value'> &
