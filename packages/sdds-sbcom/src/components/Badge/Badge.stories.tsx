@@ -10,11 +10,11 @@ type BadgeProps = ComponentProps<typeof Badge>;
 const { meta: META, Default } = getBadgeStories({
     component: Badge,
     componentConfig: config,
+    title: 'Data Display/⚠️ Badge',
 });
 
 const meta: Meta<BadgeProps> = {
     ...META,
-    title: 'Data Display/Badge',
 };
 
 export default meta;
