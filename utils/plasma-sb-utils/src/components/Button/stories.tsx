@@ -25,16 +25,35 @@ export const createDefaultStory = (Button: any, Components: any) => {
     const getIcon = (size: string) => {
         return Icon ? <Icon size={size} color="inherit" /> : <IconMic size={getIconSize(size)} color="inherit" />;
     };
-    return ({ enableContentLeft, enableContentRight, enableCounter, size, ...rest }: any) => {
+    return ({
+        enableContentLeft,
+        enableContentRight,
+        enableCounter,
+        enableTextGradient,
+        textGradient,
+        textGradientHover,
+        textGradientActive,
+        size,
+        ...rest
+    }: any) => {
         const computedContentSlot = (predicate: boolean) => (predicate ? getIcon(size) : undefined);
         const computedCounterSlot = (predicate: boolean) =>
             predicate ? <Counter view="accent" size={getCounterSize(size)} count={0} /> : undefined;
+
+        const textGradientOption = enableTextGradient
+            ? {
+                  textGradient: textGradient || undefined,
+                  textGradientHover: textGradientHover || undefined,
+                  textGradientActive: textGradientActive || undefined,
+              }
+            : undefined;
 
         return (
             <Button
                 contentLeft={computedContentSlot(shouldShowIcon(enableContentLeft, size))}
                 contentRight={computedContentSlot(shouldShowIcon(enableContentRight, size))}
                 additionalContent={computedCounterSlot(enableCounter)}
+                textGradientOption={textGradientOption}
                 size={size}
                 onClick={onClick}
                 onFocus={onFocus}

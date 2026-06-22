@@ -35,6 +35,10 @@ export const createMeta = ({
             pilled: false,
             enableContentLeft: false,
             enableContentRight: false,
+            enableTextGradient: false,
+            textGradient: 'linear-gradient(90deg, #be4a07, #39e66e)',
+            textGradientHover: 'linear-gradient(90deg, #39e66e, #be4a07)',
+            textGradientActive: '',
             ...defaultArgs,
         },
         argTypes: {
@@ -81,8 +85,27 @@ export const createMeta = ({
                 control: { type: 'boolean' },
                 table: { category: 'layout' },
             },
+            enableTextGradient: {
+                control: { type: 'boolean' },
+                table: { category: 'gradient' },
+            },
+            textGradient: {
+                control: { type: 'text' },
+                table: { category: 'gradient' },
+                if: { arg: 'enableTextGradient', eq: true },
+            },
+            textGradientHover: {
+                control: { type: 'text' },
+                table: { category: 'gradient' },
+                if: { arg: 'enableTextGradient', eq: true },
+            },
+            textGradientActive: {
+                control: { type: 'text' },
+                table: { category: 'gradient' },
+                if: { arg: 'enableTextGradient', eq: true },
+            },
             ...additionalArgTypes,
-            ...disableProps([...commonDisabledArgs, ...disablePropsList]),
+            ...disableProps([...commonDisabledArgs, 'textGradientOption', ...disablePropsList]),
         },
     };
 };

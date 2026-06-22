@@ -1,4 +1,5 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
+import type { TextGradientProps } from 'src/types';
 
 type IconContentProps =
     | {
@@ -66,6 +67,10 @@ export type CustomBadgeProps = {
      * @deprecated Используйте `appearance="transparent"`
      */
     transparent?: boolean;
+    /**
+     * Свойства для окраски текста бейджа в градиентный цвет
+     */
+    textGradientOption?: Omit<TextGradientProps, 'textGradientHover' | 'textGradientActive'>;
 } & IconContentProps;
 
 export type BadgeProps = HTMLAttributes<HTMLDivElement> & CustomBadgeProps;
