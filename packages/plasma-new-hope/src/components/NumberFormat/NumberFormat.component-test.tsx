@@ -144,4 +144,18 @@ describeFn('NumberFormat', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        mount(
+            <NumberFormat
+                label="Числовой формат"
+                textAfter="₽"
+                onChange={() => {
+                    expect(true).to.eq(true);
+                }}
+            />,
+        );
+
+        cy.get('input').type('123');
+    });
 });

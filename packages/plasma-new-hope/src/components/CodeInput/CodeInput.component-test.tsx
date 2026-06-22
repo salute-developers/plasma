@@ -131,4 +131,18 @@ describeFn('CodeInput', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        mount(
+            <CodeInput
+                codeLength={4}
+                autoFocus
+                onChange={(value) => {
+                    expect(value).to.eq('1');
+                }}
+            />,
+        );
+
+        cy.focused().type('1');
+    });
 });

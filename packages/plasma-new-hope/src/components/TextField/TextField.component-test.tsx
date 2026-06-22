@@ -311,6 +311,32 @@ describeFn('TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: onChange', () => {
+        mount(
+            <TextField
+                placeholder="Placeholder"
+                onChange={(event) => {
+                    expect(event.target.value).to.eq('t');
+                }}
+            />,
+        );
+
+        cy.get('input').type('t');
+    });
+
+    it('prop: onClick', () => {
+        mount(
+            <TextField
+                placeholder="Placeholder"
+                onClick={(event) => {
+                    expect(event.type).to.eq('click');
+                }}
+            />,
+        );
+
+        cy.get('input').click();
+    });
+
     it('truncate placeholder', () => {
         mount(
             <div style={{ width: '6rem' }}>

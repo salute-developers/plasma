@@ -498,4 +498,35 @@ describeFn('TimePicker', () => {
 
         cy.get('input').first().should('have.value', '12:05');
     });
+
+    it('prop: onToggle', () => {
+        cy.viewport(580, 800);
+
+        mount(
+            <TimePicker
+                value="00:00"
+                onToggle={(isOpen) => {
+                    expect(isOpen).to.be.oneOf([true, false]);
+                }}
+            />,
+        );
+
+        cy.get('input').first().click();
+        cy.get('body').click(0, 0);
+    });
+
+    it('prop: onChange', () => {
+        cy.viewport(580, 800);
+
+        mount(
+            <TimePicker
+                value="00:00"
+                onChange={(_event, formattedValues) => {
+                    expect(formattedValues).to.have.property('value');
+                }}
+            />,
+        );
+
+        cy.get('input').first().clear().type('1230');
+    });
 });

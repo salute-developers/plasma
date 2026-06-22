@@ -500,6 +500,37 @@ describeFn('DatePicker', () => {
         cy.get('body').click(0, 0);
         cy.get('input').first().should('have.value', '');
     });
+
+    it('prop: onToggle', () => {
+        cy.viewport(500, 544);
+
+        mount(
+            <Demo
+                defaultDate={new Date(2023, 5, 14)}
+                onToggle={(isOpen, event) => {
+                    expect(isOpen).to.be.oneOf([true, false]);
+                    expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
+                }}
+            />,
+        );
+
+        cy.get('input').first().click();
+        cy.get('body').click(0, 0);
+    });
+
+    it('prop: onChange', () => {
+        cy.viewport(500, 544);
+
+        mount(
+            <Demo
+                onChange={(event) => {
+                    expect(event.target).to.have.property('value');
+                }}
+            />,
+        );
+
+        cy.get('input').first().click().type('14062023');
+    });
 });
 
 describeFnRange('DatePickerRange', () => {

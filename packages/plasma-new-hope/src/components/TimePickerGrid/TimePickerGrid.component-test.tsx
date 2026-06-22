@@ -38,4 +38,17 @@ describeFn('TimePickerGrid', () => {
         mount(<TimePickerGrid value="00:14" multiplicityMinutes={5} />);
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        mount(
+            <TimePickerGrid
+                value="00:00"
+                onChange={(event) => {
+                    expect(event.value).to.eq('01:00');
+                }}
+            />,
+        );
+
+        cy.contains('01').click();
+    });
 });

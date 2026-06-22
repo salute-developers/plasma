@@ -423,4 +423,49 @@ describeFn('Tour', () => {
         cy.get('#close').click();
         cy.get('small').should('not.exist');
     });
+
+    it('prop: onChange', () => {
+        const ref1 = React.createRef<HTMLButtonElement>();
+        const ref2 = React.createRef<HTMLButtonElement>();
+
+        const steps = [
+            { target: ref1, title: 'Title 1', description: 'Description 1' },
+            { target: ref2, title: 'Title 2', description: 'Description 2' },
+        ];
+
+        const renderStep = (
+            current: number,
+            _length: number,
+            _last: boolean,
+            step: unknown,
+            setCurrent: (index: number) => void,
+        ) => (
+            <Card>
+                <Title>{(step as { title?: string })?.title}</Title>
+                <Footer>
+                    <Button id="next-step" size="s" type="button" onClick={() => setCurrent(current + 1)}>
+                        Далее
+                    </Button>
+                </Footer>
+            </Card>
+        );
+
+        mount(
+            <div style={{ width: '100%', height: '300px' }}>
+                <Button ref={ref1}>Блок 1</Button>
+                <Button ref={ref2}>Блок 2</Button>
+                <Tour
+                    open
+                    current={0}
+                    onChange={(current) => {
+                        expect(current).to.eq(1);
+                    }}
+                    steps={steps}
+                    renderStep={renderStep}
+                />
+            </div>,
+        );
+
+        cy.get('#next-step').click();
+    });
 });

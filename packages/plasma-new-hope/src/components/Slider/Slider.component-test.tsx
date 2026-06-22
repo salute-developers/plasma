@@ -352,4 +352,19 @@ describeFn('Slider', () => {
         );
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        mount(
+            <Slider
+                min={0}
+                max={100}
+                value={50}
+                onChange={(value) => {
+                    expect(value).to.eq(75);
+                }}
+            />,
+        );
+
+        cy.get(sliderThumbSelector).invoke('val', 75).trigger('input', { force: true });
+    });
 });

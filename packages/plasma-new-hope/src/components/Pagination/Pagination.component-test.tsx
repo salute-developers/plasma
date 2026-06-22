@@ -393,4 +393,19 @@ describeFn('Pagination', () => {
         cy.get('button.pagination-page-button-active').should('contain.text', '3');
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        mount(
+            <Pagination
+                value={10}
+                count={count}
+                slots={slots[1]}
+                onChange={(page) => {
+                    expect(page).to.eq(11);
+                }}
+            />,
+        );
+
+        cy.contains('button', '11').click();
+    });
 });
