@@ -152,3 +152,31 @@ export function App() {
     );
 }
 ```
+
+### Градиентный текст
+Текст бейджа можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`:
+
+```tsx live
+import React from 'react';
+import { Badge } from '@salutejs/plasma-giga';
+import styled from 'styled-components';
+
+export function App() {
+    const GradientBadge = styled(Badge)`
+        & .sdds-core-text-node {
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+    `;
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <GradientBadge
+                text="Бейдж"
+            />
+        </div>
+    );
+}
+```
