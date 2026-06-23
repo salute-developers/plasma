@@ -163,7 +163,7 @@ export type DatePickerVariationProps = {
     /**
      * Вид компонента
      */
-    appearance?: 'default' | 'clear';
+    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Флаг наличия разделителя для clear appearance
      * @default false
