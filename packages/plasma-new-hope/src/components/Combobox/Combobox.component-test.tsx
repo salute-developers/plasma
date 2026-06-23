@@ -1133,47 +1133,23 @@ describeFn('Combobox', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
-    it('prop: onToggle', () => {
-        cy.viewport(400, 300);
-
-        mount(
-            <div style={{ width: '300px' }}>
-                <Combobox
-                    id="combobox"
-                    items={items}
-                    label="Label"
-                    placeholder="Placeholder"
-                    onToggle={(isOpen) => {
-                        expect(isOpen).to.be.oneOf([true, false]);
-                    }}
-                />
-            </div>,
-        );
-
-        cy.get('#combobox').click();
-        cy.get('body').click('bottomRight');
-    });
-
     it('prop: onChange', () => {
         cy.viewport(400, 300);
 
+        const onChange = cy.stub().as('onChange');
+
         mount(
             <div style={{ width: '300px' }}>
-                <Combobox
-                    id="combobox"
-                    items={items}
-                    label="Label"
-                    placeholder="Placeholder"
-                    onChange={(value, item) => {
-                        expect(value).to.eq('north_america');
-                        expect(item?.value).to.eq('north_america');
-                    }}
-                />
+                <Combobox id="combobox" items={items} label="Label" placeholder="Placeholder" onChange={onChange} />
             </div>,
         );
 
         cy.get('#combobox').click();
         cy.get('[id$="north_america"]').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', 'north_america');
+        cy.get('@onChange').its('firstCall.args.1.value').should('eq', 'north_america');
     });
 
     it('prop: onClick', () => {
@@ -1183,6 +1159,8 @@ describeFn('Combobox', () => {
             { value: 'item1', label: 'Item 1' },
             { value: 'item2', label: 'Item 2' },
         ];
+
+        const onClick = cy.spy().as('selectAllOnClick');
 
         mount(
             <div style={{ width: '300px' }}>
@@ -1194,9 +1172,7 @@ describeFn('Combobox', () => {
                     multiple
                     selectAllOptions={{
                         label: 'Выбрать всё',
-                        onClick: () => {
-                            expect(true).to.eq(true);
-                        },
+                        onClick,
                     }}
                 />
             </div>,
@@ -1204,6 +1180,8 @@ describeFn('Combobox', () => {
 
         cy.get('#combobox').click();
         cy.contains('Выбрать всё').click();
+
+        cy.get('@selectAllOnClick').should('have.been.calledOnce');
     });
 
     it('treeView, single mode', () => {

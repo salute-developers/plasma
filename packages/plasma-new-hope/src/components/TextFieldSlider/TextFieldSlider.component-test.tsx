@@ -343,15 +343,15 @@ describeFn('plasma-new-hope: TextFieldSlider', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <TextFieldSlider
-                {...textFieldSliderProps}
-                onChange={() => {
-                    expect(true).to.eq(true);
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
 
-        cy.get('input[type="range"]').invoke('val', 75).trigger('input', { force: true });
+        mount(<TextFieldSlider {...textFieldSliderProps} onChange={onChange} />);
+
+        cy.get('input[type="range"]').then((range) => {
+            changeRangeInputValue(range[0] as HTMLInputElement)(75);
+        });
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.1').should('deep.equal', { raw: 75, formatted: '75' });
     });
 });

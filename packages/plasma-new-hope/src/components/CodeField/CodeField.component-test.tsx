@@ -154,17 +154,13 @@ describeFn('CodeField', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <CodeField
-                codeLength={4}
-                autoFocus
-                autoComplete="off"
-                onChange={(value) => {
-                    expect(value).to.eq('1');
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<CodeField codeLength={4} autoFocus autoComplete="off" onChange={onChange} />);
 
         cy.focused().type('1');
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', '1');
     });
 });

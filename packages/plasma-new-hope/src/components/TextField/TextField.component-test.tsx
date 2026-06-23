@@ -312,29 +312,25 @@ describeFn('TextField', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <TextField
-                placeholder="Placeholder"
-                onChange={(event) => {
-                    expect(event.target.value).to.eq('t');
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TextField placeholder="Placeholder" onChange={onChange} />);
 
         cy.get('input').type('t');
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.0.target.value').should('eq', 't');
     });
 
     it('prop: onClick', () => {
-        mount(
-            <TextField
-                placeholder="Placeholder"
-                onClick={(event) => {
-                    expect(event.type).to.eq('click');
-                }}
-            />,
-        );
+        const onClick = cy.stub().as('onClick');
+
+        mount(<TextField placeholder="Placeholder" onClick={onClick} />);
 
         cy.get('input').click();
+
+        cy.get('@onClick').should('have.been.calledOnce');
+        cy.get('@onClick').its('firstCall.args.0.type').should('eq', 'click');
     });
 
     it('truncate placeholder', () => {

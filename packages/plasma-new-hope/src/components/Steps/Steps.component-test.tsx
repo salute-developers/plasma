@@ -345,17 +345,15 @@ describeFn('Steps', () => {
             { title: 'Step 2', indicator: 2, status: 'inactive' },
         ];
 
-        mount(
-            <Steps
-                items={clickableItems}
-                onChange={(item, index, prevIndex) => {
-                    expect(index).to.eq(1);
-                    expect(prevIndex).to.eq(0);
-                    expect(item.title).to.eq('Step 2');
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<Steps items={clickableItems} onChange={onChange} />);
 
         cy.contains('Step 2').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.0.title').should('eq', 'Step 2');
+        cy.get('@onChange').its('firstCall.args.1').should('eq', 1);
+        cy.get('@onChange').its('firstCall.args.2').should('eq', 0);
     });
 });

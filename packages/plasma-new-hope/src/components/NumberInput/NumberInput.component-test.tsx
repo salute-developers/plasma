@@ -358,17 +358,13 @@ describeFn('NumberInput', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <NumberInput
-                value={5}
-                min={0}
-                max={10}
-                onChange={(_event, value) => {
-                    expect(value).to.eq(6);
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<NumberInput value={5} min={0} max={10} onChange={onChange} />);
 
         cy.get('button').last().click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.1').should('eq', 6);
     });
 });

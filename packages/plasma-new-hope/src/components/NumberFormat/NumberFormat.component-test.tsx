@@ -146,16 +146,12 @@ describeFn('NumberFormat', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <NumberFormat
-                label="Числовой формат"
-                textAfter="₽"
-                onChange={() => {
-                    expect(true).to.eq(true);
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<NumberFormat label="Числовой формат" textAfter="₽" onChange={onChange} />);
 
         cy.get('input').type('123');
+
+        cy.get('@onChange').should('have.been.called');
     });
 });

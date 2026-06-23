@@ -502,31 +502,30 @@ describeFn('TimePicker', () => {
     it('prop: onToggle', () => {
         cy.viewport(580, 800);
 
-        mount(
-            <TimePicker
-                value="00:00"
-                onToggle={(isOpen) => {
-                    expect(isOpen).to.be.oneOf([true, false]);
-                }}
-            />,
-        );
+        const onToggle = cy.stub().as('onToggle');
+
+        mount(<TimePicker value="00:00" onToggle={onToggle} />);
 
         cy.get('input').first().click();
+        cy.get('@onToggle').should('have.been.calledOnce');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
         cy.get('body').click(0, 0);
+        cy.get('@onToggle').should('have.been.calledTwice');
+        cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
     it('prop: onChange', () => {
         cy.viewport(580, 800);
 
-        mount(
-            <TimePicker
-                value="00:00"
-                onChange={(_event, formattedValues) => {
-                    expect(formattedValues).to.have.property('value');
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePicker value="00:00" onChange={onChange} />);
 
         cy.get('input').first().clear().type('1230');
+
+        cy.get('@onChange').should('have.been.called');
+        cy.get('@onChange').its('lastCall.args.1').should('have.property', 'value');
+        cy.get('@onChange').its('lastCall.args.1').should('have.property', 'timeValues');
     });
 });
