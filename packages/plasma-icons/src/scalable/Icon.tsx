@@ -382,6 +382,7 @@ export const iconSectionsSet = {
         travelCarOutline: 'TravelCarOutline',
         wheelOutline: 'WheelOutline',
         wheelFill: 'WheelFill',
+        helicopterOutline: 'HelicopterOutline',
     },
     User: {
         accessibility: 'Accessibility',
