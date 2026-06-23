@@ -34,8 +34,6 @@ export const createMeta = ({
         enableContentRight: false,
         pilled: false,
         maxWidth: '',
-        enableTextGradient: false,
-        textGradient: 'linear-gradient(90deg, #be4a07, #39e66e)',
         ...defaultArgs,
     },
     argTypes: {
@@ -80,15 +78,6 @@ export const createMeta = ({
             control: { type: 'boolean' },
             if: { arg: 'enableText', truthy: true },
             table: { category: 'layout' },
-        },
-        enableTextGradient: {
-            control: { type: 'boolean' },
-            table: { category: 'gradient' },
-        },
-        textGradient: {
-            control: { type: 'text' },
-            if: { arg: 'enableTextGradient', eq: true },
-            table: { category: 'gradient' },
         },
         ...additionalArgTypes,
         ...disableProps([...commonDisabledArgs, ...disablePropsList]),

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import type { CSSProperties } from 'react';
 import cls from 'classnames';
-import { gradientTextClass, gradientTextVars, gradientTextWrapperClass } from 'src/mixins';
+import { GRADIENT_TEXT_CLASS } from 'src/utils/constants';
 
 import type { RootProps } from '../../engines';
 import { convertRoundnessMatrix } from '../../utils/roundness';
@@ -50,7 +50,6 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
             style,
             stretching = 'auto',
             additionalContent,
-            textGradientOption,
             ...rest
         } = props;
 
@@ -85,20 +84,12 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 disabled={disabled}
                 focused={focused || outlined}
                 tabIndex={disabled ? -1 : 0}
-                className={cls(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className, {
-                    [gradientTextWrapperClass]:
-                        textGradientOption?.textGradient ||
-                        textGradientOption?.textGradientHover ||
-                        textGradientOption?.textGradientActive,
-                })}
+                className={cls(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
                 style={
                     {
                         ...style,
                         '--plasma_computed-btn-br': buttonBorderRadius,
                         '--plasma_private-blur': blur,
-                        [gradientTextVars.gradient]: textGradientOption?.textGradient,
-                        [gradientTextVars.gradientHover]: textGradientOption?.textGradientHover,
-                        [gradientTextVars.gradientActive]: textGradientOption?.textGradientActive,
                     } as CSSProperties
                 }
                 {...rest}
@@ -108,7 +99,7 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                         <StyledContentLeft hasContentMargin={hasRightContentMargin}>{contentLeft}</StyledContentLeft>
                     )}
                     {txt ? (
-                        <ButtonText className={cls(!additionalContent ? contentRelaxedClass : '', gradientTextClass)}>
+                        <ButtonText className={cls(!additionalContent ? contentRelaxedClass : '', GRADIENT_TEXT_CLASS)}>
                             {txt}
                         </ButtonText>
                     ) : (
