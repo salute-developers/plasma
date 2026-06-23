@@ -151,7 +151,7 @@ export const config = {
         size: {
             s: css`
                 ${textAreaTokens.inputWidth}: 100%;
-                ${textAreaTokens.inputHeight}: 1.5rem;
+                ${textAreaTokens.inputHeight}: 7.187rem;
                 ${textAreaTokens.inputMinHeight}: 0.625rem;
                 ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadius}: 0.625rem;

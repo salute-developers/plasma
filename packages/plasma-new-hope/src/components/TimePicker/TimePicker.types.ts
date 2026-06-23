@@ -193,7 +193,7 @@ type BasicProps = {
      * Влияет на выбор предустановленного набора токенов
      * @default 'default'
      */
-    appearance?: 'default' | 'clear';
+    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Флаг наличия разделителя для clear appearance
      * @default false
