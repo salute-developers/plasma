@@ -383,6 +383,7 @@ export const iconSectionsSet = {
         wheelOutline: 'WheelOutline',
         wheelFill: 'WheelFill',
         helicopterOutline: 'HelicopterOutline',
+        helicopterFill: 'HelicopterFill',
     },
     User: {
         accessibility: 'Accessibility',
