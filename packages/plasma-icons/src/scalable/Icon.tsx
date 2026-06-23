@@ -752,6 +752,7 @@ export const iconSectionsSet = {
         queueFill: 'QueueFill',
         queueDashOutline: 'QueueDashOutline',
         queueDashFill: 'QueueDashFill',
+        code: 'Code',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
