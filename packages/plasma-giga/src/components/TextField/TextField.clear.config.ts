@@ -70,6 +70,7 @@ export const config = {
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.rightHelperColor}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -99,6 +100,7 @@ export const config = {
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textPositive};
+                ${tokens.rightHelperColor}: ${textPositive};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -132,6 +134,7 @@ export const config = {
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textWarning};
+                ${tokens.rightHelperColor}: ${textWarning};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -165,6 +168,7 @@ export const config = {
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textNegative};
+                ${tokens.rightHelperColor}: ${textNegative};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -226,13 +230,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
                 ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.813rem 0 0.813rem 0;
@@ -310,13 +322,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
                 ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
@@ -386,13 +406,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
                 ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
@@ -462,13 +490,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
                 ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -538,13 +574,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
                 ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -761,6 +805,7 @@ export const config = {
                 ${tokens.backgroundColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: ${textSecondary};
                 ${tokens.leftHelperColorReadOnly}: ${textSecondary};
+                ${tokens.rightHelperColorReadOnly}: ${textSecondary};
                 ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
                 ${tokens.labelColorReadOnly}: ${textPrimary};
                 ${tokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};

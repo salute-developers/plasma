@@ -24,7 +24,9 @@ import { base as chipViewCSS } from './variations/_chip-view/base';
 import {
     Input,
     InputContainer,
-    LeftHelper,
+    StyledHelpers,
+    StyledLeftHelper,
+    StyledRightHelper,
     Label,
     InputWrapper,
     InputLabelWrapper,
@@ -74,6 +76,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 textAfter,
                 placeholder,
                 leftHelper,
+                rightHelper,
                 enumerationType = 'plain',
                 requiredPlacement = 'right',
                 hasRequiredIndicator = false,
@@ -616,10 +619,11 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                             )}
                         </StyledContentRightWrapper>
                     </InputWrapper>
-                    {leftHelper && (
-                        <LeftHelper data-root id={helperTextId} className={hasFocus ? classes.hasFocus : undefined}>
-                            {leftHelper}
-                        </LeftHelper>
+                    {(leftHelper || rightHelper) && (
+                        <StyledHelpers id={helperTextId} className={hasFocus ? classes.hasFocus : undefined}>
+                            {leftHelper && <StyledLeftHelper data-root>{leftHelper}</StyledLeftHelper>}
+                            {rightHelper && <StyledRightHelper data-root>{rightHelper}</StyledRightHelper>}
+                        </StyledHelpers>
                     )}
                 </Root>
             );

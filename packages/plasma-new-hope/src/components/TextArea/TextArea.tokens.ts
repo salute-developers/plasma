@@ -1,3 +1,9 @@
+export const privateTokens = {
+    inputActualHeight: '--plasma_private-textarea-input-actual-height',
+    wrapperPaddingBottomInnerLabel: '--plasma_private-textarea-inner-label-padding-bottom',
+    dividerColor: '--plasma_private-textarea-divider-color',
+};
+
 export const classes = {
     /** Класс отвечающий за поднятие и уменьшение плейсхолдера */
     innerPlaceholderUp: 'inner-placeholder-up',
@@ -64,6 +70,10 @@ export const tokens = {
     leftHelperColorFocus: '--plasma-textarea-left-helper-color-focus',
     rightHelperColor: '--plasma-textarea-right-helper-color',
 
+    leftHelperOverflow: '--plasma-textarea-left-helper-overflow',
+    leftHelperWhiteSpace: '--plasma-textarea-left-helper-white-space',
+    leftHelperTextOverflow: '--plasma-textarea-left-helper-text-overflow',
+
     /** Цвета для read-only состояния */
     inputColorReadOnly: '--plasma-textarea-input-color-read-only',
     backgroundColorReadOnly: '--plasma-textarea-background-color-read-only',
@@ -94,20 +104,25 @@ export const tokens = {
     inputPaddingRightWithRightContent: '--plasma-textarea-input-padding-right-with-right-content',
     inputPaddingBottom: '--plasma-textarea-input-padding-bottom',
     inputPaddingBottomWithHelpers: '--plasma-textarea-input-padding-bottom-with-helpers',
+    inputPaddingBottomInnerLabel: '--plasma-textarea-input-padding-bottom-inner-label',
     inputPaddingLeft: '--plasma-textarea-input-padding-left',
 
     /** Отступы для блока подписей */
     helpersPaddingTop: '--plasma-textarea-helpers-padding-top',
-    clearHelpersPaddingTop: '--plasma-textarea-clear-helpers-padding-top',
     helpersPaddingRight: '--plasma-textarea-helpers-padding-right',
     helpersPaddingBottom: '--plasma-textarea-helpers-padding-bottom',
     helpersPaddingLeft: '--plasma-textarea-helpers-padding-left',
+    outsideHelpersPaddingTop: '--plasma-textarea-outside-helpers-padding-top',
+    outsideHelpersPaddingBottom: '--plasma-textarea-outside-helpers-padding-bottom',
+    outsideHelpersPaddingLeft: '--plasma-textarea-outside-helpers-padding-left',
+    outsideHelpersPaddingRight: '--plasma-textarea-outside-helpers-padding-right',
     helpersOffset: '--plasma-textarea-helpers-offset',
 
     /** Позиционирование контента справа */
     rightContentTop: '--plasma-textarea-right-content-top',
     rightContentRight: '--plasma-textarea-right-content-right',
     rightContentHeight: '--plasma-textarea-right-content-height',
+    rightContentWidth: '--plasma-textarea-right-content-width',
 
     /* Tokens for right content slot */
     rightContentColor: '--plasma-textarea-right-content-color',
@@ -117,6 +132,7 @@ export const tokens = {
 
     /** Токены лейбла */
     labelOuterColor: '--plasma-textarea-label-outer-color',
+    labelInnerColor: '--plasma-textarea-label-inner-color',
 
     labelOuterFontFamily: '--plasma-textarea-label-outer-font-family',
     labelOuterFontStyle: '--plasma-textarea-label-outer-font-style',
@@ -204,6 +220,8 @@ export const tokens = {
     /** Токены скроллбара */
     scrollbarWidth: '--plasma-textarea-scrollbar-width',
     scrollbarBorderWidth: '--plasma-textarea-scrollbar-border-width',
+    scrollbarMarginRight: '--plasma-textarea-scrollbar-margin-right',
+    scrollbarBorderRadius: '--plasma-textarea-scrollbar-thumb-border-radius',
     scrollbarThumbBackgroundColor: '--plasma-textarea-scrollbar-thumb-background-color',
     scrollbarThumbBackgroundColorHover: '--plasma-textarea-scrollbar-thumb-background-color-hover',
     scrollbarThumbBackgroundColorActive: '--plasma-textarea-scrollbar-thumb-background-color-active',

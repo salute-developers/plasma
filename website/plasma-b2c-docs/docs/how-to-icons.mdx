@@ -1,0 +1,107 @@
+---
+id: how-to-icons
+title: Как работать с иконками
+---
+
+# Как работать с иконками
+
+Иконки поставляются отдельным пакетом `@salutejs/plasma-icons` и используются как обычные React-компоненты.
+
+## Установка
+
+```bash
+npm install --save @salutejs/plasma-icons
+```
+
+## Импорт иконок
+
+Для иконок по возможности используйте размерные точки входа: `@salutejs/plasma-icons/16`, `@salutejs/plasma-icons/24` или `@salutejs/plasma-icons/36`.
+Так в итоговый бандл попадут только импортированные компоненты.
+
+Однако если иконка не представлена во всех размерах, то ее можно импортировать стандартным способом напрямую из `@salutejs/plasma-icons`.
+
+```tsx live
+import React from 'react';
+import { IconSearch } from '@salutejs/plasma-icons/24';
+
+export function App() {
+    return <IconSearch />;
+}
+```
+
+Размерная точка входа задает базовый SVG-ассет:
+
+- `@salutejs/plasma-icons/16` - иконки с базовым размером `16px`;
+- `@salutejs/plasma-icons/24` - иконки с базовым размером `24px`;
+- `@salutejs/plasma-icons/36` - иконки с базовым размером `36px`.
+
+## Размер
+
+Иконки поддерживают свойство `size`:
+
+- `xs` - `16px`;
+- `s` - `24px`;
+- `m` - `36px`.
+
+```tsx live
+import React from 'react';
+import { IconSearch } from '@salutejs/plasma-icons/24';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <IconSearch size="xs" />
+            <IconSearch size="s" />
+            <IconSearch size="m" />
+        </div>
+    );
+}
+```
+
+Если иконка импортирована из размерной точки входа, у нее уже есть размер по умолчанию: `xs` для `16`, `s` для `24`, `m` для `36`.
+
+## Цвет
+
+Цвет задается свойством `color`. По умолчанию используется `var(--plasma-colors-primary)`.
+В `color` можно передать CSS-переменную, `currentColor`, `inherit`, обычный цвет или CSS-градиент.
+
+```tsx live
+import React from 'react';
+import { IconSearch, IconStarFill } from '@salutejs/plasma-icons/24';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <IconSearch color="var(--plasma-colors-accent)" />
+            <IconStarFill color="linear-gradient(90deg, #2af598 0%, #009efd 100%)" />
+        </div>
+    );
+}
+```
+
+## Классы и стили
+
+Иконкам можно передавать `className` и `style`. Это удобно, если нужно настроить отступы, выравнивание или анимацию.
+
+```tsx
+import { IconSearch } from '@salutejs/plasma-icons/24';
+
+export const SearchIcon = () => (
+    <IconSearch
+        className="search-icon"
+        style={{ marginRight: '0.5rem' }}
+    />
+);
+```
+
+:::danger
+В пакете есть переиспользуемый компонент `Icon`, которому можно передать имя иконки:
+
+```tsx
+import { Icon } from '@salutejs/plasma-icons';
+
+export const AppsIcon = () => <Icon icon="iconApps" />;
+```
+
+Такой способ **не рекомендуется** для пользовательского интерфейса: при сборке в бандл могут попасть все иконки. Используйте прямой импорт конкретного компонента.
+:::

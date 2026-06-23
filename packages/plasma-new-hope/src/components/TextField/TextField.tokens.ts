@@ -64,6 +64,7 @@ export const tokens = {
     optionalColor: '--plasma-textfield__optional-color',
 
     height: '--plasma-textfield-height',
+    fieldSizing: '--plasma-textfield-sizing',
     borderWidth: '--plasma-textfield-border-width',
     borderRadius: '--plasma-textfield-border-radius',
 
@@ -102,6 +103,7 @@ export const tokens = {
 
     labelColor: '--plasma-textfield__label-color',
     labelColorReadOnly: '--plasma-textfield__label-color-readonly',
+    labelInnerColor: '--plasma-textfield__label-inner-color',
     labelOffset: '--plasma-textfield__label-offset',
     clearLabelOffset: '--plasma-textfield__clear-label-offset',
 
@@ -145,6 +147,18 @@ export const tokens = {
     leftHelperFontWeight: '--plasma-textfield__left-helper-font-weight',
     leftHelperLetterSpacing: '--plasma-textfield__left-helper-letter-spacing',
     leftHelperLineHeight: '--plasma-textfield__left-helper-line-height',
+
+    rightHelperColor: '--plasma-textfield__right-helper-color',
+    rightHelperColorFocus: '--plasma-textfield__right-helper-color-focus',
+    rightHelperColorReadOnly: '--plasma-textfield__right-helper-color-readonly',
+    rightHelperOffset: '--plasma-textfield__right-helper-offset',
+
+    rightHelperFontFamily: '--plasma-textfield__right-helper-font-family',
+    rightHelperFontStyle: '--plasma-textfield__right-helper-font-style',
+    rightHelperFontSize: '--plasma-textfield__right-helper-font-size',
+    rightHelperFontWeight: '--plasma-textfield__right-helper-font-weight',
+    rightHelperLetterSpacing: '--plasma-textfield__right-helper-letter-spacing',
+    rightHelperLineHeight: '--plasma-textfield__right-helper-line-height',
 
     /** Токены вспомогательного текста */
     textBeforeColor: '--plasma-textfield__before-text-color',
@@ -221,6 +235,12 @@ export const tokens = {
     chipClearContentMarginLeft: '--plasma-textfield__chip-clear-content-margin-left',
     chipClearContentMarginRight: '--plasma-textfield__chip-clear-content-margin-right',
     chipOpacityReadonly: '--plasma-textfield__chip-opacity-readonly',
+    chipsFlexWrap: '--plasma-textfield__chips-flex-wrap',
+
+    scrollableWrapperOverflow: '--plasma-textfield__scrollable-wrapper-overflow',
+    scrollableWrapperHeight: '--plasma-textfield__scrollable-wrapper-height',
+
+    inputContainerDisplay: '--plasma-textfield__input-container-display',
 
     focusColor: '--plasma-textfield-focus-color',
 

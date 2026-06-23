@@ -29,6 +29,10 @@ export type CustomProgressBarCircularProps = {
      */
     hasTrack?: boolean;
     /**
+     * Обратное направление дуги (уменьшение по часовой стрелке)
+     */
+    reverse?: boolean;
+    /**
      * Контент в центре компонента
      */
     children?: ReactNode;

@@ -26,11 +26,12 @@ export const InputWrapper = styled.div`
 
 export const InputLabelWrapper = styled.div`
     flex: 1;
-    overflow: scroll;
+    overflow: var(${tokens.scrollableWrapperOverflow}, scroll);
     position: relative;
     width: 100%;
     display: inline-flex;
     align-items: center;
+    flex-wrap: var(${tokens.chipsFlexWrap}, nowrap);
 
     ::-webkit-scrollbar {
         display: none;
@@ -41,13 +42,14 @@ export const InputLabelWrapper = styled.div`
     overscroll-behavior: contain;
 
     &.${String(classes.hasChips)} {
-        height: var(${tokens.chipHeight});
+        height: var(${tokens.scrollableWrapperHeight}, var(${tokens.chipHeight}));
         border-radius: var(${tokens.chipBorderRadius});
     }
 `;
 
 export const StyledChips = styled.div`
     display: flex;
+    flex-wrap: var(${tokens.chipsFlexWrap}, nowrap);
     gap: var(${tokens.chipGap});
     margin-right: var(${tokens.chipMarginRight}, var(${tokens.chipGap}));
     user-select: none;
@@ -61,6 +63,7 @@ export const Input = styled.input<{ hasFocus?: boolean }>`
     background-color: transparent;
     outline: none;
     width: 100%;
+    field-sizing: var(${tokens.fieldSizing}, fixed);
     z-index: 1;
 
     &.${classes.inputTextEllipsis} {
@@ -170,12 +173,16 @@ export const StyledContentRight = styled.div`
     }
 `;
 
-export const LeftHelper = styled.div`
-    color: var(${tokens.leftHelperColor});
+export const StyledHelpers = styled.div`
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+`;
 
-    &.${classes.hasFocus} {
-        color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColor}));
-    }
+export const StyledLeftHelper = styled.div``;
+
+export const StyledRightHelper = styled.div`
+    margin-left: auto;
 `;
 
 export const StyledTextBefore = styled.div<{ isHidden?: boolean }>`

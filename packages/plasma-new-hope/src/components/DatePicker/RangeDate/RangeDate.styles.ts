@@ -12,11 +12,13 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.background}: var(${tokens.background});
     ${rangeTokens.backgroundError}: var(${tokens.backgroundError});
     ${rangeTokens.backgroundSuccess}: var(${tokens.backgroundSuccess});
+    ${rangeTokens.backgroundEdited}: var(${tokens.backgroundEdited});
     ${rangeTokens.readOnlyOpacity}: var(${tokens.rangeReadOnlyOpacity});
-    
+
     ${rangeTokens.borderColor}: var(${tokens.borderColor});
     ${rangeTokens.borderColorError}: var(${tokens.borderColorError});
     ${rangeTokens.borderColorSuccess}: var(${tokens.borderColorSuccess});
+    ${rangeTokens.borderColorEdited}: var(${tokens.borderColorEdited});
     ${rangeTokens.borderColorReadOnly}: var(${tokens.borderColorReadOnly});
     
     ${rangeTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
@@ -28,10 +30,12 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.leftHelperColor}: var(${tokens.leftHelperColor});
     ${rangeTokens.leftHelperColorSuccess}: var(${tokens.leftHelperColorSuccess});
     ${rangeTokens.leftHelperColorError}: var(${tokens.leftHelperColorError});
+    ${rangeTokens.leftHelperColorEdited}: var(${tokens.leftHelperColorEdited});
 
     ${rangeTokens.textFieldColor}: var(${tokens.textFieldColor});
     ${rangeTokens.textFieldColorSuccess}: var(${tokens.textFieldColorSuccess});
     ${rangeTokens.textFieldColorError}: var(${tokens.textFieldColorError});
+    ${rangeTokens.textFieldColorEdited}: var(${tokens.textFieldColorEdited});
     ${rangeTokens.textFieldPlaceholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${rangeTokens.textFieldPlaceholderColorFocus}: var(${tokens.textFieldPlaceholderColorFocus});
     ${rangeTokens.textFieldClearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
@@ -42,6 +46,8 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldBackgroundErrorColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
     ${rangeTokens.textFieldBackgroundSuccessColor}: var(${tokens.textFieldBackgroundSuccessColor});
     ${rangeTokens.textFieldBackgroundSuccessColorFocus}: var(${tokens.textFieldBackgroundSuccessColorFocus});
+    ${rangeTokens.textFieldBackgroundEditedColor}: var(${tokens.textFieldBackgroundEditedColor});
+    ${rangeTokens.textFieldBackgroundEditedColorFocus}: var(${tokens.textFieldBackgroundEditedColorFocus});
 
     ${rangeTokens.textFieldBorderWidth}: var(${tokens.textFieldBorderWidth});
     ${rangeTokens.textFieldBorderColorFocus}: var(${tokens.textFieldBorderColorFocus});
@@ -49,6 +55,8 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldBorderColorErrorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
     ${rangeTokens.textFieldBorderColorSuccess}: var(${tokens.textFieldBorderColorSuccess});
     ${rangeTokens.textFieldBorderColorSuccessFocus}: var(${tokens.textFieldBorderColorSuccessFocus});
+    ${rangeTokens.textFieldBorderColorEdited}: var(${tokens.textFieldBorderColorEdited});
+    ${rangeTokens.textFieldBorderColorEditedFocus}: var(${tokens.textFieldBorderColorEditedFocus});
 
     ${rangeTokens.textFieldTextBeforeColor}: var(${tokens.textFieldTextBeforeColor});
     ${rangeTokens.textFieldTextAfterColor}: var(${tokens.textFieldTextAfterColor});

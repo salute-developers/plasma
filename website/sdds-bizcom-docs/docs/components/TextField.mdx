@@ -49,7 +49,7 @@ import SizeExample from '../_examples/_textfield/_size.mdx'
 </Tabs>
 
 ### Подсказки
-Для вывода подсказки снизу от поля, используйте свойство `leftHelper`,
+Для вывода подсказки снизу от поля, используйте свойство `leftHelper` - для подсказки слева, и `rightHelper` - для подсказки справа,
 для подсказки в виде Tooltip - `hintText`, для подсказки сверху справа - `titleCaption`:
 
 ```tsx live
@@ -61,7 +61,8 @@ export function App() {
         <div>
             <TextField
                 placeholder="Введите значение"
-                leftHelper="Подсказка снизу"
+                leftHelper="Подсказка слева"
+                rightHelper="Подсказка справа"
                 titleCaption="Подсказка сверху"
                 hintText="Подсказка в виде Tooltip"
                 hintView="default"

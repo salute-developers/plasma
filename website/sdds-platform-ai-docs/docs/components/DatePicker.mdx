@@ -195,7 +195,7 @@ import TabItem from '@theme/TabItem';
         import { IconDone } from '@salutejs/plasma-icons';
 
         export function App() {
-            const sizes = ['xl', 'l', 'm', 's', 'xs']
+            const sizes = ['m']
 
             return (
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '2rem' }}>
@@ -585,7 +585,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
                         isDoubleCalendar
                         usePortal
                         maskWithFormat
-                        size="l"
+                        size="m"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"
                         secondPlaceholder="Введите дату 2"
@@ -689,7 +689,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                     <DatePickerRange
                         appearance="default"
-                        size="l"
+                        size="m"
                         label="Appearance default"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"
@@ -700,7 +700,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
                     />
                     <DatePickerRange
                         appearance="clear"
-                        size="l"
+                        size="m"
                         label="Appearance clear"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"
@@ -712,7 +712,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
                     <DatePickerRange
                         appearance="clear"
                         hasClearDivider
-                        size="l"
+                        size="m"
                         label="Appearance clear с разделителем"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"
@@ -728,7 +728,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
     </TabItem>
     <TabItem value="size" label="Size">
         Размер `DatePickerRange` задаётся с помощью свойства `size`.
-        Возможные значения свойства: `"l"`, `"m"`, `"s"`, `"xs"`.
+        Возможные значения свойства:  `"m"`.
 
         ```tsx live
         import React from 'react';
@@ -736,7 +736,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
         import { IconDone } from '@salutejs/plasma-icons';
 
         export function App() {
-            const sizes = ['xl', 'l', 'm', 's', 'xs']
+            const sizes = ['m']
 
             const ActionButton = () => {
                 return (
@@ -786,7 +786,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
             return (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                     <DatePickerRange
-                        size="l"
+                        size="m"
                         label="Одиночный календарь"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"
@@ -795,7 +795,7 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
                         usePortal
                     />
                     <DatePickerRange
-                        size="l"
+                        size="m"
                         label="Двойной календарь"
                         leftHelper="Подсказка к полю"
                         firstPlaceholder="Введите дату 1"

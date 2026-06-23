@@ -46,7 +46,7 @@ export type RangeInputRefs = {
     secondTextField: () => MutableRefObject<HTMLInputElement | null>;
 };
 
-type ClearProps =
+type AppearanceProps =
     | {
           /**
            * Стиль для UI конфигурации
@@ -62,6 +62,10 @@ type ClearProps =
     | {
           appearance?: 'clear';
           hasClearDivider?: boolean;
+      }
+    | {
+          appearance?: 'viewMode';
+          hasClearDivider?: never;
       };
 
 type HintProps =
@@ -176,6 +180,14 @@ export type RangeInnerProps = {
      */
     secondValueSuccess?: boolean;
     /**
+     * Отредактированное значение первого поля ввода
+     */
+    firstValueEdited?: boolean;
+    /**
+     * Отредактированное значение второго поля ввода
+     */
+    secondValueEdited?: boolean;
+    /**
      * Значение первого поля ввода
      */
     firstPlaceholder?: string;
@@ -276,7 +288,7 @@ export type RangeInnerProps = {
     onBlurSecondTextfield?: (event: FocusEvent<HTMLInputElement>) => void;
 } & RangeDividerVariants &
     HintProps &
-    ClearProps;
+    AppearanceProps;
 
 export type RangeProps = RangeInnerProps & HTMLAttributes<HTMLDivElement>;
 

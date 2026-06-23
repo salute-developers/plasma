@@ -218,6 +218,11 @@ export type TextAreaPropsBase = {
      */
     rightHelper?: ReactNode;
     /**
+     * Расположение вспомогательного текста справа
+     * @default 'inner'
+     */
+    rightHelperPlacement?: 'inner' | 'outer';
+    /**
      * Расположение вспомогательного текста слева
      * @default 'inner'
      */
@@ -231,7 +236,7 @@ type TextAreaPropsExtends = TextAreaPropsBase & {
      * Влияет на выбор предустановленного набора токенов
      * @default default
      */
-    appearance?: 'default' | 'clear';
+    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Размер контрола.
      */

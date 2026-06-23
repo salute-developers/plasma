@@ -45,6 +45,12 @@ export const config = {
                 ${tokens.textFieldBorderColorSuccess}: var(--outline-transparent-positive);
                 ${tokens.textFieldBorderColorSuccessHover}: var(--outline-transparent-positive-hover);
                 ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-accent);
+                ${tokens.textFieldBackgroundEditedColor}: var(--data-blue-light);
+                ${tokens.textFieldBackgroundEditedColorHover}: var(--data-blue-light-hover);
+                ${tokens.textFieldBackgroundEditedColorFocus}: var(--data-blue-light-active);
+                ${tokens.textFieldBorderColorEdited}: var(--outline-transparent-info);
+                ${tokens.textFieldBorderColorEditedHover}: var(--outline-transparent-info-hover);
+                ${tokens.textFieldBorderColorEditedFocus}: var(--outline-transparent-info-active);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
@@ -66,6 +72,7 @@ export const config = {
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
+                ${tokens.leftHelperColorEdited}: var(--text-secondary);
 
                 ${tokens.hintIconColor}: var(--text-secondary);
             `,

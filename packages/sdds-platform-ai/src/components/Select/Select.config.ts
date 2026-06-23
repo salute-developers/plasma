@@ -17,13 +17,18 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
 
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-secondary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-card-hover);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldBorderColor}: var(--outline-transparent-primary);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-default);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
@@ -53,8 +58,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -100,8 +105,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -147,8 +152,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -194,18 +199,18 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             accent: css`
-                ${tokens.buttonColor}: var(--on-dark-text-primary);
-                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
-                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
+                ${tokens.buttonColor}: var(--text-primary);
+                ${tokens.buttonColorHover}: var(--text-primary-hover);
+                ${tokens.buttonColorActive}: var(--text-primary-active);
+                ${tokens.buttonArrowColor}: var(--text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--text-secondary-hover);
                 ${tokens.buttonBackgroundColor}: var(--surface-accent);
                 ${tokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
                 ${tokens.buttonBackgroundColorActive}: var(--surface-accent-active);
@@ -220,8 +225,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -246,8 +251,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -272,8 +277,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -298,8 +303,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -324,8 +329,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -350,8 +355,8 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: var(--surface-solid-default);
+                ${tokens.checkboxIconColor}: var(--inverse-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
@@ -362,6 +367,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -380,7 +386,7 @@ export const config = {
                 ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.textFieldLabelOffset}: 0.625rem;
+                ${tokens.textFieldLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -393,7 +399,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -418,8 +424,8 @@ export const config = {
                 ${tokens.textFieldChipBorderRadius}: 0.375rem;
                 ${tokens.textFieldChipWidth}: auto;
                 ${tokens.textFieldChipHeight}: 2.25rem;
-                ${tokens.textFieldChipPadding}: 0 0.625rem 0 0.875rem;
-                ${tokens.textFieldChipClearContentMarginLeft}: 0.5rem;
+                ${tokens.textFieldChipPadding}: 0.375rem 0.5rem 0.375rem 0.75rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
                 ${tokens.textFieldChipClearContentMarginRight}: 0rem;
                 ${tokens.textFieldChipCloseIconSize}: 1.25rem;
                 ${tokens.textFieldChipFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -527,18 +533,18 @@ export const config = {
                 ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             accent: css`
-                ${tokens.textFieldChipColor}: var(--on-dark-text-primary);
-                ${tokens.textFieldChipColorHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipColor}: var(--text-primary);
+                ${tokens.textFieldChipColorHover}: var(--text-primary);
                 ${tokens.textFieldChipBackground}: var(--surface-accent);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--on-dark-text-secondary);
-                ${tokens.textFieldChipCloseIconColorReadonly}: var(--on-dark-text-secondary);
-                ${tokens.textFieldChipCloseIconColorHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipCloseIconColor}: var(--text-primary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--text-primary);
+                ${tokens.textFieldChipCloseIconColorHover}: var(--text-primary-hover);
 
                 ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-accent);
-                ${tokens.textFieldChipColorReadOnly}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-accent);
-                ${tokens.textFieldChipColorReadOnlyHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
                 ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
         },
@@ -608,9 +614,10 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.disclosureIconOpacityReadOnly}: 0.4;
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.textFieldReadOnlyOpacity}: 1;
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-transparent-card);
+                ${tokens.textFieldBorderColorReadOnly}: var(--outline-transparent-primary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldTitleCaptionColorReadOnly}: var(--text-secondary);

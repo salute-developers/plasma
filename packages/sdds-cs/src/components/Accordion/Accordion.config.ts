@@ -29,7 +29,7 @@ export const config = {
                 ${accordionTokens.accordionItemTextColor}: var(--text-primary);
                 ${accordionTokens.accordionItemIconColor}: var(--text-accent);
                 ${accordionTokens.accordionItemFocus}: var(--surface-accent);
-                ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
+                ${accordionTokens.accordionItemViewBorderRadius}: 0rem;
                 ${accordionTokens.accordionBackground}: var(--surface-clear);
                 ${accordionTokens.accordionItemBorderBottom}: 0.125rem solid var(--surface-solid-tertiary);
                 ${accordionTokens.accordionItemPaddingHorizontalLeft}: 0;

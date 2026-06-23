@@ -64,6 +64,8 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 secondValueError,
                 firstValueSuccess,
                 secondValueSuccess,
+                firstValueEdited,
+                secondValueEdited,
 
                 // layout
                 required,
@@ -276,6 +278,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 currentValue: inputFirstValue,
                 valueError: firstValueError,
                 valueSuccess: firstValueSuccess,
+                valueEdited: firstValueEdited,
                 ...commonUseDatePickerArgs,
 
                 setCorrectDates: setCorrectStartDates,
@@ -294,6 +297,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 currentValue: inputSecondValue,
                 valueError: secondValueError,
                 valueSuccess: secondValueSuccess,
+                valueEdited: secondValueEdited,
                 ...commonUseDatePickerArgs,
 
                 setCorrectDates: setCorrectEndDates,
@@ -571,6 +575,8 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         secondValueError={secondValueError}
                         firstValueSuccess={firstValueSuccess}
                         secondValueSuccess={secondValueSuccess}
+                        firstValueEdited={firstValueEdited}
+                        secondValueEdited={secondValueEdited}
                         onChangeFirstValue={handleChangeFirstValue}
                         onChangeSecondValue={handleChangeSecondValue}
                         name={name}
