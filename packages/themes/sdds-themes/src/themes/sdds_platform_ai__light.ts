@@ -269,10 +269,9 @@ export const sdds_platform_ai__light = ([
   --on-dark-surface-solid-tertiary-hover: #404040FF;
   --on-dark-surface-solid-tertiary-active: #303030FF;
   --on-dark-surface-solid-tertiary: #363636;
-  --on-dark-surface-solid-card-hover: #1C1C1CFF;
-  --on-dark-surface-solid-card-active: #121212FF;
-  --on-dark-surface-solid-card: #171717;
-  --on-dark-surface-solid-card-brightness: #252525FF;
+  --on-dark-surface-solid-card-hover: #0D0D0DFF;
+  --on-dark-surface-solid-card-active: #030303FF;
+  --on-dark-surface-solid-card-brightness: #171717FF;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #F5F5F5FF;
   --on-dark-surface-solid-default: #F9F9F9;
@@ -346,6 +345,7 @@ export const sdds_platform_ai__light = ([
   --on-dark-surface-transparent-negative-minor: #FA5F050D;
   --on-dark-surface-transparent-negative-minor-hover: #FA5F051C;
   --on-dark-surface-transparent-negative-minor-active: #FA5F0508;
+  --on-dark-surface-solid-card: #080808;
   --on-light-surface-solid-primary-hover: #F2F2F2FF;
   --on-light-surface-solid-primary-active: #F0F0F0FF;
   --on-light-surface-solid-primary: #F5F5F5;
