@@ -4,3 +4,8 @@ export { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping } from './util
 
 export type { PreviewGalleryProps } from './PreviewGallery';
 export type { PreviewGalleryItemProps } from './PreviewGalleryItemBase';
+export type {
+    PreviewGallerySortableAxis,
+    PreviewGallerySortableContainerProps,
+    PreviewGallerySortableItemProps,
+} from './sortableCompat';

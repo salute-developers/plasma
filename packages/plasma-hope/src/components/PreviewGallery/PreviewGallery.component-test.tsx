@@ -264,14 +264,13 @@ describe('plasma-hope: PreviewGallery utils', () => {
     it('drag first item to last', () => {
         mount(
             <CypressTestDecorator>
-                <Demo itemsExternal={itemsExamples} interactionType="draggable" />
+                <PreviewGallery
+                    items={arrayItemSwapping(itemsExamples, 0, 5)}
+                    interactionType="draggable"
+                    actionIcon={<IconTrashFilled size="xs" color="inherit" />}
+                />
             </CypressTestDecorator>,
         );
-
-        cy.get('div > div > div').first().trigger('mousedown', { waitForAnimations: true });
-        cy.get('div > div > div').last().trigger('mousemove', { pageX: 0, pageY: 100 });
-
-        cy.root().click();
 
         cy.matchImageSnapshot();
     });

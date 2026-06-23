@@ -1,10 +1,18 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import type { FC, HTMLAttributes } from 'react';
-import { SortableContainerProps, SortableElementProps } from 'react-sortable-hoc';
+import type { DragEndEvent } from '@dnd-kit/core';
 
 import { noop } from './utils';
 import { PreviewGalleryListItems } from './PreviewGalleryItems';
 import { PreviewGalleryItemProps } from './PreviewGalleryItemBase';
+import {
+    PreviewGallerySortableContainerProps,
+    PreviewGallerySortableItemProps,
+    createAxisModifier,
+    getSortableSensorOptions,
+    previewGallerySortableContainerPropKeys,
+    resolveSortableAxis,
+} from './sortableCompat';
 import { InteractionType } from './types';
 
 export interface SortableIndexProps {
@@ -16,7 +24,7 @@ export interface PreviewGalleryProps {
     /**
      * Массив элементов.
      */
-    items?: Array<PreviewGalleryItemProps & Omit<SortableElementProps, 'index'>>;
+    items?: Array<PreviewGalleryItemProps & PreviewGallerySortableItemProps>;
     /**
      * Тип взаимодействия с галереей - выбор или перетаскивание элементов.
      */
@@ -47,31 +55,66 @@ export interface PreviewGalleryProps {
     onItemClick?: (id: string | number) => void;
 }
 
+const omitSortableContainerProps = <T extends Record<string, unknown>>(props: T) => {
+    const rest = { ...props };
+
+    previewGallerySortableContainerPropKeys.forEach((key) => {
+        delete rest[key];
+    });
+
+    return rest;
+};
+
 /**
  * Компонент для создания галереи превью изображений.
  */
-export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & SortableContainerProps> = ({
+export const PreviewGallery: FC<
+    PreviewGalleryProps & HTMLAttributes<HTMLDivElement> & PreviewGallerySortableContainerProps
+> = ({
     interactionType = 'selectable',
     items = [],
     maxHeight = 0,
     onItemClick = noop,
     onItemAction = noop,
     onItemsSortEnd = noop,
+    axis = 'xy',
+    distance = 1,
+    pressDelay,
+    lockAxis,
+    useDragHandle = false,
     ...rest
 }) => {
-    const distance = 1;
-    const axis = 'xy';
     const [isGrabbing, setGrabbing] = useState<boolean>(false);
+
+    const resolvedAxis = useMemo(() => resolveSortableAxis(axis, lockAxis), [axis, lockAxis]);
+    const modifiers = useMemo(() => [createAxisModifier(resolvedAxis)], [resolvedAxis]);
+    const sensorOptions = useMemo(() => getSortableSensorOptions(distance, pressDelay), [distance, pressDelay]);
+    const htmlProps = useMemo(() => omitSortableContainerProps(rest), [rest]);
 
     const onSortStart = useCallback(() => setGrabbing(true), []);
 
+    const onSortCancel = useCallback(() => setGrabbing(false), []);
+
     const onSortEnd = useCallback(
-        (indexes: SortableIndexProps) => {
+        (event: DragEndEvent) => {
             setGrabbing(false);
 
-            onItemsSortEnd(indexes);
+            const { active, over } = event;
+
+            if (!over || active.id === over.id) {
+                return;
+            }
+
+            const oldIndex = items.findIndex((item) => item.id === active.id);
+            const newIndex = items.findIndex((item) => item.id === over.id);
+
+            if (oldIndex === -1 || newIndex === -1) {
+                return;
+            }
+
+            onItemsSortEnd({ oldIndex, newIndex });
         },
-        [onItemsSortEnd],
+        [items, onItemsSortEnd],
     );
 
     return (
@@ -80,13 +123,15 @@ export const PreviewGallery: FC<PreviewGalleryProps & HTMLAttributes<HTMLDivElem
             onItemAction={onItemAction}
             onItemClick={onItemClick}
             onSortStart={onSortStart}
+            onSortCancel={onSortCancel}
             onSortEnd={onSortEnd}
-            axis={axis}
-            distance={distance}
             interactionType={interactionType}
             isGrabbing={isGrabbing}
             maxHeight={maxHeight}
-            {...rest}
+            modifiers={modifiers}
+            sensorOptions={sensorOptions}
+            useDragHandle={useDragHandle}
+            {...htmlProps}
         />
     );
 };
