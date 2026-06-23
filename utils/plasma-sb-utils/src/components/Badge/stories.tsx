@@ -12,27 +12,8 @@ const BellIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const createDefaultStory = (Badge: any) => {
-    return ({
-        enableContentLeft,
-        enableContentRight,
-        enableText,
-        enableTextGradient,
-        textGradient,
-        textGradientHover,
-        textGradientActive,
-        size,
-        appearance,
-        ...rest
-    }: any) => {
+    return ({ enableContentLeft, enableContentRight, enableText, size, appearance, ...rest }: any) => {
         const iconSize = getIconSize(size);
-
-        const textGradientOption = enableTextGradient
-            ? {
-                  textGradient: textGradient || undefined,
-                  textGradientHover: textGradientHover || undefined,
-                  textGradientActive: textGradientActive || undefined,
-              }
-            : undefined;
 
         return (
             <Badge
@@ -42,7 +23,6 @@ export const createDefaultStory = (Badge: any) => {
                 contentRight={enableContentRight ? <BellIcon width={iconSize} height={iconSize} /> : undefined}
                 size={size}
                 appearance={appearance !== 'default' ? appearance : undefined}
-                textGradientOption={textGradientOption}
                 {...rest}
             />
         );

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { applyEllipsis, withTextGradient } from '../../mixins';
+import { applyEllipsis } from '../../mixins';
 
 import { tokens } from './Chip.tokens';
 
@@ -14,8 +14,6 @@ export const base = css`
     border: none;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    ${withTextGradient()}
 `;
 
 export const StyledContentLeft = styled.div`

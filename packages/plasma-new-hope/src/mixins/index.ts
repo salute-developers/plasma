@@ -11,4 +11,3 @@ export * from './applySkeletonAnimation';
 export * from './applyHidden';
 export * from './createApplyPaperMixin';
 export * from './addScrollbar';
-export * from './withTextGradient';

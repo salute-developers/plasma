@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components';
 
-import { withTextGradient } from '../../mixins';
-
 import { classes, tokens } from './Badge.tokens';
 
 export const StyledContentLeft = styled.div`
@@ -35,6 +33,4 @@ export const base = css`
             white-space: nowrap;
         }
     }
-
-    ${withTextGradient()}
 `;

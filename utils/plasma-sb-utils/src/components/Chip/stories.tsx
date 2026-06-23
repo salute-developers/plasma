@@ -21,31 +21,13 @@ const ChipIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const createDefaultStory = (Chip: any) => {
-    return ({
-        enableContentLeft,
-        enableContentRight,
-        enableTextGradient,
-        textGradient,
-        textGradientHover,
-        textGradientActive,
-        size,
-        ...rest
-    }: any) => {
+    return ({ enableContentLeft, enableContentRight, size, ...rest }: any) => {
         const iconSize = iconSizeMapper[size] || '1rem';
-
-        const textGradientOption = enableTextGradient
-            ? {
-                  textGradient: textGradient || undefined,
-                  textGradientHover: textGradientHover || undefined,
-                  textGradientActive: textGradientActive || undefined,
-              }
-            : undefined;
 
         return (
             <Chip
                 contentLeft={enableContentLeft ? <ChipIcon width={iconSize} height={iconSize} /> : undefined}
                 contentRight={enableContentRight ? <ChipIcon width={iconSize} height={iconSize} /> : undefined}
-                textGradientOption={textGradientOption}
                 size={size}
                 onClear={onClear}
                 {...rest}
