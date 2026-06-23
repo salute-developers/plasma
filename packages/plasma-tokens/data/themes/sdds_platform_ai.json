@@ -8066,22 +8066,17 @@
                     "enabled": true
                 },
                 "surfaceSolidCardHover": {
-                    "value": "#1C1C1CFF",
+                    "value": "#0D0D0DFF",
                     "comment": "Основной фон для карточек на темном фоне",
                     "enabled": true
                 },
                 "surfaceSolidCardActive": {
-                    "value": "#121212FF",
-                    "comment": "Основной фон для карточек на темном фоне",
-                    "enabled": true
-                },
-                "surfaceSolidCard": {
-                    "value": "[general.gray.950]",
+                    "value": "#030303FF",
                     "comment": "Основной фон для карточек на темном фоне",
                     "enabled": true
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#252525",
+                    "value": "#171717FF",
                     "comment": "Основной фон для карточек на темном фоне",
                     "enabled": true
                 },
@@ -8620,6 +8615,11 @@
                 "surfaceTransparentNegativeMinorActive": {
                     "value": "#FA5F0508",
                     "comment": ""
+                },
+                "surfaceSolidCard": {
+                    "value": "[general.gray.1000]",
+                    "comment": "Основной фон для карточек на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
