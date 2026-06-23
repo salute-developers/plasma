@@ -40,15 +40,13 @@ describeFn('TimePickerGrid', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <TimePickerGrid
-                value="00:00"
-                onChange={(event) => {
-                    expect(event.value).to.eq('01:00');
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePickerGrid value="00:00" onChange={onChange} />);
 
         cy.contains('01').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.0.value').should('eq', '01:00');
     });
 });

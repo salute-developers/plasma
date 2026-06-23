@@ -450,22 +450,19 @@ describeFn('Tour', () => {
             </Card>
         );
 
+        const onChange = cy.stub().as('onChange');
+
         mount(
             <div style={{ width: '100%', height: '300px' }}>
                 <Button ref={ref1}>Блок 1</Button>
                 <Button ref={ref2}>Блок 2</Button>
-                <Tour
-                    open
-                    current={0}
-                    onChange={(current) => {
-                        expect(current).to.eq(1);
-                    }}
-                    steps={steps}
-                    renderStep={renderStep}
-                />
+                <Tour open current={0} onChange={onChange} steps={steps} renderStep={renderStep} />
             </div>,
         );
 
         cy.get('#next-step').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', 1);
     });
 });

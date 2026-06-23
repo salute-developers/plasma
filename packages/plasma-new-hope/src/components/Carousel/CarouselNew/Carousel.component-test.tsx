@@ -224,13 +224,11 @@ describeFn('Carousel', () => {
     it('prop: onChangeIndex', () => {
         cy.viewport(700, 500);
 
+        const onChangeIndex = cy.stub().as('onChangeIndex');
+
         mount(
             <div style={{ width: '600px' }}>
-                <Carousel
-                    onChangeIndex={(index) => {
-                        expect(index).to.eq(1);
-                    }}
-                >
+                <Carousel onChangeIndex={onChangeIndex}>
                     {items.map((item, i) => (
                         <StyledCard key={i}>{item.title}</StyledCard>
                     ))}
@@ -239,5 +237,7 @@ describeFn('Carousel', () => {
         );
 
         cy.get('.carousel-right-control-button').click();
+        cy.get('@onChangeIndex').should('have.been.calledOnce');
+        cy.get('@onChangeIndex').should('have.been.calledWith', 1);
     });
 });

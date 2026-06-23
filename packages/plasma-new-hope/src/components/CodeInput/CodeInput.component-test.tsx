@@ -133,16 +133,13 @@ describeFn('CodeInput', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <CodeInput
-                codeLength={4}
-                autoFocus
-                onChange={(value) => {
-                    expect(value).to.eq('1');
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<CodeInput codeLength={4} autoFocus onChange={onChange} />);
 
         cy.focused().type('1');
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', '1');
     });
 });

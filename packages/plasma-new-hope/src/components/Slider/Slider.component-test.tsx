@@ -20,6 +20,16 @@ getBaseVisualTests({
     configPropsForMatrix: ['view', 'size'],
 });
 
+const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+const changeRangeInputValue = (rangeElement: HTMLInputElement) => (value: number) => {
+    if (!nativeInputValueSetter) {
+        return;
+    }
+
+    nativeInputValueSetter.call(rangeElement, value);
+    rangeElement.dispatchEvent(new CustomEvent('change', { detail: { value }, bubbles: true }));
+};
+
 describeFn('Slider', () => {
     const Slider = componentExists ? getComponent<SliderProps>('Slider') : () => null;
     const sliderThumbSelector = '[type="range"]';
@@ -354,17 +364,15 @@ describeFn('Slider', () => {
     });
 
     it('prop: onChange', () => {
-        mount(
-            <Slider
-                min={0}
-                max={100}
-                value={50}
-                onChange={(value) => {
-                    expect(value).to.eq(75);
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
 
-        cy.get(sliderThumbSelector).invoke('val', 75).trigger('input', { force: true });
+        mount(<Slider min={0} max={100} value={50} onChange={onChange} />);
+
+        cy.get(sliderThumbSelector).then((range) => {
+            changeRangeInputValue(range[0] as HTMLInputElement)(75);
+        });
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', 75);
     });
 });

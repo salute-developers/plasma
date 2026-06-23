@@ -504,32 +504,33 @@ describeFn('DatePicker', () => {
     it('prop: onToggle', () => {
         cy.viewport(500, 544);
 
+        const onToggle = cy.stub().as('onToggle');
+
         mount(
-            <Demo
-                defaultDate={new Date(2023, 5, 14)}
-                onToggle={(isOpen, event) => {
-                    expect(isOpen).to.be.oneOf([true, false]);
-                    expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
-                }}
-            />,
+            <>
+                <span id="outer">outer text</span>
+                <Demo defaultDate={new Date(2023, 5, 14)} onToggle={onToggle} />
+            </>,
         );
 
         cy.get('input').first().click();
-        cy.get('body').click(0, 0);
+        cy.get('@onToggle').should('have.been.calledOnce');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('#outer').click();
+        cy.get('@onToggle').should('have.been.calledTwice');
+        cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
     it('prop: onChange', () => {
         cy.viewport(500, 544);
 
-        mount(
-            <Demo
-                onChange={(event) => {
-                    expect(event.target).to.have.property('value');
-                }}
-            />,
-        );
+        const onChange = cy.stub().as('onChange');
+
+        mount(<Demo onChange={onChange} />);
 
         cy.get('input').first().click().type('14062023');
+        cy.get('@onChange').should('have.been.called');
     });
 });
 
