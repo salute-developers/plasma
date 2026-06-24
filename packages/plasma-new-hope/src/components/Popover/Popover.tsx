@@ -317,6 +317,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                     <StyledPopover
                                         {...attributes.popper}
                                         onTransitionEnd={handleTransitionEnd}
+                                        onClick={(e) => e.nativeEvent.stopPropagation()}
                                         className={cx(classes.root, openClass, animatedClass)}
                                         ref={popoverForkRef}
                                         style={{
