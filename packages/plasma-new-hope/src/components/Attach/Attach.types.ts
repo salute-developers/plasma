@@ -5,6 +5,7 @@ import { ButtonProps } from '../Button/Button.types';
 import { DropdownPlacement, DropdownTrigger } from '../Dropdown/Dropdown.types';
 
 export type FileInfo = {
+    file: File;
     extension: string;
     filenameWithoutExtension: string;
     cellContentLeft: ReactNode;
@@ -90,6 +91,10 @@ type FlowProps =
       };
 
 export type BaseAttachProps = {
+    /**
+     * Массив файлов для контролируемого режима
+     */
+    files?: File[];
     /**
      * Массив форматов файлов, которые могут быть прикреплены (см. HTML-атрибут 'accept' для 'input').
      */

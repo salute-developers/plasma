@@ -27,12 +27,15 @@ export const StyledBackgroundCircle = styled.circle<{ customStrokeWidth?: number
         `calc(calc(50px / var(${tokens.size})) * calc(${customStrokeWidth}) * 2)`};
 `;
 
-export const StyledProgressCircle = styled.circle<{ customStrokeWidth?: number; percent?: number }>`
+export const StyledProgressCircle = styled.circle<{ customStrokeWidth?: number; percent?: number; reverse?: boolean }>`
     --percentage: ${({ percent }) => percent ?? 0};
     --radius: ${({ customStrokeWidth = `var(${tokens.strokeSize})` }) =>
         `calc(50px - calc(calc(50px / var(${tokens.size})) * ${customStrokeWidth}))`};
     --circumference: calc(calc(2 * 3.1415926535) * var(--radius));
-    --dashoffset: calc(var(--circumference) - (var(--percentage, 0) * var(--circumference) / 100));
+    --dashoffset: ${({ reverse }) =>
+        reverse
+            ? 'calc((var(--percentage, 0) * var(--circumference) / 100) - var(--circumference))'
+            : 'calc(var(--circumference) - (var(--percentage, 0) * var(--circumference) / 100))'};
 
     fill: none;
     stroke: var(${tokens.progressStroke});

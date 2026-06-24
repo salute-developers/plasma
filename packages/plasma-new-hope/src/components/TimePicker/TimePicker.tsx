@@ -52,6 +52,7 @@ export const timePickerRoot = (
 
                 valueError,
                 valueSuccess,
+                valueEdited,
 
                 // layout
                 label,
@@ -98,6 +99,8 @@ export const timePickerRoot = (
                 columnsQuantity = 2,
                 min,
                 max,
+                multiplicityMinutes,
+                multiplicitySeconds,
 
                 onToggle,
                 onFocus,
@@ -363,6 +366,7 @@ export const timePickerRoot = (
                                 className={cls({
                                     [classes.timePickerError]: valueError,
                                     [classes.timePickerSuccess]: valueSuccess,
+                                    [classes.timePickerEdited]: valueEdited,
                                 })}
                                 value={viewValue}
                                 size={size}
@@ -431,6 +435,8 @@ export const timePickerRoot = (
                                 disabled={disabled}
                                 min={min}
                                 max={max}
+                                multiplicityMinutes={multiplicityMinutes}
+                                multiplicitySeconds={multiplicitySeconds}
                             />
                         </Root>
                     </FloatingPopover>
@@ -439,6 +445,7 @@ export const timePickerRoot = (
                             className={cls({
                                 [classes.timePickerError]: valueError,
                                 [classes.timePickerSuccess]: valueSuccess,
+                                [classes.timePickerEdited]: valueEdited,
                             })}
                         >
                             {leftHelper}

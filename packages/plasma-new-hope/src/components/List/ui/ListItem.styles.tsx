@@ -55,15 +55,28 @@ export const StyledListItem = styled.li`
         position: relative;
     }
 
+    /* stylelint-disable */
+    &.${classes.hasItemDivider}:not(:last-child) {
+        margin-bottom: calc(
+            var(${tokens.listItemDividerMarginTop}, 0rem) + var(${tokens.listItemDividerHeight}) +
+                var(${tokens.listItemDividerMarginBottom}, 0rem)
+        );
+    }
+
     &.${classes.hasItemDivider}:not(:last-child) ${CellContentWrapper}::after {
         content: '';
         position: absolute;
+        pointer-events: none;
         left: 0;
         right: 0;
-        bottom: calc(-1 * (var(${tokens.listItemPaddingBottom}) + var(${tokens.listItemDividerWidth})));
-        height: var(${tokens.listItemDividerWidth});
+        bottom: calc(
+            -1 * (var(${tokens.listItemPaddingBottom}) + var(${tokens.listItemDividerMarginTop}, 0rem) +
+                        var(${tokens.listItemDividerHeight}))
+        );
+        height: var(${tokens.listItemDividerHeight});
         background: var(${tokens.listItemDividerColor});
     }
+    /* stylelint-enable */
 
     &:not(.${classes.disabledListItem}):hover {
         background: var(${tokens.listItemBackgroundHover});

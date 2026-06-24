@@ -1,8 +1,8 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import type { ChangeEvent, MouseEvent, PropsWithChildren } from 'react';
 import { RootProps } from 'src/engines';
-import { cx } from 'src/utils';
-import { useForkRef } from 'src/hooks';
+import { canUseDOM, cx } from 'src/utils';
+import { useForkRef, useIsomorphicLayoutEffect } from 'src/hooks';
 
 import { AttachProps, FileInfo } from './Attach.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -14,8 +14,21 @@ import { classes } from './Attach.tokens';
 import { AttachButton, HiddenWidthHelper } from './components';
 import { CellUI, DropdownUI } from './ui';
 
+const syncInputFiles = (input: HTMLInputElement, filesToSync: File[]) => {
+    if (!canUseDOM) {
+        return;
+    }
+
+    input.value = '';
+    if (filesToSync.length > 0) {
+        const dataTransfer = new DataTransfer();
+        filesToSync.forEach((file) => dataTransfer.items.add(file));
+        input.files = dataTransfer.files;
+    }
+};
+
 export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
-    forwardRef<HTMLDivElement, AttachProps>((props, outerRef) => {
+    forwardRef<HTMLInputElement, AttachProps>((props, outerRef) => {
         const {
             flow = 'auto',
             buttonType = 'button',
@@ -35,6 +48,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             id,
             name,
             customIcon,
+            files,
             onClick,
             onChange,
             onClear,
@@ -42,17 +56,46 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
         } = props;
 
         const innerRef = useRef<HTMLDivElement>(null);
-        const ref = useForkRef(outerRef, innerRef);
 
-        const inputRef = useRef<HTMLInputElement | null>(null);
-        const buttonRef = useRef<HTMLButtonElement | null>(null);
+        const localInputRef = useRef<HTMLInputElement>(null);
+        const inputRef = useForkRef(outerRef, localInputRef);
+        const buttonRef = useRef<HTMLButtonElement>(null);
 
-        const fileWrapperWidthRef = useRef<HTMLDivElement | null>(null);
-        const fileWrapperHelperRef = useRef<HTMLDivElement | null>(null);
+        const fileWrapperWidthRef = useRef<HTMLDivElement>(null);
+        const fileWrapperHelperRef = useRef<HTMLDivElement>(null);
         const cellHelperRefs = useRef<Record<string, HTMLDivElement>>({});
 
-        const [filesInfo, setFilesInfo] = useState<Record<string, FileInfo>>({});
+        const [innerFilesInfo, setInnerFilesInfo] = useState<Record<string, FileInfo>>({});
         const [hasHiddenFiles, setHasHiddenFiles] = useState(false);
+        const [visibilityMap, setVisibilityMap] = useState<Record<string, boolean>>({});
+
+        const controlledFilesInfo = useMemo(() => {
+            if (files === undefined) {
+                return undefined;
+            }
+
+            return files.reduce((acc, file, ind) => {
+                const fileKey = `${ind}_${file.name}`;
+                acc[fileKey] = { ...getFilenameParts(file.name, size, customIcon), file };
+
+                return acc;
+            }, {} as Record<string, FileInfo>);
+        }, [files, size, customIcon]);
+
+        const filesInfo = controlledFilesInfo !== undefined ? controlledFilesInfo : innerFilesInfo;
+
+        const mergedFilesInfo = useMemo(() => {
+            if (Object.keys(visibilityMap).length === 0) {
+                return filesInfo;
+            }
+
+            const result: Record<string, FileInfo> = {};
+            Object.entries(filesInfo).forEach(([key, info]) => {
+                result[key] = { ...info, isVisible: visibilityMap[key] !== false };
+            });
+
+            return result;
+        }, [filesInfo, visibilityMap]);
 
         const filesLength = Object.keys(filesInfo).length;
 
@@ -64,7 +107,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
         const accept = acceptedFileFormats?.join(',');
 
         const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
-            if (!inputRef.current) {
+            if (!localInputRef.current) {
                 return;
             }
 
@@ -72,38 +115,47 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                 onClick(e);
             }
 
-            inputRef.current.click();
+            localInputRef.current.click();
         };
 
         const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
             const fileList = e.target.files;
-            if (!fileList || fileList.length === 0) {
-                return;
-            }
 
             if (onChange) {
                 onChange(e);
             }
 
-            if (!hasAttachment) {
+            if (!fileList || fileList.length === 0) {
                 return;
             }
 
             const fileArray = Array.from(fileList);
+
+            if (!hasAttachment || files !== undefined) {
+                if (localInputRef.current) {
+                    localInputRef.current.value = '';
+                }
+                return;
+            }
+
             const filesData = fileArray.reduce((acc, file, ind) => {
                 const fileKey = `${ind}_${file.name}`;
-                acc[fileKey] = getFilenameParts(file.name, size, customIcon);
+                acc[fileKey] = { ...getFilenameParts(file.name, size, customIcon), file };
 
                 return acc;
             }, {} as Record<string, FileInfo>);
 
+            if (localInputRef.current) {
+                syncInputFiles(localInputRef.current, fileArray);
+            }
+
             cellHelperRefs.current = {};
-            setFilesInfo(filesData);
+            setInnerFilesInfo(filesData);
             setHasHiddenFiles(false);
         };
 
         const handleClear = (fileKey: string) => {
-            if (!inputRef.current) {
+            if (!localInputRef.current) {
                 return;
             }
 
@@ -111,27 +163,33 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                 onClear(filesInfo[fileKey]);
             }
 
-            setFilesInfo((prevFileInfo) => {
-                const updatedFilesInfo = { ...prevFileInfo };
-                delete updatedFilesInfo[fileKey];
+            if (files !== undefined) {
+                return;
+            }
 
-                return updatedFilesInfo;
-            });
+            const updatedFilesInfo = { ...innerFilesInfo };
+            delete updatedFilesInfo[fileKey];
 
+            setInnerFilesInfo(updatedFilesInfo);
             delete cellHelperRefs.current[fileKey];
-
-            setHasHiddenFiles(false);
+            syncInputFiles(
+                localInputRef.current,
+                Object.values(updatedFilesInfo).map((fi) => fi.file),
+            );
         };
 
         const getCellRef = (element: HTMLDivElement | null, key: string) => {
-            if (element && cellHelperRefs?.current) {
+            if (!cellHelperRefs?.current) {
+                return;
+            }
+            if (element) {
                 cellHelperRefs.current[key] = element;
+            } else {
+                delete cellHelperRefs.current[key];
             }
         };
 
         const updateHiddenFiles = () => {
-            const newFilesInfo = { ...filesInfo };
-
             if (!multiple || Object.keys(filesInfo).length === 0) {
                 setHasHiddenFiles(false);
 
@@ -139,12 +197,8 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             }
 
             if (flow !== 'horizontal') {
-                Object.keys(newFilesInfo).forEach((key) => {
-                    newFilesInfo[key].isVisible = true;
-                });
-
                 setHasHiddenFiles(false);
-                setFilesInfo(newFilesInfo);
+                setVisibilityMap({});
 
                 return;
             }
@@ -167,32 +221,31 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
             const firstHidden = Object.entries(cellHelperRefs.current).findIndex(([_, cell]) => {
                 totalWidth += cell.clientWidth + fileWrapperGap;
 
-                if (totalWidth > fileWrapperWidth) {
-                    setHasHiddenFiles(true);
-
-                    return true;
-                }
-
-                return false;
+                return totalWidth > fileWrapperWidth;
             });
 
-            const newKeys = Object.keys(newFilesInfo);
+            setHasHiddenFiles(firstHidden >= 0);
 
-            const filesInfoVisibleKeys = firstHidden >= 0 ? newKeys.slice(0, firstHidden) : newKeys;
+            const newKeys = Object.keys(filesInfo);
             const filesInfoHiddenKeys = firstHidden >= 0 ? newKeys.slice(firstHidden) : [];
 
-            filesInfoVisibleKeys.forEach((key) => {
-                newFilesInfo[key].isVisible = true;
-            });
-
+            const newVisibilityMap: Record<string, boolean> = {};
             filesInfoHiddenKeys.forEach((key) => {
-                newFilesInfo[key].isVisible = false;
+                newVisibilityMap[key] = false;
             });
 
-            setFilesInfo(newFilesInfo);
+            setVisibilityMap(newVisibilityMap);
         };
 
-        useLayoutEffect(() => {
+        useEffect(() => {
+            if (files === undefined || !localInputRef.current) {
+                return;
+            }
+
+            syncInputFiles(localInputRef.current, files);
+        }, [files]);
+
+        useIsomorphicLayoutEffect(() => {
             updateHiddenFiles();
         }, [filesLength, flow, multiple]);
 
@@ -227,7 +280,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                 size={size}
                 view={view}
                 helperTextView={helperTextView}
-                ref={ref}
+                ref={innerRef}
             >
                 <StyledHiddenInput
                     ref={inputRef}
@@ -256,13 +309,13 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
 
                 {(hasAttachment || hideButtonOnAttach) &&
                     Boolean(filesLength) &&
-                    Object.values(filesInfo)[0].isVisible && (
+                    Object.values(mergedFilesInfo)[0].isVisible && (
                         <>
                             <FilesWrapper
                                 className={cx(horizontalClass, verticalClass, autoClass)}
                                 applyOverflow={multiple && flow === 'horizontal'}
                             >
-                                {Object.entries(filesInfo).map(
+                                {Object.entries(mergedFilesInfo).map(
                                     ([key, { extension, filenameWithoutExtension, cellContentLeft, isVisible }]) => {
                                         if (!isVisible) {
                                             return;
@@ -290,7 +343,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                     <DropdownUI
                         rootWrapper={RootWrapper}
                         size={size}
-                        filesInfo={filesInfo}
+                        filesInfo={mergedFilesInfo}
                         customIcon={customIcon}
                         handleClear={handleClear}
                         {...dropdownOptions}

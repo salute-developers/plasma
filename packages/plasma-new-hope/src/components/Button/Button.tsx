@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
 import type { CSSProperties } from 'react';
 import cls from 'classnames';
+import { GRADIENT_TEXT_CLASS } from 'src/utils/constants';
 
 import type { RootProps } from '../../engines';
 import { convertRoundnessMatrix } from '../../utils/roundness';
-import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -83,7 +83,8 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                 value={value}
                 disabled={disabled}
                 focused={focused || outlined}
-                className={cx(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
+                tabIndex={disabled ? -1 : 0}
+                className={cls(squareClass, stretchingClass, classes.buttonItem, isLoadingClass, className)}
                 style={
                     {
                         ...style,
@@ -98,7 +99,9 @@ export const buttonRoot = (Root: RootProps<HTMLButtonElement, ButtonProps>) =>
                         <StyledContentLeft hasContentMargin={hasRightContentMargin}>{contentLeft}</StyledContentLeft>
                     )}
                     {txt ? (
-                        <ButtonText className={!additionalContent ? contentRelaxedClass : ''}>{txt}</ButtonText>
+                        <ButtonText className={cls(!additionalContent ? contentRelaxedClass : '', GRADIENT_TEXT_CLASS)}>
+                            {txt}
+                        </ButtonText>
                     ) : (
                         children
                     )}

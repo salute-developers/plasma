@@ -1,0 +1,49 @@
+---
+id: link
+title: Link
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Link
+<Description name="Link" />
+<PropsTable name="Link" exclude={['css', 'focused']} />
+
+## Использование
+
+```tsx live
+import React from 'react';
+import { BodyS, Link } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <BodyS>
+            Скачайте <Link href="/" target="_blank">приложение.</Link>
+        </BodyS>
+    );
+}
+```
+
+## Примеры
+### Подчёркивание
+
+Prop `underline` управляет режимом подчёркивания ссылки:
+
+- `none` — без подчёркивания (по умолчанию)
+- `hover` — подчёркивание при наведении
+- `always` — всегда подчёркнута
+
+```tsx live
+import React from 'react';
+import { BodyS, Link } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <BodyS><Link href="/" underline="none">Без подчёркивания</Link></BodyS>
+            <BodyS><Link href="/" underline="hover">Подчёркивание при наведении</Link></BodyS>
+            <BodyS><Link href="/" underline="always">Всегда подчёркнута</Link></BodyS>
+        </div>
+    );
+}
+```

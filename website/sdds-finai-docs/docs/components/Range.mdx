@@ -68,7 +68,36 @@ import TabItem from '@theme/TabItem';
 
 ### Управление внешним видом
 
-Внешний вид компонента зависит от свойства `size`:
+Внешний вид компонента зависит от свойств `appearance`, `size`. `appearance="viewMode"` — режим просмотра.
+
+```tsx live
+import React from 'react';
+import { Range } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <Range
+                appearance="default"
+                label="Appearance default"
+                firstPlaceholder="От"
+                secondPlaceholder="До"
+                dividerVariant="dash"
+            />
+            <Range
+                appearance="viewMode"
+                label="Appearance viewMode"
+                firstValue="100"
+                secondValue="500"
+                readOnly
+                dividerVariant="dash"
+            />
+        </div>
+    );
+}
+```
+
+Размер компонента зависит от свойства `size`:
 
 ```tsx live
 import React from 'react';

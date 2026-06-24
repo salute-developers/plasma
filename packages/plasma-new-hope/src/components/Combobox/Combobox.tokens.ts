@@ -235,6 +235,11 @@ export const tokens = {
     textFieldChipClearContentMarginLeft: '--plasma-combobox-new-textfield-chip-clear-content-margin-left',
     textFieldChipClearContentMarginRight: '--plasma-combobox-new-textfield-chip-clear-content-margin-right',
     textFieldChipOpacityReadonly: '--plasma-combobox-new-textfield-chip-opacity-readonly',
+    textFieldChipsFlexWrap: '--plasma-combobox-new-textfield-chips-flex-wrap',
+
+    textFieldScrollableWrapperOverflow: '--plasma-combobox-new-textfield-scrollable-wrapper-overflow',
+    textFieldScrollableWrapperHeight: '--plasma-combobox-new-textfield-scrollable-wrapper-height',
+    textFieldInputContainerDisplay: '--plasma-combobox-new-textfield-input-container-display',
 
     textFieldFocusColor: '--plasma-combobox-new-textfield-focus-color',
 

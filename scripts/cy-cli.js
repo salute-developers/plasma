@@ -8,7 +8,7 @@
 const inquirer = require('inquirer');
 const { spawnSync } = require('child_process');
 
-const PACKAGES = ['b2c', 'giga', 'web', 'cs', 'insol', 'serv', 'scan', 'os', 'platform-ai', 'finai', 'homeds'];
+const PACKAGES = ['b2c', 'giga', 'web', 'cs', 'insol', 'serv', 'scan', 'os', 'platform-ai', 'finai', 'dfa', 'homeds'];
 
 const PACKAGE_MAP = {
     b2c: 'plasma-b2c',
@@ -21,6 +21,7 @@ const PACKAGE_MAP = {
     os: 'sdds-os',
     'platform-ai': 'sdds-platform-ai',
     finai: 'sdds-finai',
+    dfa: 'sdds-dfa',
     homeds: 'plasma-homeds',
 };
 

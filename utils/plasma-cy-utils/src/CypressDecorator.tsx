@@ -9,6 +9,7 @@ import {
     sdds_scan__light,
     sdds_platform_ai__light,
     sdds_finai__light,
+    sdds_dfa__light,
 } from '@salutejs/sdds-themes';
 import { sdds_os__light } from '@salutejs-ds/sdds_os';
 // plasma-ui
@@ -29,6 +30,7 @@ const ThemeSCAN = createGlobalStyle(sdds_scan__light);
 const ThemeOS = createGlobalStyle(sdds_os__light);
 const ThemePLATFORMAI = createGlobalStyle(sdds_platform_ai__light);
 const ThemeFINAI = createGlobalStyle(sdds_finai__light);
+const ThemeDFA = createGlobalStyle(sdds_dfa__light);
 const ThemeHOMEDS = createGlobalStyle(plasma_homeds__light);
 const ThemeWEB = createGlobalStyle(plasma_web__light);
 
@@ -47,6 +49,7 @@ const testPackagesThemes = {
     'sdds-os': <ThemeOS />,
     'sdds-platform-ai': <ThemePLATFORMAI />,
     'sdds-finai': <ThemeFINAI />,
+    'sdds-dfa': <ThemeDFA />,
     'plasma-homeds': <ThemeHOMEDS />,
 };
 
@@ -81,6 +84,8 @@ const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.
             return require('../../../packages/sdds-platform-ai/dist/styled-components/cjs/index.js');
         case 'sdds-finai':
             return require('../../../packages/sdds-finai/dist/styled-components/cjs/index.js');
+        case 'sdds-dfa':
+            return require('../../../packages/sdds-dfa/dist/styled-components/cjs/index.js');
         case 'plasma-homeds':
             return require('../../../packages/plasma-homeds/dist/styled-components/cjs/index.js');
         default:
@@ -166,6 +171,7 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
             'sdds-os',
             'sdds-platform-ai',
             'sdds-finai',
+            'sdds-dfa',
             'plasma-homeds',
         ].includes(pkgName)
     ) {

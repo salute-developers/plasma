@@ -105,7 +105,6 @@ export const config = {
 
                 ${sliderTokens.railThickness}: 0.25rem;
                 ${sliderTokens.railBorderRadius}: 0.125rem;
-                ${sliderTokens.railIndent}: 0.75rem;
 
                 ${sliderTokens.textFieldWrapperGap}: 0.063rem;
                 ${sliderTokens.textFieldBorderWidth}: 0.125rem;
