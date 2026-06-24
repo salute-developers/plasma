@@ -13,13 +13,13 @@ import { PropsTable, Description } from '@site/src/components';
 
 ```tsx live
 import React from 'react';
-import { TextS, Link } from '@salutejs/sdds-sbcom';
+import { BodyS, Link } from '@salutejs/sdds-sbcom';
 
 export function App() {
     return (
-        <TextS>
+        <BodyS>
             Скачайте <Link href="/" target="_blank">приложение.</Link>
-        </TextS>
+        </BodyS>
     );
 }
 ```
@@ -35,14 +35,14 @@ Prop `underline` управляет режимом подчёркивания с
 
 ```tsx live
 import React from 'react';
-import { TextS, Link } from '@salutejs/sdds-sbcom';
+import { BodyS, Link } from '@salutejs/sdds-sbcom';
 
 export function App() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <TextS><Link href="/" underline="none">Без подчёркивания</Link></TextS>
-            <TextS><Link href="/" underline="hover">Подчёркивание при наведении</Link></TextS>
-            <TextS><Link href="/" underline="always">Всегда подчёркнута</Link></TextS>
+            <BodyS><Link href="/" underline="none">Без подчёркивания</Link></BodyS>
+            <BodyS><Link href="/" underline="hover">Подчёркивание при наведении</Link></BodyS>
+            <BodyS><Link href="/" underline="always">Всегда подчёркнута</Link></BodyS>
         </div>
     );
 }
