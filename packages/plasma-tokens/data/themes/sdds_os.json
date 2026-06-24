@@ -18,76 +18,58 @@
         "text": {
             "default": {
                 "textPrimaryHover": {
-                    "value": "#F5F5F593",
+                    "value": "#B8BFE5FF",
                     "comment": "Основной цвет текста"
                 },
                 "textPrimaryActive": {
-                    "value": "#F5F5F5C4",
-                    "comment": "Основной цвет текста"
-                },
-                "textPrimary": {
-                    "value": "#f5f5f5F5",
+                    "value": "#A9B1E0FF",
                     "comment": "Основной цвет текста"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#F6F6F6",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной цвет текста"
                 },
                 "textSecondaryHover": {
-                    "value": "#F5F5F5FF",
+                    "value": "#FFFFFFFF",
                     "comment": "Вторичный цвет текста"
                 },
                 "textSecondaryActive": {
-                    "value": "#F5F5F5AB",
-                    "comment": "Вторичный цвет текста"
-                },
-                "textSecondary": {
-                    "value": "#F5f5f58F",
+                    "value": "#737A96FF",
                     "comment": "Вторичный цвет текста"
                 },
                 "textTertiaryHover": {
-                    "value": "#F5F5F5FF",
+                    "value": "#CDCFD5FF",
                     "comment": "Третичный цвет текста"
                 },
                 "textTertiaryActive": {
-                    "value": "#F5F5F556",
-                    "comment": "Третичный цвет текста"
-                },
-                "textTertiary": {
-                    "value": "#F5f5f548",
+                    "value": "#545863FF",
                     "comment": "Третичный цвет текста"
                 },
                 "textParagraphHover": {
-                    "value": "#F5F5F57A",
+                    "value": "#C2CAE0FF",
                     "comment": "Сплошной наборный текст"
                 },
                 "textParagraphActive": {
-                    "value": "#F5F5F5A3",
-                    "comment": "Сплошной наборный текст"
-                },
-                "textParagraph": {
-                    "value": "#f5f5f5cc",
+                    "value": "#B4BED9FF",
                     "comment": "Сплошной наборный текст"
                 },
                 "textAccentHover": {
-                    "value": "#2ACB47FF",
+                    "value": "#5EDE76FF",
                     "comment": "Акцентный цвет"
                 },
                 "textAccentActive": {
                     "value": "#1F9835FF",
                     "comment": "Акцентный цвет"
                 },
-                "textAccent": {
-                    "value": "[general.green.400]",
-                    "comment": "Акцентный цвет"
-                },
                 "textAccentGradientHover": {
                     "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом"
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": false
                 },
                 "textAccentGradientActive": {
                     "value": "#E6E6E6FF",
-                    "comment": "Акцентный цвет с градиентом"
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": false
                 },
                 "textAccentMinorHover": {
                     "value": "#0F9527FF",
@@ -95,7 +77,7 @@
                     "enabled": true
                 },
                 "textAccentMinorActive": {
-                    "value": "#0C7920FF",
+                    "value": "#074A14FF",
                     "comment": "Акцентный минорный цвет",
                     "enabled": true
                 },
@@ -211,12 +193,12 @@
                     "comment": "Цвет ошибки"
                 },
                 "textInfoHover": {
-                    "value": "#66BCF5FF",
+                    "value": "#A3C3FFFF",
                     "comment": "Цвет информации",
                     "enabled": true
                 },
                 "textInfoActive": {
-                    "value": "#0E8ADDFF",
+                    "value": "#337AFFFF",
                     "comment": "Цвет информации",
                     "enabled": true
                 },
@@ -251,33 +233,18 @@
                     "enabled": true
                 },
                 "textInfoMinorHover": {
-                    "value": "#1277BAFF",
+                    "value": "#1C62E3FF",
                     "comment": "Минорный цвет информации",
                     "enabled": true
                 },
                 "textInfoMinorActive": {
-                    "value": "#10659EFF",
+                    "value": "#13429AFF",
                     "comment": "Минорный цвет информации",
-                    "enabled": true
-                },
-                "textInfo": {
-                    "value": "[general.blue.400]",
-                    "comment": "Цвет информации",
                     "enabled": true
                 },
                 "textPositiveMinor": {
                     "value": "[general.green.800]",
                     "comment": "Минорный цвет успеха",
-                    "enabled": true
-                },
-                "textAccentMinor": {
-                    "value": "[general.green.800]",
-                    "comment": "Акцентный минорный цвет",
-                    "enabled": true
-                },
-                "textInfoMinor": {
-                    "value": "[general.blue.800]",
-                    "comment": "Минорный цвет информации",
                     "enabled": true
                 },
                 "textNegativeMinor": {
@@ -296,8 +263,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -310,8 +283,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -322,72 +301,88 @@
                             }
                         }
                     },
-                    "comment": "Акцентный цвет с градиентом"
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": false
+                },
+                "textPrimary": {
+                    "value": "#F4F5FB",
+                    "comment": "Основной цвет текста"
+                },
+                "textSecondary": {
+                    "value": "#AEB2C2",
+                    "comment": "Вторичный цвет текста"
+                },
+                "textTertiary": {
+                    "value": "#6C707F",
+                    "comment": "Третичный цвет текста"
+                },
+                "textParagraph": {
+                    "value": "#F7F8FB",
+                    "comment": "Сплошной наборный текст"
+                },
+                "textAccent": {
+                    "value": "[general.green.400]",
+                    "comment": "Акцентный цвет"
+                },
+                "textAccentMinor": {
+                    "value": "[general.green.800]",
+                    "comment": "Акцентный минорный цвет",
+                    "enabled": true
+                },
+                "textInfo": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": "Цвет информации",
+                    "enabled": true
+                },
+                "textInfoMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": "Минорный цвет информации",
+                    "enabled": true
                 }
             },
             "onDark": {
                 "textPrimaryHover": {
-                    "value": "#F5F5F593",
+                    "value": "#B8BFE5FF",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textPrimaryActive": {
-                    "value": "#F5F5F5C4",
-                    "comment": "Основной цвет текста на темном фоне"
-                },
-                "textPrimary": {
-                    "value": "#f5f5f5F5",
+                    "value": "#A9B1E0FF",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textPrimaryBrightness": {
-                    "value": "#F6F6F6",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной цвет текста на темном фоне"
                 },
                 "textSecondaryHover": {
-                    "value": "#F5F5F5FF",
+                    "value": "#FFFFFFFF",
                     "comment": "Вторичный цвет текста на темном фоне"
                 },
                 "textSecondaryActive": {
-                    "value": "#F5F5F5AB",
-                    "comment": "Вторичный цвет текста на темном фоне"
-                },
-                "textSecondary": {
-                    "value": "#F5f5f58F",
+                    "value": "#737A96FF",
                     "comment": "Вторичный цвет текста на темном фоне"
                 },
                 "textTertiaryHover": {
-                    "value": "#F5F5F5FF",
+                    "value": "#CDCFD5FF",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
                 "textTertiaryActive": {
-                    "value": "#F5F5F556",
-                    "comment": "Третичный цвет текста на темном фоне"
-                },
-                "textTertiary": {
-                    "value": "#F5f5f548",
+                    "value": "#545863FF",
                     "comment": "Третичный цвет текста на темном фоне"
                 },
                 "textParagraphHover": {
-                    "value": "#F5F5F57A",
+                    "value": "#C2CAE0FF",
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textParagraphActive": {
-                    "value": "#F5F5F5A3",
-                    "comment": "Сплошной наборный текст на темном фоне"
-                },
-                "textParagraph": {
-                    "value": "#f5f5f5CC",
+                    "value": "#B4BED9FF",
                     "comment": "Сплошной наборный текст на темном фоне"
                 },
                 "textAccentHover": {
-                    "value": "#2ACB47FF",
+                    "value": "#5EDE76FF",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentActive": {
                     "value": "#1F9835FF",
-                    "comment": "Акцентный цвет на темном фоне"
-                },
-                "textAccent": {
-                    "value": "[general.green.400]",
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentGradientHover": {
@@ -605,8 +600,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -619,8 +620,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -632,6 +639,26 @@
                         }
                     },
                     "comment": "Акцентный цвет с градиентом на темном фоне"
+                },
+                "textPrimary": {
+                    "value": "#F4F5FB",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
+                "textSecondary": {
+                    "value": "#AEB2C2",
+                    "comment": "Вторичный цвет текста на темном фоне"
+                },
+                "textTertiary": {
+                    "value": "#6C707F",
+                    "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textParagraph": {
+                    "value": "#F7F8FB",
+                    "comment": "Сплошной наборный текст на темном фоне"
+                },
+                "textAccent": {
+                    "value": "[general.green.400]",
+                    "comment": "Акцентный цвет на темном фоне"
                 }
             },
             "onLight": {
@@ -914,8 +941,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -928,8 +961,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1223,8 +1262,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1237,8 +1282,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1796,8 +1847,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1810,8 +1867,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2368,8 +2431,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2382,8 +2451,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2935,8 +3010,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2949,8 +3030,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -3507,8 +3594,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -3521,8 +3614,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -4103,8 +4202,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -4117,8 +4222,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -4585,8 +4696,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -4599,8 +4716,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5072,8 +5195,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5086,8 +5215,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5554,8 +5689,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5568,8 +5709,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5829,11 +5976,13 @@
                 },
                 "textAccentGradientHover": {
                     "value": "#000000FF",
-                    "comment": "Акцентный цвет с градиентом"
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": false
                 },
                 "textAccentGradientActive": {
                     "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом"
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": false
                 },
                 "textAccentMinorHover": {
                     "value": "#47DC62FF",
@@ -6042,8 +6191,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6056,8 +6211,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6068,7 +6229,8 @@
                             }
                         }
                     },
-                    "comment": "Акцентный цвет с градиентом"
+                    "comment": "Акцентный цвет с градиентом",
+                    "enabled": false
                 }
             },
             "onDark": {
@@ -6351,8 +6513,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6365,8 +6533,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6660,8 +6834,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6674,8 +6854,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6969,8 +7155,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6983,8 +7175,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7537,8 +7735,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7551,8 +7755,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8114,8 +8324,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8128,8 +8344,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8681,8 +8903,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8695,8 +8923,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -9258,8 +9492,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -9272,8 +9512,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -9854,8 +10100,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -9868,8 +10120,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10331,8 +10589,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10345,8 +10609,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10818,8 +11088,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10832,8 +11108,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(13, 133, 35)",
+                                "rgb(13, 168, 171)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -11295,8 +11577,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -11309,8 +11597,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "rgb(26, 158, 50)",
+                                "rgb(4, 198, 201)"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
