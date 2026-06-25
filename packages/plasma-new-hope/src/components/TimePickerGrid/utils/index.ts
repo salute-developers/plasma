@@ -147,6 +147,119 @@ export const roundToMultiplicity = (value: number, step?: number): number => {
     return Math.round(value / step) * step;
 };
 
+/**
+ * Разбирает границу времени (min/max) в объект TimeValues.
+ * Принимает строку в формате HH:mm / HH:mm:ss или объект Date.
+ */
+export const parseTimeBoundary = (val: string | Date | undefined, format: string): TimeValues | null => {
+    if (!val) {
+        return null;
+    }
+
+    if (val instanceof Date) {
+        return { hh: val.getHours(), mm: val.getMinutes(), ss: val.getSeconds() };
+    }
+
+    return parseTimeString(val, format);
+};
+
+/**
+ * Переводит TimeValues в количество секунд с начала суток.
+ * null-значения трактуются как 0.
+ */
+export const toTotalSeconds = (timeValues: TimeValues): number =>
+    (timeValues.hh ?? 0) * 3600 + (timeValues.mm ?? 0) * 60 + (timeValues.ss ?? 0);
+
+/**
+ * Прижимает время к нижней границе (min) с учётом кратности.
+ *
+ *  1. При выборе часа корректируем минуты до ближайшей кратной ≥ min.mm.
+ *     Если кратная ≥ 60 — оставляем как есть; isTimeDisabled отклонит клик.
+ *  2. Если итоговое время всё ещё < min — корректируем секунды до ближайшей кратной ≥ min.ss.
+ *     При переполнении секунд (clamped ≥ 60) переходим на следующую кратную минуту с ss=0.
+ *     Если и nextMM ≥ 60 — isTimeDisabled отклонит клик.
+ */
+export const clampTimeToMin = (
+    timeValues: TimeValues,
+    minParsed: TimeValues,
+    column: 'hours' | 'minutes',
+    activeFormat: string,
+    multiplicityMinutes = 1,
+    multiplicitySeconds = 1,
+): TimeValues => {
+    const result = { ...timeValues };
+
+    /**
+     * Корректируем минуты (только при выборе часа)
+     */
+    if (column === 'hours' && activeFormat.includes('mm')) {
+        const clamped = Math.ceil((minParsed.mm ?? 0) / multiplicityMinutes) * multiplicityMinutes;
+        if (clamped < 60) {
+            result.mm = clamped;
+        }
+    }
+
+    /**
+     * Корректируем секунды
+     */
+    if (!activeFormat.includes('ss') || toTotalSeconds(result) >= toTotalSeconds(minParsed)) {
+        return result;
+    }
+
+    const clampedSS = Math.ceil((minParsed.ss ?? 0) / multiplicitySeconds) * multiplicitySeconds;
+
+    if (clampedSS < 60) {
+        result.ss = clampedSS;
+        return result;
+    }
+
+    /**
+     * Переполнение секунд: переходим на следующую кратную минуту, ss → 0
+     */
+    const nextMM = (result.mm ?? 0) + multiplicityMinutes;
+    if (nextMM < 60) {
+        result.mm = nextMM;
+        result.ss = 0;
+    }
+
+    return result;
+};
+
+/**
+ * Прижимает время к верхней границе (max) с учётом кратности.
+ *
+ *  1. При выборе часа корректируем минуты до ближайшей кратной ≤ max.mm.
+ *  2. Если итоговое время всё ещё > max — корректируем секунды до ближайшей кратной ≤ max.ss.
+ */
+export const clampTimeToMax = (
+    timeValues: TimeValues,
+    maxParsed: TimeValues,
+    column: 'hours' | 'minutes',
+    activeFormat: string,
+    multiplicityMinutes = 1,
+    multiplicitySeconds = 1,
+): TimeValues => {
+    const result = { ...timeValues };
+
+    /**
+     * Корректируем минуты (только при выборе часа)
+     */
+    if (column === 'hours' && activeFormat.includes('mm')) {
+        result.mm = Math.floor((maxParsed.mm ?? 0) / multiplicityMinutes) * multiplicityMinutes;
+    }
+
+    /**
+     * Корректируем секунды
+     */
+    if (!activeFormat.includes('ss') || toTotalSeconds(result) <= toTotalSeconds(maxParsed)) {
+        return result;
+    }
+
+    result.ss = Math.floor((maxParsed.ss ?? 0) / multiplicitySeconds) * multiplicitySeconds;
+
+    return result;
+};
+
 export const animateScrollTo = (element: HTMLDivElement, targetScrollTop: number, duration = 300): void => {
     const startScrollTop = element.scrollTop;
     const distance = targetScrollTop - startScrollTop;

@@ -76,7 +76,9 @@ export const renderTimeColumn = ({
                 tabIndex={-1}
             >
                 {values.map((value, index) => {
-                    const isDisabled = disabledValues?.some((disabledValue) => disabledValue === index);
+                    const isDisabled = disabledValues?.some(
+                        (disabledValue) => parseInt(disabledValue.toString(), 10) === parseInt(value, 10),
+                    );
                     const isActive = activeTime[column] === parseInt(value, 10);
 
                     const getTabIndex = () => {
