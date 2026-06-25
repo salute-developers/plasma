@@ -316,6 +316,8 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
+                ${tokens.helpersAlign}: center;
+
                 ${tokens.leftHelperPadding}: 0.25rem 0.25rem 0.25rem 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
