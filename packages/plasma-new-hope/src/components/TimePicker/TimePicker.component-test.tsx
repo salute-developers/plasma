@@ -340,4 +340,116 @@ describeFn('TimePicker', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('min: hour 12 is not disabled when min="12:05:05" (12:59:59 satisfies min)', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker columnsQuantity={3} min="12:05:05" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-value="12"][data-column="hours"]').first().should('have.attr', 'aria-disabled', 'false');
+    });
+
+    it('min: hours before min boundary are disabled when min="12:05:05"', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker columnsQuantity={3} min="12:05:05" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-value="11"][data-column="hours"]').first().should('have.attr', 'aria-disabled', 'true');
+        cy.get('[data-value="00"][data-column="hours"]').first().should('have.attr', 'aria-disabled', 'true');
+    });
+
+    it('min: clicking hour 12 auto-clamps minutes and seconds to min boundary', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker columnsQuantity={3} min="12:05:05" />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="12"][data-column="hours"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:05:05');
+    });
+
+    it('min: clicking hour above min does not change minutes and seconds', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker columnsQuantity={3} min="12:05:05" value="13:10:20" />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="13"][data-column="hours"]').first().click();
+
+        cy.get('input').first().should('have.value', '13:10:20');
+    });
+
+    it('min with multiplicityMinutes: clicking hour 12 clamps minutes to nearest multiple above min', () => {
+        cy.viewport(580, 900);
+        // min.mm=3, multiplicityMinutes=5 → ceil(3/5)*5 = 5
+        mount(<TimePicker columnsQuantity={3} min="12:03:00" multiplicityMinutes={5} />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="12"][data-column="hours"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:05:00');
+    });
+
+    it('min with multiplicitySeconds: clicking minute 05 clamps seconds to nearest multiple above min', () => {
+        cy.viewport(580, 900);
+        // min.ss=5, multiplicitySeconds=10 → ceil(5/10)*10 = 10
+        mount(<TimePicker columnsQuantity={3} min="12:05:05" value="12:00:00" multiplicitySeconds={10} />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="05"][data-column="minutes"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:05:10');
+    });
+
+    it('min: clicking minute auto-clamps seconds to min boundary', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker columnsQuantity={3} min="12:05:05" value="12:00:00" />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="05"][data-column="minutes"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:05:05');
+    });
+
+    it('max: clicking hour auto-clamps minutes and seconds to max boundary', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker columnsQuantity={3} max="12:25:30" value="12:30:00" />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="12"][data-column="hours"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:25:30');
+    });
+
+    it('max with multiplicityMinutes: clicking hour clamps minutes to nearest multiple below max', () => {
+        cy.viewport(580, 900);
+        // max.mm=27, multiplicityMinutes=5 → floor(27/5)*5 = 25
+        mount(<TimePicker columnsQuantity={3} max="12:27:00" value="12:30:00" multiplicityMinutes={5} />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="12"][data-column="hours"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:25:00');
+    });
+
+    it('min without seconds: hour 12 is not disabled when min="12:05"', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker min="12:05" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-value="12"][data-column="hours"]').first().should('have.attr', 'aria-disabled', 'false');
+        cy.get('[data-value="11"][data-column="hours"]').first().should('have.attr', 'aria-disabled', 'true');
+    });
+
+    it('min without seconds: clicking hour 12 clamps minutes to min boundary', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker min="12:05" />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="12"][data-column="hours"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:05');
+    });
 });

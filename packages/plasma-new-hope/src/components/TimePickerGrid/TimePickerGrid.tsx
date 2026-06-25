@@ -8,6 +8,10 @@ import {
     buildTimeString,
     isTimeDisabled,
     roundToMultiplicity,
+    parseTimeBoundary,
+    toTotalSeconds,
+    clampTimeToMin,
+    clampTimeToMax,
 } from './utils';
 import { TimePickerGridChangeEvent, TimePickerGridProps } from './TimePickerGrid.types';
 import { base, StyledTimePicker } from './TimePickerGrid.styles';
@@ -60,7 +64,7 @@ export const timePickerGridRoot = (
             const actualFormat = format || (columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm');
             const columnsConfig = useMemo(
                 () => getColumnsFromFormat(actualFormat, multiplicityMinutes, multiplicitySeconds),
-                [actualFormat],
+                [actualFormat, multiplicityMinutes, multiplicitySeconds],
             );
 
             const hoursColumnRef = useRef<HTMLDivElement>(null);
@@ -145,17 +149,50 @@ export const timePickerGridRoot = (
                         const timeValues = parseTimeString(viewValue || '00:00:00', actualFormat);
 
                         for (let i = 0; i < (columnType === 'hours' ? 24 : 60); i++) {
-                            const testValues = { ...timeValues };
+                            let isItemDisabled = false;
+
+                            // last valid multiple for boundary checks (e.g. step=10 → 50, not 59)
+                            const ssStep = multiplicitySeconds ?? 1;
+                            const mmStep = multiplicityMinutes ?? 1;
+                            const lastValidSS = Math.floor(59 / ssStep) * ssStep;
+                            const lastValidMM = Math.floor(59 / mmStep) * mmStep;
+
                             if (columnType === 'hours') {
-                                testValues.hh = i;
+                                // hour i is disabled only if no selectable (i:mm:ss) exists in [min, max]
+                                const latestInHour = getCompleteTimeValues(
+                                    { hh: i, mm: lastValidMM, ss: lastValidSS },
+                                    actualFormat,
+                                );
+                                const earliestInHour = getCompleteTimeValues({ hh: i, mm: 0, ss: 0 }, actualFormat);
+                                if (isTimeDisabled(latestInHour, min, undefined, format)) {
+                                    isItemDisabled = true;
+                                } else if (isTimeDisabled(earliestInHour, undefined, max, format)) {
+                                    isItemDisabled = true;
+                                }
                             } else if (columnType === 'minutes') {
-                                testValues.mm = i;
+                                // minute i is disabled only if no selectable (hh:i:ss) exists in [min, max]
+                                const currentHH = timeValues.hh ?? 0;
+                                const latestInMinute = getCompleteTimeValues(
+                                    { hh: currentHH, mm: i, ss: lastValidSS },
+                                    actualFormat,
+                                );
+                                const earliestInMinute = getCompleteTimeValues(
+                                    { hh: currentHH, mm: i, ss: 0 },
+                                    actualFormat,
+                                );
+                                if (isTimeDisabled(latestInMinute, min, undefined, format)) {
+                                    isItemDisabled = true;
+                                } else if (isTimeDisabled(earliestInMinute, undefined, max, format)) {
+                                    isItemDisabled = true;
+                                }
                             } else {
-                                testValues.ss = i;
+                                // seconds: exact check against current hh:mm
+                                const testValues = { ...timeValues, ss: i };
+                                const completeTimeValues = getCompleteTimeValues(testValues, actualFormat);
+                                isItemDisabled = isTimeDisabled(completeTimeValues, min, max, format);
                             }
 
-                            const completeTimeValues = getCompleteTimeValues(testValues, actualFormat);
-                            if (isTimeDisabled(completeTimeValues, min, max, format)) {
+                            if (isItemDisabled) {
                                 disabledFromMinMax.push(i);
                             }
                         }
@@ -167,19 +204,19 @@ export const timePickerGridRoot = (
 
                     return [...new Set([...normalizedDisabledFromProps, ...disabledFromMinMax])];
                 },
-                [disabledValues, min, max, viewValue, actualFormat],
+                [disabledValues, min, max, viewValue, actualFormat, multiplicityMinutes, multiplicitySeconds],
             );
 
-            const getCompleteTimeValues = useCallback((timeValues: any, format: string) => {
+            const getCompleteTimeValues = useCallback((timeValues: any, fmt: string) => {
                 const completeValues = { hh: 0, mm: 0, ss: 0 };
 
-                if (format.includes('HH')) {
+                if (fmt.includes('HH')) {
                     completeValues.hh = timeValues.hh !== null ? timeValues.hh : 0;
                 }
-                if (format.includes('mm')) {
+                if (fmt.includes('mm')) {
                     completeValues.mm = timeValues.mm !== null ? timeValues.mm : 0;
                 }
-                if (format.includes('ss')) {
+                if (fmt.includes('ss')) {
                     completeValues.ss = timeValues.ss !== null ? timeValues.ss : 0;
                 }
 
@@ -354,9 +391,32 @@ export const timePickerGridRoot = (
                 }
             }, [currentColumn, columnsConfig]);
 
+            /**
+             * Возвращает первое не отключённое значение из колонки с учётом кратности.
+             * Итерируем по фактическим значениям колонки (columnsConfig), а не по 0..23/59.
+             */
+            const getFirstAvailableValue = useCallback(
+                (columnType: 'hours' | 'minutes' | 'seconds'): number => {
+                    const disabledForColumn = getDisabledValuesForColumn(columnType);
+                    const columnValues = columnsConfig.find((c) => c.type === columnType)?.values ?? [];
+
+                    for (const val of columnValues) {
+                        const num = parseInt(val, 10);
+                        if (!disabledForColumn.includes(num)) {
+                            return num;
+                        }
+                    }
+
+                    return 0;
+                },
+                [getDisabledValuesForColumn, columnsConfig],
+            );
+
             const handleTimeItemClick = (value: string, column: 'hours' | 'minutes' | 'seconds') => {
-                const currentTimeValues = parseTimeString(viewValue, actualFormat);
-                const newTimeValues = { ...currentTimeValues };
+                /**
+                 * Применяем выбранное значение к соответствующей колонке
+                 */
+                const newTimeValues = { ...parseTimeString(viewValue, actualFormat) };
 
                 switch (column) {
                     case 'hours':
@@ -371,18 +431,9 @@ export const timePickerGridRoot = (
                     default:
                 }
 
-                const getFirstAvailableValue = (columnType: 'hours' | 'minutes' | 'seconds'): number => {
-                    const disabledValuesForColumn = getDisabledValuesForColumn(columnType);
-                    const maxValue = columnType === 'hours' ? 23 : 59;
-
-                    for (let i = 0; i <= maxValue; i++) {
-                        if (!disabledValuesForColumn.includes(i)) {
-                            return i;
-                        }
-                    }
-                    return 0;
-                };
-
+                /**
+                 * Незаполненные колонки получают первое доступное значение с учётом кратности
+                 */
                 if (newTimeValues.hh === null && actualFormat.includes('HH')) {
                     newTimeValues.hh = getFirstAvailableValue('hours');
                 }
@@ -393,11 +444,52 @@ export const timePickerGridRoot = (
                     newTimeValues.ss = getFirstAvailableValue('seconds');
                 }
 
-                const completeTimeValues = getCompleteTimeValues(newTimeValues, actualFormat);
-                if (isTimeDisabled(completeTimeValues, min, max)) {
+                /**
+                 * Автокоррекция зависимых колонок при выходе за границы min/max.
+                 * Секунды не требуют коррекции — пользователь выбрал точное значение.
+                 */
+                if ((min || max) && column !== 'seconds') {
+                    const minParsed = parseTimeBoundary(min, format || 'HH:mm:ss');
+                    const maxParsed = parseTimeBoundary(max, format || 'HH:mm:ss');
+                    const total = toTotalSeconds(newTimeValues);
+
+                    if (minParsed && total < toTotalSeconds(minParsed)) {
+                        Object.assign(
+                            newTimeValues,
+                            clampTimeToMin(
+                                newTimeValues,
+                                minParsed,
+                                column as 'hours' | 'minutes',
+                                actualFormat,
+                                multiplicityMinutes ?? 1,
+                                multiplicitySeconds ?? 1,
+                            ),
+                        );
+                    } else if (maxParsed && total > toTotalSeconds(maxParsed)) {
+                        Object.assign(
+                            newTimeValues,
+                            clampTimeToMax(
+                                newTimeValues,
+                                maxParsed,
+                                column as 'hours' | 'minutes',
+                                actualFormat,
+                                multiplicityMinutes ?? 1,
+                                multiplicitySeconds ?? 1,
+                            ),
+                        );
+                    }
+                }
+
+                /**
+                 * Если время всё равно вне диапазона — отклоняем клик
+                 */
+                if (isTimeDisabled(getCompleteTimeValues(newTimeValues, actualFormat), min, max)) {
                     return;
                 }
 
+                /**
+                 * Фиксируем новое время
+                 */
                 const newTimeString = buildTimeString(newTimeValues, actualFormat);
                 setInnerTime(newTimeString);
 
@@ -605,10 +697,23 @@ export const timePickerGridRoot = (
                     }
                 };
 
+                const minutesIndex =
+                    activeTime.minutes !== null ? activeTime.minutes / (multiplicityMinutes ?? 1) : null;
+                const secondsIndex =
+                    activeTime.seconds !== null ? activeTime.seconds / (multiplicitySeconds ?? 1) : null;
+
                 scrollToActiveItem(hoursColumnRef, activeTime.hours);
-                scrollToActiveItem(minutesColumnRef, activeTime.minutes);
-                scrollToActiveItem(secondsColumnRef, activeTime.seconds);
-            }, [activeTime.hours, activeTime.minutes, activeTime.seconds, itemHeight, gap]);
+                scrollToActiveItem(minutesColumnRef, minutesIndex);
+                scrollToActiveItem(secondsColumnRef, secondsIndex);
+            }, [
+                activeTime.hours,
+                activeTime.minutes,
+                activeTime.seconds,
+                itemHeight,
+                gap,
+                multiplicityMinutes,
+                multiplicitySeconds,
+            ]);
 
             useEffect(() => {
                 const hoursColumn = hoursColumnRef.current;
