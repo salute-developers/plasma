@@ -4,7 +4,8 @@ import type { RootProps } from 'src/engines/types';
 import { cx, safeUseId } from 'src/utils';
 
 import { classes } from '../../tokens';
-import { useSegmentInner } from '../../SegmentProvider/SegmentProvider';
+import { dividerOrientationMap, useSegmentInner } from '../../SegmentProvider/SegmentProvider';
+import { StyledDivider } from '../SegmentGroup/SegmentGroup.styles';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -28,7 +29,7 @@ export const segmentIconItemRoot = (Root: RootProps<HTMLButtonElement, SegmentIc
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
-        const { disabledGroup, handleSelect, selectedSegmentItems } = useSegmentInner();
+        const { disabledGroup, handleSelect, selectedSegmentItems, hasDivider, orientation } = useSegmentInner();
 
         const uniqId = safeUseId();
         const segmentId = id || `label-${uniqId}`;
@@ -48,23 +49,27 @@ export const segmentIconItemRoot = (Root: RootProps<HTMLButtonElement, SegmentIc
         };
 
         return (
-            <Root
-                view={view}
-                size={size}
-                id={segmentId}
-                ref={outerRef}
-                aria-label={ariaLabelExternal || value}
-                value={value}
-                pilled={pilled}
-                className={cx(selectedClass, pilledClass, className)}
-                onClick={handleSelectSegment}
-                tabIndex={disabledGroup ? -1 : 0}
-                disabled={disabledGroup}
-                style={style}
-                {...rest}
-            >
-                <StyledIcon>{icon}</StyledIcon>
-            </Root>
+            <>
+                {hasDivider && <StyledDivider orientation={dividerOrientationMap[orientation]} />}
+
+                <Root
+                    view={view}
+                    size={size}
+                    id={segmentId}
+                    ref={outerRef}
+                    aria-label={ariaLabelExternal || value}
+                    value={value}
+                    pilled={pilled}
+                    className={cx(classes.segmentItem, selectedClass, pilledClass, className)}
+                    onClick={handleSelectSegment}
+                    tabIndex={disabledGroup ? -1 : 0}
+                    disabled={disabledGroup}
+                    style={style}
+                    {...rest}
+                >
+                    <StyledIcon>{icon}</StyledIcon>
+                </Root>
+            </>
         );
     });
 

@@ -1,5 +1,6 @@
 export const classes = {
     selectedSegmentItem: 'selected-segment-item',
+    segmentItem: 'segment-item',
     segmentPilled: 'segment-pilled',
     segmentGroupFilledBackground: 'segment-group-filled-background',
     segmentStretch: 'segment-stretched',
@@ -61,4 +62,11 @@ export const tokens = {
     itemSelectedAdditionalColorHover: '--plasma-segment-item-selected-additional-color-hover',
 
     disabledOpacity: '--plasma-segment-disabled-opacity',
+
+    dividerColor: '--plasma-segment-divider-color',
+    dividerWidth: '--plasma-segment-divider-width',
+    dividerBorderRadius: '--plasma-segment-divider-border-radius',
+    dividerMargin: '--plasma-segment-divider-margin',
+    dividerVerticalMargin: '--plasma-segment-divider-vertical-margin',
+    dividerVerticalCompensation: '--plasma-segment-divider-vertical-compensation',
 };

@@ -1,7 +1,26 @@
 import styled, { css } from 'styled-components';
+import { component, mergeConfig } from 'src/engines';
+import { addFocus } from 'src/mixins';
 
-import { addFocus } from '../../../../mixins';
 import { classes, tokens } from '../../tokens';
+import { dividerConfig, dividerTokens } from '../../../Divider';
+
+const mergedDividerConfig = mergeConfig(dividerConfig);
+const Divider = component(mergedDividerConfig);
+
+export const StyledDivider = styled(Divider)`
+    ${dividerTokens.baseSideSize}:  var(${tokens.dividerWidth}, 0.0625rem);
+    ${dividerTokens.borderRadius}: var(${tokens.dividerBorderRadius}, 0.0625rem);
+    ${dividerTokens.background}:  var(${tokens.dividerColor});
+    
+    margin: var(${tokens.dividerMargin});
+
+    .${classes.segmentVertical} &{
+        width: calc(100% - var(${tokens.dividerVerticalCompensation}, 1rem));
+     
+        margin: var(${tokens.dividerVerticalMargin});
+    }
+`;
 
 export const base = css`
     display: inline-flex;
@@ -14,6 +33,18 @@ export const base = css`
     }
 
     border-radius: var(${tokens.groupBorderRadius});
+
+    ${StyledDivider}:first-child {
+        display: none;
+    }
+
+    & .${classes.selectedSegmentItem} + ${StyledDivider} {
+        display: none;
+    }
+
+    & ${StyledDivider}:has(+ .${classes.selectedSegmentItem}){
+        display: none;
+    }
 `;
 
 export const StyledContent = styled.div`

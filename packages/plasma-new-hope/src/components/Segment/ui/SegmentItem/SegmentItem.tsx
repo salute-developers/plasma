@@ -4,7 +4,8 @@ import type { RootProps } from 'src/engines/types';
 import { cx, safeUseId, extractTextFrom } from 'src/utils';
 
 import { classes } from '../../tokens';
-import { useSegmentInner } from '../../SegmentProvider/SegmentProvider';
+import { dividerOrientationMap, useSegmentInner } from '../../SegmentProvider/SegmentProvider';
+import { StyledDivider } from '../SegmentGroup/SegmentGroup.styles';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -31,7 +32,7 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
-        const { disabledGroup, handleSelect, selectedSegmentItems } = useSegmentInner();
+        const { disabledGroup, handleSelect, selectedSegmentItems, hasDivider, orientation } = useSegmentInner();
 
         const uniqId = safeUseId();
         const segmentId = id || `label-${uniqId}`;
@@ -54,29 +55,33 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
         };
 
         return (
-            <Root
-                view={view}
-                size={size}
-                id={segmentId}
-                ref={outerRef}
-                aria-label={ariaLabelExternal || ariaLabelDefault}
-                value={value}
-                pilled={pilled}
-                className={cx(selectedClass, pilledClass, xsSize, truncateClass, className)}
-                onClick={handleSelectSegment}
-                tabIndex={disabledGroup ? -1 : 0}
-                disabled={disabledGroup}
-                style={{ ...style, maxWidth }}
-                {...rest}
-            >
-                {contentLeft && <LeftContent>{contentLeft}</LeftContent>}
-                <StyledContent>{label || value}</StyledContent>
-                {contentRight && (
-                    <RightContent className={typeof contentRight === 'string' ? classes.segmentAdditionalText : ''}>
-                        {contentRight}
-                    </RightContent>
-                )}
-            </Root>
+            <>
+                {hasDivider && <StyledDivider orientation={dividerOrientationMap[orientation]} />}
+
+                <Root
+                    view={view}
+                    size={size}
+                    id={segmentId}
+                    ref={outerRef}
+                    aria-label={ariaLabelExternal || ariaLabelDefault}
+                    value={value}
+                    pilled={pilled}
+                    className={cx(classes.segmentItem, selectedClass, pilledClass, xsSize, truncateClass, className)}
+                    onClick={handleSelectSegment}
+                    tabIndex={disabledGroup ? -1 : 0}
+                    disabled={disabledGroup}
+                    style={{ ...style, maxWidth }}
+                    {...rest}
+                >
+                    {contentLeft && <LeftContent>{contentLeft}</LeftContent>}
+                    <StyledContent>{label || value}</StyledContent>
+                    {contentRight && (
+                        <RightContent className={typeof contentRight === 'string' ? classes.segmentAdditionalText : ''}>
+                            {contentRight}
+                        </RightContent>
+                    )}
+                </Root>
+            </>
         );
     });
 
