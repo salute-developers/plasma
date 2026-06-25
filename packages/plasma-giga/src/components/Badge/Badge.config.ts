@@ -1,8 +1,5 @@
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    bodyS,
-    bodyXS,
-    bodyXXS,
     inverseTextPrimary,
     onDarkSurfaceSolidDefault,
     onDarkSurfaceTransparentCard,
@@ -27,6 +24,8 @@ import {
     textPrimary,
     textWarning,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
+
+import { pilled, sizeL, sizeM, sizeS, sizeXS } from './Badge.config.common';
 
 export const config = {
     defaults: {
@@ -101,85 +100,21 @@ export const config = {
         },
         size: {
             l: css`
-                ${badgeTokens.borderRadius}: 0.5rem;
-                ${badgeTokens.height}: 1.75rem;
-                ${badgeTokens.padding}: 0 0.6875rem;
-                ${badgeTokens.paddingIconOnly}: 0 0.375rem;
-
-                ${badgeTokens.fontFamily}: ${bodyS.fontFamily};
-                ${badgeTokens.fontSize}: ${bodyS.fontSize};
-                ${badgeTokens.fontStyle}: ${bodyS.fontStyle};
-                ${badgeTokens.fontWeight}: ${bodyS.fontWeight};
-                ${badgeTokens.letterSpacing}: ${bodyS.letterSpacing};
-                ${badgeTokens.lineHeight}: ${bodyS.lineHeight};
-
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
-                ${badgeTokens.leftContentMarginRight}: 0.25rem;
-
-                ${badgeTokens.rightContentMarginLeft}: 0.25rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${sizeL}
             `,
             m: css`
-                ${badgeTokens.borderRadius}: 0.375rem;
-                ${badgeTokens.height}: 1.5rem;
-                ${badgeTokens.padding}: 0 0.5625rem;
-                ${badgeTokens.paddingIconOnly}: 0 0.375rem;
-
-                ${badgeTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${badgeTokens.fontSize}: ${bodyXS.fontSize};
-                ${badgeTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${badgeTokens.fontWeight}: ${bodyXS.fontWeight};
-                ${badgeTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${badgeTokens.lineHeight}: ${bodyXS.lineHeight};
-
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
-                ${badgeTokens.leftContentMarginRight}: 0.1875rem;
-
-                ${badgeTokens.rightContentMarginLeft}: 0.1875rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${sizeM}
             `,
             s: css`
-                ${badgeTokens.borderRadius}: 0.375rem;
-                ${badgeTokens.height}: 1.25rem;
-                ${badgeTokens.padding}: 0 0.4375rem;
-                ${badgeTokens.paddingIconOnly}: 0 0.25rem;
-
-                ${badgeTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${badgeTokens.fontSize}: ${bodyXXS.fontSize};
-                ${badgeTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${badgeTokens.fontWeight}: ${bodyXXS.fontWeight};
-                ${badgeTokens.letterSpacing}: ${bodyXXS.letterSpacing};
-                ${badgeTokens.lineHeight}: ${bodyXXS.lineHeight};
-
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
-                ${badgeTokens.leftContentMarginRight}: 0.125rem;
-
-                ${badgeTokens.rightContentMarginLeft}: 0.125rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${sizeS}
             `,
             xs: css`
-                ${badgeTokens.borderRadius}: 0.25rem;
-                ${badgeTokens.height}: 1rem;
-                ${badgeTokens.padding}: 0 0.25rem;
-                ${badgeTokens.paddingIconOnly}: 0 0.188rem;
-
-                ${badgeTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${badgeTokens.fontSize}: ${bodyXXS.fontSize};
-                ${badgeTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${badgeTokens.fontWeight}: ${bodyXXS.fontWeight};
-                ${badgeTokens.letterSpacing}: ${bodyXXS.letterSpacing};
-                ${badgeTokens.lineHeight}: ${bodyXXS.lineHeight};
-
-                ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
-                ${badgeTokens.leftContentMarginRight}: 0.125rem;
-
-                ${badgeTokens.rightContentMarginLeft}: 0.125rem;
-                ${badgeTokens.rightContentMarginRight}: -0.0625rem;
+                ${sizeXS}
             `,
         },
         pilled: {
             true: css`
-                ${badgeTokens.pilledBorderRadius}: 1.25rem;
+                ${pilled}
             `,
         },
         transparent: {

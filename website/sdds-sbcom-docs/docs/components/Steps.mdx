@@ -8,40 +8,246 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Steps
-
 <Description name="Steps" />
-<PropsTable name="Steps" />
+
+## Быстрый старт
+
+```tsx live
+import React, { useState } from 'react';
+import { Steps } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const [items, setItems] = useState([{
+        indicator: 1,
+        title: 'Шаг 1',
+        status: 'active',
+    }, {
+        indicator: 2,
+        title: 'Шаг 2',
+        status: 'inactive',
+    }, {
+        indicator: 3,
+        title: 'Шаг 3',
+        status: 'inactive',
+    }]);
+
+    const onChange = (item, index, prevIndex) => {
+        if (prevIndex !== undefined) {
+            items[prevIndex].status = 'completed';
+        }
+
+        items[index].status = 'active';
+
+        setItems([...items]);
+    };
+
+    return (
+        <section>
+            <Steps items={items} onChange={onChange} />
+        </section>
+    );
+}
+```
+
+## Ориентация
+
+Свойство `orientation` задаёт направление шагов. В вертикальном режиме рекомендуется включать разделитель через `hasLine`.
+
+<Tabs>
+    <TabItem value="horizontal" label="Horizontal" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Steps } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [items, setItems] = useState([{
+                indicator: 1,
+                title: 'Title',
+                content: 'Content',
+                status: 'completed',
+            }, {
+                indicator: 2,
+                title: 'Title',
+                content: 'Content',
+                status: 'active',
+            }, {
+                indicator: 3,
+                title: 'Title',
+                content: 'Content',
+                status: 'inactive',
+            }]);
+
+            const onChange = (item, index, prevIndex) => {
+                if (prevIndex !== undefined) {
+                    items[prevIndex].status = 'completed';
+                }
+
+                items[index].status = 'active';
+
+                setItems([...items]);
+            };
+
+            return (
+                <section>
+                    <Steps items={items} onChange={onChange} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="vertical" label="Vertical">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Steps } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [items, setItems] = useState([{
+                indicator: 1,
+                title: 'Title',
+                content: 'Content',
+                status: 'completed',
+            }, {
+                indicator: 2,
+                title: 'Title',
+                content: 'Content',
+                status: 'active',
+            }, {
+                indicator: 3,
+                title: 'Title',
+                content: 'Content',
+                status: 'inactive',
+            }]);
+
+            const onChange = (item, index, prevIndex) => {
+                if (prevIndex !== undefined) {
+                    items[prevIndex].status = 'completed';
+                }
+
+                items[index].status = 'active';
+
+                setItems([...items]);
+            };
+
+            return (
+                <section>
+                    <Steps orientation="vertical" hasLine items={items} onChange={onChange} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
 ## Внешний вид
 
-:::info
-Важно! Значения `ItemView` применяются к шагу только когда его статус — `active`.
-:::
+<Tabs>
+    <TabItem value="view" label="View" default>
+        Свойство `view` применяется ко всему компоненту и задаёт цвет завершённых шагов и разделителя. Принимает значения `default` и `accent`.
 
-Внешний вид компонента регулируется 3 свойствами:
+        ```tsx live
+        import React from 'react';
+        import { Steps } from '@salutejs/sdds-sbcom';
 
-#### View
+        export function App() {
+            const completedItems = [{
+                indicator: 1,
+                title: 'Title',
+                status: 'completed',
+            }, {
+                indicator: 2,
+                title: 'Title',
+                status: 'active',
+            }, {
+                indicator: 3,
+                title: 'Title',
+                status: 'inactive',
+            }];
 
-Свойство применяется ко всему компоненту и принимает следующие значения:
-- `default`
-- `accent`
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column' }}>
+                    <Steps view="default" items={completedItems} />
+                    <Steps view="accent" items={completedItems} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="itemView" label="ItemView">
+        Свойство `itemView` применяется к индикатору и заголовку **активного** шага. Принимает значения `default`, `negative`, `warning`, `positive`.
 
-#### ItemView
+        :::info
+        Значения `itemView` применяются к шагу только когда его статус — `active`.
+        :::
 
-Свойство применяется к индикатору активного шага и заголовку, и принимает следующие значения:
-- `default`
-- `negative`
-- `warning`
-- `positive`
+        ```tsx live
+        import React from 'react';
+        import { Steps } from '@salutejs/sdds-sbcom';
 
-#### CompletedItemView
+        export function App() {
+            const activeItems = [{
+                indicator: 1,
+                title: 'Active step',
+                status: 'active',
+            }, {
+                indicator: 2,
+                title: 'Inactive step',
+                status: 'inactive',
+            }];
 
-Свойство задаётся на каждом шаге отдельно через `items[n].completedItemView` и позволяет переопределить внешний вид индикатора и заголовка для **завершённых** шагов (`status: 'completed'`). Принимает следующие значения:
-- `default`
-- `accent`
-- `negative`
-- `warning`
-- `positive`
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column' }}>
+                    <Steps itemView="default" items={activeItems} />
+                    <Steps itemView="positive" items={activeItems} />
+                    <Steps itemView="warning" items={activeItems} />
+                    <Steps itemView="negative" items={activeItems} />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="completedItemView" label="CompletedItemView">
+        Свойство `completedItemView` задаётся на каждом шаге через `items[n].completedItemView` и переопределяет внешний вид **завершённого** шага. Принимает значения `default`, `accent`, `negative`, `warning`, `positive`.
+
+        ```tsx live
+        import React from 'react';
+        import { Steps } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const items = [{
+                indicator: 1,
+                title: 'accent',
+                status: 'completed',
+                completedItemView: 'accent',
+            }, {
+                indicator: 2,
+                title: 'positive',
+                status: 'completed',
+                completedItemView: 'positive',
+            }, {
+                indicator: 3,
+                title: 'warning',
+                status: 'completed',
+                completedItemView: 'warning',
+            }, {
+                indicator: 4,
+                title: 'negative',
+                status: 'completed',
+                completedItemView: 'negative',
+            }, {
+                indicator: 5,
+                title: 'active',
+                status: 'active',
+            }];
+
+            return (
+                <section>
+                    <Steps items={items} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
 
 ## Тип индикатора
 
@@ -50,27 +256,28 @@ import TabItem from '@theme/TabItem';
 <Tabs>
     <TabItem value="numbered" label="Numbered" default>
         ```tsx live
-        import React from 'react';
+        import React, { useState } from 'react';
         import { Steps } from '@salutejs/sdds-sbcom';
 
         export function App() {
-            const initialItems = [{
+            const [items, setItems] = useState([{
                 indicator: 1,
                 title: 'Title',
                 content: 'Content',
+                status: 'active',
             }, {
                 indicator: 2,
                 title: 'Title',
                 content: 'Content',
+                status: 'inactive',
             }, {
                 indicator: 3,
                 title: 'Title',
                 content: 'Content',
-            }];
+                status: 'inactive',
+            }]);
 
-            const [items, setItems] = useState(initialItems);
-
-            const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+            const onChange = (item, index, prevIndex) => {
                 if (prevIndex !== undefined) {
                     items[prevIndex].status = 'completed';
                 }
@@ -92,24 +299,25 @@ import TabItem from '@theme/TabItem';
         Если передать `indicator: undefined`, индикатор отображается в виде точки.
 
         ```tsx live
-        import React from 'react';
+        import React, { useState } from 'react';
         import { Steps } from '@salutejs/sdds-sbcom';
 
         export function App() {
-            const initialItems = [{
+            const [items, setItems] = useState([{
                 title: 'Title',
                 content: 'Content',
+                status: 'active',
             }, {
                 title: 'Title',
                 content: 'Content',
+                status: 'inactive',
             }, {
                 title: 'Title',
                 content: 'Content',
-            }];
+                status: 'inactive',
+            }]);
 
-            const [items, setItems] = useState(initialItems);
-
-            const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+            const onChange = (item, index, prevIndex) => {
                 if (prevIndex !== undefined) {
                     items[prevIndex].status = 'completed';
                 }
@@ -128,36 +336,37 @@ import TabItem from '@theme/TabItem';
         ```
     </TabItem>
     <TabItem value="icon" label="Icon">
-        Свойство `indicator` также принимает render-функцию, которая получает `{ status, size }` и возвращает иконку.
+        Свойство `indicator` принимает render-функцию, которая получает `{ status, size }` и возвращает иконку.
 
         ```tsx live
-        import React from 'react';
+        import React, { useState } from 'react';
         import { Steps } from '@salutejs/sdds-sbcom';
         import { IconPlasma } from '@salutejs/plasma-icons';
 
         export function App() {
-            const renderIndicator = ({ status, size }) => {
-                const iconSize = size === 'xs' || size === 's' ? 'xs' : 'xs';
+            const renderIndicator = ({ size }) => {
+                const iconSize = size === 'xs' || size === 's' ? 'xs' : 's';
                 return <IconPlasma color="inherit" size={iconSize} />;
             };
 
-            const initialItems = [{
+            const [items, setItems] = useState([{
                 indicator: renderIndicator,
                 title: 'Title',
                 content: 'Content',
+                status: 'active',
             }, {
                 indicator: renderIndicator,
                 title: 'Title',
                 content: 'Content',
+                status: 'inactive',
             }, {
                 indicator: renderIndicator,
                 title: 'Title',
                 content: 'Content',
-            }];
+                status: 'inactive',
+            }]);
 
-            const [items, setItems] = useState(initialItems);
-
-            const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
+            const onChange = (item, index, prevIndex) => {
                 if (prevIndex !== undefined) {
                     items[prevIndex].status = 'completed';
                 }
@@ -177,58 +386,31 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-## Внешнее управление
+## Управление навигацией
+
+Колбэк `onChange` вызывается при клике на шаг. Принимает `(item, index, prevIndex)`. Внутри него обновляйте статусы шагов вручную.
 
 ```tsx live
 import React, { useState } from 'react';
-import { Steps, Button } from '@salutejs/sdds-sbcom';
+import { Steps, StepItemProps } from '@salutejs/sdds-sbcom';
 
 export function App() {
-    const items = [{
-        indicator: 1,
-    }, {
-        indicator: 2,
-    }, {
-        indicator: 3,
-    }];
-
-    const [current, setCurrent] = useState<number>(0);
-    const onClick = () => setCurrent(() => current + 1);
-
-    return (
-        <section>
-            <Steps items={items} current={current} />
-            <br />
-            <Button view="accentFiled" onClick={onClick}>
-                Next
-            </Button>
-        </section>
-    );
-}
-```
-
-## Управление через onChange и статус шага
-
-```tsx live
-import React, { useState } from 'react';
-import { Steps, StepItemProps  } from '@salutejs/sdds-sbcom';
-
-export function App() {
-    const initialItems = [{
+    const [items, setItems] = useState([{
         indicator: 1,
         title: 'Title',
         content: 'Content',
+        status: 'active',
     }, {
         indicator: 2,
         title: 'Title',
         content: 'Content',
+        status: 'inactive',
     }, {
         indicator: 3,
         title: 'Title',
         content: 'Content',
-    }];
-
-    const [items, setItems] = useState(initialItems);
+        status: 'inactive',
+    }]);
 
     const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
         if (prevIndex !== undefined) {
@@ -248,92 +430,228 @@ export function App() {
 }
 ```
 
+## Внешнее управление
 
-## Использование свойства ItemView
+Свойство `current` позволяет управлять активным шагом извне без использования `onChange`:
 
 ```tsx live
 import React, { useState } from 'react';
-import { Steps, StepItemProps  } from '@salutejs/sdds-sbcom';
+import { Steps, Button } from '@salutejs/sdds-sbcom';
 
 export function App() {
-    const initialItems = [{
+    const items = [{
         indicator: 1,
-        title: 'Title',
-        content: 'Content',
     }, {
         indicator: 2,
-        title: 'Title',
-        content: 'Content',
     }, {
         indicator: 3,
-        title: 'Title',
-        content: 'Content',
     }];
 
-    const [items, setItems] = useState(initialItems);
-
-    const onChange = (item: StepItemProps, index: number, prevIndex: number) => {
-        if (prevIndex !== undefined) {
-            items[prevIndex].status = 'completed';
-        }
-
-        items[index].status = 'active';
-
-        setItems([...items]);
-    };
+    const [current, setCurrent] = useState(0);
+    const onClick = () => setCurrent((prev) => prev + 1);
 
     return (
         <section>
-            <Steps items={items} itemView="positive" onChange={onChange} />
+            <Steps items={items} current={current} />
+            <br />
+            <Button view="secondary" onClick={onClick}>
+                Next
+            </Button>
         </section>
     );
 }
 ```
 
-## Использование свойства completedItemView
+## Кастомный размер шага
 
-Свойство `completedItemView` задаётся на каждом шаге индивидуально и позволяет переопределить внешний вид завершённого шага.
+Каждому шагу можно задать индивидуальный размер через свойство `height` (вертикальный режим) или `width` (горизонтальный режим).
+
+:::info
+В вертикальном режиме последний шаг **не требует** явного `height` — он автоматически занимает минимально необходимое пространство (fit-content). Для остальных шагов `height` позволяет зарезервировать место под контент с переменной высотой (например, аккордеон).
+:::
+
+<Tabs>
+    <TabItem value="vertical" label="Vertical" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Steps } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [items, setItems] = useState([{
+                indicator: 1,
+                title: 'Шаг с фиксированной высотой',
+                content: 'Описание первого шага',
+                height: '6rem',
+                status: 'completed',
+            }, {
+                indicator: 2,
+                title: 'Шаг с фиксированной высотой',
+                content: 'Описание второго шага',
+                height: '6rem',
+                status: 'active',
+            }, {
+                indicator: 3,
+                title: 'Последний шаг',
+                content: 'Высота автоматическая (fit-content)',
+                status: 'inactive',
+            }]);
+
+            const onChange = (item, index, prevIndex) => {
+                if (prevIndex !== undefined) {
+                    items[prevIndex].status = 'completed';
+                }
+
+                items[index].status = 'active';
+
+                setItems([...items]);
+            };
+
+            return (
+                <section>
+                    <Steps orientation="vertical" items={items} hasLine onChange={onChange} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="horizontal" label="Horizontal">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Steps } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [items, setItems] = useState([{
+                indicator: 1,
+                title: 'Фиксированный шаг',
+                width: '180px',
+                status: 'completed',
+            }, {
+                indicator: 2,
+                title: 'Обычный',
+                status: 'active',
+            }, {
+                indicator: 3,
+                title: 'Фиксированный шаг',
+                width: '180px',
+                status: 'inactive',
+            }]);
+
+            const onChange = (item, index, prevIndex) => {
+                if (prevIndex !== undefined) {
+                    items[prevIndex].status = 'completed';
+                }
+
+                items[index].status = 'active';
+
+                setItems([...items]);
+            };
+
+            return (
+                <section>
+                    <Steps items={items} hasLine onChange={onChange} />
+                </section>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Вложенные шаги с аккордеоном
+
+Шаг может содержать произвольный контент, в том числе другой компонент `Steps`. Для корректного отображения передайте `height` внешним шагам, которые содержат контент с переменной высотой.
 
 ```tsx live
-import React from 'react';
-import { Steps, StepItemProps } from '@salutejs/sdds-sbcom';
+import React, { useState } from 'react';
+import { Steps, Accordion, AccordionItem } from '@salutejs/sdds-sbcom';
 
 export function App() {
-    const items: StepItemProps[] = [{
+    const [open, setOpen] = useState(true);
+
+    const [innerSteps, setInnerSteps] = useState([{
         indicator: 1,
-        title: 'Title',
-        content: 'Content',
-        status: 'completed',
-        completedItemView: 'accent',
+        title: 'Установка зависимостей',
+        status: 'active',
+        height: '3.5rem',
     }, {
         indicator: 2,
-        title: 'Title',
-        content: 'Content',
-        status: 'completed',
-        completedItemView: 'positive',
+        title: 'Настройка окружения',
+        status: 'inactive',
+        height: '3.5rem',
     }, {
         indicator: 3,
-        title: 'Title',
-        content: 'Content',
-        status: 'completed',
-        completedItemView: 'warning',
+        title: 'Запуск проекта',
+        status: 'inactive',
+    }]);
+
+    const [outerStatuses, setOuterStatuses] = useState([
+        { status: 'completed' },
+        { status: 'active' },
+        { status: 'inactive' },
+    ]);
+
+    const handleInnerChange = (_item, idx, prevIdx) => {
+        setInnerSteps(steps => {
+            const next = [...steps];
+            if (prevIdx !== undefined) {
+                next[prevIdx] = { ...next[prevIdx], status: 'completed' };
+            }
+            next[idx] = { ...next[idx], status: 'active' };
+            return next;
+        });
+    };
+
+    const handleOuterChange = (_item, idx, prevIdx) => {
+        setOuterStatuses(statuses => {
+            const next = statuses.map(s => ({ ...s }));
+            if (prevIdx !== undefined) {
+                next[prevIdx] = { ...next[prevIdx], status: 'completed' };
+            }
+            next[idx] = { ...next[idx], status: 'active' };
+            return next;
+        });
+    };
+
+    const outerItems = [{
+        indicator: 1,
+        title: 'Подготовка',
+        height: '4rem',
+        ...outerStatuses[0],
     }, {
-        indicator: 4,
-        title: 'Title',
-        content: 'Content',
-        status: 'completed',
-        completedItemView: 'negative',
+        indicator: 2,
+        title: 'Установка',
+        height: open ? '16rem' : '7rem',
+        content: (
+            <Accordion stretching="filled">
+                <AccordionItem
+                    title="Шаги установки"
+                    type="arrow"
+                    opened={open}
+                    onClick={() => setOpen(v => !v)}
+                >
+                    <Steps
+                        orientation="vertical"
+                        size="s"
+                        hasLine
+                        items={innerSteps}
+                        onChange={handleInnerChange}
+                    />
+                </AccordionItem>
+            </Accordion>
+        ),
+        ...outerStatuses[1],
     }, {
-        indicator: 5,
-        title: 'Title',
-        content: 'Content',
-        status: 'active',
+        indicator: 3,
+        title: 'Проверка',
+        ...outerStatuses[2],
     }];
 
     return (
-        <section>
-            <Steps items={items} />
+        <section style={{ width: '400px' }}>
+            <Steps orientation="vertical" hasLine items={outerItems} onChange={handleOuterChange} />
         </section>
     );
 }
 ```
+
+## Таблица свойств
+<PropsTable name="Steps" exclude={['css']} />

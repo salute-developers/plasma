@@ -61,6 +61,29 @@ type Items = Array<{
 
 В одиночном режиме можно использовать `mode="radio"`, если нужно запретить снятие выбора повторным кликом. В множественном режиме доступны `selectAllOptions`, `isTargetAmount`, `targetAmount`, `renderValue` и `chipClickArea`.
 
+## Appearance
+
+`appearance="viewMode"` — режим просмотра.
+
+```tsx live
+import React from 'react';
+import { Combobox } from '@salutejs/sdds-finai';
+
+export function App() {
+    const items = [
+        { value: 'option_1', label: 'Опция 1' },
+        { value: 'option_2', label: 'Опция 2' },
+    ];
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '350px', height: '200px' }}>
+            <Combobox items={items} appearance="default" label="Default" placeholder="Placeholder" />
+            <Combobox items={items} appearance="viewMode" value="option_1" readOnly label="ViewMode" placeholder="Placeholder" />
+        </div>
+    );
+}
+```
+
 ## Примеры
 
 <Tabs>

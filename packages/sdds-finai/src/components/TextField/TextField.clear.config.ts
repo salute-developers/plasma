@@ -55,6 +55,7 @@ export const config = {
                 ${tokens.leftHelperColor}: var(--text-positive);
                 ${tokens.rightHelperColor}: var(--text-positive);
                 ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -92,6 +93,7 @@ export const config = {
                 ${tokens.leftHelperColor}: var(--text-warning);
                 ${tokens.rightHelperColor}: var(--text-warning);
                 ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -126,8 +128,10 @@ export const config = {
                 ${tokens.textBeforeColor}: var(--text-tertiary);
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-secondary);
-                ${tokens.leftHelperColor}: var(--text-secondary);
-                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.rightHelperColor}: var(--text-negative);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -143,6 +147,37 @@ export const config = {
                 ${tokens.dividerColor}: var(--surface-negative);
                 ${tokens.dividerColorHover}: var(--surface-negative);
                 ${tokens.dividerColorFocus}: var(--surface-accent);
+
+                ${tokens.focusColor}: var(--text-accent);
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
+            `,
+            edited: css`
+                ${tokens.color}: var(--text-primary);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.backgroundColor}: var(--data-blue-light);
+                ${tokens.backgroundColorHover}: var(--data-blue-light-hover);
+                ${tokens.backgroundColorFocus}: var(--data-blue-light-active);
+                ${tokens.caretColor}: var(--text-accent);
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+                ${tokens.labelColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
+
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.dividerColor}: var(--outline-transparent-info);
+                ${tokens.dividerColorHover}: var(--outline-transparent-info);
+                ${tokens.dividerColorFocus}: var(--outline-transparent-info-active);
 
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);

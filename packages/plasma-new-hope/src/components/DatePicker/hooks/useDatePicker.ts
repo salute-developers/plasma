@@ -15,6 +15,7 @@ export const useDatePicker = ({
     readOnly,
     valueError,
     valueSuccess,
+    valueEdited,
     name,
     type,
     min,
@@ -30,6 +31,7 @@ export const useDatePicker = ({
 }: UseDatePickerProps) => {
     const datePickerErrorClass = valueError ? classes.datePickerError : undefined;
     const datePickerSuccessClass = valueSuccess ? classes.datePickerSuccess : undefined;
+    const datePickerEditedClass = valueEdited ? classes.datePickerEdited : undefined;
 
     const getQuarterInfo = (originalDate: Date) => {
         if (type !== 'Quarters') {
@@ -263,6 +265,7 @@ export const useDatePicker = ({
     return {
         datePickerErrorClass,
         datePickerSuccessClass,
+        datePickerEditedClass,
         handleChangeValue,
         handleSearch,
         handleCalendarPick,

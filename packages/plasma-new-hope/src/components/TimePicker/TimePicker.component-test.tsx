@@ -20,7 +20,7 @@ const componentExists = hasComponent('TimePicker');
 const componentModalExists = hasComponent('Modal');
 const componentPopupProviderExists = hasComponent('PopupProvider');
 const describeFn = getDescribeFN('TimePicker');
-const itSkip = skipForPackages(['plasma-b2c', 'plasma-web']);
+const itSkip = skipForPackages(['plasma-b2c', 'plasma-web', 'sdds-dfa']);
 const itSkipHint = skipForPackages(['plasma-b2c', 'plasma-web', 'sdds-cs']);
 const itSkipClear = skipForPackages([
     'plasma-b2c',
@@ -289,6 +289,54 @@ describeFn('TimePicker', () => {
                 <TimePicker appearance="clear" hasClearDivider value="00:00:00" valueSuccess leftHelper="Успех" />
             </>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('renders minutes with multiplicity 5', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker value="00:00" multiplicityMinutes={5} />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('renders minutes with multiplicity 15', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker value="00:15" multiplicityMinutes={15} />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('renders seconds with multiplicity 20', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker value="00:00:00" columnsQuantity={3} multiplicitySeconds={20} />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('rounds value to multiplicity 5', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker value="00:14" multiplicityMinutes={5} />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
 
         cy.matchImageSnapshot();
     });

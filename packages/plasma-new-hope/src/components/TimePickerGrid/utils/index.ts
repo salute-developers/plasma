@@ -17,7 +17,11 @@ export interface ColumnConfig {
     disabledValues?: (number | string)[];
 }
 
-export const getColumnsFromFormat = (format: string): ColumnConfig[] => {
+export const getColumnsFromFormat = (
+    format: string,
+    multiplicityMinutes?: number,
+    multiplicitySeconds?: number,
+): ColumnConfig[] => {
     const parts = format.split(':');
     const columns: ColumnConfig[] = [];
 
@@ -33,14 +37,14 @@ export const getColumnsFromFormat = (format: string): ColumnConfig[] => {
             case 'mm':
                 columns.push({
                     type: 'minutes',
-                    values: range(60),
+                    values: range(60, 2, multiplicityMinutes ?? 1),
                     format: 'mm',
                 });
                 break;
             case 'ss':
                 columns.push({
                     type: 'seconds',
-                    values: range(60),
+                    values: range(60, 2, multiplicitySeconds ?? 1),
                     format: 'ss',
                 });
                 break;
@@ -133,8 +137,14 @@ export const isTimeDisabled = (
 
 export const delimiter = ':';
 
-export const range = (number: number, padLength = 2): string[] => {
-    return Array.from({ length: number }, (_, i) => i.toString().padStart(padLength, '0'));
+export const range = (number: number, padLength = 2, step = 1): string[] => {
+    if (step > number) step = number;
+    return Array.from({ length: Math.ceil(number / step) }, (_, i) => (i * step).toString().padStart(padLength, '0'));
+};
+
+export const roundToMultiplicity = (value: number, step?: number): number => {
+    if (!step || step <= 1) return value;
+    return Math.round(value / step) * step;
 };
 
 export const animateScrollTo = (element: HTMLDivElement, targetScrollTop: number, duration = 300): void => {

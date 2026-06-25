@@ -207,7 +207,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const textareaHelperId = id ? `${id}-helper` : undefined;
         const hasExplicitHeight = Boolean(computedHeight);
         const placeholderLabel = hasInnerLabel ? label : placeholder;
-        const applyAutoResize = autoResize || Boolean(clear || appearance === 'clear');
+        const applyAutoResize = autoResize || Boolean(clear || appearance === 'clear' || appearance === 'viewMode');
 
         const clearClass = clear || appearance === 'clear' ? classes.clear : undefined;
         const hasHintClass = hintText ? classes.hasHint : undefined;

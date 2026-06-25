@@ -23,7 +23,7 @@ type ExtraBadgeProps = {
      * Компонент c округлым border-radius
      */
     pilled?: boolean;
-} & Omit<CustomBadgeProps, 'size' | 'view' | 'maxWidth'>;
+} & Omit<CustomBadgeProps, 'size' | 'view' | 'maxWidth' | 'appearance'>;
 
 type ExtraCounterProps = {
     /**
@@ -101,3 +101,4 @@ type CustomAvatarProps = {
 export type StatusLabels = Record<'active' | 'inactive', string>;
 
 export type AvatarProps = HTMLAttributes<HTMLDivElement> & CustomAvatarProps;
+export type AvatarRootProps = HTMLAttributes<HTMLDivElement> & Omit<CustomAvatarProps, 'clear' | 'transparent'>;

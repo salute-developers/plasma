@@ -13,6 +13,8 @@ export const classes = {
     hasIndicator: 'item-has-indicator',
     activeItem: 'item-active',
     transparentDivider: 'transparent-divider',
+    verticalLastItem: 'vertical-last-item',
+    noTitle: 'no-title',
 };
 
 export const tokens = {

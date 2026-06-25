@@ -45,6 +45,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 itemErrorBehavior = 'remove-symbol',
                 codeErrorBehavior = 'remove-code',
                 autoComplete = 'one-time-code',
+                inputMode,
                 setIsError,
                 onChange,
                 onFullCodeEnter,
@@ -318,6 +319,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                                                             inputCorrectIndex >= originalValue.length,
                                                     })}
                                                     hide={hidden}
+                                                    inputMode={inputMode}
                                                     value={code[inputCorrectIndex] || ''}
                                                     tabIndex={originalValue.length === inputCorrectIndex ? 0 : -1}
                                                     autoComplete={autoComplete}

@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-themes",
-  "version": "0.69.0-next-sbcom.0",
+  "version": "0.69.0",
   "description": "Sdds-themes package",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -20,25 +20,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "css",
-    "tokens",
-    "es",
-    "themes",
-    "index.d.ts",
-    "index.d.ts.map",
-    "index.js",
-    "index.js.map"
-  ],
+  "files": ["css", "tokens", "es", "themes", "index.d.ts", "index.d.ts.map", "index.js", "index.js.map"],
   "devDependencies": {
-    "@salutejs/core-themes": "0.33.0-next-sbcom.0",
+    "@salutejs/core-themes": "0.32.0",
     "@types/node": "^22.13.13",
     "ts-node": "10.2.1"
   },
-  "contributors": [
-    "Виноградов Антон Александрович",
-    "Неретин Артём Андреевич",
-    "Vasiliy Loginevskiy"
-  ],
+  "contributors": ["Виноградов Антон Александрович", "Неретин Артём Андреевич", "Vasiliy Loginevskiy"],
   "sideEffects": false
 }

@@ -15,6 +15,26 @@ import AutocompleteExampleClear from '../_examples/_autocomplete/_autocomplete-c
 <Description name="Autocomplete" />
 <PropsTable name="Autocomplete" />
 
+## Appearance
+
+`appearance="viewMode"` — режим просмотра.
+
+```tsx live
+import React from 'react';
+import { Autocomplete } from '@salutejs/sdds-finai';
+
+export function App() {
+    const suggestions = [{ label: 'Алексей Смирнов' }, { label: 'Екатерина Иванова' }];
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '200px' }}>
+            <Autocomplete suggestions={suggestions} appearance="default" label="Default" placeholder="Placeholder" />
+            <Autocomplete suggestions={suggestions} appearance="viewMode" value="Алексей Смирнов" readOnly label="ViewMode" placeholder="Placeholder" />
+        </div>
+    );
+}
+```
+
 ## Использование
 Расширенная версия компонента `TextField`. Добавилась возможность использования выпадающего списка с подсказками.\
 По умолчанию подсказки фильтруются вне зависимости от регистра. Но это можно изменить, прокинув свой коллбэк `filter`.\

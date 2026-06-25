@@ -12,16 +12,18 @@ const Root = styled.div<{
     staticVariants: PolymorphicClassName[];
     dynamicVariants: (props: HTMLAnyAttributes) => any[];
     intersectionStyles: PolymorphicClassName[];
+    responsiveStyles?: PolymorphicClassName;
 }>`
     ${({ base }) => base};
     ${({ staticVariants }) => staticVariants};
     ${({ dynamicVariants }) => dynamicVariants};
     ${({ intersectionStyles }) => intersectionStyles};
+    ${({ responsiveStyles }) => responsiveStyles};
 `;
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, intersections } = componentConfig;
+    const { tag, base, intersections, responsive } = componentConfig;
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
 
@@ -29,7 +31,9 @@ export const _component = (componentConfig: ComponentConfig) => {
     const R = Root.withComponent(tag as keyof JSX.IntrinsicElements);
 
     return forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
-        const intersectionStyles = getIntersectionStyles(props, intersections);
+        const { responsive: responsiveProp, ...rest } = props;
+        const intersectionStyles = getIntersectionStyles(rest, intersections);
+        const responsiveStyles = responsiveProp ? responsive : undefined;
 
         return (
             <R
@@ -37,7 +41,8 @@ export const _component = (componentConfig: ComponentConfig) => {
                 staticVariants={staticVariants}
                 dynamicVariants={dynamicVariants}
                 intersectionStyles={intersectionStyles}
-                {...props}
+                responsiveStyles={responsiveStyles}
+                {...rest}
                 ref={ref}
             />
         );

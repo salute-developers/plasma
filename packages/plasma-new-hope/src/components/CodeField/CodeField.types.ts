@@ -91,5 +91,5 @@ export type CodeFieldProps = {
      * Коллбек, вызываемый при вводе полного значения в поле
      */
     onFullCodeEnter?: (code: string) => void;
-} & Pick<InputHTMLAttributes<HTMLInputElement>, 'aria-label' | 'autoComplete'> &
+} & Pick<InputHTMLAttributes<HTMLInputElement>, 'aria-label' | 'autoComplete' | 'inputMode'> &
     Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
