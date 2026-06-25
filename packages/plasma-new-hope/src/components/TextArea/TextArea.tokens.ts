@@ -108,6 +108,8 @@ export const tokens = {
     inputPaddingLeft: '--plasma-textarea-input-padding-left',
 
     /** Отступы для блока подписей */
+    helpersAlignItems: '--plasma-textarea-helpers-align-items',
+    helpersGap: '--plasma-textarea-helpers-gap',
     helpersPaddingTop: '--plasma-textarea-helpers-padding-top',
     helpersPaddingRight: '--plasma-textarea-helpers-padding-right',
     helpersPaddingBottom: '--plasma-textarea-helpers-padding-bottom',
