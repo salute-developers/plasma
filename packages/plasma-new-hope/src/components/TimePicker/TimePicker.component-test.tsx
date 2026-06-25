@@ -393,8 +393,21 @@ describeFn('TimePicker', () => {
 
     it('min with multiplicitySeconds: clicking minute 05 clamps seconds to nearest multiple above min', () => {
         cy.viewport(580, 900);
+
         // min.ss=5, multiplicitySeconds=10 → ceil(5/10)*10 = 10
-        mount(<TimePicker columnsQuantity={3} min="12:05:05" value="12:00:00" multiplicitySeconds={10} />);
+        const TestCase = () => {
+            const [value, setValue] = React.useState('12:00:00');
+            return (
+                <TimePicker
+                    columnsQuantity={3}
+                    min="12:05:05"
+                    multiplicitySeconds={10}
+                    value={value}
+                    onChange={(ev: unknown) => setValue((ev as { value?: string })?.value ?? '')}
+                />
+            );
+        };
+        mount(<TestCase />);
 
         cy.get('input').first().click();
         cy.get('[data-value="05"][data-column="minutes"]').first().click();
@@ -404,7 +417,19 @@ describeFn('TimePicker', () => {
 
     it('min: clicking minute auto-clamps seconds to min boundary', () => {
         cy.viewport(580, 900);
-        mount(<TimePicker columnsQuantity={3} min="12:05:05" value="12:00:00" />);
+
+        const TestCase = () => {
+            const [value, setValue] = React.useState('12:00:00');
+            return (
+                <TimePicker
+                    columnsQuantity={3}
+                    min="12:05:05"
+                    value={value}
+                    onChange={(ev: unknown) => setValue((ev as { value?: string })?.value ?? '')}
+                />
+            );
+        };
+        mount(<TestCase />);
 
         cy.get('input').first().click();
         cy.get('[data-value="05"][data-column="minutes"]').first().click();
@@ -412,11 +437,29 @@ describeFn('TimePicker', () => {
         cy.get('input').first().should('have.value', '12:05:05');
     });
 
-    it('max: clicking hour auto-clamps minutes and seconds to max boundary', () => {
+    it('max: clicking hour clamps minutes when minutes exceed max boundary', () => {
         cy.viewport(580, 900);
-        mount(<TimePicker columnsQuantity={3} max="12:25:30" value="12:30:00" />);
+
+        // click minute 30 first (uncontrolled) → "00:30:00", then hour 12 triggers clamp
+        // mm=30 > max.mm=25 → floor(25/1)*1=25; recalc 12:25:00 < max → ss stays 0
+        mount(<TimePicker columnsQuantity={3} max="12:25:30" />);
 
         cy.get('input').first().click();
+        cy.get('[data-value="30"][data-column="minutes"]').first().click();
+        cy.get('[data-value="12"][data-column="hours"]').first().click();
+
+        cy.get('input').first().should('have.value', '12:25:00');
+    });
+
+    it('max: clicking hour clamps seconds when minutes match max boundary', () => {
+        cy.viewport(580, 900);
+
+        // build state mm=25,ss=35 via clicks, then click hour 12 → ss clamped to floor(30/1)*1=30
+        mount(<TimePicker columnsQuantity={3} max="12:25:30" />);
+
+        cy.get('input').first().click();
+        cy.get('[data-value="35"][data-column="seconds"]').first().click();
+        cy.get('[data-value="25"][data-column="minutes"]').first().click();
         cy.get('[data-value="12"][data-column="hours"]').first().click();
 
         cy.get('input').first().should('have.value', '12:25:30');
@@ -424,10 +467,13 @@ describeFn('TimePicker', () => {
 
     it('max with multiplicityMinutes: clicking hour clamps minutes to nearest multiple below max', () => {
         cy.viewport(580, 900);
-        // max.mm=27, multiplicityMinutes=5 → floor(27/5)*5 = 25
-        mount(<TimePicker columnsQuantity={3} max="12:27:00" value="12:30:00" multiplicityMinutes={5} />);
+
+        // click minute 30 first (uncontrolled) → "00:30:00", then hour 12 triggers clamp
+        // max.mm=27, multiplicityMinutes=5 → floor(27/5)*5=25
+        mount(<TimePicker columnsQuantity={3} max="12:27:00" multiplicityMinutes={5} />);
 
         cy.get('input').first().click();
+        cy.get('[data-value="30"][data-column="minutes"]').first().click();
         cy.get('[data-value="12"][data-column="hours"]').first().click();
 
         cy.get('input').first().should('have.value', '12:25:00');
