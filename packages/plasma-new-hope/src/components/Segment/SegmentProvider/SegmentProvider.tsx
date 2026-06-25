@@ -1,7 +1,17 @@
 import React, { createContext, useContext, useState } from 'react';
 import type { FC } from 'react';
 
-import { SegmentContextType, SegmentProviderProps, SegmentSelectionMode } from './SegmentProvider.types';
+import {
+    SegmentContextType,
+    SegmentOrientation,
+    SegmentProviderProps,
+    SegmentSelectionMode,
+} from './SegmentProvider.types';
+
+export const dividerOrientationMap = {
+    horizontal: 'vertical',
+    vertical: 'horizontal',
+};
 
 export const SegmentContext = createContext<SegmentContextType | undefined>(undefined);
 
@@ -28,6 +38,8 @@ export const SegmentProvider: FC<SegmentProviderProps> = ({
 }) => {
     const [selectionMode, setSelectionMode] = useState<SegmentSelectionMode>('single');
     const [disabledGroup, setDisabledGroup] = useState(false);
+    const [hasDivider, setHasDivider] = useState(false);
+    const [orientation, setOrientation] = useState<SegmentOrientation>('horizontal');
 
     const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>(defaultSelected || []);
     const selected = outerSelected ?? selectedSegmentItems;
@@ -58,6 +70,10 @@ export const SegmentProvider: FC<SegmentProviderProps> = ({
         setSelectionMode,
         disabledGroup,
         setDisabledGroup,
+        hasDivider,
+        setHasDivider,
+        orientation,
+        setOrientation,
     };
 
     return <SegmentContext.Provider value={contextValue}>{children}</SegmentContext.Provider>;

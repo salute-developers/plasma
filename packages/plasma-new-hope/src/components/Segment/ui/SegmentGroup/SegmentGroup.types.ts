@@ -45,6 +45,10 @@ type CustomSegmentGroupProps = {
      * Группа сегментов c фоном
      */
     hasBackground?: boolean;
+    /**
+     * Отображать разделители между элементами сегмента
+     */
+    hasDivider?: boolean;
 };
 
 export interface SegmentGroupProps extends HTMLAttributes<HTMLDivElement>, CustomSegmentGroupProps {}

@@ -1,6 +1,7 @@
 import type { Dispatch, PropsWithChildren, SetStateAction } from 'react';
 
 export type SegmentSelectionMode = 'single' | 'multiple';
+export type SegmentOrientation = 'horizontal' | 'vertical';
 
 export type SegmentProviderProps = {
     /**
@@ -31,4 +32,8 @@ export type SegmentContextType = {
     handleSelect: (label: string) => void;
     selectionMode: SegmentSelectionMode;
     setSelectionMode: Dispatch<SetStateAction<SegmentSelectionMode>>;
+    hasDivider: boolean;
+    setHasDivider: Dispatch<SetStateAction<boolean>>;
+    orientation: SegmentOrientation;
+    setOrientation: Dispatch<SetStateAction<SegmentOrientation>>;
 };
