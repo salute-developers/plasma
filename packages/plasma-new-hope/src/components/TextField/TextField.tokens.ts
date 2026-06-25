@@ -137,6 +137,7 @@ export const tokens = {
     titleCaptionLineHeight: '--plasma-textfield__title-caption-line-height',
 
     /** Токены для helpers */
+    helpersAlign: '--plasma-textfield__helpers-align',
     leftHelperPadding: '--plasma-textfield__left-helper-padding',
 
     leftHelperFontFamily: '--plasma-textfield__left-helper-font-family',

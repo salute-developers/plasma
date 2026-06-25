@@ -177,6 +177,7 @@ export const StyledHelpers = styled.div`
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    align-items: var(${tokens.helpersAlign}, flex-start);
 `;
 
 export const StyledLeftHelper = styled.div``;
