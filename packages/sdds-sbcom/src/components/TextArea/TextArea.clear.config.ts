@@ -4,18 +4,11 @@ import {
     bodyM,
     bodyS,
     bodyXS,
-    bodyXXS,
     surfaceAccent,
     surfaceNegative,
     surfacePositive,
-    surfaceSolidCardBrightness,
-    outlineNegative,
-    outlinePositive,
-    surfaceTransparentNegative,
-    surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
     surfaceTransparentPrimaryHover,
-    surfaceTransparentSecondary,
     surfaceTransparentTertiary,
     surfaceTransparentTertiaryActive,
     surfaceTransparentTertiaryHover,
@@ -27,17 +20,11 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-    surfaceTransparentSecondaryActive,
-    surfaceTransparentSecondaryHover,
+    textWarning,
+    surfaceWarning,
+    surfaceSolidCardBrightness,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
-/*
- * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: surfaceTransparentNegativeActive
- * surfaceTransparentNegativeHover, surfaceTransparentPositive, surfaceTransparentPositiveActive
- * surfaceTransparentPositiveHover, surfaceTransparentWarning, surfaceTransparentWarningActive
- * surfaceTransparentWarningHover
- */
 export const config = {
     defaults: {
         view: 'default',
@@ -52,19 +39,19 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.inputBackgroundColor}: transparent;
+                ${tokens.inputBackgroundColorHover}: transparent;
+                ${tokens.inputBackgroundColorActive}: transparent;
+                ${tokens.inputBackgroundColorFocus}: transparent;
 
-                ${tokens.helpersBackgroundColor}: ${surfaceTransparentPrimary};
-                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
-                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.helpersBackgroundColor}: transparent;
+                ${tokens.helpersBackgroundColorHover}: transparent;
+                ${tokens.helpersBackgroundColorActive}: transparent;
+                ${tokens.helpersBackgroundColorFocus}: transparent;
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textAccent};
+                ${tokens.inputCaretColor}: ${textPositive};
 
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
@@ -91,7 +78,6 @@ export const config = {
                 ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
                 ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${tokens.borderColorFocus}: ${outlinePositive};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
                 ${tokens.dividerColorHover}: ${textSecondary};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
@@ -99,129 +85,143 @@ export const config = {
                 ${tokens.hintIconColor}: ${textSecondary};
             `,
             positive: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.inputBackgroundColor}: transparent;
+                ${tokens.inputBackgroundColorHover}: transparent;
+                ${tokens.inputBackgroundColorActive}: transparent;
+                ${tokens.inputBackgroundColorFocus}: transparent;
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-positive);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-positive-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-positive-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-positive);
+                ${tokens.helpersBackgroundColor}: transparent;
+                ${tokens.helpersBackgroundColorHover}: transparent;
+                ${tokens.helpersBackgroundColorActive}: transparent;
+                ${tokens.helpersBackgroundColorFocus}: transparent;
 
-                ${tokens.inputColor}: ${textPrimary};
-                ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textPositive};
+                ${tokens.inputColor}: ${textPositive};
+                ${tokens.inputColorFocus}: ${textPositive};
+                ${tokens.inputCaretColor}: ${textAccent};
 
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textPositive};
+                ${tokens.placeholderColorFocus}:${textTertiary};
 
-                ${tokens.leftHelperOverflow}: visible;
-                ${tokens.leftHelperWhiteSpace}: normal;
-                ${tokens.leftHelperTextOverflow}: initial;
-                ${tokens.labelOuterColor}: ${textPositive};
-                ${tokens.labelInnerColor}: ${textPositive};
                 ${tokens.leftHelperColor}: ${textPositive};
-                ${tokens.rightHelperColor}: ${textPositive};
+                ${tokens.rightHelperColor}: ${textSecondary};
 
                 ${tokens.rightContentColor}: ${textSecondary};
                 ${tokens.rightContentColorHover}: ${textSecondaryHover};
                 ${tokens.rightContentColorActive}: ${textSecondaryActive};
 
                 ${tokens.indicatorColor}: ${surfaceNegative};
-                ${tokens.optionalColor}: ${textTertiary};
+                ${tokens.optionalColor}:${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: ${textTertiary};
-                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
-                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
-                ${tokens.scrollbarTrackBackgroundColor}: transparent;
-                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
-                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
+                ${tokens.labelOuterColor}: ${textPrimary};
 
                 ${tokens.dividerColor}: ${surfacePositive};
                 ${tokens.dividerColorHover}: ${surfacePositive};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
-                ${tokens.titleCaptionColor}: ${textSecondary};
+
                 ${tokens.hintIconColor}: ${textSecondary};
+                ${tokens.titleCaptionColor}: ${textSecondary};
             `,
-            negative: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentSecondary};
+            warning: css`
+                ${tokens.inputBackgroundColor}: transparent;
+                ${tokens.inputBackgroundColorHover}: transparent;
+                ${tokens.inputBackgroundColorActive}: transparent;
+                ${tokens.inputBackgroundColorFocus}: transparent;
 
-                ${tokens.helpersBackgroundColor}: ${surfaceTransparentNegative};
-                /* NOTE: no token surfaceTransparentNegativeHover in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                /* NOTE: no token surfaceTransparentNegativeActive in @salutejs/sdds-themes/tokens */
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.helpersBackgroundColor}: transparent;
+                ${tokens.helpersBackgroundColorHover}: transparent;
+                ${tokens.helpersBackgroundColorActive}: transparent;
+                ${tokens.helpersBackgroundColorFocus}: transparent;
 
-                ${tokens.inputColor}: ${textPrimary};
-                ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textNegative};
+                ${tokens.inputColor}: ${textWarning};
+                ${tokens.inputColorFocus}: ${textWarning};
+                ${tokens.inputCaretColor}: ${textAccent};
 
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textWarning};
+                ${tokens.placeholderColorFocus}:${textTertiary};
 
-                ${tokens.leftHelperOverflow}: visible;
-                ${tokens.leftHelperWhiteSpace}: normal;
-                ${tokens.leftHelperTextOverflow}: initial;
-                ${tokens.labelOuterColor}: ${textNegative};
-                ${tokens.labelInnerColor}: ${textNegative};
-                ${tokens.leftHelperColor}: ${textNegative};
-                ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColor}: ${textWarning};
+                ${tokens.rightHelperColor}: ${textSecondary};
 
                 ${tokens.rightContentColor}: ${textSecondary};
                 ${tokens.rightContentColorHover}: ${textSecondaryHover};
                 ${tokens.rightContentColorActive}: ${textSecondaryActive};
 
                 ${tokens.indicatorColor}: ${surfaceNegative};
-                ${tokens.optionalColor}: ${textTertiary};
+                ${tokens.optionalColor}:${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: ${textTertiary};
-                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
-                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
-                ${tokens.scrollbarTrackBackgroundColor}: transparent;
-                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
-                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
+                ${tokens.labelOuterColor}: ${textPrimary};
 
-                ${tokens.borderColorFocus}: ${outlineNegative};
+                ${tokens.dividerColor}: ${surfaceWarning};
+                ${tokens.dividerColorHover}: ${surfaceWarning};
+                ${tokens.dividerColorFocus}: ${surfaceAccent};
+
+                ${tokens.hintIconColor}: ${textSecondary};
+                ${tokens.titleCaptionColor}: ${textSecondary};
+            `,
+            negative: css`
+                ${tokens.inputBackgroundColor}: transparent;
+                ${tokens.inputBackgroundColorHover}: transparent;
+                ${tokens.inputBackgroundColorActive}: transparent;
+                ${tokens.inputBackgroundColorFocus}: transparent;
+
+                ${tokens.helpersBackgroundColor}: transparent;
+                ${tokens.helpersBackgroundColorHover}: transparent;
+                ${tokens.helpersBackgroundColorActive}: transparent;
+                ${tokens.helpersBackgroundColorFocus}: transparent;
+
+                ${tokens.inputColor}: ${textNegative};
+                ${tokens.inputColorFocus}: ${textNegative};
+                ${tokens.inputCaretColor}: ${textAccent};
+
+                ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColorFocus}:${textTertiary};
+
+                ${tokens.leftHelperColor}: ${textNegative};
+                ${tokens.rightHelperColor}: ${textSecondary};
+
+                ${tokens.rightContentColor}: ${textSecondary};
+                ${tokens.rightContentColorHover}: ${textSecondaryHover};
+                ${tokens.rightContentColorActive}: ${textSecondaryActive};
+
+                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.optionalColor}:${textTertiary};
+
+                ${tokens.labelOuterColor}: ${textPrimary};
+
                 ${tokens.dividerColor}: ${surfaceNegative};
                 ${tokens.dividerColorHover}: ${surfaceNegative};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
-                ${tokens.titleCaptionColor}: ${textSecondary};
+
                 ${tokens.hintIconColor}: ${textSecondary};
+                ${tokens.titleCaptionColor}: ${textSecondary};
             `,
         },
         size: {
             xl: css`
                 ${tokens.inputWidth}: 100%;
                 ${tokens.inputHeight}: 6.812rem;
-                ${tokens.inputMinHeight}: 1.625rem;
+                ${tokens.inputMinHeight}: 1.375rem;
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.borderRadiusWithHelpers}: 1rem 1rem 0 0;
 
                 ${tokens.inputPaddingTop}: 1.313rem;
-                ${tokens.inputPaddingRight}: 1.25rem;
-                ${tokens.inputPaddingRightWithRightContent}: 3.5rem;
-                ${tokens.inputPaddingBottom}: 0.75rem;
-                ${tokens.inputPaddingLeft}: 1.25rem;
+                ${tokens.inputPaddingRight}: 0;
+                ${tokens.inputPaddingRightWithRightContent}: 2.25rem;
+                ${tokens.inputPaddingBottom}: 1.313rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 1.313rem;
+                ${tokens.inputPaddingLeft}: 0;
 
-                ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 1rem;
-                ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingTop}: 0.75rem;
-                ${tokens.outsideHelpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingRight}: 1rem;
+                ${tokens.helpersPaddingTop}: 0.25rem;
+                ${tokens.helpersPaddingRight}: 0;
+                ${tokens.helpersPaddingBottom}: 0;
+                ${tokens.helpersPaddingLeft}: 0;
                 ${tokens.helpersOffset}: 0rem;
 
                 ${tokens.rightContentTop}: 1.25rem;
-                ${tokens.rightContentRight}: 1.25rem;
+                ${tokens.rightContentRight}: 0;
                 ${tokens.rightContentHeight}: 1.5rem;
 
-                ${tokens.labelMarginBottom}: 0.75rem;
+                ${tokens.labelMarginBottom}: 0.25rem;
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
@@ -250,19 +250,18 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
+                ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.75rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.488rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.25rem;
-                ${tokens.scrollbarBorderWidth}: 0.0625rem;
-                ${tokens.scrollbarBorderRadius}: 0.5rem;
+                ${tokens.scrollbarWidth}: 0.188rem;
+                ${tokens.scrollbarBorderWidth}: 0.063rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.751rem -2.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -279,13 +278,12 @@ export const config = {
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.borderRadiusWithHelpers}: 1rem 1rem 0 0;
 
-                ${tokens.inputPaddingTop}: 1.125rem;
-                ${tokens.inputPaddingRight}: 1rem;
-                ${tokens.inputPaddingRightWithRightContent}: 2.625rem;
-                ${tokens.inputPaddingBottom}: 1.125rem;
-                ${tokens.inputPaddingBottomInnerLabel}: 0.625rem;
-                ${tokens.inputPaddingBottomWithHelpers}: 1.125rem;
-                ${tokens.inputPaddingLeft}: 1rem;
+                ${tokens.inputPaddingTop}: 1.063rem;
+                ${tokens.inputPaddingRight}: 0;
+                ${tokens.inputPaddingRightWithRightContent}: 2.25rem;
+                ${tokens.inputPaddingBottom}: 1.063rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 1.063rem;
+                ${tokens.inputPaddingLeft}: 0;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
                 ${tokens.helpersPaddingRight}: 1rem;
@@ -304,7 +302,7 @@ export const config = {
                 ${tokens.rightContentHeight}: 2.5rem;
                 ${tokens.rightContentWidth}: 2.5rem;
 
-                ${tokens.labelMarginBottom}: 0.75rem;
+                ${tokens.labelMarginBottom}: 0.25rem;
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
@@ -333,20 +331,18 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.675rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
+                ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.25rem;
-                ${tokens.scrollbarBorderWidth}: 0;
-                ${tokens.scrollbarBorderRadius}: 0.5rem;
-                ${tokens.scrollbarMarginRight}: 0.375rem;
+                ${tokens.scrollbarWidth}: 0.188rem;
+                ${tokens.scrollbarBorderWidth}: 0.063rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -364,25 +360,23 @@ export const config = {
                 ${tokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0 0;
 
                 ${tokens.inputPaddingTop}: 0.875rem;
-                ${tokens.inputPaddingRight}: 1rem;
-                ${tokens.inputPaddingRightWithRightContent}: 3.375rem;
-                ${tokens.inputPaddingBottom}: 0.75rem;
-                ${tokens.inputPaddingLeft}: 1rem;
+                ${tokens.inputPaddingRight}: 0;
+                ${tokens.inputPaddingRightWithRightContent}: 2.125rem;
+                ${tokens.inputPaddingBottom}: 0.875rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0.875rem;
+                ${tokens.inputPaddingLeft}: 0;
 
-                ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 1rem;
-                ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingTop}: 0.75rem;
-                ${tokens.outsideHelpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingRight}: 1rem;
+                ${tokens.helpersPaddingTop}: 0.25rem;
+                ${tokens.helpersPaddingRight}: 0;
+                ${tokens.helpersPaddingBottom}: 0;
+                ${tokens.helpersPaddingLeft}: 0;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 0.875rem;
-                ${tokens.rightContentRight}: 0.875rem;
-                ${tokens.rightContentHeight}: 1.25rem;
+                ${tokens.rightContentTop}: 0.75rem;
+                ${tokens.rightContentRight}: 0;
+                ${tokens.rightContentHeight}: 1.5rem;
 
-                ${tokens.labelMarginBottom}: 0.625rem;
+                ${tokens.labelMarginBottom}: 0.25rem;
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
@@ -411,21 +405,18 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                /* stylelint-disable-next-line number-max-precision */
-                ${tokens.indicatorLabelPlacementOuter}: 0.4375rem auto auto -0.675rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                /* stylelint-disable-next-line number-max-precision */
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.1875rem -0.625rem auto auto;
-                ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+                ${tokens.indicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
+                ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.25rem;
-                ${tokens.scrollbarBorderWidth}: 0.0625rem;
-                ${tokens.scrollbarBorderRadius}: 0.5rem;
+                ${tokens.scrollbarWidth}: 0.188rem;
+                ${tokens.scrollbarBorderWidth}: 0.063rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -443,25 +434,23 @@ export const config = {
                 ${tokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0 0;
 
                 ${tokens.inputPaddingTop}: 0.688rem;
-                ${tokens.inputPaddingRight}: 0.875rem;
-                ${tokens.inputPaddingRightWithRightContent}: 3.125rem;
-                ${tokens.inputPaddingBottom}: 0.75rem;
-                ${tokens.inputPaddingLeft}: 0.875rem;
+                ${tokens.inputPaddingRight}: 0;
+                ${tokens.inputPaddingRightWithRightContent}: 2rem;
+                ${tokens.inputPaddingBottom}: 0.688rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0.688rem;
+                ${tokens.inputPaddingLeft}: 0;
 
-                ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 1rem;
-                ${tokens.helpersPaddingBottom}: 0.75rem;
-                ${tokens.helpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingTop}: 0.75rem;
-                ${tokens.outsideHelpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingRight}: 1rem;
+                ${tokens.helpersPaddingTop}: 0.25rem;
+                ${tokens.helpersPaddingRight}: 0;
+                ${tokens.helpersPaddingBottom}: 0;
+                ${tokens.helpersPaddingLeft}: 0;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 0.688rem;
-                ${tokens.rightContentRight}: 0.75rem;
-                ${tokens.rightContentHeight}: 1.25rem;
+                ${tokens.rightContentTop}: 0.5rem;
+                ${tokens.rightContentRight}: 0;
+                ${tokens.rightContentHeight}: 1.5rem;
 
-                ${tokens.labelMarginBottom}: 0.5rem;
+                ${tokens.labelMarginBottom}: 0.25rem;
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
@@ -490,19 +479,18 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
-                ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.675rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-                ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.25rem;
-                ${tokens.scrollbarBorderWidth}: 0.0625rem;
-                ${tokens.scrollbarBorderRadius}: 0.5rem;
+                ${tokens.scrollbarWidth}: 0.188rem;
+                ${tokens.scrollbarBorderWidth}: 0.063rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -520,32 +508,30 @@ export const config = {
                 ${tokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0 0;
 
                 ${tokens.inputPaddingTop}: 0.563rem;
-                ${tokens.inputPaddingRight}: 0.625rem;
-                ${tokens.inputPaddingRightWithRightContent}: 2.125rem;
+                ${tokens.inputPaddingRight}: 0;
+                ${tokens.inputPaddingRightWithRightContent}: 1.5rem;
                 ${tokens.inputPaddingBottom}: 0.563rem;
-                ${tokens.inputPaddingLeft}: 0.625rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0.563rem;
+                ${tokens.inputPaddingLeft}: 0;
 
-                ${tokens.helpersPaddingTop}: 0.5rem;
-                ${tokens.helpersPaddingRight}: 1rem;
-                ${tokens.helpersPaddingBottom}: 0.563rem;
-                ${tokens.helpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingTop}: 0.5rem;
-                ${tokens.outsideHelpersPaddingLeft}: 1rem;
-                ${tokens.outsideHelpersPaddingRight}: 1rem;
+                ${tokens.helpersPaddingTop}: 0.25rem;
+                ${tokens.helpersPaddingRight}: 0;
+                ${tokens.helpersPaddingBottom}: 0;
+                ${tokens.helpersPaddingLeft}: 0;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 0.563rem;
-                ${tokens.rightContentRight}: 0.5rem;
+                ${tokens.rightContentTop}: 0.5rem;
+                ${tokens.rightContentRight}: 0;
                 ${tokens.rightContentHeight}: 1rem;
 
-                ${tokens.labelMarginBottom}: 0.375rem;
+                ${tokens.labelMarginBottom}: 0.25rem;
 
-                ${tokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXXS.fontSize};
-                ${tokens.labelInnerFontStyle}: ${bodyXXS.fontStyle};
-                ${tokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
-                ${tokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
-                ${tokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
+                ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerTop}: 0rem;
                 ${tokens.labelInnerTopHelper}: -0.313rem;
@@ -567,19 +553,18 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
-                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
-                ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.875rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.25rem;
-                ${tokens.scrollbarBorderWidth}: 0.0625rem;
-                ${tokens.scrollbarBorderRadius}: 0.5rem;
+                ${tokens.scrollbarWidth}: 0.188rem;
+                ${tokens.scrollbarBorderWidth}: 0.063rem;
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -593,7 +578,11 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16), 0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.tooltipBoxShadow}: var(
+                    --shadow-down-hard-m,
+                    0px 4px 12px 0px rgba(0, 0, 0, 0.16),
+                    0px 1px 4px 0px rgba(0, 0, 0, 0.08)
+                );
                 ${tokens.tooltipColor}: ${textPrimary};
                 ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
@@ -648,21 +637,17 @@ export const config = {
                 ${tokens.tooltipArrowEdgeMargin}: 0.5625rem;
             `,
         },
-        readOnly: {
-            true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
-                ${tokens.backgroundColorReadOnly}: ${surfaceTransparentPrimary};
-                ${tokens.inputColorReadOnly}: ${textPrimary};
-                ${tokens.dividerColorReadOnly}: ${surfaceTransparentSecondary};
-                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
-            `,
-        },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
-                ${tokens.inputColorDisabled}: ${textSecondary};
-                ${tokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};
+            `,
+        },
+        readOnly: {
+            true: css`
+                ${tokens.inputColorReadOnly}: ${textPrimary};
                 ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
     },
