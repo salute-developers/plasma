@@ -10,8 +10,6 @@ import {
     onDarkTextPrimary,
     onDarkTextSecondary,
     onDarkTextSecondaryHover,
-    outlineNegative,
-    outlinePositive,
     surfaceAccent,
     surfaceAccentActive,
     surfaceAccentHover,
@@ -25,37 +23,34 @@ import {
     surfaceSolidDefault,
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
-    surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
-    surfaceTransparentTertiary,
     surfaceWarning,
     surfaceWarningActive,
     surfaceWarningHover,
     textAccent,
     textNegative,
+    textNegativeActive,
+    textNegativeHover,
     textPositive,
+    textPositiveActive,
+    textPositiveHover,
     textPrimary,
     textSecondary,
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
     textWarning,
+    textWarningActive,
+    textWarningHover,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
-/*
- * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: surfaceTransparentNegativeActive
- * surfaceTransparentNegativeHover, surfaceTransparentPositive, surfaceTransparentPositiveActive
- * surfaceTransparentPositiveHover, surfaceTransparentWarning, surfaceTransparentWarningActive
- * surfaceTransparentWarningHover
- */
 export const config = {
     defaults: {
         view: 'default',
         size: 'l',
-        labelPlacement: 'inner',
+        labelPlacement: 'outer',
     },
     variations: {
         view: {
@@ -65,14 +60,13 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
-                ${tokens.labelInnerColor}: ${textSecondary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.rightHelperColor}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
@@ -82,56 +76,57 @@ export const config = {
                 ${tokens.contentSlotColorHover}: ${textSecondaryHover};
                 ${tokens.contentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.boxShadowSecondary}: inset 0 0 0 0.0625rem ${outlinePositive};
-                ${tokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
                 ${tokens.dividerColorHover}: ${textSecondary};
-                ${tokens.dividerColorFocus}: ${surfacePositive};
+                ${tokens.dividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.focusColor}: ${textAccent};
-                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.indicatorColor}: ${surfaceNegative}
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             positive: css`
-                ${tokens.color}: ${textPrimary};
+                ${tokens.color}: ${textPositive};
 
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textPositive};
+                ${tokens.placeholderColorFocus}: ${textPositive};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
-                ${tokens.labelColor}: ${textPositive};
-                ${tokens.labelInnerColor}: ${textPositive};
+                ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textPositive};
                 ${tokens.rightHelperColor}: ${textPositive};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: ${textSecondary};
-                ${tokens.contentSlotColorHover}: ${textSecondaryHover};
-                ${tokens.contentSlotColorActive}: ${textSecondaryActive};
+                ${tokens.contentSlotColor}: ${textPositive};
+                ${tokens.contentSlotColorHover}: ${textPositiveHover};
+                ${tokens.contentSlotColorActive}: ${textPositiveActive};
 
-                ${tokens.boxShadowSecondary}: inset 0 0 0 0.0625rem ${outlinePositive};
+                ${tokens.contentSlotRightColor}: ${textSecondary};
+                ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
+                ${tokens.contentSlotRightColorActive}: ${textSecondaryActive};
+
                 ${tokens.dividerColor}: ${surfacePositive};
                 ${tokens.dividerColorHover}: ${surfacePositive};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.focusColor}: ${textAccent};
-                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.indicatorColor}: ${surfaceNegative}
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             warning: css`
-                ${tokens.color}: ${textPrimary};
+                ${tokens.color}: ${textWarning};
 
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textWarning};
+                ${tokens.placeholderColorFocus}: ${textWarning};
 
-                ${tokens.backgroundColor}: var(--surface-transparent-warning);
-                ${tokens.backgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.backgroundColorFocus}: var(--surface-transparent-warning-active);
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
@@ -141,60 +136,70 @@ export const config = {
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: ${textSecondary};
-                ${tokens.contentSlotColorHover}: ${textSecondaryHover};
-                ${tokens.contentSlotColorActive}: ${textSecondaryActive};
+                ${tokens.contentSlotColor}: ${textWarning};
+                ${tokens.contentSlotColorHover}: ${textWarningHover};
+                ${tokens.contentSlotColorActive}: ${textWarningActive};
+
+                ${tokens.contentSlotRightColor}: ${textSecondary};
+                ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
+                ${tokens.contentSlotRightColorActive}: ${textSecondaryActive};
 
                 ${tokens.dividerColor}: ${surfaceWarning};
                 ${tokens.dividerColorHover}: ${surfaceWarning};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.focusColor}: ${textAccent};
-                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.indicatorColor}: ${surfaceNegative}
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             negative: css`
-                ${tokens.color}: ${textPrimary};
+                ${tokens.color}: ${textNegative};
 
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColorFocus}: ${textNegative};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
-                ${tokens.labelColor}: ${textNegative};
-                ${tokens.labelInnerColor}: ${textNegative};
+                ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textNegative};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: ${textSecondary};
-                ${tokens.contentSlotColorHover}: ${textSecondaryHover};
-                ${tokens.contentSlotColorActive}: ${textSecondaryActive};
+                ${tokens.contentSlotColor}: ${textNegative};
+                ${tokens.contentSlotColorHover}: ${textNegativeHover};
+                ${tokens.contentSlotColorActive}: ${textNegativeActive};
 
-                ${tokens.boxShadowSecondary}: inset 0 0 0 0.0625rem ${outlineNegative};
-                ${tokens.dividerColor}: ${surfaceNegative};
-                ${tokens.dividerColorHover}: ${surfaceNegative};
-                ${tokens.dividerColorFocus}: ${surfaceNegative};
+                ${tokens.contentSlotRightColor}: ${textSecondary};
+                ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
+                ${tokens.contentSlotRightColorActive}: ${textSecondaryActive};
+
+                ${tokens.dividerColor}: ${surfaceNegative}
+                ${tokens.dividerColorHover}: ${surfaceNegative}
+                ${tokens.dividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.focusColor}: ${textAccent};
-                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.indicatorColor}: ${surfaceNegative}
                 ${tokens.optionalColor}: ${textTertiary};
             `,
         },
         size: {
             xl: css`
                 ${tokens.height}: 4rem;
-                ${tokens.padding}: 1.3125rem 1.125rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 1rem;
+                ${tokens.padding}: 1.3125rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${tokens.rightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
+
+                ${tokens.contentRightWrapperGap}: 0.25rem;
+                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
 
                 ${tokens.fontFamily}: ${bodyL.fontFamily};
                 ${tokens.fontSize}: ${bodyL.fontSize};
@@ -203,7 +208,7 @@ export const config = {
                 ${tokens.letterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.lineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: ${bodyL.fontFamily};
                 ${tokens.labelFontSize}: ${bodyL.fontSize};
                 ${tokens.labelFontStyle}: ${bodyL.fontStyle};
@@ -213,7 +218,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -223,7 +228,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -231,7 +236,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.rightHelperOffset}: 0.25rem 1rem 0 0;
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
                 ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
@@ -269,20 +274,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.75rem auto auto -0.875rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.75rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.488rem auto auto;
             `,
             l: css`
                 ${tokens.height}: 3.5rem;
-                ${tokens.padding}: 1.125rem 1rem 1.125rem 1rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 1rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 1.0625rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.125rem;
+                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0;
+                ${tokens.rightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
                 ${tokens.rightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;
@@ -295,7 +300,7 @@ export const config = {
                 ${tokens.letterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.lineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: ${bodyL.fontFamily};
                 ${tokens.labelFontSize}: ${bodyL.fontSize};
                 ${tokens.labelFontStyle}: ${bodyL.fontStyle};
@@ -305,8 +310,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -333,7 +337,9 @@ export const config = {
                 ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
-                ${tokens.contentLabelInnerPadding}: 1.625rem 0 0.625rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.5rem;
@@ -352,23 +358,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.5rem auto auto -0.875rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.5rem auto auto -0.75rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
             `,
             m: css`
                 ${tokens.height}: 3rem;
-                ${tokens.padding}: 0.875rem 1rem 0.875rem 1rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.75rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 0.875rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem 0;
+                ${tokens.rightContentMargin}: -0.125rem 0 -0.125rem 0.75rem;
                 ${tokens.rightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;
@@ -381,7 +384,7 @@ export const config = {
                 ${tokens.letterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.lineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.labelOffset}: 0.625rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: ${bodyM.fontFamily};
                 ${tokens.labelFontSize}: ${bodyM.fontSize};
                 ${tokens.labelFontStyle}: ${bodyM.fontStyle};
@@ -391,8 +394,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -402,7 +404,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -410,7 +412,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.rightHelperOffset}: 0.25rem 1rem 0 0;
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
                 ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
@@ -420,6 +422,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.375rem;
@@ -438,23 +442,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
             `,
             s: css`
                 ${tokens.height}: 2.5rem;
-                ${tokens.padding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.625rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 0.6875rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0;
+                ${tokens.rightContentMargin}: -0.1875rem 0 -0.1875rem 0.75rem;
                 ${tokens.rightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;
@@ -467,7 +468,7 @@ export const config = {
                 ${tokens.letterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.lineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.labelOffset}: 0.5rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: ${bodyS.fontFamily};
                 ${tokens.labelFontSize}: ${bodyS.fontSize};
                 ${tokens.labelFontStyle}: ${bodyS.fontStyle};
@@ -477,8 +478,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -488,7 +488,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -496,7 +496,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.rightHelperOffset}: 0.25rem 1rem 0 0;
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
                 ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
@@ -506,6 +506,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.25rem;
@@ -524,23 +526,20 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
             `,
             xs: css`
                 ${tokens.height}: 2rem;
-                ${tokens.padding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
-                ${tokens.paddingWithChips}: 0.375rem;
-                ${tokens.borderRadius}: 0.5rem;
-                ${tokens.borderWidth}: 0.0625rem;
+                ${tokens.padding}: 0.5625rem 0;
+                ${tokens.paddingWithChips}: 0.375rem 0;
+                ${tokens.borderRadius}: 0;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
-                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem 0;
+                ${tokens.rightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
                 ${tokens.rightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;
@@ -553,7 +552,7 @@ export const config = {
                 ${tokens.letterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.lineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.labelOffset}: 0.375rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.labelFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
@@ -563,8 +562,7 @@ export const config = {
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
@@ -574,7 +572,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -582,7 +580,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.rightHelperOffset}: 0.25rem 1rem 0 0;
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
                 ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
@@ -592,6 +590,8 @@ export const config = {
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.chipGap}: 0.25rem;
                 ${tokens.chipBorderRadius}: 0.125rem;
@@ -610,13 +610,11 @@ export const config = {
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
-                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementInner}: 0.813rem auto auto -0.625rem;
                 ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
-                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0.813rem -0.625rem auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
-
-                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
-                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
             `,
         },
         labelPlacement: {
@@ -719,14 +717,14 @@ export const config = {
             `,
             negative: css`
                 ${tokens.chipColor}: ${onDarkTextPrimary};
-                ${tokens.chipBackground}: ${surfaceNegative};
+                ${tokens.chipBackground}: ${surfaceNegative}
                 ${tokens.chipColorHover}: ${onDarkTextPrimary};
                 ${tokens.chipBackgroundHover}: ${surfaceNegativeHover};
                 ${tokens.chipColorActive}: ${onDarkTextPrimary};
                 ${tokens.chipBackgroundActive}: ${surfaceNegativeActive};
-                ${tokens.chipBackgroundReadOnly}: ${surfaceNegative};
+                ${tokens.chipBackgroundReadOnly}: ${surfaceNegative}
                 ${tokens.chipColorReadOnly}: ${onDarkTextPrimary};
-                ${tokens.chipBackgroundReadOnlyHover}: ${surfaceNegative};
+                ${tokens.chipBackgroundReadOnlyHover}: ${surfaceNegative}
                 ${tokens.chipColorReadOnlyHover}: ${onDarkTextPrimary};
 
                 ${tokens.chipCloseIconColor}: ${onDarkTextSecondary};
@@ -800,16 +798,15 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 1;
+                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.colorReadOnly}: ${textPrimary};
-
-                ${tokens.backgroundColorReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.backgroundColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: ${textSecondary};
                 ${tokens.leftHelperColorReadOnly}: ${textSecondary};
                 ${tokens.rightHelperColorReadOnly}: ${textSecondary};
                 ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
                 ${tokens.labelColorReadOnly}: ${textPrimary};
-                ${tokens.dividerColorReadOnly}: ${surfaceTransparentSecondary};
+                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },

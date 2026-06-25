@@ -39,7 +39,6 @@ const { meta: META, Default, Chips } = getTextFieldStories({
             </IconButton>
         );
     },
-    disablePropsList: ['appearance'],
 });
 
 const meta: Meta<TextFieldProps> = {
