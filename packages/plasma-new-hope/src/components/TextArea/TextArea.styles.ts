@@ -293,6 +293,9 @@ export const StyledHelpers = styled.div`
     display: flex;
     justify-content: space-between;
 
+    gap: var(${tokens.helpersGap}, 0);
+    align-items: var(${tokens.helpersAlignItems}, flex-start);
+
     transition: background-color 0.1s ease-in-out;
 
     background-color: var(${tokens.helpersBackgroundColor});
@@ -310,6 +313,9 @@ export const StyledOutsideHelpersWrapper = styled.div`
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+
+    gap: var(${tokens.helpersGap}, 0);
+    align-items: var(${tokens.helpersAlignItems}, flex-start);
 
     padding-top: var(${tokens.outsideHelpersPaddingTop});
     padding-right: var(${tokens.outsideHelpersPaddingRight});
