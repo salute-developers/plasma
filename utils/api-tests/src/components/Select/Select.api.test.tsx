@@ -101,7 +101,7 @@ describe('Basics', () => {
         expectTypeOf<SelectProps>()
             .toHaveProperty('renderTarget')
             .toEqualTypeOf<
-                | ((value: ItemOption, opened?: boolean) => ReactNode)
+                | ((value: ItemOption | null, opened?: boolean) => ReactNode)
                 | ((value: ItemOption[], opened?: boolean) => ReactNode)
                 | undefined
             >();
