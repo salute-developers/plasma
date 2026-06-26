@@ -1,0 +1,56 @@
+---
+id: faq
+title: FAQ
+---
+
+## `as` vs `forwardedAs`
+
+:::info
+Данная проблема справедлива только для styled-components
+:::
+
+:::tip
+Если оборачиваешь компонент дизайн-системы в `styled(...)` и нужно сменить тег - используй свойство **`forwardedAs`**, а не `as`.
+:::
+
+### Проблема
+
+```jsx
+import { Button } from '@salutejs/sdds-serv';
+import styled from 'styled-components';
+
+const StyledButton = styled(Button)`
+  width: 10rem;
+`;
+
+<StyledButton as="button" text="Hello" />   // ❌ ломается
+<StyledButton forwardedAs="button" text="Hello" />  // ✅ работает
+```
+
+### Почему так?
+
+`styled(Button)` добавляет внешний styled-слой поверх `Button`.
+
+#### `as`
+
+Это свойство **поглощается ближайшей styled-обёрткой и заменяет цель её рендера**.
+
+Вместо `Button` из дизайн-системы рендерится нативный `<button>`: к нему применяется только класс обёртки (`width: 10rem`), а кастомные свойства (`text`, `view`, `size`) отфильтровываются как невалидные HTML-атрибуты.
+
+Поэтому на экране - пустая нативная кнопка шириной 10rem: без текста и без стилей дизайн-системы.
+`
+#### `forwardedAs`
+
+Это свойство не меняет цель рендера: `Button` рендерится полноценно, а значение пробрасывается внутрь него как `as` и доходит до целевого тега.
+
+### Когда что использовать?
+
+| Что оборачиваем в `styled(...)`                                                        | Проп          |
+|----------------------------------------------------------------------------------------|---------------|
+| только styled-компонент                                                                | `as`          |
+| компоненты дизайн-системы, который сам принимает `as` и не является styled-компонентом | `forwardedAs` |
+
+### Источники
+
+- [API Reference | styled-components](https://styled-components.com/docs/api#forwardedas-prop) — официальное определение `forwardedAs`
+- [Issue #2848](https://github.com/styled-components/styled-components/issues/2848)

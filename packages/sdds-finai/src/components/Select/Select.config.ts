@@ -214,6 +214,57 @@ export const config = {
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
+            edited: css`
+                ${tokens.textFieldColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.textFieldBackgroundColor}: var(--data-blue-light);
+                ${tokens.textFieldBackgroundColorFocus}: var(--data-blue-light-active);
+                ${tokens.textFieldBorderColor}: var(--outline-transparent-info);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-info-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-transparent-info-active);
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
+                ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
+                ${tokens.buttonColor}: var(--inverse-text-primary);
+                ${tokens.buttonColorHover}: var(--inverse-text-primary-hover);
+                ${tokens.buttonColorActive}: var(--inverse-text-primary-active);
+                ${tokens.buttonArrowColor}: var(--inverse-text-secondary);
+                ${tokens.buttonArrowColorHover}: var(--inverse-text-secondary-hover);
+                ${tokens.buttonArrowColorActive}: var(--inverse-text-secondary-hover);
+                ${tokens.buttonBackgroundColor}: var(--surface-solid-default);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-solid-default-hover);
+
+                ${tokens.disclosureIconColor}: var(--text-secondary);
+                ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemDisabledOpacity}: 0.4;
+                ${tokens.itemDisabledColor}: var(--text-primary);
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+
+                ${tokens.itemIconColor}: var(--text-accent);
+
+                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
+                ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
+            `,
             accent: css`
                 ${tokens.buttonColor}: var(--on-dark-text-primary);
                 ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
@@ -648,7 +699,7 @@ export const config = {
                 ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
                 ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
                 ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
-                ${tokens.textFieldChipCloseIconColorReadonly}: var(---text-secondary);
+                ${tokens.textFieldChipCloseIconColorReadonly}: var(--text-secondary);
                 ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
 
                 ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);

@@ -12,8 +12,11 @@ type DatePickerRangeProps = ComponentProps<typeof DatePickerRange>;
 const { meta: META, Range } = getDatePickerRangeStories({
     component: DatePickerRange,
     componentConfig: config,
+    additionalArgTypes: {
+        firstInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        secondInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+    },
     disablePropsList: [
-        'appearance',
         'hasClearDivider',
         'view',
         'showShortcuts',
@@ -24,6 +27,12 @@ const { meta: META, Range } = getDatePickerRangeStories({
     defaultArgs: {
         size: 's',
         enableContentLeft: false,
+    },
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'viewMode'],
+            control: { type: 'select' },
+        },
     },
     customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';

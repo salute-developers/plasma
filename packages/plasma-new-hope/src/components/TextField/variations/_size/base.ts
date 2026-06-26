@@ -49,6 +49,10 @@ export const base = css`
         &.${classes.hasChips} {
             padding-top: var(${tokens.paddingWithChips});
             padding-bottom: var(${tokens.paddingWithChips});
+
+            ${InputContainer} {
+                display: var(${tokens.inputContainerDisplay}, flex);
+            }
         }
 
         &.${classes.hasEmptyContentLeft} {

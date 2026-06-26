@@ -7,7 +7,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 # Checkbox
 <Description name="Checkbox" />
-<PropsTable name="Checkbox" exclude={['css', 'focused']} include={['defaultChecked']} />
+<PropsTable name="Checkbox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />
 
 ## Использование
 Компонент `Checkbox` может содержать лейбл и описание.
@@ -25,7 +25,7 @@ export function App() {
 
 Свойства `description` и `label` могут принимать JSX элементы.
 
-По умолчанию, контент внутри лейбла и описания многострочный. 
+По умолчанию, контент внутри лейбла и описания многострочный.
 
 Для того чтобы стал однострочным, необходимо использовать свойство `singleLine`(по умолчанию `false`).
 
@@ -35,9 +35,9 @@ import { Checkbox } from '@salutejs/sdds-cs';
 
 export function App() {
     return (
-        <Checkbox 
-            label={<div>Чекбокс со <a href="/#">ссылкой</a></div>} 
-            description={<div>Описание чекбокса со <a href="/#">ссылкой</a></div>}  
+        <Checkbox
+            label={<div>Чекбокс со <a href="/#">ссылкой</a></div>}
+            description={<div>Описание чекбокса со <a href="/#">ссылкой</a></div>}
         />
     );
 }

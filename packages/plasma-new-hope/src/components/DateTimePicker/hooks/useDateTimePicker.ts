@@ -22,6 +22,7 @@ type GetFormattedCorrectInputArgs = {
 export const useDateTimePicker = ({
     valueError,
     valueSuccess,
+    valueEdited,
     type,
     lang = 'ru',
     disabled,
@@ -44,6 +45,7 @@ export const useDateTimePicker = ({
 }: UseDateTimePickerArgs) => {
     const errorClass = valueError ? classes.error : undefined;
     const successClass = valueSuccess ? classes.success : undefined;
+    const editedClass = valueEdited ? classes.edited : undefined;
 
     const dateFormatDelimiter = useMemo(() => getDateFormatDelimiter(dateFormat), [dateFormat]);
     const timeFormatDelimiter = useMemo(() => getDateFormatDelimiter(timeFormat), [timeFormat]);
@@ -440,6 +442,7 @@ export const useDateTimePicker = ({
         timeColumnsCount,
         errorClass,
         successClass,
+        editedClass,
         handleChangeValue,
         handleSearch,
         handleCalendarPick,

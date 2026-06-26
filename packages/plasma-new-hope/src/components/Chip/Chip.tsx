@@ -1,8 +1,9 @@
 import React, { forwardRef, MouseEvent } from 'react';
+import { GRADIENT_TEXT_CLASS } from 'src/utils/constants';
+import cls from 'classnames';
 
 import type { RootProps } from '../../engines';
 import { IconClose } from '../_Icon/Icons/IconClose';
-import { cx } from '../../utils';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
@@ -68,7 +69,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             <Root
                 type="button"
                 ref={ref}
-                className={cx(pilledClass, classes.chipItem, className)}
+                className={cls(pilledClass, classes.chipItem, className, {})}
                 tabIndex={readOnly ? -1 : 0}
                 onClick={handleClick}
                 disabled={disabled}
@@ -77,7 +78,7 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 {...rest}
             >
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
-                {txt ? <StyledContentMain>{txt}</StyledContentMain> : children}
+                {txt ? <StyledContentMain className={GRADIENT_TEXT_CLASS}>{txt}</StyledContentMain> : children}
                 {contentRight && <StyledContentRight hasClear={hasClear}>{contentRight}</StyledContentRight>}
                 {hasClear &&
                     (contentClearButton || (

@@ -50,6 +50,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
 
                 valueError,
                 valueSuccess,
+                valueEdited,
 
                 // layout
                 label,
@@ -167,6 +168,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
             const {
                 datePickerErrorClass,
                 datePickerSuccessClass,
+                datePickerEditedClass,
                 handleChangeValue,
                 handleCalendarPick: onCalendarPick,
                 handleSearch,
@@ -181,6 +183,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 maskWithFormat,
                 valueError,
                 valueSuccess,
+                valueEdited,
                 name,
                 type,
                 min,
@@ -332,7 +335,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                             <StyledInput
                                 ref={inputRef}
                                 inputWrapperRef={referenceRef as MutableRefObject<HTMLDivElement>}
-                                className={cls(datePickerErrorClass, datePickerSuccessClass)}
+                                className={cls(datePickerErrorClass, datePickerSuccessClass, datePickerEditedClass)}
                                 value={inputValue}
                                 size={size}
                                 readOnly={readOnly}
@@ -427,7 +430,9 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                         </Root>
                     </FloatingPopover>
                     {leftHelper && (
-                        <LeftHelper className={cls(datePickerErrorClass, datePickerSuccessClass)}>
+                        <LeftHelper
+                            className={cls(datePickerErrorClass, datePickerSuccessClass, datePickerEditedClass)}
+                        >
                             {leftHelper}
                         </LeftHelper>
                     )}

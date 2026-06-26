@@ -82,8 +82,6 @@ export const tokens = {
     railBackgroundColor: '--plasma-slider-rail-background-color',
     railThickness: '--plasma-slider-rail-thickness',
     railBorderRadius: '--plasma-slider-rail-border-radius',
-    railIndent: '--plasma-slider-rail-indent',
-
     fillColor: '--plasma-slider-fill-color',
 
     textFieldWrapperGap: '--plasma-slider-text-field-wrapper-gap',

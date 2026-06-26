@@ -107,7 +107,7 @@ export type DropdownProps<T extends ItemOption = ItemOption> = {
     /**
      * Портал для выпадающего списка. Принимает id контейнера или ref.
      */
-    portal?: string | RefObject<HTMLElement>;
+    portal?: string | RefObject<HTMLElement | null>;
     /**
      * Callback для кастомной настройки айтема в выпадающем списке.
      */

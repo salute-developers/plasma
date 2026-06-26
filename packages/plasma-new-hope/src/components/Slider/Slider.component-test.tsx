@@ -328,7 +328,7 @@ describeFn('Slider', () => {
                 />
                 <PadMe />
                 <Slider
-                    value={2}
+                    value={0}
                     min={0}
                     max={100}
                     step={5}

@@ -12,8 +12,10 @@ type DatePickerProps = ComponentProps<typeof DatePicker>;
 const { meta: META, Default } = getDatePickerStories({
     component: DatePicker,
     componentConfig: config,
+    additionalArgTypes: {
+        inputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+    },
     disablePropsList: [
-        'appearance',
         'hasClearDivider',
         'view',
         'showShortcuts',
@@ -24,6 +26,12 @@ const { meta: META, Default } = getDatePickerStories({
     defaultArgs: {
         size: 's',
         enableContentLeft: false,
+    },
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'viewMode'],
+            control: { type: 'select' },
+        },
     },
     customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';

@@ -20,6 +20,14 @@ export interface StepItemProps {
      */
     completedItemView?: string;
     /**
+     * Кастомная высота шага (применяется в вертикальной ориентации)
+     */
+    height?: string;
+    /**
+     * Кастомная ширина шага (применяется в горизонтальной ориентации)
+     */
+    width?: string;
+    /**
      * Заголовок
      */
     title?: string;

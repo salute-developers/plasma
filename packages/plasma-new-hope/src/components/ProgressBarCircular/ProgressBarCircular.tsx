@@ -25,6 +25,7 @@ export const progressBarCircularRoot = (Root: RootProps<HTMLDivElement, Progress
             className,
             strokeSize,
             hasTrack = true,
+            reverse,
             ...rest
         } = props;
 
@@ -50,6 +51,7 @@ export const progressBarCircularRoot = (Root: RootProps<HTMLDivElement, Progress
                         customStrokeWidth={strokeSize}
                         className={classes.progressCircle}
                         percent={percentage}
+                        reverse={reverse}
                         transform="rotate(-90 50 50)"
                     />
                 </StyledSVG>

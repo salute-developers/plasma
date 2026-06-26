@@ -191,6 +191,52 @@ export const config = {
 
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
+            edited: css`
+                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldClearColor}: var(--text-primary);
+
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldClearPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.textFieldBackgroundColor}: var(--data-blue-light);
+                ${tokens.textFieldBackgroundColorFocus}: var(--data-blue-light-active);
+                ${tokens.textFieldBorderColor}: var(--outline-transparent-info);
+                ${tokens.textFieldBorderColorHover}: var(--outline-transparent-info-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-transparent-info-active);
+                ${tokens.textFieldCaretColor}: var(--text-accent);
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+                ${tokens.textFieldLabelColor}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColorFocus}: var(--text-secondary);
+                ${tokens.textFieldFocusColor}: var(--text-accent);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.textFieldIndicatorColor}: var(--surface-negative);
+                ${tokens.textFieldOptionalColor}: var(--text-tertiary);
+
+                ${tokens.textFieldDividerColor}: var(--outline-transparent-info);
+                ${tokens.textFieldDividerColorHover}: var(--outline-transparent-info);
+                ${tokens.textFieldDividerColorFocus}: var(--outline-transparent-info-active);
+
+                ${tokens.background}: var(--surface-solid-card);
+                ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
+                ${tokens.itemBackground}: transparent;
+                ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.itemColor}: var(--text-primary);
+
+                ${tokens.textFieldContentSlotColor}: ${tokens.textFieldColor};
+                ${tokens.textFieldContentSlotRightColor}: ${tokens.textFieldColor};
+                ${tokens.infiniteLoaderSpinnerColor}: var(--text-primary);
+
+                ${tokens.textFieldHintIconColor}: var(--text-secondary);
+            `,
         },
         size: {
             s: css`

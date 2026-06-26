@@ -35,6 +35,21 @@ export const config = {
             `,
         },
         size: {
+            m: css`
+                ${iconButtonTokens.iconButtonHeight}: 3rem;
+                ${iconButtonTokens.iconButtonWidth}: 3rem;
+                ${iconButtonTokens.iconButtonPadding}: 0.75rem;
+                ${iconButtonTokens.iconButtonRadius}: 0.75rem;
+                ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
+                ${iconButtonTokens.iconButtonFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${iconButtonTokens.iconButtonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${iconButtonTokens.iconButtonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${iconButtonTokens.iconButtonLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${iconButtonTokens.iconButtonSpinnerSize}: 1.375rem;
+                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
+            `,
             s: css`
                 ${iconButtonTokens.iconButtonHeight}: 2.5rem;
                 ${iconButtonTokens.iconButtonWidth}: 2.5rem;

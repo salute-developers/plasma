@@ -1,6 +1,7 @@
 import type { ChangeEvent, CSSProperties, HTMLAttributes, RefObject, SyntheticEvent } from 'react';
 
 import type { HintProps, LabelProps } from '../TextField/TextField.types';
+import type { TimePickerMultiplicity } from '../TimePickerGrid/TimePickerGrid.types';
 
 export type Placement =
     | 'top'
@@ -70,6 +71,10 @@ export type TextFieldProps = {
      * Флаг корректного значения
      */
     valueSuccess?: boolean;
+    /**
+     * Флаг отредактированного значения
+     */
+    valueEdited?: boolean;
     /**
      * Вспомогательный текст снизу слева
      */
@@ -164,6 +169,14 @@ type BasicProps = {
      */
     dropdownHeight?: CSSProperties['height'];
     /**
+     * Кратность отображаемых минут (1, 5, 10, 15, 20, 30)
+     */
+    multiplicityMinutes?: TimePickerMultiplicity;
+    /**
+     * Кратность отображаемых секунд (1, 5, 10, 15, 20, 30)
+     */
+    multiplicitySeconds?: TimePickerMultiplicity;
+    /**
      * Количество колонок (2 - часы/минуты, 3 - часы/минуты/секунды)
      */
     columnsQuantity?: 2 | 3;
@@ -180,7 +193,7 @@ type BasicProps = {
      * Влияет на выбор предустановленного набора токенов
      * @default 'default'
      */
-    appearance?: 'default' | 'clear';
+    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Флаг наличия разделителя для clear appearance
      * @default false
