@@ -909,6 +909,104 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('renderTarget single', () => {
+        cy.viewport(1000, 400);
+
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((item, opened) => (
+            <button type="button" id="custom-target">
+                {item?.label || 'Placeholder'} {opened ? 'opened' : 'closed'}
+            </button>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState('');
+
+            return <Select id="select" value={value} onChange={setValue} items={items} renderTarget={renderTarget} />;
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target').should('contain.text', 'Placeholder closed');
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.equal(null);
+        });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+
+        cy.get('#custom-target').click();
+
+        cy.get('#custom-target').should('contain.text', 'Placeholder opened');
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.equal(null);
+        });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+
+        cy.contains('Южная Америка').click();
+        cy.contains('Колумбия').click();
+        cy.contains('Богота').click();
+
+        cy.get('#custom-target').should('contain.text', 'Богота closed');
+        cy.get('@renderTarget').its('lastCall.args.0').should('include', { value: 'bogota', label: 'Богота' });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+    });
+
+    it('renderTarget multiple', () => {
+        cy.viewport(1000, 400);
+
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((selectedItems, opened) => (
+            <button type="button" id="custom-target">
+                {selectedItems.length ? selectedItems.map((item) => item.label).join(', ') : 'Empty'}{' '}
+                {opened ? 'opened' : 'closed'}
+            </button>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState<string[]>([]);
+
+            return (
+                <Select
+                    id="select"
+                    multiselect
+                    value={value}
+                    onChange={setValue}
+                    items={items}
+                    renderTarget={renderTarget}
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target').should('contain.text', 'Empty closed');
+        cy.get('@renderTarget').its('lastCall.args.0').should('deep.equal', []);
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+
+        cy.get('#custom-target').click();
+
+        cy.get('#custom-target').should('contain.text', 'Empty opened');
+        cy.get('@renderTarget').its('lastCall.args.0').should('deep.equal', []);
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+
+        cy.contains('Южная Америка').click();
+        cy.contains('Колумбия').click();
+        cy.get('[id$="bogota"] .checkbox-trigger').click();
+        cy.get('[id$="medellin"] .checkbox-trigger').click();
+
+        cy.get('#custom-target').should('contain.text', 'Богота, Медельин opened');
+        cy.get('@renderTarget')
+            .its('lastCall.args.0')
+            .then((selectedItems) => {
+                expect(selectedItems.map(({ value, label }) => ({ value, label }))).to.deep.equal([
+                    { value: 'bogota', label: 'Богота' },
+                    { value: 'medellin', label: 'Медельин' },
+                ]);
+            });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+    });
+
     it('shift', () => {
         cy.viewport(400, 400);
 

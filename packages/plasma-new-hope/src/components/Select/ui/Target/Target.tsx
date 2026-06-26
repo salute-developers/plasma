@@ -48,6 +48,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                     inputWrapperRef={inputWrapperRef}
                     multiselect={multiselect}
                     value={value}
+                    opened={opened}
                     renderTarget={renderTarget}
                     valueToItemMap={valueToItemMap}
                 />
