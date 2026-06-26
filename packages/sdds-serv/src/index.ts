@@ -14,6 +14,7 @@ export * from './components/Checkbox';
 export * from './components/Chip';
 export * from './components/ChipGroup';
 export * from './components/Cell';
+export * from './components/CodeArea';
 export * from './components/Counter';
 export * from './components/Combobox';
 export * from './components/DatePicker';

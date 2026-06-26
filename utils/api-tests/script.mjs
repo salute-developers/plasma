@@ -13,43 +13,50 @@ const config = {
     libs: [
         {
             name: '@salutejs/plasma-b2c',
-            excludeComponents: ['TextField'],
+            excludeComponents: ['TextField', 'CodeArea'],
         },
         {
             name: '@salutejs/plasma-web',
-            excludeComponents: ['TextField'],
+            excludeComponents: ['TextField', 'CodeArea'],
         },
         {
             name: '@salutejs/plasma-giga',
         },
         {
             name: '@salutejs/sdds-bizcom',
+            excludeComponents: ['CodeArea'],
         },
         {
             name: '@salutejs/sdds-cs',
-            excludeComponents: ['Select', 'InformationWrapper'],
+            excludeComponents: ['Select', 'InformationWrapper', 'CodeArea'],
         },
         {
             name: '@salutejs/sdds-dfa',
-            excludeComponents: ['InformationWrapper'],
+            excludeComponents: ['InformationWrapper', 'CodeArea'],
         },
         {
             name: '@salutejs/sdds-finai',
+            excludeComponents: ['CodeArea'],
         },
         {
             name: '@salutejs/sdds-insol',
+            excludeComponents: ['CodeArea'],
         },
         {
             name: '@salutejs/sdds-netology',
+            excludeComponents: ['CodeArea'],
         },
         {
             name: '@salutejs/sdds-platform-ai',
+            excludeComponents: ['CodeArea'],
         },
         {
             name: '@salutejs/sdds-scan',
+            excludeComponents: ['CodeArea'],
         },
         {
             name: '@salutejs/sdds-serv',
+            excludeComponents: ['CodeArea'],
         },
     ],
     includeComponents: [],
