@@ -1,0 +1,227 @@
+---
+id: codearea
+title: CodeArea
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# CodeArea
+
+Компонент `CodeArea` используется для отображения фрагментов кода с подсветкой синтаксиса.
+
+<Description name="CodeArea" />
+
+## Быстрый старт
+
+Код передается в `children`, а язык подсветки задается свойством `language`.
+
+```tsx live
+import React from 'react';
+import { CodeArea } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <CodeArea language="json" showLineNumbers>
+            {`{
+  "input": "Первый искусственный спутник Земли",
+  "model": "GigaCheckClassification"
+}`}
+        </CodeArea>
+    );
+}
+```
+
+## Язык подсветки
+
+Свойство `language` определяет правила подсветки синтаксиса.
+Возможные значения нужно брать из списка Prism-языков:
+[AVAILABLE_LANGUAGES_PRISM.MD](https://github.com/react-syntax-highlighter/react-syntax-highlighter/blob/HEAD/AVAILABLE_LANGUAGES_PRISM.MD).
+
+<Tabs>
+    <TabItem value="json" label="JSON" default>
+        ```tsx live
+        import React from 'react';
+        import { CodeArea } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <CodeArea language="json" showLineNumbers>
+                    {`{
+  "input": "Первый искусственный спутник Земли",
+  "model": "GigaCheckClassification",
+  "stream": false
+}`}
+                </CodeArea>
+            );
+        }
+        ```
+</TabItem>
+    <TabItem value="bash" label="Bash">
+        ```tsx live
+        import React from 'react';
+        import { CodeArea } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <CodeArea language="bash" showLineNumbers>
+                    {`curl --request POST \\
+  --url <https://gigachat.devices.sberbank.ru/api/v1/ai/check> \\
+  --header 'Authorization: Bearer <token>' \\
+  --header 'Content-Type: application/json'`}
+                </CodeArea>
+            );
+        }
+        ```
+</TabItem>
+    <TabItem value="python" label="Python">
+        ```tsx live
+        import React from 'react';
+        import { CodeArea } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <CodeArea language="python" showLineNumbers>
+                    {`import requests
+
+response = requests.post(
+    "<https://gigachat.devices.sberbank.ru/api/v1/ai/check>",
+    headers={"Authorization": "Bearer <token>"},
+)
+
+print(response.text)`}
+                </CodeArea>
+            );
+        }
+        ```
+</TabItem>
+    <TabItem value="javascript" label="JavaScript">
+        ```tsx live
+        import React from 'react';
+        import { CodeArea } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <CodeArea language="javascript" showLineNumbers>
+                    {`const response = await fetch('/api/v1/ai/check', {
+    method: 'POST',
+    headers: {
+        Authorization: 'Bearer <token>',
+        'Content-Type': 'application/json',
+    },
+});`}
+                </CodeArea>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Номера строк
+
+Свойство `showLineNumbers` включает колонку с номерами строк. Ширина колонки рассчитывается по номеру последней строки,
+поэтому однозначные и многозначные номера не меняют ширину строки кода.
+
+```tsx live
+import React from 'react';
+import { CodeArea } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <CodeArea language="javascript" showLineNumbers>
+            {`const model = 'GigaCheckClassification';
+const input = 'Первый искусственный спутник Земли';
+const enabled = true;`}
+        </CodeArea>
+    );
+}
+```
+
+## Перенос длинных строк
+
+Длинные строки переносятся автоматически и остаются внутри области кода.
+
+```tsx live
+import React from 'react';
+import { CodeArea } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ width: '22rem' }}>
+            <CodeArea language="javascript" showLineNumbers>
+                {`const message = 'This is a very long line that wraps inside CodeArea without changing the line number column width.';`}
+            </CodeArea>
+        </div>
+    );
+}
+```
+
+## Appearance
+
+Свойство `appearance` переключает вариант отображения компонента. По умолчанию используется `default`.
+Для варианта с внешней оберткой используйте `appearance="hasWrapper"`.
+
+```tsx live
+import React from 'react';
+import { CodeArea } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <CodeArea appearance="hasWrapper" language="json" showLineNumbers>
+            {`{
+  "status": "ok",
+  "source": "CodeArea"
+}`}
+        </CodeArea>
+    );
+}
+```
+
+## Слоты
+
+Через `contentOuter`, `contentHeader` и `contentAction` можно передать дополнительный контент вокруг области кода.
+Свойство `hasDivider` добавляет разделитель снизу header-слота.
+
+```tsx live
+import React from 'react';
+import { CodeArea } from '@salutejs/sdds-serv';
+import { IconCopyOutline } from '@salutejs/plasma-icons';
+import styled from 'styled-components';
+
+export function App() {
+    const slotStyle = {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '3rem',
+        background:
+            'linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to right, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to left, #9747FF 0.063rem, transparent 0.063rem) 100% 100%, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 0 0, linear-gradient(to bottom, #9747FF 0.063rem, transparent 0.063rem) 100% 0, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 0 100%, linear-gradient(to top, #9747FF 0.063rem, transparent 0.063rem) 100% 100%',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '1rem 1rem',
+    };
+
+    return (
+        <div style={{ width: '640px' }}>
+            <CodeArea
+                appearance="hasWrapper"
+                contentAction={<IconCopyOutline color="inherit" size="s" />}
+                contentHeader={<div style={slotStyle}>Header</div>}
+                contentOuter={<div style={slotStyle}>Content</div>}
+                hasDivider
+                language="json"
+                showLineNumbers
+            >
+                {`{
+  "status": "ok",
+  "source": "CodeArea"
+}`}
+            </CodeArea>
+        </div>
+    );
+}
+```
+
+## Свойства
+
+<PropsTable name="CodeArea" />

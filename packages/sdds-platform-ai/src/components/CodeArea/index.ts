@@ -1,0 +1,1 @@
+export { CodeArea } from './CodeArea';

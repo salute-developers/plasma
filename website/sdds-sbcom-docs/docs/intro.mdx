@@ -45,7 +45,7 @@ export const App = () => {
 
 Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
 
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
+Для использования типографической системы необходимо загрузить `css` файлы используемых шрифтов темы, а также `SB Sans Text Mono`.
 
 ### Create react app
 
@@ -57,6 +57,10 @@ export const App = () => {
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
             rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
         />
         <title>...</title>
     </head>
@@ -81,6 +85,10 @@ export default function Home() {
                 <link
                     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
                     rel="stylesheet"
+                />
+                <link
+                    rel="stylesheet"
+                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
                 />
             </Head>
             <div>
