@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/core-themes",
-  "version": "0.33.0-next-sbcom.0",
+  "version": "0.34.0-next-sbcom.0",
   "description": "Core-themes package",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -18,13 +18,19 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "devDependencies": {
     "@salutejs/plasma-tokens-utils": "0.54.0-next-sbcom.0",
     "@types/node": "16.7.13",
     "jszip": "3.10.1",
     "ts-node": "10.2.1"
   },
-  "contributors": ["Виноградов Антон Александрович", "Неретин Артём Андреевич", "Vasiliy Loginevskiy"],
+  "contributors": [
+    "Виноградов Антон Александрович",
+    "Неретин Артём Андреевич",
+    "Vasiliy Loginevskiy"
+  ],
   "sideEffects": false
 }
