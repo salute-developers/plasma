@@ -41,7 +41,7 @@ describeFn('CalendarRange', () => {
     const CalendarDoubleRange = componentExists ? getComponent('CalendarDoubleRange') : () => null;
 
     const Demo = (args) => {
-        const { min, max, displayDouble, baseValue, size = 's', type = 'Days', locale = 'ru' } = args;
+        const { min, max, displayDouble, baseValue, size = 's', type = 'Days', locale = 'ru', renderFromDate } = args;
         const [values, setValue] = useState<[Date, Date?]>(baseValue);
 
         const handleOnChange = useCallback((newValue: [Date, Date?]) => {
@@ -75,7 +75,7 @@ describeFn('CalendarRange', () => {
         };
 
         const calendarMap = {
-            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays }),
+            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays, renderFromDate }),
             Months: getCalendarComponent({ type: 'Months' }),
             Quarters: getCalendarComponent({ type: 'Quarters' }),
             Years: getCalendarComponent({ type: 'Years' }),
@@ -126,6 +126,16 @@ describeFn('CalendarRange', () => {
         mount(<Demo baseValue={[undefined, undefined]} />);
 
         cy.get('body').find('[aria-selected="true"]').should('not.be.exist');
+    });
+
+    it('range: completes selection in 2 clicks from empty state', () => {
+        mount(<Demo baseValue={[undefined, undefined]} renderFromDate={new Date(1999, 6, 1)} />);
+
+        cy.get('[data-day="7"][data-month-index="6"]').first().click();
+        cy.get('[aria-selected="true"]').should('have.length', 1);
+
+        cy.get('[data-day="19"][data-month-index="6"]').first().click();
+        cy.get('[aria-selected="true"]').should('have.length', 2);
     });
 
     it('range in progress', () => {

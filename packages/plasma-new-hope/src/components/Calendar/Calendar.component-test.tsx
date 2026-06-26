@@ -167,12 +167,19 @@ describeFn('Calendar', () => {
             type = 'Days',
             locale = 'ru',
             stretched = false,
+            uncontrolled = false,
+            renderFromDate,
         } = args;
         const [value, setValue] = useState(baseValue);
 
-        const handleOnChange = useCallback((newValue: Date) => {
-            setValue(newValue);
-        }, []);
+        const handleOnChange = useCallback(
+            (newValue: Date) => {
+                if (!uncontrolled) {
+                    setValue(newValue);
+                }
+            },
+            [uncontrolled],
+        );
 
         const getCalendarComponent = (rest) => {
             return displayDouble ? (
@@ -205,7 +212,13 @@ describeFn('Calendar', () => {
         };
 
         const calendarMap = {
-            Days: getCalendarComponent({ type: 'Days', eventList: events, disabledList: disabledDays, stretched }),
+            Days: getCalendarComponent({
+                type: 'Days',
+                eventList: events,
+                disabledList: disabledDays,
+                stretched,
+                renderFromDate,
+            }),
             Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents, stretched }),
             Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents, stretched }),
             Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents, stretched }),
@@ -275,6 +288,25 @@ describeFn('Calendar', () => {
         mount(<Demo />);
 
         cy.get('body').find('[aria-selected="true"]').should('not.be.exist');
+    });
+
+    it('uncontrolled: click selects a day without external value update', () => {
+        mount(<Demo uncontrolled renderFromDate={new Date(1999, 6, 1)} />);
+
+        cy.get('[data-day="7"][data-month-index="6"]').first().click();
+
+        cy.get('[aria-selected="true"]').should('have.length', 1);
+        cy.get('[data-day="7"][data-month-index="6"]').first().should('have.attr', 'aria-selected', 'true');
+    });
+
+    it('uncontrolled: clicking another day replaces the selection', () => {
+        mount(<Demo uncontrolled renderFromDate={new Date(1999, 6, 1)} />);
+
+        cy.get('[data-day="7"][data-month-index="6"]').first().click();
+        cy.get('[data-day="15"][data-month-index="6"]').first().click();
+
+        cy.get('[aria-selected="true"]').should('have.length', 1);
+        cy.get('[data-day="15"][data-month-index="6"]').first().should('have.attr', 'aria-selected', 'true');
     });
 
     it('days: prev month', () => {
