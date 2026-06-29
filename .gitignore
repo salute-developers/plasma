@@ -1,5 +1,6 @@
 node_modules/
 .idea/
+.next/
 .nx/
 tsconfig.tsbuildinfo
 tsconfig.es.tsbuildinfo
