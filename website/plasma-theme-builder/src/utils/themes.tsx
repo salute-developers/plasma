@@ -153,4 +153,5 @@ export const sectionToFormulaMap: Record<string, FormulaMode> = {
     outline: 'stroke',
     surface: 'fill',
     data: 'fill',
+    syntax: 'stroke',
 };
