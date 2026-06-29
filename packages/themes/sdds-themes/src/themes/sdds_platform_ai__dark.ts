@@ -3,6 +3,30 @@
 export const sdds_platform_ai__dark = ([
     `
 :root {
+  --syntax-yellow: #F3A912;
+  --syntax-orange: #FFB38A;
+  --syntax-pink: #FF4791;
+  --syntax-spring: #C5FC5F;
+  --syntax-sky-blue: #8AE6FF;
+  --syntax-red: #FF8F9A;
+  --on-dark-syntax-yellow: #F3A912;
+  --on-dark-syntax-orange: #FFB38A;
+  --on-dark-syntax-pink: #FF4791;
+  --on-dark-syntax-spring: #C5FC5F;
+  --on-dark-syntax-sky-blue: #8AE6FF;
+  --on-dark-syntax-red: #FF8F9A;
+  --on-light-syntax-yellow: #F3A912;
+  --on-light-syntax-orange: #85380C;
+  --on-light-syntax-pink: #9B0D46;
+  --on-light-syntax-spring: #629405;
+  --on-light-syntax-sky-blue: #0492B9;
+  --on-light-syntax-red: #FF3D51;
+  --inverse-syntax-yellow: #F3A912;
+  --inverse-syntax-orange: #85380C;
+  --inverse-syntax-pink: #9B0D46;
+  --inverse-syntax-spring: #629405;
+  --inverse-syntax-sky-blue: #0492B9;
+  --inverse-syntax-red: #FF3D51;
   --text-primary-hover: #7A7A7AFF;
   --text-primary-active: #5C5C5CFF;
   --text-primary-brightness: #FFFFFFFF;
@@ -688,8 +712,8 @@ export const sdds_platform_ai__dark = ([
   --on-dark-outline-solid-default: #F5F5F5;
   --on-light-outline-solid-primary-hover: #ABABABFF;
   --on-light-outline-solid-primary-active: #C4C4C4FF;
-  --on-light-outline-solid-secondary-hover: #DBDBDBFF;
-  --on-light-outline-solid-secondary-active: #8F8F8FFF;
+  --on-light-outline-solid-secondary-hover: #C9C9C9FF;
+  --on-light-outline-solid-secondary-active: #8C8C8CFF;
   --on-light-outline-solid-tertiary-hover: #A3A3A3FF;
   --on-light-outline-solid-tertiary-active: #5C5C5CFF;
   --on-light-outline-transparent-primary-hover: #08080852;
@@ -748,7 +772,6 @@ export const sdds_platform_ai__dark = ([
   --on-light-outline-positive: #108E26;
   --on-light-outline-accent-minor: #28D247;
   --on-light-outline-accent: #108E26;
-  --on-light-outline-solid-secondary: #B3B3B3;
   --on-light-outline-transparent-primary: #0808081F;
   --on-light-outline-transparent-secondary: #08080847;
   --on-light-outline-transparent-tertiary: #0808088F;
@@ -758,10 +781,11 @@ export const sdds_platform_ai__dark = ([
   --on-light-outline-primary-white: #FFFFFFFF;
   --on-light-outline-primary-white-hover: #CCCCCCFF;
   --on-light-outline-primary-white-active: #E6E6E6FF;
+  --on-light-outline-solid-secondary: #A1A1A1FF;
   --inverse-outline-solid-primary-hover: #ABABABFF;
   --inverse-outline-solid-primary-active: #C4C4C4FF;
-  --inverse-outline-solid-secondary-hover: #DBDBDBFF;
-  --inverse-outline-solid-secondary-active: #8F8F8FFF;
+  --inverse-outline-solid-secondary-hover: #C9C9C9FF;
+  --inverse-outline-solid-secondary-active: #8C8C8CFF;
   --inverse-outline-solid-tertiary-hover: #A3A3A3FF;
   --inverse-outline-solid-tertiary-active: #5C5C5CFF;
   --inverse-outline-transparent-primary-hover: #08080852;
@@ -823,13 +847,13 @@ export const sdds_platform_ai__dark = ([
   --inverse-outline-transparent-primary: #0808081F;
   --inverse-outline-transparent-secondary: #08080847;
   --inverse-outline-transparent-tertiary: #0808088F;
-  --inverse-outline-solid-secondary: #B3B3B3;
   --inverse-outline-solid-default-hover: #969696FF;
   --inverse-outline-solid-default-active: #080808FF;
   --inverse-outline-solid-default: #080808;
   --inverse-outline-primary-white: #FFFFFFFF;
   --inverse-outline-primary-white-hover: #CCCCCCFF;
   --inverse-outline-primary-white-active: #E6E6E6FF;
+  --inverse-outline-solid-secondary: #A1A1A1FF;
   --data-yellow: #F3A912;
   --data-yellow-hover: #F4B22FFF;
   --data-yellow-active: #EDA20CFF;
