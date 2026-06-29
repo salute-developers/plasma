@@ -20,6 +20,7 @@ var NormalizeCSSDecorator_1 = require("./NormalizeCSSDecorator");
 var ThemeGIGA = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_giga__light);
 var ThemeCS = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_cs__light);
 var ThemeINSOL = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_insol__light);
+var ThemeNETOLOGY = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_b2c__light);
 var ThemeSERV = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_serv__light);
 var ThemeSCAN = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_scan__light);
 var ThemeOS = (0, styled_components_1.createGlobalStyle)(sdds_os_1.sdds_os__light);
@@ -36,6 +37,7 @@ var testPackagesThemes = {
     'plasma-giga': react_1.default.createElement(ThemeGIGA, null),
     'sdds-cs': react_1.default.createElement(ThemeCS, null),
     'sdds-insol': react_1.default.createElement(ThemeINSOL, null),
+    'sdds-netology': react_1.default.createElement(ThemeNETOLOGY, null),
     'plasma-web': react_1.default.createElement(ThemeWEB, null),
     'sdds-serv': react_1.default.createElement(ThemeSERV, null),
     'sdds-scan': react_1.default.createElement(ThemeSCAN, null),
@@ -64,6 +66,8 @@ var getPackage = function () {
             return require('../../../packages/sdds-cs/dist/emotion/cjs/index.js');
         case 'sdds-insol':
             return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
+        case 'sdds-netology':
+            return require('../../../packages/sdds-netology/dist/styled-components/cjs/index.js');
         case 'sdds-serv':
             return require('../../../packages/sdds-serv/dist/styled-components/cjs/index.js');
         case 'sdds-scan':
@@ -139,6 +143,7 @@ var CypressTestDecorator = function (_a) {
         'plasma-giga',
         'sdds-cs',
         'sdds-insol',
+        'sdds-netology',
         'plasma-web',
         'sdds-serv',
         'sdds-scan',
