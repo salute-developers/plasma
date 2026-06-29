@@ -1,0 +1,20 @@
+name: Free disk space
+description: Removes unused toolchains and Docker layers to reclaim ~10GB of disk space
+
+runs:
+    using: composite
+    steps:
+        - name: Check disk usage before
+          shell: bash
+          run: df -h
+
+        - name: Remove unused toolchains and Docker layers
+          shell: bash
+          run: |
+              sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+              sudo docker image prune --all --force
+              sudo docker builder prune -a
+
+        - name: Check disk usage after
+          shell: bash
+          run: df -h
