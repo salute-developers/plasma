@@ -7,6 +7,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@salutejs/plasma-icons": "1.241.0",
     "@salutejs/sdds-serv": "file:../../packages/sdds-serv",
     "@salutejs/sdds-themes": "file:../../packages/themes/sdds-themes",
     "next": "14.2.35",
