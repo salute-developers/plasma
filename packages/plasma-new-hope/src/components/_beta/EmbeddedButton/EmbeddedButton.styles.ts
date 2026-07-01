@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
+import { component, mergeConfig } from 'src/engines';
 
-import { addFocus } from '../../../mixins';
-import { component, mergeConfig } from '../../../engines';
 import { spinnerConfig, spinnerTokens } from '../../Spinner';
 
 import type { IconPosition } from './EmbeddedButton.types';
@@ -87,7 +87,7 @@ export const base = css`
     }
 
     ${addFocus({
-        outlineOffset: '0',
+        outlineOffset: '0.125rem',
         outlineSize: '0.0625rem',
         outlineRadius: `var(${tokens.borderRadius})`,
         outlineColor: `var(${tokens.focusColor})`,

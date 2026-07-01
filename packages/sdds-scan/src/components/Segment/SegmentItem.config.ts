@@ -21,7 +21,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--text-secondary);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             secondary: css`
                 ${segmentTokens.itemColor}: var(--text-primary);
@@ -37,7 +37,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--text-secondary);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             default: css`
                 ${segmentTokens.itemColor}: var(--text-primary);
@@ -53,7 +53,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--inverse-text-secondary);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--inverse-text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             accent: css`
                 ${segmentTokens.itemColor}: var(--text-primary);
@@ -69,7 +69,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--on-dark-text-secondary);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--on-dark-text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
         },
         size: {

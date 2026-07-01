@@ -30,7 +30,7 @@ export const getRenderItems = (items: BreadcrumbsItem[], renderSeparator: ReactN
 
             return (
                 <StyledLink
-                    tabIndex={0}
+                    tabIndex={disabled ? -1 : 0}
                     href={href}
                     disabled={disabled}
                     onClick={onClick}

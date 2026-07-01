@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-
-import { addFocus } from '../../mixins';
+import { addFocus } from 'src/mixins';
 
 import { tokens } from './Modal.tokens';
 
@@ -46,9 +45,9 @@ export const CloseButton = styled.button`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.188rem',
         outlineColor: `var(${tokens.modalOutlineFocusColor})`,
-        outlineRadius: `calc(var(${tokens.modalCloseButtonRadius}) + 0.063rem)`,
+        outlineRadius: `calc(var(${tokens.modalCloseButtonRadius}) - 0.063rem)`,
     })};
 
     color: var(${tokens.modalCloseButtonColor});

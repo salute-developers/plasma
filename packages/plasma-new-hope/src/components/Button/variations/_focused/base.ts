@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
 import { tokens } from '../../Button.tokens';
-import { addFocus } from '../../../../mixins';
 
 export const base = css`
     :focus {
@@ -13,9 +13,9 @@ export const base = css`
     }
 
     ${addFocus({
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.125rem',
         outlineSize: 'var(--plasma_private-btn-outline-size)',
-        outlineRadius: 'calc(0.125rem + var(--plasma_private-btn-br))',
+        outlineRadius: 'var(--plasma_private-btn-br)',
         outlineColor: `var(${tokens.buttonFocusColor})`,
     })}
 `;

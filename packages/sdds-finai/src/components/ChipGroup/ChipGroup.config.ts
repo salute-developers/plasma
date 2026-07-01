@@ -8,6 +8,7 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--inverse-text-primary);
                 ${tokens.chipBackground}: var(--surface-solid-default);
                 ${tokens.chipColorHover}: var(--inverse-text-primary);
@@ -16,6 +17,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: var(--surface-solid-default-active);
             `,
             accent: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--on-dark-text-primary);
                 ${tokens.chipBackground}: var(--surface-accent);
                 ${tokens.chipColorHover}: var(--on-dark-text-primary);
@@ -24,6 +26,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: var(--surface-accent-active);
             `,
             positive: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--on-dark-text-primary);
                 ${tokens.chipBackground}: var(--surface-positive);
                 ${tokens.chipColorHover}: var(--on-dark-text-primary);
@@ -32,6 +35,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: var(--surface-positive-active);
             `,
             warning: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--on-dark-text-primary);
                 ${tokens.chipBackground}: var(--surface-warning);
                 ${tokens.chipColorHover}: var(--on-dark-text-primary);
@@ -40,6 +44,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: var(--surface-warning-active);
             `,
             negative: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--on-dark-text-primary);
                 ${tokens.chipBackground}: var(--surface-negative);
                 ${tokens.chipColorHover}: var(--on-dark-text-primary);
@@ -48,6 +53,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: var(--surface-negative-active);
             `,
             clear: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-clear);
                 ${tokens.chipColorHover}: var(--text-primary);
