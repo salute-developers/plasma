@@ -6,7 +6,9 @@ export type FocusProps = {
      */
     outlineSize?: string;
     /**
-     * Отступ фокусной рамки от родителя
+     * Отступ фокусной рамки от родителя.
+     * Отрицательное значение — рамка снаружи элемента, положительное — внутри.
+     * Семантика аналогична CSS-свойству top/left/right/bottom у псевдоэлемента.
      */
     outlineOffset?: string;
     /**
@@ -28,10 +30,14 @@ export type FocusProps = {
 };
 
 /**
- * Миксин для добавления фокусной рамки к элементу через псевдоэлемент before
- * @param {FocusProps} props
+ * Миксин для добавления фокусной рамки к элементу через псевдоэлемент before.
+ *
+ * Псевдоэлемент позиционируется через inset: 0 (всегда в пределах родителя),
+ * а визуальный отступ рамки реализуется через outline-offset. Это исключает влияние ::before на
+ * scroll-область контейнера при любых значениях outlineOffset.
+ *
  * @example
- * // Выведет фокусную рамку размером 2em, скруглением 5em, отступом 2em и цветом 'rebeccapurple'.
+ * // Фокусная рамка снаружи элемента с отступом 2em, скруглением 5em, цветом 'rebeccapurple'.
  * addFocus({
  *  outlineSize: '2em',
  *  outlineOffset: '2em',
@@ -39,7 +45,7 @@ export type FocusProps = {
  *  outlineColor: 'rebeccapurple',
  * });
  * @example
- * // Выведет outline размером 4em, скруглением 10px 1px, без отступа и цветом 'greenyellow'.
+ * // Фокусная рамка без отступа, цветом 'greenyellow'.
  * addFocus({
  *  outlineSize: '4em',
  *  outlineOffset: '0',
@@ -51,7 +57,7 @@ export const addFocus = (args: FocusProps) => {
     const {
         customFocusRules,
         outlineSize = '0.125rem',
-        outlineOffset = '-0.125rem',
+        outlineOffset = '0.125rem',
         outlineColor = 'var(--plasma-colors-button-focused, var(--text-accent))',
         outlineRadius = '30px',
         hasTransition = true,
@@ -64,35 +70,30 @@ export const addFocus = (args: FocusProps) => {
             content: '';
 
             position: absolute;
-            top: ${outlineOffset};
-            left: ${outlineOffset};
-            right: ${outlineOffset};
-            bottom: ${outlineOffset};
+            inset: 0;
             z-index: 1;
 
-            display: block;
-            box-sizing: content-box;
-
-            border: ${outlineSize} solid transparent;
             border-radius: ${outlineRadius};
 
-            transition: ${hasTransition ? 'box-shadow 0.2s ease-in-out' : 'none'};
+            outline: ${outlineSize} solid transparent;
+            outline-offset: ${outlineOffset};
+
+            transition: ${hasTransition ? 'outline-color 0.2s ease-in-out' : 'none'};
 
             pointer-events: none;
         }
 
-        ${getCustomFocusStyle(outlineSize, outlineColor, customFocusRules)}
+        ${getCustomFocusStyle(outlineColor, customFocusRules)}
     `;
 };
 
-const getCustomFocusStyle = (outlineSize: string, outlineColor: string, customFocusRules?: string) => {
+const getCustomFocusStyle = (outlineColor: string, customFocusRules?: string) => {
     if (!customFocusRules) {
         return `
             &.focus-visible:focus,
             &[data-focus-visible-added] {
                 &::before {
-                    outline: none;
-                    box-shadow: 0 0 0 ${outlineSize} ${outlineColor};
+                    outline-color: ${outlineColor};
                 }
             }
         `;

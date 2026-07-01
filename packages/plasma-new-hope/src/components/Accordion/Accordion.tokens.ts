@@ -11,6 +11,10 @@ export const classes = {
     accordionItemBody: 'accordion-item-body',
 };
 
+export const privateTokens = {
+    calculatedBorderRadius: '--plasma_private-calculated-border-radius',
+};
+
 export const tokens = {
     accordionGap: '--plasma-accordion-gap',
     accordionWidth: '--plasma-accordion-width',

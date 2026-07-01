@@ -63,20 +63,10 @@ export const ShortcutItem = styled.li`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '0.063rem',
+        outlineOffset: '-0.063rem',
         outlineColor: `var(${tokens.outlineFocusColor})`,
         outlineRadius: `var(${tokens.shortcutBorderRadius})`,
         hasTransition: false,
-        customFocusRules: `
-                &.focus-visible:focus,
-                &[data-focus-visible-added] {
-                    &::before {
-                        z-index: 1;
-                        outline: none;
-                        box-shadow: 0 0 0 0.063rem var(${tokens.outlineFocusColor});
-                    }
-                }
-            `,
     })};
 `;
 

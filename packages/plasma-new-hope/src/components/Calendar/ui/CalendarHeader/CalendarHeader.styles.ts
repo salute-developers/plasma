@@ -1,10 +1,10 @@
 import styled from 'styled-components';
+import { component, mergeConfig } from 'src/engines';
+import { addFocus } from 'src/mixins';
 
 import { classes, tokens } from '../../Calendar.tokens';
-import { component, mergeConfig } from '../../../../engines';
 import { iconButtonConfig, iconButtonTokens } from '../../../IconButton';
 import { flexCenter } from '../../mixins';
-import { addFocus } from '../../../../mixins';
 import { IconDisclosureDownFill } from '../../../_Icon';
 
 const mergedIconButtonConfig = mergeConfig(iconButtonConfig);
@@ -45,7 +45,7 @@ export const StyledHeader = styled.button`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.125rem',
         outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
         outlineRadius: '0.563rem',
     })};
@@ -137,7 +137,7 @@ export const StyledHeaderDouble = styled.button`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.125rem',
         outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
         outlineRadius: '0.563rem',
     })};

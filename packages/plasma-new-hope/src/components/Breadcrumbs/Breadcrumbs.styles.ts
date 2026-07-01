@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
+import { component, mergeConfig } from 'src/engines';
+import { addFocus } from 'src/mixins';
 
 import { linkConfig } from '../Link';
-import { component, mergeConfig } from '../../engines';
 import { IconDisclosureRight } from '../_Icon';
-import { addFocus } from '../../mixins';
 import { tokens as linkTokens } from '../Link/Link.tokens';
 
 import { tokens } from './Breadcrumbs.tokens';
@@ -21,14 +21,15 @@ export const StyledLink = styled(Link)<{ isHref: boolean }>`
 
     ${linkTokens.linkDisabledOpacity}: var(${tokens.breadcrumbsOpacity});
     opacity: ${({ isHref }) => (isHref ? 1 : `var(${tokens.breadcrumbsOpacity})`)};
-
+    outline: none;
     cursor: pointer;
 
     ${addFocus({
-        outlineOffset: '0rem',
+        outlineOffset: '0.125rem',
         outlineSize: '0.125rem',
         outlineRadius: '0rem',
         outlineColor: `var(${tokens.breadcrumbsFocusOutlineColor})`,
+        hasTransition: false,
     })}
 `;
 

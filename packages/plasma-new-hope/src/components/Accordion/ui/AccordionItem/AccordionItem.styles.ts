@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import { addFocus } from 'src/mixins';
 
 import { IconChevronDownFill, IconMinus } from '../../../_Icon';
-import { classes, tokens } from '../../Accordion.tokens';
+import { classes, privateTokens, tokens } from '../../Accordion.tokens';
 
-export const StyledAccordionHeader = styled.div`
+export const StyledAccordionHeader = styled.div<{ borderRadius?: string }>`
     width: 100%;
     border: none;
     padding: var(${tokens.accordionItemPadding});
@@ -23,7 +23,7 @@ export const StyledAccordionHeader = styled.div`
     ${addFocus({
         outlineOffset: '0.125rem',
         outlineSize: '0.125rem',
-        outlineRadius: '0',
+        outlineRadius: `var(${privateTokens.calculatedBorderRadius})`,
         outlineColor: `var(${tokens.accordionItemFocus})`,
     })}
 `;
