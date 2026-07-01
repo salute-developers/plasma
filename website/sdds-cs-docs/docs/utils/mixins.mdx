@@ -7,6 +7,36 @@ title: Миксины
 
 Раздел содержит функции, которые можно применять для стилизации компонент.
 
+
+## `addFocus`
+
+Добавляет фокусную рамку к компоненту через псевдоэлемент `::before`. Рамка реализована через CSS `outline`, что исключает влияние на scroll-область контейнера.
+
+### Параметры
+
+| Параметр | Тип | По умолчанию | Описание |
+|---|---|---|---|
+| `outlineSize` | `string` | `'0.125rem'` | Толщина фокусной рамки |
+| `outlineOffset` | `string` | `'0.125rem'` | Отступ от элемента: отрицательное — рамка внутри , положительное — снаружи |
+| `outlineColor` | `string` | `'var(--text-accent)'` | Цвет фокусной рамки |
+| `outlineRadius` | `string` | `'30px'` | Скругление углов фокусной рамки |
+| `hasTransition` | `boolean` | `true` | Анимировать появление рамки |
+| `customFocusRules` | `string` | — | Переопределяет стили состояния фокуса |
+
+```tsx
+import styled from 'styled-components';
+import { addFocus } from '@salutejs/sdds-cs';
+
+const FocusableCard = styled.div`
+    ${addFocus({
+        outlineSize: '0.125rem',
+        outlineOffset: '0.125rem',
+        outlineRadius: '0.5rem',
+        outlineColor: 'var(--text-accent)',
+    })}
+`;
+```
+
 ## `applyPaper`
 
 Позволяет создать базовый стиль подложки для любого блока, со следующим набором свойств, значения которых доступны из темы `sdds_cs`:
