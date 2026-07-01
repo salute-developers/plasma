@@ -43,6 +43,7 @@ export const DateShortcutList = <T extends Date | [Date?, Date?]>({
             <ShortcutList width={dateShortcutsWidth}>
                 {items.map((item) => (
                     <ShortcutItem
+                        tabIndex={item.disabled ? -1 : 0}
                         className={cls({ [classes.shortcutItemDisabled]: item.disabled })}
                         onClick={() => setShortcutDate(item.value)}
                     >

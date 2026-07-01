@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
-import { addFocus } from '../../../../mixins';
 import { classes, tokens } from '../../Checkbox.tokens';
 
 /**
@@ -11,7 +11,7 @@ import { classes, tokens } from '../../Checkbox.tokens';
 export const base = css`
     .${classes.checkboxTrigger} {
         ${addFocus({
-            outlineOffset: '0',
+            outlineOffset: '0.125rem',
             outlineSize: '0.125rem',
             outlineRadius: `var(${tokens.triggerBorderRadius})`,
             outlineColor: 'transparent',
@@ -21,13 +21,13 @@ export const base = css`
     input[data-focus-visible-added] + label .${classes.checkboxTrigger} {
         border-color: transparent;
         ${addFocus({
-            outlineOffset: '-0.125rem',
+            outlineOffset: '0.125rem',
             outlineSize: '0.125rem',
-            outlineRadius: `var(${tokens.triggerBorderRadius})`,
+            outlineRadius: `calc(var(${tokens.triggerBorderRadius}) - 0.125rem)`,
             outlineColor: `var(${tokens.focusColor})`,
             customFocusRules: `
                 &::before {
-                    box-shadow: 0 0 0 0.125rem var(${tokens.focusColor});
+                    outline-color: var(${tokens.focusColor});
                 }
             `,
         })}
@@ -36,13 +36,13 @@ export const base = css`
     input[data-focus-visible-added]:checked + label .checkbox-trigger,
     input[type='checkbox'][data-focus-visible-added]:indeterminate + label .${classes.checkboxTrigger} {
         ${addFocus({
-            outlineOffset: '-0.25rem',
+            outlineOffset: '0.25rem',
             outlineSize: '0.063rem',
-            outlineRadius: `calc(var(${tokens.triggerBorderRadius}) + 0.125rem)`,
+            outlineRadius: `calc(var(${tokens.triggerBorderRadius}) - 0.125rem)`,
             outlineColor: `var(${tokens.focusColor})`,
             customFocusRules: `
                 &::before {
-                    box-shadow: 0 0 0 0.063rem var(${tokens.focusColor});
+                    outline-color: var(${tokens.focusColor});
                 }
             `,
         })}
