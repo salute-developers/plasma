@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
+import { addFocus, applyEllipsis } from 'src/mixins';
 
-import { addFocus, applyEllipsis } from '../../../../mixins';
 import { classes, tokens } from '../../tokens';
 
 export const StyledContent = styled.div<{
@@ -67,6 +67,7 @@ export const base = css`
             &.focus-visible:focus,
             &[data-focus-visible-added] {
                 &::before {
+                    inset: var(--plasma_private-clip-outline-offset);
                     z-index: 1;
                     outline: none;
                     box-shadow: 0 0 0 0.063rem var(${tokens.outlineFocusColor});

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-import { addFocus } from '../../mixins';
+import { addFocus } from 'src/mixins';
 
 export const ButtonBase = styled.button`
     width: 100%;

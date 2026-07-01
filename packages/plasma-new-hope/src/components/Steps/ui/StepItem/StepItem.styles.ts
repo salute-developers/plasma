@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
+import { component, mergeConfig } from 'src/engines';
+import { addFocus } from 'src/mixins';
 
 import { classes, tokens } from '../../Steps.tokens';
-import { component, mergeConfig } from '../../../../engines';
 import { spinnerConfig, spinnerTokens } from '../../../Spinner';
-import { addFocus } from '../../../../mixins';
 
 const mergedConfig = mergeConfig(spinnerConfig);
 const Spinner = component(mergedConfig);
@@ -120,7 +120,7 @@ export const BulletIndicator = styled.button`
     line-height: var(${tokens.indicatorLineHeight});
 
     ${addFocus({
-        outlineOffset: '-0.0625rem',
+        outlineOffset: '0.125rem',
         outlineSize: '0.0625rem',
         outlineRadius: '50%',
         outlineColor: `var(${tokens.focusColor})`,
@@ -143,7 +143,7 @@ export const BulletIndicator = styled.button`
         background: var(${tokens.activeIndicatorBackground});
 
         ${addFocus({
-            outlineOffset: '-0.1875rem',
+            outlineOffset: '0.25rem',
             outlineSize: '0.0625rem',
             outlineRadius: '50%',
             outlineColor: `var(${tokens.focusColor})`,

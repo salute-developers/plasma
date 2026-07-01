@@ -1,9 +1,9 @@
 import styled from 'styled-components';
+import { component, mergeConfig } from 'src/engines';
+import { addFocus, applyEllipsis } from 'src/mixins';
 
 import { buttonConfig, buttonTokens } from '../Button';
 import { buttonGroupConfig, buttonGroupTokens } from '../ButtonGroup';
-import { component, mergeConfig } from '../../engines';
-import { addFocus, applyEllipsis } from '../../mixins';
 
 import { classes, tokens } from './Pagination.tokens';
 
@@ -139,12 +139,8 @@ export const PaginationButton = styled(Button)`
 }));
     }
 
-    :focus {
-        outline: none;
-    }
-
     ${addFocus({
-        outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
+        outlineOffset: 'var(--plasma_private-btn-outline-size)',
         outlineSize: 'var(--plasma_private-btn-outline-size)',
         outlineRadius: 'var(--plasma_private-btn-br)',
         outlineColor: `var(${tokens.buttonFocusColor})`,

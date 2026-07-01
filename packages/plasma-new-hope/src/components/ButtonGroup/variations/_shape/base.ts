@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
 import { classes, tokens } from '../../ButtonGroup.tokens';
 import { buttonTokens, buttonClasses } from '../../../Button';
-import { addFocus } from '../../../../mixins';
 
 export const base = css`
     &.${classes.default} {
@@ -20,8 +20,8 @@ export const base = css`
         ${buttonTokens.buttonRadius}: var(--plasma_private-button-radius-inner);
 
         ${addFocus({
-            outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
-            outlineSize: 'var(--plasma_private-btn-outline-size)',
+            outlineOffset: 'var(--plasma_private-btn-outline-size)',
+            outlineSize: 'calc(0.032rem + var(--plasma_private-btn-outline-size))',
             outlineRadius: 'var(--plasma_private-button-radius-inner)',
             outlineColor: `var(${buttonTokens.buttonFocusColor})`,
         })}
@@ -32,8 +32,8 @@ export const base = css`
             border-radius: var(${tokens.buttonSideRadius});
 
             ${addFocus({
-                outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
-                outlineSize: 'var(--plasma_private-btn-outline-size)',
+                outlineOffset: 'var(--plasma_private-btn-outline-size)',
+                outlineSize: 'calc(0.032rem + var(--plasma_private-btn-outline-size))',
                 outlineRadius: `var(${tokens.buttonSideRadius})`,
                 outlineColor: `var(${buttonTokens.buttonFocusColor})`,
             })}
@@ -48,8 +48,8 @@ export const base = css`
             border-radius: var(--plasma_private-left-side-radius);
 
             ${addFocus({
-                outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
-                outlineSize: 'var(--plasma_private-btn-outline-size)',
+                outlineOffset: 'var(--plasma_private-btn-outline-size)',
+                outlineSize: 'calc(0.032rem + var(--plasma_private-btn-outline-size))',
                 outlineRadius: 'var(--plasma_private-left-side-radius)',
                 outlineColor: `var(${buttonTokens.buttonFocusColor})`,
             })}
@@ -63,8 +63,8 @@ export const base = css`
             border-radius: var(--plasma_private-right-side-radius);
 
             ${addFocus({
-                outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
-                outlineSize: 'var(--plasma_private-btn-outline-size)',
+                outlineOffset: 'var(--plasma_private-btn-outline-size)',
+                outlineSize: 'calc(0.032rem + var(--plasma_private-btn-outline-size))',
                 outlineRadius: 'var(--plasma_private-right-side-radius)',
                 outlineColor: `var(${buttonTokens.buttonFocusColor})`,
             })}
@@ -79,8 +79,8 @@ export const base = css`
             border-radius: var(--plasma_private-up-side-radius);
 
             ${addFocus({
-                outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
-                outlineSize: 'var(--plasma_private-btn-outline-size)',
+                outlineOffset: 'var(--plasma_private-btn-outline-size)',
+                outlineSize: 'calc(0.032rem + var(--plasma_private-btn-outline-size))',
                 outlineRadius: 'var(--plasma_private-up-side-radius)',
                 outlineColor: `var(${buttonTokens.buttonFocusColor})`,
             })}
@@ -93,8 +93,8 @@ export const base = css`
             border-radius: var(--plasma_private-down-side-radius);
 
             ${addFocus({
-                outlineOffset: 'calc(-1 * var(--plasma_private-btn-outline-size))',
-                outlineSize: 'var(--plasma_private-btn-outline-size)',
+                outlineOffset: 'var(--plasma_private-btn-outline-size)',
+                outlineSize: 'calc(0.032rem + var(--plasma_private-btn-outline-size))',
                 outlineRadius: 'var(--plasma_private-down-side-radius)',
                 outlineColor: `var(${buttonTokens.buttonFocusColor})`,
             })}

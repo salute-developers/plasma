@@ -36,16 +36,14 @@ export const base = css`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '0.063rem',
+        outlineOffset: '-0.063rem',
         outlineColor: `var(${tokens.outlineFocusColor})`,
         outlineRadius: 'var(--border-radius-m , calc(var(--plasma_private-outline-radius) + 0.063rem))',
         customFocusRules: `
             &.focus-visible:focus,
             &[data-focus-visible-added] {
                 &::before {
-                    z-index: 1;
-                    outline: none;
-                    box-shadow: 0 0 0 0.063rem var(${tokens.outlineFocusColor});
+                    outline-color: var(${tokens.outlineFocusColor});
                 }
             }
         `,

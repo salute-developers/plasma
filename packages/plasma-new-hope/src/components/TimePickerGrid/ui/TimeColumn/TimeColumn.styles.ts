@@ -41,7 +41,7 @@ export const StyledTimeItem = styled.div`
     }
 
     ${addFocus({
-        outlineOffset: '0.0625rem',
+        outlineOffset: '-0.0625rem',
         outlineSize: '0.0625rem',
         outlineRadius: `var(${tokens.itemBorderRadius})`,
         outlineColor: `var(${tokens.itemFocusColor})`,

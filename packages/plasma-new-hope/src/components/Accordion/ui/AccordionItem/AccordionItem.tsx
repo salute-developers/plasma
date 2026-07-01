@@ -1,7 +1,7 @@
 import React, { useState, useRef, forwardRef, useEffect } from 'react';
 
 import { convertRoundnessMatrix } from '../../../../utils/roundness';
-import { classes, tokens } from '../../Accordion.tokens';
+import { classes, privateTokens, tokens } from '../../Accordion.tokens';
 import { cx } from '../../../../utils';
 
 import {
@@ -124,6 +124,9 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                     aria-expanded={opened ?? value}
                     aria-controls={`accordion-item-section${key}`}
                     id={`accordion-item-${key}`}
+                    style={{
+                        [privateTokens.calculatedBorderRadius]: accordionBorderRadius,
+                    }}
                 >
                     <StyledAccordionHeaderLeft>
                         {leftContent && (

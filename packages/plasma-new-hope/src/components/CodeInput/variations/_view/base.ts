@@ -1,8 +1,8 @@
 import { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
 import { CaptionWrapper, ItemInput, ItemCircle } from '../../CodeInput.styles';
 import { classes, tokens } from '../../CodeInput.tokens';
-import { addFocus } from '../../../../mixins';
 
 export const base = css`
     ${CaptionWrapper} {
@@ -42,7 +42,7 @@ export const base = css`
 
         &[data-focus-visible-added] {
             ${addFocus({
-                outlineOffset: '-0.125rem',
+                outlineOffset: '0',
                 outlineSize: '0.125rem',
                 outlineRadius: '1rem',
                 outlineColor: `var(${tokens.borderColorFocus})`,

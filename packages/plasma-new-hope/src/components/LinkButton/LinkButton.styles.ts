@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import { applyEllipsis, addFocus } from 'src/mixins';
+import { component, mergeConfig } from 'src/engines';
 
-import { applyEllipsis, addFocus } from '../../mixins';
-import { component, mergeConfig } from '../../engines';
 import { spinnerConfig, spinnerTokens } from '../Spinner';
 
 import { tokens } from './LinkButton.tokens';
@@ -24,9 +24,9 @@ export const base = css`
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 
     ${addFocus({
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.125rem',
         outlineSize: '0.063rem',
-        outlineRadius: `calc(0.125rem + var(${tokens.linkButtonRadius}))`,
+        outlineRadius: `var(${tokens.linkButtonRadius})`,
         outlineColor: `var(${tokens.linkButtonFocusColor})`,
     })}
 `;
