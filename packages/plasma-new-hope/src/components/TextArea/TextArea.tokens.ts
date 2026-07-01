@@ -2,6 +2,7 @@ export const privateTokens = {
     inputActualHeight: '--plasma_private-textarea-input-actual-height',
     wrapperPaddingBottomInnerLabel: '--plasma_private-textarea-inner-label-padding-bottom',
     dividerColor: '--plasma_private-textarea-divider-color',
+    scrollbarCompensationPadding: '--plasma_private-textarea-scrollbar-compensation-padding',
 };
 
 export const classes = {
