@@ -257,6 +257,11 @@ export const StyledHiddenTextArea = styled.textarea<{
     resize?: string;
     cols?: number;
 }>`
+    ${privateTokens.scrollbarCompensationPadding}: calc(var(${tokens.borderSize}, 0.0625rem) + var(${
+    tokens.scrollbarMarginRight
+}, 0rem));
+
+    width: ${({ cols }) => (cols ? 'unset' : '100%')};
     max-height: none !important;
     min-height: var(${tokens.inputMinHeight}) !important;
     visibility: hidden !important;
@@ -269,8 +274,8 @@ export const StyledHiddenTextArea = styled.textarea<{
     border-width: 0;
     padding-right: ${({ hasContentRight }) =>
         hasContentRight
-            ? `var(${tokens.inputPaddingRightWithRightContent}, 0)`
-            : `var(${tokens.inputPaddingRight}, 0)`};
+            ? `calc(var(${privateTokens.scrollbarCompensationPadding}, 0) + var(${tokens.inputPaddingRightWithRightContent}, 0))`
+            : `calc(var(${privateTokens.scrollbarCompensationPadding}, 0) + var(${tokens.inputPaddingRight}, 0))`};
     padding-left: var(${tokens.inputPaddingLeft}, 0);
     padding-top: 0;
     padding-bottom: 0;
