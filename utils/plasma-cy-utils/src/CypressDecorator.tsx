@@ -1,7 +1,12 @@
 import React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { plasma_giga__light, plasma_web__light, plasma_homeds__light } from '@salutejs/plasma-themes';
+import {
+    plasma_giga__light,
+    plasma_web__light,
+    plasma_homeds__light,
+    plasma_b2c__light,
+} from '@salutejs/plasma-themes';
 import {
     sdds_cs__light,
     sdds_insol__light,
@@ -25,6 +30,7 @@ import { NormalizeCSSDecorator } from './NormalizeCSSDecorator';
 const ThemeGIGA = createGlobalStyle(plasma_giga__light);
 const ThemeCS = createGlobalStyle(sdds_cs__light);
 const ThemeINSOL = createGlobalStyle(sdds_insol__light);
+const ThemeNETOLOGY = createGlobalStyle(plasma_b2c__light);
 const ThemeSERV = createGlobalStyle(sdds_serv__light);
 const ThemeSCAN = createGlobalStyle(sdds_scan__light);
 const ThemeOS = createGlobalStyle(sdds_os__light);
@@ -43,6 +49,7 @@ const testPackagesThemes = {
     'plasma-giga': <ThemeGIGA />,
     'sdds-cs': <ThemeCS />,
     'sdds-insol': <ThemeINSOL />,
+    'sdds-netology': <ThemeNETOLOGY />,
     'plasma-web': <ThemeWEB />,
     'sdds-serv': <ThemeSERV />,
     'sdds-scan': <ThemeSCAN />,
@@ -74,6 +81,8 @@ const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.
             return require('../../../packages/sdds-cs/dist/emotion/cjs/index.js');
         case 'sdds-insol':
             return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
+        case 'sdds-netology':
+            return require('../../../packages/sdds-netology/dist/styled-components/cjs/index.js');
         case 'sdds-serv':
             return require('../../../packages/sdds-serv/dist/styled-components/cjs/index.js');
         case 'sdds-scan':
@@ -165,6 +174,7 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
             'plasma-giga',
             'sdds-cs',
             'sdds-insol',
+            'sdds-netology',
             'plasma-web',
             'sdds-serv',
             'sdds-scan',
