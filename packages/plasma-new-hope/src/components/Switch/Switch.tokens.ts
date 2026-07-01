@@ -15,50 +15,50 @@ export const tokens = {
     descriptionLineHeight: '--plasma-switch-description-line-height',
 
     /* Цвет подписи */
-    labelColor: '--plasma-switch__label-color',
-    labelOffset: '--plasma-switch__label-offset',
+    labelColor: '--plasma-switch-label-color',
+    labelOffset: '--plasma-switch-label-offset',
 
     /* Цвет описания */
-    descriptionColor: '--plasma-switch__description-color',
-    descriptionOffset: '--plasma-switch__description-offset',
-    descriptionMaxLines: '--plasma-switch__description-max-lines',
+    descriptionColor: '--plasma-switch-description-color',
+    descriptionOffset: '--plasma-switch-description-offset',
+    descriptionMaxLines: '--plasma-switch-description-max-lines',
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-switch-disabled-opacity',
 
     verticalGap: '--plasma-switch-vertical-gap',
-    trackWidth: '--plasma-switch__track-width',
-    trackHeight: '--plasma-switch__track-height',
-    trackBorderWidthOn: '--plasma-switch__track_checked_true-border-width',
-    trackBorderWidthOff: '--plasma-switch__track_checked_false-border-width',
-    trackBorderColorOn: '--plasma-switch__track_checked_true-border-color',
-    trackBorderColorOnHover: '--plasma-switch__track_checked_true_hovered_true-border-color',
-    trackBorderColorOff: '--plasma-switch__track_checked_false-border-color',
-    trackBorderColorOffHover: '--plasma-switch__track_checked_false_hovered_true-border-color',
+    trackWidth: '--plasma-switch-track-width',
+    trackHeight: '--plasma-switch-track-height',
+    trackBorderWidthOn: '--plasma-switch-track-border-width-on',
+    trackBorderWidthOff: '--plasma-switch-track-border-width-off',
+    trackBorderColorOn: '--plasma-switch-track-border-color-on',
+    trackBorderColorOnHover: '--plasma-switch-track-border-color-on-hover',
+    trackBorderColorOff: '--plasma-switch-track-border-color-off',
+    trackBorderColorOffHover: '--plasma-switch-track-border-color-off-hover',
 
-    trackBorderRadius: '--plasma-switch__track-border-radius',
+    trackBorderRadius: '--plasma-switch-track-border-radius',
     // NOTE: could be intersection with checked
-    trackBackgroundColorOn: '--plasma-switch__track_checked_true-bg-color',
-    trackBackgroundColorOnHover: '--plasma-switch__track_checked_true_hovered_true-bg-color',
-    trackBackgroundColorOff: '--plasma-switch__track_checked_false-bg-color',
-    trackBackgroundColorOffHover: '--plasma-switch__track_checked_false_hovered_true-bg-color',
+    trackBackgroundColorOn: '--plasma-switch-track-background-color-on',
+    trackBackgroundColorOnHover: '--plasma-switch-track-background-color-on-hover',
+    trackBackgroundColorOff: '--plasma-switch-track-background-color-off',
+    trackBackgroundColorOffHover: '--plasma-switch-track-background-color-off-hover',
 
-    trackFocusColor: '--plasma-switch__track-focus-color',
+    trackFocusColor: '--plasma-switch-track-focus-color',
 
-    thumbSize: '--plasma-switch__thumb-size',
-    thumbOffsetOn: '--plasma-switch__thumb_checked_true-offset',
-    thumbOffsetOff: '--plasma-switch__thumb_checked_false-offset',
-    thumbBorderRadius: '--plasma-switch__thumb-border-radius',
-    thumbBorderColorOff: '--plasma-switch__thumb-border-color-off',
-    thumbBorderColorOn: '--plasma-switch__thumb-border-color-on',
-    thumbBorderWidth: '--plasma-switch__thumb-border-width',
+    thumbSize: '--plasma-switch-thumb-size',
+    thumbOffsetOn: '--plasma-switch-thumb-offset-on',
+    thumbOffsetOff: '--plasma-switch-thumb-offset-off',
+    thumbBorderRadius: '--plasma-switch-thumb-border-radius',
+    thumbBorderColorOff: '--plasma-switch-thumb-border-color-off',
+    thumbBorderColorOn: '--plasma-switch-thumb-border-color-on',
+    thumbBorderWidth: '--plasma-switch-thumb-border-width',
 
-    thumbPressScale: '--plasma-switch__thumb-scale',
+    thumbPressScale: '--plasma-switch-thumb-scale',
 
-    thumbBackgroundColorOn: '--plasma-switch__thumb_checked_true-bg-color',
-    thumbBackgroundColorOff: '--plasma-switch__thumb_checked_false-bg-color',
-    thumbBoxShadow: '--plasma-switch__thumb-box-shadow',
-    thumbBoxShadowOn: '--plasma-switch__thumb-box-shadow_checked_true',
+    thumbBackgroundColorOn: '--plasma-switch-thumb-background-color-on',
+    thumbBackgroundColorOff: '--plasma-switch-thumb-background-color-off',
+    thumbBoxShadow: '--plasma-switch-thumb-box-shadow',
+    thumbBoxShadowOn: '--plasma-switch-thumb-box-shadow-on',
 
     labelOffsetPrivate: '--plasma_private-switch__label-offset',
 };
