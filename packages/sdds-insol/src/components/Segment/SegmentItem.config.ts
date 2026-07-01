@@ -49,6 +49,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColorHover}: ${inverseTextSecondary};
 
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             secondary: css`
                 ${segmentTokens.itemColor}: ${textPrimary};
@@ -67,6 +68,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColorHover}: ${textSecondary};
 
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             accent: css`
                 ${segmentTokens.itemColor}: ${textPrimary};
@@ -83,6 +85,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColorHover}: ${onDarkTextSecondary};
 
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             clear: css`
                 ${segmentTokens.itemColor}: ${textSecondary};
@@ -99,6 +102,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColorHover}: ${textSecondary};
 
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             accentTransparent: css`
                 ${segmentTokens.itemColor}: ${textPrimary};
@@ -120,6 +124,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColorHover}: ${textSecondary};
 
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
         },
         size: {

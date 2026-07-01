@@ -42,9 +42,9 @@ export const StyledChip = styled(Chip)<{ chipClickArea: 'full' | 'close-icon' }>
     ${chipTokens.disabledOpacity}: 0.4;
 
     ${addFocus({
-        outlineOffset: '0.0625rem',
+        outlineOffset: '-0.0625rem',
         outlineSize: '0.0625rem',
-        outlineRadius: `calc(var(${tokens.chipBorderRadius}) - 0.1rem)`,
+        outlineRadius: `var(${tokens.chipBorderRadius})`,
         outlineColor: `var(${tokens.focusColor})`,
     })}
 
@@ -96,9 +96,9 @@ export const TextChip = styled.button`
     color: var(${tokens.color});
 
     ${addFocus({
-        outlineOffset: '0.0625rem',
+        outlineOffset: '-0.0625rem',
         outlineSize: '0.0625rem',
-        outlineRadius: `calc(var(${tokens.chipBorderRadius}) - 0.1rem)`,
+        outlineRadius: `var(${tokens.chipBorderRadius})`,
         outlineColor: `var(${tokens.focusColor})`,
     })}
 

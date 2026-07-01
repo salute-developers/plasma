@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
-import { addFocus } from '../../../../../mixins';
 import { classes, tokens } from '../../../tokens';
 
 export const base = css`
@@ -50,7 +50,7 @@ export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boo
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0',
         outlineColor: `var(${tokens.outlineFocusColor})`,
         outlineRadius: 'calc(var(--plasma_private-outline-radius) - 0.063rem)',
     })};

@@ -79,13 +79,7 @@ export const config = {
                 ${tokens.fontWeight}: 0;
                 ${tokens.lineHeight}: 0;
                 ${tokens.statusIconSize}: 0;
-            `,
-        },
-        shape: {
-            circled: css`
                 ${tokens.borderRadius}: 50%;
-                ${tokens.statusLeft}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
-                ${tokens.statusTop}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
             `,
         },
         focused: {
@@ -93,6 +87,13 @@ export const config = {
                 ${tokens.outlineSize}: 0.1rem;
                 ${tokens.outlineOffset}: -0.2rem;
                 ${tokens.outlineColor}: var(--surface-accent);
+            `,
+        },
+        shape: {
+            circled: css`
+                ${tokens.borderRadius}: 50%;
+                ${tokens.statusLeft}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
+                ${tokens.statusTop}: calc(0.867 * var(${tokens.avatarSize}) - var(${tokens.statusIconSize}) / 2);
             `,
         },
         counterView: {

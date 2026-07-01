@@ -6,7 +6,8 @@ import { chipClasses, chipTokens } from '../../../Chip';
 export const base = css`
     &.${classes.chipGroupOverrideStyles} .${chipClasses.chipItem} {
         ${chipTokens.background}: var(${tokens.chipBackground});
-        ${chipTokens.color}: var(${tokens.chipColor});
+        ${chipTokens.color}: var(${tokens.chipFocusColor}: var(--surface-accent);
+                ${tokens.chipColor});
         ${chipTokens.backgroundHover}: var(${tokens.chipBackgroundHover});
         ${chipTokens.colorHover}: var(${tokens.chipColorHover});
         ${chipTokens.backgroundActive}: var(${tokens.chipBackgroundActive});

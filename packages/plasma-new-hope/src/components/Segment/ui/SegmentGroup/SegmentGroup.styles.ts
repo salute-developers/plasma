@@ -93,7 +93,7 @@ export const StyledArrow = styled.button`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0',
         outlineColor: `var(${tokens.outlineFocusColor})`,
         outlineRadius: 'calc(var(--plasma_private-outline-radius) - 0.063rem)',
     })};
