@@ -1,0 +1,71 @@
+# Need to change name from `ESLint` to `CI Checks` branch protection rules settings
+# And then rename here
+name: ESLint
+
+on:
+    merge_group:
+    pull_request:
+        branches:
+            - dev
+            - master
+
+permissions:
+    contents: read
+
+concurrency:
+    # New commit on branch cancels running workflows of the same branch
+    group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  show-progress: false
+
+            - name: Free disk space
+              uses: ./.github/actions/free-disk-space
+
+            - name: Prepare environment
+              uses: ./.github/actions/prepare-environment
+
+            # ESLint не требует сборки типов — только установить пакеты и сделать symlink
+            - name: Lerna bootstrap
+              run: npx lerna bootstrap --ignore-scripts
+
+            - name: Check disk usage after bootstrap
+              run: df -h
+
+            - name: Lint
+              run: npm run lint
+
+    typescript-coverage:
+        name: TypeScript Coverage
+        runs-on: ubuntu-latest
+        env:
+            # Игнорируем пакеты plasma-tokens, документацию и утилиты — typescript-coverage там не запускается
+            LERNA_IGNORE_LIST: "@salutejs/plasma-{tokens*,cy-utils,sb-utils}"
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  show-progress: false
+
+            - name: Prepare environment
+              uses: ./.github/actions/prepare-environment
+
+            - name: Lerna bootstrap
+              run: npx lerna bootstrap --no-private
+
+            - name: Run TypeScript Coverage
+              run: npm run typescript-coverage -- --no-private --ignore=${{ env.LERNA_IGNORE_LIST }}
+
+            - name: Save artifacts
+              if: failure()
+              uses: actions/upload-artifact@v4.1.0
+              with:
+                  name: typescript-coverage-report
+                  path: packages/*/coverage-ts/
