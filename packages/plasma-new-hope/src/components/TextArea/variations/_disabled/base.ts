@@ -3,12 +3,17 @@ import { css } from 'styled-components';
 import { tokens, classes } from '../../TextArea.tokens';
 import {
     StyledContent,
+    StyledContentWrapper,
+    StyledHeaderSlot,
     StyledHelpers,
+    StyledHintWrapper,
     StyledIndicator,
     StyledLabel,
+    StyledLeftHelper,
     StyledOptionalText,
     StyledOutsideHelpersWrapper,
-    StyledPlaceholder,
+    StyledRightHelper,
+    StyledTextArea,
     StyledTextAreaWrapper,
     TitleCaption,
 } from '../../TextArea.styles';
@@ -17,9 +22,14 @@ const { styledTextArea } = classes;
 
 export const base = css`
     &[disabled] {
-        ${StyledLabel}, ${StyledIndicator}, ${StyledOptionalText}, ${TitleCaption},
-        ${StyledContent}, ${StyledTextAreaWrapper},
-        ${StyledHelpers}, ${StyledPlaceholder}, ${StyledOutsideHelpersWrapper} {
+        cursor: not-allowed;
+                
+        ${StyledHintWrapper}, ${StyledIndicator} {
+            cursor: default;
+        }
+
+        ${StyledLabel}, ${StyledOptionalText}, ${TitleCaption},
+        ${StyledOutsideHelpersWrapper} {
             opacity: var(${tokens.disabledOpacity});
             cursor: not-allowed;
             pointer-events: none;
@@ -28,6 +38,21 @@ export const base = css`
             &:active {
                 transform: none;
             }
+        }
+
+        ${StyledTextAreaWrapper},
+        ${StyledHelpers} {
+            opacity: var(${tokens.disabledBackgroundOpacity}, var(${tokens.disabledOpacity}));
+        }
+
+        ${StyledHeaderSlot},
+        ${StyledContent},
+        ${StyledContentWrapper},
+        ${StyledTextArea},
+        ${StyledLeftHelper},
+        ${StyledRightHelper} {
+            pointer-events: none;
+            opacity: var(${tokens.disabledInnerContentOpacity}, 1);
         }
     }
 
