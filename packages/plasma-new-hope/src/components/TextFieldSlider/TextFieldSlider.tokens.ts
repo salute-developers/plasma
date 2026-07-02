@@ -176,4 +176,6 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-textfield-slider-disabled-opacity',
+    disabledBackgroundOpacity: '--plasma-textfield-slider-disabled-background-opacity',
+    disabledInnerContentOpacity: '--plasma-textfield-slider-disabled-inner-content-opacity',
 };

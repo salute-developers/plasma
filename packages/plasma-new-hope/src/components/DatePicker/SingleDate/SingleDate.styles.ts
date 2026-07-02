@@ -99,6 +99,8 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.lineHeight}: var(${tokens.textFieldLineHeight});
 
     ${textFieldTokens.disabledOpacity}: var(${tokens.disabledOpacity});
+    ${textFieldTokens.disabledBackgroundOpacity}: var(${tokens.disabledBackgroundOpacity});
+    ${textFieldTokens.disabledInnerContentOpacity}: var(${tokens.disabledInnerContentOpacity});
     
     ${textFieldTokens.textBeforeColor}: var(${tokens.textFieldTextBeforeColor});
     ${textFieldTokens.textAfterColor}: var(${tokens.textFieldTextAfterColor});

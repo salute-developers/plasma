@@ -208,6 +208,9 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldColorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${rangeTokens.textFieldBackgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
     ${rangeTokens.textFieldPlaceholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
+
+    ${rangeTokens.disabledBackgroundOpacity}: var(${tokens.textFieldDisabledBackgroundOpacity});
+    ${rangeTokens.disabledInnerContentOpacity}: var(${tokens.textFieldDisabledInnerContentOpacity});
 `;
 
 export const base = css`
