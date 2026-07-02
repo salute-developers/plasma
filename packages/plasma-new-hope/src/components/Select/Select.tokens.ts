@@ -181,6 +181,8 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-select-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-select-textfield-disabled-opacity',
+    textFieldDisabledBackgroundOpacity: '--plasma-select-textfield-disabled-background-opacity',
+    textFieldDisabledInnerContentOpacity: '--plasma-select-textfield-disabled-inner-content-opacity',
     textFieldReadOnlyOpacity: '--plasma-select-textfield-readonly-opacity',
 
     /** Токены для tooltip */

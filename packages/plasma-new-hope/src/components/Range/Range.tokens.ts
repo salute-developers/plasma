@@ -168,6 +168,8 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-range-disabled-opacity',
+    disabledBackgroundOpacity: '--plasma-range-disabled-background-opacity',
+    disabledInnerContentOpacity: '--plasma-range-disabled-inner-content-opacity',
     readOnlyOpacity: '--plasma-range-readonly-opacity',
     labelColorReadOnly: '--plasma-range-info-wrapper-label-color-readonly',
     titleCaptionColorReadOnly: '--plasma-range-info-wrapper-title-caption-color-readonly',

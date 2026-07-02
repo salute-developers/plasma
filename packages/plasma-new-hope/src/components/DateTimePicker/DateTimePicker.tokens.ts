@@ -347,5 +347,7 @@ export const tokens = {
     /** Прозрачность для всего компонента в состоянии disabled */
     timeGridDisabledOpacity: '--plasma-date-time-picker-grid-disabled-opacity',
     disabledOpacity: '--plasma-date-time-picker-disabled-opacity',
+    disabledBackgroundOpacity: '--plasma-date-time-picker-disabled-background-opacity',
+    disabledInnerContentOpacity: '--plasma-date-time-picker-disabled-inner-content-opacity',
     outlineFocusColor: '--plasma-date-time-picker-outline-focus',
 };

@@ -115,4 +115,6 @@ export const tokens = {
     textFieldBorderColorFocus: '--plasma-slider-text-field-border-color-focus',
 
     disabledOpacity: '--plasma-slider-disabled-opacity',
+    disabledBackgroundOpacity: '--plasma-slider-disabled-background-opacity',
+    disabledInnerContentOpacity: '--plasma-slider-disabled-inner-content-opacity',
 };
