@@ -4,17 +4,13 @@ title: Attach
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Attach
 <Description name="Attach" />
-<PropsTable name="Attach" />
 
-## Примеры
-
-### Подсказка к кнопке
-Вид `helperText` задается с помощью свойства `helperTextView`. Возможные значения свойства:
-+ `"default"` – по умолчанию;
-+ `"negative"` – ошибка.
+## Быстрый старт
 
 ```tsx live
 import React from 'react';
@@ -22,149 +18,333 @@ import { Attach } from '@salutejs/{{ package }}';
 
 export function App() {
     return (
-        <div style=\{{ padding: "1rem" }}>
-            <Attach helperTextView="default" helperText="Подсказка" />
-            <Attach helperTextView="negative" helperText="Подсказка" />
-        </div>
+        <Attach text="Загрузить файл" />
     );
 }
 ```
 
-### Вид кнопки
-С помощью свойства `buttonType` можно менять вид кнопки: обычный или с иконкой.
+## Управление внешним видом
 
-```tsx live
-import React from 'react';
-import { Attach } from '@salutejs/{{ package }}';
+Внешний вид компонента задаётся свойствами `view`, `size` и `buttonType`:
 
-export function App() {
-    return (
-        <div style=\{{ display: "flex", flexDirection: "column", gap: "50px"}}>
-            <Attach view="accent" buttonType={'button'} />
-            <Attach view="secondary" buttonType={'iconButton'} />
-        </div>
-    );
-}
-```
+<Tabs>
+    <TabItem value="view" label="View" default>
+        ```tsx live
+        import React from 'react';
+        import { Attach } from '@salutejs/{{ package }}';
 
-### Расположение элементов
-C помощью свойства `flow` можно регулировать расположение элементов в зависимости от ширины контейнера.
-
-```tsx live
-import React from 'react';
-import { Attach } from '@salutejs/{{ package }}';
-
-export function App() {
-    return (
-        <div style=\{{ display: "flex", flexDirection: "column", gap: "50px"}}>
-            <Attach style=\{{ width: "400px" }} flow="auto" />
-            <Attach style=\{{ width: "400px" }} flow="horizontal" />
-            <Attach style=\{{ width: "400px" }} flow="vertical" />
-        </div>
-    );
-}
-```
-
-### Attach с несколькими файлами
-
-С помощью свойств:
-- `multiple` - добавляет возможность прикреплять несколько файлов
-
-```tsx live
-import React from 'react';
-import { Attach } from '@salutejs/{{ package }}';
-
-export function App() {
-    return (
-        <div style=\{{ display: "flex", flexDirection: "column", gap: "32px"}}>
-            <Attach multiple flow="horizontal" style=\{{ width: "400px" }} text="Upload files" />
-            <Attach multiple flow="vertical" style=\{{ width: "400px" }} text="Upload files" />
-        </div>
-    );
-}
-```
-
-### Фильтр форматов файлов
-Свойство `acceptedFileFormats` устанавливает доступные форматы файлов.
-
-```tsx live
-import React from 'react';
-import { Attach } from '@salutejs/{{ package }}';
-
-export function App() {
-    return (
-        <div>
-            <Attach acceptedFileFormats={['.pdf', '.doc']} />
-        </div>
-    );
-}
-```
-
-### Пример использования в форме
-
-```tsx live
-import React, { useState } from 'react';
-import { Attach, Button } from '@salutejs/{{ package }}';
-
-function App() {
-    const ids = ['0', '1', '2'];
-    const [isLoading, setIsLoading] = useState(false);
-    const [attachedFiles, setAttachedFiles] = useState([]);
-
-    const handleAttachFile = (e) => {
-        setAttachedFiles((prevAttachedFiles) => [
-            ...prevAttachedFiles,
-            {
-                fileData: e.target.files[0],
-                id: e.target.id,
-            },
-        ]);
-    };
-
-    const handleAttachClear = (id) => {
-        setAttachedFiles(attachedFiles.filter((file) => file.id !== id));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-  
-        const formData = new FormData(e.target);
-        console.log('formData', Object.fromEntries(formData));
-
-        setTimeout(() => {
-            setAttachedFiles([]);
-            setIsLoading(false);
-        }, 2000);
-    };
-
-    return (
-        <>
-            <span>{isLoading ? 'Форма отправляется' : 'Прикрепленные файлы:'}</span>
-            {!isLoading && attachedFiles.length > 0 && (
-                <div style=\{{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
-                    {attachedFiles.map((file) => (
-                        <span>{file.fileData.name}</span>
-                    ))}
+        export function App() {
+            return (
+                <div style=\{{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <Attach view="accent" text="Accent" />
+                    <Attach view="secondary" text="Secondary" />
                 </div>
-            )}
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { Attach } from '@salutejs/{{ package }}';
 
-            {!isLoading && (
-                <form onSubmit={handleSubmit} style=\{{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
-                    {ids.map((id) => (
-                        <Attach
-                            id={id}
-                            name={`attach${id}`}
-                            text={`Загрузить файл ${id}`}
-                            onChange={handleAttachFile}
-                            onClear={() => handleAttachClear(id)}
-                        />
-                    ))}
+        export function App() {
+            return (
+                <div style=\{{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <Attach size="xs" text="XS" />
+                    <Attach size="s" text="S" />
+                    <Attach size="m" text="M" />
+                    <Attach size="l" text="L" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="buttonType" label="Тип кнопки">
+        С помощью свойства `buttonType` можно менять вид кнопки: обычный или с иконкой.
 
+        ```tsx live
+        import React from 'react';
+        import { Attach } from '@salutejs/{{ package }}';
+
+        export function App() {
+            return (
+                <div style=\{{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <Attach buttonType="button" text="Обычная кнопка" />
+                    <Attach buttonType="iconButton" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Расположение элементов
+
+С помощью свойства `flow` можно регулировать расположение прикреплённого файла относительно кнопки:
+- `"auto"` — автоматический перенос при нехватке ширины (по умолчанию)
+- `"horizontal"` — файл располагается справа от кнопки
+- `"vertical"` — файл располагается под кнопкой
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <Attach style=\{{ width: '400px' }} flow="auto" helperText="auto" />
+            <Attach style=\{{ width: '400px' }} flow="horizontal" helperText="horizontal" />
+            <Attach style=\{{ width: '400px' }} flow="vertical" helperText="vertical" />
+        </div>
+    );
+}
+```
+
+## Подсказка
+
+С помощью свойства `helperText` можно добавить подсказку под кнопкой. Вид задаётся свойством `helperTextView`:
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <Attach helperTextView="default" helperText="Подсказка" />
+            <Attach helperTextView="negative" helperText="Ошибка валидации" />
+        </div>
+    );
+}
+```
+
+## Несколько файлов
+
+Свойство `multiple` позволяет прикрепить несколько файлов. При `flow="horizontal"` файлы, не помещающиеся в ряд, уходят в выпадающий список:
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+            <Attach multiple flow="horizontal" style=\{{ width: '400px' }} text="Horizontal" />
+            <Attach multiple flow="vertical" style=\{{ width: '400px' }} text="Vertical" />
+        </div>
+    );
+}
+```
+
+## Фильтр форматов файлов
+
+Свойство `acceptedFileFormats` устанавливает допустимые форматы файлов (соответствует HTML-атрибуту `accept`):
+
+```tsx live
+import React from 'react';
+import { Attach } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <Attach acceptedFileFormats={['.pdf', '.doc']} text="Загрузить документ" />
+    );
+}
+```
+
+## Контролируемый режим
+
+Компонент поддерживает контролируемый и неконтролируемый режимы работы:
+
+- `onChange` — вызывается при выборе файлов; файлы берутся из `e.target.files`
+- `onClear` — вызывается при удалении файла; принимает `FileInfo` с полем `file` (оригинальный `File`)
+
+<Tabs>
+    <TabItem value="controlled" label="Контролируемый" default>
+        Свойство `files` передаёт список файлов, которыми управляет родительский компонент:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Attach } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const [files, setFiles] = useState([]);
+
+            return (
+                <div style=\{{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <Attach
+                        flow="horizontal"
+                        style=\{{ width: '400px' }}
+                        files={files}
+                        onChange={(e) => setFiles(Array.from(e.target.files || []))}
+                        onClear={(fileInfo) => setFiles((prev) => prev.filter((f) => f !== fileInfo.file))}
+                    />
+                    <span>Выбранные файлы: {files.map((f) => f.name).join(', ') || 'нет'}</span>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Неконтролируемый">
+        В неконтролируемом режиме компонент управляет состоянием самостоятельно:
+
+        ```tsx live
+        import React from 'react';
+        import { Attach } from '@salutejs/{{ package }}';
+
+        export function App() {
+            return (
+                <Attach
+                    flow="horizontal"
+                    style=\{{ width: '400px' }}
+                    onChange={(e) => console.log('Выбраны:', Array.from(e.target.files || []).map((f) => f.name))}
+                    onClear={(fileInfo) => console.log('Удалён:', fileInfo.file.name)}
+                />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Использование в формах
+
+<Tabs>
+    <TabItem value="native" label="Нативная форма" default>
+        `ref` компонента форвардится на `<input type="file">`, поэтому файлы автоматически попадают в `FormData` при сабмите:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Attach, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const [result, setResult] = useState('');
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                const files = new FormData(e.target).getAll('avatar');
+                setResult(files.map((f) => f.name).join(', ') || 'Файлы не выбраны');
+            };
+
+            return (
+                <div style=\{{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <form
+                        onSubmit={handleSubmit}
+                        style=\{{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}
+                    >
+                        <Attach name="avatar" />
+                        <Button type="submit">Отправить</Button>
+                    </form>
+                    {result && <span>Отправлены: {result}</span>}
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="rhf" label="React Hook Form">
+        Для интеграции с React Hook Form используйте `Controller` вместе с контролируемым режимом:
+
+        ```tsx
+        import React from 'react';
+        import { useForm, Controller } from 'react-hook-form';
+        import { Attach, Button } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const { control, handleSubmit } = useForm();
+
+            const onSubmit = (data) => console.log('Файлы:', data.files);
+
+            return (
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <Controller
+                        name="files"
+                        control={control}
+                        defaultValue={[]}
+                        render={(props) => {
+                            const { value, onChange: onRhfChange } = props.field;
+                            return (
+                                <Attach
+                                    files={value}
+                                    onChange={(e) => onRhfChange(Array.from(e.target.files || []))}
+                                    onClear={(fileInfo) => onRhfChange(value.filter((f) => f !== fileInfo.file))}
+                                />
+                            );
+                        }}
+                    />
                     <Button type="submit">Отправить</Button>
                 </form>
-            )}
-        </>
-    );
-}
-```
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="complex" label="Сложный пример">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Attach, Button } from '@salutejs/{{ package }}';
+
+        function App() {
+            const ids = ['0', '1', '2'];
+            const [isLoading, setIsLoading] = useState(false);
+            const [attachedFiles, setAttachedFiles] = useState([]);
+
+            const handleAttachFile = (e) => {
+                setAttachedFiles((prevAttachedFiles) => [
+                    ...prevAttachedFiles,
+                    {
+                        fileData: e.target.files[0],
+                        id: e.target.id,
+                    },
+                ]);
+            };
+
+            const handleAttachClear = (id) => {
+                setAttachedFiles(attachedFiles.filter((file) => file.id !== id));
+            };
+
+            const handleSubmit = (e) => {
+                e.preventDefault();
+                setIsLoading(true);
+
+                const formData = new FormData(e.target);
+                console.log('formData', Object.fromEntries(formData));
+
+                setTimeout(() => {
+                    setAttachedFiles([]);
+                    setIsLoading(false);
+                }, 2000);
+            };
+
+            return (
+                <>
+                    <span>{isLoading ? 'Форма отправляется' : 'Прикрепленные файлы:'}</span>
+                    {!isLoading && attachedFiles.length > 0 && (
+                        <div style=\{{ display: 'flex', flexDirection: 'column', gap: '0px' }}>
+                            {attachedFiles.map((file) => (
+                                <span>{file.fileData.name}</span>
+                            ))}
+                        </div>
+                    )}
+
+                    {!isLoading && (
+                        <form onSubmit={handleSubmit} style=\{{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
+                            {ids.map((id) => (
+                                <Attach
+                                    id={id}
+                                    name={`attach${id}`}
+                                    text={`Загрузить файл ${id}`}
+                                    onChange={handleAttachFile}
+                                    onClear={() => handleAttachClear(id)}
+                                />
+                            ))}
+
+                            <Button type="submit">Отправить</Button>
+                        </form>
+                    )}
+                </>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Таблица свойств
+<PropsTable name="Attach" />

@@ -86,7 +86,11 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
             </StyledPlus>
         );
 
-        const accordionBorderRadius = convertRoundnessMatrix(pin, `var(${tokens.accordionItemBorderRadius})`, '1.5rem');
+        const accordionBorderRadius = convertRoundnessMatrix(
+            pin,
+            `var(${tokens.accordionItemViewBorderRadius}, var(${tokens.accordionItemBorderRadius}))`,
+            '1.5rem',
+        );
         const openedClass = opened ?? value ? classes.accordionItemOpened : '';
         const disabledClass = disabled ? classes.accordionDisabled : '';
 

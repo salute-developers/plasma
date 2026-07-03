@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { tokens, classes } from '../../TextArea.tokens';
+import { tokens, classes, privateTokens } from '../../TextArea.tokens';
 import { StyledTextAreaWrapper, TitleCaption } from '../../TextArea.styles';
 
 const { styledContainer, styledTextAreaWrapper, styledHelpers } = classes;
@@ -33,8 +33,8 @@ export const base = css`
         transition: background-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
         box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColor});
 
-        /* INFO: Отступ справа, чтобы scrollbar не перекрывал рамку */
-        padding-right: var(${tokens.borderSize}, 0.0625rem);
+        /* INFO: Отступ справа, чтобы scrollbar не перекрывал рамку и был отступ от края */
+        padding-right: calc(var(${tokens.borderSize}, 0.0625rem) + var(${tokens.scrollbarMarginRight}, 0rem));
     }
 
     &:focus-within:not([readonly]) .${styledTextAreaWrapper} {
@@ -94,7 +94,7 @@ export const base = css`
         ${StyledTextAreaWrapper} {
             position: relative;
 
-            --plasma_private-textarea-divider-color: var(${tokens.dividerColor});
+            ${privateTokens.dividerColor}: var(${tokens.dividerColor});
 
             &:before {
                 content: '';
@@ -103,20 +103,20 @@ export const base = css`
                 width: 100%;
                 bottom: 0;
                 left: 0;
-                background-color: var(--plasma_private-textarea-divider-color);
+                background-color: var(${privateTokens.dividerColor});
                 transition: background-color 0.1s ease-in;
             }
         }
 
         &:not([readonly]) ${StyledTextAreaWrapper}:hover {
-            --plasma_private-textarea-divider-color: var(
+            ${privateTokens.dividerColor}: var(
                 ${tokens.dividerColorHover},
                 var(${tokens.dividerColor})
             );
         }
 
         &:not([readonly]) ${StyledTextAreaWrapper}:focus-within {
-            --plasma_private-textarea-divider-color: var(
+            ${privateTokens.dividerColor}: var(
                 ${tokens.dividerColorFocus},
                 var(${tokens.dividerColor})
             );

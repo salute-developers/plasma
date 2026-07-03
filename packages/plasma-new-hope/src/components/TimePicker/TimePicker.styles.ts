@@ -203,6 +203,18 @@ export const StyledInput = styled(TextField)`
 
         ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
     }
+
+    &.${classes.timePickerEdited} {
+        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundEditedColor});
+        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundEditedColorHover});
+        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundEditedColorFocus});
+
+        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorEdited});
+        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorEditedHover});
+        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorEditedFocus});
+
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorEdited});
+    }
 `;
 
 export const LeftHelper = styled.div`
@@ -214,6 +226,10 @@ export const LeftHelper = styled.div`
 
     &.${classes.timePickerSuccess} {
         color: var(${tokens.leftHelperColorSuccess});
+    }
+
+    &.${classes.timePickerEdited} {
+        color: var(${tokens.leftHelperColorEdited});
     }
 `;
 

@@ -1,0 +1,192 @@
+---
+id: ProgressBarCircular
+title: ProgressBarCircular
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# ProgressBarCircular
+<Description name="ProgressBarCircular" />
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <ProgressBarCircular value={25} />
+            <ProgressBarCircular value={50}>50%</ProgressBarCircular>
+            <ProgressBarCircular value={75} />
+        </div>
+    );
+}
+```
+
+## Управление внешним видом
+
+Внешний вид компонента зависит от свойств `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        ```tsx live
+        import React from 'react';
+        import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+        export function App() {
+            return (
+                <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                    <ProgressBarCircular value={50} view="default" />
+                    <ProgressBarCircular value={50} view="secondary" />
+                    <ProgressBarCircular value={50} view="accent" />
+                    <ProgressBarCircular value={50} view="positive" />
+                    <ProgressBarCircular value={50} view="warning" />
+                    <ProgressBarCircular value={50} view="negative" />
+                    <ProgressBarCircular value={50} view="info" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        ```tsx live
+        import React from 'react';
+        import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+        export function App() {
+            return (
+                <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                    <ProgressBarCircular value={50} size="xxl" />
+                    <ProgressBarCircular value={50} size="xl" />
+                    <ProgressBarCircular value={50} size="l" />
+                    <ProgressBarCircular value={50} size="m" />
+                    <ProgressBarCircular value={50} size="s" />
+                    <ProgressBarCircular value={50} size="xs" />
+                    <ProgressBarCircular value={50} size="xxs" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Трек
+
+С помощью свойства `hasTrack` можно управлять отображением фоновой дуги:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <ProgressBarCircular value={50} hasTrack={false} />
+            <ProgressBarCircular value={50} />
+        </div>
+    );
+}
+```
+
+## Толщина обводки
+
+С помощью свойства `strokeSize` можно задать толщину линии прогресса:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <ProgressBarCircular value={50} strokeSize={2} />
+            <ProgressBarCircular value={50} strokeSize={4} />
+            <ProgressBarCircular value={50} strokeSize={8} />
+            <ProgressBarCircular value={50} strokeSize={12} />
+        </div>
+    );
+}
+```
+
+## Максимальное значение
+
+По умолчанию прогресс считается из `maxValue={100}`. Свойство `maxValue` позволяет задать произвольный максимум:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <ProgressBarCircular value={25} maxValue={50} size="xl">25/50</ProgressBarCircular>
+            <ProgressBarCircular value={75} maxValue={150} size="xl">75/150</ProgressBarCircular>
+        </div>
+    );
+}
+```
+
+## Обратное направление
+
+С помощью свойства `reverse` можно изменить направление заполнения дуги — прогресс будет убывать по часовой стрелке:
+
+```tsx live
+import React from 'react';
+import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <ProgressBarCircular value={75} size="xl">Обычный</ProgressBarCircular>
+            <ProgressBarCircular value={75} size="xl" reverse>Обратный</ProgressBarCircular>
+        </div>
+    );
+}
+```
+
+## Контент внутри
+
+Через `children` можно отобразить текст, число, иконку или любой другой контент в центре индикатора:
+
+<Tabs>
+    <TabItem value="text" label="Текст" default>
+        ```tsx live
+        import React from 'react';
+        import { ProgressBarCircular } from '@salutejs/{{ package }}';
+
+        export function App() {
+            return (
+                <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <ProgressBarCircular value={25} size="xl">25%</ProgressBarCircular>
+                    <ProgressBarCircular value={50} size="xl">50%</ProgressBarCircular>
+                    <ProgressBarCircular value={75} size="xl">75%</ProgressBarCircular>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="icon" label="Иконка">
+        ```tsx live
+        import React from 'react';
+        import { ProgressBarCircular } from '@salutejs/{{ package }}';
+        import { IconDone } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style=\{{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <ProgressBarCircular value={100} size="xl">
+                        <IconDone color="var(--text-primary)" size="s" />
+                    </ProgressBarCircular>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Таблица свойств
+<PropsTable name="ProgressBarCircular" exclude={['css']} />

@@ -2,6 +2,7 @@ export const classes = {
     timePickerstretched: 'sdds-core-time-picker-stretched',
     timePickerSuccess: 'sdds-core-time-picker-success',
     timePickerError: 'sdds-core-time-picker-error',
+    timePickerEdited: 'sdds-core-time-picker-edited',
     timePickerRoot: 'sdds-core-time-picker-root',
     timePickerGridRoot: 'sdds-core-time-picker-grid-root',
     timeColumnLabel: 'sdds-core-time-picker-column-label',
@@ -79,6 +80,9 @@ export const tokens = {
     textFieldBackgroundSuccessColor: '--sdds-core-time-picker-textfield-background-color-success',
     textFieldBackgroundSuccessColorHover: '--sdds-core-time-picker-textfield-background-color-success-hover',
     textFieldBackgroundSuccessColorFocus: '--sdds-core-time-picker-textfield-background-color-success-focus',
+    textFieldBackgroundEditedColor: '--sdds-core-time-picker-textfield-background-color-edited',
+    textFieldBackgroundEditedColorHover: '--sdds-core-time-picker-textfield-background-color-edited-hover',
+    textFieldBackgroundEditedColorFocus: '--sdds-core-time-picker-textfield-background-color-edited-focus',
 
     textFieldBorderColor: '--sdds-core-time-picker-textfield-border-color',
     textFieldBorderColorHover: '--sdds-core-time-picker-textfield-border-color-hover',
@@ -89,6 +93,9 @@ export const tokens = {
     textFieldBorderColorSuccess: '--sdds-core-time-picker-textfield-border-color-success',
     textFieldBorderColorSuccessHover: '--sdds-core-time-picker-textfield-border-color-success-hover',
     textFieldBorderColorSuccessFocus: '--sdds-core-time-picker-textfield-border-color-success-focus',
+    textFieldBorderColorEdited: '--sdds-core-time-picker-textfield-border-color-edited',
+    textFieldBorderColorEditedHover: '--sdds-core-time-picker-textfield-border-color-edited-hover',
+    textFieldBorderColorEditedFocus: '--sdds-core-time-picker-textfield-border-color-edited-focus',
     textFieldBoxShadow: '--sdds-core-time-picker-textfield-box-shadow',
 
     textFieldDividerColor: '--sdds-core-time-picker-textfield-divider-color',
@@ -97,6 +104,7 @@ export const tokens = {
     textFieldDividerColorReadOnly: '--sdds-core-time-picker-textfield-divider-color-readonly',
     textFieldDividerColorError: '--sdds-core-time-picker-textfield-divider-color-error',
     textFieldDividerColorSuccess: '--sdds-core-time-picker-textfield-divider-color-success',
+    textFieldDividerColorEdited: '--sdds-core-time-picker-textfield-divider-color-edited',
     textFieldDividerWidth: '--sdds-core-time-picker-textfield-divider-width',
 
     textFieldColorReadOnly: '--sdds-core-time-picker-textfield-color-readonly',
@@ -139,6 +147,7 @@ export const tokens = {
     leftHelperColor: '--sdds-core-time-picker__left-helper-color',
     leftHelperColorError: '--sdds-core-time-picker__left-helper-color-error',
     leftHelperColorSuccess: '--sdds-core-time-picker__left-helper-color-success',
+    leftHelperColorEdited: '--sdds-core-time-picker__left-helper-color-edited',
     leftHelperColorReadOnly: '--sdds-core-time-picker__left-helper-color-readonly',
     leftHelperOffset: '--sdds-core-time-picker__left-helper-offset',
     leftHelperFontFamily: '--sdds-core-time-picker__left-helper-font-family',

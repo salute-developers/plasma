@@ -22,6 +22,11 @@ export const createMeta = ({
     return {
         title,
         decorators: [InSpacingDecorator],
+        parameters: {
+            controls: {
+                disableSaveFromUI: true,
+            },
+        },
         component,
         args: {
             view: 'default',
@@ -43,40 +48,55 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
+                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-            },
-            value: {
-                control: { type: 'text' },
-            },
-            text: {
-                control: { type: 'text' },
-            },
-            isLoading: {
-                control: { type: 'boolean' },
+                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
+                table: { category: 'variation' },
+            },
+            isLoading: {
+                control: { type: 'boolean' },
+                table: { category: 'variation' },
+            },
+            text: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+            },
+            value: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
             },
             contentPlacing: {
                 options: contentPlacingValues,
                 control: { type: 'select' },
+                table: { category: 'layout' },
             },
             stretching: {
                 options: stretchingValues,
                 control: { type: 'select' },
+                table: { category: 'layout' },
             },
             pin: {
                 options: pinValues,
                 control: { type: 'select' },
+                table: { category: 'layout' },
             },
             enableContentLeft: {
                 control: { type: 'boolean' },
+                table: { category: 'layout' },
             },
             enableContentRight: {
                 control: { type: 'boolean' },
+                table: { category: 'layout' },
+            },
+            enableCounter: {
+                control: { type: 'boolean' },
+                table: { category: 'layout' },
             },
             ...additionalArgTypes,
             ...disableProps([

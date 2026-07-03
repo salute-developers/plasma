@@ -72,7 +72,8 @@ import ReadonlyExample from '../_examples/_textfield/_readonly.mdx'
 
 <Tabs>
     <TabItem value="appearance" label="Appearance" default>
-        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`
+        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`.
+        `appearance="viewMode"` — режим просмотра.
 
         ```tsx live
         import React, {useState} from 'react';
@@ -102,8 +103,17 @@ import ReadonlyExample from '../_examples/_textfield/_readonly.mdx'
                         view="positive"
                         appearance="clear"
                         hasDivider
-                        label="Appearance clear"
+                        label="Appearance clear с разделителем"
                         placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
+                    <TextField
+                        view="default"
+                        appearance="viewMode"
+                        label="Appearance viewMode"
+                        value="Значение только для просмотра"
+                        readOnly
                         contentLeft={<IconBellFill size="s" color="inherit" />}
                         contentRight={<IconDone size="s" color="inherit" />}
                     />
@@ -149,6 +159,13 @@ import ReadonlyExample from '../_examples/_textfield/_readonly.mdx'
                         contentLeft={<IconBellFill size="s" color="inherit" />}
                         contentRight={<IconDone size="s" color="inherit" />}
                     />
+                    <TextField
+                        view="edited"
+                        label="View edited"
+                        placeholder="Введите значение"
+                        contentLeft={<IconBellFill size="s" color="inherit" />}
+                        contentRight={<IconDone size="s" color="inherit" />}
+                    />
                 </div>
             );
         }
@@ -185,7 +202,7 @@ import ReadonlyExample from '../_examples/_textfield/_readonly.mdx'
 </Tabs>
 
 ### Подсказки
-Для вывода подсказки снизу от поля используйте свойство `leftHelper`,
+Для вывода подсказки снизу от поля используйте свойство `leftHelper` - для подсказки слева, и `rightHelper` - для подсказки справа,
 для подсказки в виде Tooltip - `hintText`, для подсказки сверху справа - `titleCaption`:
 
 ```tsx live
@@ -197,7 +214,8 @@ export function App() {
         <div>
             <TextField
                 placeholder="Введите значение"
-                leftHelper="Подсказка снизу"
+                leftHelper="Подсказка слева"
+                rightHelper="Подсказка справа"
                 titleCaption="Подсказка сверху"
                 hintText="Подсказка в виде Tooltip"
                 hintView="default"

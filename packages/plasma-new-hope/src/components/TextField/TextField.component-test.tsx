@@ -23,6 +23,7 @@ const componentProps = {
     label: 'Label',
     labelPlacement: 'outer' as TextFieldProps['labelPlacement'],
     leftHelper: 'Helper text',
+    rightHelper: 'Right helper',
     contentLeft: <IconPlasma color="inherit" size="s" />,
     contentRight: <IconEye color="inherit" size="s" />,
 };
@@ -310,6 +311,28 @@ describeFn('TextField', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: onChange', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TextField placeholder="Placeholder" onChange={onChange} />);
+
+        cy.get('input').type('t');
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.0.target.value').should('eq', 't');
+    });
+
+    it('prop: onClick', () => {
+        const onClick = cy.stub().as('onClick');
+
+        mount(<TextField placeholder="Placeholder" onClick={onClick} />);
+
+        cy.get('input').click();
+
+        cy.get('@onClick').should('have.been.calledOnce');
+        cy.get('@onClick').its('firstCall.args.0.type').should('eq', 'click');
+    });
+
     it('truncate placeholder', () => {
         mount(
             <div style={{ width: '6rem' }}>
@@ -318,5 +341,86 @@ describeFn('TextField', () => {
         );
 
         cy.matchImageSnapshot();
+    });
+
+    it('scroll: non-focused input has ellipsis class and shows truncated text', () => {
+        mount(
+            <div style={{ width: '200px' }}>
+                <TextField
+                    id="scroll-ellipsis"
+                    value="Very long text that definitely overflows the input field width"
+                    placeholder="Placeholder"
+                />
+            </div>,
+        );
+
+        cy.get('#scroll-ellipsis').should('have.class', 'textfield-input-text-ellipsis');
+        cy.get('#scroll-ellipsis').should(($input) => {
+            expect($input[0].scrollLeft).to.equal(0);
+        });
+
+        cy.matchImageSnapshot();
+    });
+
+    it('scroll: focused input removes ellipsis class', () => {
+        mount(
+            <div style={{ width: '200px' }}>
+                <TextField
+                    id="scroll-focus"
+                    value="Very long text that definitely overflows the input field width"
+                    placeholder="Placeholder"
+                />
+            </div>,
+        );
+
+        cy.get('#scroll-focus').should('have.class', 'textfield-input-text-ellipsis');
+
+        cy.get('#scroll-focus').focus();
+
+        cy.get('#scroll-focus').should('not.have.class', 'textfield-input-text-ellipsis');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('scroll: scrollLeft resets to 0 after blur', () => {
+        mount(
+            <div style={{ width: '200px' }}>
+                <TextField id="scroll-blur" placeholder="Placeholder" />
+            </div>,
+        );
+
+        cy.get('#scroll-blur')
+            .focus()
+            .type('Very long text that will definitely scroll the input content beyond visible width');
+
+        cy.get('#scroll-blur').blur();
+
+        cy.get('#scroll-blur').should(($input) => {
+            expect($input[0].scrollLeft).to.equal(0);
+        });
+
+        cy.matchImageSnapshot();
+    });
+
+    it('scroll: programmatic scrollLeft change is reset when input is not focused', () => {
+        mount(
+            <div style={{ width: '200px' }}>
+                <TextField
+                    id="scroll-programmatic"
+                    value="Very long text that definitely overflows the input field width"
+                    placeholder="Placeholder"
+                />
+            </div>,
+        );
+
+        cy.get('#scroll-programmatic').then(($input) => {
+            const inputEl = $input[0] as HTMLInputElement;
+            inputEl.scrollLeft = 100;
+            inputEl.dispatchEvent(new Event('scroll', { bubbles: true }));
+        });
+
+        cy.get('#scroll-programmatic').should(($input) => {
+            expect($input[0].scrollLeft).to.equal(0);
+        });
     });
 });

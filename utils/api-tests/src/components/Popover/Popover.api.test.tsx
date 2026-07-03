@@ -14,7 +14,7 @@ describe('Basics', () => {
         expectTypeOf<PopoverProps>().toHaveProperty('offset').toEqualTypeOf<[number, number] | undefined>();
         expectTypeOf<PopoverProps>()
             .toHaveProperty('frame')
-            .toEqualTypeOf<string | RefObject<HTMLElement> | undefined>();
+            .toEqualTypeOf<string | RefObject<HTMLElement | null> | undefined>();
         expectTypeOf<PopoverProps>().toHaveProperty('hasArrow').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<PopoverProps>().toHaveProperty('zIndex').toEqualTypeOf<string | undefined>();
         expectTypeOf<PopoverProps>().toHaveProperty('preventOverflow').toEqualTypeOf<boolean | undefined>();

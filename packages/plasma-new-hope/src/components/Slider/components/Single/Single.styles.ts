@@ -80,13 +80,9 @@ export const StyledProgress = styled.div`
     left: 0;
     transform: translateY(-50%);
     height: var(${tokens.railThickness});
-    border-radius: var(${tokens.railBorderRadius}) 0 0 var(${tokens.railBorderRadius});
+    border-radius: var(${tokens.railBorderRadius});
     background: var(${tokens.fillColor});
     pointer-events: none;
-
-    .${classes.pointerHidden} & {
-        border-radius: var(${tokens.railBorderRadius});
-    }
 
     .${classes.verticalOrientation} & {
         bottom: 0;
@@ -277,10 +273,11 @@ export const StyledRange = styled(BaseStyledRange)`
 
     .${classes.verticalOrientation} & {
         position: absolute;
-        width: 100cqh;
+        width: calc(100cqh + var(${tokens.thumbSize}, 0rem));
         height: var(${tokens.size});
         top: calc(50% - var(${tokens.size}) / 2);
-        left: calc(50% - 100cqh / 2);
+        left: calc(50% - (100cqh + var(${tokens.thumbSize}, 0rem)) / 2);
+        margin-left: 0;
         transform: rotate(-90deg);
     }
 `;

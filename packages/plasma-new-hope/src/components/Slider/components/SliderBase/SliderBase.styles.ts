@@ -57,9 +57,10 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     outline: none;
     background: transparent;
     border: none;
-    width: 100%;
+    width: calc(100% + var(${tokens.thumbSize}, 0rem));
     height: var(${tokens.size});
     margin: 0;
+    margin-left: calc(var(${tokens.thumbSize}, 0rem) / -2);
     cursor: pointer;
 
     &:disabled {

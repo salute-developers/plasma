@@ -58,6 +58,7 @@ type TimePickerChangeEvent = {
 <Tabs>
     <TabItem value="appearance" label="Appearance" default>
         При `appearance="clear"` можно дополнительно включить разделитель с помощью свойства `hasClearDivider`.
+        `appearance="viewMode"` — режим просмотра.
 
         ```tsx live
         import React from 'react';
@@ -84,6 +85,13 @@ type TimePickerChangeEvent = {
                         size="s"
                         label="Clear с разделителем"
                         placeholder="00:00:00"
+                    />
+                    <TimePicker
+                        appearance="viewMode"
+                        size="s"
+                        label="ViewMode"
+                        value="12:00:00"
+                        readonly
                     />
                 </div>
             );

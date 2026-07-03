@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
@@ -7,6 +7,7 @@ import { action } from 'storybook/actions';
 import { addNotification } from '@salutejs/plasma-new-hope';
 import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
 
+import { ProgressBarCircular } from '../ProgressBarCircular/ProgressBarCircular';
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
 import { PopupProvider } from '../Popup';
@@ -258,4 +259,82 @@ export const WithModal: StoryObj<StoryLiveDemoProps> = {
         },
     },
     render: (args) => <StoryWithModal {...args} />,
+};
+
+type StoryWithCountdownProps = {
+    timeout: number;
+    placement?: NotificationPlacement;
+};
+
+const CountdownProgressBar = ({ duration }: { duration: number }) => {
+    const [progress, setProgress] = useState(100);
+    const [secondsLeft, setSecondsLeft] = useState(Math.ceil(duration / 1000));
+
+    useEffect(() => {
+        const startTime = Date.now();
+
+        const timer = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            const remaining = Math.max(0, duration - elapsed);
+            setProgress((remaining / duration) * 100);
+            setSecondsLeft(Math.ceil(remaining / 1000));
+            if (remaining === 0) clearInterval(timer);
+        }, 100);
+
+        return () => clearInterval(timer);
+    }, [duration]);
+
+    return (
+        <ProgressBarCircular value={progress} size="s" view="default" reverse>
+            {secondsLeft}
+        </ProgressBarCircular>
+    );
+};
+
+const StoryWithCountdown = ({ timeout, placement }: StoryWithCountdownProps) => {
+    const count = useRef(0);
+
+    const handleClick = useCallback(() => {
+        addNotification(
+            {
+                ...getNotificationProps(count.current),
+                title: undefined,
+                closeIconType: 'thin',
+                children: (
+                    <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: '1fr auto' }}>
+                        <CountdownProgressBar duration={timeout} />
+                        <span>{texts[1].slice(0, 57)}</span>
+                    </div>
+                ),
+                iconPlacement: 'left',
+                layout: 'horizontal',
+            },
+            timeout,
+        );
+        count.current++;
+    }, [timeout]);
+
+    return (
+        <NotificationsProvider placement={placement}>
+            <div style={{ height: '100vh' }}>
+                <Button text="Показать уведомление" onClick={handleClick} />
+            </div>
+        </NotificationsProvider>
+    );
+};
+
+export const WithCountdown: StoryObj<StoryWithCountdownProps> = {
+    argTypes: {
+        placement: {
+            options: notificationsPlacements,
+            control: {
+                type: 'select',
+            },
+        },
+    },
+    args: {
+        timeout: 5000,
+        placement: 'bottom-right',
+    },
+    render: (args) => <StoryWithCountdown {...args} />,
 };

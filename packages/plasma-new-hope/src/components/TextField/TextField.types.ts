@@ -234,6 +234,10 @@ export type TextFieldPropsBase = {
      */
     leftHelper?: ReactNode;
     /**
+     * Вспомогательный текст снизу справа для поля ввода.
+     */
+    rightHelper?: ReactNode;
+    /**
      * Слот для контента слева.
      */
     contentLeft?: React.ReactElement;
@@ -265,7 +269,7 @@ export type TextFieldProps = {
      * Влияет на выбор предустановленного набора токенов
      * @default default
      */
-    appearance?: 'default' | 'clear';
+    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Размер контрола.
      */

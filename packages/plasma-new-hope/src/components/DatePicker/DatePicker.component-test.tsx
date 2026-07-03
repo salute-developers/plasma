@@ -500,6 +500,38 @@ describeFn('DatePicker', () => {
         cy.get('body').click(0, 0);
         cy.get('input').first().should('have.value', '');
     });
+
+    it('prop: onToggle', () => {
+        cy.viewport(500, 544);
+
+        const onToggle = cy.stub().as('onToggle');
+
+        mount(
+            <>
+                <span id="outer">outer text</span>
+                <Demo defaultDate={new Date(2023, 5, 14)} onToggle={onToggle} />
+            </>,
+        );
+
+        cy.get('input').first().click();
+        cy.get('@onToggle').should('have.been.calledOnce');
+        cy.get('@onToggle').should('have.been.calledWith', true);
+
+        cy.get('#outer').click();
+        cy.get('@onToggle').should('have.been.calledTwice');
+        cy.get('@onToggle').should('have.been.calledWith', false);
+    });
+
+    it('prop: onChange', () => {
+        cy.viewport(500, 544);
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(<Demo onChange={onChange} />);
+
+        cy.get('input').first().click().type('14062023');
+        cy.get('@onChange').should('have.been.called');
+    });
 });
 
 describeFnRange('DatePickerRange', () => {

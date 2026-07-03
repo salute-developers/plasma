@@ -32,8 +32,5 @@ export const getStepsStories = (config: CreateStepsStoriesProps) => {
         render: (args: any) => <DefaultStoryComponent {...args} />,
     };
 
-    return {
-        meta,
-        Default,
-    };
+    return { meta, Default };
 };

@@ -1133,6 +1133,57 @@ describeFn('Combobox', () => {
         cy.get('@onToggle').should('have.been.calledWith', false);
     });
 
+    it('prop: onChange', () => {
+        cy.viewport(400, 300);
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox id="combobox" items={items} label="Label" placeholder="Placeholder" onChange={onChange} />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.get('[id$="north_america"]').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', 'north_america');
+        cy.get('@onChange').its('firstCall.args.1.value').should('eq', 'north_america');
+    });
+
+    it('prop: onClick', () => {
+        cy.viewport(400, 300);
+
+        const simpleItems = [
+            { value: 'item1', label: 'Item 1' },
+            { value: 'item2', label: 'Item 2' },
+        ];
+
+        const onClick = cy.spy().as('selectAllOnClick');
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    id="combobox"
+                    items={simpleItems}
+                    label="Label"
+                    placeholder="Placeholder"
+                    multiple
+                    selectAllOptions={{
+                        label: 'Выбрать всё',
+                        onClick,
+                    }}
+                />
+            </div>,
+        );
+
+        cy.get('#combobox').click();
+        cy.contains('Выбрать всё').click();
+
+        cy.get('@selectAllOnClick').should('have.been.calledOnce');
+    });
+
     it('treeView, single mode', () => {
         cy.viewport(400, 599);
 

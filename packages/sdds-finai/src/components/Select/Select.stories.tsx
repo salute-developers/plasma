@@ -14,6 +14,13 @@ const { meta: META, Single, Multiselect, Predefined, Common, SelectAll } = getSe
     componentConfig: config,
     defaultArgs: {
         ...config.defaults,
+        appearance: 'default',
+    },
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'viewMode'],
+            control: { type: 'select' },
+        },
     },
     customGetContentRight: (size, disabled) => {
         const iconSize = size === 'xs' ? 'xs' : 's';

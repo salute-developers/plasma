@@ -37,78 +37,71 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${linkButtonTokens.linkButtonColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonIconColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: ${textPrimaryHover};
-                ${linkButtonTokens.linkButtonColorActive}: ${textPrimaryActive};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textPrimaryHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textPrimaryActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textPrimaryHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textPrimaryActive};
             `,
             accent: css`
-                ${linkButtonTokens.linkButtonColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonIconColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonTextColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: ${textAccentHover};
-                ${linkButtonTokens.linkButtonColorActive}: ${textAccentActive};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textAccentHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textAccentActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textAccentActive};
             `,
             secondary: css`
-                ${linkButtonTokens.linkButtonColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonIconColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: ${textSecondaryHover};
-                ${linkButtonTokens.linkButtonColorActive}: ${textSecondaryActive};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textSecondaryHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textSecondaryActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textSecondaryHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textSecondaryActive};
             `,
             positive: css`
-                ${linkButtonTokens.linkButtonColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonIconColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: ${textPositiveHover};
-                ${linkButtonTokens.linkButtonColorActive}: ${textPositiveActive};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textPositiveHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textPositiveActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textPositiveHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textPositiveActive};
             `,
             warning: css`
-                ${linkButtonTokens.linkButtonColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonIconColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonTextColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: ${textWarningHover};
-                ${linkButtonTokens.linkButtonColorActive}: ${textWarningActive};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textWarningHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textWarningActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textWarningHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textWarningActive};
             `,
             negative: css`
-                ${linkButtonTokens.linkButtonColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonIconColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonTextColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: ${textNegativeHover};
-                ${linkButtonTokens.linkButtonColorActive}: ${textNegativeActive};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textNegativeHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textNegativeActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textNegativeActive};
             `,
             info: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-info-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-info-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-info-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-info-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-info-active);

@@ -89,6 +89,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 placeholder,
                 valueError,
                 valueSuccess,
+                valueEdited,
                 leftHelper,
                 contentLeft,
                 contentRight,
@@ -136,6 +137,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 timeColumnsCount,
                 errorClass,
                 successClass,
+                editedClass,
                 handleChangeValue,
                 handleSearch,
                 handleBlur,
@@ -148,6 +150,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 outerValue,
                 valueError,
                 valueSuccess,
+                valueEdited,
                 type,
                 lang,
                 disabled,
@@ -240,7 +243,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                         target={
                             <Input
                                 ref={inputInnerRef}
-                                className={cls(errorClass, successClass)}
+                                className={cls(errorClass, successClass, editedClass)}
                                 value={inputValue}
                                 size={size}
                                 label={label}
@@ -253,6 +256,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 placeholder={placeholder}
                                 valueError={valueError}
                                 valueSuccess={valueSuccess}
+                                valueEdited={valueEdited}
                                 contentLeft={contentLeft}
                                 contentRight={contentRight}
                                 textBefore={textBefore}
@@ -355,7 +359,9 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                             />
                         </Root>
                     </Popover>
-                    {leftHelper && <LeftHelper className={cls(errorClass, successClass)}>{leftHelper}</LeftHelper>}
+                    {leftHelper && (
+                        <LeftHelper className={cls(errorClass, successClass, editedClass)}>{leftHelper}</LeftHelper>
+                    )}
                 </Root>
             );
         },

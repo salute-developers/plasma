@@ -26,3 +26,5 @@ export const FORBIDDEN_KEYS = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'
 export const BACKSPACE_KEY = 'Backspace';
 
 export const ANIMATION_TIMEOUT = 300;
+
+export const GRADIENT_TEXT_CLASS = 'sdds-core-text-node';

@@ -11,8 +11,15 @@ type RangeProps = ComponentProps<typeof Range>;
 const { meta: META, Default } = getRangeStories({
     component: Range,
     componentConfig: config,
-    disablePropsList: ['appearance'],
     defaultArgs: config.defaults,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'viewMode'],
+            control: { type: 'select' },
+        },
+        firstInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        secondInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+    },
     customIcon: (size: string, type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
         if (type === 'left') {

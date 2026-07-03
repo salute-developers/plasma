@@ -25,6 +25,7 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -57,7 +58,9 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.rightHelperColor}: var(--text-positive);
                 ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -90,7 +93,9 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-warning);
+                ${tokens.rightHelperColor}: var(--text-warning);
                 ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -123,7 +128,9 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.rightHelperColor}: var(--text-negative);
                 ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -134,6 +141,40 @@ export const config = {
                 ${tokens.dividerColor}: var(--surface-negative);
                 ${tokens.dividerColorHover}: var(--surface-negative);
                 ${tokens.dividerColorFocus}: var(--surface-accent);
+
+                ${tokens.focusColor}: var(--text-accent);
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
+            `,
+            edited: css`
+                ${tokens.color}: var(--text-primary);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.backgroundColor}: var(--data-blue-light);
+                ${tokens.backgroundColorHover}: var(--data-blue-light-hover);
+                ${tokens.backgroundColorFocus}: var(--data-blue-light-active);
+                ${tokens.borderColor}: var(--outline-transparent-info);
+                ${tokens.borderColorHover}: var(--outline-transparent-info-hover);
+                ${tokens.borderColorFocus}: var(--outline-transparent-info-active);
+                ${tokens.caretColor}: var(--text-accent);
+                ${tokens.textBeforeColor}: var(--text-tertiary);
+                ${tokens.textAfterColor}: var(--text-tertiary);
+                ${tokens.labelColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
+
+                ${tokens.contentSlotColor}: var(--text-secondary);
+                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.dividerColor}: var(--outline-transparent-info);
+                ${tokens.dividerColorHover}: var(--outline-transparent-info);
+                ${tokens.dividerColorFocus}: var(--outline-transparent-info-active);
 
                 ${tokens.focusColor}: var(--text-accent);
                 ${tokens.indicatorColor}: var(--surface-negative);
@@ -183,13 +224,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.rightHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.rightHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.rightHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.rightHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.rightHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -261,13 +310,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.rightHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.rightHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.rightHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.rightHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.rightHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -493,6 +550,7 @@ export const config = {
                 ${tokens.borderColorReadOnly}: transparent;
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.rightHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);

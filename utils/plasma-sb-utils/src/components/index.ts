@@ -35,3 +35,8 @@ export * from './Popover';
 export * from './Dropzone';
 export * from './Progress';
 export * from './Steps';
+export * from './Attach';
+export * from './Badge';
+export * from './CodeField';
+export * from './CodeInput';
+export * from './CodeArea';

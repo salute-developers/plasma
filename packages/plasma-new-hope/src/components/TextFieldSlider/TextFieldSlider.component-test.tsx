@@ -341,4 +341,17 @@ describeFn('plasma-new-hope: TextFieldSlider', () => {
         cy.contains('span', '75').click();
         cy.get('input').first().should('have.value', '0');
     });
+
+    it('prop: onChange', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TextFieldSlider {...textFieldSliderProps} onChange={onChange} />);
+
+        cy.get('input[type="range"]').then((range) => {
+            changeRangeInputValue(range[0] as HTMLInputElement)(75);
+        });
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.1').should('deep.equal', { raw: 75, formatted: '75' });
+    });
 });

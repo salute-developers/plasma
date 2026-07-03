@@ -1,6 +1,7 @@
 export const classes = {
     datePickerError: 'date-picker-error',
     datePickerSuccess: 'date-picker-success',
+    datePickerEdited: 'date-picker-edited',
     datePickerRoot: 'date-picker-root',
     datePickerstretched: 'date-picker-stretched',
     datePickerCalendarstretched: 'date-picker-calendar-stretched',
@@ -18,6 +19,7 @@ export const tokens = {
     background: '--plasma-date-picker_range-background',
     backgroundError: '--plasma-date-picker_range-background-error',
     backgroundSuccess: '--plasma-date-picker_range-background-success',
+    backgroundEdited: '--plasma-date-picker_range-background-edited',
     backgroundReadOnly: '--plasma-date-picker_range-background-readonly',
     borderRadius: '--plasma-date-picker_range-border-radius',
     borderWidth: '--plasma-date-picker_range-border-width',
@@ -26,6 +28,7 @@ export const tokens = {
     borderColorFocus: '--plasma-date-picker_range-border-color-focus',
     borderColorError: '--plasma-date-picker_range-border-color-error',
     borderColorSuccess: '--plasma-date-picker_range-border-color-success',
+    borderColorEdited: '--plasma-date-picker_range-border-color-edited',
     borderColorReadOnly: '--plasma-date-picker_range-border-color-readonly',
 
     /** Токены разделителя */
@@ -116,6 +119,7 @@ export const tokens = {
     leftHelperColor: '--plasma-date-picker__left-helper-color',
     leftHelperColorError: '--plasma-date-picker__left-helper-color-error',
     leftHelperColorSuccess: '--plasma-date-picker__left-helper-color-success',
+    leftHelperColorEdited: '--plasma-date-picker__left-helper-color-edited',
     leftHelperColorReadOnly: '--plasma-date-picker__left-helper-color-readonly',
     leftHelperOffset: '--plasma-date-picker__left-helper-offset',
 
@@ -155,6 +159,7 @@ export const tokens = {
     textFieldColor: '--plasma-date-picker-textfield-color',
     textFieldColorError: '--plasma-date-picker-textfield-color-error',
     textFieldColorSuccess: '--plasma-date-picker-textfield-color-success',
+    textFieldColorEdited: '--plasma-date-picker-textfield-color-edited',
     textFieldPlaceholderColorFocus: '--plasma-date-picker-textfield__placeholder-color-focus',
     textFieldFocusColor: '--plasma-date-picker-textfield-focus-color',
     textFieldPlaceholderColor: '--plasma-date-picker-textfield-placeholder-color',
@@ -170,6 +175,9 @@ export const tokens = {
     textFieldBackgroundSuccessColor: '--plasma-date-picker-textfield-background-color-success',
     textFieldBackgroundSuccessColorHover: '--plasma-date-picker-textfield-background-color-success-hover',
     textFieldBackgroundSuccessColorFocus: '--plasma-date-picker-textfield-background-color-success-focus',
+    textFieldBackgroundEditedColor: '--plasma-date-picker-textfield-background-color-edited',
+    textFieldBackgroundEditedColorHover: '--plasma-date-picker-textfield-background-color-edited-hover',
+    textFieldBackgroundEditedColorFocus: '--plasma-date-picker-textfield-background-color-edited-focus',
 
     textFieldBoxShadowSecondary: '--plasma-date-picker-textfield-box-shadow-secondary',
 
@@ -182,6 +190,9 @@ export const tokens = {
     textFieldBorderColorSuccess: '--plasma-date-picker-textfield-border-color-success',
     textFieldBorderColorSuccessHover: '--plasma-date-picker-textfield-border-color-success-hover',
     textFieldBorderColorSuccessFocus: '--plasma-date-picker-textfield-border-color-success-focus',
+    textFieldBorderColorEdited: '--plasma-date-picker-textfield-border-color-edited',
+    textFieldBorderColorEditedHover: '--plasma-date-picker-textfield-border-color-edited-hover',
+    textFieldBorderColorEditedFocus: '--plasma-date-picker-textfield-border-color-edited-focus',
 
     textFieldColorReadOnly: '--plasma-date-picker-textfield-color-readonly',
     textFieldBackgroundColorReadOnly: '--plasma-date-picker-textfield-background-color-readonly',
@@ -230,6 +241,7 @@ export const tokens = {
 
     textFieldDividerColorSuccess: '--plasma-date-picker-textfield__divider-color-success',
     textFieldDividerColorError: '--plasma-date-picker-textfield__divider-color-error',
+    textFieldDividerColorEdited: '--plasma-date-picker-textfield__divider-color-edited',
     textFieldDividerColorHover: '--plasma-date-picker-textfield__divider-color-hover',
     textFieldDividerColorFocus: '--plasma-date-picker-textfield__divider-color-focus',
 

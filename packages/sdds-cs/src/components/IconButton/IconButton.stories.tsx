@@ -8,7 +8,7 @@ import { IconButton } from './IconButton';
 type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
 
 const views = ['accent', 'secondary', 'clear'];
-const sizes = ['s'];
+const sizes = ['s', 'm'];
 const pins = [
     'square-square',
     'square-clear',
@@ -27,7 +27,7 @@ const meta: Meta<StoryButtonProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
@@ -44,7 +44,6 @@ const meta: Meta<StoryButtonProps> = {
             table: { defaultValue: { summary: 'bottom' } },
         },
         ...disableProps([
-            'size',
             'focused',
             'children',
             'theme',

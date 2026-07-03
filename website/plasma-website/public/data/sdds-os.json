@@ -1,4 +1,175 @@
 {
+    "0.25.0": {
+        "date": "2026-06-24",
+        "core": [
+            {
+                "component": "Button",
+                "children": [
+                    {
+                        "text": "добавлен `tabIndex` для корректного отображения фокусного состояния в `Safari`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2854",
+                        "id": 2854
+                    }
+                ]
+            },
+            {
+                "component": "TextField",
+                "children": [
+                    {
+                        "text": "добавлено свойство `rightHelper`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2877",
+                        "id": 2877
+                    }
+                ]
+            },
+            {
+                "component": "Accordion",
+                "children": [
+                    {
+                        "text": "убран `!important` из токена `accordionItemBorderRadius` для размера `xs` в конфигурации",
+                        "link": "https://github.com/salute-developers/plasma/pull/2871",
+                        "id": 2871
+                    }
+                ]
+            },
+            {
+                "component": "Scrollbar",
+                "children": [
+                    {
+                        "text": "добавлены токены цвета для `hover` и `active` состояний thumb",
+                        "link": "https://github.com/salute-developers/plasma/pull/2859",
+                        "id": 2859
+                    }
+                ]
+            },
+            {
+                "component": "Markdown",
+                "children": [
+                    {
+                        "text": "понизили версию зависимости `react-syntax-highlighter` с 16.1.1 на 15.6.6 из-за проблем с совместимостью esm/cjs;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2892",
+                        "id": 2892
+                    }
+                ]
+            },
+            {
+                "component": "ProgressBarCircular",
+                "children": [
+                    {
+                        "text": "добавлено свойство `reverse` для обратной анимации прогресса",
+                        "link": "https://github.com/salute-developers/plasma/pull/2875",
+                        "id": 2875
+                    }
+                ]
+            },
+            {
+                "component": "LinkButton",
+                "children": [
+                    {
+                        "text": "исправлен каскад наследования color",
+                        "link": "https://github.com/salute-developers/plasma/pull/2880",
+                        "id": 2880
+                    }
+                ]
+            },
+            {
+                "component": "Attach",
+                "children": [
+                    {
+                        "text": "добавлен контролируемый режим\n\nмодифицировано нативное поведение по загрузке одного и того же файла (нативный input не вызывает onChange)\n\nрасширены примеры документации с нативной формой и RHF",
+                        "link": "https://github.com/salute-developers/plasma/pull/2885",
+                        "id": 2885
+                    }
+                ]
+            },
+            {
+                "component": "Checkbox, Radiobox",
+                "children": [
+                    {
+                        "text": "cвойство `readOnly` помечено как `deprecated`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2895",
+                        "id": 2895
+                    }
+                ]
+            },
+            {
+                "component": "Steps",
+                "children": [
+                    {
+                        "text": "добавлена возможность указать ширину для горизонтального режима и высоту для вертикально в StepItem\n\nобновлена документация и добавлен пример с вложенными Steps",
+                        "link": "https://github.com/salute-developers/plasma/pull/2902",
+                        "id": 2902
+                    }
+                ]
+            },
+            {
+                "component": "Badge",
+                "children": [
+                    {
+                        "text": "добавлено свойство `appearance`\n\nбулевы свойства `clear`, `transparent` помечены как `deprecated`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2858",
+                        "id": 2858
+                    }
+                ]
+            },
+            {
+                "component": "Autocomplete, Dropdown, Popover, Popup",
+                "children": [
+                    {
+                        "text": "улучшена типизация свойств `portal`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2896",
+                        "id": 2896
+                    }
+                ]
+            },
+            {
+                "component": "CodeField, CodeInput",
+                "children": [
+                    {
+                        "text": "добавлен `inputMode` для отображения корректной виртуальной клавиатуры на мобильных устройствах\n\nактуализирована документация и добавлен пример с `inputMode`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2891",
+                        "id": 2891
+                    }
+                ]
+            },
+            {
+                "component": "Button, Badge, Chip",
+                "children": [
+                    {
+                        "text": "добавлена возможность окрашивать текст в градиент с помощью класса `sdds-core-text-node`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2906",
+                        "id": 2906
+                    }
+                ]
+            },
+            {
+                "component": "Docs",
+                "children": [
+                    {
+                        "text": "добавлен раздел FAQ с частыми вопросами и ответами",
+                        "link": "https://github.com/salute-developers/plasma/pull/2912",
+                        "id": 2912
+                    },
+                    {
+                        "text": "в документации всех вертикалей добавлен раздел по работе с иконками",
+                        "link": "https://github.com/salute-developers/plasma/pull/2907",
+                        "id": 2907
+                    }
+                ]
+            },
+            {
+                "component": "Slider",
+                "children": [
+                    {
+                        "text": "в крайних позициях центр `thumb` совпадает с краем трека",
+                        "link": "https://github.com/salute-developers/plasma/pull/2903",
+                        "id": 2903
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
     "0.23.0": {
         "date": "2026-06-10",
         "core": [

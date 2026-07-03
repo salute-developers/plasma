@@ -8,13 +8,13 @@ import { ComponentConfig, HTMLAnyAttributes } from './types';
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, name, intersections, invariants } = componentConfig;
+    const { tag, base, name, intersections, invariants, responsive } = componentConfig;
 
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
 
     const component = forwardRef<HTMLElement, HTMLAnyAttributes>((props, ref) => {
-        const { className, as, forwardedAs, ...rest } = props;
+        const { className, as, forwardedAs, responsive: responsiveProp, ...rest } = props;
         const variants = dynamicVariants(rest);
         const intersectionStyles = getIntersectionStyles(rest, intersections) as string[];
 
@@ -24,6 +24,7 @@ export const _component = (componentConfig: ComponentConfig) => {
             ...(staticVariants as string[]),
             ...variants,
             ...intersectionStyles,
+            responsiveProp && (responsive as string),
             invariants as string,
         );
 

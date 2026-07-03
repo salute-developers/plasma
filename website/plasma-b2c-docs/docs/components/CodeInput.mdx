@@ -4,18 +4,86 @@ title: CodeInput
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # CodeInput
-Компонент `CodeInput` используется для ввода OTP-кодов.
+Компонент `CodeInput` используется для ввода OTP-кодов в виде крупных символов с круговыми индикаторами.
 
 <Description name="CodeInput" />
-<PropsTable name="CodeInput" />
 
-## Примеры
+## Быстрый старт
 
-### Размер
-Размер задается с помощью свойства `size`. 
-Ширина компонента так же может регулироваться при помощи свойства `width`:
+```tsx live
+import React from 'react';
+import { CodeInput } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <CodeInput
+            caption="Введите код из СМС"
+            captionAlign="center"
+        />
+    );
+}
+```
+
+## Размер
+
+Размер задается с помощью свойства `size`. Ширина компонента также может регулироваться при помощи свойства `width`:
+
+<Tabs>
+    <TabItem value="size" label="Size" default>
+        ```tsx live
+        import React from 'react';
+        import { CodeInput } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            return (
+                <div style={{ flexDirection: 'column', gap: '2rem' }}>
+                    <CodeInput
+                        size="l"
+                        caption="Осталось попыток: 4"
+                        captionAlign="center"
+                    />
+                    <CodeInput
+                        size="m"
+                        caption="Чтобы выслать вам код повторно подождите: 20 секунд"
+                        captionAlign="left"
+                    />
+                    <CodeInput
+                        size="s"
+                        caption="Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать"
+                        captionAlign="center"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="width" label="Width">
+        ```tsx live
+        import React from 'react';
+        import { CodeInput } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            return (
+                <div>
+                    <CodeInput
+                        width="30"
+                        caption="Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать"
+                        captionAlign="center"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Длина кода
+
+Длина кода задается с помощью свойства `codeLength`:
 
 ```tsx live
 import React from 'react';
@@ -24,32 +92,118 @@ import { CodeInput } from '@salutejs/plasma-b2c';
 export function App() {
     return (
         <div style={{ flexDirection: 'column', gap: '2rem' }}>
-            <CodeInput
-                size="l"
-                caption="Осталось попыток: 4"
-                captionAlign="center"
-            />
-            <CodeInput
-                size="m"
-                caption="Чтобы выслать вам код повторно подождите: 20 секунд"
-                captionAlign="left"
-            />
-            <CodeInput 
-                size="s"
-                caption="Не передавайте никому код из СМС. Иначе ваш аккаунт могут взломать"
-                captionAlign="center"
-            />
+            <CodeInput codeLength={4} />
+            <CodeInput codeLength={5} />
+            <CodeInput codeLength={6} />
         </div>
     );
 }
 ```
 
-### Допустимые символы и поведение ячейки при вводе некорректного символа
+## Скрытый ввод
+
+Свойство `hidden` переводит компонент в режим скрытого ввода: вместо символов отображаются круговые индикаторы.
+Это удобно для ввода PIN-кодов и других секретных данных:
+
+```tsx live
+import React from 'react';
+import { CodeInput } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div style={{ flexDirection: 'column', gap: '2rem' }}>
+            <CodeInput caption="Обычный режим" captionAlign="center" />
+            <CodeInput hidden caption="Скрытый режим" captionAlign="center" />
+        </div>
+    );
+}
+```
+
+## Допустимые символы
+
 За допустимые символы для ввода отвечает свойство `allowedSymbols`. Задается строкой или регулярным выражением.
 Библиотека экспортирует наиболее используемые вариации допустимых символов:
 `import { ONLY_DIGITS_PATTERN, ONLY_CHARS_PATTERN, ONLY_DIGITS_AND_CHARS_PATTERN } from '@salutejs/plasma-b2c';`
 
-Поведение ячейки при вводе некорректного символа регулируется свойством `itemErrorBehavior`:
+## Поведение при вводе
+
+Поведение ячейки при вводе некорректного символа регулируется свойством `itemErrorBehavior`.
+При заполнении всех полей ввода срабатывает колбэк `onFullCodeEnter`. При неверном вводе кода поведение компонента управляется свойством `codeErrorBehavior`. Индикация ошибки — с помощью флага `isError` и колбэка `setIsError`:
+
+<Tabs>
+    <TabItem value="itemErrorBehavior" label="itemErrorBehavior" default>
+        ```tsx live
+        import React from 'react';
+        import { CodeInput } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            return (
+                <div style={{ flexDirection: 'column', gap: '2rem' }}>
+                    <CodeInput itemErrorBehavior="remove-symbol" />
+                    <CodeInput itemErrorBehavior="forbid-enter" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="codeErrorBehavior" label="codeErrorBehavior">
+        ```tsx live
+        import React, { useState, Dispatch, SetStateAction } from 'react';
+        import { CodeInput } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            const [disabledFirst, setDisabledFirst] = useState(false);
+            const [isErrorFirst, setIsErrorFirst] = useState(false);
+
+            const [disabledSecond, setDisabledSecond] = useState(false);
+            const [isErrorSecond, setIsErrorSecond] = useState(false);
+
+            const onFullCodeEnter = (
+                code: string,
+                errorSetter: Dispatch<SetStateAction<boolean>>,
+                disableSetter: Dispatch<SetStateAction<boolean>>
+            ) => {
+                disableSetter(true);
+
+                // имитация запроса на сервер
+                setTimeout(() => {
+                    disableSetter(false);
+
+                    if (code !== '123456') {
+                        errorSetter(true);
+                    }
+                }, 3000)
+            }
+
+            return (
+                <div style={{ flexDirection: 'column', gap: '2rem' }}>
+                    <CodeInput
+                        itemErrorBehavior="remove-symbol"
+                        codeErrorBehavior="remove-code"
+                        disabled={disabledFirst}
+                        isError={isErrorFirst}
+                        setIsError={setIsErrorFirst}
+                        onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorFirst, setDisabledFirst)}
+                    />
+                    <CodeInput
+                        itemErrorBehavior="remove-symbol"
+                        codeErrorBehavior="keep"
+                        disabled={disabledSecond}
+                        isError={isErrorSecond}
+                        setIsError={setIsErrorSecond}
+                        onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorSecond, setDisabledSecond)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Тип клавиатуры на мобильных устройствах
+
+Свойство `inputMode` управляет типом виртуальной клавиатуры, отображаемой на мобильных устройствах.
+По умолчанию используется `numeric` — открывается числовая клавиатура. Значение `text` открывает стандартную текстовую клавиатуру:
 
 ```tsx live
 import React from 'react';
@@ -57,67 +211,36 @@ import { CodeInput } from '@salutejs/plasma-b2c';
 
 export function App() {
     return (
-        <div>
-            <CodeInput itemErrorBehavior="remove-symbol" />
-            <CodeInput itemErrorBehavior="keep" />
-            <CodeInput itemErrorBehavior="forbid-enter" />
-        </div>
-    );
-}
-```
-
-### Поведение компонента при вводе некорректного кода и индикация ошибки
-При заполнении всех полей ввода срабатывает колбэк `onFullCodeEnter`. 
-При неверном вводе кода, поведние компонента управляется с помощью свойства `codeErrorBehavior`. 
-Индикация ошибки происходит с помощью флага `isError` и колбека `setIsError`:
-
-```tsx live
-import React, { useState, useRef, Dispatch, SetStateAction } from 'react';
-import { CodeInput } from '@salutejs/plasma-b2c';
-
-export function App() {
-    const [disabledFirst, setDisabledFirst] = useState(false);
-    const [isErrorFirst, setIsErrorFirst] = useState(false);
-    
-    const [disabledSecond, setDisabledSecond] = useState(false);
-    const [isErrorSecond, setIsErrorSecond] = useState(false);
-
-    const onFullCodeEnter = (
-        code: string,
-        errorSetter: Dispatch<SetStateAction<boolean>>,
-        disableSetter: Dispatch<SetStateAction<boolean>>
-    ) => {
-        disableSetter(true);
-
-        // имитация запроса на сервер
-        setTimeout(() => {
-            disableSetter(false);
-
-            if (code !== '123456') {
-                errorSetter(true);
-            }
-        }, 3000)
-    }
-
-    return (
         <div style={{ flexDirection: 'column', gap: '2rem' }}>
             <CodeInput
-                itemErrorBehavior="remove-symbol"
-                codeErrorBehavior="remove-code"
-                disabled={disabledFirst}
-                isError={isErrorFirst}
-                setIsError={setIsErrorFirst}
-                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorFirst, setDisabledFirst)}
+                inputMode="numeric"
+                caption="Числовая клавиатура (по умолчанию)"
+                captionAlign="center"
             />
             <CodeInput
-                itemErrorBehavior="remove-symbol"
-                codeErrorBehavior="keep"
-                disabled={disabledSecond}
-                isError={isErrorSecond}
-                setIsError={setIsErrorSecond}
-                onFullCodeEnter={(code) => onFullCodeEnter(code, setIsErrorSecond, setDisabledSecond)}
+                inputMode="text"
+                caption="Текстовая клавиатура"
+                captionAlign="center"
             />
         </div>
     );
 }
 ```
+
+## Работа с OTP-кодом из СМС
+
+Функционал [Web OTP API](https://developer.mozilla.org/en-US/docs/Web/API/WebOTP_API) актуален только в мобильных браузерах.
+Для корректного автозаполнения кода СМС должна быть отправлена в следующем формате:
+```
+Ваш код подтверждения: 123456.
+
+@plasma.sberdevices.ru #123456
+```
+
+Первая и вторая (пустая) строки являются необязательными и предназначены для удобства чтения пользователем.
+Последняя строка обязательна и должна состоять из:
+- доменной части URL-адреса веб-сайта, который вызвал API; обязательно начинается с символа `@`
+- затем следует OTP, перед которым стоит знак `#`
+
+## Таблица свойств
+<PropsTable name="CodeInput" />

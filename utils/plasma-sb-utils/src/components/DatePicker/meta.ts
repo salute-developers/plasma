@@ -69,7 +69,7 @@ const commonArgs = {
     disableFlip: true,
 };
 
-const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) => ({
+const getCommonArgTypes = (componentConfig: any) => ({
     appearance: {
         options: appearances,
         control: {
@@ -242,7 +242,6 @@ const getCommonArgTypes = (componentConfig: any, additionalArgTypes: any = {}) =
         control: { type: 'boolean' },
         table: { category: 'dropdown' },
     },
-    ...additionalArgTypes,
 });
 
 const commonDisabledArgs = [
@@ -287,7 +286,7 @@ export const createMeta = ({
             ...defaultArgs,
         },
         argTypes: {
-            ...getCommonArgTypes(componentConfig, additionalArgTypes),
+            ...getCommonArgTypes(componentConfig),
             defaultDate: {
                 control: {
                     type: 'date',
@@ -308,6 +307,7 @@ export const createMeta = ({
                 control: { type: 'select' },
                 table: { category: 'dropdown' },
             },
+            ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
     };
@@ -345,7 +345,7 @@ export const createRangeMeta = ({
             ...defaultArgs,
         },
         argTypes: {
-            ...getCommonArgTypes(componentConfig, additionalArgTypes),
+            ...getCommonArgTypes(componentConfig),
             dividerVariant: {
                 options: dividers,
                 control: {
@@ -365,6 +365,7 @@ export const createRangeMeta = ({
                 control: { type: 'select' },
                 table: { category: 'dropdown' },
             },
+            ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
     };

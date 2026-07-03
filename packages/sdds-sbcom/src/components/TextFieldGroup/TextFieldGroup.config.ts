@@ -41,7 +41,7 @@ export const config = {
                 ${tokens.labelLetterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -97,7 +97,7 @@ export const config = {
                 ${tokens.labelLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -153,7 +153,7 @@ export const config = {
                 ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -224,7 +224,7 @@ export const config = {
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */

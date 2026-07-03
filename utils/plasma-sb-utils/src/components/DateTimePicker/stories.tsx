@@ -37,6 +37,7 @@ export const createDefaultStory = (
         enableContentRight,
         valueError,
         valueSuccess,
+        valueEdited,
         size,
         lang,
         min,
@@ -56,6 +57,7 @@ export const createDefaultStory = (
                 size={size}
                 valueError={valueError}
                 valueSuccess={valueSuccess}
+                valueEdited={valueEdited}
                 contentLeft={enableContentLeft ? innerGetIcon('left') : undefined}
                 contentRight={enableContentRight ? innerGetIcon('right') : undefined}
                 onBlur={onBlur}

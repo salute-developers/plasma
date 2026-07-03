@@ -1,16 +1,30 @@
 import { css } from 'styled-components';
 
+import { LinkButtonText, StyledContentLeft, StyledContentRight } from '../../LinkButton.styles';
 import { tokens } from '../../LinkButton.tokens';
 
 export const base = css`
-    color: var(${tokens.linkButtonColor});
     background: var(${tokens.linkButtonBackgroundColor});
 
-    :hover {
-        color: var(${tokens.linkButtonColorHover}, var(${tokens.linkButtonColor}));
+    :not([disabled]):hover {
+        ${LinkButtonText} {
+            color: var(${tokens.linkButtonTextColorHover});
+        }
+
+        ${StyledContentLeft},
+        ${StyledContentRight} {
+            color: var(${tokens.linkButtonIconColorHover});
+        }
     }
 
-    :active {
-        color: var(${tokens.linkButtonColorActive}, var(${tokens.linkButtonColor}));
+    :not([disabled]):active {
+        ${LinkButtonText} {
+            color: var(${tokens.linkButtonTextColorActive});
+        }
+
+        ${StyledContentLeft},
+        ${StyledContentRight} {
+            color: var(${tokens.linkButtonIconColorActive});
+        }
     }
 `;

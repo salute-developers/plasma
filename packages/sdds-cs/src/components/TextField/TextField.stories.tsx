@@ -13,8 +13,12 @@ const { meta: META, Default } = getTextFieldStories({
     defaultArgs: {
         size: 's',
         hasHint: false,
+        hintText: '',
+        titleCaption: '',
+        enableContentLeft: false,
     },
     disablePropsList: [
+        'titleCaption',
         'labelPlacement',
         'hasHint',
         'hintText',
@@ -25,6 +29,7 @@ const { meta: META, Default } = getTextFieldStories({
         'hintPlacement',
         'hintWidth',
         'hintHasArrow',
+        'enableContentLeft',
     ],
 });
 

@@ -22,9 +22,18 @@ export const base = css`
         &.${classes.rangeSuccess} {
             background-color: var(${tokens.backgroundSuccess});
             box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorSuccess});
-            
+
             ${StyledInput} {
                 ${textFieldTokens.color}: var(${tokens.textFieldColorSuccess}, var(${tokens.textFieldColor}));
+            }
+        }
+
+        &.${classes.rangeEdited} {
+            background-color: var(${tokens.backgroundEdited});
+            box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorEdited});
+
+            ${StyledInput} {
+                ${textFieldTokens.color}: var(${tokens.textFieldColorEdited}, var(${tokens.textFieldColor}));
             }
         }
 
@@ -124,6 +133,12 @@ export const base = css`
     .${classes.rangeError}, .${classes.rangeValueError} {
         .${informationWrapperClasses.leftHelper} {
             color: var(${tokens.leftHelperColorError});
+        }
+    }
+
+    .${classes.rangeEdited}, .${classes.rangeValueEdited} {
+        .${informationWrapperClasses.leftHelper} {
+            color: var(${tokens.leftHelperColorEdited});
         }
     }
 `;

@@ -52,7 +52,7 @@ export const config = {
                 ${accordionTokens.accordionItemTextColor}: ${textPrimary};
                 ${accordionTokens.accordionItemIconColor}: ${textPrimary};
                 ${accordionTokens.accordionItemFocus}: ${surfaceAccent};
-                ${accordionTokens.accordionItemBorderRadius}: 0rem !important;
+                ${accordionTokens.accordionItemViewBorderRadius}: 0rem;
                 ${accordionTokens.accordionBackground}: ${surfaceClear};
                 ${accordionTokens.accordionItemBorderBottom}: 0.063rem solid ${surfaceSolidTertiary};
                 ${accordionTokens.accordionItemPaddingHorizontalLeft}: 0;

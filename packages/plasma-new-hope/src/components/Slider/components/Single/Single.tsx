@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { FC } from 'react';
 import cls from 'classnames';
 
@@ -92,6 +92,22 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const [dragValue, setDragValue] = useState(clampedDefaultValue ?? min);
 
     const value = clampedOuterValue ?? dragValue;
+
+    // Округляем значение, если оно не кратно новому шагу
+    useEffect(() => {
+        const remainder = (value - min) % step;
+
+        if (Math.abs(remainder) > 0.000001) {
+            const roundedValue = Math.round((value - min) / step) * step + min;
+            const validValue = Math.max(min, Math.min(max, roundedValue));
+
+            setDragValue(validValue);
+
+            if (outerValue !== undefined) {
+                emitChange(validValue);
+            }
+        }
+    }, [step, min, max, value, outerValue]);
 
     const {
         innerShowScale,

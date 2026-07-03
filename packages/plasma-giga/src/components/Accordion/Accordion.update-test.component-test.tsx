@@ -83,6 +83,7 @@ describe('plasma-giga: Accordion', () => {
         );
 
         cy.get('.accordion-root').last().trigger('click', { waitForAnimations: true });
+        cy.get('.accordion-item').should('have.css', 'border-radius', '0px');
 
         cy.matchImageSnapshot();
     });

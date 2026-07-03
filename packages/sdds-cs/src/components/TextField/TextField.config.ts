@@ -19,6 +19,7 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.rightHelperColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -62,6 +63,7 @@ export const config = {
                 ${tokens.textAfterColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
+                ${tokens.rightHelperColor}: var(--text-negative);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -94,6 +96,83 @@ export const config = {
             `,
         },
         size: {
+            m: css`
+                ${tokens.height}: 3rem;
+                ${tokens.padding}: 0.75rem 0.875rem 0.75rem 0.875rem;
+                ${tokens.paddingWithChips}: 0.375rem;
+                ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.125rem;
+
+                ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
+                ${tokens.rightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
+
+                ${tokens.contentRightWrapperGap}: 0.25rem;
+                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.labelOffset}: 0.5rem;
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+
+                ${tokens.chipGap}: 0.25rem;
+                ${tokens.chipBorderRadius}: 0.375rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 2.25rem;
+                ${tokens.chipPadding}: 0 0.625rem 0 0.875rem;
+                ${tokens.chipClearContentMarginLeft}: 0.5rem;
+                ${tokens.chipClearContentMarginRight}: 0rem;
+                ${tokens.chipCloseIconSize}: 1.25rem;
+                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.indicatorSizeInner}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
+            `,
             s: css`
                 ${tokens.height}: 2.5rem;
                 ${tokens.padding}: 0.6875rem 0.75rem 0.6875rem 0.75rem;
@@ -134,13 +213,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.leftHelperFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.rightHelperFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.rightHelperFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.rightHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.rightHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.rightHelperLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -247,6 +334,7 @@ export const config = {
                 ${tokens.backgroundColorReadOnly}: var(--surface-clear);
                 ${tokens.placeholderColorReadOnly}: var(--text-secondary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.rightHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
                 ${tokens.labelColorReadOnly}: var(--text-secondary);
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;

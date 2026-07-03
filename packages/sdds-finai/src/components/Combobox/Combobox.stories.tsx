@@ -12,6 +12,13 @@ const { meta: META, Single, Multiple, SelectAll, AddItem } = getComboboxStories(
     componentConfig: config,
     defaultArgs: {
         ...config.defaults,
+        appearance: 'default',
+    },
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'viewMode'],
+            control: { type: 'select' },
+        },
     },
 });
 

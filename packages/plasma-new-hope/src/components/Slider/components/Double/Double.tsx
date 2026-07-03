@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import type { FC } from 'react';
 import cls from 'classnames';
 
-import { classes, tokens } from '../../Slider.tokens';
+import { classes } from '../../Slider.tokens';
 import type { FormTypeString } from '../../../../types/FormType';
 import { useRangeHandlers } from '../../hooks/useRangeHandlers';
 import { useDoubleTextFieldHandlers } from '../../hooks/useDoubleTextFieldHandlers';
@@ -89,8 +89,8 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     const firstPercent = (firstValue - min) / (max - min);
     const secondPercent = (secondValue - min) / (max - min);
     const doubleProgressStyle = {
-        left: `calc(var(${tokens.thumbSize}) / 2 + ${firstPercent} * (100% - var(${tokens.thumbSize})))`,
-        width: `calc(${secondPercent - firstPercent} * (100% - var(${tokens.thumbSize})))`,
+        left: `calc(${firstPercent} * 100%)`,
+        width: `calc(${secondPercent - firstPercent} * 100%)`,
     };
 
     const sortValues = useCallback(

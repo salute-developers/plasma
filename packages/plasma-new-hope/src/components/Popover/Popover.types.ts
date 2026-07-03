@@ -36,7 +36,7 @@ export type CustomPopoverProps = {
     /**
      * В каком контейнере позиционируется(по умолчанию document), можно также указать id элемента или ref для него.
      */
-    frame?: 'document' | string | RefObject<HTMLElement>;
+    frame?: 'document' | string | RefObject<HTMLElement | null>;
     /**
      * Элемент или ref на элемент, рядом с которым произойдет вызов всплывающего окна.
      */

@@ -150,6 +150,36 @@ import TabItem from '@theme/TabItem';
 
 ### Управление внешним видом
 
+Внешний вид компонента задаётся с помощью свойства `appearance`. `appearance="viewMode"` — режим просмотра.
+
+```tsx live
+import React from 'react';
+import { DatePicker } from '@salutejs/sdds-finai';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <DatePicker
+                appearance="default"
+                size="s"
+                label="Appearance default"
+                placeholder="Введите дату"
+                contentRight={<IconDone size="s" />}
+            />
+            <DatePicker
+                appearance="viewMode"
+                size="s"
+                label="Appearance viewMode"
+                value="22.06.2026"
+                readOnly
+                contentRight={<IconDone size="s" />}
+            />
+        </div>
+    );
+}
+```
+
 Размер `DatePicker` задаётся с помощью свойства `size`.
 
 ```tsx live

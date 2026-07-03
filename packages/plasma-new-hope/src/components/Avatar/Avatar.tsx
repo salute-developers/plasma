@@ -11,7 +11,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as focusedCSS } from './variations/_focused/base';
 import { base as shapeCSS } from './variations/_shape/base';
 import { extraPlacementMap, getInitialsForName } from './utils';
-import type { AvatarProps, StatusLabels } from './Avatar.types';
+import type { AvatarProps, AvatarRootProps, StatusLabels } from './Avatar.types';
 
 const StatusLabelsDefault: StatusLabels = {
     active: 'Активен',
@@ -67,7 +67,7 @@ const StyledIndicator = styled(Indicator)`
     status === 'active' ? `var(${tokens.statusOnlineColor})` : `var(${tokens.statusOfflineColor})`}
 `;
 
-export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarProps>) => {
+export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarRootProps>) => {
     return forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
         const {
             size: avatarSize,

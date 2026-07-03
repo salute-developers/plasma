@@ -79,6 +79,25 @@ export interface Intersection {
     style: PolymorphicClassName;
 }
 
+/**
+ * Конфигурация @media запроса
+ * @experimental
+ */
+export type MediaQueryRule = {
+    /**
+     * Нижняя граница диапазона ширины viewport (min-width) в px.
+     */
+    from?: number;
+    /**
+     * Верхняя граница диапазона ширины viewport (max-width) в px.
+     */
+    to?: number;
+    /**
+     * Декларации size-токенов, применяемые внутри медиа-запроса.
+     */
+    size: string;
+};
+
 export interface ComponentConfig<
     Tag extends HTMLTagList = React.ElementType,
     VariantList extends Variants = Variants,
@@ -96,4 +115,9 @@ export interface ComponentConfig<
     defaults: Partial<Record<string, string>>;
     intersections?: Intersection[];
     invariants?: PolymorphicClassName;
+    /**
+     * Предсобранный CSS-блок для @media запроса
+     * @experimental
+     */
+    responsive?: PolymorphicClassName;
 }

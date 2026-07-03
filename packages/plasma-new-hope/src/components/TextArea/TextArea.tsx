@@ -27,7 +27,7 @@ import {
     StyledContentWrapper,
     StyledHeaderSlot,
 } from './TextArea.styles';
-import { classes } from './TextArea.tokens';
+import { classes, privateTokens } from './TextArea.tokens';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as readOnlyCSS } from './variations/_read-only/base';
@@ -118,6 +118,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             placeholder,
             leftHelper,
             leftHelperPlacement = 'inner',
+            rightHelperPlacement = 'inner',
             helperText,
             rightHelper,
             contentRight,
@@ -190,11 +191,13 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         }, [hintRef]);
 
         const isInnerLeftHelperPlacement = leftHelperPlacement === 'inner';
+        const isInnerRightHelperPlacement = rightHelperPlacement === 'inner';
         const leftHelperText = leftHelper || helperText;
         const innerOptional = required ? false : optional;
         const hasLeftHelper = Boolean(leftHelper || helperText);
         const hasRightHelper = Boolean(rightHelper);
-        const hasHelper = !isInnerLeftHelperPlacement ? hasRightHelper : hasLeftHelper || hasRightHelper;
+        const hasHelper =
+            (isInnerLeftHelperPlacement && hasLeftHelper) || (isInnerRightHelperPlacement && hasRightHelper);
         const hasOuterLabel = Boolean(label && labelPlacement === 'outer');
         const hasInnerLabel = Boolean(label && labelPlacement === 'inner' && size !== 'xs');
         const hasPlaceholderOptional = innerOptional && !hasOuterLabel;
@@ -204,7 +207,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const textareaHelperId = id ? `${id}-helper` : undefined;
         const hasExplicitHeight = Boolean(computedHeight);
         const placeholderLabel = hasInnerLabel ? label : placeholder;
-        const applyAutoResize = autoResize || Boolean(clear || appearance === 'clear');
+        const applyAutoResize = autoResize || Boolean(clear || appearance === 'clear' || appearance === 'viewMode');
 
         const clearClass = clear || appearance === 'clear' ? classes.clear : undefined;
         const hasHintClass = hintText ? classes.hasHint : undefined;
@@ -313,7 +316,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         width: innerWidth,
                         height: computedHeight,
                         ...(hasExplicitHeight && {
-                            '--plasma_private-textarea-input-actual-height': '100%',
+                            [privateTokens.inputActualHeight]: '100%',
                         }),
                         ...style,
                     } as React.CSSProperties
@@ -405,6 +408,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         hasHelper={hasHelper}
                         hasHeader={hasHeader}
                         hasExplicitHeight={hasExplicitHeight}
+                        isClear={clear || appearance === 'clear'}
                     >
                         {headerSlot && !clear && <StyledHeaderSlot>{headerSlot}</StyledHeaderSlot>}
 
@@ -458,12 +462,14 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     </StyledTextAreaWrapper>
                     {hasHelper && (
                         <StyledHelpers className={styledHelpers} id={textareaHelperId}>
-                            {isInnerLeftHelperPlacement && (leftHelper || helperText) && (
+                            {hasLeftHelper && isInnerLeftHelperPlacement && (
                                 <StyledLeftHelper className={focused ? classes.leftHelperFocus : ''}>
-                                    {leftHelper || helperText}
+                                    {leftHelperText}
                                 </StyledLeftHelper>
                             )}
-                            {rightHelper && <StyledRightHelper data-root>{rightHelper}</StyledRightHelper>}
+                            {hasRightHelper && isInnerRightHelperPlacement && (
+                                <StyledRightHelper data-root>{rightHelper}</StyledRightHelper>
+                            )}
                         </StyledHelpers>
                     )}
                     {!hasHeader && placeholderLabel && (
@@ -477,11 +483,16 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                         </StyledPlaceholder>
                     )}
                 </StyledContainer>
-                {hasLeftHelper && !isInnerLeftHelperPlacement && (
+                {(!isInnerLeftHelperPlacement && hasLeftHelper) || (!isInnerRightHelperPlacement && hasRightHelper) ? (
                     <StyledOutsideHelpersWrapper id={textareaHelperId}>
-                        <StyledLeftHelper>{leftHelperText}</StyledLeftHelper>
+                        {!isInnerLeftHelperPlacement && hasLeftHelper && (
+                            <StyledLeftHelper>{leftHelperText}</StyledLeftHelper>
+                        )}
+                        {!isInnerRightHelperPlacement && hasRightHelper && (
+                            <StyledRightHelper data-root>{rightHelper}</StyledRightHelper>
+                        )}
                     </StyledOutsideHelpersWrapper>
-                )}
+                ) : null}
             </Root>
         );
     });

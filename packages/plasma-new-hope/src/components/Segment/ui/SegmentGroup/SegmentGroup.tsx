@@ -53,6 +53,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
             orientation = 'horizontal',
             filledBackground = false,
             hasBackground = false,
+            hasDivider = false,
             disabled = false,
             size,
             view,
@@ -64,7 +65,7 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
         const trackRef = useRef<HTMLElement | null>(null);
         const leftArrowRef = useRef<HTMLButtonElement | null>(null);
 
-        const { setSelectionMode, setDisabledGroup } = useSegmentInner();
+        const { setSelectionMode, setDisabledGroup, setHasDivider, setOrientation } = useSegmentInner();
 
         const [firstItemVisible, setFirstItemVisible] = useState(true);
         const [lastItemVisible, setLastItemVisible] = useState(true);
@@ -272,7 +273,9 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
         useEffect(() => {
             selectionMode && setSelectionMode(selectionMode);
             setDisabledGroup(disabled);
-        }, [selectionMode, disabled]);
+            setHasDivider(hasDivider);
+            setOrientation(orientation);
+        }, [selectionMode, disabled, hasDivider, orientation]);
 
         return (
             <Root

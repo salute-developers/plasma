@@ -154,4 +154,16 @@ export const StyledInput = styled(TextField)`
 
         ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorSuccess});
     }
+
+    &.${classes.edited} {
+        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundEditedColor});
+        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundEditedColorHover});
+        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundEditedColorFocus});
+
+        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorEdited});
+        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorEditedHover});
+        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorEditedFocus});
+
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorEdited});
+    }
 `;

@@ -310,4 +310,50 @@ describeFn('Steps', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('custom height, orientation=vertical', () => {
+        const itemsWithHeight: StepItemProps[] = [
+            { indicator: 1, title: 'Title', content: 'Content', status: 'completed', height: '8rem' },
+            { indicator: 2, title: 'Title', content: 'Content', status: 'active', height: '8rem' },
+            { indicator: 3, title: 'Title', content: 'Content', status: 'inactive' },
+        ];
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Steps items={itemsWithHeight} orientation="vertical" hasLine />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('custom width, orientation=horizontal', () => {
+        const itemsWithWidth: StepItemProps[] = [
+            { indicator: 1, title: 'Title', content: 'Content', status: 'completed', width: '200px' },
+            { indicator: 2, title: 'Title', content: 'Content', status: 'active' },
+            { indicator: 3, title: 'Title', content: 'Content', status: 'inactive', width: '200px' },
+        ];
+
+        mount(<Steps items={itemsWithWidth} />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: onChange', () => {
+        const clickableItems: StepItemProps[] = [
+            { title: 'Step 1', indicator: 1, status: 'active' },
+            { title: 'Step 2', indicator: 2, status: 'inactive' },
+        ];
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(<Steps items={clickableItems} onChange={onChange} />);
+
+        cy.contains('Step 2').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.0.title').should('eq', 'Step 2');
+        cy.get('@onChange').its('firstCall.args.1').should('eq', 1);
+        cy.get('@onChange').its('firstCall.args.2').should('eq', 0);
+    });
 });

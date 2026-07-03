@@ -46,6 +46,30 @@ npx lerna clean -y
 npx lerna bootstrap
 ```
 
+## Обновление package-lock.json
+
+При изменении `dependencies`, `devDependencies` или `peerDependencies` в корневом или пакетном `package.json` необходимо синхронизировать lock-файлы.
+
+**Рекомендуемый способ (полная регенерация, как в CI):**
+
+```sh
+npm run update:package-locks
+```
+
+**Точечное обновление после правки зависимостей одного пакета:**
+
+```sh
+npm run update:package-locks:scope --scope=@salutejs/plasma-hope
+```
+
+**Не делайте так:**
+
+-   `cd packages/foo && npm install` — изолированная установка перегенерирует lock и может изменить дерево зависимостей;
+-   `npm install --package-lock-only` без флагов `--lockfile-version 2 --legacy-peer-deps`;
+-   форматирование `package-lock.json` через Prettier — lock-файлы генерируются npm/lerna.
+
+Проверка: `git diff` по lock-файлам должен отражать только изменения зависимостей, а не массовую смену отступов.
+
 ## Запуск Storybook
 
 Для разработки компонент используется `Storybook`, который запускается и собирается с помощью `Vite`. Для локальной разработки необходимо из корня проекта перейти в нужную директорию (`plasma-web`, `plasma-b2c`, `plasma-ui`) и выполнить команду запуска:

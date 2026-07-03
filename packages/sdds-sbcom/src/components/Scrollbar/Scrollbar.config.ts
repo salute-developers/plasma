@@ -1,10 +1,17 @@
-import { surfaceTransparentPrimary, surfaceTransparentTertiary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
+import {
+    surfaceTransparentPrimary,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryHover,
+    surfaceTransparentTertiaryActive,
+} from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     view: {
         default: {
             trackColor: `${surfaceTransparentPrimary}`,
             thumbColor: `${surfaceTransparentTertiary}`,
+            thumbHoverColor: `${surfaceTransparentTertiaryHover}`,
+            thumbActiveColor: `${surfaceTransparentTertiaryActive}`,
         },
     },
     size: {

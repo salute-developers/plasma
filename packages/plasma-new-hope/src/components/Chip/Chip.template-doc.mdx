@@ -91,3 +91,28 @@ export function App() {
     );
 }
 ```
+
+### Градиентный текст
+Текст чипа можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/{{ package }}';
+import styled from 'styled-components';
+
+export function App() {
+    const GradientChip = styled(Chip)`
+        & .sdds-core-text-node {
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+    `;
+    return (
+        <div style=\{{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <GradientChip text="Градиент" />
+        </div>
+    );
+}
+```

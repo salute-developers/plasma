@@ -13,6 +13,12 @@ const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
     defaultArgs: config.defaults,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'clear', 'viewMode'],
+            control: { type: 'select' },
+        },
+    },
     customIcon: (size: string, type: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
         if (type === 'left') {

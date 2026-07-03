@@ -113,6 +113,8 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
                             onClick={onClick}
                             items={innerItems}
                             rootView={view}
+                            height={item.height}
+                            width={item.width}
                         />
                     );
                 })}

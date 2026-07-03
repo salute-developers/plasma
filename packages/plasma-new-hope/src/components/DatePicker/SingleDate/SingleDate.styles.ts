@@ -160,16 +160,29 @@ export const StyledInput = styled(TextField)`
         ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundErrorColor});
         ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundErrorColorHover});
         ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundErrorColorFocus});
-        
+
         ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorError});
         ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorErrorHover});
         ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorErrorFocus});
-        
+
         ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorError});
 
         ${textFieldTokens.contentSlotColor}: var(${tokens.textFieldContentSlotColorError}, var(${tokens.textFieldContentSlotColor}));
         ${textFieldTokens.contentSlotColorHover}: var(${tokens.textFieldContentSlotColorErrorHover}, var(${tokens.textFieldContentSlotColorHover}));
         ${textFieldTokens.contentSlotColorActive}: var(${tokens.textFieldContentSlotColorErrorActive}, var(${tokens.textFieldContentSlotColorActive}));
+    }
+
+    &.${classes.datePickerEdited} {
+        ${textFieldTokens.color}: var(${tokens.textFieldColorEdited}, var(${tokens.textFieldColor}));
+        ${textFieldTokens.backgroundColor}: var(${tokens.textFieldBackgroundEditedColor});
+        ${textFieldTokens.backgroundColorHover}: var(${tokens.textFieldBackgroundEditedColorHover});
+        ${textFieldTokens.backgroundColorFocus}: var(${tokens.textFieldBackgroundEditedColorFocus});
+
+        ${textFieldTokens.borderColor}: var(${tokens.textFieldBorderColorEdited});
+        ${textFieldTokens.borderColorHover}: var(${tokens.textFieldBorderColorEditedHover});
+        ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorEditedFocus});
+
+        ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColorEdited});
     }
 `;
 
@@ -194,5 +207,9 @@ export const LeftHelper = styled.div`
 
     &.${classes.datePickerError} {
         color: var(${tokens.leftHelperColorError});
+    }
+
+    &.${classes.datePickerEdited} {
+        color: var(${tokens.leftHelperColorEdited});
     }
 `;

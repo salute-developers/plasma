@@ -7,6 +7,8 @@ export const config = {
         default: {
             trackColor: 'var(--surface-solid-primary)',
             thumbColor: 'var(--surface-solid-tertiary)',
+            thumbHoverColor: 'var(--surface-solid-tertiary-hover)',
+            thumbActiveColor: 'var(--surface-solid-tertiary-active)',
         },
     },
     size: {

@@ -38,6 +38,8 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     onClick,
     items,
     rootView,
+    height,
+    width,
 }: StepItemExtendedProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -68,6 +70,18 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     const isDisabled = item?.disabled;
 
     const onClickHandler = onClick && !isDisabled ? () => onClick(item, index) : undefined;
+
+    const customSizeStyle: React.CSSProperties | undefined = (() => {
+        if (isVertical && height) {
+            return { height, flex: 'none' };
+        }
+
+        if (!isVertical && width) {
+            return { width, flex: 'none' };
+        }
+
+        return undefined;
+    })();
 
     const onMouseOver = clickable && !isDisabled ? () => setIsHovered(true) : undefined;
     const onMouseOut = clickable && !isDisabled ? () => setIsHovered(false) : undefined;
@@ -110,8 +124,10 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 [classes.clickable]: clickable && !isActive,
                 [classes.hasIndicator]: hasIndicator,
                 [classes.verticalOrientation]: isVertical,
+                [classes.verticalLastItem]: isVertical && isLast,
                 isNextActive,
             })}
+            style={customSizeStyle}
         >
             <BulletIndicatorWrapper
                 className={cls({
@@ -157,6 +173,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                         [classes.centered]: isCentered,
                         [classes.active]: isActive,
                         [classes.hasIndicator]: hasIndicator,
+                        [classes.noTitle]: !title,
                     })}
                 >
                     <StepItemTitle {...interactiveHandlers}>{title}</StepItemTitle>

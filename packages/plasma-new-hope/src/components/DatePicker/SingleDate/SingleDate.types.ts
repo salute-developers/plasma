@@ -65,6 +65,10 @@ export type DatePickerTextFieldProps = {
      */
     valueSuccess?: boolean;
     /**
+     * Отредактированное значение даты
+     */
+    valueEdited?: boolean;
+    /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
     leftHelper?: string;

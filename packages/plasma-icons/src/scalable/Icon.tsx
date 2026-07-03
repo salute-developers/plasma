@@ -382,6 +382,8 @@ export const iconSectionsSet = {
         travelCarOutline: 'TravelCarOutline',
         wheelOutline: 'WheelOutline',
         wheelFill: 'WheelFill',
+        helicopterOutline: 'HelicopterOutline',
+        helicopterFill: 'HelicopterFill',
     },
     User: {
         accessibility: 'Accessibility',
@@ -750,6 +752,7 @@ export const iconSectionsSet = {
         queueFill: 'QueueFill',
         queueDashOutline: 'QueueDashOutline',
         queueDashFill: 'QueueDashFill',
+        code: 'Code',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
@@ -1446,6 +1449,8 @@ export const iconSectionsSet = {
         verificationOutline: 'VerificationOutline',
         attention: 'Attention',
         equals: 'Equals',
+        inProgressOutline: 'InProgressOutline',
+        inProgressFill: 'InProgressFill',
     },
     Weather: {
         beachUmbrellaFill: 'BeachUmbrellaFill',

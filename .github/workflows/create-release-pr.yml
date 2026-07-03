@@ -126,7 +126,7 @@ jobs:
                         "version": "Release ${{ env.DATE }}",
                         "applicationType": "web",
                         "hotfix": false,
-                        "authorMmUser": "alex_czech",
+                        "authorMmUser": "aslobyntsev",
                         "configurationElement": "${{ secrets.CE }}",
                         "distributionLink": "",
                         "tasks": ${{ steps.jira_tasks.outputs.result }},

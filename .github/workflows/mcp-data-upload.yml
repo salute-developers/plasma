@@ -19,11 +19,16 @@ jobs:
                     -   package_name: plasma-web
                     -   package_name: plasma-b2c
                     -   package_name: plasma-giga
+                    -   package_name: plasma-homeds
                     -   package_name: sdds-finai
                     -   package_name: sdds-cs
                     -   package_name: sdds-serv
                     -   package_name: sdds-platform-ai
                     -   package_name: sdds-netology
+                    -   package_name: sdds-bizcom
+                    -   package_name: sdds-dfa
+                    -   package_name: sdds-insol
+                    -   package_name: sdds-scan
         steps:
             -   name: Checkout
                 uses: actions/checkout@v4

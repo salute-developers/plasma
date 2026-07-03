@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import { action } from 'storybook/actions';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
-import { Divider } from '../Divider';
-
 import { config } from './List.config';
 
 import { List, ListItem } from '.';
@@ -44,6 +42,11 @@ const meta: Meta<typeof List> = {
                 type: 'select',
             },
         },
+        hasDivider: {
+            control: {
+                type: 'boolean',
+            },
+        },
         ...disableProps(['view']),
     },
 };
@@ -56,6 +59,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         size: 'm',
         variant: 'normal',
         disabled: false,
+        hasDivider: false,
     },
     render: ({ view, size, ...rest }) => {
         return (
@@ -69,36 +73,6 @@ export const Default: StoryObj<StoryPropsDefault> = {
                 <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} disabled>
                     Test Item 3
                 </ListItem>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
-                    Test Item 4
-                </ListItem>
-            </List>
-        );
-    },
-};
-
-export const WithDivider: StoryObj<StoryPropsDefault> = {
-    args: {
-        view: 'default',
-        size: 'm',
-        variant: 'normal',
-        disabled: false,
-    },
-    render: ({ view, size, ...rest }) => {
-        return (
-            <List view={view} size={size} onKeyDown={onKeyListDown} {...rest}>
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
-                    Test Item 1
-                </ListItem>
-                <Divider />
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
-                    Test Item 2
-                </ListItem>
-                <Divider />
-                <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} disabled>
-                    Test Item 3
-                </ListItem>
-                <Divider />
                 <ListItem contentRight={<ChevronRight color="inherit" size="xs" />} onKeyDown={onKeyDown}>
                     Test Item 4
                 </ListItem>

@@ -1,10 +1,17 @@
-import { surfaceTransparentPrimary, surfaceTransparentTertiary } from '@salutejs/plasma-themes/tokens/plasma_giga';
+import {
+    surfaceTransparentPrimary,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryHover,
+    surfaceTransparentTertiaryActive,
+} from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
     view: {
         default: {
             trackColor: `${surfaceTransparentPrimary}`,
             thumbColor: `${surfaceTransparentTertiary}`,
+            thumbHoverColor: `${surfaceTransparentTertiaryHover}`,
+            thumbActiveColor: `${surfaceTransparentTertiaryActive}`,
         },
     },
     size: {

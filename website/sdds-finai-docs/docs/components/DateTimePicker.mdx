@@ -125,6 +125,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
     <TabItem value="appearance" label="Appearance" default>
         При `appearance="clear"` можно дополнительно включить разделитель с помощью свойства `hasClearDivider`.
+        `appearance="viewMode"` — режим просмотра.
 
         ```tsx live
         import React from 'react';
@@ -155,6 +156,15 @@ import TabItem from '@theme/TabItem';
                         size="s"
                         label="Clear с разделителем"
                         placeholder="Введите дату"
+                        maskWithFormat
+                        usePortal
+                    />
+                    <DateTimePicker
+                        appearance="viewMode"
+                        size="s"
+                        label="ViewMode"
+                        value="22.06.2026 12:00"
+                        readOnly
                         maskWithFormat
                         usePortal
                     />

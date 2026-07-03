@@ -3,6 +3,8 @@ export const config = {
         default: {
             trackColor: 'var(--surface-transparent-primary)',
             thumbColor: 'var(--surface-transparent-tertiary)',
+            thumbHoverColor: 'var(--surface-transparent-tertiary-hover)',
+            thumbActiveColor: 'var(--surface-transparent-tertiary-active)',
         },
     },
     size: {

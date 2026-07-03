@@ -1,41 +1,5 @@
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
-export type ClearViewProps =
-    | {
-          /**
-           * view применяется с clear-токенами
-           * @default
-           * false
-           */
-          clear?: true;
-          /**
-           * Компонент c округлым border-radius
-           * @default
-           * false
-           */
-          pilled?: never;
-          /**
-           * view применяется с учетом прозрачности
-           * @default
-           * false
-           */
-          transparent?: never;
-      }
-    | {
-          /**
-           * Компонент c округлым border-radius
-           */
-          pilled?: boolean;
-          /**
-           * view применяется с учетом прозрачности
-           */
-          transparent?: boolean;
-          /**
-           * view применяется с clear-токенами
-           */
-          clear?: never;
-      };
-
 type IconContentProps =
     | {
           /**
@@ -71,6 +35,12 @@ export type CustomBadgeProps = {
      */
     maxWidth?: CSSProperties['width'];
     /**
+     * Компонент c округлым border-radius
+     * @default
+     * false
+     */
+    pilled?: boolean;
+    /**
      * Размер Badge
      * @default
      * m
@@ -82,9 +52,23 @@ export type CustomBadgeProps = {
      * default
      */
     view?: string;
+    /**
+     * Стиль для UI конфигурации
+     * Влияет на выбор предустановленного набора токенов
+     * @default default
+     */
+    appearance?: 'default' | 'transparent' | 'clear';
+    /**
+     * @deprecated Используйте `appearance="clear"`
+     */
+    clear?: boolean;
+    /**
+     * @deprecated Используйте `appearance="transparent"`
+     */
+    transparent?: boolean;
 } & IconContentProps;
 
-export type BadgeProps = HTMLAttributes<HTMLDivElement> & CustomBadgeProps & ClearViewProps;
+export type BadgeProps = HTMLAttributes<HTMLDivElement> & CustomBadgeProps;
 export type BadgeRootProps = HTMLAttributes<HTMLDivElement> &
     CustomBadgeProps & {
         pilled?: boolean;

@@ -37,6 +37,8 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                 secondValueError,
                 firstValueSuccess,
                 secondValueSuccess,
+                firstValueEdited,
+                secondValueEdited,
                 firstPlaceholder,
                 secondPlaceholder,
 
@@ -120,6 +122,11 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
             const secondValueSuccessClass =
                 !rangeSuccessClass && secondValueSuccess ? classes.rangeValueSuccess : undefined;
 
+            const rangeEditedClass = firstValueEdited && secondValueEdited ? classes.rangeEdited : undefined;
+            const firstValueEditedClass = !rangeEditedClass && firstValueEdited ? classes.rangeValueEdited : undefined;
+            const secondValueEditedClass =
+                !rangeEditedClass && secondValueEdited ? classes.rangeValueEdited : undefined;
+
             const hintInnerRef = useRef<HTMLDivElement>(null);
             const hintForkRef = useForkRef(hintRef, hintInnerRef);
 
@@ -200,6 +207,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                             rangeSuccessClass,
                             firstValueSuccessClass,
                             secondValueSuccessClass,
+                            rangeEditedClass,
+                            firstValueEditedClass,
+                            secondValueEditedClass,
                             clearOuterHintClass,
                         )}
                         size={size}
@@ -226,12 +236,18 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                             : { hintText: undefined })}
                     >
                         <ContentWrapper
-                            className={cx(clearClass, clearDividerClass, rangeErrorClass, rangeSuccessClass)}
+                            className={cx(
+                                clearClass,
+                                clearDividerClass,
+                                rangeErrorClass,
+                                rangeSuccessClass,
+                                rangeEditedClass,
+                            )}
                         >
                             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                             <StyledInput
                                 ref={firstTextFieldRef}
-                                className={cx(firstValueErrorClass, firstValueSuccessClass)}
+                                className={cx(firstValueErrorClass, firstValueSuccessClass, firstValueEditedClass)}
                                 value={firstValue}
                                 readOnly={readOnly}
                                 disabled={disabled}
@@ -252,7 +268,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                             {Divider}
                             <StyledInput
                                 ref={secondTextFieldRef}
-                                className={cx(secondValueErrorClass, secondValueSuccessClass)}
+                                className={cx(secondValueErrorClass, secondValueSuccessClass, secondValueEditedClass)}
                                 value={secondValue}
                                 readOnly={readOnly}
                                 disabled={disabled}

@@ -8,78 +8,71 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-primary);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-primary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-primary);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-primary-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-primary-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-primary-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-primary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-primary-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-primary-active);
             `,
             accent: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-accent);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-accent);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-accent);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-solid-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-accent-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-accent-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-accent-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-accent-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-accent-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-accent-active);
             `,
             secondary: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-secondary-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-secondary-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-secondary-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-secondary-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-secondary-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-secondary-active);
             `,
             positive: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-positive);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-positive-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-positive-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-positive-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-positive-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-positive-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-positive-active);
             `,
             warning: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-warning);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-warning);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-warning);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-warning-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-warning-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-warning-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-warning-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-warning-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-warning-active);
             `,
             negative: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-negative);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-negative);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-negative);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-negative-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-negative-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-negative-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-negative-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-negative-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-negative-active);
             `,
             info: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-info);
                 ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-solid-clear);
-                ${linkButtonTokens.linkButtonColorHover}: var(--text-info-hover);
-                ${linkButtonTokens.linkButtonColorActive}: var(--text-info-active);
+                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-info-hover);
+                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-info-active);
                 ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-info-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-info-active);
@@ -174,7 +167,6 @@ export const config = {
             view: 'default',
             disabled: true,
             style: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-tertiary);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-tertiary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-tertiary);
             `,
@@ -190,7 +182,6 @@ export const config = {
             view: 'secondary',
             disabled: true,
             style: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-tertiary);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-tertiary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-tertiary);
             `,
@@ -206,7 +197,6 @@ export const config = {
             view: 'warning',
             disabled: true,
             style: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-warning-minor);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-warning-minor);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-warning-minor);
             `,
@@ -215,7 +205,6 @@ export const config = {
             view: 'negative',
             disabled: true,
             style: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-negative-minor);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-negative-minor);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-negative-minor);
             `,
@@ -224,7 +213,6 @@ export const config = {
             view: 'info',
             disabled: true,
             style: css`
-                ${linkButtonTokens.linkButtonColor}: var(--text-info-minor);
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-info-minor);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-info-minor);
             `,

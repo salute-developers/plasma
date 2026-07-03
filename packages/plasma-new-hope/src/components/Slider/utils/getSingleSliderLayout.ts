@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from 'react';
 
-import { classes, tokens } from '../Slider.tokens';
+import { classes } from '../Slider.tokens';
 
 interface GetSingleSliderLayoutParams {
     value: number;
@@ -91,9 +91,7 @@ export const getSingleSliderLayout = ({
     const fadeOpacity = (proximity: number) => Math.min(1, Math.max(0, proximity / FADE_RANGE));
 
     const thumbPercent = (value - min) / (max - min);
-    const thumbSize = `var(${tokens.thumbSize})`;
-
-    const progressSize = showPointer ? `calc(${thumbPercent} * (100% - ${thumbSize}))` : `calc(${thumbPercent} * 100%)`;
+    const progressSize = `calc(${thumbPercent} * 100%)`;
     const progressSizeStyle: CSSProperties = isVertical ? { height: progressSize } : { width: progressSize };
 
     const shouldFadeRangeValues = innerShowCurrentValue && valuePlacement !== 'none';
@@ -105,37 +103,25 @@ export const getSingleSliderLayout = ({
     const verticalScaleCompensation = reversed ? '' : ' scaleY(-1)';
 
     const getHorizontalCurrentValueStyle = (): CSSProperties => {
+        const left = `calc(${thumbPercent} * 100%)`;
         if (nearHighFactor > 0) {
-            return {
-                left: `calc(${thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 + nearHighFactor})`,
-                transform: `translateX(-${50 + nearHighFactor * 50}%)`,
-            };
+            return { left, transform: `translateX(-${50 + nearHighFactor * 50}%)` };
         }
         if (nearLowFactor > 0) {
-            return {
-                left: `calc(${thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 - nearLowFactor})`,
-                transform: `translateX(-${50 - nearLowFactor * 50}%)`,
-            };
+            return { left, transform: `translateX(-${50 - nearLowFactor * 50}%)` };
         }
-
-        return { left: `calc(${thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2)` };
+        return { left };
     };
 
     const getVerticalCurrentValueStyle = (): CSSProperties => {
+        const top = `calc(${1 - thumbPercent} * 100%)`;
         if (nearHighFactor > 0) {
-            return {
-                top: `calc(${1 - thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 - nearHighFactor})`,
-                transform: `translateY(-${50 - nearHighFactor * 50}%)${verticalScaleCompensation}`,
-            };
+            return { top, transform: `translateY(-${50 - nearHighFactor * 50}%)${verticalScaleCompensation}` };
         }
         if (nearLowFactor > 0) {
-            return {
-                top: `calc(${1 - thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2 * ${1 + nearLowFactor})`,
-                transform: `translateY(-${50 + nearLowFactor * 50}%)${verticalScaleCompensation}`,
-            };
+            return { top, transform: `translateY(-${50 + nearLowFactor * 50}%)${verticalScaleCompensation}` };
         }
-
-        return { top: `calc(${1 - thumbPercent} * (100% - ${thumbSize}) + ${thumbSize} / 2)` };
+        return { top };
     };
 
     const currentValueStyle: CSSProperties = isVertical

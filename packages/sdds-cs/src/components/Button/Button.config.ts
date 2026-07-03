@@ -42,6 +42,25 @@ export const config = {
             `,
         },
         size: {
+            m: css`
+                ${buttonTokens.buttonHeight}: 3rem;
+                ${buttonTokens.buttonWidth}: 11.25rem;
+                ${buttonTokens.buttonPadding}: 1rem;
+                ${buttonTokens.buttonRadius}: 0.75rem;
+                ${buttonTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${buttonTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
+                ${buttonTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${buttonTokens.buttonFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${buttonTokens.buttonLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${buttonTokens.buttonLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${buttonTokens.buttonSpinnerSize}: 1.375rem;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
+
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.5rem 0 0;
+                ${buttonTokens.buttonRightContentMargin}: 0 0 0 0.5rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.5rem;
+            `,
             s: css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;

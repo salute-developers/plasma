@@ -10,6 +10,9 @@ type TimePickerProps = ComponentProps<typeof TimePicker>;
 const { meta: META, Default } = getTimePickerStories({
     component: TimePicker,
     componentConfig: config,
+    defaultArgs: {
+        ...config.defaults,
+    },
     disablePropsList: ['appearance', 'hasClearDivider'],
 });
 

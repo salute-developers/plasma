@@ -67,6 +67,8 @@ export const createDefaultStory = (
             secondValueSuccess: secondInputView === 'positive',
             firstValueError: firstInputView === 'negative',
             secondValueError: secondInputView === 'negative',
+            firstValueEdited: firstInputView === 'edited',
+            secondValueEdited: secondInputView === 'edited',
         };
 
         return (

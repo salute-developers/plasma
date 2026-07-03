@@ -30,17 +30,24 @@ export const config = {
                 ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-negative-active);
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
                 ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
+                ${tokens.textFieldBackgroundEditedColor}: var(--data-blue-light);
+                ${tokens.textFieldBackgroundEditedColorHover}: var(--data-blue-light-hover);
+                ${tokens.textFieldBackgroundEditedColorFocus}: var(--data-blue-light-active);
 
                 ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
                 ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
                 ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
                 ${tokens.textFieldBorderColorError}: var(--outline-transparent-negative);
                 ${tokens.textFieldBorderColorSuccess}: var(--outline-transparent-positive);
+                ${tokens.textFieldBorderColorEdited}: var(--outline-transparent-info);
+                ${tokens.textFieldBorderColorEditedHover}: var(--outline-transparent-info-hover);
+                ${tokens.textFieldBorderColorEditedFocus}: var(--outline-transparent-info-active);
 
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
+                ${tokens.leftHelperColorEdited}: var(--text-secondary);
 
                 ${tokens.hintIconColor}: var(--text-secondary);
 

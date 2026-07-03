@@ -169,6 +169,10 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.chipBackgroundReadOnlyHover}: var(${tokens.textFieldChipBackgroundHover});
     ${textFieldTokens.chipClearContentMarginLeft}: var(${tokens.textFieldChipClearContentMarginLeft});
     ${textFieldTokens.chipClearContentMarginRight}: var(${tokens.textFieldChipClearContentMarginRight});
+    ${textFieldTokens.chipsFlexWrap}: var(${tokens.textFieldChipsFlexWrap});
+    ${textFieldTokens.scrollableWrapperOverflow}: var(${tokens.textFieldScrollableWrapperOverflow});
+    ${textFieldTokens.scrollableWrapperHeight}: var(${tokens.textFieldScrollableWrapperHeight});
+    ${textFieldTokens.inputContainerDisplay}: var(${tokens.textFieldInputContainerDisplay});
 
     ${textFieldTokens.indicatorColor}: var(${tokens.textFieldIndicatorColor});
     ${textFieldTokens.indicatorSizeInner}: var(${tokens.textFieldIndicatorSizeInner});

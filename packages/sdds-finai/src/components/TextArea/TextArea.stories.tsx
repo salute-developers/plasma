@@ -12,7 +12,13 @@ type TextAreaProps = ComponentProps<typeof TextArea>;
 const { meta: META, Default } = getTextAreaStories({
     component: TextArea,
     componentConfig: config,
-    disablePropsList: ['appearance', 'hasDivider', 'enableHeader'],
+    disablePropsList: ['hasDivider', 'enableHeader'],
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'viewMode'],
+            control: { type: 'select' },
+        },
+    },
     customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
         if (disabled) {

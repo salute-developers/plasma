@@ -11,6 +11,7 @@ import {
     hintSizes,
     hintTriggers,
     hintTargetPlacements,
+    multiplicityOptions,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -66,6 +67,8 @@ export const createMeta = ({
             hintHasArrow: true,
             placement: 'bottom-start',
             columnsQuantity: 3,
+            multiplicityMinutes: 1,
+            multiplicitySeconds: 1,
             dropdownWidth: 'fixed',
             dropdownHeight: '30rem',
             disableFlip: true,
@@ -220,6 +223,16 @@ export const createMeta = ({
             },
             columnsQuantity: {
                 options: columnsQuantities,
+                control: { type: 'select' },
+                table: { category: 'dropdown' },
+            },
+            multiplicityMinutes: {
+                options: multiplicityOptions,
+                control: { type: 'select' },
+                table: { category: 'dropdown' },
+            },
+            multiplicitySeconds: {
+                options: multiplicityOptions,
                 control: { type: 'select' },
                 table: { category: 'dropdown' },
             },

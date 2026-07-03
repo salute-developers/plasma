@@ -271,6 +271,12 @@ export const StepItemCenteredDivider = styled.div`
 `;
 
 export const StepItemContentWrapper = styled.div`
+    &.${classes.noTitle} {
+        ${StepItemContent} {
+            padding-top: 0;
+        }
+    }
+
     &.${classes.verticalOrientation} {
         width: 100%;
 
@@ -284,6 +290,12 @@ export const StepItemContentWrapper = styled.div`
             padding-right: 0;
         }
     }
+
+    &.${classes.verticalOrientation}.${classes.noTitle} {
+        ${StepItemContent} {
+            padding-top: 0;
+        }
+    }
 `;
 
 export const base = css`
@@ -295,6 +307,10 @@ export const base = css`
     flex: 1;
 
     color: var(${tokens.activeIndicatorColor});
+
+    &.${classes.verticalOrientation}.${classes.verticalLastItem} {
+        flex: 0 0 auto;
+    }
 
     &.${classes.verticalOrientation} {
         flex-direction: row;
@@ -375,19 +391,19 @@ export const base = css`
 
     &.${classes.hovered} {
         &:not(.${classes.active}) {
-            ${StepItemTitle} {
+            > ${StepItemContentWrapper} > ${StepItemTitle} {
                 cursor: pointer;
                 color: var(${tokens.completedTitleColorHover});
             }
 
-            ${BulletIndicator} {
+            > ${BulletIndicatorWrapper} ${BulletIndicator} {
                 color: var(${tokens.completedIndicatorColorHover});
                 background: var(${tokens.completedIndicatorBackgroundHover});
 
                 border: var(${tokens.dividerThickness}) solid var(${tokens.completedIndicatorBorderHover}, transparent);
             }
 
-            ${Bullet} {
+            > ${BulletIndicatorWrapper} ${Bullet} {
                 color: var(${tokens.completedBulletBackground}, var(${tokens.completedIndicatorColorHover}));
                 background: var(
                     ${tokens.completedBulletBackgroundHover},
@@ -399,18 +415,19 @@ export const base = css`
         }
 
         &.${classes.inactive} {
-            ${StepItemTitle} {
+            > ${StepItemContentWrapper} > ${StepItemTitle} {
                 color: var(${tokens.inactiveTitleColorHover});
             }
 
-            ${BulletIndicator}, ${Bullet} {
+            > ${BulletIndicatorWrapper} ${BulletIndicator},
+            > ${BulletIndicatorWrapper} ${Bullet} {
                 color: var(${tokens.inactiveIndicatorColorHover});
                 background: var(${tokens.inactiveIndicatorBackgroundHover});
                 border: none;
             }
         }
 
-        ${BulletIndicatorWrapper} {
+        > ${BulletIndicatorWrapper} {
             cursor: pointer;
         }
     }

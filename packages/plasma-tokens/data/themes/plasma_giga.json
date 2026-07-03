@@ -11,6 +11,113 @@
         }
     },
     "dark": {
+        "syntax": {
+            "default": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "",
+                    "enabled": true
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            },
+            "onDark": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            },
+            "onLight": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            },
+            "inverse": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            }
+        },
         "text": {
             "default": {
                 "textPrimary": {
@@ -4990,6 +5097,113 @@
         }
     },
     "light": {
+        "syntax": {
+            "default": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "",
+                    "enabled": true
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            },
+            "onDark": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            },
+            "onLight": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            },
+            "inverse": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            }
+        },
         "text": {
             "default": {
                 "textPrimaryHover": {

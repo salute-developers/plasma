@@ -7,6 +7,7 @@ export const hintViews = ['default'];
 export const hintSizes = ['m', 's'];
 export const hintTriggers = ['hover', 'click'];
 export const hintTargetPlacements = ['outer', 'inner'];
+export const multiplicityOptions = [1, 5, 10, 15, 20, 30];
 export const placements = [
     'top',
     'top-start',

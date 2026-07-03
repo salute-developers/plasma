@@ -5,7 +5,10 @@ import {
     Input,
     InputPlaceholder,
     InputWrapper,
+    StyledHelpers,
     StyledHintWrapper,
+    StyledLeftHelper,
+    StyledRightHelper,
     StyledTextAfter,
     StyledTextBefore,
     TitleCaption,
@@ -68,6 +71,26 @@ export const base = css`
 
     ${StyledTextAfter} {
         color: var(${tokens.textAfterColor});
+    }
+
+    ${StyledHelpers} {
+        ${StyledLeftHelper} {
+            color: var(${tokens.leftHelperColor});
+        }
+
+        ${StyledRightHelper} {
+            color: var(${tokens.rightHelperColor});
+        }
+
+        &.${classes.hasFocus} {
+            ${StyledLeftHelper} {
+                color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColor}));
+            }
+
+            ${StyledRightHelper} {
+                color: var(${tokens.rightHelperColorFocus}, var(${tokens.rightHelperColor}));
+            }
+        }
     }
 
     &.${classes.hasDivider} {

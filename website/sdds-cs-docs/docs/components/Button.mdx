@@ -48,7 +48,7 @@ export function App() {
 ## Примеры
 
 ### Размер кнопки
-Размер кнопки задается с помощью свойства `size`. Возможные значения свойства: `"s"`:
+Размер кнопки задается с помощью свойства `size`:
 
 ```tsx live
 import React from 'react';
@@ -56,8 +56,9 @@ import { Button } from '@salutejs/sdds-cs';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: "flex", gap: "1rem" }}>
             <Button text="Button" size="s" />
+            <Button text="Button" size="m" />
         </div>
     );
 }
@@ -161,6 +162,31 @@ import { Button } from '@salutejs/sdds-cs';
 export function App() {
     return (
         <Button as="a" text="Гиперссылка" />
+    );
+}
+```
+
+### Градиентный текст
+Текст кнопки можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-cs';
+import styled from 'styled-components';
+
+export function App() {
+    const GradientButton = styled(Button)`
+        & .sdds-core-text-node {
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+    `;
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <GradientButton text="Градиент" />
+        </div>
     );
 }
 ```

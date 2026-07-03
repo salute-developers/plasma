@@ -1,0 +1,207 @@
+---
+id: popover
+title: Popover
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import RefReactNodeExample from '../_examples/_popover/_refReactNode.mdx'
+import RefObjectExample from '../_examples/_popover/_refObject.mdx'
+
+# Popover
+<Description name="Popover" />
+
+## Быстрый старт
+
+:::tip
+`Popover` оборачивает слот в собственный контейнер.
+
+Чтобы `border-radius` слота не обрезался - <strong>передайте то же значение через</strong> `style` в сам `Popover`:
+
+```tsx
+<Popover style={{ "border-radius": "20px" }}>
+    <StyledSlotContent> {/* border-radius: 20px */}
+        ...
+    </StyledSlotContent>
+</Popover>
+```
+:::
+
+```tsx live
+import React, { useState } from 'react';
+import styled from "styled-components";
+import { Popover, Button, H4, ButtonGroup } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const StyledSlotContent = styled.div`
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 1rem;
+
+        border-radius: 20px;
+        background: gray;
+    `;
+
+    return (
+        <section style={{ display: 'flex', width: "100%", "justify-content": 'center', height: '12rem' }}>
+            <Popover
+                opened={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                target={<Button>Open popover trigger</Button>}
+                offset={[0, 6]}
+                placement='bottom'
+                trigger='click'
+                style={{"border-radius": "20px"}}
+            >
+                <StyledSlotContent>
+                    <H4>Заголовок H4</H4>
+                    <ButtonGroup style={{ "justify-content": 'flex-end', paddingTop: '24px' }} isCommonButtonStyles={false} gap="wide">
+                        <Button view="accentFiled" onClick={() => setIsOpen(false)}>Принять</Button>
+                        <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    </ButtonGroup>
+                </StyledSlotContent>
+            </Popover>
+        </section>
+    );
+}
+```
+
+## Варианты использования `target`
+
+`target` может быть как ReactNode, так и RefObject:
+
+:::important Работа с фокусом элементов
+Свойство `isFocusTrapped` захватывает фокус внутри одного DOM элемента.
+
+Когда свойство имеет значение `true`, при нажатии `Tab` или `Shift + Tab` фокус будет перемещаться только внутри всплывающего окна.
+Если поверх текущего всплывающего окна открывается еще одно модальное окно, то фокус захватывает последнее модальное окно.
+После закрытия всплывающего окна, фокус может свободно перемещаться.
+
+Если установить значение `isFocusTrapped` в false, после открытия всплывающего фокус будет перемещен на первый элемент внутри всплывающего окна.
+Но при последующей навигации с помощью `Tab` или `Shift + Tab` фокус не будет зациклен внутри всплывающего окна и может покинуть его.
+:::
+
+<Tabs>
+    <TabItem value="reactNode" label="React Node" default>
+        <RefReactNodeExample />
+    </TabItem>
+    <TabItem value="refObject" label="RefObject">
+        <RefObjectExample />
+    </TabItem>
+</Tabs>
+
+## Resizable
+
+Чтобы иметь возможность растягивать Popover нужно настроить свойство `resizable`. Формат следующий:
+
+```tsx
+/**
+ * Настройка resizable-режима.
+ */
+type resizable = {
+    resizable?:
+    |  boolean
+    |  {
+            /**
+            * Включение/выключение ресайза.
+            * @default false
+            */
+            disabled?: boolean;
+            /**
+            * Направления для ресайза.
+            */
+            directions?: ResizeDirections;
+            /**
+            * Начальный размер окна ресайза.
+            */
+            defaultSize?: { width?: number; height?: number };
+            /**
+            * Минимальная ширина ресайза в px.
+            */
+            minWidth?: number;
+            /**
+            * Минимальная высота ресайза в px.
+            */
+            minHeight?: number;
+            /**
+            * Максимальная ширина ресайза в px.
+            */
+            maxWidth?: number;
+            /**
+            * Максимальная высота ресайза в px.
+            */
+            maxHeight?: number;
+            /**
+            * Кастомные иконки ресайза.
+            */
+            icons?: {
+                topRight?: ReactNode;
+                bottomRight?: ReactNode;
+                bottomLeft?: ReactNode;
+                topLeft?: ReactNode;
+            };
+            /**
+            * Размер иконки ресайза.
+            * @default s
+            */
+            iconSize?: 'xs' | 's' | 'm';
+            /**
+            * Скрывать ли иконку для ресайза.
+            * @default false
+            */
+            hiddenIcons?: PopupPlacementMixed[];
+        };
+}
+```
+
+Пример:
+
+```tsx live
+import React, { useState } from 'react';
+import styled from "styled-components";
+import { Popover, Button, ButtonGroup, H4 } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const StyledContent = styled.div`
+        background: gray;
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `;
+
+    return (
+        <section style={{ display: 'flex', width: "100%", "justify-content": 'center', height: '16rem' }}>
+            <Popover
+                opened={isOpen}
+                onToggle={(is) => setIsOpen(is)}
+                target={<Button>Target</Button>}
+                placement='bottom'
+                offset={[0, 6]}
+                trigger='click'
+                resizable
+            >
+               <StyledContent>
+                    <H4>Заголовок H4</H4>
+                    <ButtonGroup style={{ "justify-content": 'flex-end', paddingTop: '24px' }} isCommonButtonStyles={false} gap="wide">
+                        <Button view="accentFiled" onClick={() => setIsOpen(false)}>Принять</Button>
+                        <Button onClick={() => setIsOpen(false)}>Закрыть</Button>
+                    </ButtonGroup>
+                </StyledContent>
+            </Popover>
+        </section>
+    );
+}
+```
+
+## API
+
+<PropsTable name="Popover" />

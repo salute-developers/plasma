@@ -72,7 +72,7 @@ export const config = {
                 ${attachTokens.buttonHeight}: 3rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1.25rem;
-                ${attachTokens.buttonRadius}: 0.75rem;
+                ${attachTokens.buttonRadius}: 1.5rem;
                 ${attachTokens.buttonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${attachTokens.buttonFontSize}: var(--plasma-typo-body-m-font-size);
                 ${attachTokens.buttonFontStyle}: var(--plasma-typo-body-m-font-style);

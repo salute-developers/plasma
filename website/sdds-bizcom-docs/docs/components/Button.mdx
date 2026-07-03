@@ -183,3 +183,28 @@ export function App() {
     );
 }
 ```
+
+### Градиентный текст
+Текст кнопки можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`
+
+```tsx live
+import React from 'react';
+import { Button } from '@salutejs/sdds-bizcom';
+import styled from 'styled-components';
+
+export function App() {
+    const GradientButton = styled(Button)`
+        & .sdds-core-text-node {
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+    `;
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <GradientButton text="Градиент" />
+        </div>
+    );
+}
+```

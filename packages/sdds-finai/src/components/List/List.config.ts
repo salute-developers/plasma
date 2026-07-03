@@ -15,6 +15,7 @@ export const config = {
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
                 ${listTokens.listItemFocusColor}: var(--surface-accent);
+                ${listTokens.listItemDividerColor}: var(--outline-solid-primary);
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },
@@ -28,6 +29,10 @@ export const config = {
                 ${listTokens.listItemBorderWidth}: 0rem;
                 ${listTokens.listItemGap}: 0.375rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
+
+                ${listTokens.listItemDividerHeight}: 0.0625rem;
+                ${listTokens.listItemDividerMarginTop}: 0.25rem;
+                ${listTokens.listItemDividerMarginBottom}: 0.25rem;
 
                 ${listTokens.listItemFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${listTokens.listItemFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -46,6 +51,10 @@ export const config = {
                 ${listTokens.listItemGap}: 0.375rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
+                ${listTokens.listItemDividerHeight}: 0.0625rem;
+                ${listTokens.listItemDividerMarginTop}: 0.375rem;
+                ${listTokens.listItemDividerMarginBottom}: 0.375rem;
+
                 ${listTokens.listItemFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${listTokens.listItemFontSize}: var(--plasma-typo-body-s-font-size);
                 ${listTokens.listItemFontStyle}: var(--plasma-typo-body-s-font-style);
@@ -63,6 +72,10 @@ export const config = {
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
+                ${listTokens.listItemDividerHeight}: 0.0625rem;
+                ${listTokens.listItemDividerMarginTop}: 0.375rem;
+                ${listTokens.listItemDividerMarginBottom}: 0.375rem;
+
                 ${listTokens.listItemFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${listTokens.listItemFontSize}: var(--plasma-typo-body-m-font-size);
                 ${listTokens.listItemFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -79,6 +92,10 @@ export const config = {
                 ${listTokens.listItemBorderWidth}: 0rem;
                 ${listTokens.listItemGap}: 0.5rem;
                 ${listTokens.listItemTightDifference}: 0.25rem;
+
+                ${listTokens.listItemDividerHeight}: 0.0625rem;
+                ${listTokens.listItemDividerMarginTop}: 0.5rem;
+                ${listTokens.listItemDividerMarginBottom}: 0.5rem;
 
                 ${listTokens.listItemFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${listTokens.listItemFontSize}: var(--plasma-typo-body-l-font-size);

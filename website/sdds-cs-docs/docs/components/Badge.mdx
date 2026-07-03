@@ -47,20 +47,26 @@ export function App() {
 
 ### Вид badge
 Вид `badge` задается с помощью свойства `view`.
-Так же на вид badge влияет свойства `transparent` и `clear`.
+Вариант отображения задаётся с помощью свойства `appearance`.
+
+Возможные значения свойства `appearance`: `"default"`, `"clear"`.
+
+:::caution Устаревшее свойство
+Свойство `clear` устарело. Используйте `appearance="clear"`.
+:::
 
 ```tsx live 
 import React from 'react';
 import { Badge } from '@salutejs/sdds-cs';
 
 export function App() {
-    const Badges = ({transparent, clear}) => {
+    const Badges = ({ appearance }) => {
         return (
             <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <Badge text="Бейдж" size="s" view="default" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="s" view="accent" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="s" view="positive" transparent={transparent} clear={clear} />
-                <Badge text="Бейдж" size="s" view="negative" transparent={transparent} clear={clear} />
+                <Badge text="Бейдж" size="s" view="default" appearance={appearance} />
+                <Badge text="Бейдж" size="s" view="accent" appearance={appearance} />
+                <Badge text="Бейдж" size="s" view="positive" appearance={appearance} />
+                <Badge text="Бейдж" size="s" view="negative" appearance={appearance} />
             </div>
         )
     }
@@ -68,6 +74,7 @@ export function App() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <Badges />
+            <Badges appearance="clear" />
         </div>
     );
 }
@@ -126,10 +133,37 @@ export function App() {
         <div>
             <Badge 
                 text="Бейдж" 
-                size="l"   
+                size="s"   
                 view="default" 
                 customColor="antiquewhite"
                 customBackgroundColor="darkolivegreen" 
+            />
+        </div>
+    );
+}
+```
+
+### Градиентный текст
+Текст бейджа можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`:
+
+```tsx live
+import React from 'react';
+import { Badge } from '@salutejs/sdds-cs';
+import styled from 'styled-components';
+
+export function App() {
+    const GradientBadge = styled(Badge)`
+        & .sdds-core-text-node {
+            background: linear-gradient(90deg, #f7971e, #ffd200);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+    }
+    `;
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <GradientBadge
+                text="Бейдж"
             />
         </div>
     );

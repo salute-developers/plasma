@@ -15,7 +15,7 @@ import cls from 'classnames';
 import { useForkRef } from 'src/hooks';
 import { RootProps } from 'src/engines';
 
-import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
+import type { Calendar, CalendarConfigProps, CalendarValueType, DateInfo, DateObject } from '../Calendar.types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
 import { I18N, isValueUpdate } from '../utils';
@@ -69,6 +69,15 @@ export const calendarBaseRoot = (
             );
             const value = focusedDate || secondValue || firstValue;
 
+            const isSingleMode = !Array.isArray(externalValue);
+            const [internalValue, setInternalValue] = useState<CalendarValueType>(externalValue);
+            const [prevExternalForSelection, setPrevExternalForSelection] = useState<CalendarValueType>(externalValue);
+
+            if (isValueUpdate(externalValue, prevExternalForSelection)) {
+                setInternalValue(externalValue);
+                setPrevExternalForSelection(externalValue);
+            }
+
             const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
@@ -108,13 +117,23 @@ export const calendarBaseRoot = (
                 onPrev: handlePrev,
             });
 
+            const handleOnChangeValue = useCallback(
+                (newDay: Date, dateInfo?: DateInfo) => {
+                    if (isSingleMode && externalValue == null) {
+                        setInternalValue(newDay);
+                    }
+                    onChangeValue?.(newDay, dateInfo);
+                },
+                [onChangeValue, isSingleMode, externalValue],
+            );
+
             const {
                 handleOnChangeDay,
                 handleOnChangeMonth,
                 handleOnChangeQuarter,
                 handleOnChangeYear,
                 handleUpdateCalendarState,
-            } = useCalendarDateChange({ type, onChangeValue, onSelectIndexes, dispatch });
+            } = useCalendarDateChange({ type, onChangeValue: handleOnChangeValue, onSelectIndexes, dispatch });
 
             // Изменяем ключ каждый раз как пытаемся перейти на даты которые находятся за пределами min/max ограничений.
             // Это необходимо для того чтобы screen-reader корректно озвучивал уведомление aria-live="assertive"
@@ -223,7 +242,7 @@ export const calendarBaseRoot = (
                     />
                     {calendarState === CalendarState.Days && (
                         <CalendarDays
-                            value={externalValue}
+                            value={internalValue}
                             date={date}
                             min={min}
                             max={max}
@@ -243,7 +262,7 @@ export const calendarBaseRoot = (
                     )}
                     {calendarState === CalendarState.Months && (
                         <CalendarMonths
-                            value={externalValue}
+                            value={internalValue}
                             date={date}
                             min={min}
                             max={max}
@@ -262,7 +281,7 @@ export const calendarBaseRoot = (
                     )}
                     {calendarState === CalendarState.Quarters && (
                         <CalendarQuarters
-                            value={externalValue}
+                            value={internalValue}
                             date={date}
                             min={min}
                             max={max}
@@ -280,7 +299,7 @@ export const calendarBaseRoot = (
                     )}
                     {calendarState === CalendarState.Years && (
                         <CalendarYears
-                            value={externalValue}
+                            value={internalValue}
                             date={date}
                             startYear={startYear}
                             selectIndexes={selectIndexes}

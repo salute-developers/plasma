@@ -39,6 +39,7 @@ export const getTextFieldStories = (config: CreateStoriesProps) => {
         render: (args: any) => <ChipsStoryComponent {...args} />,
         args: {
             leftHelper: 'Для первого чипа валидация вернула view="negative"',
+            rightHelper: '',
             chipView: 'secondary',
             chips: ['1 value', '2 value', '3 value', '4 value'],
             chipType: 'default',

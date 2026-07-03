@@ -244,6 +244,11 @@ export const tokens = {
     textFieldChipClearContentMarginLeft: '--plasma-select-textfield-chip-clear-content-margin-left',
     textFieldChipClearContentMarginRight: '--plasma-select-textfield-chip-clear-content-margin-right',
     textFieldChipOpacityReadonly: '--plasma-select-textfield__chip-opacity-readonly',
+    textFieldChipsFlexWrap: '--plasma-select-textfield-chips-flex-wrap',
+
+    textFieldScrollableWrapperOverflow: '--plasma-select-textfield-scrollable-wrapper-overflow',
+    textFieldScrollableWrapperHeight: '--plasma-select-textfield-scrollable-wrapper-height',
+    textFieldInputContainerDisplay: '--plasma-select-textfield-input-container-display',
 
     textFieldIndicatorColor: '--plasma-select-new-textfield-indicator-color',
     textFieldIndicatorSizeInner: '--plasma-select-new-textfield-indicator-size-inner',

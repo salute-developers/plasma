@@ -47,7 +47,9 @@ export const tokens = {
     listItemFocusColor: '--plasma-list-item-focus-color',
 
     listItemDividerColor: '--plasma-list-item-divider-color',
-    listItemDividerWidth: '--plasma-list-item-divider-width',
+    listItemDividerHeight: '--plasma-list-item-divider-height',
+    listItemDividerMarginTop: '--plasma-list-item-divider-margin-top',
+    listItemDividerMarginBottom: '--plasma-list-item-divider-margin-bottom',
 
     listDisabledOpacity: '--plasma-list-disabled-opacity',
 };

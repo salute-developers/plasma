@@ -147,6 +147,41 @@ export const config = {
                 ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
                 ${textAreaTokens.hintIconColor}: var(--text-secondary);
             `,
+            edited: css`
+                ${textAreaTokens.backgroundColor}: var(--data-blue-light);
+                ${textAreaTokens.backgroundColorHover}: var(--data-blue-light-hover);
+                ${textAreaTokens.backgroundColorActive}: var(--data-blue-light-active);
+                ${textAreaTokens.backgroundColorFocus}: var(--data-blue-light-active);
+                ${textAreaTokens.borderColor}: var(--outline-transparent-info);
+                ${textAreaTokens.borderColorHover}: var(--outline-transparent-info-hover);
+                ${textAreaTokens.borderColorFocus}: var(--outline-transparent-info-active);
+                ${textAreaTokens.inputColor}: var(--text-primary);
+
+                ${textAreaTokens.inputColorFocus}: var(--text-primary);
+                ${textAreaTokens.inputCaretColor}: var(--text-accent);
+                ${textAreaTokens.placeholderColor}: var(--text-secondary);
+                ${textAreaTokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${textAreaTokens.leftHelperColor}: var(--text-secondary);
+                ${textAreaTokens.leftHelperColorFocus}: var(--text-secondary);
+                ${textAreaTokens.rightHelperColor}: var(--text-secondary);
+                ${textAreaTokens.indicatorColor}: var(--surface-negative);
+                ${textAreaTokens.optionalColor}: var(--text-tertiary);
+
+                ${textAreaTokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${textAreaTokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${textAreaTokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+                ${textAreaTokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
+                ${textAreaTokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+
+                ${textAreaTokens.dividerColor}: var(--outline-transparent-info);
+                ${textAreaTokens.dividerColorHover}: var(--outline-transparent-info);
+                ${textAreaTokens.dividerColorFocus}: var(--outline-transparent-info-active);
+                ${textAreaTokens.labelOuterColor}: var(--text-secondary);
+                ${textAreaTokens.titleCaptionColor}: var(--text-secondary);
+                ${textAreaTokens.hintIconColor}: var(--text-secondary);
+            `,
         },
         size: {
             s: css`
@@ -162,7 +197,7 @@ export const config = {
                 ${textAreaTokens.inputPaddingBottom}: 0.75rem;
                 ${textAreaTokens.inputPaddingLeft}: 0.875rem;
                 ${textAreaTokens.helpersPaddingTop}: 0.75rem;
-                ${textAreaTokens.clearHelpersPaddingTop}: 0.25rem;
+                ${textAreaTokens.outsideHelpersPaddingTop}: 0.25rem;
                 ${textAreaTokens.helpersPaddingRight}: 0.875rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0.75rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0.875rem;

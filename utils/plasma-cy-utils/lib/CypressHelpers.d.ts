@@ -4,9 +4,22 @@ declare global {
     export namespace Cypress {
         interface Chainable {
             waitForResources(...resources: resourceOrOption[]): Chainable;
-        }
-        interface Chainable {
             pressKey(key: string, currentElem?: string): Chainable;
+            attachFile(fixture: string | string[] | {
+                filePath?: string;
+                fileContent?: Blob;
+                fileName?: string;
+                mimeType?: string;
+            } | Array<{
+                filePath?: string;
+                fileContent?: Blob;
+                fileName?: string;
+                mimeType?: string;
+            }>, processingOpts?: {
+                subjectType?: 'input' | 'drag-n-drop';
+                force?: boolean;
+                allowEmpty?: boolean;
+            }): Chainable;
         }
     }
 }

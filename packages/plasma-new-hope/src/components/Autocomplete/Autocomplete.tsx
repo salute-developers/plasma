@@ -77,7 +77,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
             }, [floatingPopoverRef, listWrapperRef]);
 
             const handleFocus = () => {
-                if (value.toString().length >= threshold) {
+                if (!readOnly && value.toString().length >= threshold) {
                     setIsOpen(true);
                 }
             };

@@ -163,7 +163,7 @@ export type DatePickerVariationProps = {
     /**
      * Вид компонента
      */
-    appearance?: 'default' | 'clear';
+    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Флаг наличия разделителя для clear appearance
      * @default false
@@ -198,6 +198,7 @@ export type UseDatePickerProps = {
     maskWithFormat?: boolean;
     valueError?: boolean;
     valueSuccess?: boolean;
+    valueEdited?: boolean;
     name?: string;
     min?: Date;
     max?: Date;

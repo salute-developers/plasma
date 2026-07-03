@@ -182,6 +182,10 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.chipClearContentMarginLeft}: var(${comboboxTokens.textFieldChipClearContentMarginLeft});
     ${textFieldTokens.chipClearContentMarginRight}: var(${comboboxTokens.textFieldChipClearContentMarginRight});
     ${textFieldTokens.chipOpacityReadonly}: var(${comboboxTokens.textFieldChipOpacityReadonly});
+    ${textFieldTokens.chipsFlexWrap}: var(${comboboxTokens.textFieldChipsFlexWrap});
+    ${textFieldTokens.scrollableWrapperOverflow}: var(${comboboxTokens.textFieldScrollableWrapperOverflow});
+    ${textFieldTokens.scrollableWrapperHeight}: var(${comboboxTokens.textFieldScrollableWrapperHeight});
+    ${textFieldTokens.inputContainerDisplay}: var(${comboboxTokens.textFieldInputContainerDisplay});
 
     ${textFieldTokens.focusColor}: var(${comboboxTokens.textFieldFocusColor});
 

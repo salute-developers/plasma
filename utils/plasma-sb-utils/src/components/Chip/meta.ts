@@ -82,7 +82,7 @@ export const createMeta = ({
                 table: { category: 'layout' },
             },
             ...additionalArgTypes,
-            ...disableProps([...commonDisabledArgs, ...disablePropsList]),
+            ...disableProps([...commonDisabledArgs, 'textGradientOption', ...disablePropsList]),
         },
     };
 };

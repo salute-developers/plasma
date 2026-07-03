@@ -64,10 +64,41 @@ import TabItem from '@theme/TabItem';
 
 ### Управление внешним видом
 
-Внешний вид компонента зависит от свойств `view`, `size`:
+Внешний вид компонента зависит от свойств `appearance`, `view`, `size`.
+
+Доступные значения `appearance`: `default`, `viewMode`.
 
 <Tabs>
-    <TabItem value="view" label="View" default>
+    <TabItem value="appearance" label="Appearance" default>
+        `appearance="viewMode"` — режим просмотра.
+
+        ```tsx live
+        import React from 'react';
+        import { TextArea } from '@salutejs/sdds-finai';
+        import { IconDownload } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <TextArea
+                        appearance="default"
+                        label="Appearance default"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        appearance="viewMode"
+                        label="Appearance viewMode"
+                        value="Значение только для просмотра"
+                        readOnly
+                        contentRight={<IconDownload />}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="view" label="View">
         ```tsx live
         import React from 'react';
         import { TextArea } from '@salutejs/sdds-finai';
@@ -97,6 +128,12 @@ import TabItem from '@theme/TabItem';
                     <TextArea
                         view="negative"
                         label="View negative"
+                        placeholder="Введите значение"
+                        contentRight={<IconDownload />}
+                    />
+                    <TextArea
+                        view="edited"
+                        label="View edited"
                         placeholder="Введите значение"
                         contentRight={<IconDownload />}
                     />
@@ -291,37 +328,3 @@ export function App() {
 
 ### Таблица свойств
 <PropsTable name="TextArea" exclude={['$isFocused']} />
-
-### Clear (DEPRECATED)
-
-:::warning
-Свойство `clear` устарело. Используйте вместо этого `appearance="clear"`.
-:::
-
-На отображение TextArea влияют свойства `clear` и `hasDivider`.
-При этом `hasDivider` не может использоваться без `clear`.
-Свойства `minAuto`, `maxAuto`, `autoResize`, `rows` и `cols`, `height` и `width` игнорируются.
-Высота TextArea в таком случае регулируется по длине контента внутри:
-
-```tsx live
-import React from 'react';
-import { TextArea } from '@salutejs/sdds-finai';
-
-export function App() {
-    const [value, setValue] = React.useState('Значение');
-
-    return (
-        <div>
-            <TextArea
-                placeholder="Введите значение"
-                value={value}
-                onChange={(e) => {
-                    setValue(e.target.value);
-                }}
-                clear
-                hasDivider
-            />
-        </div>
-    );
-}
-```

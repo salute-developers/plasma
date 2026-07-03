@@ -21,6 +21,7 @@ export const tokens = {
     accordionItemOpenedBackground: '--plasma-accordion-item-opened-background',
     accordionItemShadow: '--plasma-accordion-item-shadow',
     accordionItemBorderRadius: '--plasma-accordion-item-border-radius',
+    accordionItemViewBorderRadius: '--plasma-accordion-item-view-border-radius',
     accordionItemPadding: '--plasma-accordion-item-padding',
     accordionItemPaddingVertical: '--plasma-accordion-item-padding-vertical',
     accordionItemPaddingHorizontal: '--plasma-accordion-item-padding-horizontal',
