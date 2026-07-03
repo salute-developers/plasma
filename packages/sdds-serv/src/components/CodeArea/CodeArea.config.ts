@@ -1,4 +1,20 @@
 import { css, codeAreaTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyL,
+    bodyM,
+    bodyS,
+    bodyXS,
+    surfaceTransparentPrimary,
+    surfaceTransparentTertiary,
+    textPrimary,
+    textTertiary,
+    syntaxOrange,
+    syntaxYellow,
+    syntaxPink,
+    syntaxSpring,
+    syntaxSkyBlue,
+    syntaxRed,
+} from '@salutejs/sdds-themes/tokens/sdds_serv';
 
 export const config = {
     defaults: {
@@ -9,21 +25,21 @@ export const config = {
         view: {
             default: css`
                 ${tokens.wrapperBackgroundColor}: transparent;
-                ${tokens.fieldBackgroundColor}: var(--surface-transparent-primary);
+                ${tokens.fieldBackgroundColor}: ${surfaceTransparentPrimary};
 
-                ${tokens.codeColor}: var(--text-primary);
-                ${tokens.lineNumberColor}: var(--text-tertiary);
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
+                ${tokens.codeColor}: ${textPrimary};
+                ${tokens.lineNumberColor}: ${textTertiary};
+                ${tokens.dividerColor}: ${surfaceTransparentTertiary};
 
-                ${tokens.scrollTrackColor}: var(--surface-transparent-primary);
-                ${tokens.scrollThumbColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollTrackColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollThumbColor}: ${surfaceTransparentTertiary};
 
-                ${tokens.syntaxYellow}: var(--syntax-yellow);
-                ${tokens.syntaxOrange}: var(--syntax-orange);
-                ${tokens.syntaxPink}: var(--syntax-pink);
-                ${tokens.syntaxSpring}: var(--syntax-spring);
-                ${tokens.syntaxSkyBlue}: var(--syntax-sky-blue);
-                ${tokens.syntaxRed}: var(--syntax-red);
+                ${tokens.syntaxYellow}: ${syntaxYellow};
+                ${tokens.syntaxOrange}: ${syntaxOrange};
+                ${tokens.syntaxPink}: ${syntaxPink};
+                ${tokens.syntaxSpring}: ${syntaxSpring};
+                ${tokens.syntaxSkyBlue}: ${syntaxSkyBlue};
+                ${tokens.syntaxRed}: ${syntaxRed};
             `,
         },
         size: {
@@ -43,11 +59,11 @@ export const config = {
                 ${tokens.codePaddingRight}: 2.875rem;
 
                 ${tokens.fontFamily}: 'SB Sans Text Mono', sans-serif;
-                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.fontSize}: ${bodyL.fontSize};
+                ${tokens.fontStyle}: ${bodyL.fontStyle};
+                ${tokens.fontWeight}: ${bodyL.fontWeight};
+                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.lineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.scrollWidth}: 0.125rem;
             `,
@@ -67,11 +83,11 @@ export const config = {
                 ${tokens.codePaddingRight}: 2.75rem;
 
                 ${tokens.fontFamily}: 'SB Sans Text Mono', sans-serif;
-                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.fontSize}: ${bodyL.fontSize};
+                ${tokens.fontStyle}: ${bodyL.fontStyle};
+                ${tokens.fontWeight}: ${bodyL.fontWeight};
+                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.lineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.scrollWidth}: 0.125rem;
             `,
@@ -91,11 +107,11 @@ export const config = {
                 ${tokens.codePaddingRight}: 2.5rem;
 
                 ${tokens.fontFamily}: 'SB Sans Text Mono', sans-serif;
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyM.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.scrollWidth}: 0.125rem;
             `,
@@ -115,11 +131,11 @@ export const config = {
                 ${tokens.codePaddingRight}: 2.375rem;
 
                 ${tokens.fontFamily}: 'SB Sans Text Mono', sans-serif;
-                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.fontSize}: ${bodyS.fontSize};
+                ${tokens.fontStyle}: ${bodyS.fontStyle};
+                ${tokens.fontWeight}: ${bodyS.fontWeight};
+                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.lineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.scrollWidth}: 0.125rem;
             `,
@@ -139,11 +155,11 @@ export const config = {
                 ${tokens.codePaddingRight}: 1.5rem;
 
                 ${tokens.fontFamily}: 'SB Sans Text Mono', sans-serif;
-                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.fontSize}: ${bodyXS.fontSize};
+                ${tokens.fontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fontWeight}: ${bodyXS.fontWeight};
+                ${tokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.lineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.scrollWidth}: 0.125rem;
             `,
