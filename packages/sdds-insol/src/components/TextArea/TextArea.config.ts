@@ -603,6 +603,8 @@ export const config = {
             true: css`
                 ${tokens.boxShadow}: none;
                 ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledInnerContentOpacity}: 0.4;
+                ${tokens.disabledBackgroundOpacity}: 1;
 
                 ${tokens.borderColor}: var(--outline-transparent-clear);
                 ${tokens.borderColorHover}: var(--outline-transparent-clear);
@@ -610,6 +612,7 @@ export const config = {
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.helpersBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentPrimary};
 
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.inputColorDisabled}: ${textPrimary};

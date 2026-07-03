@@ -1385,6 +1385,8 @@ export const config = {
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldDisabledOpacity}: 0.4;
+                ${tokens.textFieldDisabledBackgroundOpacity}: 1;
+                ${tokens.textFieldDisabledInnerContentOpacity}: 0.4;
             `,
         },
         readOnly: {

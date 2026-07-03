@@ -432,6 +432,14 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 0.4;
+                ${tokens.background}: var(--surface-transparent-primary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.labelColor}: var(--text-primary);
             `,
         },
         hintView: {

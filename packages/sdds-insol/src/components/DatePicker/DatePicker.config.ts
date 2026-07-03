@@ -1190,6 +1190,16 @@ export const config = {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 0.4;
+                ${tokens.background}: ${surfaceTransparentPrimary};
+                ${tokens.borderColor}: transparent;
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.titleCaptionColor}: ${textSecondary};
+                ${tokens.labelColor}:${textPrimary};
+                ${tokens.dividerColor}: ${surfaceTransparentPrimary};
             `,
         },
         readOnly: {

@@ -1066,6 +1066,16 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.textFieldDisabledOpacity}: 0.4;
+                ${tokens.textFieldDisabledBackgroundOpacity}: 1;
+                ${tokens.textFieldDisabledInnerContentOpacity}: 0.4;
+                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-primary);
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
+                ${tokens.textFieldTitleCaptionColor}: var(--text-secondary);
+                ${tokens.textFieldLabelColor}: var(--text-primary);
+                ${tokens.textFieldBoxShadow}: inset 0 0 0 0 transparent;
             `,
         },
         readOnly: {
