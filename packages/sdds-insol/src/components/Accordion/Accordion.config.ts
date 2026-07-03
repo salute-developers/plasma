@@ -7,7 +7,6 @@ import {
     h2,
     h3,
     h5,
-    h6,
     surfaceAccent,
     surfaceClear,
     surfaceSolidCard,
@@ -237,29 +236,6 @@ export const config = {
                 ${accordionTokens.accordionItemTitleFontWeight}: ${h5.fontWeight};
                 ${accordionTokens.accordionItemTitleLetterSpacing}: ${h5.letterSpacing};
                 ${accordionTokens.accordionItemTitleLineHeight}: ${h5.lineHeight};
-
-                ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
-                ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
-                ${accordionTokens.accordionItemTextFontStyle}: ${bodyM.fontStyle};
-                ${accordionTokens.accordionItemTextFontWeight}: ${bodyM.fontWeight};
-                ${accordionTokens.accordionItemTextLetterSpacing}: ${bodyM.letterSpacing};
-                ${accordionTokens.accordionItemTextLineHeight}: ${bodyM.lineHeight};
-            `,
-            h6: css`
-                ${accordionTokens.accordionItemPaddingVertical}: 1.25rem;
-                ${accordionTokens.accordionItemPaddingHorizontal}: 1.375rem;
-                ${accordionTokens.accordionItemBodyPaddingBottom}: 1.375rem;
-                ${accordionTokens.accordionItemGap}: 0.25rem;
-                ${accordionTokens.accordionItemBorderRadius}: 0.875rem;
-
-                ${accordionTokens.accordionGap}: 0.125rem;
-
-                ${accordionTokens.accordionItemTitleFontFamily}: ${h6.fontFamily};
-                ${accordionTokens.accordionItemTitleFontSize}: ${h6.fontSize};
-                ${accordionTokens.accordionItemTitleFontStyle}: ${h6.fontStyle};
-                ${accordionTokens.accordionItemTitleFontWeight}: ${h6.fontWeight};
-                ${accordionTokens.accordionItemTitleLetterSpacing}: ${h6.letterSpacing};
-                ${accordionTokens.accordionItemTitleLineHeight}: ${h6.lineHeight};
 
                 ${accordionTokens.accordionItemTextFontFamily}: ${bodyM.fontFamily};
                 ${accordionTokens.accordionItemTextFontSize}: ${bodyM.fontSize};
