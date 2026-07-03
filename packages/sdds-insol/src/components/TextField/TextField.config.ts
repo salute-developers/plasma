@@ -834,6 +834,9 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 0.4;
+
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.borderColor}: transparent;
                 ${tokens.color}: ${textPrimary};
@@ -843,6 +846,7 @@ export const config = {
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.dividerColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.boxShadow}: inset 0 0 0 0 transparent;
             `,
         },
