@@ -1427,15 +1427,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF3D",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF0F",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceClearHover": {
@@ -1724,10 +1724,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола"
@@ -1846,6 +1842,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Основной фон для карточек"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек"
                 }
             },
             "onDark": {
@@ -1930,15 +1930,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF3D",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF0F",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClear": {
@@ -2234,10 +2234,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
@@ -2352,6 +2348,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
                 }
             },
             "onLight": {
@@ -7112,15 +7112,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF0A",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF29",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClear": {
@@ -7416,10 +7416,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
@@ -7534,6 +7530,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
                 }
             },
             "onLight": {
@@ -8124,15 +8124,15 @@
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF0A",
+                    "value": "#EBFFFD1C",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF29",
+                    "value": "#EBFFFD08",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceClear": {
@@ -8428,10 +8428,6 @@
                     "value": "#FFFFFF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Инвертированный прозрачный фон для карточек"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.06)",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола"
@@ -8504,6 +8500,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Инвертированный основной фон для карточек"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Инвертированный прозрачный фон для карточек"
                 }
             }
         },
