@@ -34,6 +34,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 textBefore,
                 textAfter,
                 onScroll,
+                onBlur,
+                onFocus,
                 listMaxHeight = '25rem',
                 listWidth,
                 portal,
@@ -69,17 +71,43 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
 
             const helperTextId = safeUseId();
             const floatingPopoverRef = useRef<HTMLDivElement>(null);
+            const floatingListRef = useRef<HTMLDivElement>(null);
             const listWrapperRef = useRef<HTMLDivElement>(null);
+            const isListMouseDownRef = useRef<boolean>(false);
 
             /* Логика работы при клике за пределами выпадающего списка */
             useOutsideClick(() => {
                 setIsOpen(false);
             }, [floatingPopoverRef, listWrapperRef]);
 
-            const handleFocus = () => {
+            const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+                if (onFocus) {
+                    onFocus(event);
+                }
+
                 if (!readOnly && value.toString().length >= threshold) {
                     setIsOpen(true);
                 }
+            };
+
+            const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+                if (onBlur) {
+                    onBlur(event);
+                }
+
+                if (isListMouseDownRef.current) {
+                    return;
+                }
+
+                setIsOpen(false);
+            };
+
+            const handleListMouseDown = () => {
+                isListMouseDownRef.current = true;
+
+                window.setTimeout(() => {
+                    isListMouseDownRef.current = false;
+                }, 0);
             };
 
             const handleItemClick = (e: SuggestionItemType) => {
@@ -151,6 +179,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                         listWidth={listWidth}
                         offset={_offset}
                         flip={flip}
+                        floatingRef={floatingListRef}
+                        onFloatingMouseDown={handleListMouseDown}
                         target={(referenceRef) => (
                             <StyledTextField
                                 ref={ref}
@@ -168,6 +198,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                 textBefore={textBefore}
                                 textAfter={textAfter}
                                 onFocus={handleFocus}
+                                onBlur={handleBlur}
                                 onKeyDown={onKeyDown}
                                 role="combobox"
                                 aria-autocomplete="list"

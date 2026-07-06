@@ -13,7 +13,21 @@ import { safeUseId } from 'src/utils';
 import type { FloatingPopoverProps } from './Autocomplete.types';
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, portal, zIndex, listWidth, offset, flip: flipFlag }, ref) => {
+    (
+        {
+            target,
+            children,
+            opened,
+            floatingRef,
+            onFloatingMouseDown,
+            portal,
+            zIndex,
+            listWidth,
+            offset,
+            flip: flipFlag,
+        },
+        ref,
+    ) => {
         const { refs, floatingStyles } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -42,6 +56,13 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         });
 
         const wrappedId = safeUseId();
+        const setFloatingRef = (node: HTMLDivElement | null) => {
+            refs.setFloating(node);
+
+            if (floatingRef) {
+                floatingRef.current = node;
+            }
+        };
 
         // Проверка на target. Это может быть как ReactNode, так и функция, в которую пробрасывается ref.
         // Это нужно для более тонкой настройки reference-элемента, вокруг которого и будет позиционироваться выпадашка.
@@ -59,7 +80,11 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     // root - принимает ref контейнера портала.
                     // id - если есть портал - не используется, если портала нет - подставляется 'wrappedId'.
                     <FloatingPortal {...getFloatingPortalProps(portal, wrappedId)}>
-                        <div ref={refs.setFloating} style={{ ...floatingStyles, zIndex: zIndex || 1000 }}>
+                        <div
+                            ref={setFloatingRef}
+                            style={{ ...floatingStyles, zIndex: zIndex || 1000 }}
+                            onMouseDown={onFloatingMouseDown}
+                        >
                             {children}
                         </div>
                     </FloatingPortal>
