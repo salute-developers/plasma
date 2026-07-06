@@ -28,3 +28,5 @@ export { sdds_platform_ai__dark } from './sdds_platform_ai__dark';
 export { sdds_platform_ai__light } from './sdds_platform_ai__light';
 export { sdds_sbcom__dark } from './sdds_sbcom__dark';
 export { sdds_sbcom__light } from './sdds_sbcom__light';
+export { sdds_serv_malachite__dark } from './sdds_serv_malachite__dark';
+export { sdds_serv_malachite__light } from './sdds_serv_malachite__light';

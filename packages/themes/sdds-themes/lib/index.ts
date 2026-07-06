@@ -57,4 +57,8 @@ generate([
         name: 'sdds_sbcom',
         version: 'latest',
     },
+    {
+        name: 'sdds_serv_malachite',
+        version: 'latest',
+    },
 ]);
