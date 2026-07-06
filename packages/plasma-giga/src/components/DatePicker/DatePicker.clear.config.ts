@@ -59,7 +59,7 @@ export const config = {
 
                 ${tokens.clearDividerColor}: ${surfaceTransparentTertiary};
 
-                ${tokens.dividerColor}: var(--surface-transparent-clear);
+                ${tokens.dividerColor}: ${surfaceClear};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
