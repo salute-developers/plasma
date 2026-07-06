@@ -18,7 +18,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
             accent: css`
-                ${iconButtonTokens.iconButtonColor}: var(--text-primary);
+                ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent-gradient);
 
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
@@ -97,7 +97,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonHeight}: 4rem;
                 ${iconButtonTokens.iconButtonWidth}: 4.25rem;
                 ${iconButtonTokens.iconButtonPadding}: 1.375rem;
-                ${iconButtonTokens.iconButtonRadius}: 1.75rem;
+                ${iconButtonTokens.iconButtonRadius}: 1rem;
 
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-l-font-size);
@@ -129,7 +129,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonHeight}: 3rem;
                 ${iconButtonTokens.iconButtonWidth}: 3.25rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.875rem;
-                ${iconButtonTokens.iconButtonRadius}: 1.25rem;
+                ${iconButtonTokens.iconButtonRadius}: 0.75rem;
 
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-m-font-size);
@@ -146,7 +146,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 2.75rem;
 
                 ${iconButtonTokens.iconButtonPadding}: 1rem;
-                ${iconButtonTokens.iconButtonRadius}: 1.125rem;
+                ${iconButtonTokens.iconButtonRadius}: 0.625rem;
 
                 ${iconButtonTokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${iconButtonTokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
