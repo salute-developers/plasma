@@ -138,6 +138,8 @@ export type FloatingPopoverProps = {
     target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
     children: React.ReactNode;
     opened: boolean;
+    floatingRef?: React.MutableRefObject<HTMLDivElement | null>;
+    onFloatingMouseDown?: React.MouseEventHandler<HTMLDivElement>;
     portal?: AutocompleteProps['portal'];
     zIndex?: AutocompleteProps['zIndex'];
     listWidth?: AutocompleteProps['listWidth'];
