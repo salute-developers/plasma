@@ -196,7 +196,7 @@ export const config = {
             true: css`
                 ${tokens.outlineSize}: 0.1rem;
                 ${tokens.outlineOffset}: -0.2rem;
-                ${tokens.outlineColor}: var(--surface-accent);
+                ${tokens.outlineColor}: ${surfaceAccent};
             `,
         },
         shape: {
