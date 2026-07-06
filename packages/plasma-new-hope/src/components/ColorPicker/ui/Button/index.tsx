@@ -7,7 +7,8 @@ import { tokens } from '../../ColorPicker.tokens';
 const mergedConfig = mergeConfig(buttonConfig);
 const Button = component(mergedConfig);
 
-const buttonBackgroundColor = `var(${tokens.activeTabTextColor}, var(--plasma-button-background-color))`;
+const buttonBackgroundColorVar = '--plasma-button-background-color';
+const buttonBackgroundColor = `var(${tokens.activeTabTextColor}, var(${buttonBackgroundColorVar}))`;
 
 export const StyledButton = styled(Button)<{
     $active?: boolean;
@@ -33,15 +34,14 @@ export const StyledButton = styled(Button)<{
 
     --plasma-button-text-color: ${(props) => (props.$active ? buttonBackgroundColor : `var(${tokens.buttonColor})`)};
 
-    background-color: ${(props) => (props.$active ? buttonBackgroundColor : 'var(--plasma-button-background-color)')};
+    background-color: ${(props) => (props.$active ? buttonBackgroundColor : `var(${buttonBackgroundColorVar})`)};
 
     :is(:hover) {
-        background-color: ${(props) =>
-            props.$active ? buttonBackgroundColor : 'var(--plasma-button-background-color)'};
+        background-color: ${(props) => (props.$active ? buttonBackgroundColor : `var(${buttonBackgroundColorVar})`)};
 
         --plasma-button-text-color: ${(props) =>
             props.$active
-                ? `var(${tokens.activeTabTextColor}, var(--plasma-button-background-color))`
+                ? `var(${tokens.activeTabTextColor}, var(${buttonBackgroundColorVar}))`
                 : `var(${tokens.buttonColor})`};
     }
 `;

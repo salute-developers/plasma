@@ -29,5 +29,5 @@ export const usePaintSaturation = (
         gradientBlack.addColorStop(1, BLACK_OPAQUE);
         ctx.fillStyle = gradientBlack;
         ctx.fillRect(0, 0, squareWidth, squareHeight);
-    }, [canvas, hue, squareWidth, squareHeight]);
+    }, [hue, squareWidth, squareHeight]);
 };
