@@ -9,9 +9,13 @@ import {
     bodyXS,
     bodyXSBold,
     surfaceAccent,
+    surfaceClear,
     textAccent,
     textAccentActive,
     textAccentHover,
+    textInfo,
+    textInfoActive,
+    textInfoHover,
     textNegative,
     textNegativeActive,
     textNegativeHover,
@@ -39,7 +43,7 @@ export const config = {
             default: css`
                 ${linkButtonTokens.linkButtonIconColor}: ${textPrimary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPrimary};
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textPrimaryHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textPrimaryActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -49,7 +53,7 @@ export const config = {
             accent: css`
                 ${linkButtonTokens.linkButtonIconColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonTextColor}: ${textAccent};
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textAccentActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -59,7 +63,7 @@ export const config = {
             secondary: css`
                 ${linkButtonTokens.linkButtonIconColor}: ${textSecondary};
                 ${linkButtonTokens.linkButtonTextColor}: ${textSecondary};
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textSecondaryHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textSecondaryActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -69,7 +73,7 @@ export const config = {
             positive: css`
                 ${linkButtonTokens.linkButtonIconColor}: ${textPositive};
                 ${linkButtonTokens.linkButtonTextColor}: ${textPositive};
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textPositiveHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textPositiveActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -79,7 +83,7 @@ export const config = {
             warning: css`
                 ${linkButtonTokens.linkButtonIconColor}: ${textWarning};
                 ${linkButtonTokens.linkButtonTextColor}: ${textWarning};
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textWarningHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textWarningActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -89,7 +93,7 @@ export const config = {
             negative: css`
                 ${linkButtonTokens.linkButtonIconColor}: ${textNegative};
                 ${linkButtonTokens.linkButtonTextColor}: ${textNegative};
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textNegativeActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
@@ -97,14 +101,14 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textNegativeActive};
             `,
             info: css`
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-info);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-info);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(--surface-transparent-clear);
-                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-info-hover);
-                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-info-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-info-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-info-active);
+                ${linkButtonTokens.linkButtonIconColor}: ${textInfo};
+                ${linkButtonTokens.linkButtonTextColor}: ${textInfo};
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textInfoHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textInfoActive};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textInfoHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textInfoActive};
             `,
         },
         size: {

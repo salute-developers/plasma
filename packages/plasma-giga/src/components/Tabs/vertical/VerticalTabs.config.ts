@@ -4,6 +4,7 @@ import {
     surfaceTransparentTertiary,
     textSecondary,
     textSecondaryHover,
+    textSecondaryActive,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
@@ -16,7 +17,7 @@ export const config = {
             divider: css`
                 ${tabsTokens.arrowColor}: ${textSecondary};
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
-                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
+                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: transparent;
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 

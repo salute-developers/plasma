@@ -3,6 +3,8 @@ import {
     bodyL,
     bodyM,
     bodyS,
+    bodyXS,
+    bodyXXS,
     inverseTextPrimary,
     inverseTextSecondary,
     inverseTextSecondaryHover,
@@ -33,10 +35,6 @@ import {
     textSecondaryHover,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
-/*
- * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs/plasma-themes/tokens/plasma_giga where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXxs
- */
 export const config = {
     defaults: {
         view: 'default',
@@ -210,18 +208,12 @@ export const config = {
                 ${chipTokens.height}: 1.5rem;
                 ${chipTokens.padding}: 0 0.625rem;
 
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${chipTokens.fontFamily}: ${bodyXS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyXS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyXS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyXS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyXS.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
@@ -238,18 +230,12 @@ export const config = {
                 ${chipTokens.height}: 1.25rem;
                 ${chipTokens.padding}: 0 0.5rem;
 
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${chipTokens.fontFamily}: ${bodyXXS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyXXS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyXXS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyXXS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyXXS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyXXS.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.125rem;
