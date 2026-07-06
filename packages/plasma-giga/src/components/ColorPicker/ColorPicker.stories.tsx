@@ -1,17 +1,16 @@
 import React, { ComponentProps, PropsWithChildren, useEffect, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button } from '@salutejs/plasma-new-hope/types/examples/components/Button/Button';
-import { WithTheme } from '@salutejs/plasma-new-hope/types/examples/_helpers';
 import { getConfigVariations } from '@salutejs/plasma-sb-utils';
-import { config } from '@salutejs/plasma-new-hope/types/examples/components/ColorPicker/ColorPicker.config';
 
+import { Button } from '../Button/Button';
+
+import { config } from './ColorPicker.config';
 import { ColorPicker } from './ColorPicker';
 
 const { views, sizes } = getConfigVariations(config);
 
 const meta: Meta<typeof ColorPicker> = {
     title: 'Data Entry/ColorPicker',
-    decorators: [WithTheme],
     component: ColorPicker,
     args: {
         size: 's',
