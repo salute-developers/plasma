@@ -10,6 +10,7 @@ import {
 import {
     sdds_cs__light,
     sdds_insol__light,
+    sdds_bizcom__light,
     sdds_serv__light,
     sdds_scan__light,
     sdds_platform_ai__light,
@@ -31,6 +32,7 @@ const ThemeGIGA = createGlobalStyle(plasma_giga__light);
 const ThemeCS = createGlobalStyle(sdds_cs__light);
 const ThemeINSOL = createGlobalStyle(sdds_insol__light);
 const ThemeNETOLOGY = createGlobalStyle(plasma_b2c__light);
+const ThemeBIZCOM = createGlobalStyle(sdds_bizcom__light);
 const ThemeSERV = createGlobalStyle(sdds_serv__light);
 const ThemeSCAN = createGlobalStyle(sdds_scan__light);
 const ThemeOS = createGlobalStyle(sdds_os__light);
@@ -50,6 +52,7 @@ const testPackagesThemes = {
     'sdds-cs': <ThemeCS />,
     'sdds-insol': <ThemeINSOL />,
     'sdds-netology': <ThemeNETOLOGY />,
+    'sdds-bizcom': <ThemeBIZCOM />,
     'plasma-web': <ThemeWEB />,
     'sdds-serv': <ThemeSERV />,
     'sdds-scan': <ThemeSCAN />,
@@ -83,6 +86,8 @@ const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.
             return require('../../../packages/sdds-insol/dist/styled-components/cjs/index.js');
         case 'sdds-netology':
             return require('../../../packages/sdds-netology/dist/styled-components/cjs/index.js');
+        case 'sdds-bizcom':
+            return require('../../../packages/sdds-bizcom/dist/styled-components/cjs/index.js');
         case 'sdds-serv':
             return require('../../../packages/sdds-serv/dist/styled-components/cjs/index.js');
         case 'sdds-scan':
@@ -175,6 +180,7 @@ export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, childr
             'sdds-cs',
             'sdds-insol',
             'sdds-netology',
+            'sdds-bizcom',
             'plasma-web',
             'sdds-serv',
             'sdds-scan',
