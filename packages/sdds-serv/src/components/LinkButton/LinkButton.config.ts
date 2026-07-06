@@ -9,6 +9,7 @@ import {
     bodyXS,
     bodyXSBold,
     surfaceAccent,
+    surfaceClear,
     textAccent,
     textAccentActive,
     textAccentHover,
@@ -30,7 +31,6 @@ import {
     textWarning,
     textWarningActive,
     textWarningHover,
-    surfaceClear,
 } from '@salutejs/sdds-themes/tokens/sdds_serv';
 
 export const config = {
@@ -53,7 +53,7 @@ export const config = {
             accent: css`
                 ${linkButtonTokens.linkButtonIconColor}: ${textAccent};
                 ${linkButtonTokens.linkButtonTextColor}: ${textAccent};
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-transparent-clear);
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textAccentActive};
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
