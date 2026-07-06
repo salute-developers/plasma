@@ -1,6 +1,11 @@
 import React, { FC } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_serv__dark, sdds_serv__light } from '@salutejs/sdds-themes/es/themes';
+import {
+    sdds_serv__dark,
+    sdds_serv__light,
+    sdds_serv_malachite__dark,
+    sdds_serv_malachite__light,
+} from '@salutejs/sdds-themes';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
 import { cx } from '@salutejs/plasma-new-hope';
@@ -45,6 +50,8 @@ export default meta;
 const themes: Record<string, GroupedTokens> = {
     'sdds-serv:light': getGroupedTokens(sdds_serv__light[0]),
     'sdds-serv:dark': getGroupedTokens(sdds_serv__dark[0]),
+    'sdds-serv-malachite:light': getGroupedTokens(sdds_serv_malachite__light[0]),
+    'sdds-serv-malachite:dark': getGroupedTokens(sdds_serv_malachite__dark[0]),
 };
 
 const ColorTokenData: FC<ColorTokenDataProps> = ({

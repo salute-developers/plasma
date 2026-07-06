@@ -1,9 +1,14 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
-import { sdds_serv__light, sdds_serv__dark } from '@salutejs/sdds-themes';
+import {
+    sdds_serv__light,
+    sdds_serv__dark,
+    sdds_serv_malachite__dark,
+    sdds_serv_malachite__light,
+} from '@salutejs/sdds-themes';
 
-import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
+import { ViewContainer } from '../src';
 
 const DocumentStyle = createGlobalStyle`
     html:root {
@@ -28,6 +33,8 @@ const DocumentStyle = createGlobalStyle`
 
 export const SDDS_SERV_LIGHT_THEME = 'sdds-serv:light';
 export const SDDS_SERV_DARK_THEME = 'sdds-serv:dark';
+export const SDDS_SERV_MALACHITE_LIGHT_THEME = 'sdds-serv-malachite:light';
+export const SDDS_SERV_MALACHITE_DARK_THEME = 'sdds-serv-malachite:dark';
 export const DEFAULT_MODE = 'default';
 export const ON_DARK_MODE = 'onDark';
 export const ON_LIGHT_MODE = 'onLight';
@@ -35,6 +42,8 @@ export const ON_LIGHT_MODE = 'onLight';
 const themes = {
     [SDDS_SERV_LIGHT_THEME]: createGlobalStyle(sdds_serv__light),
     [SDDS_SERV_DARK_THEME]: createGlobalStyle(sdds_serv__dark),
+    [SDDS_SERV_MALACHITE_LIGHT_THEME]: createGlobalStyle(sdds_serv_malachite__light),
+    [SDDS_SERV_MALACHITE_DARK_THEME]: createGlobalStyle(sdds_serv_malachite__dark),
 };
 
 type ViewType = {
