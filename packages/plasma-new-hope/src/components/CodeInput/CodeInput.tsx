@@ -2,11 +2,9 @@ import React, { forwardRef, Fragment, useCallback, useRef, useState } from 'reac
 import cls from 'classnames';
 import type { ChangeEvent, KeyboardEvent, ClipboardEvent } from 'react';
 import type { RootProps } from 'src/engines';
-import { useDidMountEffect } from 'src/hooks';
+import { useDidMountEffect, useCodeHook } from 'src/hooks';
 import { getSizeValueFromProp } from 'src/utils';
-
-import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from '../../utils/constants';
-import { useCodeHook } from '../../hooks';
+import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from 'src/utils/constants';
 
 import type { CodeInputProps } from './CodeInput.types';
 import { getCodeValue, getFieldPattern, getPlaceholderValue, handleCodeError, handleItemError } from './utils';
@@ -109,6 +107,7 @@ export const codeInputRoot = (Root: RootProps<HTMLDivElement, CodeInputProps>) =
                 }
 
                 if (type === 'circle') {
+                    event.preventDefault();
                     handleAddSymbol(key, index);
                     inputRefs.current[index]?.focus();
                 }
