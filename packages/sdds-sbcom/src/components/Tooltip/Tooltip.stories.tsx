@@ -64,24 +64,40 @@ const StoryDefault = (props: Pick<TooltipProps, 'hasArrow' | 'size' | 'usePortal
     return (
         <StyledGrid>
             <Tooltip
-                target={<Tooltip target={<Button>Btn</Button>} placement="left" opened text="left" {...props} />}
+                target={
+                    <Tooltip target={<Button size="40">Btn</Button>} placement="left" opened text="left" {...props} />
+                }
                 placement="top-start"
                 opened
                 text="top-start"
                 view="default"
                 {...props}
             />
-            <Tooltip target={<Button>Btn</Button>} placement="top" opened text="top" {...props} />
+            <Tooltip target={<Button size="40">Btn</Button>} placement="top" opened text="top" {...props} />
             <Tooltip
-                target={<Tooltip target={<Button>Btn</Button>} placement="right" opened text="right" {...props} />}
+                target={
+                    <Tooltip target={<Button size="40">Btn</Button>} placement="right" opened text="right" {...props} />
+                }
                 placement="top-end"
                 opened
                 text="top-end"
                 {...props}
             />
-            <Tooltip target={<Button>Btn</Button>} placement="bottom-start" opened text="bottom-start" {...props} />
-            <Tooltip target={<Button>Btn</Button>} placement="bottom" opened text="bottom" {...props} />
-            <Tooltip target={<Button>Btn</Button>} placement="bottom-end" opened text="bottom-end" {...props} />
+            <Tooltip
+                target={<Button size="40">Btn</Button>}
+                placement="bottom-start"
+                opened
+                text="bottom-start"
+                {...props}
+            />
+            <Tooltip target={<Button size="40">Btn</Button>} placement="bottom" opened text="bottom" {...props} />
+            <Tooltip
+                target={<Button size="40">Btn</Button>}
+                placement="bottom-end"
+                opened
+                text="bottom-end"
+                {...props}
+            />
         </StyledGrid>
     );
 };
@@ -119,7 +135,11 @@ const StoryLive = (args: TooltipProps) => {
         <>
             <StyledRow>
                 <Tooltip
-                    target={<Button onClick={() => setIsOpen(!isOpen)}>Show tooltip</Button>}
+                    target={
+                        <Button size="40" onClick={() => setIsOpen(!isOpen)}>
+                            Show tooltip
+                        </Button>
+                    }
                     contentLeft={<IconDisclosureRight size="xs" />}
                     {...args}
                     id="example-tooltip-firstname"
