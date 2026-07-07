@@ -1,4 +1,16 @@
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    inverseTextPrimary,
+    inverseTextPrimaryHover,
+    onDarkTextPrimary,
+    onDarkTextPrimaryHover,
+    surfaceAccent,
+    surfaceSolidDefault,
+    surfaceTransparentCard,
+    textAccent,
+    textPrimary,
+    textPrimaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_finai';
 
 export const config = {
     defaults: {
@@ -8,52 +20,52 @@ export const config = {
     variations: {
         view: {
             none: css`
-                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemColor}: ${textPrimary};
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--text-primary-hover);
+                ${segmentTokens.itemSelectedColor}: ${textPrimaryHover};
                 ${segmentTokens.itemSelectedBackgroundColor}: transparent;
-                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
+                ${segmentTokens.itemSelectedColorHover}: ${textPrimary};
                 ${segmentTokens.itemSelectedBackgroundColorHover}: transparent;
 
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             secondary: css`
-                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemColor}: ${textPrimary};
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--text-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-transparent-card);
-                ${segmentTokens.itemSelectedColorHover}: var(--text-primary-hover);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-transparent-card);
+                ${segmentTokens.itemSelectedColor}: ${textPrimary};
+                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceTransparentCard};
+                ${segmentTokens.itemSelectedColorHover}: ${textPrimaryHover};
+                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceTransparentCard};
 
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             default: css`
-                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemColor}: ${textPrimary};
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
-                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary-hover);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
+                ${segmentTokens.itemSelectedColor}: ${inverseTextPrimary};
+                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceSolidDefault};
+                ${segmentTokens.itemSelectedColorHover}: ${inverseTextPrimaryHover};
+                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidDefault};
 
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             accent: css`
-                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemColor}: ${textPrimary};
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedColor}: var(--on-dark-text-primary);
-                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
-                ${segmentTokens.itemSelectedColorHover}: var(--on-dark-text-primary-hover);
-                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
+                ${segmentTokens.itemSelectedColor}: ${onDarkTextPrimary};
+                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceAccent};
+                ${segmentTokens.itemSelectedColorHover}: ${onDarkTextPrimaryHover};
+                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceAccent};
 
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
         },
         size: {

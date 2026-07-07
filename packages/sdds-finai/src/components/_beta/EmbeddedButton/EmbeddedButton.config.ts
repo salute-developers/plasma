@@ -1,4 +1,28 @@
 import { css, _beta_embeddedButtonTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    surfaceAccent,
+    textAccent,
+    textAccentActive,
+    textAccentHover,
+    textInfo,
+    textInfoActive,
+    textInfoHover,
+    textNegative,
+    textNegativeActive,
+    textNegativeHover,
+    textPositive,
+    textPositiveActive,
+    textPositiveHover,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textWarning,
+    textWarningActive,
+    textWarningHover,
+} from '@salutejs/sdds-themes/tokens/sdds_finai';
 
 export const config = {
     defaults: {
@@ -8,66 +32,66 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.colorHover}: var(--text-primary-hover);
-                ${tokens.colorActive}: var(--text-primary-active);
+                ${tokens.color}: ${textPrimary};
+                ${tokens.colorHover}: ${textPrimaryHover};
+                ${tokens.colorActive}: ${textPrimaryActive};
                 ${tokens.backgroundColor}: transparent;
-                ${tokens.spinnerColor}: var(--text-primary);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.spinnerColor}: ${textPrimary};
+                ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,
             secondary: css`
-                ${tokens.color}: var(--text-secondary);
-                ${tokens.colorHover}: var(--text-secondary-hover);
-                ${tokens.colorActive}: var(--text-secondary-active);
+                ${tokens.color}: ${textSecondary};
+                ${tokens.colorHover}: ${textSecondaryHover};
+                ${tokens.colorActive}: ${textSecondaryActive};
                 ${tokens.backgroundColor}: transparent;
-                ${tokens.spinnerColor}: var(--text-secondary);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.spinnerColor}: ${textSecondary};
+                ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,
             accent: css`
-                ${tokens.color}: var(--text-accent);
-                ${tokens.colorHover}: var(--text-accent-hover);
-                ${tokens.colorActive}: var(--text-accent-active);
+                ${tokens.color}: ${textAccent};
+                ${tokens.colorHover}: ${textAccentHover};
+                ${tokens.colorActive}: ${textAccentActive};
                 ${tokens.backgroundColor}: transparent;
-                ${tokens.spinnerColor}: var(--text-accent);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.spinnerColor}: ${textAccent};
+                ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,
             positive: css`
-                ${tokens.color}: var(--text-positive);
-                ${tokens.colorHover}: var(--text-positive-hover);
-                ${tokens.colorActive}: var(--text-positive-active);
+                ${tokens.color}: ${textPositive};
+                ${tokens.colorHover}: ${textPositiveHover};
+                ${tokens.colorActive}: ${textPositiveActive};
                 ${tokens.backgroundColor}: transparent;
-                ${tokens.spinnerColor}: var(--text-positive);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.spinnerColor}: ${textPositive};
+                ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,
             warning: css`
-                ${tokens.color}: var(--text-warning);
-                ${tokens.colorHover}: var(--text-warning-hover);
-                ${tokens.colorActive}: var(--text-warning-active);
+                ${tokens.color}: ${textWarning};
+                ${tokens.colorHover}: ${textWarningHover};
+                ${tokens.colorActive}: ${textWarningActive};
                 ${tokens.backgroundColor}: transparent;
-                ${tokens.spinnerColor}: var(--text-warning);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.spinnerColor}: ${textWarning};
+                ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,
             negative: css`
-                ${tokens.color}: var(--text-negative);
-                ${tokens.colorHover}: var(--text-negative-hover);
-                ${tokens.colorActive}: var(--text-negative-active);
+                ${tokens.color}: ${textNegative};
+                ${tokens.colorHover}: ${textNegativeHover};
+                ${tokens.colorActive}: ${textNegativeActive};
                 ${tokens.backgroundColor}: transparent;
-                ${tokens.spinnerColor}: var(--text-negative);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.spinnerColor}: ${textNegative};
+                ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,
             info: css`
-                ${tokens.color}: var(--text-info);
-                ${tokens.colorHover}: var(--text-info-hover);
-                ${tokens.colorActive}: var(--text-info-active);
+                ${tokens.color}: ${textInfo};
+                ${tokens.colorHover}: ${textInfoHover};
+                ${tokens.colorActive}: ${textInfoActive};
                 ${tokens.backgroundColor}: transparent;
-                ${tokens.spinnerColor}: var(--text-info);
-                ${tokens.focusColor}: var(--surface-accent);
+                ${tokens.spinnerColor}: ${textInfo};
+                ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,
         },
