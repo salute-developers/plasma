@@ -1,4 +1,30 @@
 import { css, chipGroupTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyM,
+    bodyS,
+    bodyXS,
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceClear,
+    surfaceNegative,
+    surfaceNegativeActive,
+    surfaceNegativeHover,
+    surfacePositive,
+    surfacePositiveActive,
+    surfacePositiveHover,
+    surfaceSolidDefault,
+    surfaceSolidDefaultActive,
+    surfaceSolidDefaultHover,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondaryHover,
+    surfaceWarning,
+    surfaceWarningActive,
+    surfaceWarningHover,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_finai';
 
 export const config = {
     defaults: {
@@ -8,58 +34,58 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.chipFocusColor}: var(--surface-accent);
-                ${tokens.chipColor}: var(--inverse-text-primary);
-                ${tokens.chipBackground}: var(--surface-solid-default);
-                ${tokens.chipColorHover}: var(--inverse-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.chipColorActive}: var(--inverse-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-solid-default-active);
+                ${tokens.chipFocusColor}: ${surfaceAccent};
+                ${tokens.chipColor}: ${inverseTextPrimary};
+                ${tokens.chipBackground}: ${surfaceSolidDefault};
+                ${tokens.chipColorHover}: ${inverseTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.chipColorActive}: ${inverseTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceSolidDefaultActive};
             `,
             accent: css`
-                ${tokens.chipFocusColor}: var(--surface-accent);
-                ${tokens.chipColor}: var(--on-dark-text-primary);
-                ${tokens.chipBackground}: var(--surface-accent);
-                ${tokens.chipColorHover}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-accent-hover);
-                ${tokens.chipColorActive}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-accent-active);
+                ${tokens.chipFocusColor}: ${surfaceAccent};
+                ${tokens.chipColor}: ${onDarkTextPrimary};
+                ${tokens.chipBackground}: ${surfaceAccent};
+                ${tokens.chipColorHover}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceAccentHover};
+                ${tokens.chipColorActive}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceAccentActive};
             `,
             positive: css`
-                ${tokens.chipFocusColor}: var(--surface-accent);
-                ${tokens.chipColor}: var(--on-dark-text-primary);
-                ${tokens.chipBackground}: var(--surface-positive);
-                ${tokens.chipColorHover}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-positive-hover);
-                ${tokens.chipColorActive}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-positive-active);
+                ${tokens.chipFocusColor}: ${surfaceAccent};
+                ${tokens.chipColor}: ${onDarkTextPrimary};
+                ${tokens.chipBackground}: ${surfacePositive};
+                ${tokens.chipColorHover}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfacePositiveHover};
+                ${tokens.chipColorActive}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfacePositiveActive};
             `,
             warning: css`
-                ${tokens.chipFocusColor}: var(--surface-accent);
-                ${tokens.chipColor}: var(--on-dark-text-primary);
-                ${tokens.chipBackground}: var(--surface-warning);
-                ${tokens.chipColorHover}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-warning-hover);
-                ${tokens.chipColorActive}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-warning-active);
+                ${tokens.chipFocusColor}: ${surfaceAccent};
+                ${tokens.chipColor}: ${onDarkTextPrimary};
+                ${tokens.chipBackground}: ${surfaceWarning};
+                ${tokens.chipColorHover}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceWarningHover};
+                ${tokens.chipColorActive}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceWarningActive};
             `,
             negative: css`
-                ${tokens.chipFocusColor}: var(--surface-accent);
-                ${tokens.chipColor}: var(--on-dark-text-primary);
-                ${tokens.chipBackground}: var(--surface-negative);
-                ${tokens.chipColorHover}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-negative-hover);
-                ${tokens.chipColorActive}: var(--on-dark-text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-negative-active);
+                ${tokens.chipFocusColor}: ${surfaceAccent};
+                ${tokens.chipColor}: ${onDarkTextPrimary};
+                ${tokens.chipBackground}: ${surfaceNegative};
+                ${tokens.chipColorHover}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceNegativeHover};
+                ${tokens.chipColorActive}: ${onDarkTextPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceNegativeActive};
             `,
             clear: css`
-                ${tokens.chipFocusColor}: var(--surface-accent);
-                ${tokens.chipColor}: var(--text-primary);
-                ${tokens.chipBackground}: var(--surface-clear);
-                ${tokens.chipColorHover}: var(--text-primary);
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
+                ${tokens.chipFocusColor}: ${surfaceAccent};
+                ${tokens.chipColor}: ${textPrimary};
+                ${tokens.chipBackground}: ${surfaceClear};
+                ${tokens.chipColorHover}: ${textPrimary};
+                ${tokens.chipBackgroundHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.chipColorActive}: ${textPrimary};
+                ${tokens.chipBackgroundActive}: ${surfaceTransparentSecondaryActive};
             `,
         },
         size: {
@@ -69,12 +95,12 @@ export const config = {
                 ${tokens.chipHeight}: 2.5rem;
                 ${tokens.chipPadding}: 0 0.875rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.chipFontFamily}: ${bodyM.fontFamily};
+                ${tokens.chipFontSize}: ${bodyM.fontSize};
+                ${tokens.chipFontStyle}: ${bodyM.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyM.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.375rem;
@@ -90,12 +116,12 @@ export const config = {
                 ${tokens.chipHeight}: 2rem;
                 ${tokens.chipPadding}: 0 0.875rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.chipFontFamily}: ${bodyS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
@@ -111,12 +137,12 @@ export const config = {
                 ${tokens.chipHeight}: 1.5rem;
                 ${tokens.chipPadding}: 0 0.625rem;
 
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.chipFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyXS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.chipLeftContentMarginLeft}: -0.125rem;
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
