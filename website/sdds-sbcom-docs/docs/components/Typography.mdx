@@ -4,16 +4,30 @@ title: Typography
 ---
 
 # Typography
-В состав Plasma Web входят компоненты, реализующие типографическую систему [типографическую систему Plasma](../../design/typography).
+В состав входят компоненты, реализующие типографическую систему.
 Они заменяют обычные HTML-теги, такие, как `h1`, `h2`, `h3`, `h4`, `p`, etc.
 
 ## Установка шрифта
 Компоненты типографики используют фирменный шрифт **SB Sans Text**.
-О том, как установить данный шрифт, смотрите на странице [Типографическая система](../../design/typography#установка-шрифта).
+
+```html
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
+        />
+    </head>
+</html>
+```
 
 ## Отступы
 По умолчанию типографика поддерживает стандартные отступы.
-О том, как использовать отступы, читайте на странице [Стандартные отступы](../../design/spacing#встроенные-отступы-в-типографике).
 
 ## Переносы
 По умолчанию в типографике слова переносятся по слогам.
@@ -39,11 +53,51 @@ export function App() {
 }
 ```
 
+## Управление насыщенностью шрифта
+
+:::info
+Для корректной работы насыщенности шрифта убедитесь, что в конфигурациях типографических компонентов указаны соответствующие значения для `font-weight`.
+:::
+
+За это отвечают свойства: medium, bold, extraBold
+
+```tsx live
+import React from 'react';
+import { DsplS } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <>
+            <DsplS bold={false}>Regular</DsplS>
+            <DsplS medium>Medium</DsplS>
+            <DsplS>Bold</DsplS>
+        </>
+    )
+}
+```
+
+## Курсивное начертание текста
+
+Задается свойством `isItalic`.
+
+```tsx live
+import React from 'react';
+import { DsplS } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <>
+            <DsplS isItalic>Bold</DsplS>
+        </>
+    )
+}
+```
+
 ## Моноширинные числа (группа Numbers)
 Для работы с типографическим компонентом из группы Numbers, достаточно указать свойство: `isNumeric`.
 
 ```tsx
-<TextM isNumeric={true} />
+<BodyS isNumeric={true} />
 ```
 
 ## Состав
@@ -52,7 +106,7 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { DsplL, DsplM, DsplS } from '@salutejs/sdds-sbcom';
+import { DsplS } from '@salutejs/sdds-sbcom';
 
 export function App() {
     return (
