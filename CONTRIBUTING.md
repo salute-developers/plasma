@@ -6,8 +6,8 @@
 
 Для корректной работы, необходимо использовать:
 
--   **Node** `lts/hydrogen -> v18.16.*`;
--   **npm** `^8.19.0` или `^9.5.1`;
+-   **Node** из `.nvmrc`;
+-   **npm** из поставки Node;
 
 Для этого нужно выполнить команду в корне репозитория:
 
@@ -15,35 +15,27 @@
  nvm use
 ```
 
-## Разработка с помощью Lerna
+## Установка зависимостей
 
 Для внесения правок в нескольких пакетах одновременно, можно выполнить следующие команды в корне проекта:
 
-[Установить все зависимости и слинковать](https://github.com/lerna/lerna/blob/main/commands/bootstrap/README.md) все пакеты:
+Установить все зависимости, применить патчи и собрать workspace-пакеты:
 
 ```sh
-npx lerna bootstrap
+npm run setup
 ```
 
-Установить и слинковать все зависимости только у указанного пакета:
+Установка выполняется на уровне корня monorepo. Фильтрацию по пакетам нужно применять на уровне запуска команд:
 
 ```sh
-npx lerna bootstrap --scope [имя пакета 1] --include-dependencies
-```
-
-Установить и слинковать только указанные зависимости:
-
-```sh
-npx lerna bootstrap --scope [имя пакета 1] --scope [имя пакета 2]
+npx lerna run [команда] --scope [имя пакета 1] --include-dependencies
 ```
 
 Если возникла какая-либо проблема со сборкой, можно попробовать полностью удалить все зависимости и установить их заново:
 
 ```sh
 rm -rf ./node_modules/
-npm ci
-npx lerna clean -y
-npx lerna bootstrap
+npm run setup
 ```
 
 ## Обновление package-lock.json
@@ -53,20 +45,14 @@ npx lerna bootstrap
 **Рекомендуемый способ (полная регенерация, как в CI):**
 
 ```sh
-npm run update:package-locks
-```
-
-**Точечное обновление после правки зависимостей одного пакета:**
-
-```sh
-npm run update:package-locks:scope --scope=@salutejs/plasma-hope
+npm install --no-audit --no-progress --package-lock-only --ignore-scripts
 ```
 
 **Не делайте так:**
 
 -   `cd packages/foo && npm install` — изолированная установка перегенерирует lock и может изменить дерево зависимостей;
--   `npm install --package-lock-only` без флагов `--lockfile-version 2 --legacy-peer-deps`;
--   форматирование `package-lock.json` через Prettier — lock-файлы генерируются npm/lerna.
+-   `npm install --package-lock-only` без флагов, используемых в рекомендуемой команде;
+-   форматирование `package-lock.json` через Prettier — lock-файлы генерируются npm.
 
 Проверка: `git diff` по lock-файлам должен отражать только изменения зависимостей, а не массовую смену отступов.
 
@@ -124,7 +110,7 @@ brew install chromium --no-quarantine
 -   необходимо установить все пакеты в **monorepo**, для этого в корне выполните команды:
 
 ```sh
-npm ci && npx lerna bootstrap
+npm ci
 ```
 
 #### Запуск тестов

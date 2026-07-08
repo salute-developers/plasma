@@ -8,6 +8,8 @@
 const inquirer = require('inquirer');
 const { spawnSync } = require('child_process');
 
+const prompt = inquirer.prompt || inquirer.default?.prompt || inquirer.createPromptModule?.();
+
 const PACKAGES = [
     'b2c',
     'giga',
@@ -43,7 +45,7 @@ const PACKAGE_MAP = {
 };
 
 async function main() {
-    const { action } = await inquirer.prompt([
+    const { action } = await prompt([
         {
             type: 'list',
             name: 'action',
@@ -55,7 +57,7 @@ async function main() {
     let browser = 'chromium';
 
     if (action !== 'open') {
-        ({ browser } = await inquirer.prompt([
+        ({ browser } = await prompt([
             {
                 type: 'list',
                 name: 'browser',
@@ -65,7 +67,7 @@ async function main() {
         ]));
     }
 
-    const { pkg } = await inquirer.prompt([
+    const { pkg } = await prompt([
         {
             type: 'list',
             name: 'pkg',
@@ -81,7 +83,7 @@ async function main() {
             '\nЕсли нужен запуск по определенным компонентам, то введите названия компонентов через запятую, если нет, то продолжите нажав Enter',
         );
 
-        const { components } = await inquirer.prompt([
+        const { components } = await prompt([
             {
                 type: 'input',
                 name: 'components',

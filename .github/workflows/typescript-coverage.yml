@@ -26,8 +26,8 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap --no-private
+      - name: Install dependencies
+        run: npm run setup:ci
 
       - name: Run Typescript Coverage
         if: ${{ always() }}

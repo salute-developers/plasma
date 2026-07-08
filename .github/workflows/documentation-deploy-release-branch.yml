@@ -52,8 +52,8 @@ jobs:
       -   name: Prepare environment
           uses: ./.github/actions/prepare-environment
 
-      -   name: Lerna bootstrap
-          run: npx lerna bootstrap --scope="@salutejs/{plasma-b2c,plasma-web,plasma-website,plasma-tokens-b2c,plasma-typo,plasma-icons,plasma-new-hope,plasma-themes,core-themes}"
+      -   name: Install dependencies
+          run: npm run setup:ci
 
       -   name: Prepare directory
           run: |
@@ -122,8 +122,8 @@ jobs:
 
               return META[packageName].scope;
 
-      -   name: Lerna bootstrap
-          run: npx lerna bootstrap --scope="@salutejs/${{ matrix.package }}" --scope="@salutejs/{${{ steps.scope.outputs.result }}}"
+      -   name: Install dependencies
+          run: npm run setup:ci
 
       -   name: Prepare directory
           run: mkdir -p s3_build/${PR_NAME}

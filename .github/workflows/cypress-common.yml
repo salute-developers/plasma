@@ -67,19 +67,14 @@ jobs:
           scope: ${{ inputs.scope }}
           components: ${{ inputs.components }}
 
-      - name: Lerna bootstrap
+      - name: Install dependencies
         if: ${{ (inputs.test-all == 'true' || steps.check-test-files-exist.outputs.tests-exist == 'true') }}
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 45
           max_attempts: 2
           retry_on: error
-          command: |
-            if [ "${{ inputs.prefix }}" = "plasma" ]; then
-              npx lerna bootstrap --scope=@salutejs/${{ inputs.prefix }}-${{env.SCOPE}} --scope="@salutejs/core-themes"
-            else
-              npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
-            fi
+          command: npm run setup:ci
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}
