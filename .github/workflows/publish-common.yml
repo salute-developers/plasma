@@ -6,10 +6,6 @@ on:
       with-update-package-lock:
         type: boolean
         default: false
-      cmd:
-        type: string
-        default: "bootstrap"
-        description: "Execute npm run cmd. For example cmd='bootstrap' => npm run bootstrap"
       commit-message:
         type: string
         default: 'chore: Update package-lock.json files [skip ci]'
@@ -64,10 +60,10 @@ jobs:
           # Иначе action.yml возьмется из PR-checkout и весь защитный механизм обходится.
         uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
-      - name: Lerna bootstrap
-        run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,plasma-website}"
+      - name: Install dependencies
+        run: npm run setup:ci
 
-      - name: Check disk usage after bootstrap
+      - name: Check disk usage after install
         run: df -h
 
       - name: Release Info

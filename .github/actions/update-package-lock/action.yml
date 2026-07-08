@@ -17,7 +17,7 @@ runs:
     - name: Set options
       shell: bash
       run: |
-        echo "OPTIONS=--no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps" >> "$GITHUB_ENV"
+        echo "OPTIONS=--no-audit --no-progress --package-lock-only --ignore-scripts" >> "$GITHUB_ENV"
 
     - name: Sync package-lock's root  level
       shell: bash
@@ -33,8 +33,7 @@ runs:
           git reset --hard
           npm i --silent ${{ env.OPTIONS }}
         command: |
-          npx lerna clean -y
-          npx lerna bootstrap --ignore-scripts --no-ci
+          npm install --silent ${{ env.OPTIONS }}
 
     - name: Root deps don't update correctly on first regeneration
       shell: bash

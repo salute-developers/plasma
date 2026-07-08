@@ -1,14 +1,88 @@
 // INFO: Файл частично скопирован из репозитория plasma/website/plasma-theme-builder
 
+import fs from 'fs';
+import path from 'path';
 import JSZip from 'jszip';
 import { getMediaQuery } from '@salutejs/plasma-tokens-utils';
 
 import { ThemeMeta, Variation } from '../types';
 
-const deserializeZip = (content: string) => {
-    const buf = Buffer.from(content, 'base64') as any;
+const RETRY_STATUSES = [408, 425, 429, 500, 502, 503, 504];
+const RETRY_DELAYS = [1000, 3000, 5000];
+const CACHE_DIR = path.resolve(__dirname, '../../../../../../node_modules/.cache/core-themes');
 
-    return JSZip.loadAsync(buf);
+const wait = (timeout: number) =>
+    new Promise<void>((resolve) => {
+        setTimeout(resolve, timeout);
+    });
+
+const getRetryDelay = (result: Response, retryIndex: number) => {
+    const retryAfter = result.headers.get('retry-after');
+
+    if (retryAfter) {
+        const seconds = Number(retryAfter);
+
+        if (!Number.isNaN(seconds)) {
+            return seconds * 1000;
+        }
+    }
+
+    return RETRY_DELAYS[retryIndex];
+};
+
+const readCachedZip = (source: string) => {
+    const cachePath = path.join(CACHE_DIR, source);
+
+    if (!fs.existsSync(cachePath)) {
+        return undefined;
+    }
+
+    return fs.readFileSync(cachePath);
+};
+
+const writeCachedZip = (source: string, data: Buffer) => {
+    const cachePath = path.join(CACHE_DIR, source);
+    const cacheDir = path.dirname(cachePath);
+    const tempPath = `${cachePath}.${process.pid}.tmp`;
+
+    fs.mkdirSync(cacheDir, { recursive: true });
+    fs.writeFileSync(tempPath, data as any);
+    fs.renameSync(tempPath, cachePath);
+};
+
+const readZip = async (url: string, source: string) => {
+    const cachedZip = readCachedZip(source);
+
+    if (cachedZip) {
+        return JSZip.loadAsync(cachedZip as any);
+    }
+
+    for (let retryIndex = 0; retryIndex <= RETRY_DELAYS.length; retryIndex += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        const result = await fetch(url, {
+            method: 'GET',
+        });
+
+        if (result.ok) {
+            // eslint-disable-next-line no-await-in-loop
+            const data = Buffer.from(await result.arrayBuffer());
+
+            writeCachedZip(source, data);
+
+            return JSZip.loadAsync(data as any);
+        }
+
+        const canRetry = RETRY_STATUSES.includes(result.status) && retryIndex < RETRY_DELAYS.length;
+
+        if (!canRetry) {
+            throw new Error(`Failed to load theme ${source}: ${result.status} ${result.statusText}`);
+        }
+
+        // eslint-disable-next-line no-await-in-loop
+        await wait(getRetryDelay(result, retryIndex));
+    }
+
+    throw new Error(`Failed to load theme ${source}`);
 };
 
 const getAllRelativePath = async (zip: JSZip) => {
@@ -61,28 +135,12 @@ const getThemeContent = async (zip: JSZip, allFiles: Array<string>) => {
     return { meta, variations };
 };
 
-const getFileSource = async (owner: string, repo: string, path: string, branchName?: string) => {
-    const result = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branchName}`, {
-        headers: {
-            accept: 'application/vnd.github.v3.full',
-        },
-        method: 'GET',
-    });
-
-    const data = await result.json();
-
-    return data;
-};
-
 export const readTheme = async (themeName: string, themeVersion: string) => {
-    const response = await getFileSource(
-        'salute-developers',
-        'theme-converter',
-        `themes/${themeName}/${themeVersion}.zip`,
-        'main',
+    const source = `themes/${themeName}/${themeVersion}.zip`;
+    const zip = await readZip(
+        `https://raw.githubusercontent.com/salute-developers/theme-converter/main/${source}`,
+        source,
     );
-
-    const zip = await deserializeZip(response.content);
 
     const allFiles = await getAllRelativePath(zip);
 
