@@ -1,4 +1,120 @@
 {
+  "0.356.0": {
+    "date": "2026-07-08",
+    "core": [
+      {
+        "component": "Popover",
+        "children": [
+          {
+            "text": "исправлено закрытие при клике на вложенные выпадающие окна с порталом",
+            "link": "https://github.com/salute-developers/plasma/pull/2904",
+            "id": 2904
+          }
+        ]
+      },
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "исправлено поведение TimeGrid при комбинации `multiplicity-свойств` с ограничениями `min/max`",
+            "link": "https://github.com/salute-developers/plasma/pull/2920",
+            "id": 2920
+          }
+        ]
+      },
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "исправлено поведение свойства `renderTarget` в single-режиме;",
+            "link": "https://github.com/salute-developers/plasma/pull/2919",
+            "id": 2919
+          }
+        ]
+      },
+      {
+        "component": "Calendar",
+        "children": [
+          {
+            "text": "исправлен выбор даты в range-календаре при начальных `[undefined, undefined]`\n\nдобавлен неконтролируемый режим",
+            "link": "https://github.com/salute-developers/plasma/pull/2921",
+            "id": 2921
+          }
+        ]
+      },
+      {
+        "component": "TextField",
+        "children": [
+          {
+            "text": "исправлена фиксация вертикальной прокрутки, когда курсор находится над `input`\n\nисправлена горизонтальная прокрутка в нефокусном состоянии",
+            "link": "https://github.com/salute-developers/plasma/pull/2924",
+            "id": 2924
+          }
+        ]
+      },
+      {
+        "component": "CodeArea",
+        "children": [
+          {
+            "text": "добавлен новый компонент для отображения блока с кодом с возможностью подсветки синтаксиса;",
+            "link": "https://github.com/salute-developers/plasma/pull/2922",
+            "id": 2922
+          }
+        ]
+      },
+      {
+        "component": "TextArea",
+        "children": [
+          {
+            "text": "добавлен расчет ширины `HiddenTextArea` для корректного создания новой строки",
+            "link": "https://github.com/salute-developers/plasma/pull/2930",
+            "id": 2930
+          }
+        ]
+      },
+      {
+        "component": "Docs",
+        "children": [
+          {
+            "text": "добавлен раздел с заданием пользовательских размеров для иконки",
+            "link": "https://github.com/salute-developers/plasma/pull/2931",
+            "id": 2931
+          }
+        ]
+      },
+      {
+        "component": "addFocus",
+        "children": [
+          {
+            "text": "фокус реализован через `outline`\n\nдобавлена документация по миксину",
+            "link": "https://github.com/salute-developers/plasma/pull/2928",
+            "id": 2928
+          }
+        ]
+      },
+      {
+        "component": "Autocomplete",
+        "children": [
+          {
+            "text": "исправлено баг, при котором выпадающий список подсказок мог не закрываться при смене фокуса у поля ввода;",
+            "link": "https://github.com/salute-developers/plasma/pull/2939",
+            "id": 2939
+          }
+        ]
+      },
+      {
+        "component": "CodeInput",
+        "children": [
+          {
+            "text": "исправлена ошибка двойной вставки\\ввода в состояние фокуса через `Tab`",
+            "link": "https://github.com/salute-developers/plasma/pull/2941",
+            "id": 2941
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.355.0": {
     "date": "2026-06-24",
     "core": [
