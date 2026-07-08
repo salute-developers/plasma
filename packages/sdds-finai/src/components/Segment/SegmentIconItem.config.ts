@@ -53,7 +53,7 @@ export const config = {
                 ${segmentTokens.itemSelectedColorHover}: var(--on-dark-text-primary-hover);
                 ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
 
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
         },
         size: {

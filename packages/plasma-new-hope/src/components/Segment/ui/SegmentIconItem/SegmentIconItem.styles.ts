@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
-import { addFocus } from '../../../../mixins';
 import { tokens } from '../../tokens';
 
 export const StyledIcon = styled.div`
@@ -33,18 +33,8 @@ export const base = css`
 
     ${addFocus({
         outlineSize: '0.063rem',
-        outlineOffset: 'var(--plasma_private-clip-outline-offset)',
+        outlineOffset: '0.063rem',
         outlineColor: `var(${tokens.outlineFocusColor})`,
         outlineRadius: 'calc(var(--plasma_private-outline-radius) + var(--plasma_private-clip-outline-radius))',
-        customFocusRules: `
-            &.focus-visible:focus,
-            &[data-focus-visible-added] {
-                &::before {
-                    z-index: 1;
-                    outline: none;
-                    box-shadow: 0 0 0 0.063rem var(${tokens.outlineFocusColor});
-                }
-            }
-        `,
     })};
 `;

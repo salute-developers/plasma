@@ -3,13 +3,9 @@ id: typography
 title: Typography
 ---
 
-import { StorybookLink } from '@site/src/components';
-
 # Typography
 В состав Plasma Web входят компоненты, реализующие типографическую систему [типографическую систему Plasma](../../design/typography).
 Они заменяют обычные HTML-теги, такие, как `h1`, `h2`, `h3`, `h4`, `p`, etc.
-
-<StorybookLink name="Typography" />
 
 ## Установка шрифта
 Компоненты типографики используют фирменный шрифт **SB Sans Text**.
@@ -40,6 +36,46 @@ export function App() {
             BodyM
         </BodyM>
     );
+}
+```
+
+## Управление насыщенностью шрифта
+
+:::info
+Для корректной работы насыщенности шрифта убедитесь, что в конфигурациях типографических компонентов указаны соответствующие значения для `font-weight`.
+:::
+
+За это отвечают свойства: medium, bold, extraBold
+
+```tsx live
+import React from 'react';
+import { DsplL } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <DsplL bold={false}>Regular</DsplL>
+            <DsplL medium>Medium</DsplL>
+            <DsplL>Bold</DsplL>
+        </>
+    )
+}
+```
+
+## Курсивное начертание текста
+
+Задается свойством `isItalic`.
+
+```tsx live
+import React from 'react';
+import { DsplL } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <>
+            <DsplL isItalic>Bold</DsplL>
+        </>
+    )
 }
 ```
 

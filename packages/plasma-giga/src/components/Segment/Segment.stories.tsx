@@ -17,6 +17,9 @@ const { meta: META, Default } = getSegmentStories({
     componentConfig: { group: groupConfig, item: itemConfig },
     CounterComponent: Counter,
     useSegment,
+    additionalArgTypes: {
+        hasDivider: { type: 'boolean' },
+    },
 });
 
 const meta: Meta<SegmentGroupProps> = {

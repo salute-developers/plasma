@@ -393,4 +393,15 @@ describeFn('Pagination', () => {
         cy.get('button.pagination-page-button-active').should('contain.text', '3');
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(<Pagination value={10} count={count} slots={slots[1]} onChange={onChange} />);
+
+        cy.contains('button', '11').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', 11);
+    });
 });

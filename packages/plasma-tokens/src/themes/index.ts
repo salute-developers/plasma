@@ -62,6 +62,8 @@ export { sdds_scan__dark, darkSdds_scan } from './sdds_scan__dark';
 export { sdds_scan__light, lightSdds_scan } from './sdds_scan__light';
 export { sdds_serv__dark, darkSdds_serv } from './sdds_serv__dark';
 export { sdds_serv__light, lightSdds_serv } from './sdds_serv__light';
+export { sdds_serv_malachite__dark, darkSdds_serv_malachite } from './sdds_serv_malachite__dark';
+export { sdds_serv_malachite__light, lightSdds_serv_malachite } from './sdds_serv_malachite__light';
 export { stylesSalute__dark, darkStylesSalute } from './stylesSalute__dark';
 export { stylesSalute__light, lightStylesSalute } from './stylesSalute__light';
 export { salutejs_sber__dark, darkSber } from './salutejs_sber__dark';

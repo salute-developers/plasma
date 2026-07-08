@@ -1,6 +1,7 @@
 import { css, avatarTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyS,
+    bodyXXS,
     inverseTextPrimary,
     onDarkSurfaceSolidDefault,
     onDarkSurfaceTransparentCard,
@@ -28,10 +29,6 @@ import {
     textWarning,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
-/*
- * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs/plasma-themes/tokens/plasma_giga where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: bodyXxs, text
- */
 export const config = {
     defaults: {
         view: 'default',
@@ -103,12 +100,12 @@ export const config = {
                 ${tokens.badgePadding}: 0 0.438rem;
                 ${tokens.badgePaddingIconOnly}: 0 0.25rem;
 
-                ${tokens.badgeFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.badgeFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.badgeFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.badgeFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.badgeLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.badgeLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.badgeFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.badgeFontSize}: ${bodyXXS.fontSize};
+                ${tokens.badgeFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.badgeFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.badgeLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.badgeLineHeight}: ${bodyXXS.lineHeight};
 
                 ${tokens.badgeLeftContentMarginLeft}: -0.063rem;
                 ${tokens.badgeLeftContentMarginRight}: 0.125rem;
@@ -120,12 +117,12 @@ export const config = {
                 ${tokens.counterBorderRadius}: 1rem;
                 ${tokens.counterHeight}: 1.25rem;
                 ${tokens.counterPadding}: 0 0.375rem;
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             m: css`
                 ${tokens.avatarSize}: 2.25rem;
@@ -142,12 +139,12 @@ export const config = {
                 ${tokens.badgePadding}: 0 0.25rem;
                 ${tokens.badgePaddingIconOnly}: 0 0.188rem;
 
-                ${tokens.badgeFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.badgeFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.badgeFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.badgeFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.badgeLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.badgeLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.badgeFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.badgeFontSize}: ${bodyXXS.fontSize};
+                ${tokens.badgeFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.badgeFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.badgeLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.badgeLineHeight}: ${bodyXXS.lineHeight};
 
                 ${tokens.badgeLeftContentMarginLeft}: -0.063rem;
                 ${tokens.badgeLeftContentMarginRight}: 0.125rem;
@@ -159,16 +156,12 @@ export const config = {
                 ${tokens.counterBorderRadius}: 1rem;
                 ${tokens.counterHeight}: 1rem;
                 ${tokens.counterPadding}: 0 0.25rem;
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             s: css`
                 ${tokens.avatarSize}: 1.5rem;
@@ -183,18 +176,12 @@ export const config = {
                 ${tokens.counterBorderRadius}: 1rem;
                 ${tokens.counterHeight}: 0.75rem;
                 ${tokens.counterPadding}: 0 0.125rem;
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                /* NOTE: no token bodyXxs in @salutejs/sdds-themes/tokens */
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             fit: css`
                 ${tokens.avatarSize}: 100%;
@@ -202,6 +189,14 @@ export const config = {
                 ${tokens.fontWeight}: 0;
                 ${tokens.lineHeight}: 0;
                 ${tokens.statusIconSize}: 0;
+                ${tokens.borderRadius}: 50%;
+            `,
+        },
+        focused: {
+            true: css`
+                ${tokens.outlineSize}: 0.1rem;
+                ${tokens.outlineOffset}: -0.2rem;
+                ${tokens.outlineColor}: ${surfaceAccent};
             `,
         },
         shape: {

@@ -63,6 +63,14 @@ export const config = {
                 ${tokens.fontWeight}: 0;
                 ${tokens.lineHeight}: 0;
                 ${tokens.statusIconSize}: 0;
+                ${tokens.borderRadius}: 50%;
+            `,
+        },
+        focused: {
+            true: css`
+                ${tokens.outlineSize}: 0.1rem;
+                ${tokens.outlineOffset}: -0.2rem;
+                ${tokens.outlineColor}: var(--surface-accent);
             `,
         },
         shape: {

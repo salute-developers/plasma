@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type {
     FormEventHandler,
     ChangeEventHandler,
@@ -6,6 +6,7 @@ import type {
     ChangeEvent,
     MouseEventHandler,
     ClipboardEventHandler,
+    UIEventHandler,
 } from 'react';
 import { css } from 'styled-components';
 import { cx, safeUseId } from 'src/utils';
@@ -129,6 +130,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 onFocus,
                 onBlur,
                 onPaste,
+                onScroll,
 
                 // Пропсы для внутреннего использования, не отдается наружу.
                 // @ts-ignore
@@ -296,6 +298,16 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 }
             };
 
+            const handleScroll: UIEventHandler<HTMLInputElement> = (e) => {
+                if (!hasFocus && e?.currentTarget) {
+                    e.currentTarget.scrollLeft = 0;
+                }
+
+                if (onScroll) {
+                    onScroll(e);
+                }
+            };
+
             const updateChips = (newChips: Array<ChipValues>, newValues: Array<TextFieldPrimitiveValue>) => {
                 setChips(newChips);
                 onChangeChips?.(newValues);
@@ -371,6 +383,12 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 setHasValue(Boolean(outerValue) || Boolean(inputRef?.current?.value));
             }, [outerValue, inputRef?.current?.value]);
 
+            useLayoutEffect(() => {
+                if (!hasFocus && inputRef.current) {
+                    inputRef.current.scrollLeft = 0;
+                }
+            }, [hasFocus]);
+
             const innerOptional = Boolean(required ? false : optional);
             const hasPlaceholderOptional = innerOptional && !innerLabelValue && !hasOuterLabel;
             const optionalTextNode = innerOptional ? (
@@ -384,7 +402,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-ignore
                 // eslint-disable-next-line no-underscore-dangle
-                !(rest as any)._textEllipsisDisable && !textAfter ? classes.inputTextEllipsis : undefined;
+                !(rest as any)._textEllipsisDisable && !textAfter && !hasFocus ? classes.inputTextEllipsis : undefined;
 
             return (
                 <Root
@@ -571,6 +589,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     onFocus={handleFocus}
                                     onBlur={handleBlur}
                                     onPaste={handlePaste}
+                                    onScroll={handleScroll}
                                     {...rest}
                                 />
                                 {hasInnerLabel && (

@@ -26,7 +26,7 @@ export const InputWrapper = styled.div`
 
 export const InputLabelWrapper = styled.div`
     flex: 1;
-    overflow: var(${tokens.scrollableWrapperOverflow}, scroll);
+    overflow-x: var(${tokens.scrollableWrapperOverflow}, scroll);
     position: relative;
     width: 100%;
     display: inline-flex;
@@ -39,9 +39,7 @@ export const InputLabelWrapper = styled.div`
 
     scrollbar-width: none;
 
-    overscroll-behavior: contain;
-
-    &.${String(classes.hasChips)} {
+    &.${classes.hasChips} {
         height: var(${tokens.scrollableWrapperHeight}, var(${tokens.chipHeight}));
         border-radius: var(${tokens.chipBorderRadius});
     }

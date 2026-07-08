@@ -42,7 +42,7 @@ $ npm install --save sass
 
 Типографическая система основана на фирменных шрифтах. Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
 
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от [используемых шрифтов](##Конфигурация-пакета) в теме.
+Для использования типографической системы необходимо загрузить три `css` файла в зависимости от [используемых шрифтов](##Конфигурация-пакета) в теме.
 Их необходимо добавить внутрь тега `head`. Если в качестве основы web-приложения вы используете [create-react-app](https://create-react-app.dev), вам необходимо изменить файл `./public/index.html`.
 
 ```html
@@ -52,6 +52,10 @@ $ npm install --save sass
         <link
             rel="stylesheet"
             href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
         />
     </head>
     <body>

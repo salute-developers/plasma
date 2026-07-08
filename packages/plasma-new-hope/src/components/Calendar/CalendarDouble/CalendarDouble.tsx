@@ -15,7 +15,7 @@ import cls from 'classnames';
 import type { RootProps } from 'src/engines';
 
 import { useForkRef } from '../../../hooks';
-import type { Calendar, CalendarConfigProps, DateObject } from '../Calendar.types';
+import type { Calendar, CalendarConfigProps, CalendarValueType, DateInfo, DateObject } from '../Calendar.types';
 import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate, I18N } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears, EventTooltip } from '../ui';
@@ -70,6 +70,15 @@ export const calendarDoubleRoot = (
             );
             const value = focusedDate || secondValue || firstValue;
 
+            const isSingleMode = !Array.isArray(externalValue);
+            const [internalValue, setInternalValue] = useState<CalendarValueType>(externalValue);
+            const [prevExternalForSelection, setPrevExternalForSelection] = useState<CalendarValueType>(externalValue);
+
+            if (isValueUpdate(externalValue, prevExternalForSelection)) {
+                setInternalValue(externalValue);
+                setPrevExternalForSelection(externalValue);
+            }
+
             const [hoveredItem, setHoveredItem] = useState<DateObject | undefined>();
             const [prevType, setPrevType] = useState(type);
             const [prevValue, setPrevValue] = useState(value);
@@ -110,13 +119,23 @@ export const calendarDoubleRoot = (
                 onPrev: handlePrev,
             });
 
+            const handleOnChangeValue = useCallback(
+                (newDay: Date, dateInfo?: DateInfo) => {
+                    if (isSingleMode && externalValue == null) {
+                        setInternalValue(newDay);
+                    }
+                    onChangeValue?.(newDay, dateInfo);
+                },
+                [onChangeValue, isSingleMode, externalValue],
+            );
+
             const {
                 handleOnChangeDay,
                 handleOnChangeMonth,
                 handleOnChangeQuarter,
                 handleOnChangeYear,
                 handleUpdateCalendarState,
-            } = useCalendarDateChange({ type, onChangeValue, onSelectIndexes, dispatch });
+            } = useCalendarDateChange({ type, onChangeValue: handleOnChangeValue, onSelectIndexes, dispatch });
 
             const updateSecondDate = () => {
                 if (calendarState === CalendarState.Days) {
@@ -272,7 +291,7 @@ export const calendarDoubleRoot = (
                         {calendarState === CalendarState.Days && (
                             <>
                                 <CalendarDays
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={firstDate}
                                     min={min}
                                     max={max}
@@ -292,7 +311,7 @@ export const calendarDoubleRoot = (
                                 />
                                 <StyledSeparator />
                                 <CalendarDays
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={secondDate}
                                     min={min}
                                     max={max}
@@ -316,7 +335,7 @@ export const calendarDoubleRoot = (
                         {calendarState === CalendarState.Months && (
                             <>
                                 <CalendarMonths
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={firstDate}
                                     min={min}
                                     max={max}
@@ -335,7 +354,7 @@ export const calendarDoubleRoot = (
                                 />
                                 <StyledSeparator />
                                 <CalendarMonths
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={secondDate}
                                     min={min}
                                     max={max}
@@ -358,7 +377,7 @@ export const calendarDoubleRoot = (
                         {calendarState === CalendarState.Quarters && (
                             <>
                                 <CalendarQuarters
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={firstDate}
                                     min={min}
                                     max={max}
@@ -376,7 +395,7 @@ export const calendarDoubleRoot = (
                                 />
                                 <StyledSeparator />
                                 <CalendarQuarters
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={secondDate}
                                     min={min}
                                     max={max}
@@ -398,7 +417,7 @@ export const calendarDoubleRoot = (
                         {calendarState === CalendarState.Years && (
                             <>
                                 <CalendarYears
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={firstDate}
                                     startYear={startYear}
                                     selectIndexes={selectIndexes}
@@ -417,7 +436,7 @@ export const calendarDoubleRoot = (
                                 />
                                 <StyledSeparator />
                                 <CalendarYears
-                                    value={externalValue}
+                                    value={internalValue}
                                     date={secondDate}
                                     startYear={startYear + YEAR_RENDER_COUNT}
                                     selectIndexes={selectIndexes}

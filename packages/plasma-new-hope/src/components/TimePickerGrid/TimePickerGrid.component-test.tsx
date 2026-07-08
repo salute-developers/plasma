@@ -38,4 +38,15 @@ describeFn('TimePickerGrid', () => {
         mount(<TimePickerGrid value="00:14" multiplicityMinutes={5} />);
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePickerGrid value="00:00" onChange={onChange} />);
+
+        cy.contains('01').click();
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').its('firstCall.args.0.value').should('eq', '01:00');
+    });
 });

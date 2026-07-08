@@ -158,16 +158,16 @@ export const config = {
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
         },
-        // disabled: {
-        //     true: css`
-        //         ${iconButtonTokens.iconButtonDisabledOpacity}: 0.4;
-        //     `,
-        // },
-        // focused: {
-        //     true: css`
-        //         ${iconButtonTokens.iconButtonFocusColor}: var(--surface-accent);
-        //     `,
-        // },
+        disabled: {
+            true: css`
+                ${iconButtonTokens.iconButtonDisabledOpacity}: 0.4;
+            `,
+        },
+        focused: {
+            true: css`
+                ${iconButtonTokens.iconButtonFocusColor}: var(--surface-accent);
+            `,
+        },
     },
     invariants: css`
         ${iconButtonTokens.iconButtonDisabledOpacity}: 0.4;

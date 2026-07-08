@@ -16,7 +16,7 @@ module.exports = {
     },
     'plasma-giga': {
         scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes', 'plasma-themes'],
         themes: 'plasma-themes',
     },
     'plasma-asdk': {
@@ -70,7 +70,7 @@ module.exports = {
     },
     'sdds-serv': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes', 'sdds-themes'],
         themes: 'sdds-themes',
     },
     'sdds-dfa': {
