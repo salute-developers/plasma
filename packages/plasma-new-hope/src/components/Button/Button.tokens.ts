@@ -16,14 +16,17 @@ export const tokens = {
     buttonIconColor: '--plasma-button-icon-color',
     buttonValueColor: '--plasma-button-value-color',
     buttonBackgroundColor: '--plasma-button-background-color',
-    buttonBorderColor: '--plasma-button-border-color',
     buttonColorHover: '--plasma-button-color-hover',
     buttonBackgroundColorHover: '--plasma-button-background-color-hover',
-    buttonBorderColorHover: '--plasma-button-border-color-hover',
     buttonColorActive: '--plasma-button-color-active',
     buttonBackgroundColorActive: '--plasma-button-background-color-active',
-    buttonBorderColorActive: '--plasma-button-border-color-active',
     buttonLoadingBackgroundColor: '--plasma-button-loading-background-color',
+
+    /* токены для управления UI рамки через box-shadow */
+    buttonBorderWidth: '--plasma-button-border-width',
+    buttonBorderColor: '--plasma-button-border-color',
+    buttonBorderColorActive: '--plasma-button-border-color-active',
+    buttonBorderColorHover: '--plasma-button-border-color-hover',
 
     buttonScaleHover: '--plasma-button-scale-hover',
     buttonScaleActive: '---plasma-button-scale-active',

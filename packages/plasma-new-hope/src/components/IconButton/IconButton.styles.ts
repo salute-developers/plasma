@@ -39,6 +39,8 @@ export const mappingOverride = `
 
     ${buttonTokens.buttonSpinnerSize}: var(${tokens.iconButtonSpinnerSize});
     ${buttonTokens.buttonSpinnerColor}: var(${tokens.iconButtonSpinnerColor});
+
+    ${buttonTokens.buttonBorderWidth}: var(${tokens.iconButtonBorderWidth});
 `;
 
 export const base = css`
