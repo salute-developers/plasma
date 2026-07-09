@@ -5,13 +5,13 @@ import type { RootProps } from 'src/engines/types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { SpinnerSvg } from './SpinnerSvg';
-import { SpinnerWrapper, base } from './Spinner.styles';
+import { SpinnerWrapper, base, BodyWrapper } from './Spinner.styles';
 import type { SpinnerProps } from './Spinner.types';
 import { useInnerProps } from './hooks';
 
 export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
     forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
-        const { id, width, height, style, ...rest } = props;
+        const { id, width, height, style, children, ...rest } = props;
 
         const innerProps = useInnerProps(props, {
             wrapperWidth: 'auto',
@@ -37,6 +37,8 @@ export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
                         color={innerProps.color}
                     />
                 </SpinnerWrapper>
+
+                <BodyWrapper>{children}</BodyWrapper>
             </Root>
         );
     });
