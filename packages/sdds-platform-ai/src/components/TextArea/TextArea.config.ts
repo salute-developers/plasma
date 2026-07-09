@@ -1,4 +1,39 @@
 import { css, textAreaTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyM,
+    bodyS,
+    bodyXS,
+    outlineSolidDefault,
+    outlineTransparentPrimary,
+    outlineTransparentPrimaryHover,
+    shadowDownHardM,
+    surfaceAccent,
+    surfaceNegative,
+    surfaceSolidCardBrightness,
+    surfaceTransparentCard,
+    surfaceTransparentCardActive,
+    surfaceTransparentCardHover,
+    surfaceTransparentNegative,
+    surfaceTransparentNegativeActive,
+    surfaceTransparentNegativeHover,
+    surfaceTransparentPrimary,
+    surfaceTransparentPrimaryActive,
+    surfaceTransparentPrimaryHover,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
+    surfaceTransparentWarningHover,
+    surfaceWarning,
+    textNegative,
+    textPrimary,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+    textWarning,
+} from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 
 export const config = {
     defaults: {
@@ -8,131 +43,131 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-card);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentCard};
+                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentCardHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentCardActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentCard};
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-card);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-card-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-card-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-card);
+                ${tokens.helpersBackgroundColor}: ${surfaceTransparentCard};
+                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentCardHover};
+                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentCardActive};
+                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentCard};
 
-                ${tokens.borderColor}: var(--outline-transparent-primary);
-                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
-                ${tokens.borderColorFocus}: var(--outline-solid-default);
+                ${tokens.borderColor}: ${outlineTransparentPrimary};
+                ${tokens.borderColorHover}: ${outlineTransparentPrimaryHover};
+                ${tokens.borderColorFocus}: ${outlineSolidDefault};
 
-                ${tokens.inputColor}: var(--text-primary);
-                ${tokens.inputColorFocus}: var(--text-primary);
-                ${tokens.inputCaretColor}: var(--text-primary);
+                ${tokens.inputColor}: ${textPrimary};
+                ${tokens.inputColorFocus}: ${textPrimary};
+                ${tokens.inputCaretColor}: ${textPrimary};
 
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.leftHelperColor}: var(--text-secondary);
-                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.rightHelperColor}: ${textSecondary};
 
-                ${tokens.rightContentColor}: var(--text-secondary);
-                ${tokens.rightContentColorHover}: var(--text-secondary-hover);
-                ${tokens.rightContentColorActive}: var(--text-secondary-active);
+                ${tokens.rightContentColor}: ${textSecondary};
+                ${tokens.rightContentColorHover}: ${textSecondaryHover};
+                ${tokens.rightContentColorActive}: ${textSecondaryActive};
 
-                ${tokens.indicatorColor}: var(--surface-negative);
-                ${tokens.optionalColor}: var(--text-tertiary);
+                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.optionalColor}: ${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
-                ${tokens.dividerColorHover}: var(--text-secondary);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
-                ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${tokens.dividerColorHover}: ${textSecondary};
+                ${tokens.dividerColorFocus}: ${surfaceAccent};
+                ${tokens.titleCaptionColor}: ${textSecondary};
+                ${tokens.hintIconColor}: ${textSecondary};
             `,
             warning: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-warning);
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentWarningHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentWarningActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentWarning};
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-warning);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-warning-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-warning-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-warning);
+                ${tokens.helpersBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentWarningHover};
+                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentWarningActive};
+                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentWarning};
 
-                ${tokens.inputColor}: var(--text-primary);
-                ${tokens.inputColorFocus}: var(--text-primary);
-                ${tokens.inputCaretColor}: var(--text-warning);
+                ${tokens.inputColor}: ${textPrimary};
+                ${tokens.inputColorFocus}: ${textPrimary};
+                ${tokens.inputCaretColor}: ${textWarning};
 
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.leftHelperColor}: var(--text-warning);
-                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: ${textWarning};
+                ${tokens.rightHelperColor}: ${textSecondary};
 
-                ${tokens.rightContentColor}: var(--text-secondary);
-                ${tokens.rightContentColorHover}: var(--text-secondary-hover);
-                ${tokens.rightContentColorActive}: var(--text-secondary-active);
+                ${tokens.rightContentColor}: ${textSecondary};
+                ${tokens.rightContentColorHover}: ${textSecondaryHover};
+                ${tokens.rightContentColorActive}: ${textSecondaryActive};
 
-                ${tokens.indicatorColor}: var(--surface-negative);
-                ${tokens.optionalColor}: var(--text-tertiary);
+                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.optionalColor}: ${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${tokens.dividerColor}: var(--surface-warning);
-                ${tokens.dividerColorHover}: var(--surface-warning);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
-                ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.dividerColor}: ${surfaceWarning};
+                ${tokens.dividerColorHover}: ${surfaceWarning};
+                ${tokens.dividerColorFocus}: ${surfaceAccent};
+                ${tokens.titleCaptionColor}: ${textSecondary};
+                ${tokens.hintIconColor}: ${textSecondary};
             `,
             negative: css`
-                ${tokens.inputBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.inputBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentNegative};
+                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentNegativeHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentNegativeActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentNegative};
 
-                ${tokens.helpersBackgroundColor}: var(--surface-transparent-negative);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-transparent-negative-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-transparent-negative-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-transparent-negative);
+                ${tokens.helpersBackgroundColor}: ${surfaceTransparentNegative};
+                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentNegativeHover};
+                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentNegativeActive};
+                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentNegative};
 
-                ${tokens.inputColor}: var(--text-primary);
-                ${tokens.inputColorFocus}: var(--text-primary);
-                ${tokens.inputCaretColor}: var(--text-negative);
+                ${tokens.inputColor}: ${textPrimary};
+                ${tokens.inputColorFocus}: ${textPrimary};
+                ${tokens.inputCaretColor}: ${textNegative};
 
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.leftHelperColor}: var(--text-negative);
-                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: ${textNegative};
+                ${tokens.rightHelperColor}: ${textSecondary};
 
-                ${tokens.rightContentColor}: var(--text-secondary);
-                ${tokens.rightContentColorHover}: var(--text-secondary-hover);
-                ${tokens.rightContentColorActive}: var(--text-secondary-active);
+                ${tokens.rightContentColor}: ${textSecondary};
+                ${tokens.rightContentColorHover}: ${textSecondaryHover};
+                ${tokens.rightContentColorActive}: ${textSecondaryActive};
 
-                ${tokens.indicatorColor}: var(--surface-negative);
-                ${tokens.optionalColor}: var(--text-tertiary);
+                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.optionalColor}: ${textTertiary};
 
-                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
-                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
-                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
-                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
-                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-transparent-primary-active);
-                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-transparent-primary-hover);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
+                ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${tokens.dividerColor}: var(--surface-negative);
-                ${tokens.dividerColorHover}: var(--surface-negative);
-                ${tokens.dividerColorFocus}: var(--surface-accent);
-                ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.dividerColor}: ${surfaceNegative};
+                ${tokens.dividerColorHover}: ${surfaceNegative};
+                ${tokens.dividerColorFocus}: ${surfaceAccent};
+                ${tokens.titleCaptionColor}: ${textSecondary};
+                ${tokens.hintIconColor}: ${textSecondary};
             `,
         },
         size: {
@@ -162,30 +197,30 @@ export const config = {
 
                 ${tokens.labelMarginBottom}: 0.25rem;
 
-                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerTop}: 0.375rem;
                 ${tokens.labelInnerTopHelper}: -0.313rem;
                 ${tokens.labelInnerMarginBottom}: 0.125rem;
 
-                ${tokens.inputFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.inputFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.inputFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.inputFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.inputLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.inputLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.inputFontFamily}: ${bodyM.fontFamily};
+                ${tokens.inputFontSize}: ${bodyM.fontSize};
+                ${tokens.inputFontStyle}: ${bodyM.fontStyle};
+                ${tokens.inputFontWeight}: ${bodyM.fontWeight};
+                ${tokens.inputLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.inputLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.helpersFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.helpersFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.helpersFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.helpersFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.helpersLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.helpersLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${tokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.helpersLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -205,20 +240,20 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
         },
         hintView: {
             default: css`
-                ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m);
-                ${tokens.tooltipColor}: var(--text-primary);
-                ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${tokens.tooltipBoxShadow}: ${shadowDownHardM};
+                ${tokens.tooltipColor}: ${textPrimary};
+                ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
         hintSize: {
@@ -231,12 +266,12 @@ export const config = {
                 ${tokens.tooltipMinHeight}: 2.5rem;
                 ${tokens.tooltipBorderRadius}: 0.625rem;
 
-                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.tooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.tooltipContentLeftMargin}: 0.375rem;
 
@@ -256,12 +291,12 @@ export const config = {
                 ${tokens.tooltipMinHeight}: 2rem;
                 ${tokens.tooltipBorderRadius}: 0.5rem;
 
-                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.tooltipContentLeftMargin}: 0.25rem;
 
@@ -279,19 +314,19 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.readOnlyOpacity}: 1;
-                ${tokens.backgroundColorReadOnly}: var(--surface-transparent-card);
-                ${tokens.borderColor}: var(--outline-transparent-primary);
-                ${tokens.inputColorReadOnly}: var(--text-primary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${tokens.backgroundColorReadOnly}: ${surfaceTransparentCard};
+                ${tokens.borderColor}: ${outlineTransparentPrimary};
+                ${tokens.inputColorReadOnly}: ${textPrimary};
+                ${tokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
-                ${tokens.inputColorDisabled}: var(--text-secondary);
-                ${tokens.dividerColorReadOnly}: var(--surface-transparent-primary);
-                ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
+                ${tokens.inputColorDisabled}: ${textSecondary};
+                ${tokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
             `,
         },
     },
