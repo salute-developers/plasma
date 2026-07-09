@@ -9,6 +9,6 @@ export const base = css`
     }
 
     input:disabled + ${StyledContentWrapper} {
-        cursor: not-allowed;
+        cursor: var(${tokens.checkboxCursor}, not-allowed);
     }
 `;
