@@ -1,20 +1,14 @@
 import React, { useState, ComponentProps, ReactNode } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlus } from '@salutejs/plasma-icons';
-import { accordionConfig } from '@salutejs/plasma-new-hope/styled-components';
 
-import { IconButton } from '../IconButton/IconButton';
-import { hasComponentDraftConfig } from '../../helpers/hasComponentDraftConfig';
-import { createComponentByConfig } from '../../helpers/createComponentByConfig';
+import { IconButton } from '../IconButton';
 
-import { AccordionItem } from './Accordion';
-import { config as defaultConfig } from './Accordion.config';
-import { config as draftConfig } from './Accordion.config.draft';
+import { AccordionItem, Accordion } from './Accordion';
+import { config } from './Accordion.config';
 
-const config = hasComponentDraftConfig() ? draftConfig : defaultConfig;
-
-const Accordion = createComponentByConfig(accordionConfig, config);
+const { views, sizes } = getConfigVariations(config);
 
 type AccordionItemCustomProps = {
     type: 'arrow' | 'sign' | 'clear';
@@ -32,8 +26,6 @@ type AccordionItemCustomProps = {
 
 type AccordionProps = ComponentProps<typeof Accordion> & AccordionItemCustomProps;
 
-const views = ['default', 'clear'] as const;
-const sizes = ['l', 'm', 's', 'xs', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 const stretching = ['filled', 'fixed'] as const;
 const types = ['arrow', 'sign', 'clear'] as const;
 const pins = [
@@ -133,8 +125,6 @@ const getSizeForIconButton = (size) => {
             return 's';
         case 'xs':
         case 'h5':
-        case 'h6':
-            return 'xs';
         default:
             return 'm';
     }
