@@ -18,7 +18,7 @@ export const createDefaultStory = (
                 onHover={action('onHover')}
                 onItemSelect={action('onItemSelect')}
             >
-                <Button text="Список стран" size={rest.size} />
+                <Button text="Список стран" size={rest.triggerSize} />
             </Dropdown>
         );
     };
