@@ -90,7 +90,7 @@ export const StyledListItem = styled.li`
     }
 
     ${addFocus({
-        outlineOffset: '0.063rem',
+        outlineOffset: '0',
         outlineSize: '0.063rem',
         outlineColor: `var(${tokens.listItemFocusColor})`,
         outlineRadius: `var(${tokens.listItemBorderRadius})`,

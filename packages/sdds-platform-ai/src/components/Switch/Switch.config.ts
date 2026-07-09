@@ -70,14 +70,14 @@ export const config = {
                 ${switchTokens.labelColor}: var(--text-primary);
                 ${switchTokens.descriptionColor}: var(--text-secondary);
                 ${switchTokens.descriptionMaxLines}: initial;
-                ${switchTokens.trackBackgroundColorOn}: var(--surface-accent);
-                ${switchTokens.trackBackgroundColorOnHover}: var(--surface-accent-hover);
+                ${switchTokens.trackBackgroundColorOn}: var(--surface-solid-default);
+                ${switchTokens.trackBackgroundColorOnHover}: var(--surface-solid-default-hover);
                 ${switchTokens.trackBackgroundColorOff}: var(--surface-transparent-tertiary);
                 ${switchTokens.trackBackgroundColorOffHover}: var(--surface-transparent-tertiary-hover);
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0;
-                ${switchTokens.thumbBackgroundColorOn}: var(--on-dark-surface-solid-default);
-                ${switchTokens.thumbBackgroundColorOff}: var(--on-dark-surface-solid-default);
+                ${switchTokens.thumbBackgroundColorOn}: var(--surface-solid-primary);
+                ${switchTokens.thumbBackgroundColorOff}: var(--surface-solid-primary);
                 ${switchTokens.thumbBoxShadow}: 0 1px 1px rgba(0, 0, 0, 0.11);
             `,
         },

@@ -6,6 +6,8 @@ import {
     withTheme,
     SDDS_SERV_LIGHT_THEME,
     SDDS_SERV_DARK_THEME,
+    SDDS_SERV_MALACHITE_DARK_THEME,
+    SDDS_SERV_MALACHITE_LIGHT_THEME,
     DEFAULT_MODE,
     ON_DARK_MODE,
     ON_LIGHT_MODE,
@@ -13,7 +15,7 @@ import {
 import { withToast } from './decoratorToast';
 import { withReactStrictMode, reactStrictModePreviewOption } from '@salutejs/plasma-sb-utils';
 
-// Workaround: to make VoiceOver read russian text properly
+// Workaround: to make VoiceOver read Russian text properly
 if (typeof document !== 'undefined') {
     document.documentElement.setAttribute('lang', 'ru');
 }
@@ -26,7 +28,12 @@ const preview: Preview = {
             defaultValue: SDDS_SERV_LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
-                items: [SDDS_SERV_LIGHT_THEME, SDDS_SERV_DARK_THEME],
+                items: [
+                    SDDS_SERV_LIGHT_THEME,
+                    SDDS_SERV_DARK_THEME,
+                    SDDS_SERV_MALACHITE_LIGHT_THEME,
+                    SDDS_SERV_MALACHITE_DARK_THEME,
+                ],
             },
         },
         viewContainer: {

@@ -20,6 +20,16 @@ getBaseVisualTests({
     configPropsForMatrix: ['view', 'size'],
 });
 
+const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set;
+const changeRangeInputValue = (rangeElement: HTMLInputElement) => (value: number) => {
+    if (!nativeInputValueSetter) {
+        return;
+    }
+
+    nativeInputValueSetter.call(rangeElement, value);
+    rangeElement.dispatchEvent(new CustomEvent('change', { detail: { value }, bubbles: true }));
+};
+
 describeFn('Slider', () => {
     const Slider = componentExists ? getComponent<SliderProps>('Slider') : () => null;
     const sliderThumbSelector = '[type="range"]';
@@ -351,5 +361,18 @@ describeFn('Slider', () => {
             </>,
         );
         cy.matchImageSnapshot();
+    });
+
+    it('prop: onChange', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(<Slider min={0} max={100} value={50} onChange={onChange} />);
+
+        cy.get(sliderThumbSelector).then((range) => {
+            changeRangeInputValue(range[0] as HTMLInputElement)(75);
+        });
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', 75);
     });
 });

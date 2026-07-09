@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
-import { addFocus } from '../../../../mixins';
 import { tokens } from '../../Avatar.tokens';
 
 export const base = css`

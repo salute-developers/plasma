@@ -642,4 +642,35 @@ describeFn('DateTimePicker', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: onToggle', () => {
+        cy.viewport(750, 700);
+
+        mount(
+            <Demo
+                defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                onToggle={(isOpen, event) => {
+                    expect(isOpen).to.be.oneOf([true, false]);
+                    expect(event?.type).to.eq('click');
+                }}
+            />,
+        );
+
+        cy.get('input').first().click();
+        cy.get('body').click(0, 0);
+    });
+
+    it('prop: onChange', () => {
+        cy.viewport(750, 700);
+
+        mount(
+            <Demo
+                onChange={(event) => {
+                    expect(event.target).to.have.property('value');
+                }}
+            />,
+        );
+
+        cy.get('input').first().click().type('14062023');
+    });
 });

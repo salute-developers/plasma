@@ -285,6 +285,40 @@ describeFn('Autocomplete', () => {
         cy.get('ul[role="listbox"]').should('be.visible');
     });
 
+    it('closes list on blur', () => {
+        const onBlur = cy.stub().as('onBlur');
+
+        cy.viewport(1000, 500);
+
+        mount(
+            <Autocomplete
+                label="Label"
+                leftHelper="Helper Text"
+                suggestions={suggestions}
+                threshold={0}
+                onBlur={onBlur}
+            />,
+        );
+
+        cy.get('input').click();
+        cy.get('ul[role="listbox"]').should('be.visible');
+        cy.get('input').blur();
+        cy.get('ul[role="listbox"]').should('not.exist');
+        cy.get('@onBlur').should('have.been.calledOnce');
+    });
+
+    it('selects item by mouse click', () => {
+        cy.viewport(1000, 500);
+
+        mount(<Autocomplete label="Label" leftHelper="Helper Text" suggestions={suggestions} />);
+
+        cy.get('input').click();
+        cy.focused().type('ал');
+        cy.get('ul li').first().click();
+        cy.get('ul').should('not.exist');
+        cy.get('input').should('have.value', 'Алексей Смирнов');
+    });
+
     it('portal', () => {
         mount(<DemoWithPortal />);
 

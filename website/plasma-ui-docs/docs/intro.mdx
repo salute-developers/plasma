@@ -64,6 +64,30 @@ export const GlobalStyle = () => (
 );
 ```
 
+### Подключение шрифтов
+
+Типографическая система основана на фирменных шрифтах. Для использования типографической системы необходимо загрузить три `css` файла.
+Их необходимо добавить внутрь тега `head`:
+
+```html
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
+        />
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+```
+
 ### Корень приложения
 В корне приложения вызовите компонент глобальных стилей `GlobalStyle`,
 а также с помощью [`DeviceThemeProvider`](./components/devicethemeprovider) подключите типографическую систему:

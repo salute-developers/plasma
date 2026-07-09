@@ -143,7 +143,7 @@ type SelectSingleProps<K extends ItemOption> = {
     /**
      * Callback для кастомной настройки значения в селекте.
      */
-    renderTarget?: (value: K, opened?: boolean) => ReactNode;
+    renderTarget?: (value: K | null, opened?: boolean) => ReactNode;
     selectAllOptions?: never;
 };
 

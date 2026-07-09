@@ -29,6 +29,7 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: ${inverseTextPrimary};
                 ${tokens.chipBackground}: ${surfaceSolidDefault};
                 ${tokens.chipColorHover}: ${inverseTextPrimary};
@@ -37,6 +38,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: ${surfaceSolidDefaultActive};
             `,
             secondary: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: ${textPrimary};
                 ${tokens.chipBackground}: ${surfaceTransparentSecondary};
                 ${tokens.chipColorHover}: ${textPrimary};
@@ -45,6 +47,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: ${surfaceTransparentSecondaryActive};
             `,
             accent: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: ${onDarkTextPrimary};
                 ${tokens.chipBackground}: ${surfaceAccent};
                 ${tokens.chipColorHover}: ${onDarkTextPrimary};

@@ -9,6 +9,7 @@ export * from './components/Card';
 export * from './components/Cell';
 export * from './components/Chip';
 export * from './components/ChipGroup';
+export * from './components/CodeArea';
 export * from './components/Divider';
 export * from './components/Image';
 export * from './components/InformationWrapper';

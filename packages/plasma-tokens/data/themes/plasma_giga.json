@@ -11,6 +11,113 @@
         }
     },
     "dark": {
+        "syntax": {
+            "default": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "",
+                    "enabled": true
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            },
+            "onDark": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            },
+            "onLight": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            },
+            "inverse": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            }
+        },
         "text": {
             "default": {
                 "textPrimary": {
@@ -236,8 +343,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -250,8 +363,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -530,8 +649,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -544,8 +669,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -808,8 +939,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -822,8 +959,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1118,8 +1261,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1132,8 +1281,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -1272,15 +1427,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF3D",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF0F",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек"
                 },
                 "surfaceClearHover": {
@@ -1569,10 +1724,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола"
@@ -1599,8 +1750,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -1613,8 +1770,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -1679,6 +1842,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Основной фон для карточек"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек"
                 }
             },
             "onDark": {
@@ -1763,15 +1930,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF3D",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF0F",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClear": {
@@ -2067,10 +2234,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
@@ -2093,8 +2256,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2107,8 +2276,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2173,6 +2348,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
                 }
             },
             "onLight": {
@@ -2587,8 +2766,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -2601,8 +2786,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3081,8 +3272,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -3095,8 +3292,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -4990,6 +5193,113 @@
         }
     },
     "light": {
+        "syntax": {
+            "default": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": "",
+                    "enabled": true
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            },
+            "onDark": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            },
+            "onLight": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.800]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.800]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.500]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.500]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.400]",
+                    "comment": ""
+                }
+            },
+            "inverse": {
+                "syntaxYellow": {
+                    "value": "[general.amber.300]",
+                    "comment": ""
+                },
+                "syntaxOrange": {
+                    "value": "[general.orange.250]",
+                    "comment": ""
+                },
+                "syntaxPink": {
+                    "value": "[general.pink.400]",
+                    "comment": ""
+                },
+                "syntaxSpring": {
+                    "value": "[general.spring.150]",
+                    "comment": ""
+                },
+                "syntaxSkyBlue": {
+                    "value": "[general.skyBlue.200]",
+                    "comment": ""
+                },
+                "syntaxRed": {
+                    "value": "[general.red.300]",
+                    "comment": ""
+                }
+            }
+        },
         "text": {
             "default": {
                 "textPrimaryHover": {
@@ -5215,8 +5525,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5229,8 +5545,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5509,8 +5831,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5523,8 +5851,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -5803,8 +6137,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -5817,8 +6157,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6097,8 +6443,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6111,8 +6463,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#5E94FF", "#43DBFA"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#5E94FF",
+                                "#43DBFA"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -6578,8 +6936,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6592,8 +6956,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0, 1],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.5
@@ -6742,15 +7112,15 @@
                     "comment": "Глубокий прозрачный фон поверхности/контрола на темном фоне"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF0A",
+                    "value": "#EBFFFD1C",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF29",
+                    "value": "#EBFFFD08",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Прозрачный фон для карточек на темном фоне"
                 },
                 "surfaceClear": {
@@ -7046,10 +7416,6 @@
                     "value": "#FFFFFF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Прозрачный фон для карточек на темном фоне"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.05)",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне"
@@ -7072,8 +7438,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7086,8 +7458,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7152,6 +7530,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Основной фон для карточек на темном фоне"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Прозрачный фон для карточек на темном фоне"
                 }
             },
             "onLight": {
@@ -7566,8 +7948,14 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7580,8 +7968,14 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": ["#3E79F0", "#27C6E5"],
-                            "locations": [0.06, 0.94],
+                            "colors": [
+                                "#3E79F0",
+                                "#27C6E5"
+                            ],
+                            "locations": [
+                                0.06,
+                                0.94
+                            ],
                             "startPoint": {
                                 "x": 0,
                                 "y": 0.46
@@ -7730,15 +8124,15 @@
                     "comment": "Инвертированный глубокий прозрачный фон поверхности/контрола"
                 },
                 "surfaceTransparentCardHover": {
-                    "value": "#FFFFFF0A",
+                    "value": "#EBFFFD1C",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardActive": {
-                    "value": "#FFFFFF29",
+                    "value": "#EBFFFD08",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceTransparentCardBrightness": {
-                    "value": "#FFFFFF1F",
+                    "value": "#EBFFFD0D",
                     "comment": "Инвертированный прозрачный фон для карточек"
                 },
                 "surfaceClear": {
@@ -8034,10 +8428,6 @@
                     "value": "#FFFFFF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
                 },
-                "surfaceTransparentCard": {
-                    "value": "rgba(255,255,255,0.12)",
-                    "comment": "Инвертированный прозрачный фон для карточек"
-                },
                 "surfaceTransparentPrimary": {
                     "value": "rgba(255,255,255,0.06)",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола"
@@ -8110,6 +8500,10 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.900]",
                     "comment": "Инвертированный основной фон для карточек"
+                },
+                "surfaceTransparentCard": {
+                    "value": "#edfffd0d",
+                    "comment": "Инвертированный прозрачный фон для карточек"
                 }
             }
         },

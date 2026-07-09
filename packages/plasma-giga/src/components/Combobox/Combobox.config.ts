@@ -4,10 +4,16 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    inverseTextPrimary,
+    inverseTextSecondary,
     onDarkTextPrimary,
+    surfaceAccent,
+    surfaceAccentHover,
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceSolidDefaultHover,
     surfaceTransparentNegative,
     surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
@@ -759,48 +765,48 @@ export const config = {
         },
         chipView: {
             default: css`
-                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
-                ${tokens.textFieldChipColorHover}: var(--inverse-text-primary);
-                ${tokens.textFieldChipBackground}: var(--surface-solid-default);
-                ${tokens.textFieldChipBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
-                ${tokens.textFieldChipCloseIconColorReadonly}: var(--inverse-text-secondary);
-                ${tokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipColor}: ${inverseTextPrimary};
+                ${tokens.textFieldChipColorHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.textFieldChipCloseIconColor}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${inverseTextPrimary};
 
-                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-solid-default);
-                ${tokens.textFieldChipColorReadOnly}: var(--inverse-text-primary);
-                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-solid-default);
-                ${tokens.textFieldChipColorReadOnlyHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnly}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${inverseTextPrimary};
                 ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             secondary: css`
-                ${tokens.textFieldChipColor}: var(--text-primary);
-                ${tokens.textFieldChipColorHover}: var(--text-primary);
-                ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--text-secondary);
-                ${tokens.textFieldChipCloseIconColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldChipCloseIconColorReadonly}: var(--text-secondary);
+                ${tokens.textFieldChipColor}: ${textPrimary};
+                ${tokens.textFieldChipColorHover}: ${textPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.textFieldChipCloseIconColor}: ${textSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${textSecondary};
 
-                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldChipColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${textPrimary};
                 ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
             accent: css`
-                ${tokens.textFieldChipColor}: var(--inverse-text-primary);
-                ${tokens.textFieldChipColorHover}: var(--inverse-text-primary);
-                ${tokens.textFieldChipBackground}: var(--surface-accent);
-                ${tokens.textFieldChipBackgroundHover}: var(--surface-accent-hover);
-                ${tokens.textFieldChipCloseIconColor}: var(--inverse-text-secondary);
-                ${tokens.textFieldChipCloseIconColorReadonly}: var(--inverse-text-secondary);
-                ${tokens.textFieldChipCloseIconColorHover}: var(--inverse-text-primary);
+                ${tokens.textFieldChipColor}: ${inverseTextPrimary};
+                ${tokens.textFieldChipColorHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceAccent};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceAccentHover};
+                ${tokens.textFieldChipCloseIconColor}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${inverseTextPrimary};
 
-                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-accent);
-                ${tokens.textFieldChipColorReadOnly}: var(--on-dark-text-primary);
-                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-accent);
-                ${tokens.textFieldChipColorReadOnlyHover}: var(--on-dark-text-primary);
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceAccent};
+                ${tokens.textFieldChipColorReadOnly}: ${onDarkTextPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceAccent};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${onDarkTextPrimary};
                 ${tokens.textFieldChipOpacityReadonly}: 1;
             `,
         },

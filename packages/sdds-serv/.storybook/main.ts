@@ -14,7 +14,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const PLASMA_NEW_HOPE_SC = '@salutejs/plasma-new-hope/styled-components';
 const PLASMA_NEW_HOPE_CSS = '@salutejs/plasma-new-hope/css';
-const PLASMA_NEW_HOPE_SRC = path.resolve(__dirname, '../../plasma-new-hope/src/index.ts');
 const SDDS_SERV_TOKENS = '@salutejs/sdds-themes/tokens/sdds_serv';
 const nodeModulesRegExp = /[\\/]node_modules[\\/]/;
 const storybookViteDepsRegExp = /[\\/]node_modules[\\/]\.cache[\\/]storybook[\\/].*[\\/]sb-vite[\\/]deps[\\/]/;
@@ -63,8 +62,10 @@ const resolveForLinariaEvaluation = (): Plugin => ({
             return null;
         }
 
-        if (source === PLASMA_NEW_HOPE_CSS) {
-            return PLASMA_NEW_HOPE_SRC;
+        if (source === PLASMA_NEW_HOPE_SC || source === PLASMA_NEW_HOPE_CSS) {
+            return require.resolve(PLASMA_NEW_HOPE_CSS, {
+                paths: [__dirname],
+            });
         }
 
         if (source === SDDS_SERV_TOKENS) {
@@ -126,7 +127,7 @@ const linariaPlugin = useCjsResolverInsideLinaria(
             },
         ],
         tagResolver: (source, tag) => {
-            if (source === PLASMA_NEW_HOPE_CSS) {
+            if (source === PLASMA_NEW_HOPE_SC || source === PLASMA_NEW_HOPE_CSS) {
                 if (tag === 'css') {
                     return require.resolve('@linaria/core/processors/css');
                 }
@@ -182,6 +183,7 @@ const config: StorybookConfig = {
             },
             optimizeDeps: {
                 include: ['@salutejs/plasma-new-hope/css'],
+                exclude: ['@salutejs/plasma-new-hope/styled-components'],
             },
             plugins: [
                 transformToCssComponents(),

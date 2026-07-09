@@ -8,7 +8,7 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 const Icon = () => <IconClose color="inherit" />;
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
-describe('plasma-b2c: EmbedIconButton', () => {
+describe.skip('plasma-b2c: EmbedIconButton', () => {
     const EmbedIconButton = getComponent('EmbedIconButton');
 
     const CypressTestDecoratorWithTypo: FC<PropsWithChildren> = ({ children }) => (

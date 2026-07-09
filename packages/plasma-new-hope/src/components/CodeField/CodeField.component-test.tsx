@@ -152,4 +152,15 @@ describeFn('CodeField', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('prop: onChange', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(<CodeField codeLength={4} autoFocus autoComplete="off" onChange={onChange} />);
+
+        cy.focused().type('1');
+
+        cy.get('@onChange').should('have.been.calledOnce');
+        cy.get('@onChange').should('have.been.calledWith', '1');
+    });
 });

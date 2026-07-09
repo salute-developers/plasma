@@ -42,13 +42,15 @@ export const withRange = <T extends Calendar>(Component: FC<Calendar>) => ({
                 return;
             }
 
-            setValues([startValue, newDay]);
-
-            const [first, second] = getSortedValues([startValue, newDay]);
-
             if (startValue) {
+                setValues([startValue, newDay]);
+
+                const [first, second] = getSortedValues([startValue, newDay]);
+
                 onChangeValue([first, second], dateInfo);
             } else {
+                setValues([newDay, undefined]);
+
                 onChangeSingleValue?.(newDay, dateInfo);
             }
         },

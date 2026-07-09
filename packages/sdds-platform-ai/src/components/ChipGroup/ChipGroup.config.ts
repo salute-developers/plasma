@@ -8,6 +8,7 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--inverse-text-primary);
                 ${tokens.chipBackground}: var(--surface-solid-default);
                 ${tokens.chipColorHover}: var(--inverse-text-primary);
@@ -16,6 +17,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: var(--surface-solid-default-active);
             `,
             secondary: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--text-primary);
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
                 ${tokens.chipColorHover}: var(--text-primary);
@@ -24,6 +26,7 @@ export const config = {
                 ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
             `,
             accent: css`
+                ${tokens.chipFocusColor}: var(--surface-accent);
                 ${tokens.chipColor}: var(--on-dark-text-primary);
                 ${tokens.chipBackground}: var(--surface-accent);
                 ${tokens.chipColorHover}: var(--on-dark-text-primary);

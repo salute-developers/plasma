@@ -94,6 +94,27 @@ export const SearchIcon = () => (
 );
 ```
 
+## Задание пользовательского размера иконки
+
+Если стандартные размеры (`xs`, `s`, `m`) не подходят, задайте размер иконки напрямую через `style`:
+
+```tsx live
+import React from 'react';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+            <IconPlasma color="inherit" style={{ width: '2rem', height: '2rem' }} />
+            <IconPlasma color="inherit" style={{ width: '3rem', height: '3rem' }} />
+        </div>
+    );
+}
+```
+
+Это удобно при встраивании иконки в компоненты, где размер определяется родительским контейнером, а не дизайн-токеном.
+
 :::danger
 В пакете есть переиспользуемый компонент `Icon`, которому можно передать имя иконки:
 

@@ -100,17 +100,17 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
 
         ${addFocus({
             outlineSize: '0.063rem',
-            outlineOffset: '-0.125rem',
+            outlineOffset: '0.125rem',
             outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-            outlineRadius: `calc(var(${innerTokens.dateStructureBorderRadius}) + 0.125rem)`,
+            outlineRadius: `var(${innerTokens.dateStructureBorderRadius})`,
         })};
 
         &.${classes.currentItem} {
             ${addFocus({
                 outlineSize: '0.063rem',
-                outlineOffset: '-0.1875rem',
+                outlineOffset: '0.1875rem',
                 outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-                outlineRadius: `calc(var(${innerTokens.dateStructureBorderRadius}) + 0.125rem)`,
+                outlineRadius: `var(${innerTokens.dateStructureBorderRadius})`,
             })};
         }
     }

@@ -1,5 +1,10 @@
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { surfaceTransparentSecondary, textAccent, textSecondary } from '@salutejs/plasma-themes/tokens/plasma_giga';
+import {
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    textAccent,
+    textSecondary,
+} from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
     defaults: {
@@ -12,11 +17,13 @@ export const config = {
                 ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.dividerColor}: ${surfaceTransparentTertiary};
             `,
             filled: css`
                 ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.dividerColor}: ${surfaceTransparentTertiary};
             `,
         },
         size: {
@@ -27,6 +34,8 @@ export const config = {
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.25rem 0.75rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 0.75rem 0;
+                ${segmentTokens.dividerMargin}: 0.5rem 0.125rem;
+                ${segmentTokens.dividerVerticalMargin}: 0.125rem 0.5rem;
             `,
             s: css`
                 ${segmentTokens.groupBorderRadius}: 0.75rem;
@@ -35,6 +44,8 @@ export const config = {
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.5rem 0.875rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 0.875rem 0;
+                ${segmentTokens.dividerMargin}: 0.5rem 0.125rem;
+                ${segmentTokens.dividerVerticalMargin}: 0.125rem 0.5rem;
             `,
             m: css`
                 ${segmentTokens.groupBorderRadius}: 0.875rem;
@@ -43,6 +54,8 @@ export const config = {
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.75rem 1.25rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 1.25rem 0;
+                ${segmentTokens.dividerMargin}: 0.5rem 0.125rem;
+                ${segmentTokens.dividerVerticalMargin}: 0.125rem 0.5rem;
             `,
             l: css`
                 ${segmentTokens.groupBorderRadius}: 1rem;
@@ -51,6 +64,8 @@ export const config = {
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 1.375rem 0;
+                ${segmentTokens.dividerMargin}: 0.5rem 0.125rem;
+                ${segmentTokens.dividerVerticalMargin}: 0.125rem 0.5rem;
             `,
             xl: css`
                 ${segmentTokens.groupBorderRadius}: 1.125rem;
@@ -60,6 +75,8 @@ export const config = {
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1.25rem 1.5rem;
                 ${segmentTokens.groupVerticalArrowPadding}: 1.5rem 0;
+                ${segmentTokens.dividerMargin}: 0.5rem 0.125rem;
+                ${segmentTokens.dividerVerticalMargin}: 0.125rem 0.5rem;
             `,
         },
         disabled: {

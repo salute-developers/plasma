@@ -1,19 +1,19 @@
 import { css } from 'styled-components';
+import { addFocus } from 'src/mixins';
 
 import { tokens } from '../../Chip.tokens';
-import { addFocus } from '../../../../mixins';
 
 export const base = css`
-    --plasma_private-chip-outline-size: var(${tokens.outlineSize}, 0.125rem);
+    --plasma_private-chip-outline-size: var(${tokens.outlineSize}, 0.063rem);
 
     :focus {
         outline: none;
     }
 
     ${addFocus({
-        outlineOffset: 'calc(-1 * var(--plasma_private-chip-outline-size))',
+        outlineOffset: '0.125rem',
         outlineSize: 'var(--plasma_private-chip-outline-size)',
-        outlineRadius: `calc(var(${tokens.borderRadius}) + var(--plasma_private-chip-outline-size))`,
+        outlineRadius: `var(${tokens.borderRadius})`,
         outlineColor: `var(${tokens.focusColor})`,
     })}
 `;

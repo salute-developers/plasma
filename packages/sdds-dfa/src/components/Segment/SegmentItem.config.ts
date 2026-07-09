@@ -103,7 +103,7 @@ export const config = {
                 ${segmentTokens.itemSelectedAdditionalColor}: var(--on-dark-text-secondary);
                 ${segmentTokens.itemSelectedAdditionalColorHover}: var(--on-dark-text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
         },
         size: {
