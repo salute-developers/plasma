@@ -6,6 +6,6 @@ export const base = css`
     opacity: var(${tokens.disabledOpacity});
 
     &[disabled] {
-        cursor: not-allowed;
+        cursor: var(${tokens.switchCursor}, not-allowed);
     }
 `;
