@@ -123,7 +123,7 @@ export const config = {
                 ${accordionTokens.accordionItemPaddingVertical}: 1rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.25rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
-                ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
+                ${accordionTokens.accordionItemBorderRadius}: 1.375rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h2-font-family);
@@ -144,7 +144,7 @@ export const config = {
                 ${accordionTokens.accordionItemPaddingVertical}: 0.875rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 1.125rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
-                ${accordionTokens.accordionItemBorderRadius}: 0.75rem;
+                ${accordionTokens.accordionItemBorderRadius}: 1.25rem;
                 ${accordionTokens.accordionItemIconSize}: 1.5rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h3-font-family);
@@ -165,7 +165,7 @@ export const config = {
                 ${accordionTokens.accordionItemPaddingVertical}: 0.688rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 0.875rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
-                ${accordionTokens.accordionItemBorderRadius}: 0.625rem;
+                ${accordionTokens.accordionItemBorderRadius}: 1.125rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h4-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h4-font-size);
@@ -185,7 +185,7 @@ export const config = {
                 ${accordionTokens.accordionItemPaddingVertical}: 0.5rem;
                 ${accordionTokens.accordionItemPaddingHorizontal}: 0.75rem;
                 ${accordionTokens.accordionItemGap}: 0.25rem;
-                ${accordionTokens.accordionItemBorderRadius}: 0.5rem;
+                ${accordionTokens.accordionItemBorderRadius}: 1rem;
 
                 ${accordionTokens.accordionItemTitleFontFamily}: var(--plasma-typo-h5-font-family);
                 ${accordionTokens.accordionItemTitleFontSize}: var(--plasma-typo-h5-font-size);
