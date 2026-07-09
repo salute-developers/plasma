@@ -1,0 +1,14 @@
+import type { CustomNumberFormatProps } from '@salutejs/plasma-new-hope';
+
+import type { ComponentProps, ForwardRefExoticComponent } from 'react';
+
+import { TextField } from '../TextField/TextField';
+/**
+ * Note: проблема связанная с выводом типов
+ * Выводимому типу "NumberFormat" невозможно присвоить имя без ссылки
+ * на "@salutejs/plasma-new-hope/node_modules/react-number-format".
+ * Вероятно, оно не является переносимым. Требуется заметка с типом.
+ */
+type NumberFormatProps = CustomNumberFormatProps & ComponentProps<typeof TextField>;
+export declare const NumberFormat: ForwardRefExoticComponent<NumberFormatProps>;
+export {};

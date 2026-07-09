@@ -1,0 +1,68 @@
+import React, { ComponentProps } from 'react';
+
+declare const HorizontalTabs: React.FunctionComponent<
+    import('@salutejs/plasma-new-hope/types/engines/types.js').PropsType<{
+        view: {
+            clear: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            filled: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            divider: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+        size: {
+            xs: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            s: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            m: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            l: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            h6: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            h5: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            h4: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            h3: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            h2: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            h1: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+        stretch: {
+            true: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+        disabled: {
+            true: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+        pilled: {
+            true: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+    }> &
+        (
+            | (import('@salutejs/plasma-new-hope/styled-components').BaseTabsProps &
+                  import('@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types.js').CustomHorizontalTabsProps &
+                  React.RefAttributes<HTMLDivElement>)
+            | (import('@salutejs/plasma-new-hope/styled-components').BaseTabsProps &
+                  import('@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types.js').CustomHeaderTabsProps &
+                  React.RefAttributes<HTMLDivElement>)
+        )
+>;
+declare const VerticalTabs: React.FunctionComponent<
+    import('@salutejs/plasma-new-hope/types/engines/types.js').PropsType<{
+        view: {
+            divider: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+        size: {
+            xs: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            s: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            m: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+            l: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+        stretch: {
+            true: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+        disabled: {
+            true: import('@salutejs/plasma-new-hope/types/engines/types.js').PolymorphicClassName;
+        };
+    }> &
+        import('@salutejs/plasma-new-hope/styled-components').BaseTabsProps &
+        import('@salutejs/plasma-new-hope/types/components/Tabs/Tabs.types.js').CustomVerticalTabsProps &
+        React.RefAttributes<HTMLDivElement>
+>;
+type TabsProps = ComponentProps<typeof HorizontalTabs> | ComponentProps<typeof VerticalTabs>;
+/**
+ * Контейнер вкладок, основной компонент для пользовательской сборки вкладок.
+ */
+export declare const Tabs: (props: TabsProps) => JSX.Element;
+export {};

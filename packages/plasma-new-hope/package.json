@@ -94,6 +94,7 @@
     "@types/react-dom": "18.0.11",
     "@types/react-syntax-highlighter": "15.5.13",
     "@types/styled-components": "5.1.0",
+    "@types/tinycolor2": "1.4.6",
     "babel-loader": "8.2.2",
     "babel-plugin-annotate-pure-calls": "0.4.0",
     "babel-plugin-module-resolver": "5.0.2",
@@ -123,6 +124,7 @@
     "dayjs": "1.11.11",
     "dompurify": "3.3.3",
     "focus-visible": "5.2.0",
+    "html2canvas": "1.4.1",
     "lodash.chunk": "4.2.0",
     "lodash.throttle": "4.1.1",
     "marked": "16.4.0",
@@ -133,7 +135,8 @@
     "react-number-format": "5.4.3",
     "react-popper": "2.3.0",
     "react-syntax-highlighter": "15.6.6",
-    "storeon": "3.1.5"
+    "storeon": "3.1.5",
+    "tinycolor2": "1.6.0"
   },
   "sideEffects": ["*.css"]
 }

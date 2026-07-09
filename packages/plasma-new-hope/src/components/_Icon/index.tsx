@@ -58,3 +58,4 @@ export { IconSendOutline } from './Icons/IconSendOutline';
 export { IconHeartOutline } from './Icons/IconHeartOutline';
 export { IconHeartDashOutline } from './Icons/IconHeartDashOutline';
 export { IconCopyOutline } from './Icons/IconCopyOutline';
+export { IconPalette } from './Icons/IconPalette';
