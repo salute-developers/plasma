@@ -5,7 +5,7 @@ import { baseContent as buttonBase } from '../Button/Button.styles';
 
 import { tokens } from './IconButton.tokens';
 
-// Переопределние токенов из Button
+// Переопределение токенов из Button
 export const mappingOverride = `
     ${buttonTokens.buttonPadding}: 0;
 
@@ -39,6 +39,8 @@ export const mappingOverride = `
 
     ${buttonTokens.buttonSpinnerSize}: var(${tokens.iconButtonSpinnerSize});
     ${buttonTokens.buttonSpinnerColor}: var(${tokens.iconButtonSpinnerColor});
+
+    ${buttonTokens.buttonCursor}: var(${tokens.iconButtonCursor});
 `;
 
 export const base = css`

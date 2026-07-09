@@ -30,4 +30,7 @@ export const tokens = {
 
     iconButtonSpinnerColor: '--plasma-icon-button-spinner-color',
     iconButtonSpinnerSize: '--plasma-icon-button-spinner-size',
+
+    /** Токены для управления UI cursor */
+    iconButtonCursor: '--plasma-icon-button-cursor',
 };
