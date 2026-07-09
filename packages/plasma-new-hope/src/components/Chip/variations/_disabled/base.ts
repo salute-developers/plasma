@@ -6,7 +6,7 @@ import { StyledContentClear } from '../../Chip.styles';
 export const base = css`
     &[disabled] {
         opacity: var(${tokens.disabledOpacity});
-        cursor: not-allowed;
+        cursor: var(${tokens.chipCursor}, not-allowed);
 
         :hover,
         :active {

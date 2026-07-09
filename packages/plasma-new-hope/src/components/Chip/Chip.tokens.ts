@@ -44,4 +44,7 @@ export const tokens = {
     rightContentMarginRight: '--plasma-chip-right-content-margin-right',
     clearContentMarginLeft: '--plasma-chip-clear-content-margin-left',
     clearContentMarginRight: '--plasma-chip-clear-content-margin-right',
+
+    /** Токены для управления UI cursor */
+    chipCursor: '--plasma-chip-cursor',
 };
