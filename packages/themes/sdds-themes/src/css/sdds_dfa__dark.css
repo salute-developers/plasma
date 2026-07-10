@@ -875,6 +875,30 @@
   --inverse-outline-accent-gradient-hover: #CCCCCCFF;
   --inverse-outline-accent-gradient-active: #E6E6E6FF;
   --inverse-outline-accent-gradient: linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%);
+  --data-green-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%);
+  --data-green-gradient-hover: #FFFFFFFF;
+  --data-green-gradient-active: #FFFFFFFF;
+  --data-green-gray-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%);
+  --data-green-gray-gradient-hover: #FFFFFFFF;
+  --data-green-gray-gradient-active: #FFFFFFFF;
+  --on-dark-data-green-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%);
+  --on-dark-data-green-gradient-hover: #FFFFFFFF;
+  --on-dark-data-green-gradient-active: #FFFFFFFF;
+  --on-dark-data-green-gray-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%);
+  --on-dark-data-green-gray-gradient-hover: #FFFFFFFF;
+  --on-dark-data-green-gray-gradient-active: #FFFFFFFF;
+  --on-light-data-green-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%);
+  --on-light-data-green-gradient-hover: #FFFFFFFF;
+  --on-light-data-green-gradient-active: #FFFFFFFF;
+  --on-light-data-green-gray-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%);
+  --on-light-data-green-gray-gradient-hover: #FFFFFFFF;
+  --on-light-data-green-gray-gradient-active: #FFFFFFFF;
+  --inverse-data-green-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%);
+  --inverse-data-green-gradient-hover: #FFFFFFFF;
+  --inverse-data-green-gradient-active: #FFFFFFFF;
+  --inverse-data-green-gray-gradient: linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%);
+  --inverse-data-green-gray-gradient-hover: #FFFFFFFF;
+  --inverse-data-green-gray-gradient-active: #FFFFFFFF;
 }
 
 :root {
