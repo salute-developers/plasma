@@ -33,10 +33,10 @@ export const createDefaultStory = (
     TextArea: any,
     customIcon?: (size: string, type?: 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
 ) => {
-    return ({ enableContentRight, enableHeader, view, readOnly, ...rest }: any) => {
+    return ({ enableContentRight, enableHeader, view, readOnly, disabled, ...rest }: any) => {
         const [text, setText] = useState('Значение поля');
         const innerGetIcon = (type: 'right') => {
-            return customIcon ? customIcon(rest.size, type, rest.disabled, readOnly) : getIcon(IconBellFill, rest.size);
+            return customIcon ? customIcon(rest.size, type, disabled, readOnly) : getIcon(IconBellFill, rest.size);
         };
 
         const contentRight = enableContentRight || readOnly ? innerGetIcon('right') : undefined;
@@ -47,6 +47,7 @@ export const createDefaultStory = (
                 <TextArea
                     {...rest}
                     value={text}
+                    disabled={disabled}
                     readOnly={readOnly}
                     contentRight={contentRight}
                     headerSlot={headerSlot}
