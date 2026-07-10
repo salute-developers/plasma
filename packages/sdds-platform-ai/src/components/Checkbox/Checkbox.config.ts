@@ -15,8 +15,8 @@ export const config = {
                 ${checkboxTokens.triggerBorderRadius}: 0.25rem;
                 ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0;
-                ${checkboxTokens.contentLeftOffset}: 0.5rem;
-                ${checkboxTokens.descriptionMarginTop}: 0.125rem;
+                ${checkboxTokens.contentLeftOffset}: 0.25rem;
+                ${checkboxTokens.descriptionMarginTop}: 0;
                 ${checkboxTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${checkboxTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${checkboxTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
