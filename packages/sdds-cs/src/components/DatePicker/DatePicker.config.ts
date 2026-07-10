@@ -1,3 +1,33 @@
+import {
+    bodyM,
+    bodyMBold,
+    bodyS,
+    bodySBold,
+    bodyXS,
+    inverseOutlineSolidSecondary,
+    inverseTextPrimary,
+    outlineAccent,
+    outlineNegative,
+    outlineSolidPrimary,
+    outlineSolidPrimaryHover,
+    shadowDownSoftS,
+    surfaceAccent,
+    surfaceClear,
+    surfaceNegative,
+    surfaceSolidCard,
+    surfaceSolidPrimary,
+    surfaceTransparentAccent,
+    textAccent,
+    textAccentActive,
+    textAccentHover,
+    textAccentMinor,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textPrimaryHover,
+    textSecondary,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -8,94 +38,94 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.outlineFocusColor}: var(--surface-accent);
+                ${tokens.outlineFocusColor}: ${surfaceAccent};
 
-                ${tokens.background}: var(--surface-solid-card);
-                ${tokens.borderColor}: var(--outline-solid-primary);
-                ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
-                ${tokens.borderColorFocus}: var(--outline-accent);
-                ${tokens.borderColorError}: var(--outline-negative);
-                ${tokens.borderColorSuccess}: var(--outline-accent);
+                ${tokens.background}: ${surfaceSolidCard};
+                ${tokens.borderColor}: ${outlineSolidPrimary};
+                ${tokens.borderColorHover}: ${outlineSolidPrimaryHover};
+                ${tokens.borderColorFocus}: ${outlineAccent};
+                ${tokens.borderColorError}: ${outlineNegative};
+                ${tokens.borderColorSuccess}: ${outlineAccent};
 
-                ${tokens.dividerColor}: var(--text-primary);
-                ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: var(--text-secondary);
-                ${tokens.leftHelperColorError}: var(--text-negative);
-                ${tokens.leftHelperColorSuccess}: var(--text-positive);
+                ${tokens.dividerColor}: ${textPrimary};
+                ${tokens.labelColor}: ${textPrimary};
+                ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorSuccess}: ${textPositive};
 
-                ${tokens.textFieldColor}: var(--text-primary);
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
-                ${tokens.textFieldCaretColor}: var(--text-accent);
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
+                ${tokens.textFieldCaretColor}: ${textAccent};
 
-                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.indicatorColor}: ${surfaceNegative};
 
-                ${tokens.textFieldBorderColor}: var(--outline-solid-primary);
-                ${tokens.textFieldBorderColorHover}: var(--outline-solid-primary-hover);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-accent);
-                ${tokens.textFieldBorderColorError}: var(--outline-negative);
-                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative);
-                ${tokens.textFieldBorderColorSuccess}: var(--outline-accent);
-                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-accent);
-                ${tokens.textFieldBackgroundColor}: var(--surface-solid-card);
+                ${tokens.textFieldBorderColor}: ${outlineSolidPrimary};
+                ${tokens.textFieldBorderColorHover}: ${outlineSolidPrimaryHover};
+                ${tokens.textFieldBorderColorFocus}: ${outlineAccent};
+                ${tokens.textFieldBorderColorError}: ${outlineNegative};
+                ${tokens.textFieldBorderColorErrorFocus}: ${outlineNegative};
+                ${tokens.textFieldBorderColorSuccess}: ${outlineAccent};
+                ${tokens.textFieldBorderColorSuccessFocus}: ${outlineAccent};
+                ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
 
-                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColor}: ${textSecondary};
 
-                ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
-                ${tokens.contentSlotRightColor}: var(--text-accent);
-                ${tokens.contentSlotRightColorHover}: var(--text-accent-hover);
-                ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
+                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.contentSlotRightColor}: ${textAccent};
+                ${tokens.contentSlotRightColorHover}: ${textAccentHover};
+                ${tokens.contentSlotRightColorActive}: ${textAccentActive};
 
-                ${tokens.textFieldTextBeforeColor}: var(--text-secondary);
-                ${tokens.textFieldTextAfterColor}: var(--text-secondary);
+                ${tokens.textFieldTextBeforeColor}: ${textSecondary};
+                ${tokens.textFieldTextAfterColor}: ${textSecondary};
 
-                ${tokens.focusColor}: var(--text-accent);
+                ${tokens.focusColor}: ${textAccent};
 
-                ${tokens.popoverShadow}: var(--shadow-down-soft-s);
+                ${tokens.popoverShadow}: ${shadowDownSoftS};
                 ${tokens.popoverSeparatorBackground}: var(--surface-transparent-secondary);
-                ${tokens.popoverBackgroundColor}: var(--surface-solid-card);
+                ${tokens.popoverBackgroundColor}: ${surfaceSolidCard};
 
-                ${tokens.calendarSelectedItemBackground}: var(--surface-accent);
-                ${tokens.calendarSelectedItemColor}: var(--inverse-text-primary);
-                ${tokens.calendarSelectableItemBackgroundHover}: var(--surface-transparent-accent);
-                ${tokens.calendarCurrentItemBorderColor}: var(--inverse-outline-solid-secondary);
+                ${tokens.calendarSelectedItemBackground}: ${surfaceAccent};
+                ${tokens.calendarSelectedItemColor}: ${inverseTextPrimary};
+                ${tokens.calendarSelectableItemBackgroundHover}: ${surfaceTransparentAccent};
+                ${tokens.calendarCurrentItemBorderColor}: ${inverseOutlineSolidSecondary};
                 ${tokens.calendarCurrentItemBackgroundHover}: transparent;
-                ${tokens.calendarCurrentItemColorHover}: var(--text-primary);
-                ${tokens.calendarCurrentItemChildBackgroundHover}: var(--surface-transparent-accent);
-                ${tokens.calendarActiveItemBackground}: var(--surface-accent);
-                ${tokens.calendarActiveItemColor}: var(--inverse-text-primary);
-                ${tokens.calendarHoveredItemBackground}: var(--surface-accent);
-                ${tokens.calendarHoveredItemColor}: var(--text-primary);
-                ${tokens.calendarRangeBackground}: var(--surface-transparent-accent);
-                ${tokens.calendarOutlineFocusColor}: var(--surface-accent);
-                ${tokens.calendarContentPrimaryColor}: var(--text-primary);
-                ${tokens.calendarContentSecondaryColor}: var(--text-secondary);
-                ${tokens.calendarContentPrimaryDisabledColor}: var(--text-secondary);
-                ${tokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);
-                ${tokens.calendarHeaderArrowColor}: var(--text-accent);
-                ${tokens.calendarBorderColor}: var(--outline-solid-primary);
-                ${tokens.calendarDayOfWeekColor}: var(--text-secondary);
+                ${tokens.calendarCurrentItemColorHover}: ${textPrimary};
+                ${tokens.calendarCurrentItemChildBackgroundHover}: ${surfaceTransparentAccent};
+                ${tokens.calendarActiveItemBackground}: ${surfaceAccent};
+                ${tokens.calendarActiveItemColor}: ${inverseTextPrimary};
+                ${tokens.calendarHoveredItemBackground}: ${surfaceAccent};
+                ${tokens.calendarHoveredItemColor}: ${textPrimary};
+                ${tokens.calendarRangeBackground}: ${surfaceTransparentAccent};
+                ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${tokens.calendarContentPrimaryColor}: ${textPrimary};
+                ${tokens.calendarContentSecondaryColor}: ${textSecondary};
+                ${tokens.calendarContentPrimaryDisabledColor}: ${textSecondary};
+                ${tokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
+                ${tokens.calendarHeaderArrowColor}: ${textAccent};
+                ${tokens.calendarBorderColor}: ${outlineSolidPrimary};
+                ${tokens.calendarDayOfWeekColor}: ${textSecondary};
                 ${tokens.calendarDisabledOpacity}: 0.4;
 
-                ${tokens.iconButtonColor}: var(--text-accent);
-                ${tokens.iconButtonBackgroundColor}: var(--surface-clear);
-                ${tokens.iconButtonColorHover}: var(--text-primary-hover);
-                ${tokens.iconButtonBackgroundColorHover}: var(--surface-clear);
-                ${tokens.iconButtonColorActive}: var(--text-primary-hover);
-                ${tokens.iconButtonBackgroundColorActive}: var(--surface-clear);
-                ${tokens.iconButtonFocusColor}: var(--surface-accent);
+                ${tokens.iconButtonColor}: ${textAccent};
+                ${tokens.iconButtonBackgroundColor}: ${surfaceClear};
+                ${tokens.iconButtonColorHover}: ${textPrimaryHover};
+                ${tokens.iconButtonBackgroundColorHover}: ${surfaceClear};
+                ${tokens.iconButtonColorActive}: ${textPrimaryHover};
+                ${tokens.iconButtonBackgroundColorActive}: ${surfaceClear};
+                ${tokens.iconButtonFocusColor}: ${surfaceAccent};
 
-                ${tokens.textFieldContentRightSlotColor}: var(--text-accent);
-                ${tokens.textFieldContentRightSlotColorHover}: var(--text-accent-minor);
+                ${tokens.textFieldContentRightSlotColor}: ${textAccent};
+                ${tokens.textFieldContentRightSlotColorHover}: ${textAccentMinor};
 
-                ${tokens.shortcutColor}: var(--text-primary);
+                ${tokens.shortcutColor}: ${textPrimary};
                 ${tokens.shortcutBackgroundHover}: var(--surface-transparent-secondary);
             `,
         },
@@ -106,12 +136,12 @@ export const config = {
                 ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
-                ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.dividerFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.dividerFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.dividerFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.dividerLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.dividerFontFamily}: ${bodyM.fontFamily};
+                ${tokens.dividerFontStyle}: ${bodyM.fontStyle};
+                ${tokens.dividerFontSize}: ${bodyM.fontSize};
+                ${tokens.dividerFontWeight}: ${bodyM.fontWeight};
+                ${tokens.dividerLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.dividerLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.leftContentMargin}: 0 0 0 0.75rem;
                 ${tokens.rightContentMargin}: 0;
@@ -121,12 +151,12 @@ export const config = {
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
                 ${tokens.labelWrapperOffset}: 0.5rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.labelFontSize}: ${bodyS.fontSize};
+                ${tokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.embedIconButtonHeight}: 2.5rem;
                 ${tokens.embedIconButtonWidth}: 2.5rem;
@@ -151,20 +181,20 @@ export const config = {
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.75rem 0.6875rem 0.75rem;
-                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textFieldFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyM.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.leftHelperFontFamily}: ${bodyS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
@@ -183,46 +213,46 @@ export const config = {
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarYearItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarYearFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarYearFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarYearFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarQuarterFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarQuarterFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarMonthFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarMonthFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarDayItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.calendarDayFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.calendarDayFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.125rem;
 
@@ -233,25 +263,25 @@ export const config = {
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-body-m-bold-font-family);
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-body-m-bold-font-size);
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-body-m-bold-font-style);
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-body-m-bold-letter-spacing);
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-body-m-bold-line-height);
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: ${bodyMBold.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${bodyMBold.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${bodyMBold.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${bodyMBold.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${bodyMBold.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${bodyMBold.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${bodyMBold.fontWeight};
 
                 ${tokens.iconButtonHeight}: 2rem;
                 ${tokens.iconButtonWidth}: 2rem;
                 ${tokens.iconButtonPadding}: 0.75rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
 
-                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.shortcutFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.shortcutFontFamily}: ${bodyS.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyS.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyS.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyS.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.shortcutPadding}: 0.688rem 0.5rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -260,36 +290,36 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.background}: var(--surface-solid-primary);
-                ${tokens.borderColor}: var(--surface-solid-primary);
-                ${tokens.borderColorHover}: var(--surface-solid-primary);
-                ${tokens.borderColorFocus}: var(--surface-solid-primary);
-                ${tokens.borderColorSuccess}: var(--surface-solid-primary);
-                ${tokens.textFieldBorderColorFocus}: var(--surface-solid-primary);
-                ${tokens.textFieldColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldColor}: var(--text-secondary);
-                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
-                ${tokens.textFieldCaretColor}: var(--text-secondary);
-                ${tokens.textFieldBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.labelColor}: var(--text-secondary);
+                ${tokens.background}: ${surfaceSolidPrimary};
+                ${tokens.borderColor}: ${surfaceSolidPrimary};
+                ${tokens.borderColorHover}: ${surfaceSolidPrimary};
+                ${tokens.borderColorFocus}: ${surfaceSolidPrimary};
+                ${tokens.borderColorSuccess}: ${surfaceSolidPrimary};
+                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidPrimary};
+                ${tokens.textFieldColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldCaretColor}: ${textSecondary};
+                ${tokens.textFieldBackgroundColor}: ${surfaceSolidPrimary};
+                ${tokens.labelColor}: ${textSecondary};
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-clear);
-                ${tokens.borderColorReadOnly}: var(--outline-solid-primary);
+                ${tokens.backgroundReadOnly}: ${surfaceClear};
+                ${tokens.borderColorReadOnly}: ${outlineSolidPrimary};
 
-                ${tokens.labelColor}: var(--text-primary);
-                ${tokens.labelColorReadOnly}: var(--text-primary);
-                ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.labelColor}: ${textPrimary};
+                ${tokens.labelColorReadOnly}: ${textPrimary};
+                ${tokens.leftHelperColorReadOnly}: ${textSecondary};
 
-                ${tokens.dividerColorReadOnly}: var(--text-secondary);
+                ${tokens.dividerColorReadOnly}: ${textSecondary};
                 ${tokens.dividerOpacityReadOnly}: 0.4;
 
-                ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-clear);
-                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceClear};
+                ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
                 ${tokens.borderColor}: transparent;
                 ${tokens.borderWidth}: 0;
             `,

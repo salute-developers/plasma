@@ -1,3 +1,17 @@
+import {
+    bodyM,
+    bodyS,
+    bodySBold,
+    outlineAccent,
+    outlineSolidPrimary,
+    surfaceSolidCard,
+    textAccent,
+    textAccentActive,
+    textAccentMinor,
+    textNegative,
+    textPrimary,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, numberInputTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -11,19 +25,19 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.errorColor}: var(--text-negative);
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.errorColor}: ${textNegative};
 
-                ${tokens.colorSolid}: var(--text-primary);
-                ${tokens.additionalTextColorSolid}: var(--text-tertiary);
-                ${tokens.backgroundColorSolid}: var(--surface-solid-card);
-                ${tokens.wrapperBorderColor}: var(--outline-solid-primary);
-                ${tokens.wrapperBorderColorFocus}: var(--outline-accent);
+                ${tokens.colorSolid}: ${textPrimary};
+                ${tokens.additionalTextColorSolid}: ${textTertiary};
+                ${tokens.backgroundColorSolid}: ${surfaceSolidCard};
+                ${tokens.wrapperBorderColor}: ${outlineSolidPrimary};
+                ${tokens.wrapperBorderColorFocus}: ${outlineAccent};
 
-                ${tokens.iconButtonColor}: var(--text-accent);
-                ${tokens.iconButtonBackgroundColor}: var(--surface-solid-card);
-                ${tokens.iconButtonColorSolidHover}: var(--text-accent-minor);
-                ${tokens.iconButtonColorSolidActive}: var(--text-accent-active);
+                ${tokens.iconButtonColor}: ${textAccent};
+                ${tokens.iconButtonBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.iconButtonColorSolidHover}: ${textAccentMinor};
+                ${tokens.iconButtonColorSolidActive}: ${textAccentActive};
 
                 ${tokens.actionButtonDisabledOpacity}: 0;
                 ${tokens.actionButtonDisabledCursor}: default;
@@ -38,12 +52,12 @@ export const config = {
                 ${tokens.iconButtonHeight}: 2.5rem;
                 ${tokens.iconButtonWidth}: 2.5rem;
                 ${tokens.iconButtonPadding}: 0.5rem;
-                ${tokens.iconButtonFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.iconButtonFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.iconButtonFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.iconButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
-                ${tokens.iconButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.iconButtonLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.iconButtonFontFamily}: ${bodyS.fontFamily};
+                ${tokens.iconButtonFontSize}: ${bodyS.fontSize};
+                ${tokens.iconButtonFontStyle}: ${bodyS.fontStyle};
+                ${tokens.iconButtonFontWeight}: ${bodySBold.fontWeight};
+                ${tokens.iconButtonLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.iconButtonLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.iconButtonRadius}: 0.75rem;
                 ${tokens.iconButtonSegmentationRadius}: 0.25rem;
@@ -54,19 +68,19 @@ export const config = {
                 ${tokens.textWrapperPadding}: 0.5rem 0.375rem;
                 ${tokens.rootBorderWidth}: 0.125rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyM.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.additionalTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.additionalTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.additionalTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.additionalTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.additionalTextLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.additionalTextLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.additionalTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.additionalTextFontSize}: ${bodyS.fontSize};
+                ${tokens.additionalTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.additionalTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.additionalTextLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.additionalTextLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.textBeforeMarginRight}: 0.25rem;
                 ${tokens.textAfterMarginLeft}: 0.25rem;
