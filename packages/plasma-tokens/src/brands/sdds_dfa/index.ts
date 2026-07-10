@@ -2470,6 +2470,20 @@ export const dataDefaultDataYellowTransparentHover = 'var(--data-default-data-ye
 /** Прозрачный желтый цвет для данных */
 export const dataDefaultDataYellowTransparentActive = 'var(--data-default-data-yellow-transparent-active, #F3A81280)';
 
+export const dataDefaultDataGreenGradient =
+    'var(--data-default-data-green-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%))';
+
+export const dataDefaultDataGreenGradientHover = 'var(--data-default-data-green-gradient-hover, #FFFFFFFF)';
+
+export const dataDefaultDataGreenGradientActive = 'var(--data-default-data-green-gradient-active, #FFFFFFFF)';
+
+export const dataDefaultDataGreenGrayGradient =
+    'var(--data-default-data-green-gray-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+export const dataDefaultDataGreenGrayGradientHover = 'var(--data-default-data-green-gray-gradient-hover, #FFFFFFFF)';
+
+export const dataDefaultDataGreenGrayGradientActive = 'var(--data-default-data-green-gray-gradient-active, #FFFFFFFF)';
+
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #F3A912)';
 
@@ -2496,6 +2510,20 @@ export const dataOnDarkDataYellowTransparentHover = 'var(--data-on-dark-data-yel
 
 /** Прозрачный желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellowTransparentActive = 'var(--data-on-dark-data-yellow-transparent-active, #F3A81280)';
+
+export const dataOnDarkDataGreenGradient =
+    'var(--data-on-dark-data-green-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%))';
+
+export const dataOnDarkDataGreenGradientHover = 'var(--data-on-dark-data-green-gradient-hover, #FFFFFFFF)';
+
+export const dataOnDarkDataGreenGradientActive = 'var(--data-on-dark-data-green-gradient-active, #FFFFFFFF)';
+
+export const dataOnDarkDataGreenGrayGradient =
+    'var(--data-on-dark-data-green-gray-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+export const dataOnDarkDataGreenGrayGradientHover = 'var(--data-on-dark-data-green-gray-gradient-hover, #FFFFFFFF)';
+
+export const dataOnDarkDataGreenGrayGradientActive = 'var(--data-on-dark-data-green-gray-gradient-active, #FFFFFFFF)';
 
 /** Желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellow = 'var(--data-on-light-data-yellow, #F3A912)';
@@ -2524,6 +2552,20 @@ export const dataOnLightDataYellowTransparentHover = 'var(--data-on-light-data-y
 /** Прозрачный желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellowTransparentActive = 'var(--data-on-light-data-yellow-transparent-active, #F3A812A3)';
 
+export const dataOnLightDataGreenGradient =
+    'var(--data-on-light-data-green-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%))';
+
+export const dataOnLightDataGreenGradientHover = 'var(--data-on-light-data-green-gradient-hover, #FFFFFFFF)';
+
+export const dataOnLightDataGreenGradientActive = 'var(--data-on-light-data-green-gradient-active, #FFFFFFFF)';
+
+export const dataOnLightDataGreenGrayGradient =
+    'var(--data-on-light-data-green-gray-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+export const dataOnLightDataGreenGrayGradientHover = 'var(--data-on-light-data-green-gray-gradient-hover, #FFFFFFFF)';
+
+export const dataOnLightDataGreenGrayGradientActive = 'var(--data-on-light-data-green-gray-gradient-active, #FFFFFFFF)';
+
 /** Инвертированный желтый цвет для данных */
 export const dataInverseDataYellow = 'var(--data-inverse-data-yellow, #F3A912)';
 
@@ -2550,6 +2592,20 @@ export const dataInverseDataYellowTransparentHover = 'var(--data-inverse-data-ye
 
 /** Инвертированный прозрачный желтый цвет для данных */
 export const dataInverseDataYellowTransparentActive = 'var(--data-inverse-data-yellow-transparent-active, #F3A812A3)';
+
+export const dataInverseDataGreenGradient =
+    'var(--data-inverse-data-green-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%))';
+
+export const dataInverseDataGreenGradientHover = 'var(--data-inverse-data-green-gradient-hover, #FFFFFFFF)';
+
+export const dataInverseDataGreenGradientActive = 'var(--data-inverse-data-green-gradient-active, #FFFFFFFF)';
+
+export const dataInverseDataGreenGrayGradient =
+    'var(--data-inverse-data-green-gray-gradient, linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+export const dataInverseDataGreenGrayGradientHover = 'var(--data-inverse-data-green-gray-gradient-hover, #FFFFFFFF)';
+
+export const dataInverseDataGreenGrayGradientActive = 'var(--data-inverse-data-green-gray-gradient-active, #FFFFFFFF)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
