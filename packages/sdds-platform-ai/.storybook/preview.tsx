@@ -23,6 +23,7 @@ const preview: Preview = {
     globalTypes: {
         theme: {
             description: 'Global theme for components',
+            defaultValue: SDDS_PLATFORM_AI_LIGHT_THEME,
             toolbar: {
                 title: 'Theme',
                 items: [SDDS_PLATFORM_AI_LIGHT_THEME, SDDS_PLATFORM_AI_DARK_THEME],
