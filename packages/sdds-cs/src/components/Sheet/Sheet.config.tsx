@@ -1,3 +1,4 @@
+import { surfaceSolidCard, surfaceSolidTertiary } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, sheetTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -9,8 +10,8 @@ export const config = {
             default: css`
                 ${sheetTokens.sheetOverlayColor}: var(--overlay-soft);
                 ${sheetTokens.sheetOverlayWithBlurColor}: var(--overlay-blur);
-                ${sheetTokens.contentBackgroundColor}: var(--surface-solid-card);
-                ${sheetTokens.handleBackgroundColor}: var(--surface-solid-tertiary);
+                ${sheetTokens.contentBackgroundColor}: ${surfaceSolidCard};
+                ${sheetTokens.handleBackgroundColor}: ${surfaceSolidTertiary};
             `,
         },
         handlePlacement: {

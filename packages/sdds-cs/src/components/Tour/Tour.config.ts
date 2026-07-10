@@ -1,3 +1,4 @@
+import { surfaceSolidCard } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { tourTokens as tokens, css } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -8,7 +9,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.tailColor}: var(--surface-solid-card);
+                ${tokens.tailColor}: ${surfaceSolidCard};
                 ${tokens.overlayColor}: rgba(0, 0, 0, 0.45);
             `,
         },
