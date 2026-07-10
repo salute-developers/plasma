@@ -1,4 +1,12 @@
 import { css, listTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyM,
+    bodyS,
+    surfaceAccent,
+    surfaceTransparentPrimary,
+    surfaceTransparentSecondary,
+    textPrimary,
+} from '@salutejs/plasma-themes/tokens/plasma_homeds';
 
 export const config = {
     defaults: {
@@ -8,15 +16,15 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${listTokens.listItemColor}: var(--text-primary);
-                ${listTokens.listItemColorHover}: var(--text-primary);
-                ${listTokens.listItemBackground}: var(--surface-transparent-primary);
-                ${listTokens.listItemBackgroundHover}: var(--surface-transparent-secondary);
+                ${listTokens.listItemColor}: ${textPrimary};
+                ${listTokens.listItemColorHover}: ${textPrimary};
+                ${listTokens.listItemBackground}: ${surfaceTransparentPrimary};
+                ${listTokens.listItemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
-                ${listTokens.listItemFocusColor}: var(--surface-accent);
-                ${listTokens.listBackground}: var(--surface-transparent-primary);
-                ${listTokens.listItemDividerColor}: var(--surface-transparent-primary);
+                ${listTokens.listItemFocusColor}: ${surfaceAccent};
+                ${listTokens.listBackground}: ${surfaceTransparentPrimary};
+                ${listTokens.listItemDividerColor}: ${surfaceTransparentPrimary};
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },
@@ -38,12 +46,12 @@ export const config = {
 
                 ${listTokens.listItemDividerHeight}: 0.0625rem;
 
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-s-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${listTokens.listItemFontFamily}: ${bodyS.fontFamily};
+                ${listTokens.listItemFontSize}: ${bodyS.fontSize};
+                ${listTokens.listItemFontStyle}: ${bodyS.fontStyle};
+                ${listTokens.listItemFontWeight}: ${bodyS.fontWeight};
+                ${listTokens.listItemLetterSpacing}: ${bodyS.letterSpacing};
+                ${listTokens.listItemLineHeight}: ${bodyS.lineHeight};
             `,
             m: css`
                 ${listTokens.listGap}: 0.5rem;
@@ -62,12 +70,12 @@ export const config = {
 
                 ${listTokens.listItemDividerHeight}: 0.0625rem;
 
-                ${listTokens.listItemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${listTokens.listItemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${listTokens.listItemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${listTokens.listItemFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${listTokens.listItemLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${listTokens.listItemLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${listTokens.listItemFontFamily}: ${bodyM.fontFamily};
+                ${listTokens.listItemFontSize}: ${bodyM.fontSize};
+                ${listTokens.listItemFontStyle}: ${bodyM.fontStyle};
+                ${listTokens.listItemFontWeight}: ${bodyM.fontWeight};
+                ${listTokens.listItemLetterSpacing}: ${bodyM.letterSpacing};
+                ${listTokens.listItemLineHeight}: ${bodyM.lineHeight};
             `,
         },
         disabled: {
