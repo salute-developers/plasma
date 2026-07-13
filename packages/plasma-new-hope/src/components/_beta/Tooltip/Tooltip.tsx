@@ -11,10 +11,13 @@ import {
     FloatingArrow,
     arrow,
     offset,
+    shift,
+    flip,
     useHover,
     safePolygon,
     FloatingPortal,
     autoUpdate,
+    limitShift,
 } from '@floating-ui/react';
 import { css } from 'styled-components';
 
@@ -36,6 +39,8 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 trigger = 'click',
                 placement = 'bottom',
                 hasTail = true,
+                flip: outsideFlip = false,
+                shift: outsideShift = false,
                 offset: outerOffset = 0,
                 delayOpen = 0,
                 delayClose = 0,
@@ -63,6 +68,11 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 open: opened,
                 onOpenChange: handleToggle,
                 middleware: [
+                    outsideShift &&
+                        shift({
+                            limiter: limitShift(),
+                        }),
+                    outsideFlip && flip(),
                     hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
                     offset((hasTail ? ARROW_HEIGHT : 0) + outerOffset),
                 ],
