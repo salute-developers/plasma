@@ -4,6 +4,7 @@ export { PaletteGrid } from './PaletteGrid';
 export { InSpacing as InSpacingDecorator } from './StoryDecorators';
 export { ThemeColors } from './ThemeColors';
 export { withReactStrictMode, reactStrictModePreviewOption } from './ReactStrictModeDecorator';
+export { disabledToolsParameters } from './disabledToolsParameters';
 export * from './Button';
 export * from './EmbeddedButton';
 export * from './TextField';
