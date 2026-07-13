@@ -10,7 +10,7 @@ import {
     ON_DARK_MODE,
     ON_LIGHT_MODE,
 } from './decoratorThemes';
-import { withReactStrictMode, reactStrictModePreviewOption } from '@salutejs/plasma-sb-utils';
+import { withReactStrictMode, reactStrictModePreviewOption, disabledToolsParameters } from '@salutejs/plasma-sb-utils';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -43,6 +43,7 @@ const preview: Preview = {
         viewContainer: DEFAULT_MODE,
     },
     parameters: {
+        ...disabledToolsParameters,
         docs: {
             page: docsPage,
             theme: storybookTheme,
