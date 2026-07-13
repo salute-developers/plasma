@@ -1,0 +1,102 @@
+---
+id: popover
+title: Popover
+---
+
+import { Badge } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Popover
+
+<Badge title="beta" description="Данный компонент входит в группу beta-компонентов" />
+
+:::caution Импорт beta-компонентов
+Импорт осуществляется из директории `@salutejs/sdds-cs/beta`.<br />
+Например:<br />
+`import * as Beta from '@salutejs/sdds-cs/beta';`<br />
+`import { Popover } from '@salutejs/sdds-cs/beta';`
+:::
+
+## Описание
+
+`Popover` — всплывающее окно, привязанное к целевому элементу (`target`). Оно отображает дополнительный контент по клику, наведению или фокусу.
+
+Компонент поддерживает настройку триггера, позиции, смещения, хвостика, задержек открытия и закрытия, портала и изменения размера.
+
+## Быстрый старт
+
+```tsx live
+import * as Beta from '@salutejs/sdds-cs/beta';
+import { Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <Beta.Popover target={<Button text="Открыть" />}>
+            Контент всплывающего окна
+        </Beta.Popover>
+    );
+}
+```
+
+Свойство `target` принимает `ReactElement`, а содержимое окна передаётся через `children`.
+
+## Примеры
+
+<Tabs>
+    <TabItem value="trigger" label="Trigger" default>
+        `trigger` определяет способ открытия: `click` (по умолчанию), `hover` или `focus`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-cs/beta';
+        import { Button } from '@salutejs/sdds-cs';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <Beta.Popover target={<Button text="Click" />}>Открытие по клику</Beta.Popover>
+                    <Beta.Popover trigger="hover" target={<Button text="Hover" />}>Открытие по наведению</Beta.Popover>
+                    <Beta.Popover trigger="focus" target={<Button text="Focus" />}>Открытие по фокусу</Beta.Popover>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="resizable" label="Resizable">
+        Передайте объект в `resizable`, чтобы задать начальный размер, ограничения и направления изменения размера.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-cs/beta';
+        import { Button } from '@salutejs/sdds-cs';
+
+        export function App() {
+            return (
+                <Beta.Popover
+                    target={<Button text="Изменить размер" />}
+                    resizable={{ defaultSize: { width: 300, height: 200 }, minWidth: 200, minHeight: 120 }}
+                >
+                    <div style={{ width: '100%', height: '100%', padding: '1rem' }}>Потяните за край окна</div>
+                </Beta.Popover>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="portal" label="Portal">
+        `portal` задаёт контейнер для окна. Можно передать ref или id контейнера; без этого свойства окно рендерится перед `</body>`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-cs/beta';
+        import { Button } from '@salutejs/sdds-cs';
+
+        export function App() {
+            const ref = useRef<HTMLDivElement>(null);
+
+            return (
+                <div ref={ref} style={{ minHeight: '10rem', padding: '1rem', background: 'var(--surface-solid-card)' }}>
+                    <Beta.Popover portal={ref} target={<Button text="Открыть" />}>Контент в портале</Beta.Popover>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>

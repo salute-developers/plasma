@@ -1,0 +1,81 @@
+---
+id: tooltip
+title: Tooltip
+---
+
+import { Badge } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Tooltip
+
+<Badge title="beta" description="Данный компонент входит в группу beta-компонентов" />
+
+:::caution Импорт beta-компонентов
+Импорт осуществляется из директории `@salutejs/sdds-cs/beta`.<br />
+Например:<br />
+`import * as Beta from '@salutejs/sdds-cs/beta';`<br />
+`import { Tooltip } from '@salutejs/sdds-cs/beta';`
+:::
+
+## Описание
+
+`Tooltip` — легковесное всплывающее окно, привязанное к целевому элементу (`target`). Оно предназначено для коротких пояснений, меток и инструкций.
+
+## Быстрый старт
+
+```tsx live
+import * as Beta from '@salutejs/sdds-cs/beta';
+import { Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    return (
+        <Beta.Tooltip target={<Button text="Наведи курсор" />} trigger="hover">
+            Текст подсказки
+        </Beta.Tooltip>
+    );
+}
+```
+
+Свойство `target` принимает `ReactElement`, а текст подсказки передаётся в `children`.
+
+## Примеры
+
+<Tabs>
+    <TabItem value="trigger" label="Trigger" default>
+        `trigger` принимает значения `click` (по умолчанию), `hover` и `focus`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-cs/beta';
+        import { Button } from '@salutejs/sdds-cs';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <Beta.Tooltip target={<Button text="Click" />}>По клику</Beta.Tooltip>
+                    <Beta.Tooltip trigger="hover" target={<Button text="Hover" />}>По наведению</Beta.Tooltip>
+                    <Beta.Tooltip trigger="focus" target={<Button text="Focus" />}>По фокусу</Beta.Tooltip>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="portal" label="Portal">
+        `portal` задаёт контейнер для подсказки. Можно передать ref или id контейнера; по умолчанию подсказка рендерится перед `</body>`.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-cs/beta';
+        import { Button } from '@salutejs/sdds-cs';
+
+        export function App() {
+            const ref = useRef<HTMLDivElement>(null);
+
+            return (
+                <div ref={ref} style={{ minHeight: '8rem', padding: '1rem', background: 'var(--surface-solid-card)' }}>
+                    <Beta.Tooltip portal={ref} target={<Button text="Открыть" />}>Контент в портале</Beta.Tooltip>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
