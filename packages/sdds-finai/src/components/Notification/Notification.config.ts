@@ -8,7 +8,7 @@ import {
     textPositive,
     textPrimary,
     textSecondary,
-    textTertiary,
+    textSecondaryHover,
     textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_finai';
 
@@ -66,8 +66,8 @@ export const config = {
                 ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
                 ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-secondary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
@@ -120,8 +120,8 @@ export const config = {
                 ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
                 ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-secondary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
@@ -174,8 +174,8 @@ export const config = {
                 ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
                 ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-secondary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
@@ -228,8 +228,8 @@ export const config = {
                 ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
                 ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-secondary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
@@ -282,8 +282,8 @@ export const config = {
                 ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
                 ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.closeIconColor}: var(--text-secondary);
-                ${notificationTokens.closeIconColorOnHover}: var(--text-secondary-hover);
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
 
                 ${notificationTokens.horizontalLayoutGap}: 0.375rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
