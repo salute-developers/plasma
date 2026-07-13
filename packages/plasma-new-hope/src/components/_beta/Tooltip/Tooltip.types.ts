@@ -31,6 +31,16 @@ export type BasicTooltipProps = {
      */
     hasTail?: boolean;
     /**
+     * Коррекция placement, если всплывающее окно находится за пределами экрана.
+     * @default false
+     */
+    flip?: boolean;
+    /**
+     * Смещение всплывающего окна при соприкосновении с границами экрана.
+     * @default false
+     */
+    shift?: boolean;
+    /**
      * Отступ всплывающего окна относительно target.
      * @default 0
      */
