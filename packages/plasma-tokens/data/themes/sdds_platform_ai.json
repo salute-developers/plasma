@@ -15,112 +15,6 @@
         }
     },
     "dark": {
-        "syntax": {
-            "default": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.250]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.400]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.150]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.200]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.300]",
-                    "comment": ""
-                }
-            },
-            "onDark": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.250]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.400]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.150]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.200]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.300]",
-                    "comment": ""
-                }
-            },
-            "onLight": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.800]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.500]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.500]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.400]",
-                    "comment": ""
-                }
-            },
-            "inverse": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.800]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.500]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.500]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.400]",
-                    "comment": ""
-                }
-            }
-        },
         "text": {
             "default": {
                 "textPrimaryHover": {
@@ -187,11 +81,11 @@
                     "comment": "Акцентный цвет"
                 },
                 "textAccentGradientHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#858585FF",
                     "comment": "Акцентный цвет с градиентом"
                 },
                 "textAccentGradientActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#666666FF",
                     "comment": "Акцентный цвет с градиентом"
                 },
                 "textAccentMinorHover": {
@@ -395,15 +289,19 @@
                     "comment": "Минорный цвет предупреждения",
                     "enabled": true
                 },
+                "textPrimary": {
+                    "value": "[general.gray.100]",
+                    "comment": "Основной цвет текста"
+                },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
+                        "origin": "linear-gradient(45deg, #52F2C5, #C5FC5F 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -422,8 +320,8 @@
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -440,10 +338,6 @@
                         }
                     },
                     "comment": "Акцентный цвет с градиентом"
-                },
-                "textPrimary": {
-                    "value": "[general.gray.100]",
-                    "comment": "Основной цвет текста"
                 }
             },
             "onDark": {
@@ -511,11 +405,11 @@
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentGradientHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#858585FF",
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textAccentGradientActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#666666FF",
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textAccentMinorHover": {
@@ -719,15 +613,19 @@
                     "comment": "Минорный цвет предупреждения на темном фоне",
                     "enabled": true
                 },
+                "textPrimary": {
+                    "value": "[general.gray.100]",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
+                        "origin": "linear-gradient(45deg, #52F2C5, #C5FC5F 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -746,8 +644,8 @@
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -764,10 +662,6 @@
                         }
                     },
                     "comment": "Акцентный цвет с градиентом на темном фоне"
-                },
-                "textPrimary": {
-                    "value": "[general.gray.100]",
-                    "comment": "Основной цвет текста на темном фоне"
                 }
             },
             "onLight": {
@@ -1953,53 +1847,6 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
-                "surfaceAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0.323%, rgb(4, 198, 201) 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": true
-                },
                 "surfaceTransparentPositiveMinor": {
                     "value": "#C5FC5F0D",
                     "comment": ""
@@ -2023,6 +1870,65 @@
                 "surfaceTransparentNegativeMinorActive": {
                     "value": "#FA5F0508",
                     "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#1DAF37FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#18952FFF",
+                    "comment": ""
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #52F2C5 0.323%, #C5FC5F 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -2561,53 +2467,6 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
                 },
-                "surfaceAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0.323%, rgb(4, 198, 201) 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": true
-                },
                 "surfaceTransparentPositiveMinor": {
                     "value": "#C5FC5F0D",
                     "comment": ""
@@ -2631,6 +2490,65 @@
                 "surfaceTransparentNegativeMinorActive": {
                     "value": "#FA5F0508",
                     "comment": ""
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#1DAF37FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#18952FFF",
+                    "comment": ""
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #52F2C5 0.323%, #C5FC5F 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -3239,6 +3157,18 @@
                 "surfaceTransparentNegativeMinorActive": {
                     "value": "#FA5F0517",
                     "comment": ""
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#262626FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#030303FF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -3846,6 +3776,18 @@
                 },
                 "surfaceTransparentNegativeMinorActive": {
                     "value": "#FA5F0517",
+                    "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#262626FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#030303FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.gray.1000]",
                     "comment": ""
                 }
             }
@@ -4408,53 +4350,6 @@
                     "comment": "Прозрачный цвет обводки информация",
                     "enabled": true
                 },
-                "outlineAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Акцентный цвет обводки с градиентом",
-                    "enabled": true
-                },
                 "outlineSolidSecondary": {
                     "value": "[general.gray.800]",
                     "comment": "Вторичный непрозрачный цвет обводки",
@@ -4503,6 +4398,53 @@
                 "outlineSolidDefault": {
                     "value": "[general.gray.100]",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #C5FC5F, #04C6C9 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -4926,53 +4868,6 @@
                     "comment": "Цвет обводки успех на темном фоне",
                     "enabled": true
                 },
-                "outlineAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": true
-                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(255,255,255,0.12)",
                     "comment": "Основной прозрачный цвет обводки на темном фоне",
@@ -5021,6 +4916,53 @@
                 "outlineSolidDefault": {
                     "value": "[general.gray.100]",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #C5FC5F, #04C6C9 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -5035,12 +4977,12 @@
                     "enabled": true
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#C9C9C9FF",
+                    "value": "#DBDBDBFF",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
                     "enabled": true
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#8C8C8CFF",
+                    "value": "#8F8F8FFF",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
                     "enabled": true
                 },
@@ -5496,6 +5438,11 @@
                     "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
                     "enabled": true
                 },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.300]",
+                    "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
+                    "enabled": true
+                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(8,8,8,0.12)",
                     "comment": "Основной прозрачный цвет обводки на светлом фоне",
@@ -5534,11 +5481,6 @@
                 "outlinePrimaryWhiteActive": {
                     "value": "#E6E6E6FF",
                     "comment": ""
-                },
-                "outlineSolidSecondary": {
-                    "value": "#A1A1A1",
-                    "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
-                    "enabled": true
                 }
             },
             "inverse": {
@@ -5553,12 +5495,12 @@
                     "enabled": true
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#C9C9C9FF",
+                    "value": "#DBDBDBFF",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки",
                     "enabled": true
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#8C8C8CFF",
+                    "value": "#8F8F8FFF",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки",
                     "enabled": true
                 },
@@ -6029,6 +5971,11 @@
                     "comment": "Инвертированный третичный прозрачный цвет обводки",
                     "enabled": true
                 },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.300]",
+                    "comment": "Инвертированный вторичный непрозрачный цвет обводки",
+                    "enabled": true
+                },
                 "outlineSolidDefaultHover": {
                     "value": "#969696FF",
                     "comment": ""
@@ -6052,11 +5999,6 @@
                 "outlinePrimaryWhiteActive": {
                     "value": "#E6E6E6FF",
                     "comment": ""
-                },
-                "outlineSolidSecondary": {
-                    "value": "#A1A1A1",
-                    "comment": "Инвертированный вторичный непрозрачный цвет обводки",
-                    "enabled": true
                 }
             }
         },
@@ -6097,6 +6039,30 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A81280",
                     "comment": "Прозрачный желтый цвет для данных"
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#BA5FF7FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#A938F5FF",
+                    "comment": ""
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F352",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F324",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F333",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -6135,6 +6101,30 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A81280",
                     "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#BA5FF7FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#A938F5FF",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F333",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F352",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F324",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -6173,6 +6163,30 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A812A3",
                     "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F31F",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F32E",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F333",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -6211,117 +6225,35 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A812A3",
                     "comment": "Инвертированный прозрачный желтый цвет для данных"
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F32E",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F333",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F31F",
+                    "comment": ""
                 }
             }
         }
     },
     "light": {
-        "syntax": {
-            "default": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.800]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.500]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.500]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.400]",
-                    "comment": ""
-                }
-            },
-            "onDark": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.250]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.400]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.150]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.200]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.300]",
-                    "comment": ""
-                }
-            },
-            "onLight": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.800]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.800]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.500]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.500]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.400]",
-                    "comment": ""
-                }
-            },
-            "inverse": {
-                "syntaxYellow": {
-                    "value": "[general.amber.300]",
-                    "comment": ""
-                },
-                "syntaxOrange": {
-                    "value": "[general.orange.250]",
-                    "comment": ""
-                },
-                "syntaxPink": {
-                    "value": "[general.pink.400]",
-                    "comment": ""
-                },
-                "syntaxSpring": {
-                    "value": "[general.spring.150]",
-                    "comment": ""
-                },
-                "syntaxSkyBlue": {
-                    "value": "[general.skyBlue.200]",
-                    "comment": ""
-                },
-                "syntaxRed": {
-                    "value": "[general.red.300]",
-                    "comment": ""
-                }
-            }
-        },
         "text": {
             "default": {
                 "textPrimaryHover": {
@@ -6712,11 +6644,11 @@
                     "comment": "Акцентный цвет на темном фоне"
                 },
                 "textAccentGradientHover": {
-                    "value": "#000000FF",
+                    "value": "#858585FF",
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textAccentGradientActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#666666FF",
                     "comment": "Акцентный цвет с градиентом на темном фоне"
                 },
                 "textAccentMinorHover": {
@@ -6920,15 +6852,19 @@
                     "comment": "Минорный цвет информации на темном фоне",
                     "enabled": true
                 },
+                "textPrimary": {
+                    "value": "[general.gray.100]",
+                    "comment": "Основной цвет текста на темном фоне"
+                },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
+                        "origin": "linear-gradient(45deg, #52F2C5, #C5FC5F 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -6947,8 +6883,8 @@
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -6965,10 +6901,6 @@
                         }
                     },
                     "comment": "Акцентный цвет с градиентом на темном фоне"
-                },
-                "textPrimary": {
-                    "value": "[general.gray.100]",
-                    "comment": "Основной цвет текста на темном фоне"
                 }
             },
             "onLight": {
@@ -7357,11 +7289,11 @@
                     "comment": "Инвертированный акцентный цвет"
                 },
                 "textAccentGradientHover": {
-                    "value": "#000000FF",
+                    "value": "#858585FF",
                     "comment": "Инвертированный акцентный цвет с градиентом"
                 },
                 "textAccentGradientActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#666666FF",
                     "comment": "Инвертированный акцентный цвет с градиентом"
                 },
                 "textAccentMinorHover": {
@@ -7565,15 +7497,19 @@
                     "comment": "Инвертированный минорный цвет информации",
                     "enabled": true
                 },
+                "textPrimary": {
+                    "value": "[general.gray.100]",
+                    "comment": "Инвертированный основной цвет текста"
+                },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
+                        "origin": "linear-gradient(45deg, #52F2C5, #C5FC5F 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -7592,8 +7528,8 @@
                             "kind": "gradient",
                             "type": ".linear",
                             "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
+                                null,
+                                "#C5FC5F"
                             ],
                             "locations": [
                                 0,
@@ -7610,10 +7546,6 @@
                         }
                     },
                     "comment": "Инвертированный акцентный цвет с градиентом"
-                },
-                "textPrimary": {
-                    "value": "[general.gray.100]",
-                    "comment": "Инвертированный основной цвет текста"
                 }
             }
         },
@@ -8224,6 +8156,18 @@
                     "value": "[general.gray.150]",
                     "comment": "Вторичный непрозрачный фон поверхности/контрола",
                     "enabled": true
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#262626FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#030303FF",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -8757,53 +8701,6 @@
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": true
                 },
-                "surfaceAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0.323%, rgb(4, 198, 201) 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": true
-                },
                 "surfaceTransparentPositiveMinor": {
                     "value": "#C5FC5F0D",
                     "comment": ""
@@ -8831,6 +8728,65 @@
                 "surfaceSolidCard": {
                     "value": "[general.gray.1000]",
                     "comment": "Основной фон для карточек на темном фоне",
+                    "enabled": true
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#1DAF37FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#18952FFF",
+                    "comment": ""
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #52F2C5 0.323%, #C5FC5F 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
                     "enabled": true
                 }
             },
@@ -9440,6 +9396,18 @@
                     "value": "#F31B311F",
                     "comment": "Прозрачный цвет фона поверхности/контрола предупреждение на светлом фоне",
                     "enabled": true
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.gray.1000]",
+                    "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#262626FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#030303FF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -9978,53 +9946,6 @@
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
-                "surfaceAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0.323%, rgb(4, 198, 201) 100%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
-                    "enabled": true
-                },
                 "surfaceTransparentPositiveMinor": {
                     "value": "#C5FC5F0D",
                     "comment": ""
@@ -10048,6 +9969,65 @@
                 "surfaceTransparentNegativeMinorActive": {
                     "value": "#FA5F0508",
                     "comment": ""
+                },
+                "surfaceAccentExtra": {
+                    "value": "[general.green.500]",
+                    "comment": ""
+                },
+                "surfaceAccentExtraHover": {
+                    "value": "#1DAF37FF",
+                    "comment": ""
+                },
+                "surfaceAccentExtraActive": {
+                    "value": "#18952FFF",
+                    "comment": ""
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #52F2C5 0.323%, #C5FC5F 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#52F2C5",
+                                "#C5FC5F"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
+                    "enabled": true
                 }
             }
         },
@@ -10200,12 +10180,12 @@
                     "enabled": true
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#C9C9C9FF",
+                    "value": "#DBDBDBFF",
                     "comment": "Вторичный непрозрачный цвет обводки",
                     "enabled": true
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#8C8C8CFF",
+                    "value": "#8F8F8FFF",
                     "comment": "Вторичный непрозрачный цвет обводки",
                     "enabled": true
                 },
@@ -10666,6 +10646,11 @@
                     "comment": "Третичный прозрачный цвет обводки",
                     "enabled": true
                 },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.300]",
+                    "comment": "Вторичный непрозрачный цвет обводки",
+                    "enabled": true
+                },
                 "outlineSolidDefaultHover": {
                     "value": "#969696FF",
                     "comment": ""
@@ -10699,11 +10684,6 @@
                 "outlinePrimaryWhiteActive": {
                     "value": "#E6E6E6FF",
                     "comment": ""
-                },
-                "outlineSolidSecondary": {
-                    "value": "#A1A1A1",
-                    "comment": "Вторичный непрозрачный цвет обводки",
-                    "enabled": true
                 }
             },
             "onDark": {
@@ -11117,53 +11097,6 @@
                     "comment": "Прозрачный цвет обводки информация на темном фоне",
                     "enabled": true
                 },
-                "outlineAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": true
-                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(255,255,255,0.12)",
                     "comment": "Основной прозрачный цвет обводки на темном фоне",
@@ -11222,6 +11155,53 @@
                 "outlineSolidDefault": {
                     "value": "[general.gray.100]",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #C5FC5F, #04C6C9 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -11236,12 +11216,12 @@
                     "enabled": true
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#C9C9C9FF",
+                    "value": "#DBDBDBFF",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
                     "enabled": true
                 },
                 "outlineSolidSecondaryActive": {
-                    "value": "#8C8C8CFF",
+                    "value": "#8F8F8FFF",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
                     "enabled": true
                 },
@@ -11702,6 +11682,11 @@
                     "comment": "Третичный прозрачный цвет обводки на светлом фоне",
                     "enabled": true
                 },
+                "outlineSolidSecondary": {
+                    "value": "[general.gray.300]",
+                    "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
+                    "enabled": true
+                },
                 "outlineSolidDefault": {
                     "value": "[general.gray.1000]",
                     "comment": ""
@@ -11735,11 +11720,6 @@
                 "outlinePrimaryWhiteActive": {
                     "value": "#E6E6E6FF",
                     "comment": ""
-                },
-                "outlineSolidSecondary": {
-                    "value": "#A1A1A1",
-                    "comment": "Вторичный непрозрачный цвет обводки на светлом фоне",
-                    "enabled": true
                 }
             },
             "inverse": {
@@ -12153,53 +12133,6 @@
                     "comment": "Инвертированный минорный цвет обводки информация",
                     "enabled": true
                 },
-                "outlineAccentGradient": {
-                    "value": {
-                        "origin": "linear-gradient(45.00deg, rgb(26, 158, 50) 0%, rgb(4, 198, 201) 99.688%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
-                            "startPoint": {
-                                "x": 0.15,
-                                "y": 0.85
-                            },
-                            "endPoint": {
-                                "x": 0.85,
-                                "y": 0.15
-                            }
-                        }
-                    },
-                    "comment": "Инвертированный акцентный цвет обводки с градиентом",
-                    "enabled": true
-                },
                 "outlineTransparentPrimary": {
                     "value": "rgba(255,255,255,0.12)",
                     "comment": "Инвертированный основной прозрачный цвет обводки",
@@ -12258,6 +12191,53 @@
                 "outlineSolidDefault": {
                     "value": "[general.gray.100]",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(45deg, #C5FC5F, #04C6C9 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                null,
+                                "#04C6C9"
+                            ],
+                            "locations": [
+                                0,
+                                1
+                            ],
+                            "startPoint": {
+                                "x": 0.15,
+                                "y": 0.85
+                            },
+                            "endPoint": {
+                                "x": 0.85,
+                                "y": 0.15
+                            }
+                        }
+                    },
+                    "comment": "Инвертированный акцентный цвет обводки с градиентом",
+                    "enabled": true
                 }
             }
         },
@@ -12298,6 +12278,30 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A812A3",
                     "comment": "Прозрачный желтый цвет для данных"
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F31F",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F32E",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F333",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -12336,6 +12340,30 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A81280",
                     "comment": "Прозрачный желтый цвет для данных на темном фоне"
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#BA5FF7FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#A938F5FF",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F333",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F352",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F324",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -12374,6 +12402,30 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A812A3",
                     "comment": "Прозрачный желтый цвет для данных на светлом фоне"
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#7D2FB1FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#662791FF",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F31F",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F32E",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F333",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -12412,6 +12464,30 @@
                 "dataYellowTransparentActive": {
                     "value": "#F3A81280",
                     "comment": "Инвертированный прозрачный желтый цвет для данных"
+                },
+                "dataPurpleExtra": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataPurpleExtraHover": {
+                    "value": "#BA5FF7FF",
+                    "comment": ""
+                },
+                "dataPurpleExtraActive": {
+                    "value": "#A938F5FF",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtra": {
+                    "value": "#B559F333",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraHover": {
+                    "value": "#B558F352",
+                    "comment": ""
+                },
+                "dataTransparentPurpleExtraActive": {
+                    "value": "#B558F324",
+                    "comment": ""
                 }
             }
         }
