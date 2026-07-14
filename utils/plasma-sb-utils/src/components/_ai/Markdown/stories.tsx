@@ -86,7 +86,7 @@ const StoryWrap = styled.div`
     width: 100%;
 `;
 
-export const createStories = (Markdown: any, markedKatex: any) => {
+export const createStories = (Markdown: any, markedKatex?: any) => {
     const Default = {
         render: ({ storyWidth, ...args }: any) => (
             <StoryWrap style={{ maxWidth: `${storyWidth}px` }}>
@@ -100,8 +100,10 @@ export const createStories = (Markdown: any, markedKatex: any) => {
             <StoryWrap style={{ maxWidth: `${storyWidth}px` }}>
                 <Markdown
                     content={latexTemplate}
-                    markedOptions={markedKatex({
-                        throwOnError: false,
+                    {...(markedKatex && {
+                        markedOptions: markedKatex({
+                            throwOnError: false,
+                        }),
                     })}
                     shouldParseIncompleteMarkdown={shouldParseIncompleteMarkdown}
                     size={size}
