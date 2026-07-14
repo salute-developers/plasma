@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getAnswerStories } from '@salutejs/plasma-sb-utils';
 
@@ -21,6 +21,13 @@ const { meta: META, Default } = getAnswerStories({
 const meta: Meta<AnswerProps> = {
     ...META,
     title: 'AI Kit/Answer',
+    decorators: [
+        (Story) => (
+            <div style={{ padding: '2rem' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;

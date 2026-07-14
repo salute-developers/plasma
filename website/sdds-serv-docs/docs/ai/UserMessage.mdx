@@ -1,0 +1,87 @@
+---
+id: user-message
+title: UserMessage
+---
+
+import { PropsTable } from '@site/src/components';
+
+# UserMessage
+
+UserMessage отображает сообщение пользователя в диалоге. Поддерживает вложения, набор действий и режим редактирования текста.
+
+## Быстрый старт
+
+```tsx live
+import React, { useState } from 'react';
+import { IconEditOutline, IconPlasma } from '@salutejs/plasma-icons';
+import { Button, EmbedIconButton } from '@salutejs/sdds-serv';
+import { UserMessage } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <UserMessage
+                value="Помоги составить план встречи."
+            />
+        </div>
+    );
+}
+```
+
+## Пример с редактированием сообщения
+
+```tsx live
+import React, { useState } from 'react';
+import { IconEditOutline, IconPlasma } from '@salutejs/plasma-icons';
+import { Button, EmbedIconButton } from '@salutejs/sdds-serv';
+import { UserMessage } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    const [value, setValue] = useState('Помоги составить план встречи.');
+    const [editingValue, setEditingValue] = useState(value);
+    const [isEditing, setIsEditing] = useState(false);
+
+    const actions = isEditing
+        ?
+            <>
+                <Button
+                    view="default"
+                    size="s"
+                    onClick={() => setIsEditing(false)}
+                >
+                    Отмена
+                </Button>
+                <Button
+                    view="accent"
+                    size="s"
+                    onClick={() => { setValue(editingValue); setIsEditing(false); }}
+                >
+                    Сохранить
+                </Button>
+            </>
+        :
+            <>
+                {Array.from({ length: 3 }, (_, index) => <EmbedIconButton key={index} size="m" view="secondary"><IconPlasma color="inherit" /></EmbedIconButton>)}
+
+                <EmbedIconButton size="m" view="secondary" onClick={() => { setEditingValue(value); setIsEditing(true); }}>
+                    <IconEditOutline color="inherit" />
+                </EmbedIconButton>
+            </>;
+
+    return (
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <UserMessage
+                value={isEditing ? editingValue : value}
+                attachments={[{ id: 'file-1', type: 'file', label: 'document.pdf', size: '2.4 МБ' }]}
+                isEditing={isEditing}
+                onEdit={(event) => setEditingValue(event.target.value)}
+                actions={actions}
+            />
+        </div>
+    );
+}
+```
+
+## Таблица свойств
+
+<PropsTable name="UserMessage" />

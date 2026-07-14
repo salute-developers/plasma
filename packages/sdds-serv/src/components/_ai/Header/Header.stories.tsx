@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getHeaderStories } from '@salutejs/plasma-sb-utils';
 
@@ -17,6 +17,13 @@ const { meta: META, Default } = getHeaderStories({
 const meta: Meta<HeaderProps> = {
     ...META,
     title: 'AI Kit/Header',
+    decorators: [
+        (Story) => (
+            <div style={{ padding: '2rem' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;
