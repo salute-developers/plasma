@@ -29,6 +29,15 @@ module.exports = {
     organizationName: 'Salute-Developers',
     projectName: 'sdds-sbcom',
     trailingSlash: true,
+    headTags: [
+        {
+            tagName: 'link',
+            attributes: {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap',
+            },
+        },
+    ],
     themes: ['@docusaurus/theme-live-codeblock', 'docusaurus-theme-search-typesense'],
     future: {
         experimental_faster: true,
