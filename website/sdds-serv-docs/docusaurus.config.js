@@ -213,6 +213,7 @@ module.exports = {
                 },
             };
         },
+        ['./src/plugins/yandex-metrika/index.js', { counterID: 110736780 }],
     ],
     markdown: {
         format: 'detect',
