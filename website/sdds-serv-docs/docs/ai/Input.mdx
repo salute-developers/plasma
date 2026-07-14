@@ -1,0 +1,67 @@
+---
+id: input
+title: Input
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Input
+
+Input — поле для ввода и отправки сообщения ассистенту.
+Поддерживает многострочный текст, отправку по Enter, вложения, индикатор загрузки и слоты для дополнительных действий.
+
+## Быстрый старт
+
+```tsx live
+import React, { useState } from 'react';
+import { IconMic } from '@salutejs/plasma-icons';
+import { IconButton } from '@salutejs/sdds-serv';
+import { Input } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    return (
+        <div style={{ display: 'block' }}>
+            <Input
+                placeholder="Placeholder"
+                actionBefore={<IconButton view="clear" size="s"><IconMic size="s" color="inherit" /></IconButton>}
+                actionAfter={<IconButton view="clear" size="s"><IconMic size="s" color="inherit" /></IconButton>}
+            />
+        </div>
+    );
+}
+```
+
+## Пример с attachments
+
+```tsx live
+import React, { useState } from 'react';
+import { IconMic } from '@salutejs/plasma-icons';
+import { IconButton } from '@salutejs/sdds-serv';
+import { Input } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    const initialAttachments = [
+        { id: 1, type: 'image', thumbUrl: 'https://avatars.githubusercontent.com/u/1813468?v=4' },
+        { id: 2, type: 'image', thumbUrl: 'https://avatars.githubusercontent.com/u/1813468?v=4' },
+        { id: 3, type: 'file', label: 'Document1.pdf', size: '1.2MB' },
+        { id: 4, type: 'file', label: 'Document2.pdf', size: '2.4MB' },
+        { id: 5, type: 'file', label: 'Document1.pdf', size: '1.2MB' },
+    ];
+
+    const [attachments, setAttachments] = useState(initialAttachments);
+
+    return (
+        <div style={{ display: 'block', width: '100%', maxWidth: "540px" }}>
+            <Input
+                placeholder="Placeholder"
+                attachments={attachments}
+                onAttachmentRemove={(attachment) => setAttachments((items) => items.filter((item) => item.id !== attachment.id))}
+            />
+        </div>
+    );
+}
+```
+
+## Таблица свойств
+
+<PropsTable name="Input" />

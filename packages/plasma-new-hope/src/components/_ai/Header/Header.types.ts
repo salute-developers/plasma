@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
-export type HeaderProps = {
+export interface HeaderProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     /**
      * Заголовок
      */
@@ -34,4 +34,4 @@ export type HeaderProps = {
      * Показывать разделитель
      */
     hasDivider?: boolean;
-} & HTMLAttributes<HTMLDivElement>;
+}

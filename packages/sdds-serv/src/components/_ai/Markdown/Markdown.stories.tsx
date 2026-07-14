@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getMarkdownStories } from '@salutejs/plasma-sb-utils';
 
@@ -14,6 +14,13 @@ const { meta: META, Default, Latex, Streaming } = getMarkdownStories({
 const meta: Meta<MarkdownProps> = {
     ...META,
     title: 'AI Kit/Markdown',
+    decorators: [
+        (Story) => (
+            <div style={{ padding: '2rem' }}>
+                <Story />
+            </div>
+        ),
+    ],
 };
 
 export default meta;

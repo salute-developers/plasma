@@ -1,0 +1,68 @@
+---
+id: markdown
+title: Markdown
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Markdown
+
+Markdown отображает Markdown-разметку в ответах ассистента: заголовки, списки, ссылки, таблицы, код и другие элементы форматированного текста.
+Поддерживает постепенное отображение незавершённого ответа.
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { Markdown } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    return (
+        <Markdown content={'## Ответ ассистента\nПоддерживаются **форматирование**, списки и `код`.'} />
+    );
+}
+```
+
+## Полная разметка
+
+```tsx live
+import React from 'react';
+import { Markdown } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    const content = `
+# Смешно, но прототип — не панацея
+## Смешно, но прототип — не панацея
+
+Внезапно, представители современных социальных резервов подвергнуты целой серии независимых исследований. **И нет сомнений, что ключевые особенности структуры проекта преданы социально-демократической анафеме.**
+
+- Пункт списка
+  - Пункт списка 1
+  - Пункт списка 2
+
+1. Пункт списка
+1. Пункт списка
+
+- [x] Checked
+- [ ] Unchecked
+
+Используй команду \`npm install\`
+
+> Внезапно, представители современных социальных резервов подвергнуты целой серии независимых исследований.
+
+| Label | Label | Label |
+| --- | --- | --- |
+| Text | Text | Text |
+`;
+
+    return (
+        <div style={{ display: 'block' }}>
+            <Markdown content={content} />
+        </div>
+    );
+}
+```
+
+## Таблица свойств
+
+<PropsTable name="Markdown" />

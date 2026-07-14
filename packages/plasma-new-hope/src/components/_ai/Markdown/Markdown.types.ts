@@ -5,12 +5,12 @@ export type MarkdownMarkedOptions = MarkedExtension;
 export type MarkedEngine = Pick<Marked, 'defaults' | 'lexer' | 'Parser'>;
 export type TokenRenderer = ((token: Token, children?: ReactNode) => ReactNode | undefined) | undefined;
 
-export type RenderContext = {
+export interface RenderContext {
     keyPrefix: string;
     inTightListItem?: boolean;
-};
+}
 
-export type MarkdownProps = {
+export interface MarkdownProps extends Omit<HTMLAttributes<HTMLDivElement>, 'children'> {
     /**
      * Markdown контент.
      */
@@ -35,4 +35,4 @@ export type MarkdownProps = {
      * Размер компонента.
      */
     size?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
+}

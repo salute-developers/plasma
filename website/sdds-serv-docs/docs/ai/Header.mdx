@@ -1,0 +1,34 @@
+---
+id: header
+title: Header
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Header
+
+Header — шапка AI-интерфейса с заголовком, описанием и слотами для действий слева и справа. Используется в верхней части диалога или экрана ассистента.
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { IconClose, IconPlasma } from '@salutejs/plasma-icons';
+import { IconButton } from '@salutejs/sdds-serv';
+import { Header } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    return (
+        <Header
+            title="AI-помощник"
+            description="Готов ответить на ваши вопросы"
+            actionBefore={<IconButton view="clear" size="s"><IconPlasma color="inherit" /></IconButton>}
+            actionAfter={<IconButton view="clear" size="s"><IconClose color="inherit" /></IconButton>}
+        />
+    );
+}
+```
+
+## Таблица свойств
+
+<PropsTable name="Header" />
