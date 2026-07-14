@@ -7,16 +7,8 @@
     "access": "public"
   },
   "license": "MIT",
-  "files": [
-    "dist",
-    "types"
-  ],
-  "keywords": [
-    "design-system",
-    "react-components",
-    "react",
-    "ui-kit"
-  ],
+  "files": ["dist", "types"],
+  "keywords": ["design-system", "react-components", "react", "ui-kit"],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -35,7 +27,7 @@
     "styled-components": "^5.3.1"
   },
   "dependencies": {
-    "@salutejs-ds/sdds_sbcom": "0.1.20",
+    "@salutejs-ds/sdds_sbcom": "0.1.23",
     "@salutejs/plasma-new-hope": "0.369.0-next-sbcom.0"
   },
   "devDependencies": {
@@ -86,17 +78,9 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": [
-      "src/**/*.component-test.tsx",
-      "src/**/*.stories.tsx",
-      "src/**/*.styles.ts"
-    ],
+    "ignoreFiles": ["src/**/*.component-test.tsx", "src/**/*.stories.tsx", "src/**/*.styles.ts"],
     "atLeast": 99.9
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
-  "sideEffects": [
-    "*.css"
-  ]
+  "contributors": ["salute.developers@gmail.com"],
+  "sideEffects": ["*.css"]
 }
