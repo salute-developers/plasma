@@ -269,10 +269,10 @@ const StoryDemoTypography = ({ context }) => {
     );
 };
 
-export const Default: StoryObj = {
-    render: (_, context) => (
-        <ToastProvider>
-            <StoryDemoTypography context={context} />
-        </ToastProvider>
-    ),
-};
+// export const Default: StoryObj = {
+//     render: (_, context) => (
+//         <ToastProvider>
+//             <StoryDemoTypography context={context} />
+//         </ToastProvider>
+//     ),
+// };

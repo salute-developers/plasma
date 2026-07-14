@@ -13,6 +13,7 @@ import {
     configS as bodyConfigSCustom,
     configXS as bodyConfigXSCustom,
     configXXS as bodyConfigXXSCustom,
+    configXXXS as bodyConfigXXXSCustom,
 } from './Body.config';
 import { configS as dsplConfigSCustom } from './Dspl.config';
 import {
@@ -38,6 +39,9 @@ const BodyXSComponent = typographyComponent(component(bodyXSConfig));
 
 const bodyXXSConfig = mergeConfig(bodyConfig, bodyConfigXXSCustom);
 const BodyXXSComponent = typographyComponent(component(bodyXXSConfig));
+
+const bodyXXXSConfig = mergeConfig(bodyConfig, bodyConfigXXXSCustom);
+const BodyXXXSComponent = typographyComponent(component(bodyXXXSConfig));
 
 const dsplSConfig = mergeConfig(dsplConfig, dsplConfigSCustom);
 const DsplSComponent = typographyComponent(component(dsplSConfig));
@@ -65,6 +69,7 @@ export const BodyL = BodyLComponent;
 export const BodyS = BodySComponent;
 export const BodyXS = BodyXSComponent;
 export const BodyXXS = BodyXXSComponent;
+export const BodyXXXS = BodyXXXSComponent;
 
 export const DsplS = DsplSComponent;
 
