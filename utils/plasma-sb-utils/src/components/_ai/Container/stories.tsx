@@ -162,7 +162,6 @@ export const createDefaultStory = (Components: any) => {
             </Flow>
             <ChipGroup
                 size={getChipGroupSize(size)}
-                view="secondary"
                 gap="wide"
                 style={{ flexDirection: 'column', width: 'fit-content' }}
             >

@@ -1,0 +1,33 @@
+---
+id: container
+title: Container
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Container
+
+Container — каркас AI-диалога. Объединяет шапку, прокручиваемую область с сообщениями и нижнюю область с полем ввода,
+обеспечивая целостную структуру чат-интерфейса.
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { Container, Header, Input } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    return (
+        <Container
+            style={{ height: "480px" }}
+            header={<Header title="AI-помощник" hasDivider />}
+            content={<div>Здесь отображается история диалога.</div>}
+            footer={<Input placeholder="Напишите сообщение" />}
+        />
+    );
+}
+```
+
+## Таблица свойств
+
+<PropsTable name="Container" />

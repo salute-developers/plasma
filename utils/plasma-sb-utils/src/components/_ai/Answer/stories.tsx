@@ -152,12 +152,7 @@ export const createDefaultStory = (Answer: any, Components: any) => {
         };
 
         return (
-            <ChipGroup
-                size={chipGroupSize()}
-                view="secondary"
-                gap="wide"
-                style={{ flexDirection: 'column', width: 'fit-content' }}
-            >
+            <ChipGroup size={chipGroupSize()} gap="wide" style={{ flexDirection: 'column', width: 'fit-content' }}>
                 {Array.from({ length: 3 }, (_, i) => (
                     <Chip key={i} text={`Вариант действия ${i}`} hasClear={false} pilled />
                 ))}
