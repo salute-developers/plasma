@@ -29,6 +29,21 @@
       "import": "./dist/emotion/es/index.js",
       "require": "./dist/emotion/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./ai": {
+      "import": "./dist/ai/css/es/index.js",
+      "require": "./dist/ai/css/cjs/index.js",
+      "types": "./types/ai.d.ts"
+    },
+    "./ai/styled-components": {
+      "import": "./dist/ai/styled-components/es/index.js",
+      "require": "./dist/ai/styled-components/cjs/index.js",
+      "types": "./types/ai.d.ts"
+    },
+    "./ai/emotion": {
+      "import": "./dist/ai/emotion/es/index.js",
+      "require": "./dist/ai/emotion/cjs/index.js",
+      "types": "./types/ai.d.ts"
     }
   },
   "peerDependencies": {
@@ -84,16 +99,18 @@
     "build": "npm run build:css && npm run build:styled-components && npm run build:emotion",
     "postbuild": "npm run generate:typings",
     "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
-    "build:css": "rm -rf dist/css && rollup -c",
+    "build:css": "rm -rf dist/css dist/ai/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
-    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
-    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && node ./scripts/replaceStyledComponentsToEmotion.js",
-    "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
+    "prebuild:styled-components": "rm -rf src-styled-components src-ai && cp -R src src-styled-components && rm -rf src-styled-components/components/_ai && mkdir -p src-ai/components && cp -R src/components/_ai src-ai/components/_ai && cp src/ai.ts src-ai/index.ts",
+    "build:styled-components": "rm -rf dist/styled-components dist/ai/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
+    "build:styled-components:cjs": "swc ./src-styled-components -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs && swc ./src-ai -d ./dist/ai/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src-styled-components -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && swc ./src-ai -d ./dist/ai/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "postbuild:styled-components": "rm -rf src-styled-components src-ai",
+    "prebuild:emotion": "rm -rf src-emotion src-ai-emotion && cp -R src src-emotion && rm -rf src-emotion/components/_ai && node ./scripts/replaceStyledComponentsToEmotion.js && mkdir -p src-ai-emotion/components && cp -R src/components/_ai src-ai-emotion/components/_ai && cp src/ai.ts src-ai-emotion/index.ts && node ./scripts/replaceStyledComponentsToEmotion.js src-ai-emotion",
+    "build:emotion": "rm -rf dist/emotion dist/ai/emotion && npm run build:emotion:esm && npm run build:emotion:cjs && swc ./src-ai-emotion -d ./dist/ai/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && swc ./src-ai-emotion -d ./dist/ai/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "postbuild:emotion": "rm -rf src-emotion",
+    "postbuild:emotion": "rm -rf src-emotion src-ai-emotion",
     "generate:typings": "rm -rf types && tsc",
     "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
