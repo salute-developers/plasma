@@ -35,7 +35,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(--surface-clear);
             `,
             secondary: css`
-                ${iconButtonTokens.iconButtonColor}: var(--text-secondary);
+                ${iconButtonTokens.iconButtonColor}: var(--text-primary);
 
                 ${iconButtonTokens.iconButtonBorderColor}: var(--outline-solid-primary);
                 ${iconButtonTokens.iconButtonBorderColorHover}: var(--outline-solid-primary-hover);
