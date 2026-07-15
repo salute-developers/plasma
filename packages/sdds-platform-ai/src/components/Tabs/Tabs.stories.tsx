@@ -12,10 +12,11 @@ import { Tabs } from './Tabs';
 import { HorizontalTabItemProps, IconTabItem, IconTabItemProps, TabItem, VerticalTabItemProps } from './TabItem';
 
 const orientations = ['vertical', 'horizontal'];
+љ;
 const clips = ['none', 'scroll', 'showAll'];
 const headerClips = ['none', 'scroll'];
-const sizes = ['m'] as const;
-const headerSizes = ['h6', 'h5', 'h4', 'h3', 'h2', 'h1'] as const;
+const sizes = ['m', 's'] as const;
+const headerSizes = ['h5', 'h4', 'h3', 'h2', 'h1'] as const;
 
 type Size = typeof sizes[number];
 type HeaderSize = typeof headerSizes[number];

@@ -44,6 +44,14 @@ export const config = {
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
+            s: css`
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
+                ${tabsTokens.itemPaddingOrientationVertical}: 0.5rem 0.625rem;
+                ${tabsTokens.itemContentGap}: 0.25rem;
+                ${tabsTokens.itemContentPadding}: 0.125rem;
+
+                ${tabsTokens.actionContentMarginLeft}: 0.25rem;
+            `,
         },
         disabled: {
             true: css`
