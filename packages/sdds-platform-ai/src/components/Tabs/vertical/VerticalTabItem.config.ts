@@ -2,6 +2,8 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyM,
     bodyMBold,
+    bodyS,
+    bodySBold,
     surfaceAccent,
     textPrimary,
     textSecondary,
@@ -67,6 +69,26 @@ export const config = {
                 ${tabsTokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tabsTokens.actionContentMarginLeft}: 0.125rem;
+            `,
+            s: css`
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
+                ${tabsTokens.itemWidth}: auto;
+                ${tabsTokens.itemHeight}: 2.5rem;
+                ${tabsTokens.itemPadding}: 0 0.625rem;
+                ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
+                ${tabsTokens.itemPaddingOrientationVertical}: 0.5rem 1rem;
+                ${tabsTokens.itemMarginLeft}: 0.75rem;
+                ${tabsTokens.itemContentGap}: 0.25rem;
+                ${tabsTokens.itemContentPadding}: 0.125rem;
+
+                ${tabsTokens.fontFamily}: ${bodyS.fontFamily};
+                ${tabsTokens.fontSize}: ${bodyS.fontSize};
+                ${tabsTokens.fontStyle}: ${bodyS.fontStyle};
+                ${tabsTokens.fontWeight}: ${bodySBold.fontWeight};
+                ${tabsTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tabsTokens.lineHeight}: ${bodyS.lineHeight};
+
+                ${tabsTokens.actionContentMarginLeft}: 0.25rem;
             `,
         },
         disabled: {
