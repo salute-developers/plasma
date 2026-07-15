@@ -12,7 +12,6 @@ import { Tabs } from './Tabs';
 import { HorizontalTabItemProps, IconTabItem, IconTabItemProps, TabItem, VerticalTabItemProps } from './TabItem';
 
 const orientations = ['vertical', 'horizontal'];
-љ;
 const clips = ['none', 'scroll', 'showAll'];
 const headerClips = ['none', 'scroll'];
 const sizes = ['m', 's'] as const;
