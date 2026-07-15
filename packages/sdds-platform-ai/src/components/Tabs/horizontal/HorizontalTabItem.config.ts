@@ -2,12 +2,13 @@ import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyM,
     bodyMBold,
+    bodyS,
+    bodySBold,
     h1,
     h2,
     h3,
     h4,
     h5,
-    h6,
     surfaceAccent,
     textPrimary,
     textSecondary,
@@ -94,22 +95,24 @@ export const config = {
 
                 ${tabsTokens.actionContentMarginLeft}: 0.25rem;
             `,
-            h6: css`
-                ${tabsTokens.itemBorderRadius}: 0.375rem;
+            s: css`
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
                 ${tabsTokens.itemWidth}: auto;
-                ${tabsTokens.itemHeight}: 3rem;
+                ${tabsTokens.itemHeight}: 2.5rem;
                 ${tabsTokens.itemPadding}: 0 0.125rem;
+                ${tabsTokens.itemPaddingPilled}: 0 0.5rem;
                 ${tabsTokens.itemMarginLeft}: 1.5rem;
-                ${tabsTokens.itemContentGap}: 0.625rem;
+                ${tabsTokens.itemContentGap}: 0.25rem;
+                ${tabsTokens.itemContentPadding}: 0.125rem;
 
-                ${tabsTokens.fontFamily}: ${h6.fontFamily};
-                ${tabsTokens.fontSize}: ${h6.fontSize};
-                ${tabsTokens.fontStyle}: ${h6.fontStyle};
-                ${tabsTokens.fontWeight}: ${h6.fontWeight};
-                ${tabsTokens.letterSpacing}: ${h6.letterSpacing};
-                ${tabsTokens.lineHeight}: ${h6.lineHeight};
+                ${tabsTokens.fontFamily}: ${bodyS.fontFamily};
+                ${tabsTokens.fontSize}: ${bodyS.fontSize};
+                ${tabsTokens.fontStyle}: ${bodyS.fontStyle};
+                ${tabsTokens.fontWeight}: ${bodySBold.fontWeight};
+                ${tabsTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tabsTokens.lineHeight}: ${bodyS.lineHeight};
 
-                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
+                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
             h5: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;
