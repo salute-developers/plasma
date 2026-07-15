@@ -283,6 +283,9 @@ export const sdds_platform_ai__light = ([
   --surface-transparent-negative: #F31B311F;
   --surface-transparent-positive: #28D2471F;
   --surface-solid-secondary: #ECECEC;
+  --surface-accent-extra: #080808;
+  --surface-accent-extra-hover: #262626FF;
+  --surface-accent-extra-active: #030303FF;
   --on-dark-surface-solid-primary-hover: #1C1C1CFF;
   --on-dark-surface-solid-primary-active: #121212FF;
   --on-dark-surface-solid-primary: #171717;
@@ -370,6 +373,9 @@ export const sdds_platform_ai__light = ([
   --on-dark-surface-transparent-negative-minor-hover: #FA5F051C;
   --on-dark-surface-transparent-negative-minor-active: #FA5F0508;
   --on-dark-surface-solid-card: #080808;
+  --on-dark-surface-accent-extra: #1A9E32;
+  --on-dark-surface-accent-extra-hover: #1DAF37FF;
+  --on-dark-surface-accent-extra-active: #18952FFF;
   --on-light-surface-solid-primary-hover: #F2F2F2FF;
   --on-light-surface-solid-primary-active: #F0F0F0FF;
   --on-light-surface-solid-primary: #F5F5F5;
@@ -460,6 +466,9 @@ export const sdds_platform_ai__light = ([
   --on-light-surface-negative: #F31B31;
   --on-light-surface-transparent-positive: #28D2471F;
   --on-light-surface-transparent-negative: #F31B311F;
+  --on-light-surface-accent-extra: #080808;
+  --on-light-surface-accent-extra-hover: #262626FF;
+  --on-light-surface-accent-extra-active: #030303FF;
   --inverse-surface-solid-primary-hover: #1C1C1CFF;
   --inverse-surface-solid-primary-active: #121212FF;
   --inverse-surface-solid-primary: #171717;
@@ -547,6 +556,9 @@ export const sdds_platform_ai__light = ([
   --inverse-surface-transparent-negative-minor: #FA5F050D;
   --inverse-surface-transparent-negative-minor-hover: #FA5F051C;
   --inverse-surface-transparent-negative-minor-active: #FA5F0508;
+  --inverse-surface-accent-extra: #1A9E32;
+  --inverse-surface-accent-extra-hover: #1DAF37FF;
+  --inverse-surface-accent-extra-active: #18952FFF;
   --background-primary-brightness: #F9F9F9FF;
   --background-primary: #FFFFFFFF;
   --background-secondary: #F5F5F5;
@@ -867,6 +879,12 @@ export const sdds_platform_ai__light = ([
   --data-yellow-transparent: #F3A9128F;
   --data-yellow-transparent-hover: #F3A8129E;
   --data-yellow-transparent-active: #F3A812A3;
+  --data-transparent-purple-extra: #B559F31F;
+  --data-transparent-purple-extra-hover: #B558F32E;
+  --data-transparent-purple-extra-active: #B558F333;
+  --data-purple-extra: #722BA1;
+  --data-purple-extra-hover: #7D2FB1FF;
+  --data-purple-extra-active: #662791FF;
   --on-dark-data-yellow: #F3A912;
   --on-dark-data-yellow-hover: #F4B22FFF;
   --on-dark-data-yellow-active: #EDA20CFF;
@@ -876,6 +894,12 @@ export const sdds_platform_ai__light = ([
   --on-dark-data-yellow-transparent: #F3A9128F;
   --on-dark-data-yellow-transparent-hover: #F3A812AD;
   --on-dark-data-yellow-transparent-active: #F3A81280;
+  --on-dark-data-transparent-purple-extra: #B559F333;
+  --on-dark-data-transparent-purple-extra-hover: #B558F352;
+  --on-dark-data-transparent-purple-extra-active: #B558F324;
+  --on-dark-data-purple-extra: #AD42F5;
+  --on-dark-data-purple-extra-hover: #BA5FF7FF;
+  --on-dark-data-purple-extra-active: #A938F5FF;
   --on-light-data-yellow: #F3A912;
   --on-light-data-yellow-hover: #F5B638FF;
   --on-light-data-yellow-active: #E49C0CFF;
@@ -885,6 +909,12 @@ export const sdds_platform_ai__light = ([
   --on-light-data-yellow-transparent: #F3A9128F;
   --on-light-data-yellow-transparent-hover: #F3A8129E;
   --on-light-data-yellow-transparent-active: #F3A812A3;
+  --on-light-data-transparent-purple-extra: #B559F31F;
+  --on-light-data-transparent-purple-extra-hover: #B558F32E;
+  --on-light-data-transparent-purple-extra-active: #B558F333;
+  --on-light-data-purple-extra: #722BA1;
+  --on-light-data-purple-extra-hover: #7D2FB1FF;
+  --on-light-data-purple-extra-active: #662791FF;
   --inverse-data-yellow: #F3A912;
   --inverse-data-yellow-hover: #F4B22FFF;
   --inverse-data-yellow-active: #EDA20CFF;
@@ -894,6 +924,12 @@ export const sdds_platform_ai__light = ([
   --inverse-data-yellow-transparent: #F3A9128F;
   --inverse-data-yellow-transparent-hover: #F3A812AD;
   --inverse-data-yellow-transparent-active: #F3A81280;
+  --inverse-data-transparent-purple-extra: #B559F333;
+  --inverse-data-transparent-purple-extra-hover: #B558F352;
+  --inverse-data-transparent-purple-extra-active: #B558F324;
+  --inverse-data-purple-extra: #AD42F5;
+  --inverse-data-purple-extra-hover: #BA5FF7FF;
+  --inverse-data-purple-extra-active: #A938F5FF;
   color: var(--text-primary);
   background-color: var(--background-primary);
 }
@@ -901,16 +937,16 @@ export const sdds_platform_ai__light = ([
 :root {
   --text-accent-gradient-hover: #CCCCCCFF;
   --text-accent-gradient-active: #E6E6E6FF;
-  --text-accent-gradient: linear-gradient(45.00deg, #C5FC5FFF 100%, #52F2C5FF 100%);
-  --on-dark-text-accent-gradient-hover: #000000FF;
-  --on-dark-text-accent-gradient-active: #CCCCCCFF;
-  --on-dark-text-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
+  --text-accent-gradient: linear-gradient(45deg, #52F2C5FF 7.46%, #C5FC5FFF 91%);
+  --on-dark-text-accent-gradient-hover: #858585FF;
+  --on-dark-text-accent-gradient-active: #666666FF;
+  --on-dark-text-accent-gradient: linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%);
   --on-light-text-accent-gradient-hover: #000000FF;
   --on-light-text-accent-gradient-active: #CCCCCCFF;
   --on-light-text-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
-  --inverse-text-accent-gradient-hover: #000000FF;
-  --inverse-text-accent-gradient-active: #CCCCCCFF;
-  --inverse-text-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
+  --inverse-text-accent-gradient-hover: #858585FF;
+  --inverse-text-accent-gradient-active: #666666FF;
+  --inverse-text-accent-gradient: linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%);
   --surface-accent-gradient-hover: #FFFFFFFF;
   --surface-accent-gradient-active: #FFFFFFFF;
   --surface-accent-gradient: linear-gradient(116.10deg, #52F2C5FF 3.78%, #C5FC5FFF 96.048%);
@@ -922,7 +958,7 @@ export const sdds_platform_ai__light = ([
   --surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --on-dark-surface-accent-gradient-hover: #FFFFFFFF;
   --on-dark-surface-accent-gradient-active: #FFFFFFFF;
-  --on-dark-surface-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%);
+  --on-dark-surface-accent-gradient: linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%);
   --on-dark-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --on-dark-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-dark-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -940,7 +976,7 @@ export const sdds_platform_ai__light = ([
   --on-light-surface-skeleton-deep-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
-  --inverse-surface-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%);
+  --inverse-surface-accent-gradient: linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%);
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -952,13 +988,13 @@ export const sdds_platform_ai__light = ([
   --outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --on-dark-outline-accent-gradient-hover: #858585FF;
   --on-dark-outline-accent-gradient-active: #666666FF;
-  --on-dark-outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
+  --on-dark-outline-accent-gradient: linear-gradient(45deg, #C5FC5FFF 0%, #04C6C9FF 100%);
   --on-light-outline-accent-gradient-hover: #CCCCCCFF;
   --on-light-outline-accent-gradient-active: #E6E6E6FF;
   --on-light-outline-accent-gradient: linear-gradient(45.00deg, #0D8523FF 0%, #0DA8ABFF 100%);
   --inverse-outline-accent-gradient-hover: #858585FF;
   --inverse-outline-accent-gradient-active: #666666FF;
-  --inverse-outline-accent-gradient: linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%);
+  --inverse-outline-accent-gradient: linear-gradient(45deg, #C5FC5FFF 0%, #04C6C9FF 100%);
 }
 
 :root {
