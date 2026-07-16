@@ -1,4 +1,5 @@
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { surfaceSolidSecondary, textAccent, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -8,14 +9,14 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
             `,
             filled: css`
-                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
+                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
             `,
         },
         size: {
@@ -76,7 +77,7 @@ export const config = {
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-solid-secondary);
+                ${segmentTokens.groupFilledBackgroundColor}: ${surfaceSolidSecondary};
             `,
         },
         orientation: {
