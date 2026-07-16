@@ -10,14 +10,6 @@ if (coverageDir) {
         exclude: ['**/*.examples.tsx'],
         excludeAfterRemap: true,
     };
-
-    switch (process.env.PACKAGE_NAME) {
-        case 'plasma-ui':
-            nycConfig.include.push('**/packages/plasma-core/**');
-            break;
-        default:
-            break;
-    }
 }
 
 module.exports = nycConfig;

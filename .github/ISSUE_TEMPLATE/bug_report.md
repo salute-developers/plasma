@@ -14,7 +14,7 @@ e.g. `node -v && npm -v`
 
 ````v13.12.0
 6.14.10```
-e.g. `@salutejs/plasma-ui@1.33.0`
+e.g. `@salutejs/plasma-web@1.33.0`
 
 **To Reproduce**
 Describe how to reproduce the bug.

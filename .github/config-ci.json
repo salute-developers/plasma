@@ -3,7 +3,6 @@
         "plasma-web",
         "plasma-giga",
         "plasma-b2c",
-        "plasma-ui",
         "sdds-cs",
         "sdds-insol",
         "sdds-netology",
@@ -19,7 +18,6 @@
     "PACKAGES_DS": [
         "plasma-web",
         "plasma-b2c",
-        "plasma-ui",
         "plasma-new-hope",
         "plasma-asdk",
         "plasma-giga",

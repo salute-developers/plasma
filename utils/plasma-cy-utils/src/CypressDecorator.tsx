@@ -18,8 +18,6 @@ import {
     sdds_dfa__light,
 } from '@salutejs/sdds-themes';
 import { sdds_os__light } from '@salutejs-ds/sdds_os';
-// plasma-ui
-import { darkSber } from '@salutejs/plasma-tokens/themes';
 // plasma-b2c
 import { dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
@@ -45,7 +43,6 @@ const ThemeWEB = createGlobalStyle(plasma_web__light);
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 const CompatibleTypoStyle = createGlobalStyle(compatibleTypo);
 const ColorB2CStyle = createGlobalStyle(dark);
-const ThemeStyle = createGlobalStyle(darkSber);
 
 const testPackagesThemes = {
     'plasma-giga': <ThemeGIGA />,
@@ -72,8 +69,6 @@ const getPackage = function <T = PropsWithChildren<{}>>(): Record<string, React.
 
     /* eslint-disable */
     switch (pkgName) {
-        case 'plasma-ui':
-            return require('../../../packages/plasma-ui');
         case 'plasma-web':
             return require('../../../packages/plasma-web/dist/styled-components/cjs/index.js');
         case 'plasma-b2c':
@@ -144,23 +139,6 @@ export const skipForBrowser = (browsers: string[], customIt: Mocha.TestFunction)
 export const CypressTestDecorator: FC<PropsWithChildren<any>> = ({ noSSR, children }) => {
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     const pkgName = Cypress.env('package') as string;
-
-    if (pkgName === 'plasma-ui') {
-        const DeviceThemeProvider = getComponent('DeviceThemeProvider');
-
-        if (!DeviceThemeProvider) {
-            return <>{children}</>;
-        }
-
-        return (
-            <DeviceThemeProvider>
-                <SSRProvider noSSR={noSSR}>
-                    <ThemeStyle />
-                    {children}
-                </SSRProvider>
-            </DeviceThemeProvider>
-        );
-    }
 
     if (pkgName === 'plasma-b2c') {
         return (
