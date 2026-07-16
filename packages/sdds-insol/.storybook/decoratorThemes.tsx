@@ -3,7 +3,7 @@ import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
 import { sdds_insol_next__light, sdds_insol_next__dark } from '@salutejs/sdds-themes';
 
-import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
+import { ViewContainer } from '../src';
 
 const DocumentStyle = createGlobalStyle`
     html:root {

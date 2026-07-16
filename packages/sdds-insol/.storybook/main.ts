@@ -2,6 +2,10 @@ import { mergeConfig } from 'vite';
 import type { StorybookConfig } from '@storybook/react-vite';
 import linaria from '@linaria/vite';
 import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// @ts-ignore
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const stories = ['../README.mdx', '../src/**/*.stories.tsx'];
 
@@ -29,6 +33,11 @@ const config: StorybookConfig = {
                 dedupe: ['react', 'react-dom', 'styled-components'],
                 alias: {
                     '@salutejs/plasma-sb-utils': path.resolve('../../utils/plasma-sb-utils/src'),
+                    // Токены sdds-themes собраны и в CJS (tokens/*), и в ESM (es/tokens/*), но у
+                    // пакета нет exports-мапы, поэтому глубокий подпуть по умолчанию резолвится в
+                    // CJS. Vite (нативный ESM) отдаёт CJS как есть -> "does not provide an export
+                    // named 'bodyS'" / "exports is not defined". Перенаправляем подпуть на ESM-сборку.
+                    '@salutejs/sdds-themes/tokens': path.resolve(__dirname, '../../themes/sdds-themes/es/tokens'),
                 },
             },
             build: {
