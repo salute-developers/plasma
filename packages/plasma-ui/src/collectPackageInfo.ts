@@ -1,1 +1,0 @@
-../../plasma-core/src/collectPackageInfo.ts

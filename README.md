@@ -8,19 +8,12 @@
 
 ## Состав:
 
--   @salutejs/plasma-ui
 -   @salutejs/plasma-web
 -   @salutejs/plasma-b2c
 -   @salutejs/plasma-tokens
 -   @salutejs/plasma-tokens-web
 -   @salutejs/plasma-tokens-b2c
 -   @salutejs/plasma-icons
-
-### plasma-ui
-
-Пакет с набором готовых компонентов и утилит для создания Canvas App. Компоненты реализованы с помощью [React](https://reactjs.org/). Для компонентов доступны [Storybook](https://bit.ly/3xRatFG) и [документация](https://bit.ly/3HWggy3).
-
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-ui?label=%40salutejs%2Fplasma-ui&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-ui)
 
 ### plasma-web
 
@@ -47,55 +40,6 @@
 Пакет с набором иконок, которые доступны к просмотру в [хранилище](https://bit.ly/42hgVSf), а также в [Storybook](https://bit.ly/3LhwBwC) и [документации](https://bit.ly/3xQMjuM).
 
 [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-icons?label=%40salutejs%2Fplasma-icons&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-icons)
-
-## Быстрый старт
-
-`Canvas App` это web-приложение, для его создания вам потребуется:
-
--   `Node.js` & `npm` [установка](https://nodejs.org/ru/)
--   `Create React App` – для быстрого создания основы вашего приложения. [CRA](https://create-react-app.dev/docs/getting-started#quick-start)
--   `React` Как основа для web интерфейса. Погружение для новичков: https://ru.reactjs.org/tutorial/tutorial.html
-
-### Установка
-
-После создания [основы приложения](https://create-react-app.dev/docs/getting-started#quick-start):
-
-```sh
-npm i -S styled-components@5.1.1 @salutejs/plasma-ui @salutejs/plasma-tokens @salutejs/plasma-icons
-```
-
-_Компоненты реализованы с помощью [styled-components](http://styled-components.com/). Поэтому необходимо поставить их в зависимость._
-
-NB: Если вы решили не использовать `Create React App`, то вам потребуется установить `react` и `react-dom`:
-
-```sh
-npm i -S react react-dom
-```
-
-Более подробно можно ознакомиться на странице [документации](https://bit.ly/3HWggy3#%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0).
-
-### Использование
-
-```jsx
-// ./src/App.jsx
-import React from 'react';
-
-import { Button } from '@salutejs/plasma-ui';
-
-function App() {
-    return (
-        <div className="App">
-            <p>
-                <Button view="primary">Hello Plasma</Button>
-            </p>
-        </div>
-    );
-}
-
-export default App;
-```
-
-Более подробно можно ознакомиться на странице [документации](https://bit.ly/3HWggy3#%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5).
 
 ## Обратная связь
 

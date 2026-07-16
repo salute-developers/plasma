@@ -83,10 +83,6 @@ module.exports = {
                     title: 'Документация',
                     items: [
                         {
-                            label: 'Plasma UI',
-                            to: `https://plasma.sberdevices.ru${prPrefix}/ui/`,
-                        },
-                        {
                             label: 'Plasma WEB',
                             to: `https://plasma.sberdevices.ru${prPrefix}/web/`,
                         },

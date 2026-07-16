@@ -9,10 +9,8 @@ var styled_components_1 = require("styled-components");
 var plasma_themes_1 = require("@salutejs/plasma-themes");
 var sdds_themes_1 = require("@salutejs/sdds-themes");
 var sdds_os_1 = require("@salutejs-ds/sdds_os");
-// plasma-ui
-var themes_1 = require("@salutejs/plasma-tokens/themes");
 // plasma-b2c
-var themes_2 = require("@salutejs/plasma-tokens-b2c/themes");
+var themes_1 = require("@salutejs/plasma-tokens-b2c/themes");
 var plasma_typo_1 = require("@salutejs/plasma-typo");
 var SSRProvider_1 = require("./SSRProvider");
 var NormalizeCSSDecorator_1 = require("./NormalizeCSSDecorator");
@@ -32,8 +30,7 @@ var ThemeHOMEDS = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.pla
 var ThemeWEB = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_web__light);
 var StandardTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.standard);
 var CompatibleTypoStyle = (0, styled_components_1.createGlobalStyle)(plasma_typo_1.compatible);
-var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_2.dark);
-var ThemeStyle = (0, styled_components_1.createGlobalStyle)(themes_1.darkSber);
+var ColorB2CStyle = (0, styled_components_1.createGlobalStyle)(themes_1.dark);
 var testPackagesThemes = {
     'plasma-giga': react_1.default.createElement(ThemeGIGA, null),
     'sdds-cs': react_1.default.createElement(ThemeCS, null),
@@ -56,8 +53,6 @@ var getPackage = function () {
     }
     /* eslint-disable */
     switch (pkgName) {
-        case 'plasma-ui':
-            return require('../../../packages/plasma-ui');
         case 'plasma-web':
             return require('../../../packages/plasma-web/dist/styled-components/cjs/index.js');
         case 'plasma-b2c':
@@ -125,16 +120,6 @@ var CypressTestDecorator = function (_a) {
     var noSSR = _a.noSSR, children = _a.children;
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     var pkgName = Cypress.env('package');
-    if (pkgName === 'plasma-ui') {
-        var DeviceThemeProvider = (0, exports.getComponent)('DeviceThemeProvider');
-        if (!DeviceThemeProvider) {
-            return react_1.default.createElement(react_1.default.Fragment, null, children);
-        }
-        return (react_1.default.createElement(DeviceThemeProvider, null,
-            react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
-                react_1.default.createElement(ThemeStyle, null),
-                children)));
-    }
     if (pkgName === 'plasma-b2c') {
         return (react_1.default.createElement(SSRProvider_1.SSRProvider, { noSSR: noSSR },
             react_1.default.createElement(NormalizeCSSDecorator_1.NormalizeCSSDecorator, null),

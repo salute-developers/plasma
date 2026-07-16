@@ -72,8 +72,6 @@ packages/plasma-b2c/*
 packages/plasma-hope/*
 !packages/plasma-hope/src
 
-packages/plasma-ui/*
-!packages/plasma-ui/src
 
 packages/plasma-web/*
 !packages/plasma-web/src
