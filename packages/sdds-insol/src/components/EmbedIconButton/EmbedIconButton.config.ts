@@ -1,4 +1,29 @@
 import { css, embedIconButtonTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    surfaceAccent,
+    surfaceClear,
+    textAccent,
+    textAccentActive,
+    textAccentHover,
+    textInfo,
+    textInfoActive,
+    textInfoHover,
+    textNegative,
+    textNegativeActive,
+    textNegativeHover,
+    textPositive,
+    textPositiveActive,
+    textPositiveHover,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textWarning,
+    textWarningActive,
+    textWarningHover,
+} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -9,60 +34,60 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-primary);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textPrimary};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
 
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-primary-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-primary-active);
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textPrimaryHover};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textPrimaryActive};
             `,
             accent: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-accent);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textAccent};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
 
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-accent-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-accent-active);
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textAccentHover};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textAccentActive};
             `,
             secondary: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-secondary);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textSecondary};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
 
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-secondary-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-secondary-active);
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textSecondaryHover};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textSecondaryActive};
             `,
             positive: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-positive);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textPositive};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
 
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-positive-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-positive-active);
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textPositiveHover};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textPositiveActive};
             `,
             warning: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-warning);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textWarning};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
 
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-warning-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-warning-active);
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textWarningHover};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textWarningActive};
             `,
             negative: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-negative);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textNegative};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
 
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-negative-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-negative-active);
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textNegativeHover};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textNegativeActive};
             `,
             info: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-info);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-clear);
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textInfo};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
 
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-info-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-info-active);
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textInfoHover};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textInfoActive};
             `,
         },
         size: {
@@ -101,7 +126,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${embedIconButtonTokens.embedIconButtonFocusColor}: var(--surface-accent);
+                ${embedIconButtonTokens.embedIconButtonFocusColor}: ${surfaceAccent};
             `,
         },
     },
