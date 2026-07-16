@@ -72,7 +72,7 @@ npm run update:package-locks:scope --scope=@salutejs/plasma-hope
 
 ## Запуск Storybook
 
-Для разработки компонент используется `Storybook`, который запускается и собирается с помощью `Vite`. Для локальной разработки необходимо из корня проекта перейти в нужную директорию (`plasma-web`, `plasma-b2c`, `plasma-ui`) и выполнить команду запуска:
+Для разработки компонент используется `Storybook`, который запускается и собирается с помощью `Vite`. Для локальной разработки необходимо из корня проекта перейти в нужную директорию (`plasma-web`, `plasma-b2c`) и выполнить команду запуска:
 
 ```sh
 cd plasma-web/
@@ -117,7 +117,7 @@ npm run api:report
 brew install chromium --no-quarantine
 ```
 
-На примере пакета `@salutejs/plasma-ui` работа с тестами выглядит следующим образом:
+На примере пакета `@salutejs/plasma-web` работа с тестами выглядит следующим образом:
 
 -   если `Docker` не установлен, установите его;
 -   убедитесь, что докер запущен;
@@ -132,7 +132,7 @@ npm ci && npx lerna bootstrap
 В корне **monorepo** выполните команду (для остальных библиотек команды будут соответствующими):
 
 ```sh
-npm run cy:ui:run
+npm run cy:web:run
 ```
 
 #### Обновление скриншотов
@@ -140,7 +140,7 @@ npm run cy:ui:run
 Если это необходимо, то для этого выполните команду:
 
 ```sh
-npm run cy:ui:update
+npm run cy:web:update
 ```
 
 -   добавьте их в commit;
@@ -150,7 +150,7 @@ npm run cy:ui:update
 Выполните команду:
 
 ```sh
-npm run cy:ui:open
+npm run cy:web:open
 ```
 
 #### Запуск тестов с указанием компонента(-ов)
@@ -160,7 +160,7 @@ npm run cy:ui:open
 Это поведение можно изменить указав что именно нужно запускать.
 
 ```sh
-npm run cy:ui:run --components='component1, component2'
+npm run cy:web:run --components='component1, component2'
 ```
 
 или
@@ -174,14 +174,6 @@ npm run cy:web:update --components='component1, component2'
 Мы используем Conventional Commits (<https://www.conventionalcommits.org/>). Git commit message должен быть на английском языке.
 Изменения в коммите должны затрагивать только один пакет.
 Версионирование пакетов происходит автоматически, руками версию в `package.json` не поднимаем.
-
-Пример коммита в пакет `@salutejs/plasma-ui`:
-
-```sh
-git commit -m "feat(plasma-ui): Component X added"
-```
-
-Пример 2:
 
 ```sh
 git commit -m "fix(plasma-web): Fix component Y"

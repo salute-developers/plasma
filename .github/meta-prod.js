@@ -34,19 +34,6 @@ module.exports = {
     'plasma-new-hope': {
         scope: [...commonScope, 'plasma-themes', 'plasma-core'],
     },
-    'plasma-ui': {
-        scope: [
-            'plasma-icons',
-            'plasma-sb-utils',
-            'plasma-tokens',
-            'plasma-tokens-utils',
-            'plasma-core',
-            'plasma-typo',
-            'plasma-docs-ui',
-            'plasma-ui-docs',
-            'plasma-colors',
-        ],
-    },
     'plasma-web': {
         scope: [
             ...commonScope,
