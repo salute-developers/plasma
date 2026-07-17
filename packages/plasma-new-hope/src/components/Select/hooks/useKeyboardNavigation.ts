@@ -40,6 +40,7 @@ type Props = {
     treeView: boolean;
     valueToPathMap: Map<string, string[]>;
     items: ItemOption[];
+    disabled: boolean;
     readOnly: boolean;
 };
 
@@ -78,6 +79,7 @@ export const useKeyNavigation = ({
     treeView,
     valueToPathMap,
     items,
+    disabled,
     readOnly,
 }: Props): ReturnedProps => {
     if (treeView) {
@@ -95,6 +97,7 @@ export const useKeyNavigation = ({
             treeView,
             valueToPathMap,
             items,
+            disabled,
             readOnly,
         });
     }
@@ -113,6 +116,7 @@ export const useKeyNavigation = ({
         treeView,
         valueToPathMap,
         items,
+        disabled,
         readOnly,
     });
 };
@@ -126,13 +130,14 @@ const keyboardNavigationDefault = ({
     focusedToValueMap,
     handleListToggle,
     handlePressDown,
+    disabled,
     readOnly,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
     const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-        if (readOnly) {
+        if (disabled || readOnly) {
             return;
         }
 
@@ -341,6 +346,7 @@ const keyboardNavigationTree = ({
     dispatchTreePath,
     valueToPathMap,
     items,
+    disabled,
     readOnly,
 }: Props): ReturnedProps => {
     const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
@@ -366,7 +372,7 @@ const keyboardNavigationTree = ({
     };
 
     const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-        if (readOnly) {
+        if (disabled || readOnly) {
             return;
         }
 

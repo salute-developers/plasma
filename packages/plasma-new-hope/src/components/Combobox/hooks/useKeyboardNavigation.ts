@@ -58,6 +58,8 @@ type Props = {
     treeView: boolean;
     valueToPathMap: Map<string, string[]>;
     items: ItemOptionTransformed[];
+    disabled: boolean;
+    readOnly: boolean;
 };
 
 type ReturnedProps = {
@@ -84,9 +86,19 @@ export const useKeyNavigation = ({
     treeView,
     valueToPathMap,
     items,
+    disabled,
+    readOnly,
 }: Props): ReturnedProps => {
+    const getGuardedKeyDown = (onKeyDown: ReturnedProps['onKeyDown']) => (event: React.KeyboardEvent<HTMLElement>) => {
+        if (disabled || readOnly) {
+            return;
+        }
+
+        onKeyDown(event);
+    };
+
     if (treeView) {
-        return keyboardNavigationTree({
+        const { onKeyDown } = keyboardNavigationTree({
             focusedPath,
             dispatchFocusedPath,
             path,
@@ -105,10 +117,14 @@ export const useKeyNavigation = ({
             treeView,
             valueToPathMap,
             items,
+            disabled,
+            readOnly,
         });
+
+        return { onKeyDown: getGuardedKeyDown(onKeyDown) };
     }
 
-    return keyboardNavigationDefault({
+    const { onKeyDown } = keyboardNavigationDefault({
         focusedPath,
         dispatchFocusedPath,
         path,
@@ -127,7 +143,11 @@ export const useKeyNavigation = ({
         treeView,
         valueToPathMap,
         items,
+        disabled,
+        readOnly,
     });
+
+    return { onKeyDown: getGuardedKeyDown(onKeyDown) };
 };
 
 const keyboardNavigationDefault = ({
@@ -198,7 +218,6 @@ const keyboardNavigationDefault = ({
 
             case keys.ArrowLeft: {
                 if (path[0]) {
-                    event.stopPropagation();
                     event.preventDefault();
 
                     if (focusedPath.length) {
@@ -211,7 +230,15 @@ const keyboardNavigationDefault = ({
 
                     if (path.length === 1) {
                         handleListToggle(false);
+
+                        // Передаем событие в TextField, чтобы его навигация сразу
+                        // установила фокус на последний выбранный чип.
+                        if (multiple && Array.isArray(value) && value.length) {
+                            break;
+                        }
                     }
+
+                    event.stopPropagation();
                 }
 
                 break;
