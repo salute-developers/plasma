@@ -381,6 +381,31 @@ describeFn('Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('readOnly: does not handle keyboard navigation or remove chips', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(
+            <Combobox
+                id="read-only"
+                multiple
+                readOnly
+                defaultValue={['north_america']}
+                items={items}
+                onChange={onChange}
+            />,
+        );
+
+        cy.get('#read-only').click();
+        cy.pressKey('ArrowDown');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.pressKey('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('.has-chips button').click().focus().pressKey('Backspace');
+        cy.get('.has-chips button').should('have.length', 1);
+        cy.get('@onChange').should('not.have.been.called');
+    });
+
     it('variant', () => {
         cy.viewport(1280, 732);
 
@@ -2278,11 +2303,9 @@ describeFn('Combobox', () => {
         cy.pressKey('Enter');
         cy.pressKey('ArrowLeft');
         cy.get('[id$="tree_level_1"]').should('not.exist');
-        cy.get('#multiple').should('be.focused');
+        cy.get('.has-chips .chips-wrapper button:last-child').should('have.attr', 'data-focus-visible-added');
         cy.get('.has-chips').should('exist');
         cy.get('.has-chips button').should('have.length', 6);
-        cy.pressKey('ArrowLeft');
-        cy.get('.has-chips .chips-wrapper button:last-child').should('have.attr', 'data-focus-visible-added');
         cy.pressKey('Backspace');
         cy.get('.has-chips button').should('have.length', 5);
         cy.get('.has-chips .chips-wrapper button:last-child').should('have.attr', 'data-focus-visible-added');

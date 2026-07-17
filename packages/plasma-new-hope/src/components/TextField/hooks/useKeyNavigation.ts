@@ -80,7 +80,7 @@ export const useKeyNavigation = ({
     };
 
     const onChipClear = (clearId: string, index: number) => {
-        if (!chips.length && !newCustomChips?.length) {
+        if (disabled || readOnly || (!chips.length && !newCustomChips?.length)) {
             return;
         }
 
@@ -92,6 +92,10 @@ export const useKeyNavigation = ({
     };
 
     const handleChipKeyDown = (event: KeyboardEvent<HTMLButtonElement>, chipId: string, chipIndex: number) => {
+        if (disabled || readOnly) {
+            return;
+        }
+
         if (event.key === Keys.Tab) {
             event.preventDefault();
         }
