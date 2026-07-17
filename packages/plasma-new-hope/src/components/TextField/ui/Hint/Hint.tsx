@@ -18,6 +18,7 @@ export const HintComponent = forwardRef<HTMLDivElement, TextFieldHintProps>(
             hintHasArrow,
             hintOffset,
             hintWidth,
+            hintPortal,
             hintContentLeft,
             isInnerLabel,
             size,
@@ -69,7 +70,7 @@ export const HintComponent = forwardRef<HTMLDivElement, TextFieldHintProps>(
                 minWidth={hintWidth}
                 maxWidth={hintWidth}
                 contentLeft={hintContentLeft}
-                frame={hintId}
+                frame={hintPortal || hintId}
             />
         );
     },
