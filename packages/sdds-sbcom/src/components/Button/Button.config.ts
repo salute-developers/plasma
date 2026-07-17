@@ -240,6 +240,7 @@ export const config = {
         focused: {
             true: css`
                 ${buttonTokens.buttonFocusColor}: ${outlinePositive};
+                ${buttonTokens.buttonCursor}: default;
             `,
         },
         stretching: {
