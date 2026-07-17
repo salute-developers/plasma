@@ -1,4 +1,4 @@
-import type { MutableRefObject, KeyboardEvent, ChangeEvent, ReactNode } from 'react';
+import type { MutableRefObject, KeyboardEvent, ChangeEvent, ReactNode, RefObject } from 'react';
 
 import type { InputHTMLAttributes } from '../../types';
 import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
@@ -209,6 +209,10 @@ export type HintProps =
            * Слот для контента слева, например `Icon`.
            */
           hintContentLeft?: ReactNode;
+          /**
+           * Портал для окна подсказки. Принимает id контейнера или ref.
+           */
+          hintPortal?: string | RefObject<HTMLElement | null>;
       }
     | {
           hintTrigger?: never;
@@ -222,6 +226,7 @@ export type HintProps =
           hintOffset?: never;
           hintWidth?: never;
           hintContentLeft?: never;
+          hintPortal?: never;
       };
 
 export type TextFieldPropsBase = {
