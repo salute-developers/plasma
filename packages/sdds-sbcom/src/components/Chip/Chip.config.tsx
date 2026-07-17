@@ -67,6 +67,7 @@ export const config = {
         disabled: {
             true: css`
                 ${chipTokens.disabledOpacity}: 0.4;
+                ${chipTokens.chipCursor}: default;
             `,
         },
         focused: {

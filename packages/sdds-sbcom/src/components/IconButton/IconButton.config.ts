@@ -51,7 +51,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceAccentHover};
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceAccentActive};
-            `,
+                `,
             accentWhite: css`
                 ${iconButtonTokens.iconButtonColor}: ${onLightTextAccent};
                 ${iconButtonTokens.iconButtonColorHover}: ${onLightTextAccentHover};
@@ -185,6 +185,7 @@ export const config = {
         disabled: {
             true: css`
                 ${iconButtonTokens.iconButtonDisabledOpacity}: 0.4;
+                ${iconButtonTokens.iconButtonCursor}: default;
             `,
         },
         focused: {

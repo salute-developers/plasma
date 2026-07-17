@@ -122,6 +122,7 @@ export const config = {
         disabled: {
             true: css`
                 ${switchTokens.disabledOpacity}: 0.4;
+                ${switchTokens.switchCursor}: default;
             `,
         },
         focused: {
