@@ -66,17 +66,17 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                 : '0';
 
             const setTruncatedText = () => {
+                if (!text || typeof text !== 'string' || !height) {
+                    setInnerText(text);
+                    return;
+                }
+
                 if (
                     !canUseDOM ||
                     !contentWrapperRef?.current ||
                     !textBoxRef?.current ||
                     !textRenderHelperRef?.current
                 ) {
-                    return;
-                }
-
-                if (!text || typeof text !== 'string' || !height) {
-                    setInnerText(text);
                     return;
                 }
 
