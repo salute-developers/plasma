@@ -28,6 +28,13 @@ import {
     textSecondary,
     textSecondaryHover,
     textWarning,
+    dataGreenGradient,
+    dataGreenGrayGradient,
+    surfaceSolidTertiary,
+    surfaceSolidTertiaryHover,
+    textNegativeHover,
+    textWarningHover,
+    textPositiveHover,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 const baseItemView = `
@@ -44,12 +51,24 @@ const baseItemView = `
     ${tokens.completedTitleColor}: ${textPrimary};
     ${tokens.completedTitleColorHover}: ${textPrimaryHover};
 
+    ${tokens.completedBulletBackground}: ${surfaceSolidDefault};
+    ${tokens.completedBulletBackgroundHover}: ${surfaceSolidDefaultHover};
+    ${tokens.completedBulletBorder}: ${surfaceSolidTertiary};
+    ${tokens.completedBulletBorderHover}: ${surfaceSolidTertiaryHover};
+
+    ${tokens.bulletActiveBackground}: ${surfaceSolidDefault};
+    ${tokens.bulletActiveIndicatorBorder}: solid ${surfaceSolidTertiary};
+
     ${tokens.inactiveTitleColor}: ${textSecondary};
     ${tokens.inactiveTitleColorHover}: ${textSecondaryHover};
     ${tokens.inactiveIndicatorColor}: ${textSecondary};
     ${tokens.inactiveIndicatorColorHover}: ${textSecondary};
     ${tokens.inactiveIndicatorBackground}: ${surfaceTransparentSecondary};
     ${tokens.inactiveIndicatorBackgroundHover}: ${surfaceTransparentSecondaryHover};
+    
+    ${tokens.inactiveBulletBackground}: ${textSecondary};
+    ${tokens.inactiveBulletBackgroundHover}: ${textSecondaryHover};
+    ${tokens.inactiveBulletBorder}: ${surfaceSolidTertiary};
 
     ${tokens.contentColor}: ${textSecondary};
     ${tokens.focusColor}: ${surfaceAccent};
@@ -67,6 +86,17 @@ const accentConfig = `
     // Цвет контента внутри элемента Step
     ${tokens.completedIndicatorColor}: ${onDarkTextPrimary};
     ${tokens.completedIndicatorColorHover}: ${onDarkTextPrimaryHover};
+
+    ${tokens.completedBulletBackground}: ${dataGreenGradient};
+    ${tokens.completedBulletBackgroundHover}: ${dataGreenGradient};
+
+    ${tokens.dividerGradientColor}: ${dataGreenGradient};
+    ${tokens.dividerVerticalGradientColor}: ${dataGreenGradient};
+    ${tokens.dividerActiveGradientColor}: ${dataGreenGrayGradient};
+    ${tokens.dividerActiveVerticalGradientColor}: ${dataGreenGrayGradient};
+
+    ${tokens.bulletActiveBackground}: ${dataGreenGradient};
+    ${tokens.bulletActiveIndicatorBorder}: solid ${surfaceSolidTertiary};
 `;
 
 export const config = {
@@ -80,7 +110,7 @@ export const config = {
                 ${tokens.dividerColor}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${tokens.dividerColor}: ${surfaceAccent};
+                ${tokens.dividerColor}: ${dataGreenGradient};
             `,
         },
         itemView: {
@@ -90,34 +120,40 @@ export const config = {
             negative: css`
                 ${baseItemView};
 
-                ${tokens.activeTitleColor}: ${surfaceNegative};
-                ${tokens.activeTitleColorHover}: ${surfaceNegativeHover};
+                ${tokens.activeTitleColor}: ${textNegative};
+                ${tokens.activeTitleColorHover}: ${textNegativeHover};
                 ${tokens.activeIndicatorBorder}: solid ${surfaceNegative};
                 ${tokens.activeIndicatorColor}: ${textNegative};
+
+                ${tokens.bulletActiveBackground}: ${textNegative};
             `,
             warning: css`
                 ${baseItemView};
 
-                ${tokens.activeTitleColor}: ${surfaceWarning};
-                ${tokens.activeTitleColorHover}: ${surfaceWarningHover};
+                ${tokens.activeTitleColor}: ${textWarning};
+                ${tokens.activeTitleColorHover}: ${textWarningHover};
                 ${tokens.activeIndicatorBorder}: solid ${surfaceWarning};
                 ${tokens.activeIndicatorColor}: ${textWarning};
+
+                ${tokens.bulletActiveBackground}: ${textWarning};
             `,
             positive: css`
                 ${baseItemView};
 
-                ${tokens.activeTitleColor}: ${surfacePositive};
-                ${tokens.activeTitleColorHover}: ${surfacePositiveHover};
+                ${tokens.activeTitleColor}: ${textPositive};
+                ${tokens.activeTitleColorHover}: ${textPositiveHover};
                 ${tokens.activeIndicatorBorder}: solid ${surfacePositive};
                 ${tokens.activeIndicatorColor}: ${textPositive};
+
+                ${tokens.bulletActiveBackground}: ${textPositive};
             `,
         },
         size: {
             l: css`
                 ${tokens.indicatorSize}: 1.5rem;
-                ${tokens.activeIndicatorSize}: 2.25rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.activeIndicatorSize}: 1.5rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.75rem;
                 ${tokens.contentPaddingTop}: 0.375rem;
@@ -154,12 +190,14 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
             m: css`
                 ${tokens.indicatorSize}: 1.5rem;
-                ${tokens.activeIndicatorSize}: 2.25rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.activeIndicatorSize}: 1.5rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.625rem;
                 ${tokens.contentPaddingTop}: 0.375rem;
@@ -196,12 +234,14 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
             s: css`
                 ${tokens.indicatorSize}: 1.5rem;
                 ${tokens.activeIndicatorSize}: 1.5rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.5rem;
                 ${tokens.contentPaddingTop}: 0.375rem;
@@ -238,12 +278,14 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
             xs: css`
                 ${tokens.indicatorSize}: 1.5rem;
                 ${tokens.activeIndicatorSize}: 1.5rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.5rem;
                 ${tokens.contentPaddingTop}: 0.25rem;
@@ -280,6 +322,8 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
         },
     },
@@ -288,10 +332,13 @@ export const config = {
             view: 'accent',
             itemView: 'default',
             style: css`
-                ${tokens.activeIndicatorBorder}: solid ${textAccent};
-                ${tokens.activeIndicatorColor}: ${textAccent};
-
                 ${accentConfig};
+
+                ${tokens.dividerGradientColor}: unset;
+                ${tokens.dividerVerticalGradientColor}: unset;
+
+                ${tokens.activeIndicatorBorder}: solid ${surfaceAccent};
+                ${tokens.activeIndicatorColor}: ${textAccent};
             `,
         },
         {
@@ -299,6 +346,17 @@ export const config = {
             itemView: 'negative',
             style: css`
                 ${accentConfig};
+
+                ${tokens.activeTitleColor}: ${surfaceNegative};
+                ${tokens.activeTitleColorHover}: ${surfaceNegativeHover};
+
+                ${tokens.completedBulletBackground}: ${textNegative};
+                ${tokens.completedBulletBackgroundHover}: ${textNegativeHover};
+
+                ${tokens.bulletActiveBackground}: ${textNegative};
+
+                ${tokens.dividerGradientColor}: unset;
+                ${tokens.dividerVerticalGradientColor}: unset;
             `,
         },
         {
@@ -306,6 +364,17 @@ export const config = {
             itemView: 'warning',
             style: css`
                 ${accentConfig};
+
+                ${tokens.activeTitleColor}: ${surfaceWarning};
+                ${tokens.activeTitleColorHover}: ${surfaceWarningHover};
+
+                ${tokens.completedBulletBackground}: ${textWarning};
+                ${tokens.completedBulletBackgroundHover}: ${textWarningHover};
+
+                ${tokens.bulletActiveBackground}: ${textWarning};
+
+                ${tokens.dividerGradientColor}: unset;
+                ${tokens.dividerVerticalGradientColor}: unset;
             `,
         },
         {
@@ -313,6 +382,17 @@ export const config = {
             itemView: 'positive',
             style: css`
                 ${accentConfig};
+
+                ${tokens.activeTitleColor}: ${surfacePositive};
+                ${tokens.activeTitleColorHover}: ${surfacePositiveHover};
+
+                ${tokens.completedBulletBackground}: ${textPositive};
+                ${tokens.completedBulletBackgroundHover}: ${textPositiveHover};
+
+                ${tokens.bulletActiveBackground}: ${textPositive};
+
+                ${tokens.dividerGradientColor}: unset;
+                ${tokens.dividerVerticalGradientColor}: unset;
             `,
         },
     ],
