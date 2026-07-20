@@ -16,6 +16,12 @@ export type RatingProps = {
      */
     precision?: number;
     /**
+     * Разделитель десятичных знаков (например, ".").
+     * @default .
+     * @example 4.5
+     */
+    decimalSeparator?: string;
+    /**
      * Положение числа до или после звезд.
      * @default 'before'
      */
