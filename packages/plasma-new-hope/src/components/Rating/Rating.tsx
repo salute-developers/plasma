@@ -7,7 +7,7 @@ import type { RatingProps } from './Rating.types';
 import { base, Content, HelperText, Score, StarsWrapper, Wrapper } from './Rating.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { getHelperTextPlacement, getInnerValue, helperTextPlacements } from './utils';
+import { getDisplayValue, getHelperTextPlacement, getInnerValue, helperTextPlacements } from './utils';
 import { classes } from './Rating.tokens';
 import { getIcons } from './utils/getIcons';
 
@@ -18,6 +18,7 @@ export const ratingRoot = (Root: RootProps<HTMLDivElement, RatingProps>) =>
                 value,
                 hasValue = true,
                 precision = 1,
+                decimalSeparator = '.',
                 valuePlacement,
 
                 iconSlot,
@@ -35,6 +36,7 @@ export const ratingRoot = (Root: RootProps<HTMLDivElement, RatingProps>) =>
             ref,
         ) => {
             const innerValue = getInnerValue(value, precision, iconQuantity);
+            const displayValue = getDisplayValue(innerValue, decimalSeparator);
 
             const contentRef = useRef<HTMLDivElement>(null);
             const starsWrapperRef = useRef<HTMLDivElement>(null);
@@ -89,7 +91,7 @@ export const ratingRoot = (Root: RootProps<HTMLDivElement, RatingProps>) =>
                             iconQuantity === 1 && classes.singleIconContent,
                         )}
                     >
-                        {hasValue && innerValue && <Score>{innerValue}</Score>}
+                        {hasValue && innerValue && <Score>{displayValue}</Score>}
                         {hasIcons && (
                             <Wrapper>
                                 <StarsWrapper ref={starsWrapperRef}>
