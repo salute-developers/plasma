@@ -104,10 +104,17 @@ export const tokens = {
 
     inactiveBulletBackgroundHover: '--plasma-step-item-inactive-bullet-background-hover',
 
+    inactiveBulletBackground: '--plasma-step-item-inactive-bullet-background',
+    inactiveBulletBorder: '--plasma-step-item-inactive-bullet-border',
+
     disabledOpacity: '--plasma-step-item-disabled-opacity',
 
     dividerThickness: '--plasma-step-item-divider-thickness',
+    bulletBorderThickness: '--plasma-step-item-bullet-border-thickness',
+    activeBulletBorderThickness: '--plasma-step-item-active-bullet-border-thickness',
     dividerColor: '--plasma-step-item-divider-color',
     dividerGradientColor: '--plasma-step-item-divider-gradient-color',
+    dividerActiveGradientColor: '--plasma-step-item-active-divider-gradient-color',
     dividerVerticalGradientColor: '--plasma-step-item-divider-vertical-gradient-color',
+    dividerActiveVerticalGradientColor: '--plasma-step-item-active-divider-vertical-gradient-color',
 };

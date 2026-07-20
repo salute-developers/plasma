@@ -138,21 +138,19 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 })}
                 {...interactiveHandlers}
             >
-                {
-                    contentAlign === 'center' && (
-                        <Root view={prevCompletedView} style={{ display: 'inline-block' }}>
-                            <StepItemCenteredDivider
-                                className={cls({
-                                    [classes.verticalOrientation]: isVertical,
-                                    [classes.transparentDivider]: !hasLine || isFirst,
-                                    [classes.inactive]: isInactive || isPrevInactive,
-                                    [classes.prevCompleted]: isPrevCompleted && isActive,
-                                })}
-                            />
-                        </Root>
-                    )
-                    // ))
-                }
+                {contentAlign === 'center' && (
+                    <Root view={prevCompletedView} style={{ display: 'inline-block' }}>
+                        <StepItemCenteredDivider
+                            className={cls({
+                                [classes.verticalOrientation]: isVertical,
+                                [classes.transparentDivider]: !hasLine || isFirst,
+                                [classes.inactive]: isInactive || isPrevInactive,
+                                [classes.prevCompleted]: isPrevCompleted && isActive,
+                                [classes.activeItem]: isActive,
+                            })}
+                        />
+                    </Root>
+                )}
 
                 <BulletSlot>{bulletContent}</BulletSlot>
 
@@ -162,6 +160,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                         [classes.transparentDivider]: !hasLine || isLast,
                         [classes.inactive]: isInactive || isNextInactive,
                         [classes.nextActive]: isNextActive && !isInactive,
+                        [classes.activeItem]: isActive,
                     })}
                 />
             </BulletIndicatorWrapper>
