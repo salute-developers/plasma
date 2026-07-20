@@ -1781,6 +1781,276 @@
                 "surfaceTransparentPositive": {
                     "value": "#109c8433",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех"
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #13181B 29%, #30373C 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #13181B 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #13181B 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -2284,6 +2554,276 @@
                 "surfaceTransparentPositive": {
                     "value": "#109c8433",
                     "comment": "Прозрачный цвет фона поверхности/контрола успех на темном фоне"
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #13181B 29%, #30373C 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #13181B 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #13181B 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -2787,6 +3327,276 @@
                 "surfaceTransparentInfo": {
                     "value": "#166dc41f",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на светлом фоне"
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #FFF 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #FFF 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -3290,6 +4100,276 @@
                 "surfaceTransparentInfo": {
                     "value": "#166dc41f",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола информация"
+                },
+                "surfaceCradGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceCradGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCradGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #FFF 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #FFF 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
                 }
             }
         },
@@ -7021,6 +8101,276 @@
                 "surfacePositiveMinor": {
                     "value": "#53F5DA",
                     "comment": "Минорный цвет фона поверхности/контрола успех"
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #FFF 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #FFF 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -7524,6 +8874,276 @@
                 "surfacePositiveMinor": {
                     "value": "#0A3D35",
                     "comment": "Минорный цвет фона поверхности/контрола успех на темном фоне"
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #13181B 29%, #30373C 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #13181B 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #13181B 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -8027,6 +9647,276 @@
                 "surfacePositiveMinor": {
                     "value": "#53F5DA",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне"
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #FFF 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #FFF 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #FFF 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFF",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -8530,6 +10420,276 @@
                 "surfacePositiveMinor": {
                     "value": "#0A3D35",
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола успех"
+                },
+                "surfaceCradGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCradGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCradGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #13181B 29%, #30373C 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#30373C"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceNegativeGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceNegativeGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 13.93%, #F31B31 269.94%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#F31B31"
+                            ],
+                            "locations": [
+                                0.14,
+                                2.7
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradient": {
+                    "value": {
+                        "origin": "linear-gradient(108deg, #13181B 12.37%, #E85702 248%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#E85702"
+                            ],
+                            "locations": [
+                                0.12,
+                                2.48
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.34
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.66
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceWarningGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceWarningGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradient": {
+                    "value": {
+                        "origin": "linear-gradient(106deg, #13181B 6.27%, #109C84 284.04%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#109C84"
+                            ],
+                            "locations": [
+                                0.06,
+                                2.84
+                            ],
+                            "startPoint": {
+                                "x": 0.02,
+                                "y": 0.36
+                            },
+                            "endPoint": {
+                                "x": 0.98,
+                                "y": 0.64
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfacePositiveGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfacePositiveGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceInfoGradient": {
+                    "value": {
+                        "origin": "linear-gradient(111deg, #13181B 8.55%, #166DC4 259.66%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#13181B",
+                                "#166DC4"
+                            ],
+                            "locations": [
+                                0.09,
+                                2.6
+                            ],
+                            "startPoint": {
+                                "x": 0.03,
+                                "y": 0.32
+                            },
+                            "endPoint": {
+                                "x": 0.97,
+                                "y": 0.68
+                            }
+                        }
+                    },
+                    "comment": ""
                 }
             }
         },

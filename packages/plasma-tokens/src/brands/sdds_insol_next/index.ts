@@ -843,6 +843,40 @@ export const surfaceTransparentInfo = 'var(--surface-transparent-info, #166dc433
 /** Прозрачный цвет фона поверхности/контрола успех */
 export const surfaceTransparentPositive = 'var(--surface-transparent-positive, #109c8433)';
 
+export const surfaceCardGradientHover = 'var(--surface-card-gradient-hover, #FFFFFFFF)';
+
+export const surfaceCardGradientActive = 'var(--surface-card-gradient-active, #FFFFFFFF)';
+
+export const surfaceCardGradient = 'var(--surface-card-gradient, linear-gradient(97deg, #13181B 29%, #30373C 115%))';
+
+export const surfaceNegativeGradient =
+    'var(--surface-negative-gradient, linear-gradient(111deg, #13181B 13.93%, #F31B31 269.94%))';
+
+export const surfaceNegativeGradientHover = 'var(--surface-negative-gradient-hover, #FFFFFFFF)';
+
+export const surfaceNegativeGradientActive = 'var(--surface-negative-gradient-active, #FFFFFFFF)';
+
+export const surfaceWarningGradient =
+    'var(--surface-warning-gradient, linear-gradient(108deg, #13181B 12.37%, #E85702 248%))';
+
+export const surfaceWarningGradientHover = 'var(--surface-warning-gradient-hover, #FFFFFFFF)';
+
+export const surfaceWarningGradientActive = 'var(--surface-warning-gradient-active, #FFFFFFFF)';
+
+export const surfacePositiveGradient =
+    'var(--surface-positive-gradient, linear-gradient(106deg, #13181B 6.27%, #109C84 284.04%))';
+
+export const surfacePositiveGradientHover = 'var(--surface-positive-gradient-hover, #FFFFFFFF)';
+
+export const surfacePositiveGradientActive = 'var(--surface-positive-gradient-active, #FFFFFFFF)';
+
+export const surfaceInfoGradient =
+    'var(--surface-info-gradient, linear-gradient(111deg, #13181B 8.55%, #166DC4 259.66%))';
+
+export const surfaceInfoGradientHover = 'var(--surface-info-gradient-hover, #FFFFFFFF)';
+
+export const surfaceInfoGradientActive = 'var(--surface-info-gradient-active, #FFFFFFFF)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #171D21FF)';
 
@@ -1096,6 +1130,41 @@ export const onDarkSurfaceTransparentInfo = 'var(--on-dark-surface-transparent-i
 
 /** Прозрачный цвет фона поверхности/контрола успех на темном фоне */
 export const onDarkSurfaceTransparentPositive = 'var(--on-dark-surface-transparent-positive, #109c8433)';
+
+export const onDarkSurfaceCardGradient =
+    'var(--on-dark-surface-card-gradient, linear-gradient(97deg, #13181B 29%, #30373C 115%))';
+
+export const onDarkSurfaceCardGradientHover = 'var(--on-dark-surface-card-gradient-hover, #FFFFFFFF)';
+
+export const onDarkSurfaceCardGradientActive = 'var(--on-dark-surface-card-gradient-active, #FFFFFFFF)';
+
+export const onDarkSurfaceNegativeGradient =
+    'var(--on-dark-surface-negative-gradient, linear-gradient(111deg, #13181B 13.93%, #F31B31 269.94%))';
+
+export const onDarkSurfaceNegativeGradientHover = 'var(--on-dark-surface-negative-gradient-hover, #FFFFFFFF)';
+
+export const onDarkSurfaceNegativeGradientActive = 'var(--on-dark-surface-negative-gradient-active, #FFFFFFFF)';
+
+export const onDarkSurfaceWarningGradient =
+    'var(--on-dark-surface-warning-gradient, linear-gradient(108deg, #13181B 12.37%, #E85702 248%))';
+
+export const onDarkSurfaceWarningGradientHover = 'var(--on-dark-surface-warning-gradient-hover, #FFFFFFFF)';
+
+export const onDarkSurfaceWarningGradientActive = 'var(--on-dark-surface-warning-gradient-active, #FFFFFFFF)';
+
+export const onDarkSurfacePositiveGradient =
+    'var(--on-dark-surface-positive-gradient, linear-gradient(106deg, #13181B 6.27%, #109C84 284.04%))';
+
+export const onDarkSurfacePositiveGradientHover = 'var(--on-dark-surface-positive-gradient-hover, #FFFFFFFF)';
+
+export const onDarkSurfacePositiveGradientActive = 'var(--on-dark-surface-positive-gradient-active, #FFFFFFFF)';
+
+export const onDarkSurfaceInfoGradient =
+    'var(--on-dark-surface-info-gradient, linear-gradient(111deg, #13181B 8.55%, #166DC4 259.66%))';
+
+export const onDarkSurfaceInfoGradientHover = 'var(--on-dark-surface-info-gradient-hover, #FFFFFFFF)';
+
+export const onDarkSurfaceInfoGradientActive = 'var(--on-dark-surface-info-gradient-active, #FFFFFFFF)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimary = 'var(--on-light-surface-solid-primary, #F2F5F8)';
@@ -1351,6 +1420,41 @@ export const onLightSurfaceTransparentPositive = 'var(--on-light-surface-transpa
 /** Прозрачный цвет фона поверхности/контрола информация на светлом фоне */
 export const onLightSurfaceTransparentInfo = 'var(--on-light-surface-transparent-info, #166dc41f)';
 
+export const onLightSurfaceCardGradient =
+    'var(--on-light-surface-card-gradient, linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%))';
+
+export const onLightSurfaceCardGradientHover = 'var(--on-light-surface-card-gradient-hover, #FFFFFFFF)';
+
+export const onLightSurfaceCardGradientActive = 'var(--on-light-surface-card-gradient-active, #FFFFFFFF)';
+
+export const onLightSurfaceNegativeGradientHover = 'var(--on-light-surface-negative-gradient-hover, #FFFFFFFF)';
+
+export const onLightSurfaceNegativeGradientActive = 'var(--on-light-surface-negative-gradient-active, #FFFFFFFF)';
+
+export const onLightSurfaceNegativeGradient =
+    'var(--on-light-surface-negative-gradient, linear-gradient(111deg, #FFF 13.93%, #F31B31 269.94%))';
+
+export const onLightSurfaceWarningGradient =
+    'var(--on-light-surface-warning-gradient, linear-gradient(108deg, #FFF 12.37%, #E85702 248%))';
+
+export const onLightSurfaceWarningGradientHover = 'var(--on-light-surface-warning-gradient-hover, #FFFFFFFF)';
+
+export const onLightSurfaceWarningGradientActive = 'var(--on-light-surface-warning-gradient-active, #FFFFFFFF)';
+
+export const onLightSurfacePositiveGradient =
+    'var(--on-light-surface-positive-gradient, linear-gradient(106deg, #FFF 6.27%, #109C84 284.04%))';
+
+export const onLightSurfacePositiveGradientHover = 'var(--on-light-surface-positive-gradient-hover, #FFFFFFFF)';
+
+export const onLightSurfacePositiveGradientActive = 'var(--on-light-surface-positive-gradient-active, #FFFFFFFF)';
+
+export const onLightSurfaceInfoGradient =
+    'var(--on-light-surface-info-gradient, linear-gradient(111deg, #FFF 8.55%, #166DC4 259.66%))';
+
+export const onLightSurfaceInfoGradientHover = 'var(--on-light-surface-info-gradient-hover, #FFFFFFFF)';
+
+export const onLightSurfaceInfoGradientActive = 'var(--on-light-surface-info-gradient-active, #FFFFFFFF)';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimary = 'var(--inverse-surface-solid-primary, #F2F5F8)';
 
@@ -1604,6 +1708,41 @@ export const inverseSurfaceTransparentPositive = 'var(--inverse-surface-transpar
 
 /** Прозрачный инвертированный цвет фона поверхности/контрола информация */
 export const inverseSurfaceTransparentInfo = 'var(--inverse-surface-transparent-info, #166dc41f)';
+
+export const inverseSurfaceCradGradient =
+    'var(--inverse-surface-crad-gradient, linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%))';
+
+export const inverseSurfaceCradGradientHover = 'var(--inverse-surface-crad-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfaceCradGradientActive = 'var(--inverse-surface-crad-gradient-active, #FFFFFFFF)';
+
+export const inverseSurfaceNegativeGradientHover = 'var(--inverse-surface-negative-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfaceNegativeGradientActive = 'var(--inverse-surface-negative-gradient-active, #FFFFFFFF)';
+
+export const inverseSurfaceNegativeGradient =
+    'var(--inverse-surface-negative-gradient, linear-gradient(111deg, #FFF 13.93%, #F31B31 269.94%))';
+
+export const inverseSurfaceWarningGradient =
+    'var(--inverse-surface-warning-gradient, linear-gradient(108deg, #FFF 12.37%, #E85702 248%))';
+
+export const inverseSurfaceWarningGradientHover = 'var(--inverse-surface-warning-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfaceWarningGradientActive = 'var(--inverse-surface-warning-gradient-active, #FFFFFFFF)';
+
+export const inverseSurfacePositiveGradient =
+    'var(--inverse-surface-positive-gradient, linear-gradient(106deg, #FFF 6.27%, #109C84 284.04%))';
+
+export const inverseSurfacePositiveGradientHover = 'var(--inverse-surface-positive-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfacePositiveGradientActive = 'var(--inverse-surface-positive-gradient-active, #FFFFFFFF)';
+
+export const inverseSurfaceInfoGradient =
+    'var(--inverse-surface-info-gradient, linear-gradient(111deg, #FFF 8.55%, #166DC4 259.66%))';
+
+export const inverseSurfaceInfoGradientHover = 'var(--inverse-surface-info-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfaceInfoGradientActive = 'var(--inverse-surface-info-gradient-active, #FFFFFFFF)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #060A0C)';
