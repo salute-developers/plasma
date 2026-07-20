@@ -1,0 +1,18 @@
+[11:29:46.842] [INFO] storybook v10.3.4
+[11:30:46.502] [DEBUG] Getting package.json info for /home/tisai/projects/plasma/package.json...
+[11:30:47.593] [DEBUG] Serving static files from [36mpackages/sdds-dfa/.storybook/public[39m at [36m/[39m
+[11:30:47.621] [INFO] Starting...
+[11:30:47.967] [ERROR] [38;2;241;97;97mError: Build failed with 1 error:
+.storybook/manager.js:2:40: ERROR: Could not resolve "@salutejs/plasma-sb-utils/managerVersions"[39m
+    at failureErrorWithLog (/home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:1467:15)
+    at /home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:926:25
+    at runOnEndCallbacks (/home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:1307:45)
+    at buildResponseToResult (/home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:924:7)
+    at /home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:951:16
+    at responseCallbacks.<computed> (/home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:603:9)
+    at handleIncomingPacket (/home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:658:12)
+    at Socket.readFromStdout (/home/tisai/projects/plasma/node_modules/esbuild/lib/main.js:581:7)
+    at Socket.emit (node:events:508:28)
+    at addChunk (node:internal/streams/readable:559:12)
+[11:30:47.968] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
