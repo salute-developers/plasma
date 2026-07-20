@@ -89,12 +89,10 @@ export const createMeta = ({
             },
             disabled: {
                 control: { type: 'boolean' },
-                if: { arg: 'appearance', eq: 'clear' },
                 table: { category: 'variation' },
             },
             readOnly: {
                 control: { type: 'boolean' },
-                if: { arg: 'appearance', eq: 'clear' },
                 table: { category: 'variation' },
             },
 
