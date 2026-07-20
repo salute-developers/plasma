@@ -28,6 +28,10 @@ import {
     textSecondary,
     textSecondaryHover,
     textWarning,
+    dataGreenGradient,
+    dataGreenGrayGradient,
+    surfaceSolidTertiary,
+    surfaceSolidTertiaryHover,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 const baseItemView = `
@@ -44,12 +48,24 @@ const baseItemView = `
     ${tokens.completedTitleColor}: ${textPrimary};
     ${tokens.completedTitleColorHover}: ${textPrimaryHover};
 
+    ${tokens.completedBulletBackground}: ${surfaceSolidDefault};
+    ${tokens.completedBulletBackgroundHover}: ${surfaceSolidDefaultHover};
+    ${tokens.completedBulletBorder}: ${surfaceSolidTertiary};
+    ${tokens.completedBulletBorderHover}: ${surfaceSolidTertiaryHover};
+
+    ${tokens.bulletActiveBackground}: ${surfaceSolidDefault};
+    ${tokens.bulletActiveIndicatorBorder}: solid ${surfaceSolidTertiary};
+
     ${tokens.inactiveTitleColor}: ${textSecondary};
     ${tokens.inactiveTitleColorHover}: ${textSecondaryHover};
     ${tokens.inactiveIndicatorColor}: ${textSecondary};
     ${tokens.inactiveIndicatorColorHover}: ${textSecondary};
     ${tokens.inactiveIndicatorBackground}: ${surfaceTransparentSecondary};
     ${tokens.inactiveIndicatorBackgroundHover}: ${surfaceTransparentSecondaryHover};
+    
+    ${tokens.inactiveBulletBackground}: ${textSecondary};
+    ${tokens.inactiveBulletBackgroundHover}: ${textSecondaryHover};
+    ${tokens.inactiveBulletBorder}: ${surfaceSolidTertiary};
 
     ${tokens.contentColor}: ${textSecondary};
     ${tokens.focusColor}: ${surfaceAccent};
@@ -67,6 +83,12 @@ const accentConfig = `
     // Цвет контента внутри элемента Step
     ${tokens.completedIndicatorColor}: ${onDarkTextPrimary};
     ${tokens.completedIndicatorColorHover}: ${onDarkTextPrimaryHover};
+
+    ${tokens.completedBulletBackground}: ${dataGreenGradient};
+    ${tokens.completedBulletBackgroundHover}: ${dataGreenGradient};
+
+    ${tokens.bulletActiveBackground}: ${dataGreenGradient};
+    ${tokens.bulletActiveIndicatorBorder}: solid ${surfaceSolidTertiary};
 `;
 
 export const config = {
@@ -80,7 +102,11 @@ export const config = {
                 ${tokens.dividerColor}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${tokens.dividerColor}: ${surfaceAccent};
+                ${tokens.dividerColor}: ${dataGreenGradient};
+                ${tokens.dividerGradientColor}: ${dataGreenGradient};
+                ${tokens.dividerVerticalGradientColor}: ${dataGreenGradient};
+                ${tokens.dividerActiveGradientColor}: ${dataGreenGrayGradient};
+                ${tokens.dividerActiveVerticalGradientColor}: ${dataGreenGrayGradient};
             `,
         },
         itemView: {
@@ -115,9 +141,9 @@ export const config = {
         size: {
             l: css`
                 ${tokens.indicatorSize}: 1.5rem;
-                ${tokens.activeIndicatorSize}: 2.25rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.activeIndicatorSize}: 1.5rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.75rem;
                 ${tokens.contentPaddingTop}: 0.375rem;
@@ -154,12 +180,14 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
             m: css`
                 ${tokens.indicatorSize}: 1.5rem;
-                ${tokens.activeIndicatorSize}: 2.25rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.activeIndicatorSize}: 1.5rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.625rem;
                 ${tokens.contentPaddingTop}: 0.375rem;
@@ -196,12 +224,14 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
             s: css`
                 ${tokens.indicatorSize}: 1.5rem;
                 ${tokens.activeIndicatorSize}: 1.5rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.5rem;
                 ${tokens.contentPaddingTop}: 0.375rem;
@@ -238,12 +268,14 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
             xs: css`
                 ${tokens.indicatorSize}: 1.5rem;
                 ${tokens.activeIndicatorSize}: 1.5rem;
-                ${tokens.bulletSize}: 0.5rem;
-                ${tokens.activeBulletSize}: 1rem;
+                ${tokens.bulletSize}: 1.5rem;
+                ${tokens.activeBulletSize}: 1.5rem;
 
                 ${tokens.titlePaddingTop}: 0.5rem;
                 ${tokens.contentPaddingTop}: 0.25rem;
@@ -280,6 +312,8 @@ export const config = {
                 ${tokens.contentLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.dividerThickness}: 0.125rem;
+                ${tokens.bulletBorderThickness}: 0.375rem;
+                ${tokens.activeBulletBorderThickness}: 0.375rem;
             `,
         },
     },
@@ -288,7 +322,7 @@ export const config = {
             view: 'accent',
             itemView: 'default',
             style: css`
-                ${tokens.activeIndicatorBorder}: solid ${textAccent};
+                ${tokens.activeIndicatorBorder}: solid ${surfaceAccent};
                 ${tokens.activeIndicatorColor}: ${textAccent};
 
                 ${accentConfig};
