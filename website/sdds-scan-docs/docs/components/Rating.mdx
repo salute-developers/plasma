@@ -9,14 +9,13 @@ import TabItem from '@theme/TabItem';
 
 # Rating
 <Description name="Rating" />
-<PropsTable name="Rating" exclude={['css']} />
 
-## Использование
+### Быстрый старт
 Компонент `Rating` представляет собой неинтерактивный компонент для отображения оценки.
 
 ```tsx live
-import React, {useState} from 'react';
-import { Rating, Button } from '@salutejs/sdds-scan';
+import React from 'react';
+import { Rating } from '@salutejs/sdds-scan';
 
 export function App() {
     return (
@@ -159,6 +158,35 @@ export function App() {
 }
 ```
 
+### Разделитель дробной части в Rating
+Разделитель дробной части отображаемого значения задаётся с помощью свойства `decimalSeparator`.
+По умолчанию используется точка (`.`):
+
+```tsx live
+import React from 'react';
+import { Rating } from '@salutejs/sdds-scan';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+            <Rating
+                view="default"
+                size="m"
+                value={3.8}
+                helperText="Точка (по умолчанию)"
+            />
+            <Rating
+                view="default"
+                size="m"
+                value={3.8}
+                decimalSeparator=","
+                helperText="Запятая"
+            />
+        </div>
+    );
+}
+```
+
 ### Пользовтельские иконки в Rating
 Пользовтельские иконки в Rating задаются с помощью свойств:
 + `iconSlot` – закрашенная иконка;
@@ -189,3 +217,7 @@ export function App() {
     );
 }
 ```
+
+## Props
+
+<PropsTable name="Rating" exclude={['css']} />
