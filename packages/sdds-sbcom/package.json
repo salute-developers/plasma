@@ -19,6 +19,11 @@
       "import": "./dist/css/es/index.js",
       "require": "./dist/css/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./beta": {
+      "import": "./dist/beta/es/index.js",
+      "require": "./dist/beta/cjs/index.js",
+      "types": "./dist/beta/types/index.d.ts"
     }
   },
   "peerDependencies": {
@@ -66,12 +71,15 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run build:css",
+    "build": "npm run build:css && npm run build:beta",
     "postbuild": "npm run generate:typings",
     "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
     "build:css": "rm -rf dist/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "generate:typings": "rm -rf types && tsc",
+    "prebuild:beta": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
+    "build:beta": "rm -rf dist/beta/es dist/beta/cjs && BETA=true rollup -c",
+    "postbuild:beta": "rm -rf src-css",
+    "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
     "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "typescript-coverage": "npx typescript-coverage-report > /dev/null",

@@ -12,15 +12,18 @@ import styles from "@ironkinoko/rollup-plugin-styles";
 
 const inputDir = 'src-css';
 const require = createRequire(import.meta.url)
+const isBeta = process.env.BETA === 'true';
+const input = isBeta ? path.join(inputDir, 'components/_beta/index.ts') : path.join(inputDir, 'index.ts');
+const outputDir = isBeta ? 'dist/beta' : 'dist/css';
 
 export default {
-    input: path.join(inputDir, 'index.ts'),
+    input,
     treeshake: {
         propertyReadSideEffects: false,
     },
     output: [{
         preserveModules: true,
-        dir: 'dist/css/es',
+        dir: `${outputDir}/es`,
         format: 'es',
         freeze: false,
         esModule: true,
@@ -29,7 +32,7 @@ export default {
         assetFileNames: "[name][extname]",
     }, {
         preserveModules: true,
-        dir: 'dist/css/cjs',
+        dir: `${outputDir}/cjs`,
         format: 'cjs',
         freeze: false,
         esModule: true,
