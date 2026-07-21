@@ -4,6 +4,7 @@ import {
     bodyLBold,
     surfaceAccent,
     surfaceTransparentSecondary,
+    surfaceTransparentSecondaryActive,
     textPrimary,
     textSecondary,
 } from '@salutejs/sdds-themes/tokens/sdds_insol_next';
@@ -30,6 +31,7 @@ export const config = {
 
                 ${buttonTokens.buttonBackgroundColor}: transparent;
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondary};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
             `,
         },
