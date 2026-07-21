@@ -1,6 +1,8 @@
 import React from 'react';
 import * as Icons from '@salutejs/plasma-icons';
+import * as Tokens from '@salutejs-ds/sdds_sbcom/theme/tokens';
 import * as Package from '@salutejs/sdds-sbcom';
+import * as Beta from '@salutejs/sdds-sbcom/beta';
 import { Filler } from '@salutejs/plasma-docs-ui';
 import styled from 'styled-components';
 import { useForm, Controller } from 'react-hook-form';
@@ -13,8 +15,10 @@ const ReactLiveScope = {
     useForm,
     Controller,
     ...Icons,
+    ...Tokens,
     ...Package,
     ...React,
+    Beta,
 };
 
 export default ReactLiveScope;
