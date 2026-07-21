@@ -895,6 +895,21 @@ export const sdds_insol_next__light = ([
   --surface-accent-gradient-hover: #FFFFFFFF;
   --surface-accent-gradient-active: #FFFFFFFF;
   --surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
+  --surface-card-gradient: linear-gradient(97deg, #FFFFFFFF 29%, #D5DFE6FF 115%);
+  --surface-card-gradient-hover: #FFFFFFFF;
+  --surface-card-gradient-active: #FFFFFFFF;
+  --surface-negative-gradient-hover: #FFFFFFFF;
+  --surface-negative-gradient-active: #FFFFFFFF;
+  --surface-negative-gradient: linear-gradient(111deg, #FFFFFFFF 13.93%, #F31B31FF 269.94%);
+  --surface-warning-gradient: linear-gradient(108deg, #FFFFFFFF 12.37%, #E85702FF 248%);
+  --surface-warning-gradient-hover: #FFFFFFFF;
+  --surface-warning-gradient-active: #FFFFFFFF;
+  --surface-positive-gradient: linear-gradient(106deg, #FFFFFFFF 6.27%, #109C84FF 284.04%);
+  --surface-positive-gradient-hover: #FFFFFFFF;
+  --surface-positive-gradient-active: #FFFFFFFF;
+  --surface-info-gradient-hover: #FFFFFFFF;
+  --surface-info-gradient-active: #FFFFFFFF;
+  --surface-info-gradient: linear-gradient(111deg, #FFFFFFFF 8.55%, #166DC4FF 259.66%);
   --surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --surface-skeleton-gradient-hover: #FFFFFFFF;
   --surface-skeleton-gradient-active: #FFFFFFFF;
@@ -904,6 +919,21 @@ export const sdds_insol_next__light = ([
   --on-dark-surface-accent-gradient-hover: #FFFFFFFF;
   --on-dark-surface-accent-gradient-active: #FFFFFFFF;
   --on-dark-surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
+  --on-dark-surface-card-gradient: linear-gradient(97deg, #13181BFF 29%, #30373CFF 115%);
+  --on-dark-surface-card-gradient-hover: #FFFFFFFF;
+  --on-dark-surface-card-gradient-active: #FFFFFFFF;
+  --on-dark-surface-negative-gradient: linear-gradient(111deg, #13181BFF 13.93%, #F31B31FF 269.94%);
+  --on-dark-surface-negative-gradient-hover: #FFFFFFFF;
+  --on-dark-surface-negative-gradient-active: #FFFFFFFF;
+  --on-dark-surface-warning-gradient: linear-gradient(108deg, #13181BFF 12.37%, #E85702FF 248%);
+  --on-dark-surface-warning-gradient-hover: #FFFFFFFF;
+  --on-dark-surface-warning-gradient-active: #FFFFFFFF;
+  --on-dark-surface-positive-gradient: linear-gradient(106deg, #13181BFF 6.27%, #109C84FF 284.04%);
+  --on-dark-surface-positive-gradient-hover: #FFFFFFFF;
+  --on-dark-surface-positive-gradient-active: #FFFFFFFF;
+  --on-dark-surface-info-gradient: linear-gradient(111deg, #13181BFF 8.55%, #166DC4FF 259.66%);
+  --on-dark-surface-info-gradient-hover: #FFFFFFFF;
+  --on-dark-surface-info-gradient-active: #FFFFFFFF;
   --on-dark-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --on-dark-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-dark-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -913,6 +943,21 @@ export const sdds_insol_next__light = ([
   --on-light-surface-accent-gradient-hover: #FFFFFFFF;
   --on-light-surface-accent-gradient-active: #FFFFFFFF;
   --on-light-surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
+  --on-light-surface-card-gradient-hover: #FFFFFFFF;
+  --on-light-surface-card-gradient-active: #FFFFFFFF;
+  --on-light-surface-card-gradient: linear-gradient(97deg, #FFFFFFFF 29%, #D5DFE6FF 115%);
+  --on-light-surface-negative-gradient-hover: #FFFFFFFF;
+  --on-light-surface-negative-gradient-active: #FFFFFFFF;
+  --on-light-surface-negative-gradient: linear-gradient(111deg, #FFFFFFFF 13.93%, #F31B31FF 269.94%);
+  --on-light-surface-warning-gradient: linear-gradient(108deg, #FFFFFFFF 12.37%, #E85702FF 248%);
+  --on-light-surface-warning-gradient-hover: #FFFFFFFF;
+  --on-light-surface-warning-gradient-active: #FFFFFFFF;
+  --on-light-surface-positive-gradient: linear-gradient(106deg, #FFFFFFFF 6.27%, #109C84FF 284.04%);
+  --on-light-surface-positive-gradient-hover: #FFFFFFFF;
+  --on-light-surface-positive-gradient-active: #FFFFFFFF;
+  --on-light-surface-info-gradient: linear-gradient(111deg, #FFFFFFFF 8.55%, #166DC4FF 259.66%);
+  --on-light-surface-info-gradient-hover: #FFFFFFFF;
+  --on-light-surface-info-gradient-active: #FFFFFFFF;
   --on-light-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --on-light-surface-skeleton-gradient-hover: #FFFFFFFF;
   --on-light-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -922,6 +967,21 @@ export const sdds_insol_next__light = ([
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
+  --inverse-surface-crad-gradient-hover: #FFFFFFFF;
+  --inverse-surface-crad-gradient-active: #FFFFFFFF;
+  --inverse-surface-crad-gradient: linear-gradient(97deg, #13181BFF 29%, #30373CFF 115%);
+  --inverse-surface-negative-gradient-hover: #FFFFFFFF;
+  --inverse-surface-negative-gradient-active: #FFFFFFFF;
+  --inverse-surface-negative-gradient: linear-gradient(111deg, #13181BFF 13.93%, #F31B31FF 269.94%);
+  --inverse-surface-warning-gradient: linear-gradient(108deg, #13181BFF 12.37%, #E85702FF 248%);
+  --inverse-surface-warning-gradient-hover: #FFFFFFFF;
+  --inverse-surface-warning-gradient-active: #FFFFFFFF;
+  --inverse-surface-positive-gradient: linear-gradient(106deg, #13181BFF 6.27%, #109C84FF 284.04%);
+  --inverse-surface-positive-gradient-hover: #FFFFFFFF;
+  --inverse-surface-positive-gradient-active: #FFFFFFFF;
+  --inverse-surface-info-gradient-hover: #FFFFFFFF;
+  --inverse-surface-info-gradient-active: #FFFFFFFF;
+  --inverse-surface-info-gradient: linear-gradient(111deg, #13181BFF 8.55%, #166DC4FF 259.66%);
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
@@ -1154,183 +1214,7 @@ export const sdds_insol_next__light = ([
   --plasma-typo-text-slim-medium-font-style: normal;
 }
 
-@media (max-width: 767px) {
-  :root {
-    --plasma-typo-dspl-l-font-size: 3.75rem;
-    --plasma-typo-dspl-l-font-weight: 400;
-    --plasma-typo-dspl-l-line-height: 4.125rem;
-    --plasma-typo-dspl-l-bold-font-size: 3.75rem;
-    --plasma-typo-dspl-l-bold-font-weight: 600;
-    --plasma-typo-dspl-l-bold-line-height: 4.125rem;
-    --plasma-typo-dspl-m-font-size: 2.625rem;
-    --plasma-typo-dspl-m-font-weight: 400;
-    --plasma-typo-dspl-m-line-height: 2.625rem;
-    --plasma-typo-dspl-m-bold-font-size: 2.625rem;
-    --plasma-typo-dspl-m-bold-font-weight: 600;
-    --plasma-typo-dspl-m-bold-line-height: 2.625rem;
-    --plasma-typo-dspl-s-font-size: 2rem;
-    --plasma-typo-dspl-s-font-weight: 400;
-    --plasma-typo-dspl-s-line-height: 2rem;
-    --plasma-typo-dspl-s-bold-font-size: 2rem;
-    --plasma-typo-dspl-s-bold-font-weight: 600;
-    --plasma-typo-dspl-s-bold-line-height: 2rem;
-    --plasma-typo-h1-font-size: 1.5rem;
-    --plasma-typo-h1-font-weight: 400;
-    --plasma-typo-h1-line-height: 1.5rem;
-    --plasma-typo-h1-bold-font-size: 1.5rem;
-    --plasma-typo-h1-bold-font-weight: 600;
-    --plasma-typo-h1-bold-line-height: 1.5rem;
-    --plasma-typo-h2-font-size: 1.5rem;
-    --plasma-typo-h2-font-weight: 400;
-    --plasma-typo-h2-line-height: 1.5rem;
-    --plasma-typo-h2-bold-font-size: 1.5rem;
-    --plasma-typo-h2-bold-font-weight: 600;
-    --plasma-typo-h2-bold-line-height: 1.5rem;
-    --plasma-typo-h3-font-size: 1.125rem;
-    --plasma-typo-h3-font-weight: 400;
-    --plasma-typo-h3-line-height: 1.25rem;
-    --plasma-typo-h3-bold-font-size: 1.125rem;
-    --plasma-typo-h3-bold-font-weight: 600;
-    --plasma-typo-h3-bold-line-height: 1.25rem;
-    --plasma-typo-h4-font-size: 1.125rem;
-    --plasma-typo-h4-font-weight: 400;
-    --plasma-typo-h4-line-height: 1.625rem;
-    --plasma-typo-h4-bold-font-size: 1.125rem;
-    --plasma-typo-h4-bold-font-weight: 600;
-    --plasma-typo-h4-bold-line-height: 1.625rem;
-    --plasma-typo-h5-font-size: 1rem;
-    --plasma-typo-h5-font-weight: 400;
-    --plasma-typo-h5-line-height: 1.25rem;
-    --plasma-typo-h5-bold-font-size: 1rem;
-    --plasma-typo-h5-bold-font-weight: 600;
-    --plasma-typo-h5-bold-line-height: 1.25rem;
-    --plasma-typo-h6-font-size: 0.625rem;
-    --plasma-typo-h6-font-weight: 400;
-    --plasma-typo-h6-line-height: 0.875rem;
-    --plasma-typo-h6-bold-font-size: 0.625rem;
-    --plasma-typo-h6-bold-font-weight: 600;
-    --plasma-typo-h6-bold-line-height: 0.875rem;
-    --plasma-typo-body-l-font-size: 1.125rem;
-    --plasma-typo-body-l-font-weight: 400;
-    --plasma-typo-body-l-line-height: 1.375rem;
-    --plasma-typo-body-l-bold-font-size: 1.125rem;
-    --plasma-typo-body-l-bold-font-weight: 600;
-    --plasma-typo-body-l-bold-line-height: 1.375rem;
-    --plasma-typo-body-m-font-size: 1rem;
-    --plasma-typo-body-m-font-weight: 400;
-    --plasma-typo-body-m-line-height: 1.25rem;
-    --plasma-typo-body-m-bold-font-size: 1rem;
-    --plasma-typo-body-m-bold-font-weight: 600;
-    --plasma-typo-body-m-bold-line-height: 1.25rem;
-    --plasma-typo-body-s-font-size: 0.875rem;
-    --plasma-typo-body-s-font-weight: 400;
-    --plasma-typo-body-s-line-height: 1.125rem;
-    --plasma-typo-body-s-bold-font-size: 0.875rem;
-    --plasma-typo-body-s-bold-font-weight: 600;
-    --plasma-typo-body-s-bold-line-height: 1.125rem;
-    --plasma-typo-body-xs-font-size: 0.75rem;
-    --plasma-typo-body-xs-font-weight: 400;
-    --plasma-typo-body-xs-line-height: 0.875rem;
-    --plasma-typo-body-xs-bold-font-size: 0.75rem;
-    --plasma-typo-body-xs-bold-font-weight: 600;
-    --plasma-typo-body-xs-bold-line-height: 0.875rem;
-    --plasma-typo-body-xxs-font-size: 0.625rem;
-    --plasma-typo-body-xxs-font-weight: 400;
-    --plasma-typo-body-xxs-line-height: 0.75rem;
-    --plasma-typo-body-xxs-bold-font-size: 0.625rem;
-    --plasma-typo-body-xxs-bold-font-weight: 600;
-    --plasma-typo-body-xxs-bold-line-height: 0.75rem;
-    --plasma-typo-text-l-font-size: 1rem;
-    --plasma-typo-text-l-font-weight: 400;
-    --plasma-typo-text-l-line-height: 1.25rem;
-    --plasma-typo-text-l-bold-font-size: 1rem;
-    --plasma-typo-text-l-bold-font-weight: 600;
-    --plasma-typo-text-l-bold-line-height: 1.25rem;
-    --plasma-typo-text-m-font-size: 1rem;
-    --plasma-typo-text-m-font-weight: 400;
-    --plasma-typo-text-m-line-height: 1.25rem;
-    --plasma-typo-text-m-bold-font-size: 1rem;
-    --plasma-typo-text-m-bold-font-weight: 600;
-    --plasma-typo-text-m-bold-line-height: 1.25rem;
-    --plasma-typo-text-s-font-size: 0.875rem;
-    --plasma-typo-text-s-font-weight: 400;
-    --plasma-typo-text-s-line-height: 1.25rem;
-    --plasma-typo-text-s-bold-font-size: 0.875rem;
-    --plasma-typo-text-s-bold-font-weight: 600;
-    --plasma-typo-text-s-bold-line-height: 1.25rem;
-    --plasma-typo-text-xs-font-size: 0.75rem;
-    --plasma-typo-text-xs-font-weight: 400;
-    --plasma-typo-text-xs-line-height: 1rem;
-    --plasma-typo-text-xs-bold-font-size: 0.75rem;
-    --plasma-typo-text-xs-bold-font-weight: 600;
-    --plasma-typo-text-xs-bold-line-height: 1rem;
-    --plasma-typo-dspl-l-medium-font-size: 3.75rem;
-    --plasma-typo-dspl-l-medium-font-weight: 500;
-    --plasma-typo-dspl-l-medium-line-height: 4.125rem;
-    --plasma-typo-dspl-m-medium-font-size: 3rem;
-    --plasma-typo-dspl-m-medium-font-weight: 500;
-    --plasma-typo-dspl-m-medium-line-height: 3.375rem;
-    --plasma-typo-dspl-s-medium-font-size: 2rem;
-    --plasma-typo-dspl-s-medium-font-weight: 500;
-    --plasma-typo-dspl-s-medium-line-height: 2.5rem;
-    --plasma-typo-h1-medium-font-size: 1.5rem;
-    --plasma-typo-h1-medium-font-weight: 500;
-    --plasma-typo-h1-medium-line-height: 2rem;
-    --plasma-typo-h2-medium-font-size: 1.5rem;
-    --plasma-typo-h2-medium-font-weight: 500;
-    --plasma-typo-h2-medium-line-height: 2rem;
-    --plasma-typo-h3-medium-font-size: 1.125rem;
-    --plasma-typo-h3-medium-font-weight: 500;
-    --plasma-typo-h3-medium-line-height: 1.625rem;
-    --plasma-typo-h4-medium-font-size: 1.125rem;
-    --plasma-typo-h4-medium-font-weight: 500;
-    --plasma-typo-h4-medium-line-height: 1.625rem;
-    --plasma-typo-h5-medium-font-size: 1rem;
-    --plasma-typo-h5-medium-font-weight: 500;
-    --plasma-typo-h5-medium-line-height: 1.25rem;
-    --plasma-typo-h6-medium-font-size: 0.625rem;
-    --plasma-typo-h6-medium-font-weight: 500;
-    --plasma-typo-h6-medium-line-height: 0.875rem;
-    --plasma-typo-body-l-medium-font-size: 1rem;
-    --plasma-typo-body-l-medium-font-weight: 500;
-    --plasma-typo-body-l-medium-line-height: 1.25rem;
-    --plasma-typo-body-m-medium-font-size: 0.875rem;
-    --plasma-typo-body-m-medium-font-weight: 500;
-    --plasma-typo-body-m-medium-line-height: 1.25rem;
-    --plasma-typo-body-s-medium-font-size: 0.875rem;
-    --plasma-typo-body-s-medium-font-weight: 500;
-    --plasma-typo-body-s-medium-line-height: 1.125rem;
-    --plasma-typo-body-xs-medium-font-size: 0.75rem;
-    --plasma-typo-body-xs-medium-font-weight: 500;
-    --plasma-typo-body-xs-medium-line-height: 0.875rem;
-    --plasma-typo-body-xxs-medium-font-size: 0.625rem;
-    --plasma-typo-body-xxs-medium-font-weight: 500;
-    --plasma-typo-body-xxs-medium-line-height: 0.75rem;
-    --plasma-typo-text-l-medium-font-size: 1rem;
-    --plasma-typo-text-l-medium-font-weight: 500;
-    --plasma-typo-text-l-medium-line-height: 1.25rem;
-    --plasma-typo-text-m-medium-font-size: 1rem;
-    --plasma-typo-text-m-medium-font-weight: 500;
-    --plasma-typo-text-m-medium-line-height: 1.25rem;
-    --plasma-typo-text-s-medium-font-size: 0.875rem;
-    --plasma-typo-text-s-medium-font-weight: 500;
-    --plasma-typo-text-s-medium-line-height: 1.25rem;
-    --plasma-typo-text-xs-medium-font-size: 0.75rem;
-    --plasma-typo-text-xs-medium-font-weight: 500;
-    --plasma-typo-text-xs-medium-line-height: 1rem;
-    --plasma-typo-text-slim-font-size: 0.875rem;
-    --plasma-typo-text-slim-font-weight: 400;
-    --plasma-typo-text-slim-line-height: 1.25rem;
-    --plasma-typo-text-slim-bold-font-size: 0.875rem;
-    --plasma-typo-text-slim-bold-font-weight: 600;
-    --plasma-typo-text-slim-bold-line-height: 1.25rem;
-    --plasma-typo-text-slim-medium-font-size: 0.875rem;
-    --plasma-typo-text-slim-medium-font-weight: 500;
-    --plasma-typo-text-slim-medium-line-height: 1.25rem;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 559px) {
   :root {
     --plasma-typo-dspl-l-font-size: 5.5rem;
     --plasma-typo-dspl-l-font-weight: 400;
@@ -1506,7 +1390,7 @@ export const sdds_insol_next__light = ([
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1199px) {
+@media (min-width: 560px) and (max-width: 959px) {
   :root {
     --plasma-typo-dspl-l-font-size: 7rem;
     --plasma-typo-dspl-l-font-weight: 400;
@@ -1682,7 +1566,7 @@ export const sdds_insol_next__light = ([
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 960px) {
   :root {
     --plasma-typo-dspl-l-font-size: 8rem;
     --plasma-typo-dspl-l-font-weight: 400;
