@@ -431,6 +431,7 @@ export const iconSectionsSet = {
         smileOutline: 'SmileOutline',
         kidsLockFill: 'KidsLockFill',
         kidsLockOutline: 'KidsLockOutline',
+        profilePinOutline: 'ProfilePinOutline',
     },
     Commerce: {
         appleFill: 'AppleFill',
