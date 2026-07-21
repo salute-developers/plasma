@@ -62,7 +62,7 @@ module.exports = {
     },
     'sdds-dfa': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes', 'sdds-themes'],
         themes: 'sdds-themes',
     },
     'sdds-cs': {
