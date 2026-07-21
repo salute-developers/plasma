@@ -184,6 +184,7 @@ export const iconSectionsSet = {
         screenSharePinFill: 'ScreenSharePinFill',
         screenShareUnpinOutline: 'ScreenShareUnpinOutline',
         screenShareUnpinFill: 'ScreenShareUnpinFill',
+        translateOutline: 'TranslateOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
