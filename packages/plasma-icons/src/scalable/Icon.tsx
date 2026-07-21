@@ -432,6 +432,7 @@ export const iconSectionsSet = {
         kidsLockFill: 'KidsLockFill',
         kidsLockOutline: 'KidsLockOutline',
         profilePinOutline: 'ProfilePinOutline',
+        profilePinFill: 'ProfilePinFill',
     },
     Commerce: {
         appleFill: 'AppleFill',
