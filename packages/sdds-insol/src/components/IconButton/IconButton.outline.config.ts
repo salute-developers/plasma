@@ -20,14 +20,13 @@ import {
     outlineSolidDefault,
     outlineSolidDefaultActive,
     outlineSolidDefaultHover,
-    outlineSolidPrimary,
-    outlineSolidPrimaryActive,
-    outlineSolidPrimaryHover,
     outlineWarning,
     outlineWarningActive,
     outlineWarningHover,
     surfaceAccent,
     surfaceClear,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondary,
     textAccent,
     textNegative,
     textPositive,
@@ -72,13 +71,13 @@ export const config = {
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: ${textPrimary};
 
-                ${iconButtonTokens.iconButtonBorderColor}: ${outlineSolidPrimary};
-                ${iconButtonTokens.iconButtonBorderColorHover}: ${outlineSolidPrimaryHover};
-                ${iconButtonTokens.iconButtonBorderColorActive}: ${outlineSolidPrimaryActive};
+                ${iconButtonTokens.iconButtonBorderColor}: ${surfaceTransparentSecondary};
+                ${iconButtonTokens.iconButtonBorderColorHover}: transparent;
+                ${iconButtonTokens.iconButtonBorderColorActive}: transparent;
 
                 ${iconButtonTokens.iconButtonBackgroundColor}: ${surfaceClear};
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceClear};
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceClear};
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceTransparentSecondary};
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: ${surfaceClear};
             `,
