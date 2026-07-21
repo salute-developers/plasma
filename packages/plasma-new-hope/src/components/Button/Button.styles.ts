@@ -186,7 +186,7 @@ export const baseContent = `
     }
 
     ${addFocus({
-        outlineOffset: '-0.125rem',
+        outlineOffset: '0.125rem',
         outlineSize: 'var(--plasma_private-btn-outline-size)',
         outlineRadius: 'calc(0.125rem + var(--plasma_private-btn-br))',
         outlineColor: `var(${tokens.buttonFocusColor})`,
