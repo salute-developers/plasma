@@ -180,6 +180,7 @@ export const iconSectionsSet = {
         groupAltFill: 'GroupAltFill',
         ungroupAltOutline: 'UngroupAltOutline',
         ungroupAltFill: 'UngroupAltFill',
+        screenSharePinOutline: 'ScreenSharePinOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
