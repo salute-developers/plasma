@@ -6,13 +6,16 @@ title: IconButton
 import { PropsTable, Description } from '@site/src/components';
 
 # IconButton
+
 Кнопки могут отображаться в нескольких размерах и цветах, могут содержать иконку.
 
 ## IconButton
+
 <Description name="IconButton" />
 <PropsTable name="IconButton" exclude={['css']} />
 
 ## Использование
+
 Компонент `IconButton` может содержать иконку, которая указывается напрямую через `children`.
 
 ```tsx live
@@ -34,6 +37,7 @@ export function App() {
 ## Примеры
 
 ### Размер кнопки
+
 Размер кнопки задается с помощью свойства `size`.
 
 ```tsx live
@@ -51,7 +55,7 @@ export function App() {
                 <IconClose color="inherit" size="xs" />
             </IconButton>
             <IconButton size="xxs">
-                <IconClose color="inherit" size="xs" />
+                <IconClose color="inherit" style={{ width: '0.75rem', height: '0.75rem' }} />
             </IconButton>
         </div>
     );
@@ -59,9 +63,11 @@ export function App() {
 ```
 
 ### Вид кнопки
+
 Вид кнопки задается с помощью свойства `view`.
 
 Возможные значения свойства `view`:
+
 + `"default"` – по умолчанию;
 + `"accent"` – акцентная;
 + `"secondary"` – вторичная;
@@ -117,7 +123,9 @@ export function App() {
 ```
 
 ### Границы кнопки
+
 Границы кнопки задаются с помощью свойства `pin`. Возможные значения свойства `pin`:
+
 + `square` – обычное скругление;
 + `circle` – сильное скругление;
 

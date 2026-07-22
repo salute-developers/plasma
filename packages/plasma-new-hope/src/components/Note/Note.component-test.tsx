@@ -89,6 +89,27 @@ describeFn('Note', () => {
         cy.matchImageSnapshot();
     });
 
+    it('renders conditional text after it becomes visible', () => {
+        const ConditionalText = () => {
+            const [isTextVisible, setIsTextVisible] = React.useState(false);
+
+            return (
+                <>
+                    <button type="button" onClick={() => setIsTextVisible(true)}>
+                        Show text
+                    </button>
+                    <Note text={isTextVisible && <span data-testid="conditional-note-text">Text</span>} />
+                </>
+            );
+        };
+
+        mount(<ConditionalText />);
+
+        cy.get('[data-testid="conditional-note-text"]').should('not.exist');
+        cy.contains('button', 'Show text').click();
+        cy.get('[data-testid="conditional-note-text"]').should('have.text', 'Text');
+    });
+
     it('long title', () => {
         mount(
             <Note

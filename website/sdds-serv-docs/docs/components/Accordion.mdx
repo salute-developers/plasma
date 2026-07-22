@@ -293,3 +293,53 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
+
+### Использование AccordionItem с кастомной иконкой contentRight и анимацией
+
+Если передать `contentRight`, компонент полностью отдаёт управление иконкой снаружи и не применяет встроенную анимацию поворота (она работает только для иконки по умолчанию `type="sign"`/`type="arrow"`). Чтобы анимировать кастомную иконку, нужно самостоятельно менять её стиль в зависимости от состояния `opened`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Accordion, AccordionItem } from '@salutejs/sdds-serv';
+import { IconPlus } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [activeFirst, setActiveFirst] = useState(false);
+    const [activeSecond, setActiveSecond] = useState(false);
+
+    const getIcon = (opened) => (
+        <IconPlus
+            size="xs"
+            style={{
+                transition: '0.2s',
+                transform: opened ? 'rotate(225deg)' : 'rotate(0deg)',
+            }}
+        />
+    );
+
+    return (
+        <div>
+            <Accordion size="s">
+                <AccordionItem
+                    type="clear"
+                    opened={activeFirst}
+                    onClick={(index, opened) => setActiveFirst(opened)}
+                    contentRight={getIcon(activeFirst)}
+                    title="Как оплатить заправку бонусами СберСпасибо?"
+                >
+                    После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива
+                </AccordionItem>
+                <AccordionItem
+                    type="clear"
+                    opened={activeSecond}
+                    onClick={(index, opened) => setActiveSecond(opened)}
+                    contentRight={getIcon(activeSecond)}
+                    title="Как оплатить заправку бонусами СберСпасибо?"
+                >
+                    После указания деталей заправки нажмите кнопку «К оплате». Откроется окно оплаты, где вы сможете списать бонусы и оплатить ими до 99% стоимости топлива
+                </AccordionItem>
+            </Accordion>
+        </div>
+    );
+}
+```

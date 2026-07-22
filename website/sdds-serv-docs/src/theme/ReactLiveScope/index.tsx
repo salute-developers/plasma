@@ -2,6 +2,7 @@ import React from 'react';
 import * as Icons from '@salutejs/plasma-icons';
 import * as Tokens from '@salutejs/sdds-themes/tokens';
 import * as Package from '@salutejs/sdds-serv/styled-components';
+import * as AiPackage from '@salutejs/sdds-serv/ai';
 import { Filler } from '@salutejs/plasma-docs-ui';
 import styled from 'styled-components';
 import { useForm, Controller } from 'react-hook-form';
@@ -16,6 +17,7 @@ const ReactLiveScope = {
     ...Icons,
     ...Tokens,
     ...Package,
+    ...AiPackage,
     ...React,
 };
 

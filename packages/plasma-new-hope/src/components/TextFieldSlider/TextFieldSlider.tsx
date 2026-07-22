@@ -64,6 +64,7 @@ export const textFieldSliderRoot = (Root: RootProps<HTMLDivElement, TextFiledSli
                 hintOffset = HINT_DEFAULT_OFFSET,
                 hintWidth,
                 hintContentLeft,
+                hintPortal,
 
                 // variations
                 view,
@@ -179,6 +180,7 @@ export const textFieldSliderRoot = (Root: RootProps<HTMLDivElement, TextFiledSli
                                       hintOffset,
                                       hintWidth,
                                       hintContentLeft,
+                                      hintPortal,
                                       hintTargetPlacement,
                                   }
                                 : { hintText: undefined })}

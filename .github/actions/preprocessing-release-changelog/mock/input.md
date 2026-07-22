@@ -278,12 +278,6 @@
 
 [PR](https://github.com/salute-developers/plasma/pull/1801)
 
-## PLASMA-UI
-
--   добавлена поддержка `StarOS` устройств
-
-[PR](https://github.com/salute-developers/plasma/pull/1800)
-
 ## Core
 
 ### Segment

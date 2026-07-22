@@ -53,6 +53,7 @@ export * from './components/Select';
 export * from './components/Divider';
 export * from './components/Toolbar';
 export * from './components/Sheet';
+export * from './components/BottomSheet';
 export * from './components/Slider';
 export * from './components/Steps';
 export * from './components/Range';
@@ -94,6 +95,10 @@ export * from './components/File';
 export * from './components/TextFieldSlider';
 export * from './components/_ai/Input';
 export * from './components/_ai/Markdown';
+export * from './components/_ai/Answer';
+export * from './components/_ai/Container';
+export * from './components/_ai/Header';
+export * from './components/_ai/UserMessage';
 
 export * from './components/_beta/Popover';
 export * from './components/_beta/Tooltip';

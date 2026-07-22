@@ -200,6 +200,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
             treeView,
             valueToPathMap,
             items: transformedItems,
+            disabled,
             readOnly,
         });
 

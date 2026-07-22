@@ -4,7 +4,7 @@ import storybookTheme from './theme';
 import { docsPage } from './docsPage';
 import { withTheme, SDDS_CS_LIGHT_THEME, DEFAULT_MODE, ON_LIGHT_MODE, ON_DARK_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
-import { withReactStrictMode, reactStrictModePreviewOption } from '@salutejs/plasma-sb-utils';
+import { withReactStrictMode, reactStrictModePreviewOption, disabledToolsParameters } from '@salutejs/plasma-sb-utils';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -35,6 +35,7 @@ const preview: Preview = {
         theme: SDDS_CS_LIGHT_THEME,
     },
     parameters: {
+        ...disabledToolsParameters,
         docs: {
             page: docsPage,
             theme: storybookTheme,

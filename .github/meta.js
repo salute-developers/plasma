@@ -41,19 +41,6 @@ module.exports = {
         scope: [...commonScope, 'plasma-themes', 'plasma-core'],
         required: ['plasma-sb-utils', 'plasma-core', 'core-themes', 'plasma-themes'],
     },
-    'plasma-ui': {
-        scope: [
-            'plasma-icons',
-            'plasma-sb-utils',
-            'plasma-tokens',
-            'plasma-tokens-utils',
-            'plasma-core',
-            'plasma-typo',
-            'plasma-colors',
-        ],
-        required: ['plasma-icons', 'plasma-core'],
-        themes: '',
-    },
     'plasma-web': {
         scope: [
             ...commonScope,
@@ -75,7 +62,7 @@ module.exports = {
     },
     'sdds-dfa': {
         scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
-        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes'],
+        required: ['plasma-sb-utils', 'plasma-core', 'plasma-new-hope', 'core-themes', 'sdds-themes'],
         themes: 'sdds-themes',
     },
     'sdds-cs': {

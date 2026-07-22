@@ -1,4 +1,11 @@
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    surfaceAccent,
+    textPrimary,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 
 export const config = {
     defaults: {
@@ -8,40 +15,40 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemColor}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedColor}: ${textPrimary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             divider: css`
-                ${tabsTokens.itemColor}: var(--text-secondary);
+                ${tabsTokens.itemColor}: ${textSecondary};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
-                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
+                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
+                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedColor}: ${textPrimary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
+                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: var(--text-primary);
-                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
@@ -54,12 +61,12 @@ export const config = {
 
                 ${tabsTokens.actionContentMarginLeft}: 0.25rem;
             `,
-            h6: css`
-                ${tabsTokens.itemBorderRadius}: 0.375rem;
-                ${tabsTokens.itemPadding}: 0rem;
-                ${tabsTokens.itemContentGap}: 0.625rem;
+            s: css`
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
+                ${tabsTokens.itemPadding}: 0.5rem 0.625rem;
+                ${tabsTokens.itemContentGap}: 0.25rem;
 
-                ${tabsTokens.actionContentMarginLeft}: -0.125rem;
+                ${tabsTokens.actionContentMarginLeft}: 0.125rem;
             `,
             h5: css`
                 ${tabsTokens.itemBorderRadius}: 0.375rem;

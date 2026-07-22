@@ -834,6 +834,15 @@ export const surfaceTransparentNegativeMinorHover = 'var(--surface-transparent-n
 /** dark surface default surfaceTransparentNegativeMinorActive */
 export const surfaceTransparentNegativeMinorActive = 'var(--surface-transparent-negative-minor-active, #FA5F0508)';
 
+/** dark surface default surfaceAccentExtraHover */
+export const surfaceAccentExtraHover = 'var(--surface-accent-extra-hover, #1DAF37FF)';
+
+/** dark surface default surfaceAccentExtraActive */
+export const surfaceAccentExtraActive = 'var(--surface-accent-extra-active, #18952FFF)';
+
+/** dark surface default surfaceAccentExtra */
+export const surfaceAccentExtra = 'var(--surface-accent-extra, #1A9E32)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #1C1C1CFF)';
 
@@ -1098,6 +1107,15 @@ export const onDarkSurfaceTransparentNegativeMinorHover =
 /** dark surface onDark surfaceTransparentNegativeMinorActive */
 export const onDarkSurfaceTransparentNegativeMinorActive =
     'var(--on-dark-surface-transparent-negative-minor-active, #FA5F0508)';
+
+/** dark surface onDark surfaceAccentExtra */
+export const onDarkSurfaceAccentExtra = 'var(--on-dark-surface-accent-extra, #1A9E32)';
+
+/** dark surface onDark surfaceAccentExtraHover */
+export const onDarkSurfaceAccentExtraHover = 'var(--on-dark-surface-accent-extra-hover, #1DAF37FF)';
+
+/** dark surface onDark surfaceAccentExtraActive */
+export const onDarkSurfaceAccentExtraActive = 'var(--on-dark-surface-accent-extra-active, #18952FFF)';
 
 /** Основной непрозрачный фон поверхности на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F2F2F2FF)';
@@ -1368,6 +1386,15 @@ export const onLightSurfaceTransparentNegativeMinorHover =
 export const onLightSurfaceTransparentNegativeMinorActive =
     'var(--on-light-surface-transparent-negative-minor-active, #FA5F0517)';
 
+/** dark surface onLight surfaceAccentExtra */
+export const onLightSurfaceAccentExtra = 'var(--on-light-surface-accent-extra, #080808)';
+
+/** dark surface onLight surfaceAccentExtraHover */
+export const onLightSurfaceAccentExtraHover = 'var(--on-light-surface-accent-extra-hover, #262626FF)';
+
+/** dark surface onLight surfaceAccentExtraActive */
+export const onLightSurfaceAccentExtraActive = 'var(--on-light-surface-accent-extra-active, #030303FF)';
+
 /** Инвертированный основной непрозрачный фон поверхности */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F2F2F2FF)';
 
@@ -1633,6 +1660,15 @@ export const inverseSurfaceTransparentNegativeMinorHover =
 /** dark surface inverse surfaceTransparentNegativeMinorActive */
 export const inverseSurfaceTransparentNegativeMinorActive =
     'var(--inverse-surface-transparent-negative-minor-active, #FA5F0517)';
+
+/** dark surface inverse surfaceAccentExtraHover */
+export const inverseSurfaceAccentExtraHover = 'var(--inverse-surface-accent-extra-hover, #262626FF)';
+
+/** dark surface inverse surfaceAccentExtraActive */
+export const inverseSurfaceAccentExtraActive = 'var(--inverse-surface-accent-extra-active, #030303FF)';
+
+/** dark surface inverse surfaceAccentExtra */
+export const inverseSurfaceAccentExtra = 'var(--inverse-surface-accent-extra, #080808)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #080808)';
@@ -2596,6 +2632,24 @@ export const dataYellowTransparentHover = 'var(--data-yellow-transparent-hover, 
 /** Прозрачный желтый цвет для данных */
 export const dataYellowTransparentActive = 'var(--data-yellow-transparent-active, #F3A81280)';
 
+/** dark data default dataTransparentPurpleExtraHover */
+export const dataTransparentPurpleExtraHover = 'var(--data-transparent-purple-extra-hover, #B558F352)';
+
+/** dark data default dataTransparentPurpleExtraActive */
+export const dataTransparentPurpleExtraActive = 'var(--data-transparent-purple-extra-active, #B558F324)';
+
+/** dark data default dataTransparentPurpleExtra */
+export const dataTransparentPurpleExtra = 'var(--data-transparent-purple-extra, #B559F333)';
+
+/** dark data default dataPurpleExtraHover */
+export const dataPurpleExtraHover = 'var(--data-purple-extra-hover, #BA5FF7FF)';
+
+/** dark data default dataPurpleExtraActive */
+export const dataPurpleExtraActive = 'var(--data-purple-extra-active, #A938F5FF)';
+
+/** dark data default dataPurpleExtra */
+export const dataPurpleExtra = 'var(--data-purple-extra, #AD42F5)';
+
 /** Желтый цвет для данных на темном фоне */
 export const onDarkDataYellow = 'var(--on-dark-data-yellow, #F3A912)';
 
@@ -2622,6 +2676,24 @@ export const onDarkDataYellowTransparentHover = 'var(--on-dark-data-yellow-trans
 
 /** Прозрачный желтый цвет для данных на темном фоне */
 export const onDarkDataYellowTransparentActive = 'var(--on-dark-data-yellow-transparent-active, #F3A81280)';
+
+/** dark data onDark dataTransparentPurpleExtra */
+export const onDarkDataTransparentPurpleExtra = 'var(--on-dark-data-transparent-purple-extra, #B559F333)';
+
+/** dark data onDark dataTransparentPurpleExtraHover */
+export const onDarkDataTransparentPurpleExtraHover = 'var(--on-dark-data-transparent-purple-extra-hover, #B558F352)';
+
+/** dark data onDark dataTransparentPurpleExtraActive */
+export const onDarkDataTransparentPurpleExtraActive = 'var(--on-dark-data-transparent-purple-extra-active, #B558F324)';
+
+/** dark data onDark dataPurpleExtra */
+export const onDarkDataPurpleExtra = 'var(--on-dark-data-purple-extra, #AD42F5)';
+
+/** dark data onDark dataPurpleExtraHover */
+export const onDarkDataPurpleExtraHover = 'var(--on-dark-data-purple-extra-hover, #BA5FF7FF)';
+
+/** dark data onDark dataPurpleExtraActive */
+export const onDarkDataPurpleExtraActive = 'var(--on-dark-data-purple-extra-active, #A938F5FF)';
 
 /** Желтый цвет для данных на светлом фоне */
 export const onLightDataYellow = 'var(--on-light-data-yellow, #F3A912)';
@@ -2650,6 +2722,25 @@ export const onLightDataYellowTransparentHover = 'var(--on-light-data-yellow-tra
 /** Прозрачный желтый цвет для данных на светлом фоне */
 export const onLightDataYellowTransparentActive = 'var(--on-light-data-yellow-transparent-active, #F3A812A3)';
 
+/** dark data onLight dataTransparentPurpleExtra */
+export const onLightDataTransparentPurpleExtra = 'var(--on-light-data-transparent-purple-extra, #B559F31F)';
+
+/** dark data onLight dataTransparentPurpleExtraHover */
+export const onLightDataTransparentPurpleExtraHover = 'var(--on-light-data-transparent-purple-extra-hover, #B558F32E)';
+
+/** dark data onLight dataTransparentPurpleExtraActive */
+export const onLightDataTransparentPurpleExtraActive =
+    'var(--on-light-data-transparent-purple-extra-active, #B558F333)';
+
+/** dark data onLight dataPurpleExtra */
+export const onLightDataPurpleExtra = 'var(--on-light-data-purple-extra, #722BA1)';
+
+/** dark data onLight dataPurpleExtraHover */
+export const onLightDataPurpleExtraHover = 'var(--on-light-data-purple-extra-hover, #7D2FB1FF)';
+
+/** dark data onLight dataPurpleExtraActive */
+export const onLightDataPurpleExtraActive = 'var(--on-light-data-purple-extra-active, #662791FF)';
+
 /** Инвертированный желтый цвет для данных */
 export const inverseDataYellow = 'var(--inverse-data-yellow, #F3A912)';
 
@@ -2677,25 +2768,42 @@ export const inverseDataYellowTransparentHover = 'var(--inverse-data-yellow-tran
 /** Инвертированный прозрачный желтый цвет для данных */
 export const inverseDataYellowTransparentActive = 'var(--inverse-data-yellow-transparent-active, #F3A812A3)';
 
-/** Акцентный цвет с градиентом */
-export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #CCCCCCFF)';
+/** dark data inverse dataTransparentPurpleExtraHover */
+export const inverseDataTransparentPurpleExtraHover = 'var(--inverse-data-transparent-purple-extra-hover, #B558F32E)';
+
+/** dark data inverse dataTransparentPurpleExtraActive */
+export const inverseDataTransparentPurpleExtraActive = 'var(--inverse-data-transparent-purple-extra-active, #B558F333)';
+
+/** dark data inverse dataTransparentPurpleExtra */
+export const inverseDataTransparentPurpleExtra = 'var(--inverse-data-transparent-purple-extra, #B559F31F)';
+
+/** dark data inverse dataPurpleExtraHover */
+export const inverseDataPurpleExtraHover = 'var(--inverse-data-purple-extra-hover, #7D2FB1FF)';
+
+/** dark data inverse dataPurpleExtraActive */
+export const inverseDataPurpleExtraActive = 'var(--inverse-data-purple-extra-active, #662791FF)';
+
+/** dark data inverse dataPurpleExtra */
+export const inverseDataPurpleExtra = 'var(--inverse-data-purple-extra, #722BA1)';
 
 /** Акцентный цвет с градиентом */
-export const textAccentGradientActive = 'var(--text-accent-gradient-active, #E6E6E6FF)';
+export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #858585FF)';
 
 /** Акцентный цвет с градиентом */
-export const textAccentGradient =
-    'var(--text-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
+export const textAccentGradientActive = 'var(--text-accent-gradient-active, #666666FF)';
+
+/** Акцентный цвет с градиентом */
+export const textAccentGradient = 'var(--text-accent-gradient, linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%))';
 
 /** Акцентный цвет с градиентом на темном фоне */
-export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #CCCCCCFF)';
+export const onDarkTextAccentGradientHover = 'var(--on-dark-text-accent-gradient-hover, #858585FF)';
 
 /** Акцентный цвет с градиентом на темном фоне */
-export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradient-active, #E6E6E6FF)';
+export const onDarkTextAccentGradientActive = 'var(--on-dark-text-accent-gradient-active, #666666FF)';
 
 /** Акцентный цвет с градиентом на темном фоне */
 export const onDarkTextAccentGradient =
-    'var(--on-dark-text-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
+    'var(--on-dark-text-accent-gradient, linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%))';
 
 /** Акцентный цвет с градиентом на светлом фоне */
 export const onLightTextAccentGradientHover = 'var(--on-light-text-accent-gradient-hover, #CCCCCCFF)';
@@ -2725,7 +2833,7 @@ export const surfaceAccentGradientActive = 'var(--surface-accent-gradient-active
 
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradient =
-    'var(--surface-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%))';
+    'var(--surface-accent-gradient, linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%))';
 
 /** Фон для скелетона */
 export const surfaceSkeletonGradient =
@@ -2755,7 +2863,7 @@ export const onDarkSurfaceAccentGradientActive = 'var(--on-dark-surface-accent-g
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
 export const onDarkSurfaceAccentGradient =
-    'var(--on-dark-surface-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0.323%, #04C6C9FF 100%))';
+    'var(--on-dark-surface-accent-gradient, linear-gradient(45deg, #52F2C5FF 0%, #C5FC5FFF 100%))';
 
 /** Фон для скелетона */
 export const onDarkSurfaceSkeletonGradient =
@@ -2849,7 +2957,7 @@ export const outlineAccentGradientActive = 'var(--outline-accent-gradient-active
 
 /** Акцентный цвет обводки с градиентом */
 export const outlineAccentGradient =
-    'var(--outline-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
+    'var(--outline-accent-gradient, linear-gradient(45deg, #C5FC5FFF 0%, #04C6C9FF 100%))';
 
 /** Акцентный цвет обводки с градиентом на темном фоне */
 export const onDarkOutlineAccentGradientHover = 'var(--on-dark-outline-accent-gradient-hover, #858585FF)';
@@ -2859,7 +2967,7 @@ export const onDarkOutlineAccentGradientActive = 'var(--on-dark-outline-accent-g
 
 /** Акцентный цвет обводки с градиентом на темном фоне */
 export const onDarkOutlineAccentGradient =
-    'var(--on-dark-outline-accent-gradient, linear-gradient(45.00deg, #1A9E32FF 0%, #04C6C9FF 99.688%))';
+    'var(--on-dark-outline-accent-gradient, linear-gradient(45deg, #C5FC5FFF 0%, #04C6C9FF 100%))';
 
 /** Акцентный цвет обводки с градиентом на светлом фоне */
 export const onLightOutlineAccentGradientHover = 'var(--on-light-outline-accent-gradient-hover, #CCCCCCFF)';
@@ -3713,6 +3821,9 @@ export const viewContainer = {
         --surface-transparent-negative-minor: var(--on-dark-surface-transparent-negative-minor);
         --surface-transparent-negative-minor-hover: var(--on-dark-surface-transparent-negative-minor-hover);
         --surface-transparent-negative-minor-active: var(--on-dark-surface-transparent-negative-minor-active);
+        --surface-accent-extra-hover: var(--on-dark-surface-accent-extra-hover);
+        --surface-accent-extra-active: var(--on-dark-surface-accent-extra-active);
+        --surface-accent-extra: var(--on-dark-surface-accent-extra);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --inverse-surface-solid-primary: var(--on-light-surface-solid-primary);
@@ -3800,6 +3911,9 @@ export const viewContainer = {
         --inverse-surface-transparent-negative-minor: var(--on-light-surface-transparent-negative-minor);
         --inverse-surface-transparent-negative-minor-hover: var(--on-light-surface-transparent-negative-minor-hover);
         --inverse-surface-transparent-negative-minor-active: var(--on-light-surface-transparent-negative-minor-active);
+        --inverse-surface-accent-extra-hover: var(--on-light-surface-accent-extra-hover);
+        --inverse-surface-accent-extra-active: var(--on-light-surface-accent-extra-active);
+        --inverse-surface-accent-extra: var(--on-light-surface-accent-extra);
         --background-primary: var(--dark-background-primary);
         --background-primary-brightness: var(--dark-background-primary-brightness);
         --background-secondary: var(--dark-background-secondary);
@@ -3966,6 +4080,12 @@ export const viewContainer = {
         --data-yellow-transparent: var(--on-dark-data-yellow-transparent);
         --data-yellow-transparent-hover: var(--on-dark-data-yellow-transparent-hover);
         --data-yellow-transparent-active: var(--on-dark-data-yellow-transparent-active);
+        --data-transparent-purple-extra-hover: var(--on-dark-data-transparent-purple-extra-hover);
+        --data-transparent-purple-extra-active: var(--on-dark-data-transparent-purple-extra-active);
+        --data-transparent-purple-extra: var(--on-dark-data-transparent-purple-extra);
+        --data-purple-extra-hover: var(--on-dark-data-purple-extra-hover);
+        --data-purple-extra-active: var(--on-dark-data-purple-extra-active);
+        --data-purple-extra: var(--on-dark-data-purple-extra);
         --inverse-data-yellow: var(--on-light-data-yellow);
         --inverse-data-yellow-hover: var(--on-light-data-yellow-hover);
         --inverse-data-yellow-active: var(--on-light-data-yellow-active);
@@ -3975,6 +4095,12 @@ export const viewContainer = {
         --inverse-data-yellow-transparent: var(--on-light-data-yellow-transparent);
         --inverse-data-yellow-transparent-hover: var(--on-light-data-yellow-transparent-hover);
         --inverse-data-yellow-transparent-active: var(--on-light-data-yellow-transparent-active);
+        --inverse-data-transparent-purple-extra-hover: var(--on-light-data-transparent-purple-extra-hover);
+        --inverse-data-transparent-purple-extra-active: var(--on-light-data-transparent-purple-extra-active);
+        --inverse-data-transparent-purple-extra: var(--on-light-data-transparent-purple-extra);
+        --inverse-data-purple-extra-hover: var(--on-light-data-purple-extra-hover);
+        --inverse-data-purple-extra-active: var(--on-light-data-purple-extra-active);
+        --inverse-data-purple-extra: var(--on-light-data-purple-extra);
         --text-accent-gradient-hover: var(--on-dark-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-dark-text-accent-gradient-active);
         --text-accent-gradient: var(--on-dark-text-accent-gradient);
@@ -4195,6 +4321,9 @@ export const viewContainer = {
         --surface-transparent-negative: var(--on-light-surface-transparent-negative);
         --surface-transparent-positive: var(--on-light-surface-transparent-positive);
         --surface-solid-secondary: var(--on-light-surface-solid-secondary);
+        --surface-accent-extra: var(--on-light-surface-accent-extra);
+        --surface-accent-extra-hover: var(--on-light-surface-accent-extra-hover);
+        --surface-accent-extra-active: var(--on-light-surface-accent-extra-active);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-primary: var(--on-dark-surface-solid-primary);
@@ -4282,6 +4411,9 @@ export const viewContainer = {
         --inverse-surface-transparent-negative-minor: var(--on-dark-surface-transparent-negative-minor);
         --inverse-surface-transparent-negative-minor-hover: var(--on-dark-surface-transparent-negative-minor-hover);
         --inverse-surface-transparent-negative-minor-active: var(--on-dark-surface-transparent-negative-minor-active);
+        --inverse-surface-accent-extra: var(--on-dark-surface-accent-extra);
+        --inverse-surface-accent-extra-hover: var(--on-dark-surface-accent-extra-hover);
+        --inverse-surface-accent-extra-active: var(--on-dark-surface-accent-extra-active);
         --background-primary-brightness: var(--light-background-primary-brightness);
         --background-primary: var(--light-background-primary);
         --background-secondary: var(--light-background-secondary);
@@ -4448,6 +4580,12 @@ export const viewContainer = {
         --data-yellow-transparent: var(--on-light-data-yellow-transparent);
         --data-yellow-transparent-hover: var(--on-light-data-yellow-transparent-hover);
         --data-yellow-transparent-active: var(--on-light-data-yellow-transparent-active);
+        --data-transparent-purple-extra: var(--on-light-data-transparent-purple-extra);
+        --data-transparent-purple-extra-hover: var(--on-light-data-transparent-purple-extra-hover);
+        --data-transparent-purple-extra-active: var(--on-light-data-transparent-purple-extra-active);
+        --data-purple-extra: var(--on-light-data-purple-extra);
+        --data-purple-extra-hover: var(--on-light-data-purple-extra-hover);
+        --data-purple-extra-active: var(--on-light-data-purple-extra-active);
         --inverse-data-yellow: var(--on-dark-data-yellow);
         --inverse-data-yellow-hover: var(--on-dark-data-yellow-hover);
         --inverse-data-yellow-active: var(--on-dark-data-yellow-active);
@@ -4457,6 +4595,12 @@ export const viewContainer = {
         --inverse-data-yellow-transparent: var(--on-dark-data-yellow-transparent);
         --inverse-data-yellow-transparent-hover: var(--on-dark-data-yellow-transparent-hover);
         --inverse-data-yellow-transparent-active: var(--on-dark-data-yellow-transparent-active);
+        --inverse-data-transparent-purple-extra: var(--on-dark-data-transparent-purple-extra);
+        --inverse-data-transparent-purple-extra-hover: var(--on-dark-data-transparent-purple-extra-hover);
+        --inverse-data-transparent-purple-extra-active: var(--on-dark-data-transparent-purple-extra-active);
+        --inverse-data-purple-extra: var(--on-dark-data-purple-extra);
+        --inverse-data-purple-extra-hover: var(--on-dark-data-purple-extra-hover);
+        --inverse-data-purple-extra-active: var(--on-dark-data-purple-extra-active);
         --text-accent-gradient-hover: var(--on-light-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-light-text-accent-gradient-active);
         --text-accent-gradient: var(--on-light-text-accent-gradient);

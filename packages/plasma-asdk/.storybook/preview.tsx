@@ -3,6 +3,7 @@ import type { Preview } from '@storybook/react';
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
 import { withTheme, ASDK_LIGHT_THEME, ASDK_DARK_THEME } from './decoratorThemes';
+import { disabledToolsParameters } from '@salutejs/plasma-sb-utils';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -30,6 +31,7 @@ const preview: Preview = {
         },
     },
     parameters: {
+        ...disabledToolsParameters,
         docs: {
             page: docsPage,
             theme: storybookTheme,

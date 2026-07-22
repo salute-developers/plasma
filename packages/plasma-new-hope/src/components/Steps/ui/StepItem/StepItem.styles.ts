@@ -161,7 +161,7 @@ export const Bullet = styled(BulletIndicator)`
     width: var(${tokens.bulletSize});
     height: var(${tokens.bulletSize});
 
-    border: var(${tokens.dividerThickness}) solid
+    border: var(${tokens.bulletBorderThickness}, var(${tokens.dividerThickness})) solid
         var(${tokens.completedBulletBorder}, var(${tokens.completedIndicatorBorder}, transparent));
     background: var(${tokens.completedBulletBackground}, var(${tokens.completedIndicatorBackground}));
 
@@ -169,7 +169,7 @@ export const Bullet = styled(BulletIndicator)`
         width: var(${tokens.activeBulletSize});
         height: var(${tokens.activeBulletSize});
 
-        border: var(${tokens.dividerThickness})
+        border: var(${tokens.activeBulletBorderThickness}, var(${tokens.dividerThickness}))
             var(${tokens.bulletActiveIndicatorBorder}, var(${tokens.activeIndicatorBorder}));
 
         background: var(${tokens.bulletActiveBackground}, var(${tokens.activeIndicatorBackground}));
@@ -177,8 +177,9 @@ export const Bullet = styled(BulletIndicator)`
 
     &.${classes.inactive} {
         color: var(${tokens.inactiveIndicatorColor});
-        background: var(${tokens.inactiveIndicatorBackground});
-        border: none;
+        background: var(${tokens.inactiveBulletBackground}, var(${tokens.inactiveIndicatorBackground}));
+        border: var(${tokens.bulletBorderThickness}, var(${tokens.dividerThickness})) solid
+            var(${tokens.inactiveBulletBorder}, transparent);
     }
 `;
 
@@ -190,14 +191,26 @@ export const StepItemDivider = styled.div`
 
     background: var(${tokens.dividerColor});
 
+    &.${classes.activeItem} {
+        background: var(${tokens.dividerActiveGradientColor}, var(${tokens.dividerColor}));
+    }
+
     &.${classes.nextActive} {
         background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
     }
 
-    .${classes.centered} &.${classes.nextActive} {
-        background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
-        background-size: 200% 100%;
-        background-position: 0% 0%;
+    .${classes.centered} {
+        &.${classes.nextActive} {
+            background: var(${tokens.dividerGradientColor}, var(${tokens.dividerColor}));
+            background-size: 200% 100%;
+            background-position: 0% 0%;
+        }
+
+        &.${classes.activeItem} {
+            background: var(${tokens.dividerActiveGradientColor}, var(${tokens.dividerColor}));
+            background-size: 200% 100%;
+            background-position: 0% 0%;
+        }
     }
 
     &.${classes.prevCompleted} {
@@ -214,10 +227,22 @@ export const StepItemDivider = styled.div`
         &.${classes.nextActive} {
             background: var(${tokens.dividerVerticalGradientColor}, var(${tokens.dividerColor}));
         }
+
+        &.${classes.activeItem} {
+            background: var(${tokens.dividerActiveVerticalGradientColor}, var(${tokens.dividerColor}));
+        }
     }
 
     &.${classes.inactive} {
         background: var(${tokens.inactiveIndicatorBackground});
+
+        &.${classes.activeItem} {
+            background: var(${tokens.dividerActiveGradientColor}, var(${tokens.inactiveIndicatorBackground}));
+        }
+
+        &.${classes.verticalOrientation}.${classes.activeItem} {
+            background: var(${tokens.dividerActiveVerticalGradientColor}, var(${tokens.inactiveIndicatorBackground}));
+        }
     }
 
     &.${classes.disabled} {
@@ -410,7 +435,8 @@ export const base = css`
                     var(${tokens.completedIndicatorBackgroundHover})
                 );
 
-                border: var(${tokens.dividerThickness}) solid var(${tokens.completedBulletBorderHover}, transparent);
+                border: var(${tokens.bulletBorderThickness}, var(${tokens.dividerThickness})) solid
+                        var(${tokens.completedBulletBorderHover}, var(${tokens.completedIndicatorBorderHover}, transparent));            
             }
         }
 
@@ -419,11 +445,18 @@ export const base = css`
                 color: var(${tokens.inactiveTitleColorHover});
             }
 
-            > ${BulletIndicatorWrapper} ${BulletIndicator},
-            > ${BulletIndicatorWrapper} ${Bullet} {
+            > ${BulletIndicatorWrapper} ${BulletIndicator} {            
                 color: var(${tokens.inactiveIndicatorColorHover});
                 background: var(${tokens.inactiveIndicatorBackgroundHover});
                 border: none;
+            }
+
+            > ${BulletIndicatorWrapper} ${Bullet} {   
+                color: var(${tokens.inactiveIndicatorColorHover});
+                background: var(${tokens.inactiveBulletBackgroundHover}, var(${tokens.inactiveIndicatorBackgroundHover}));
+
+                border: var(${tokens.bulletBorderThickness}, var(${tokens.dividerThickness})) solid
+                        var(${tokens.inactiveBulletBorder}, transparent);
             }
         }
 

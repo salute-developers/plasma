@@ -6,7 +6,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT_DIR = path.resolve(__dirname, '../src-emotion');
+const ROOT_DIR = path.resolve(__dirname, '..', process.argv[2] || 'src-emotion');
 
 const REPLACEMENTS = [
     {

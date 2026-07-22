@@ -1,3 +1,10 @@
+import {
+    inverseTextPrimary,
+    surfaceSolidDefault,
+    surfaceSolidDefaultHover,
+    textPrimary,
+    textPrimaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, stepsTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -7,14 +14,14 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
-                ${tokens.completedIndicatorBackground}: var(--surface-solid-default);
-                ${tokens.completedIndicatorBackgroundHover}: var(--surface-solid-default-hover);
-                ${tokens.completedTitleColor}: var(--text-primary);
-                ${tokens.completedTitleColorHover}: var(--text-primary-hover);
+                ${tokens.completedIndicatorColor}: ${inverseTextPrimary};
+                ${tokens.completedIndicatorColorHover}: ${inverseTextPrimary};
+                ${tokens.completedIndicatorBackground}: ${surfaceSolidDefault};
+                ${tokens.completedIndicatorBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.completedTitleColor}: ${textPrimary};
+                ${tokens.completedTitleColorHover}: ${textPrimaryHover};
 
-                ${tokens.dividerColor}: var(--surface-solid-default);
+                ${tokens.dividerColor}: ${surfaceSolidDefault};
             `,
         },
     },

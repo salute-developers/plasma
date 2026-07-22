@@ -1,4 +1,15 @@
 import { css, _beta_popoverTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    onDarkTextSecondary,
+    onDarkTextSecondaryActive,
+    onDarkTextSecondaryHover,
+    shadowDownHardM,
+    surfaceAccent,
+    surfaceSolidCard,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+} from '@salutejs/sdds-themes/tokens/sdds_finai';
 
 export const config = {
     defaults: {
@@ -8,18 +19,18 @@ export const config = {
     variations: {
         view: {
             action: css`
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.boxShadow}: var(--shadow-down-hard-m);
-                ${tokens.iconColor}: var(--text-secondary);
-                ${tokens.iconColorHover}: var(--text-secondary-hover);
-                ${tokens.iconColorActive}: var(--text-secondary-active);
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.boxShadow}: ${shadowDownHardM};
+                ${tokens.iconColor}: ${textSecondary};
+                ${tokens.iconColorHover}: ${textSecondaryHover};
+                ${tokens.iconColorActive}: ${textSecondaryActive};
             `,
             info: css`
-                ${tokens.backgroundColor}: var(--surface-accent);
-                ${tokens.boxShadow}: var(--shadow-down-hard-m);
-                ${tokens.iconColor}: var(--on-dark-text-secondary);
-                ${tokens.iconColorHover}: var(--on-dark-text-secondary-hover);
-                ${tokens.iconColorActive}: var(--on-dark-text-secondary-active);
+                ${tokens.backgroundColor}: ${surfaceAccent};
+                ${tokens.boxShadow}: ${shadowDownHardM};
+                ${tokens.iconColor}: ${onDarkTextSecondary};
+                ${tokens.iconColorHover}: ${onDarkTextSecondaryHover};
+                ${tokens.iconColorActive}: ${onDarkTextSecondaryActive};
             `,
         },
         size: {

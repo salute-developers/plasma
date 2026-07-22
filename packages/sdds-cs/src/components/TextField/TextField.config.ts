@@ -1,3 +1,29 @@
+import {
+    bodyM,
+    bodyS,
+    bodyXS,
+    outlineAccent,
+    outlineSolidPrimary,
+    outlineSolidPrimaryHover,
+    surfaceClear,
+    surfaceNegative,
+    surfaceSolidCard,
+    surfaceSolidCardActive,
+    surfaceSolidCardBrightness,
+    surfaceSolidPrimary,
+    textAccent,
+    textAccentActive,
+    textAccentMinor,
+    textNegative,
+    textNegativeActive,
+    textNegativeHover,
+    textPrimary,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -9,90 +35,90 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.textBeforeColor}: var(--text-secondary);
-                ${tokens.textAfterColor}: var(--text-secondary);
-                ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: var(--text-secondary);
-                ${tokens.rightHelperColor}: var(--text-secondary);
-                ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.color}: ${textPrimary};
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.backgroundColorFocus}: ${surfaceSolidCardActive};
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.textBeforeColor}: ${textSecondary};
+                ${tokens.textAfterColor}: ${textSecondary};
+                ${tokens.labelColor}: ${textPrimary};
+                ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.rightHelperColor}: ${textSecondary};
+                ${tokens.titleCaptionColor}: ${textSecondary};
+                ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: var(--text-secondary);
-                ${tokens.contentSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.contentSlotColorActive}: var(--text-secondary-active);
-                ${tokens.contentSlotRightColor}: var(--text-accent);
-                ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
-                ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
+                ${tokens.contentSlotColor}: ${textSecondary};
+                ${tokens.contentSlotColorHover}: ${textSecondaryHover};
+                ${tokens.contentSlotColorActive}: ${textSecondaryActive};
+                ${tokens.contentSlotRightColor}: ${textAccent};
+                ${tokens.contentSlotRightColorHover}: ${textAccentMinor};
+                ${tokens.contentSlotRightColorActive}: ${textAccentActive};
 
-                ${tokens.chipCloseIconColor}: var(--text-secondary);
-                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
-                ${tokens.chipCloseIconColorHover}: var(--text-primary);
-                ${tokens.chipColor}: var(--text-primary);
+                ${tokens.chipCloseIconColor}: ${textSecondary};
+                ${tokens.chipCloseIconColorReadonly}: ${textSecondary};
+                ${tokens.chipCloseIconColorHover}: ${textPrimary};
+                ${tokens.chipColor}: ${textPrimary};
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
-                ${tokens.chipColorHover}: var(--text-primary-hover);
+                ${tokens.chipColorHover}: ${textPrimaryHover};
                 ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
+                ${tokens.chipColorActive}: ${textPrimary};
                 ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
                 ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnly}: var(--text-primary);
+                ${tokens.chipColorReadOnly}: ${textPrimary};
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.chipColorReadOnlyHover}: ${textPrimary};
                 ${tokens.chipOpacityReadonly}: 0.72;
 
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.borderColor}: var(--outline-solid-primary);
-                ${tokens.borderColorFocus}: var(--outline-accent);
-                ${tokens.borderColorHover}: var(--outline-solid-primary-hover);
-                ${tokens.indicatorColor}: var(--surface-negative);
-                ${tokens.optionalColor}: var(--text-tertiary);
+                ${tokens.focusColor}: ${textAccent};
+                ${tokens.borderColor}: ${outlineSolidPrimary};
+                ${tokens.borderColorFocus}: ${outlineAccent};
+                ${tokens.borderColorHover}: ${outlineSolidPrimaryHover};
+                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.optionalColor}: ${textTertiary};
             `,
             negative: css`
-                ${tokens.color}: var(--text-primary);
-                ${tokens.backgroundColor}: var(--surface-solid-card);
-                ${tokens.backgroundColorFocus}: var(--surface-solid-card-active);
-                ${tokens.caretColor}: var(--text-accent);
-                ${tokens.placeholderColor}: var(--text-secondary);
-                ${tokens.placeholderColorFocus}: var(--text-tertiary);
-                ${tokens.textBeforeColor}: var(--text-secondary);
-                ${tokens.textAfterColor}: var(--text-secondary);
-                ${tokens.labelColor}: var(--text-primary);
-                ${tokens.leftHelperColor}: var(--text-negative);
-                ${tokens.rightHelperColor}: var(--text-negative);
-                ${tokens.titleCaptionColor}: var(--text-secondary);
-                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.color}: ${textPrimary};
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.backgroundColorFocus}: ${surfaceSolidCardActive};
+                ${tokens.caretColor}: ${textAccent};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.textBeforeColor}: ${textSecondary};
+                ${tokens.textAfterColor}: ${textSecondary};
+                ${tokens.labelColor}: ${textPrimary};
+                ${tokens.leftHelperColor}: ${textNegative};
+                ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.titleCaptionColor}: ${textSecondary};
+                ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: var(--text-negative);
-                ${tokens.contentSlotColorHover}: var(--text-negative-hover);
-                ${tokens.contentSlotColorActive}: var(--text-negative-active);
-                ${tokens.contentSlotRightColor}: var(--text-accent);
-                ${tokens.contentSlotRightColorHover}: var(--text-accent-minor);
-                ${tokens.contentSlotRightColorActive}: var(--text-accent-active);
+                ${tokens.contentSlotColor}: ${textNegative};
+                ${tokens.contentSlotColorHover}: ${textNegativeHover};
+                ${tokens.contentSlotColorActive}: ${textNegativeActive};
+                ${tokens.contentSlotRightColor}: ${textAccent};
+                ${tokens.contentSlotRightColorHover}: ${textAccentMinor};
+                ${tokens.contentSlotRightColorActive}: ${textAccentActive};
 
-                ${tokens.chipCloseIconColor}: var(--text-secondary);
-                ${tokens.chipCloseIconColorReadonly}: var(--text-secondary);
-                ${tokens.chipCloseIconColorHover}: var(--text-primary);
-                ${tokens.chipColor}: var(--text-primary);
+                ${tokens.chipCloseIconColor}: ${textSecondary};
+                ${tokens.chipCloseIconColorReadonly}: ${textSecondary};
+                ${tokens.chipCloseIconColorHover}: ${textPrimary};
+                ${tokens.chipColor}: ${textPrimary};
                 ${tokens.chipBackground}: var(--surface-transparent-secondary);
-                ${tokens.chipColorHover}: var(--text-primary);
+                ${tokens.chipColorHover}: ${textPrimary};
                 ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.chipColorActive}: var(--text-primary);
+                ${tokens.chipColorActive}: ${textPrimary};
                 ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
                 ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnly}: var(--text-primary);
+                ${tokens.chipColorReadOnly}: ${textPrimary};
                 ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${tokens.chipColorReadOnlyHover}: var(--text-primary);
+                ${tokens.chipColorReadOnlyHover}: ${textPrimary};
                 ${tokens.chipOpacityReadonly}: 0.72;
 
-                ${tokens.borderColor}: var(--text-negative);
-                ${tokens.focusColor}: var(--text-negative);
-                ${tokens.indicatorColor}: var(--surface-negative);
-                ${tokens.optionalColor}: var(--text-tertiary);
+                ${tokens.borderColor}: ${textNegative};
+                ${tokens.focusColor}: ${textNegative};
+                ${tokens.indicatorColor}: ${surfaceNegative};
+                ${tokens.optionalColor}: ${textTertiary};
             `,
         },
         size: {
@@ -113,40 +139,40 @@ export const config = {
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyM.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.labelOffset}: 0.5rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.labelFontSize}: ${bodyS.fontSize};
+                ${tokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.leftHelperPadding}: 0.25rem;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.leftHelperFontFamily}: ${bodyS.fontFamily};
+                ${tokens.leftHelperFontSize}: ${bodyS.fontSize};
+                ${tokens.leftHelperFontStyle}: ${bodyS.fontStyle};
+                ${tokens.leftHelperFontWeight}: ${bodyS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
@@ -159,12 +185,12 @@ export const config = {
                 ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1.25rem;
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.chipFontFamily}: ${bodyM.fontFamily};
+                ${tokens.chipFontSize}: ${bodyM.fontSize};
+                ${tokens.chipFontStyle}: ${bodyM.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyM.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -186,48 +212,48 @@ export const config = {
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.fontFamily}: ${bodyM.fontFamily};
+                ${tokens.fontSize}: ${bodyM.fontSize};
+                ${tokens.fontStyle}: ${bodyM.fontStyle};
+                ${tokens.fontWeight}: ${bodyM.fontWeight};
+                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.labelOffset}: 0.5rem;
-                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.labelFontSize}: ${bodyS.fontSize};
+                ${tokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.leftHelperPadding}: 0.25rem 0 0 0;
-                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.leftHelperFontFamily}: ${bodyS.fontFamily};
+                ${tokens.leftHelperFontSize}: ${bodyS.fontSize};
+                ${tokens.leftHelperFontStyle}: ${bodyS.fontStyle};
+                ${tokens.leftHelperFontWeight}: ${bodyS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
-                ${tokens.rightHelperFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.rightHelperFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.rightHelperFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.rightHelperFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.rightHelperLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.rightHelperLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.rightHelperFontFamily}: ${bodyS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
@@ -240,12 +266,12 @@ export const config = {
                 ${tokens.chipClearContentMarginLeft}: 0.375rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1rem;
-                ${tokens.chipFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.chipFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.chipFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.chipFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.chipLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.chipLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.chipFontFamily}: ${bodyS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -260,10 +286,10 @@ export const config = {
         },
         hintView: {
             default: css`
-                ${tokens.tooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
                 ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
-                ${tokens.tooltipColor}: var(--text-primary);
-                ${tokens.tooltipArrowBackground}: var(--surface-solid-card-brightness);
+                ${tokens.tooltipColor}: ${textPrimary};
+                ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
         },
         hintSize: {
@@ -276,12 +302,12 @@ export const config = {
                 ${tokens.tooltipMinHeight}: 2.5rem;
                 ${tokens.tooltipBorderRadius}: 0.625rem;
 
-                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.tooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.tooltipContentLeftMargin}: 0.375rem;
 
@@ -300,12 +326,12 @@ export const config = {
                 ${tokens.tooltipMinHeight}: 2rem;
                 ${tokens.tooltipBorderRadius}: 0.5rem;
 
-                ${tokens.tooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.tooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.tooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.tooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.tooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.tooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.tooltipContentLeftMargin}: 0.25rem;
 
@@ -319,24 +345,24 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
-                ${tokens.backgroundColor}: var(--surface-solid-primary);
-                ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
-                ${tokens.borderColor}: var(--surface-solid-primary);
-                ${tokens.borderColorHover}: var(--surface-solid-primary);
-                ${tokens.borderColorFocus}: var(--surface-solid-primary);
-                ${tokens.color}: var(--text-secondary);
+                ${tokens.backgroundColor}: ${surfaceSolidPrimary};
+                ${tokens.backgroundColorFocus}: ${surfaceSolidPrimary};
+                ${tokens.borderColor}: ${surfaceSolidPrimary};
+                ${tokens.borderColorHover}: ${surfaceSolidPrimary};
+                ${tokens.borderColorFocus}: ${surfaceSolidPrimary};
+                ${tokens.color}: ${textSecondary};
             `,
         },
         readOnly: {
             true: css`
                 ${tokens.readOnlyOpacity}: 1;
-                ${tokens.colorReadOnly}: var(--text-primary);
-                ${tokens.backgroundColorReadOnly}: var(--surface-clear);
-                ${tokens.placeholderColorReadOnly}: var(--text-secondary);
-                ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.rightHelperColorReadOnly}: var(--text-secondary);
-                ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
-                ${tokens.labelColorReadOnly}: var(--text-secondary);
+                ${tokens.colorReadOnly}: ${textPrimary};
+                ${tokens.backgroundColorReadOnly}: ${surfaceClear};
+                ${tokens.placeholderColorReadOnly}: ${textSecondary};
+                ${tokens.leftHelperColorReadOnly}: ${textSecondary};
+                ${tokens.rightHelperColorReadOnly}: ${textSecondary};
+                ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
+                ${tokens.labelColorReadOnly}: ${textSecondary};
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
                 ${tokens.borderColor}: transparent;
                 ${tokens.borderWidth}: 0;

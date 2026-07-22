@@ -5,6 +5,7 @@
 **Важно**, чтобы файл `collectPackageInfo.ts` обязательно лежал в директории в `./src`, т.к. плагин смотрит на все компоненты верхнеуровнево (`./src/components/Badge` и т.д.):
 
 `Badge.js`
+
 ```
 ...
 import { collectPackageInfo } from '../../collectPackageInfo';
@@ -14,7 +15,7 @@ collectPackageInfo('${entityName}');
 
 ## Описание
 
-Метод `collectPackageInfo` предназначен для записи в глобальную переменную `__PLASMA_INFO__` информации, которая хранит в себе версию используемого пакета (`version`), и массив сущностей, которые были импортированы в формате "<имя__компонента>/<имя__файла>" (`entities`). Описывается следующим интерфейсом:
+Метод `collectPackageInfo` предназначен для записи в глобальную переменную `__PLASMA_INFO__` информации, которая хранит в себе версию используемого пакета (`version`), и массив сущностей, которые были импортированы в формате "<имя**компонента>/<имя**файла>" (`entities`). Описывается следующим интерфейсом:
 
 ```ts
 __PLASMA_INFO__: {
@@ -42,7 +43,7 @@ export { createButton } from './createButton';
 
 Метод `collectPackageInfo` попадёт в файлах `Button.js`, `Button.types.js`, `Button.props.js`, `Button.mixins.js` и `createButton.js` и вызовется в случае импорта одной из сущностей (`createButton`, `buttonViews` и т.д.).
 
-Для файла `plasma-ui/src/components/Button/index.ts`
+Для файла `plasma-web/src/components/Button/index.ts`
 
 ```ts
 export { Button } from './Button';
@@ -54,7 +55,7 @@ export type { ActionButtonProps } from './ActionButton';
 
 После работы плагина метод появится в файлах `Button.js` и `ActionButton.js` и вызовется в случае импорта одной из сущностей (`Button`, `ButtonProps` и т.д.).
 
-И теперь, при использовании компонента `Button` из пакета `plasma-ui`, сформируется глобальная переменная со следующей структурой:
+И теперь, при использовании компонента `Button` из пакета `plasma-web`, сформируется глобальная переменная со следующей структурой:
 
 ```ts
 __PLASMA_INFO__: {
@@ -68,7 +69,7 @@ __PLASMA_INFO__: {
           "Button/Button.props"
         ]
     },
-    '@salutejs/plasma-ui': {
+    '@salutejs/plasma-web': {
         version: '"1.180.0',
         entities: [
           "Button/Button"
@@ -77,4 +78,4 @@ __PLASMA_INFO__: {
 };
 ```
 
-*Примечание: Дополнительные сущности (`Spinner/Spinner` и т.д.) появились из-за импортов в самой реализации компонента `Button`.*
+_Примечание: Дополнительные сущности (`Spinner/Spinner` и т.д.) появились из-за импортов в самой реализации компонента `Button`._

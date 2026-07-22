@@ -10,7 +10,7 @@ const ButtonComponent = component(mergedConfig);
 
 export type ButtonProps = ComponentProps<typeof ButtonComponent>;
 
-// INFO: Данное поведение запрошено продуктом/командой `sdds-cs`
+// INFO: Данное поведение запрошено продуктом
 const StyledButton = styled(ButtonComponent)`
     &&.${String(buttonClasses.buttonLoading)} {
         color: var(${buttonTokens.buttonColorActive}, var(${buttonTokens.buttonColor}));

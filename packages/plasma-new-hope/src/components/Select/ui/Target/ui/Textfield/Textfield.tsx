@@ -85,7 +85,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
 
         // Обработчик чипов
         const handleChipClick = (chip: { value: string; label: string; disabled: boolean }) => {
-            if (!Array.isArray(value)) return;
+            if (readOnly || !Array.isArray(value)) return;
 
             if (isTargetAmount) {
                 // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы

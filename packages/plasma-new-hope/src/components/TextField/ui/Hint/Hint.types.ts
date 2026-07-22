@@ -1,4 +1,4 @@
-import type { MouseEventHandler, ReactNode } from 'react';
+import type { MouseEventHandler, ReactNode, RefObject } from 'react';
 
 import type { PopoverPlacement, PopoverPlacementBasic } from '../../../Popover';
 
@@ -14,6 +14,7 @@ export type TextFieldHintProps = {
     isInnerLabel?: boolean;
     hintHasArrow?: boolean;
     hintWidth?: string;
+    hintPortal?: string | RefObject<HTMLElement | null>;
     handleHintShow: () => void;
     handleHintHide: () => void;
     handleHintClick: MouseEventHandler;

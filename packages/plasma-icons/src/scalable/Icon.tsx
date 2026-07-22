@@ -180,6 +180,12 @@ export const iconSectionsSet = {
         groupAltFill: 'GroupAltFill',
         ungroupAltOutline: 'UngroupAltOutline',
         ungroupAltFill: 'UngroupAltFill',
+        screenSharePinOutline: 'ScreenSharePinOutline',
+        screenSharePinFill: 'ScreenSharePinFill',
+        screenShareUnpinOutline: 'ScreenShareUnpinOutline',
+        screenShareUnpinFill: 'ScreenShareUnpinFill',
+        translateOutline: 'TranslateOutline',
+        translateFill: 'TranslateFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -431,6 +437,8 @@ export const iconSectionsSet = {
         smileOutline: 'SmileOutline',
         kidsLockFill: 'KidsLockFill',
         kidsLockOutline: 'KidsLockOutline',
+        profilePinOutline: 'ProfilePinOutline',
+        profilePinFill: 'ProfilePinFill',
     },
     Commerce: {
         appleFill: 'AppleFill',

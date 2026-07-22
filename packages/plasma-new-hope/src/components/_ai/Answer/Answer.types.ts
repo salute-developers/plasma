@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode } from 'react';
 
-export type AnswerProps = {
+export interface AnswerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'size' | 'title'> {
     /**
      * Заголовок ответа
      */
@@ -49,6 +49,8 @@ export type AnswerProps = {
      * Размер компонента
      */
     size?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'size'>;
+}
 
-export type AnswerRootProps = Pick<AnswerProps, 'view' | 'size'> & Omit<HTMLAttributes<HTMLDivElement>, 'size'>;
+export interface AnswerRootProps
+    extends Pick<AnswerProps, 'view' | 'size'>,
+        Omit<HTMLAttributes<HTMLDivElement>, 'size' | 'title'> {}

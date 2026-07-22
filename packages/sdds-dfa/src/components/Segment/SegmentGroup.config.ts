@@ -1,4 +1,5 @@
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { surfaceTransparentSecondary, textAccent, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
     defaults: {
@@ -8,20 +9,20 @@ export const config = {
     variations: {
         view: {
             none: css`
-                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             // deprecated
             clear: css`
-                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
             filled: css`
-                ${segmentTokens.arrowColor}: var(--text-secondary);
+                ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+                ${segmentTokens.outlineFocusColor}: ${textAccent};
             `,
         },
         size: {
@@ -80,7 +81,7 @@ export const config = {
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-transparent-secondary);
+                ${segmentTokens.groupFilledBackgroundColor}: ${surfaceTransparentSecondary};
             `,
         },
         orientation: {

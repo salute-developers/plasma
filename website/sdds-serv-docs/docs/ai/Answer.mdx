@@ -1,0 +1,57 @@
+---
+id: answer
+title: Answer
+---
+
+import { PropsTable } from '@site/src/components';
+
+# Answer
+
+Answer отображает ответ AI-ассистента: текст, произвольный контент, состояния загрузки и ошибки, а также действия и подсказки в нижней части.
+Подходит для сообщений в диалоге, результатов генерации и ответов с дополнительными сценариями.
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { Answer } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    return (
+        <Answer
+            content="Это содержимое ответа. Здесь может быть любой текст или React-элементы."
+        />
+    );
+}
+```
+
+## Пример с footer
+
+```tsx live
+import React from 'react';
+import { IconCopyOutline, IconHeartDashOutline, IconHeartOutline, IconRefresh } from '@salutejs/plasma-icons';
+import { Button, Chip, ChipGroup, EmbedIconButton, Flow } from '@salutejs/sdds-serv';
+import { Answer } from '@salutejs/sdds-serv/ai';
+
+export function App() {
+    return (
+        <Answer
+            content="Это содержимое ответа. Здесь может быть любой текст или React-элементы."
+            footer={
+                <Flow orientation="horizontal" arrangement="spaceBetween" alignment="center">
+                    <Flow orientation="horizontal" mainAxisGap="8px">
+                        {[IconHeartOutline, IconHeartDashOutline, IconCopyOutline, IconRefresh].map((Icon, index) => (
+                            <EmbedIconButton key={index} size="m" view="secondary"><Icon color="inherit" /></EmbedIconButton>
+                        ))}
+                    </Flow>
+                    <Button size="s" view="secondary">Перейти в источник</Button>
+                </Flow>
+            }
+        />
+    );
+}
+```
+
+## Таблица свойств
+
+<PropsTable name="Answer" />
