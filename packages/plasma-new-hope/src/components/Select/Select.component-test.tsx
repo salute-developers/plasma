@@ -2382,6 +2382,32 @@ describeFn('Select', () => {
         );
         cy.matchImageSnapshot();
     });
+
+    it('readOnly: does not handle keyboard navigation or remove chips', () => {
+        const onChange = cy.stub().as('onChange');
+
+        mount(
+            <Select
+                id="read-only"
+                target="textfield-like"
+                multiselect
+                readOnly
+                defaultValue={['north_america']}
+                items={items}
+                onChange={onChange}
+            />,
+        );
+
+        cy.get('#read-only input').click();
+        cy.pressKey('ArrowDown');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+        cy.pressKey('Enter');
+        cy.get('[id$="tree_level_1"]').should('not.exist');
+
+        cy.get('#read-only .has-chips button').focus().pressKey('Backspace');
+        cy.get('#read-only .has-chips button').should('have.length', 1);
+        cy.get('@onChange').should('not.have.been.called');
+    });
 });
 
 describeFn('Select react-hook-form', () => {

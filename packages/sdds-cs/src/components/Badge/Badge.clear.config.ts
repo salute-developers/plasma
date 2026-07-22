@@ -1,3 +1,4 @@
+import { textAccent, textNegative, textPositive, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/emotion';
 
 import { pilled, sizeS } from './Badge.config.common';
@@ -10,16 +11,16 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${badgeTokens.color}: var(--text-primary);
+                ${badgeTokens.color}: ${textPrimary};
             `,
             accent: css`
-                ${badgeTokens.color}: var(--text-accent);
+                ${badgeTokens.color}: ${textAccent};
             `,
             positive: css`
-                ${badgeTokens.color}: var(--text-positive);
+                ${badgeTokens.color}: ${textPositive};
             `,
             negative: css`
-                ${badgeTokens.color}: var(--text-negative);
+                ${badgeTokens.color}: ${textNegative};
             `,
         },
         size: {

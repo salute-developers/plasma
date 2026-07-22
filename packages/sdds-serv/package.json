@@ -1,14 +1,22 @@
 {
   "name": "@salutejs/sdds-serv",
-  "version": "0.355.0",
+  "version": "0.357.0-dev.0",
   "description": "Salute Design System / React UI kit for SDDS SERV web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
-  "files": ["dist", "types"],
-  "keywords": ["design-system", "react-components", "ui-kit", "react"],
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "design-system",
+    "react-components",
+    "ui-kit",
+    "react"
+  ],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -29,6 +37,21 @@
       "import": "./dist/emotion/es/index.js",
       "require": "./dist/emotion/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./ai": {
+      "import": "./dist/ai/css/es/index.js",
+      "require": "./dist/ai/css/cjs/index.js",
+      "types": "./types/ai.d.ts"
+    },
+    "./ai/styled-components": {
+      "import": "./dist/ai/styled-components/es/index.js",
+      "require": "./dist/ai/styled-components/cjs/index.js",
+      "types": "./types/ai.d.ts"
+    },
+    "./ai/emotion": {
+      "import": "./dist/ai/emotion/es/index.js",
+      "require": "./dist/ai/emotion/cjs/index.js",
+      "types": "./types/ai.d.ts"
     }
   },
   "peerDependencies": {
@@ -39,8 +62,8 @@
     "styled-components": "^5.3.1"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.368.0",
-    "@salutejs/sdds-themes": "0.70.0"
+    "@salutejs/plasma-new-hope": "0.370.0-dev.0",
+    "@salutejs/sdds-themes": "0.71.0-dev.0"
   },
   "devDependencies": {
     "@babel/cli": "7.24.1",
@@ -62,10 +85,10 @@
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@salutejs/plasma-colors": "0.16.0",
-    "@salutejs/plasma-core": "1.231.0",
-    "@salutejs/plasma-cy-utils": "0.161.0",
-    "@salutejs/plasma-icons": "1.242.0",
-    "@salutejs/plasma-sb-utils": "0.232.0",
+    "@salutejs/plasma-core": "1.233.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.163.0-dev.0",
+    "@salutejs/plasma-icons": "1.243.0-dev.0",
+    "@salutejs/plasma-sb-utils": "0.234.0-dev.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -84,16 +107,18 @@
     "build": "npm run build:css && npm run build:styled-components && npm run build:emotion",
     "postbuild": "npm run generate:typings",
     "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
-    "build:css": "rm -rf dist/css && rollup -c",
+    "build:css": "rm -rf dist/css dist/ai/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
-    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
-    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && node ./scripts/replaceStyledComponentsToEmotion.js",
-    "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
+    "prebuild:styled-components": "rm -rf src-styled-components src-ai && cp -R src src-styled-components && rm -rf src-styled-components/components/_ai && mkdir -p src-ai/components && cp -R src/components/_ai src-ai/components/_ai && cp src/ai.ts src-ai/index.ts",
+    "build:styled-components": "rm -rf dist/styled-components dist/ai/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
+    "build:styled-components:cjs": "swc ./src-styled-components -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs && swc ./src-ai -d ./dist/ai/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src-styled-components -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && swc ./src-ai -d ./dist/ai/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "postbuild:styled-components": "rm -rf src-styled-components src-ai",
+    "prebuild:emotion": "rm -rf src-emotion src-ai-emotion && cp -R src src-emotion && rm -rf src-emotion/components/_ai && node ./scripts/replaceStyledComponentsToEmotion.js && mkdir -p src-ai-emotion/components && cp -R src/components/_ai src-ai-emotion/components/_ai && cp src/ai.ts src-ai-emotion/index.ts && node ./scripts/replaceStyledComponentsToEmotion.js src-ai-emotion",
+    "build:emotion": "rm -rf dist/emotion dist/ai/emotion && npm run build:emotion:esm && npm run build:emotion:cjs && swc ./src-ai-emotion -d ./dist/ai/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && swc ./src-ai-emotion -d ./dist/ai/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "postbuild:emotion": "rm -rf src-emotion",
+    "postbuild:emotion": "rm -rf src-emotion src-ai-emotion",
     "generate:typings": "rm -rf types && tsc",
     "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
@@ -101,9 +126,17 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": ["src/**/*.component-test.tsx", "src/**/*.stories.tsx", "src/**/*.styles.ts"],
+    "ignoreFiles": [
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx",
+      "src/**/*.styles.ts"
+    ],
     "atLeast": 99.9
   },
-  "contributors": ["salute.developers@gmail.com"],
-  "sideEffects": ["*.css"]
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
+  "sideEffects": [
+    "*.css"
+  ]
 }

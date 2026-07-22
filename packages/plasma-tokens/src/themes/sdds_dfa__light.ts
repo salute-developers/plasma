@@ -825,6 +825,14 @@ export const sdds_dfa__light = {
         '--data-default-data-yellow-transparent': '#F3A9128F',
         '--data-default-data-yellow-transparent-hover': '#F3A8129E',
         '--data-default-data-yellow-transparent-active': '#F3A812A3',
+        '--data-default-data-green-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%)',
+        '--data-default-data-green-gradient-hover': '#FFFFFFFF',
+        '--data-default-data-green-gradient-active': '#FFFFFFFF',
+        '--data-default-data-green-gray-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%)',
+        '--data-default-data-green-gray-gradient-hover': '#FFFFFFFF',
+        '--data-default-data-green-gray-gradient-active': '#FFFFFFFF',
         '--data-on-dark-data-yellow': '#F3A912',
         '--data-on-dark-data-yellow-hover': '#F4B22FFF',
         '--data-on-dark-data-yellow-active': '#EDA20CFF',
@@ -834,6 +842,14 @@ export const sdds_dfa__light = {
         '--data-on-dark-data-yellow-transparent': '#F3A9128F',
         '--data-on-dark-data-yellow-transparent-hover': '#F3A812AD',
         '--data-on-dark-data-yellow-transparent-active': '#F3A81280',
+        '--data-on-dark-data-green-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%)',
+        '--data-on-dark-data-green-gradient-hover': '#FFFFFFFF',
+        '--data-on-dark-data-green-gradient-active': '#FFFFFFFF',
+        '--data-on-dark-data-green-gray-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%)',
+        '--data-on-dark-data-green-gray-gradient-hover': '#FFFFFFFF',
+        '--data-on-dark-data-green-gray-gradient-active': '#FFFFFFFF',
         '--data-on-light-data-yellow': '#F3A912',
         '--data-on-light-data-yellow-hover': '#F5B638FF',
         '--data-on-light-data-yellow-active': '#E49C0CFF',
@@ -843,6 +859,14 @@ export const sdds_dfa__light = {
         '--data-on-light-data-yellow-transparent': '#F3A9128F',
         '--data-on-light-data-yellow-transparent-hover': '#F3A8129E',
         '--data-on-light-data-yellow-transparent-active': '#F3A812A3',
+        '--data-on-light-data-green-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%)',
+        '--data-on-light-data-green-gradient-hover': '#FFFFFFFF',
+        '--data-on-light-data-green-gradient-active': '#FFFFFFFF',
+        '--data-on-light-data-green-gray-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%)',
+        '--data-on-light-data-green-gray-gradient-hover': '#FFFFFFFF',
+        '--data-on-light-data-green-gray-gradient-active': '#FFFFFFFF',
         '--data-inverse-data-yellow': '#F3A912',
         '--data-inverse-data-yellow-hover': '#F4B22FFF',
         '--data-inverse-data-yellow-active': '#EDA20CFF',
@@ -852,6 +876,14 @@ export const sdds_dfa__light = {
         '--data-inverse-data-yellow-transparent': '#F3A9128F',
         '--data-inverse-data-yellow-transparent-hover': '#F3A812AD',
         '--data-inverse-data-yellow-transparent-active': '#F3A81280',
+        '--data-inverse-data-green-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 99.975%, #F5F5F58F 99.975%)',
+        '--data-inverse-data-green-gradient-hover': '#FFFFFFFF',
+        '--data-inverse-data-green-gradient-active': '#FFFFFFFF',
+        '--data-inverse-data-green-gray-gradient':
+            'linear-gradient(135deg, #00AC7B 0.025%, #14B9B0 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%)',
+        '--data-inverse-data-green-gray-gradient-hover': '#FFFFFFFF',
+        '--data-inverse-data-green-gray-gradient-active': '#FFFFFFFF',
         '--skeleton-gradient':
             'linear-gradient( 90deg, rgba(8, 8, 8, 0.09) 0%, rgba(8, 8, 8, 0.08) 6.25%, rgba(8, 8, 8, 0.05) 12.5%, rgba(8, 8, 8, 0.01) 25%, rgba(8, 8, 8, 0.05) 37.5%, rgba(8, 8, 8, 0.08) 43.75%, rgba(8, 8, 8, 0.09) 50%, rgba(8, 8, 8, 0.08) 56.25%, rgba(8, 8, 8, 0.05) 62.5%, rgba(8, 8, 8, 0.01) 75%, rgba(8, 8, 8, 0.05) 87.5%, rgba(8, 8, 8, 0.08) 93.75%, rgba(8, 8, 8, 0.09) 100% )',
         '--skeleton-gradient-lighter':

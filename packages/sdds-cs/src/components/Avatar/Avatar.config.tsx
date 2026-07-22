@@ -1,3 +1,16 @@
+import {
+    bodyS,
+    bodyXXS,
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    onLightSurfaceSolidPrimary,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceSolidTertiary,
+    textSecondary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, avatarTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -9,10 +22,10 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-secondary);
-                ${tokens.backgroundColor}: var(--surface-solid-tertiary);
-                ${tokens.statusOnlineColor}: var(--surface-positive);
-                ${tokens.statusOfflineColor}: var(--on-light-surface-solid-primary);
+                ${tokens.color}: ${textSecondary};
+                ${tokens.backgroundColor}: ${surfaceSolidTertiary};
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${onLightSurfaceSolidPrimary};
                 ${tokens.scaleHover}: 1.02;
                 ${tokens.fontFamily}: var(--plasma-typo-text-font-family);
             `,
@@ -30,12 +43,12 @@ export const config = {
                 ${tokens.counterHeight}: 1.25rem;
                 ${tokens.counterPadding}: 0 0.375rem;
 
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.counterFontFamily}: ${bodyS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyS.lineHeight};
             `,
             m: css`
                 ${tokens.avatarSize}: 2.25rem;
@@ -48,12 +61,12 @@ export const config = {
                 ${tokens.counterHeight}: 1rem;
                 ${tokens.counterPadding}: 0 0.25rem;
 
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             s: css`
                 ${tokens.avatarSize}: 1.5rem;
@@ -66,12 +79,12 @@ export const config = {
                 ${tokens.counterHeight}: 0.75rem;
                 ${tokens.counterPadding}: 0 0.125rem;
 
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             fit: css`
                 ${tokens.avatarSize}: 100%;
@@ -86,7 +99,7 @@ export const config = {
             true: css`
                 ${tokens.outlineSize}: 0.1rem;
                 ${tokens.outlineOffset}: -0.2rem;
-                ${tokens.outlineColor}: var(--surface-accent);
+                ${tokens.outlineColor}: ${surfaceAccent};
             `,
         },
         shape: {
@@ -98,20 +111,20 @@ export const config = {
         },
         counterView: {
             default: css`
-                ${tokens.counterColor}: var(--inverse-text-primary);
-                ${tokens.counterBackground}: var(--surface-solid-default);
+                ${tokens.counterColor}: ${inverseTextPrimary};
+                ${tokens.counterBackground}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--surface-accent);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${surfaceAccent};
             `,
             positive: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--surface-positive);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${surfacePositive};
             `,
             negative: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--surface-negative);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${surfaceNegative};
             `,
         },
     },

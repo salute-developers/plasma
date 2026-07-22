@@ -1,3 +1,18 @@
+import {
+    bodyM,
+    bodyS,
+    onDarkTextPrimary,
+    onDarkTextPrimaryHover,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceSolidCard,
+    surfaceSolidPrimary,
+    surfaceSolidSecondary,
+    textAccent,
+    textAccentMinor,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, chipTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -9,50 +24,50 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-solid-card);
-                ${chipTokens.colorHover}: var(--text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-solid-card);
-                ${chipTokens.colorActive}: var(--text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-solid-card);
-                ${chipTokens.backgroundReadOnly}: var(--surface-solid-card);
-                ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-card);
-                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
-                ${chipTokens.closeIconColor}: var(--text-accent);
-                ${chipTokens.closeIconColorHover}: var(--text-accent-minor);
-                ${chipTokens.leftContentColor}: var(--text-accent);
+                ${chipTokens.color}: ${textPrimary};
+                ${chipTokens.background}: ${surfaceSolidCard};
+                ${chipTokens.colorHover}: ${textPrimary};
+                ${chipTokens.backgroundHover}: ${surfaceSolidCard};
+                ${chipTokens.colorActive}: ${textPrimary};
+                ${chipTokens.backgroundActive}: ${surfaceSolidCard};
+                ${chipTokens.backgroundReadOnly}: ${surfaceSolidCard};
+                ${chipTokens.colorReadOnly}: ${textPrimary};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceSolidCard};
+                ${chipTokens.colorReadOnlyHover}: ${textPrimary};
+                ${chipTokens.closeIconColor}: ${textAccent};
+                ${chipTokens.closeIconColorHover}: ${textAccentMinor};
+                ${chipTokens.leftContentColor}: ${textAccent};
             `,
             secondary: css`
-                ${chipTokens.color}: var(--text-primary);
-                ${chipTokens.background}: var(--surface-solid-secondary);
-                ${chipTokens.colorHover}: var(--text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-solid-secondary);
-                ${chipTokens.colorActive}: var(--text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-solid-secondary);
-                ${chipTokens.backgroundReadOnly}: var(--surface-solid-primary);
-                ${chipTokens.colorReadOnly}: var(--text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-primary);
-                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
-                ${chipTokens.closeIconColor}: var(--text-accent);
-                ${chipTokens.closeIconColorHover}: var(--text-accent-minor);
-                ${chipTokens.leftContentColor}: var(--text-accent);
+                ${chipTokens.color}: ${textPrimary};
+                ${chipTokens.background}: ${surfaceSolidSecondary};
+                ${chipTokens.colorHover}: ${textPrimary};
+                ${chipTokens.backgroundHover}: ${surfaceSolidSecondary};
+                ${chipTokens.colorActive}: ${textPrimary};
+                ${chipTokens.backgroundActive}: ${surfaceSolidSecondary};
+                ${chipTokens.backgroundReadOnly}: ${surfaceSolidPrimary};
+                ${chipTokens.colorReadOnly}: ${textPrimary};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceSolidPrimary};
+                ${chipTokens.colorReadOnlyHover}: ${textPrimary};
+                ${chipTokens.closeIconColor}: ${textAccent};
+                ${chipTokens.closeIconColorHover}: ${textAccentMinor};
+                ${chipTokens.leftContentColor}: ${textAccent};
             `,
             accent: css`
-                ${chipTokens.color}: var(--on-dark-text-primary);
-                ${chipTokens.background}: var(--surface-accent);
-                ${chipTokens.colorHover}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-accent-hover);
-                ${chipTokens.colorActive}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-accent-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-accent);
-                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
-                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+                ${chipTokens.color}: ${onDarkTextPrimary};
+                ${chipTokens.background}: ${surfaceAccent};
+                ${chipTokens.colorHover}: ${onDarkTextPrimary};
+                ${chipTokens.backgroundHover}: ${surfaceAccentHover};
+                ${chipTokens.colorActive}: ${onDarkTextPrimary};
+                ${chipTokens.backgroundActive}: ${surfaceAccentActive};
+                ${chipTokens.backgroundReadOnly}: ${surfaceAccent};
+                ${chipTokens.colorReadOnly}: ${onDarkTextPrimary};
+                ${chipTokens.backgroundReadOnlyHover}: ${surfaceAccent};
+                ${chipTokens.colorReadOnlyHover}: ${onDarkTextPrimary};
 
-                ${chipTokens.closeIconColor}: var(--on-dark-text-primary);
-                ${chipTokens.closeIconColorHover}: var(--on-dark-text-primary-hover);
-                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColor}: ${onDarkTextPrimary};
+                ${chipTokens.closeIconColorHover}: ${onDarkTextPrimaryHover};
+                ${chipTokens.leftContentColor}: ${onDarkTextPrimary};
             `,
         },
         size: {
@@ -63,12 +78,12 @@ export const config = {
                 ${chipTokens.height}: 2.5rem;
                 ${chipTokens.padding}: 0 1rem;
 
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${chipTokens.fontFamily}: ${bodyM.fontFamily};
+                ${chipTokens.fontSize}: ${bodyM.fontSize};
+                ${chipTokens.fontStyle}: ${bodyM.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyM.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyM.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: -0.25rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
@@ -85,12 +100,12 @@ export const config = {
                 ${chipTokens.height}: 1.5rem;
                 ${chipTokens.padding}: 0.125rem 0.5rem;
 
-                ${chipTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-                ${chipTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-                ${chipTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-                ${chipTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${chipTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${chipTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${chipTokens.fontFamily}: ${bodyS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyS.lineHeight};
 
                 ${chipTokens.leftContentMarginLeft}: 0;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
@@ -103,7 +118,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${chipTokens.focusColor}: var(--text-accent);
+                ${chipTokens.focusColor}: ${textAccent};
             `,
         },
     },

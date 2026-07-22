@@ -1,3 +1,12 @@
+import {
+    onLightSurfaceSolidPrimary,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceWarning,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, indicatorTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -8,25 +17,25 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--surface-solid-default);
+                ${tokens.color}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${tokens.color}: var(--surface-accent);
+                ${tokens.color}: ${surfaceAccent};
             `,
             inactive: css`
-                ${tokens.color}: var(--on-light-surface-solid-primary);
+                ${tokens.color}: ${onLightSurfaceSolidPrimary};
             `,
             positive: css`
-                ${tokens.color}: var(--surface-positive);
+                ${tokens.color}: ${surfacePositive};
             `,
             negative: css`
-                ${tokens.color}: var(--surface-negative);
+                ${tokens.color}: ${surfaceNegative};
             `,
             warning: css`
-                ${tokens.color}: var(--surface-warning);
+                ${tokens.color}: ${surfaceWarning};
             `,
             black: css`
-                ${tokens.color}: var(--text-primary);
+                ${tokens.color}: ${textPrimary};
             `,
         },
         size: {

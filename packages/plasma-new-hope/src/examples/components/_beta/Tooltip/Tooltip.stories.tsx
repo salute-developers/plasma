@@ -48,6 +48,16 @@ const meta: Meta<StoryProps> = {
                 type: 'boolean',
             },
         },
+        flip: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        shift: {
+            control: {
+                type: 'boolean',
+            },
+        },
         offset: {
             control: {
                 type: 'number',
@@ -85,6 +95,8 @@ const meta: Meta<StoryProps> = {
         placement: 'bottom',
         trigger: 'click',
         hasTail: true,
+        flip: false,
+        shift: false,
         offset: 0,
         delayOpen: 0,
         delayClose: 0,

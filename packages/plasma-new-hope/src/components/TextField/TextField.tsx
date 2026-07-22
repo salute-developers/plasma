@@ -97,6 +97,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 hintOffset = HINT_DEFAULT_OFFSET,
                 hintWidth,
                 hintContentLeft,
+                hintPortal,
 
                 // variations
                 appearance,
@@ -444,6 +445,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                                 hintHasArrow={hintHasArrow}
                                                 hintOffset={hintOffset}
                                                 hintWidth={hintWidth}
+                                                hintPortal={hintPortal}
                                                 hintContentLeft={hintContentLeft}
                                                 handleHintShow={handleHintShow}
                                                 handleHintHide={handleHintHide}
@@ -496,6 +498,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                             hintHasArrow={hintHasArrow}
                                             hintOffset={hintOffset}
                                             hintWidth={hintWidth}
+                                            hintPortal={hintPortal}
                                             hintContentLeft={hintContentLeft}
                                             size={size}
                                             handleHintShow={handleHintShow}
@@ -628,6 +631,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     hintHasArrow={hintHasArrow}
                                     hintOffset={hintOffset}
                                     hintWidth={hintWidth}
+                                    hintPortal={hintPortal}
                                     hintContentLeft={hintContentLeft}
                                     size={size}
                                     handleHintShow={handleHintShow}

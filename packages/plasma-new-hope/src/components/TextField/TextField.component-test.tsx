@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
     mount,
     getComponent,
@@ -254,6 +254,51 @@ describeFn('TextField', () => {
         cy.get('.popover-wrapper').first().click();
 
         cy.matchImageSnapshot();
+    });
+
+    it('hint: renders in the default container without hintPortal', () => {
+        mount(
+            <div data-cy="text-field">
+                <TextField hintText="Подсказка" hintTrigger="click" />
+            </div>,
+        );
+
+        cy.get('[data-cy="text-field"] .popover-wrapper').click();
+        cy.get('[data-cy="text-field"] .popover-root').should('exist');
+    });
+
+    it('hint: renders in the container specified by hintPortal id', () => {
+        mount(
+            <>
+                <div id="hint-portal" />
+                <div data-cy="text-field">
+                    <TextField hintText="Подсказка" hintTrigger="click" hintPortal="hint-portal" />
+                </div>
+            </>,
+        );
+
+        cy.get('[data-cy="text-field"] .popover-wrapper').click();
+        cy.get('#hint-portal .popover-root').should('exist');
+    });
+
+    it('hint: renders in the container specified by hintPortal ref', () => {
+        const Component = () => {
+            const portalRef = useRef<HTMLDivElement>(null);
+
+            return (
+                <>
+                    <div ref={portalRef} data-cy="hint-portal" />
+                    <div data-cy="text-field">
+                        <TextField hintText="Подсказка" hintTrigger="click" hintPortal={portalRef} />
+                    </div>
+                </>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('[data-cy="text-field"] .popover-wrapper').click();
+        cy.get('[data-cy="hint-portal"] .popover-root').should('exist');
     });
 
     it('keyboard navigation: chips', () => {

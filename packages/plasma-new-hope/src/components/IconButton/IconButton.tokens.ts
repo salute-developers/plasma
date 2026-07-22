@@ -30,4 +30,6 @@ export const tokens = {
 
     iconButtonSpinnerColor: '--plasma-icon-button-spinner-color',
     iconButtonSpinnerSize: '--plasma-icon-button-spinner-size',
+
+    iconButtonBorderWidth: '--plasma-icon-button-border-width',
 };

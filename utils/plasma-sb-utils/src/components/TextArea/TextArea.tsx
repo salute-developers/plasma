@@ -31,6 +31,10 @@ export const getTextAreaStories = (config: CreateStoriesProps) => {
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,
+        args: {
+            disabled: false,
+            readOnly: false,
+        },
     };
 
     return {

@@ -1,3 +1,16 @@
+import {
+    inverseTextPrimary,
+    onDarkTextPrimary,
+    surfaceAccent,
+    surfaceClear,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/emotion';
 
 import { pilled, sizeS } from './Badge.config.common';
@@ -10,31 +23,31 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${badgeTokens.color}: var(--inverse-text-primary);
-                ${badgeTokens.background}: var(--surface-solid-default);
+                ${badgeTokens.color}: ${inverseTextPrimary};
+                ${badgeTokens.background}: ${surfaceSolidDefault};
 
-                ${badgeTokens.colorClear}: var(--text-primary);
+                ${badgeTokens.colorClear}: ${textPrimary};
             `,
             accent: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--surface-accent);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfaceAccent};
 
-                ${badgeTokens.colorTransparent}: var(--text-accent);
-                ${badgeTokens.colorClear}: var(--text-accent);
+                ${badgeTokens.colorTransparent}: ${textAccent};
+                ${badgeTokens.colorClear}: ${textAccent};
             `,
             positive: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--surface-positive);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfacePositive};
 
-                ${badgeTokens.colorTransparent}: var(--text-positive);
-                ${badgeTokens.colorClear}: var(--text-positive);
+                ${badgeTokens.colorTransparent}: ${textPositive};
+                ${badgeTokens.colorClear}: ${textPositive};
             `,
             negative: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--surface-negative);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfaceNegative};
 
-                ${badgeTokens.colorTransparent}: var(--text-negative);
-                ${badgeTokens.colorClear}: var(--text-negative);
+                ${badgeTokens.colorTransparent}: ${textNegative};
+                ${badgeTokens.colorClear}: ${textNegative};
             `,
         },
         size: {
@@ -52,7 +65,7 @@ export const config = {
         },
         clear: {
             true: css`
-                ${badgeTokens.backgroundClear}: var(--surface-clear);
+                ${badgeTokens.backgroundClear}: ${surfaceClear};
             `,
         },
     },

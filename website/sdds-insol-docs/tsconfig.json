@@ -22,8 +22,6 @@
 
         /* Structure */
         "baseUrl": "./",
-        "paths": {
-            "@salutejs/plasma-ui/*": ["../packages/plasma-ui/*"]
-        }
+        "paths": {}
     }
 }

@@ -42,3 +42,11 @@ export const getInnerValue = (value?: number | null, precision?: number, iconQua
 
     return innerValue;
 };
+
+export const getDisplayValue = (innerValue: string, decimalSeparator = '.') => {
+    if (decimalSeparator === '.') {
+        return innerValue;
+    }
+
+    return innerValue.replace('.', decimalSeparator);
+};

@@ -206,6 +206,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             treeView,
             valueToPathMap: filteredValueToPathMap,
             items: filteredItems,
+            disabled,
+            readOnly,
         });
 
         /**
@@ -267,7 +269,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
         /* Обработчик чипов */
         const handleChipClick = (chip: { value: string; label: string; disabled: boolean }) => {
-            if (!Array.isArray(value)) return;
+            if (readOnly || !Array.isArray(value)) return;
 
             if (isTargetAmount) {
                 // При закрытии чипа в режиме isTargetAmount в value оставляем только disabled-элементы

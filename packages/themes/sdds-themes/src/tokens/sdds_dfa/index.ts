@@ -2635,6 +2635,86 @@ export const inverseOutlineAccentGradientActive = 'var(--inverse-outline-accent-
 export const inverseOutlineAccentGradient =
     'var(--inverse-outline-accent-gradient, linear-gradient(45.00deg, #05996FFF 0%, #1BA0E3FF 100%))';
 
+/** dark data default dataGreenGradient */
+export const dataGreenGradient =
+    'var(--data-green-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%))';
+
+/** dark data default dataGreenGradientHover */
+export const dataGreenGradientHover = 'var(--data-green-gradient-hover, #FFFFFFFF)';
+
+/** dark data default dataGreenGradientActive */
+export const dataGreenGradientActive = 'var(--data-green-gradient-active, #FFFFFFFF)';
+
+/** dark data default dataGreenGrayGradient */
+export const dataGreenGrayGradient =
+    'var(--data-green-gray-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+/** dark data default dataGreenGrayGradientHover */
+export const dataGreenGrayGradientHover = 'var(--data-green-gray-gradient-hover, #FFFFFFFF)';
+
+/** dark data default dataGreenGrayGradientActive */
+export const dataGreenGrayGradientActive = 'var(--data-green-gray-gradient-active, #FFFFFFFF)';
+
+/** dark data onDark dataGreenGradient */
+export const onDarkDataGreenGradient =
+    'var(--on-dark-data-green-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%))';
+
+/** dark data onDark dataGreenGradientHover */
+export const onDarkDataGreenGradientHover = 'var(--on-dark-data-green-gradient-hover, #FFFFFFFF)';
+
+/** dark data onDark dataGreenGradientActive */
+export const onDarkDataGreenGradientActive = 'var(--on-dark-data-green-gradient-active, #FFFFFFFF)';
+
+/** dark data onDark dataGreenGrayGradient */
+export const onDarkDataGreenGrayGradient =
+    'var(--on-dark-data-green-gray-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+/** dark data onDark dataGreenGrayGradientHover */
+export const onDarkDataGreenGrayGradientHover = 'var(--on-dark-data-green-gray-gradient-hover, #FFFFFFFF)';
+
+/** dark data onDark dataGreenGrayGradientActive */
+export const onDarkDataGreenGrayGradientActive = 'var(--on-dark-data-green-gray-gradient-active, #FFFFFFFF)';
+
+/** dark data onLight dataGreenGradient */
+export const onLightDataGreenGradient =
+    'var(--on-light-data-green-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%))';
+
+/** dark data onLight dataGreenGradientHover */
+export const onLightDataGreenGradientHover = 'var(--on-light-data-green-gradient-hover, #FFFFFFFF)';
+
+/** dark data onLight dataGreenGradientActive */
+export const onLightDataGreenGradientActive = 'var(--on-light-data-green-gradient-active, #FFFFFFFF)';
+
+/** dark data onLight dataGreenGrayGradient */
+export const onLightDataGreenGrayGradient =
+    'var(--on-light-data-green-gray-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+/** dark data onLight dataGreenGrayGradientHover */
+export const onLightDataGreenGrayGradientHover = 'var(--on-light-data-green-gray-gradient-hover, #FFFFFFFF)';
+
+/** dark data onLight dataGreenGrayGradientActive */
+export const onLightDataGreenGrayGradientActive = 'var(--on-light-data-green-gray-gradient-active, #FFFFFFFF)';
+
+/** dark data inverse dataGreenGradient */
+export const inverseDataGreenGradient =
+    'var(--inverse-data-green-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 99.975%, #F5F5F58F 99.975%))';
+
+/** dark data inverse dataGreenGradientHover */
+export const inverseDataGreenGradientHover = 'var(--inverse-data-green-gradient-hover, #FFFFFFFF)';
+
+/** dark data inverse dataGreenGradientActive */
+export const inverseDataGreenGradientActive = 'var(--inverse-data-green-gradient-active, #FFFFFFFF)';
+
+/** dark data inverse dataGreenGrayGradient */
+export const inverseDataGreenGrayGradient =
+    'var(--inverse-data-green-gray-gradient, linear-gradient(135deg, #00AC7BFF 0.025%, #14B9B0FF 28.673%, #27C6E5CC 44.083%, #F5F5F58F 99.975%))';
+
+/** dark data inverse dataGreenGrayGradientHover */
+export const inverseDataGreenGrayGradientHover = 'var(--inverse-data-green-gray-gradient-hover, #FFFFFFFF)';
+
+/** dark data inverse dataGreenGrayGradientActive */
+export const inverseDataGreenGrayGradientActive = 'var(--inverse-data-green-gray-gradient-active, #FFFFFFFF)';
+
 /** shadow down soft s */
 export const shadowDownSoftS = 'var(--shadow-down-soft-s, 0px 4px 14px -4px #08080814,0px 1px 4px -1px #0000000A)';
 
@@ -3714,6 +3794,18 @@ export const viewContainer = {
         --inverse-outline-accent-gradient-hover: var(--on-light-outline-accent-gradient-hover);
         --inverse-outline-accent-gradient-active: var(--on-light-outline-accent-gradient-active);
         --inverse-outline-accent-gradient: var(--on-light-outline-accent-gradient);
+        --data-green-gradient: var(--on-dark-data-green-gradient);
+        --data-green-gradient-hover: var(--on-dark-data-green-gradient-hover);
+        --data-green-gradient-active: var(--on-dark-data-green-gradient-active);
+        --data-green-gray-gradient: var(--on-dark-data-green-gray-gradient);
+        --data-green-gray-gradient-hover: var(--on-dark-data-green-gray-gradient-hover);
+        --data-green-gray-gradient-active: var(--on-dark-data-green-gray-gradient-active);
+        --inverse-data-green-gradient: var(--on-light-data-green-gradient);
+        --inverse-data-green-gradient-hover: var(--on-light-data-green-gradient-hover);
+        --inverse-data-green-gradient-active: var(--on-light-data-green-gradient-active);
+        --inverse-data-green-gray-gradient: var(--on-light-data-green-gray-gradient);
+        --inverse-data-green-gray-gradient-hover: var(--on-light-data-green-gray-gradient-hover);
+        --inverse-data-green-gray-gradient-active: var(--on-light-data-green-gray-gradient-active);
       `,
     light: `
         --text-primary-hover: var(--on-light-text-primary-hover);
@@ -4151,5 +4243,17 @@ export const viewContainer = {
         --inverse-outline-accent-gradient-hover: var(--on-dark-outline-accent-gradient-hover);
         --inverse-outline-accent-gradient-active: var(--on-dark-outline-accent-gradient-active);
         --inverse-outline-accent-gradient: var(--on-dark-outline-accent-gradient);
+        --data-green-gradient: var(--on-light-data-green-gradient);
+        --data-green-gradient-hover: var(--on-light-data-green-gradient-hover);
+        --data-green-gradient-active: var(--on-light-data-green-gradient-active);
+        --data-green-gray-gradient: var(--on-light-data-green-gray-gradient);
+        --data-green-gray-gradient-hover: var(--on-light-data-green-gray-gradient-hover);
+        --data-green-gray-gradient-active: var(--on-light-data-green-gray-gradient-active);
+        --inverse-data-green-gradient: var(--on-dark-data-green-gradient);
+        --inverse-data-green-gradient-hover: var(--on-dark-data-green-gradient-hover);
+        --inverse-data-green-gradient-active: var(--on-dark-data-green-gradient-active);
+        --inverse-data-green-gray-gradient: var(--on-dark-data-green-gray-gradient);
+        --inverse-data-green-gray-gradient-hover: var(--on-dark-data-green-gray-gradient-hover);
+        --inverse-data-green-gray-gradient-active: var(--on-dark-data-green-gray-gradient-active);
       `,
 };

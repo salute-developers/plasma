@@ -32,7 +32,6 @@ module.exports = {
     '@salutejs/plasma-giga': getLatestReleaseVersion('plasma-giga'),
     '@salutejs/plasma-homeds': getLatestReleaseVersion('plasma-homeds'),
     '@salutejs/plasma-icons': getLatestReleaseVersion('plasma-icons'),
-    '@salutejs/plasma-ui': getLatestReleaseVersion('plasma-ui'),
     '@salutejs/sdds-netology': getLatestReleaseVersion('sdds-netology'),
     '@salutejs/sdds-cs': getLatestReleaseVersion('sdds-cs'),
     '@salutejs/sdds-dfa': getLatestReleaseVersion('sdds-dfa'),

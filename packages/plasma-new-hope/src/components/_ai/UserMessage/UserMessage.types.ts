@@ -1,6 +1,6 @@
 import type { ChangeEvent, KeyboardEvent, HTMLAttributes, Key, ReactNode, FocusEventHandler, RefObject } from 'react';
 
-export type Attachment = {
+export interface Attachment {
     /**
      * Уникальный идентификатор вложения
      */
@@ -22,9 +22,9 @@ export type Attachment = {
      * URL превью вложения
      */
     thumbUrl?: string;
-};
+}
 
-export type UserMessageProps = {
+export interface UserMessageProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'onFocus' | 'onBlur'> {
     /**
      * Текст сообщения
      */
@@ -88,7 +88,8 @@ export type UserMessageProps = {
      * Вызывается при потере фокуса на поле редактировании сообщения
      */
     onBlur?: FocusEventHandler<HTMLTextAreaElement>;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange' | 'onFocus' | 'onBlur'>;
+}
 
-export type UserMessageRootProps = Pick<UserMessageProps, 'view' | 'size' | 'attachmentsView'> &
-    Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
+export interface UserMessageRootProps
+    extends Pick<UserMessageProps, 'view' | 'size' | 'attachmentsView'>,
+        Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {}

@@ -1,0 +1,242 @@
+---
+id: bottomsheet
+title: BottomSheet
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# BottomSheet
+
+<Description name="BottomSheet" />
+
+## Использование
+
+`BottomSheet` отображает шторку, закрепленную у нижней границы экрана. Открытие/закрытие шторки регулируется свойством `opened`.\
+Контент передается через `children`. Заголовок, футер и область над заголовком можно заполнить через слоты `contentHeader`, `contentFooter` и `contentBeforeHeader`.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button, BodyM, BodyS, H3 } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+
+            <BottomSheet
+                opened={opened}
+                onClose={() => setOpened(false)}
+                contentHeader={
+                    <div style={{ padding: '1.875rem 1.5rem 0.875rem' }}>
+                        <H3>Настройки</H3>
+                    </div>
+                }
+                contentFooter={
+                    <div style={{ padding: '1rem 1.5rem 2.5rem' }}>
+                        <Button stretching="filled" onClick={() => setOpened(false)}>
+                            Готово
+                        </Button>
+                    </div>
+                }
+            >
+                <div style={{ padding: '0 1.5rem' }}>
+                    <BodyM>
+                        Внутри шторки может быть любой React-контент. Если содержимое не помещается в доступную высоту,
+                        центральная область станет прокручиваемой.
+                    </BodyM>
+                    <BodyS style={{ marginTop: '1rem' }}>
+                        Заголовок и футер останутся видимыми во время прокрутки.
+                    </BodyS>
+                </div>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
+## Примеры
+
+### Дополнительный контент перед заголовком
+
+Слот `contentBeforeHeader` расположен над заголовком. Его можно использовать для иллюстрации, статуса или краткого контекста.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button, BodyM, BodyS, H3 } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Показать детали</Button>
+
+            <BottomSheet
+                opened={opened}
+                onClose={() => setOpened(false)}
+                contentBeforeHeader={
+                    <div
+                        style={{
+                            height: '10rem',
+                            background: 'linear-gradient(135deg, #d3f8e2 0%, #a0e7e5 50%, #b4a7f5 100%)',
+                        }}
+                    />
+                }
+                contentHeader={
+                    <div style={{ padding: '1.875rem 1.5rem 0.875rem' }}>
+                        <BodyS color="secondary">Выбранный тариф</BodyS>
+                        <H3>Профессиональный</H3>
+                    </div>
+                }
+                contentFooter={
+                    <div style={{ padding: '1rem 1.5rem 2.5rem' }}>
+                        <Button stretching="filled" onClick={() => setOpened(false)}>
+                            Подключить
+                        </Button>
+                    </div>
+                }
+            >
+                <div style={{ padding: '0 1.5rem' }}>
+                    <BodyM>
+                        Подходит для командной работы, расширенной аналитики и регулярного обмена файлами.
+                    </BodyM>
+                </div>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
+### Ручка и кнопка закрытия
+
+По умолчанию шторка отображает ручку и кнопку закрытия. Ручку можно перенести наружу с помощью `handlePlacement="outer"` или скрыть через `hasHandle={false}`. Кнопка закрытия отключается свойством `hasClose={false}`.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button, BodyM, H3 } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+
+            <BottomSheet
+                opened={opened}
+                onClose={() => setOpened(false)}
+                handlePlacement="outer"
+                hasClose={false}
+                contentHeader={
+                    <div style={{ padding: '1.875rem 1.5rem 0.875rem' }}>
+                        <H3>Без крестика</H3>
+                    </div>
+                }
+                contentFooter={
+                    <div style={{ padding: '1rem 1.5rem 2.5rem' }}>
+                        <Button stretching="filled" onClick={() => setOpened(false)}>
+                            Закрыть
+                        </Button>
+                    </div>
+                }
+            >
+                <div style={{ padding: '0 1.5rem' }}>
+                    <BodyM>
+                        Можно закрыть шторку свайпом вниз, кликом по оверлею или кнопкой в футере.
+                    </BodyM>
+                </div>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
+### Подложка
+
+Свойство `withOverlay` управляет отображением подложки. Если передать `false`, можно будет взаимодействовать с контентом под шторкой. Размытие подложки отключается через `withBlur={false}`.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button, BodyM, H3 } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(!opened)}>
+                {opened ? 'Закрыть' : 'Открыть'}
+            </Button>
+
+            <BottomSheet
+                opened={opened}
+                onClose={() => setOpened(false)}
+                withOverlay={false}
+                contentHeader={
+                    <div style={{ padding: '1.875rem 1.5rem 0.875rem' }}>
+                        <H3>Немодальная шторка</H3>
+                    </div>
+                }
+            >
+                <div style={{ padding: '0 1.5rem 2.5rem' }}>
+                    <BodyM>
+                        При выключенной подложке элементы страницы остаются доступными.
+                    </BodyM>
+                </div>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
+### Максимальная высота
+
+Максимальная высота панели задается свойством `maxHeight`. По умолчанию используется `66dvh`.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button, BodyM, H3 } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть длинный список</Button>
+
+            <BottomSheet
+                opened={opened}
+                onClose={() => setOpened(false)}
+                maxHeight="80dvh"
+                contentHeader={
+                    <div style={{ padding: '1.875rem 1.5rem 0.875rem' }}>
+                        <H3>История операций</H3>
+                    </div>
+                }
+            >
+                <div style={{ padding: '0 1.5rem' }}>
+                    {Array.from({ length: 100 }).map((_, index) => (
+                        <div
+                            key={index}
+                            style={{
+                                padding: '0.75rem 1rem',
+                                marginBottom: '0.5rem',
+                                border: '1px solid var(--outline-transparent-primary)',
+                                borderRadius: '0.75rem',
+                            }}
+                        >
+                            <BodyM>Операция {index + 1}</BodyM>
+                        </div>
+                    ))}
+                </div>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
+## API
+
+<PropsTable name="BottomSheet" />

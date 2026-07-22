@@ -139,6 +139,29 @@ module.exports = {
                                 // Функция обрезки типов
                                 return true;
                             },
+                            componentNameResolver: (exp, source) => {
+                                const filePath = source.fileName;
+
+                                let baseName = null;
+
+                                if (typeof exp?.name === 'string') {
+                                    baseName = exp.name;
+                                }
+
+                                if (!baseName && exp?.name?.escapedText) {
+                                    baseName = String(exp.name.escapedText);
+                                }
+
+                                if (!baseName) {
+                                    baseName = path.basename(filePath).replace(/\.(ts|tsx)$/, '');
+                                }
+
+                                if (filePath.includes('/src/components/_beta/')) {
+                                    return `${baseName}Beta`;
+                                }
+
+                                return baseName;
+                            },
                         })
                         .parse(
                             await fg([

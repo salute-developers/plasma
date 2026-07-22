@@ -2,7 +2,7 @@ import type { HTMLAttributes, Key, ReactNode } from 'react';
 
 export type InputMode = 'condensed' | 'extended';
 
-export type InputAttachment = {
+export interface InputAttachment {
     /**
      * Уникальный идентификатор вложения.
      */
@@ -24,9 +24,9 @@ export type InputAttachment = {
      * URL превью вложения.
      */
     thumbUrl?: string;
-};
+}
 
-export type InputProps = {
+export interface InputProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
      * Значение текста в control-режиме.
      */
@@ -107,4 +107,4 @@ export type InputProps = {
      * Размер компонента.
      */
     size?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
+}

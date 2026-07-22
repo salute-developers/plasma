@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode, RefObject } from 'react';
 
-export type ContainerProps = {
+export interface ContainerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'size'> {
     /**
      * Верхняя часть чата
      */
@@ -33,6 +33,8 @@ export type ContainerProps = {
      * Размер компонента
      */
     size?: string;
-} & Omit<HTMLAttributes<HTMLDivElement>, 'size'>;
+}
 
-export type ContainerRootProps = Pick<ContainerProps, 'view' | 'size'> & Omit<HTMLAttributes<HTMLDivElement>, 'size'>;
+export interface ContainerRootProps
+    extends Pick<ContainerProps, 'view' | 'size'>,
+        Omit<HTMLAttributes<HTMLDivElement>, 'size'> {}

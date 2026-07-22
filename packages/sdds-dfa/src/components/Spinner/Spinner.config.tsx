@@ -1,4 +1,15 @@
 import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    textAccent,
+    textInfo,
+    textNegative,
+    textParagraph,
+    textPositive,
+    textPrimary,
+    textSecondary,
+    textTertiary,
+    textWarning,
+} from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
     defaults: {
@@ -8,33 +19,33 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: var(--text-primary);
+                ${tokens.color}: ${textPrimary};
             `,
             secondary: css`
-                ${tokens.color}: var(--text-secondary);
+                ${tokens.color}: ${textSecondary};
             `,
             // deprecated
             tertiary: css`
-                ${tokens.color}: var(--text-tertiary);
+                ${tokens.color}: ${textTertiary};
             `,
             // deprecated
             paragraph: css`
-                ${tokens.color}: var(--text-paragraph);
+                ${tokens.color}: ${textParagraph};
             `,
             accent: css`
-                ${tokens.color}: var(--text-accent);
+                ${tokens.color}: ${textAccent};
             `,
             positive: css`
-                ${tokens.color}: var(--text-positive);
+                ${tokens.color}: ${textPositive};
             `,
             warning: css`
-                ${tokens.color}: var(--text-warning);
+                ${tokens.color}: ${textWarning};
             `,
             negative: css`
-                ${tokens.color}: var(--text-negative);
+                ${tokens.color}: ${textNegative};
             `,
             info: css`
-                ${tokens.color}: var(--text-info);
+                ${tokens.color}: ${textInfo};
             `,
         },
     },

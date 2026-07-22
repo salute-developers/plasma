@@ -1,3 +1,14 @@
+import {
+    bodyM,
+    outlineSolidPrimary,
+    surfaceAccent,
+    surfaceClear,
+    surfaceSolidCardBrightness,
+    surfaceSolidPrimary,
+    surfaceTransparentAccent,
+    textAccent,
+    textPrimary,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, dropdownTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -27,12 +38,12 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.25rem;
                 ${tokens.dividerMarginBottomTight}: 0.25rem;
 
-                ${tokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.itemFontWeightBold}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.itemFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.itemFontLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.itemFontFamily}: ${bodyM.fontFamily};
+                ${tokens.itemFontSize}: ${bodyM.fontSize};
+                ${tokens.itemFontStyle}: ${bodyM.fontStyle};
+                ${tokens.itemFontWeightBold}: ${bodyM.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.cellPadding}: 0rem;
                 ${tokens.cellPaddingLeftContent}: 0rem;
@@ -40,27 +51,27 @@ export const config = {
                 ${tokens.cellPaddingRightContent}: 0rem;
                 ${tokens.cellTextboxGap}: 0.125rem;
                 ${tokens.cellGap}: 0.375rem;
-                ${tokens.cellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.cellTitleFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.cellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.cellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.cellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.cellTitleFontFamily}: ${bodyM.fontFamily};
+                ${tokens.cellTitleFontSize}: ${bodyM.fontSize};
+                ${tokens.cellTitleFontStyle}: ${bodyM.fontStyle};
+                ${tokens.cellTitleFontWeight}: ${bodyM.fontWeight};
+                ${tokens.cellTitleLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.cellTitleLineHeight}: ${bodyM.lineHeight};
             `,
         },
         view: {
             default: css`
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
                 ${tokens.disabledOpacity}: 0.4;
-                ${tokens.borderColor}: var(--outline-solid-primary);
-                ${tokens.focusColor}: var(--surface-accent);
-                ${tokens.background}: var(--surface-solid-card-brightness);
+                ${tokens.borderColor}: ${outlineSolidPrimary};
+                ${tokens.focusColor}: ${surfaceAccent};
+                ${tokens.background}: ${surfaceSolidCardBrightness};
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.itemBackground}: var(--surface-clear);
-                ${tokens.itemBackgroundHover}: var(--surface-transparent-accent);
-                ${tokens.itemColor}: var(--text-primary);
-                ${tokens.dividerColor}: var(--surface-solid-primary);
-                ${tokens.disclosureIconColor}: var(--text-accent);
+                ${tokens.itemBackground}: ${surfaceClear};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentAccent};
+                ${tokens.itemColor}: ${textPrimary};
+                ${tokens.dividerColor}: ${surfaceSolidPrimary};
+                ${tokens.disclosureIconColor}: ${textAccent};
             `,
         },
     },
