@@ -77,7 +77,7 @@
     "@salutejs/eslint-config": "1.2.0",
     "@salutejs/eslint-config-base": "0.4.0",
     "@salutejs/prettier-config": "0.3.0",
-    "@simonsmith/cypress-image-snapshot": "10.0.2",
+    "@simonsmith/cypress-image-snapshot": "10.0.4",
     "@storybook/addon-docs": "10.3.4",
     "@storybook/react": "10.3.4",
     "@storybook/react-vite": "10.3.4",
