@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-insol-docs",
-  "version": "0.347.0",
+  "version": "0.348.0-next-insol.0",
   "description": "SDDS INSOL documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -33,11 +33,11 @@
     "@docusaurus/preset-classic": "3.6.1",
     "@docusaurus/theme-live-codeblock": "3.6.1",
     "@mdx-js/react": "3.0.0",
-    "@salutejs/plasma-docs-ui": "0.539.0",
-    "@salutejs/plasma-icons": "1.243.0",
-    "@salutejs/plasma-typo": "0.47.0",
-    "@salutejs/sdds-insol": "0.353.0",
-    "@salutejs/sdds-themes": "0.71.0",
+    "@salutejs/plasma-docs-ui": "0.540.0-next-insol.0",
+    "@salutejs/plasma-icons": "1.244.0-next-insol.0",
+    "@salutejs/plasma-typo": "0.48.0-next-insol.0",
+    "@salutejs/sdds-insol": "0.354.0-next-insol.0",
+    "@salutejs/sdds-themes": "0.72.0-next-insol.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",
     "docusaurus-theme-search-typesense": "0.25.0",
@@ -62,7 +62,15 @@
     "typescript": "5.2.2"
   },
   "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
