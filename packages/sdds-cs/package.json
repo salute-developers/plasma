@@ -59,7 +59,7 @@
     "@originjs/vite-plugin-commonjs": "1.0.3",
     "@salutejs/plasma-colors": "0.16.0",
     "@salutejs/plasma-core": "1.233.0-dev.0",
-    "@salutejs/plasma-cy-utils": "0.163.0-dev.0",
+    "@salutejs/plasma-cy-utils": "0.163.0-next-sbcom.0",
     "@salutejs/plasma-icons": "1.243.0-dev.0",
     "@salutejs/plasma-sb-utils": "0.234.0-dev.0",
     "@types/node": "16.7.13",
