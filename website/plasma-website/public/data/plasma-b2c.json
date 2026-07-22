@@ -1,4 +1,75 @@
 {
+    "1.626.0": {
+        "date": "2026-07-22",
+        "core": [
+            {
+                "component": "Accordion",
+                "children": [
+                    {
+                        "text": "добавлен пример документации для свойства `contentRight` и его анимацией",
+                        "link": "https://github.com/salute-developers/plasma/pull/2970",
+                        "id": 2970
+                    }
+                ]
+            },
+            {
+                "component": "Button",
+                "children": [
+                    {
+                        "text": "добавлен токен для управления `box-shadow-spread`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2946",
+                        "id": 2946
+                    },
+                    {
+                        "text": "исправлено значения для `focus outlineOffset`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2972",
+                        "id": 2972
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "исправлено поведение клавиатурной навигации при удалении чипов в режиме `readOnly` + `multiple`;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2963",
+                        "id": 2963
+                    }
+                ]
+            },
+            {
+                "component": "TextField",
+                "children": [
+                    {
+                        "text": "добавлено свойство `hintPortal` для возможности вынести окно подсказки в портал;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2964",
+                        "id": 2964
+                    }
+                ]
+            },
+            {
+                "component": "Note",
+                "children": [
+                    {
+                        "text": "исправлен баг, при котором не показывался `text` при условном рендеринге;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2965",
+                        "id": 2965
+                    }
+                ]
+            },
+            {
+                "component": "Rating",
+                "children": [
+                    {
+                        "text": "добавлена возможность указать разделитель дробной части",
+                        "link": "https://github.com/salute-developers/plasma/pull/2967",
+                        "id": 2967
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
     "1.624.0": {
         "date": "2026-07-08",
         "core": [
