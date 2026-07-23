@@ -13,6 +13,7 @@ type Story = StoryObj<StoryProps>;
 const views = ['default', 'accent', 'secondary'];
 const sizes = ['l', 'm', 's', 'xs'];
 const gapValues = ['dense', 'wide'];
+const shapeValues = ['default'];
 
 const meta: Meta<typeof ChipGroup> = {
     title: 'Data Display/ChipGroup',
@@ -34,6 +35,12 @@ const meta: Meta<typeof ChipGroup> = {
                 type: 'select',
             },
         },
+        shape: {
+            options: shapeValues,
+            control: {
+                type: 'select',
+            },
+        },
     },
 };
 
@@ -43,6 +50,7 @@ export const Default: Story = {
     args: {
         itemsCount: 5,
         gap: 'dense',
+        shape: 'default',
         isWrapped: false,
         view: 'default',
         size: 'm',

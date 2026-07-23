@@ -14,7 +14,7 @@ type Story = StoryObj<StoryProps>;
 const views = ['default', 'accent', 'secondary'];
 const sizes = ['l', 'm', 's', 'xs'];
 const gapValues = ['dense', 'wide'];
-const shapeValues = ['segmented', 'default'];
+const shapeValues = ['default'];
 
 const meta: Meta<typeof ChipGroup> = {
     title: 'Data Display/ChipGroup',
