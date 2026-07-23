@@ -3,7 +3,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import type { SliderBaseProps, SliderInternalProps } from '../SliderBase/SliderBase.types';
 import { FormTypeNumber } from '../../../../types/FormType';
 
-export type ScaleTickAlign = 'start' | 'center' | 'end';
+type ScaleTickAlign = 'start' | 'center' | 'end';
 
 export type ScaleTickItem = {
     /**
@@ -12,7 +12,7 @@ export type ScaleTickItem = {
     value: number;
     /**
      * Отображаемая подпись деления.
-     * @default value
+     * @default то, что указано в value
      */
     label?: string;
     /**
@@ -69,7 +69,7 @@ type SingleSliderOrientationPropsUnion =
           orientation?: 'horizontal';
           /**
            * Расположение подписи.
-           * @default top
+           * @default `top`
            * @description
            * Может принимать три значения:
            * top - отображение справа
@@ -79,7 +79,7 @@ type SingleSliderOrientationPropsUnion =
           labelPlacement?: 'top' | 'left' | 'none';
           /**
            * Расположение значений минимума и максимума интервала.
-           * @default bottom
+           * @default `bottom`
            * @description
            * Может принимать три значения:
            * - top - отображение сверху
@@ -197,7 +197,7 @@ export type SingleSliderProps = SliderBaseProps &
 
         /**
          * Размер ползунка
-         * @default small
+         * @default 'small'
          * @description
          * Может принимать три значения:
          * small - размер s;
@@ -207,8 +207,17 @@ export type SingleSliderProps = SliderBaseProps &
         pointerSize?: 'small' | 'large' | 'none';
 
         /**
+         * Вид отметки деления на шкале.
+         * @default 'bullet'
+         * @description
+         * bullet - точка на шкале (как сейчас);
+         * separator - шкала визуально разделяется на скруглённые сегменты с зазором в месте деления.
+         */
+        tickType?: 'bullet' | 'separator';
+
+        /**
          * Условия отображения ползунка
-         * @default always
+         * @default 'always'
          * @description
          * always - всегда отображать
          * hover - при наведении на Slider
@@ -218,7 +227,7 @@ export type SingleSliderProps = SliderBaseProps &
 
         /**
          * Условия появления ползунка, при pointerVisibility: true
-         * @default always
+         * @default 'always'
          * @description
          * always - всегда отображать
          * hover - при наведении на Slider
