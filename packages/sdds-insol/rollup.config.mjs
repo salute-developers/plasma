@@ -1,43 +1,48 @@
 import path from 'path';
-import { createRequire } from 'module'
-import { createFilter } from '@rollup/pluginutils'
+import { createRequire } from 'module';
+import { createFilter } from '@rollup/pluginutils';
 
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 
 import linaria from '@linaria/rollup';
 import { babel } from '@rollup/plugin-babel';
 
-import styles from "@ironkinoko/rollup-plugin-styles";
-
+import styles from '@ironkinoko/rollup-plugin-styles';
 
 const inputDir = 'src-css';
-const require = createRequire(import.meta.url)
+const require = createRequire(import.meta.url);
+const isBeta = process.env.BETA === 'true';
+const input = isBeta ? path.join(inputDir, 'components/_beta/index.ts') : path.join(inputDir, 'index.ts');
+const outputDir = isBeta ? 'dist/beta' : 'dist/css';
 
 export default {
-    input: path.join(inputDir, 'index.ts'),
+    input,
     treeshake: {
         propertyReadSideEffects: false,
     },
-    output: [{
-        preserveModules: true,
-        dir: 'dist/css/es',
-        format: 'es',
-        freeze: false,
-        esModule: true,
-        sourcemap: true,
-        exports: 'named',
-        assetFileNames: "[name][extname]",
-    }, {
-        preserveModules: true,
-        dir: 'dist/css/cjs',
-        format: 'cjs',
-        freeze: false,
-        esModule: true,
-        sourcemap: true,
-        exports: 'named',
-        assetFileNames: "[name][extname]",
-        interop: 'auto',
-    }],
+    output: [
+        {
+            preserveModules: true,
+            dir: `${outputDir}/es`,
+            format: 'es',
+            freeze: false,
+            esModule: true,
+            sourcemap: true,
+            exports: 'named',
+            assetFileNames: '[name][extname]',
+        },
+        {
+            preserveModules: true,
+            dir: `${outputDir}/cjs`,
+            format: 'cjs',
+            freeze: false,
+            esModule: true,
+            sourcemap: true,
+            exports: 'named',
+            assetFileNames: '[name][extname]',
+            interop: 'auto',
+        },
+    ],
     external: (id) => {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
@@ -70,10 +75,10 @@ export default {
         importCssPlugin(),
         // TODO: #717 remove this plugin: it generates index.css but we don't need it
         styles({
-            mode: "extract",
+            mode: 'extract',
             modules: true,
         }),
-        babel({ babelHelpers: 'bundled', extensions: ['.ts', '.tsx'], }),
+        babel({ babelHelpers: 'bundled', extensions: ['.ts', '.tsx'] }),
     ],
 };
 
