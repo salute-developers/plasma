@@ -8,7 +8,7 @@
     "scaffold:update-components-docs": "npm run scaffold:components",
     "scaffold:docs": "simple-scaffold -c scaffold/scaffold-config.js --name $npm_config_package",
     "scaffold:components": "node scaffold/scaffold-components.js",
-    "scaffold:update-docs-ui": "node scaffold/update-docs-ui.js && npm i --no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps --prefix=$npm_config_dir",
+    "scaffold:update-docs-ui": "node scaffold/update-docs-ui.js && npm i --no-audit --no-progress --package-lock-only --lockfile-version 3 --legacy-peer-deps --prefix=$npm_config_dir",
     "scaffold:install": "npm i --prefix=$npm_config_dir && npm run scaffold:update-docs-ui --dir=$npm_config_dir",
     "scaffold:bootstrap": "node scaffold/update-package-json.js && npm run scaffold:install --dir=$(echo 'website/'$npm_config_package'-docs/')",
     "postscaffold:docs": "npm run scaffold:components && npm run scaffold:bootstrap",
