@@ -7,3 +7,4 @@ export const visibility = ['always', 'hover'];
 export const valuePlacementsHorizontal = ['top', 'bottom', 'none'];
 export const valuePlacementsVertical = ['left', 'right', 'none'];
 export const scaleTicksVariants = ['default', 'custom labels'];
+export const tickTypes = ['bullet', 'separator'];

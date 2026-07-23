@@ -94,6 +94,30 @@ export const StyledProgress = styled.div`
     }
 `;
 
+export const TrackSegment = styled.div`
+    position: absolute;
+    top: 50%;
+    right: auto;
+    transform: translateY(-50%);
+    height: var(${tokens.railThickness});
+    border-radius: var(${tokens.trackSegmentBorderRadius});
+    background-color: var(${tokens.railBackgroundColor});
+    pointer-events: none;
+
+    .${classes.verticalOrientation} & {
+        top: auto;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: var(${tokens.railThickness});
+        height: auto;
+    }
+`;
+
+export const ProgressSegment = styled(TrackSegment)`
+    background-color: var(${tokens.fillColor});
+`;
+
 export const StyledCurrentValue = styled.span`
     position: absolute;
     top: var(${tokens.currentValueTopOffset});
@@ -220,11 +244,11 @@ export const ScaleTickLabel = styled.span<{
     transform: ${({ isVertical, labelAlign = 'center' }) => {
         if (isVertical) {
             if (labelAlign === 'start') {
-                return 'translateY(0)';
+                return `translateY(calc(var(${tokens.tickSize}) / -2))`;
             }
 
             if (labelAlign === 'end') {
-                return 'translateY(-100%)';
+                return `translateY(calc(-100% + var(${tokens.tickSize}) / 2))`;
             }
 
             return 'translateY(-50%)';
@@ -281,6 +305,54 @@ export const ScaleTickDot = styled.span<{
     display: block;
     width: var(${tokens.tickSize});
     height: var(${tokens.tickSize});
+    background-color: ${({ filled }) => (filled ? `var(${tokens.tickDotFilledColor})` : `var(${tokens.tickDotColor})`)};
+`;
+
+export const TickSeparator = styled.span<{
+    filled?: boolean;
+    isVertical?: boolean;
+    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
+    sliderAlign?: 'center' | 'left' | 'right' | 'none';
+}>`
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+    top: ${({ isVertical, scaleAlign }) => {
+        if (isVertical) {
+            return '50%';
+        }
+
+        if (scaleAlign === 'top') {
+            return `calc(100% + var(${tokens.size}) / 2)`;
+        }
+
+        return `calc(var(${tokens.size}) / -2)`;
+    }};
+
+    left: ${({ isVertical, sliderAlign }) => {
+        if (isVertical) {
+            if (sliderAlign === 'right') {
+                return `calc(100% + var(${tokens.size}) / 2)`;
+            }
+
+            return `calc(var(${tokens.size}) / -2)`;
+        }
+
+        return '0';
+    }};
+
+    transform: translate(-50%, -50%);
+    display: block;
+    border-radius: var(${tokens.tickSeparatorBorderRadius});
+    width: var(${tokens.tickSeparatorWidth});
+    height: var(${tokens.tickSeparatorHeight});
+
+    .${classes.verticalOrientation} & {
+        width: var(${tokens.tickSeparatorHeight});
+        height: var(${tokens.tickSeparatorWidth});
+    }
+
     background-color: ${({ filled }) => (filled ? `var(${tokens.tickDotFilledColor})` : `var(${tokens.tickDotColor})`)};
 `;
 

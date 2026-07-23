@@ -2,17 +2,19 @@ import React, { useEffect, useMemo, useState } from 'react';
 import type { FC } from 'react';
 import cls from 'classnames';
 
-import { classes } from '../../Slider.tokens';
+import { classes, tokens } from '../../Slider.tokens';
 import { FormTypeNumber } from '../../../../types/FormType';
 import { useRangeHandlers } from '../../hooks/useRangeHandlers';
 import { getTickStyle } from '../../utils/getTickStyle';
 import { getSingleSliderLayout } from '../../utils/getSingleSliderLayout';
+import { getTrackSegments } from '../../utils/getTrackSegments';
 
 import type { SingleSliderProps } from './Single.types';
 import {
     Label,
     LabelContent,
     LabelWrapper,
+    ProgressSegment,
     ScaleTick,
     ScaleTickDot,
     ScaleTickLabel,
@@ -25,6 +27,8 @@ import {
     StyledRange,
     StyledRangeValue,
     StyledTrack,
+    TickSeparator,
+    TrackSegment,
 } from './Single.styles';
 
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
@@ -87,6 +91,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     // scale
     scaleTicks,
+    tickType = 'bullet',
 
     // остальные HTMLAttributes идут на SliderContainer
     ...rest
@@ -102,6 +107,18 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const value = clampedOuterValue ?? dragValue;
 
     const normalizedScaleTicks = useMemo(() => normalizeScaleTicks(scaleTicks), [scaleTicks]);
+
+    const cutValues = useMemo(() => normalizedScaleTicks?.map(({ value: tickValue }) => tickValue) ?? [], [
+        normalizedScaleTicks,
+    ]);
+
+    const { trackSegments, progressSegments } = useMemo(
+        () =>
+            tickType === 'separator'
+                ? getTrackSegments({ min, max, value, cutValues, isVertical })
+                : { trackSegments: [], progressSegments: [] },
+        [tickType, min, max, value, cutValues, isVertical],
+    );
 
     // Округляем значение, если оно не кратно новому шагу
     useEffect(() => {
@@ -251,8 +268,21 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     })}
                     {...rest}
                 >
-                    <StyledTrack />
-                    <StyledProgress style={progressSizeStyle} />
+                    {tickType === 'separator' ? (
+                        <>
+                            {trackSegments.map((segmentStyle, index) => (
+                                <TrackSegment key={`track-segment-${index}`} style={segmentStyle} />
+                            ))}
+                            {progressSegments.map((segmentStyle, index) => (
+                                <ProgressSegment key={`progress-segment-${index}`} style={segmentStyle} />
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            <StyledTrack />
+                            <StyledProgress style={progressSizeStyle} />
+                        </>
+                    )}
 
                     <StyledRange
                         type="range"
@@ -307,6 +337,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                                 max,
                                 isVertical,
                                 reversed: reversed ?? false,
+                                edgeOffset: tickType === 'separator' ? `var(${tokens.tickSeparatorWidth})` : undefined,
                             });
 
                             return (
@@ -319,13 +350,23 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                                     >
                                         {tickLabel}
                                     </ScaleTickLabel>
-                                    <ScaleTickDot
-                                        isVertical={isVertical}
-                                        filled={tickValue <= value}
-                                        reversed={reversed}
-                                        scaleAlign={scaleAlign}
-                                        sliderAlign={sliderAlign}
-                                    />
+                                    {tickType === 'bullet' && (
+                                        <ScaleTickDot
+                                            isVertical={isVertical}
+                                            filled={tickValue <= value}
+                                            reversed={reversed}
+                                            scaleAlign={scaleAlign}
+                                            sliderAlign={sliderAlign}
+                                        />
+                                    )}
+                                    {tickType === 'separator' && (
+                                        <TickSeparator
+                                            isVertical={isVertical}
+                                            filled={tickValue <= value}
+                                            scaleAlign={scaleAlign}
+                                            sliderAlign={sliderAlign}
+                                        />
+                                    )}
                                 </ScaleTick>
                             );
                         })}
