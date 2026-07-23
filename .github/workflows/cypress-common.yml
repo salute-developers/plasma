@@ -44,7 +44,7 @@ jobs:
 
       - uses: ./.github/actions/prepare-environment
 
-      - name: Set default scope
+      - name: Set package preparation scope
         run: |
           if [ "${{ inputs.prefix }}" = "plasma" ]; then
             echo "SCOPE={${{ inputs.scope }},core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils}" >> $GITHUB_ENV
@@ -67,14 +67,19 @@ jobs:
           scope: ${{ inputs.scope }}
           components: ${{ inputs.components }}
 
-      - name: Install dependencies
+      - name: Install dependencies and prepare packages
         if: ${{ (inputs.test-all == 'true' || steps.check-test-files-exist.outputs.tests-exist == 'true') }}
         uses: nick-fields/retry@v3
         with:
           timeout_minutes: 45
           max_attempts: 2
           retry_on: error
-          command: npm run setup:ci
+          command: |
+            if [ "${{ inputs.prefix }}" = "plasma" ]; then
+              npm run setup:ci -- --scope="@salutejs/plasma-${SCOPE}" --scope="@salutejs/core-themes" --include-dependencies
+            else
+              npm run setup:ci -- --scope="@salutejs/plasma-${SCOPE}" --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}" --include-dependencies
+            fi
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}
         if: ${{ success() }}

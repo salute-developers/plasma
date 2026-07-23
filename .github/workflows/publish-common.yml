@@ -17,6 +17,10 @@ on:
         type: string
         description: "@auto-it cli arguments for example --no-changelog"
         default: ''
+      prepare-since:
+        type: string
+        description: "Prepare only packages changed since this git ref and their dependencies"
+        default: ''
     secrets:
       gh_token:
         required: true
@@ -60,8 +64,15 @@ jobs:
           # Иначе action.yml возьмется из PR-checkout и весь защитный механизм обходится.
         uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
-      - name: Install dependencies
-        run: npm run setup:ci
+      - name: Install dependencies and prepare packages
+        env:
+          PREPARE_SINCE: ${{ inputs.prepare-since }}
+        run: |
+          if [ -n "$PREPARE_SINCE" ]; then
+            npm run setup:ci -- --since="$PREPARE_SINCE" --include-dependencies
+          else
+            npm run setup:ci
+          fi
 
       - name: Check disk usage after install
         run: df -h

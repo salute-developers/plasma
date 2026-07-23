@@ -58,8 +58,9 @@ jobs:
                 # цепочками: action.yml всегда берётся из dev, не из workspace.
                 uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
-            -   name: Install dependencies
-                run: npm run setup:ci
+            -   name: Install dependencies and prepare packages
+                run: |
+                    npm run setup:ci -- --scope="@salutejs/{plasma-b2c,plasma-web,plasma-website,plasma-tokens-b2c,plasma-typo,plasma-icons,plasma-new-hope,plasma-themes,core-themes}" --include-dependencies
 
             -   name: Prepare directory
                 run: mkdir -p s3_local_current
@@ -136,8 +137,9 @@ jobs:
 
                         return META[packageName].scope;
 
-            -   name: Install dependencies
-                run: npm run setup:ci
+            -   name: Install dependencies and prepare packages
+                run: |
+                    npm run setup:ci -- --scope="@salutejs/${{ matrix.package }}" --scope="@salutejs/{${{ steps.scope.outputs.result }}}" --include-dependencies
 
             -   name: Prepare directory
                 run: mkdir -p s3_local_storybook_build s3_local_docs_build
