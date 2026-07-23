@@ -28,6 +28,7 @@ jobs:
     with:
       ref: refs/pull/${{github.event.pull_request.number}}/merge
       auto-options: '--no-changelog'
+      prepare-since: ${{ github.event.pull_request.base.sha }}
     secrets:
       gh_token: ${{ secrets.GH_TOKEN }}
       npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
