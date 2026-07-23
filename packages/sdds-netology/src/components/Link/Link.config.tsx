@@ -1,4 +1,31 @@
 import { css } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    textAccent,
+    textAccentActive,
+    textAccentHover,
+    textM,
+    textNegative,
+    textNegativeActive,
+    textNegativeHover,
+    textParagraph,
+    textParagraphActive,
+    textParagraphHover,
+    textPositive,
+    textPositiveActive,
+    textPositiveHover,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+    textTertiaryActive,
+    textTertiaryHover,
+    textWarning,
+    textWarningActive,
+    textWarningHover,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
 
 export const config = {
     defaults: {
@@ -8,87 +35,87 @@ export const config = {
     variations: {
         view: {
             default: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-primary);
-                --plasma-link-color-hover: var(--text-primary-hover);
-                --plasma-link-color-active: var(--text-primary-active);
-                --plasma-link-color-visited: var(--text-primary);
-                --plasma-link-color-visited-hover: var(--text-primary-hover);
-                --plasma-link-color-visited-active: var(--text-primary-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textPrimary};
+                --plasma-link-color-hover: ${textPrimaryHover};
+                --plasma-link-color-active: ${textPrimaryActive};
+                --plasma-link-color-visited: ${textPrimary};
+                --plasma-link-color-visited-hover: ${textPrimaryHover};
+                --plasma-link-color-visited-active: ${textPrimaryActive};
                 --plasma-link-underline-border: 0;
             `,
             secondary: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-secondary);
-                --plasma-link-color-hover: var(--text-secondary-hover);
-                --plasma-link-color-active: var(--text-secondary-active);
-                --plasma-link-color-visited: var(--text-secondary);
-                --plasma-link-color-visited-hover: var(--text-secondary-hover);
-                --plasma-link-color-visited-active: var(--text-secondary-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textSecondary};
+                --plasma-link-color-hover: ${textSecondaryHover};
+                --plasma-link-color-active: ${textSecondaryActive};
+                --plasma-link-color-visited: ${textSecondary};
+                --plasma-link-color-visited-hover: ${textSecondaryHover};
+                --plasma-link-color-visited-active: ${textSecondaryActive};
                 --plasma-link-underline-border: 0;
             `,
             tertiary: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-tertiary);
-                --plasma-link-color-hover: var(--text-tertiary-hover);
-                --plasma-link-color-active: var(--text-tertiary-active);
-                --plasma-link-color-visited: var(--text-tertiary);
-                --plasma-link-color-visited-hover: var(--text-tertiary-hover);
-                --plasma-link-color-visited-active: var(--text-tertiary-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textTertiary};
+                --plasma-link-color-hover: ${textTertiaryHover};
+                --plasma-link-color-active: ${textTertiaryActive};
+                --plasma-link-color-visited: ${textTertiary};
+                --plasma-link-color-visited-hover: ${textTertiaryHover};
+                --plasma-link-color-visited-active: ${textTertiaryActive};
                 --plasma-link-underline-border: 0;
             `,
             paragraph: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-paragraph);
-                --plasma-link-color-hover: var(--text-paragraph-hover);
-                --plasma-link-color-active: var(--text-paragraph-active);
-                --plasma-link-color-visited: var(--text-paragraph);
-                --plasma-link-color-visited-hover: var(--text-paragraph-hover);
-                --plasma-link-color-visited-active: var(--text-paragraph-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textParagraph};
+                --plasma-link-color-hover: ${textParagraphHover};
+                --plasma-link-color-active: ${textParagraphActive};
+                --plasma-link-color-visited: ${textParagraph};
+                --plasma-link-color-visited-hover: ${textParagraphHover};
+                --plasma-link-color-visited-active: ${textParagraphActive};
                 --plasma-link-underline-border: 0;
             `,
             accent: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-accent);
-                --plasma-link-color-hover: var(--text-accent-hover);
-                --plasma-link-color-active: var(--text-accent-active);
-                --plasma-link-color-visited: var(--text-accent);
-                --plasma-link-color-visited-hover: var(--text-accent-hover);
-                --plasma-link-color-visited-active: var(--text-accent-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textAccent};
+                --plasma-link-color-hover: ${textAccentHover};
+                --plasma-link-color-active: ${textAccentActive};
+                --plasma-link-color-visited: ${textAccent};
+                --plasma-link-color-visited-hover: ${textAccentHover};
+                --plasma-link-color-visited-active: ${textAccentActive};
                 --plasma-link-underline-border: 0;
             `,
             positive: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-positive);
-                --plasma-link-color-hover: var(--text-positive-hover);
-                --plasma-link-color-active: var(--text-positive-active);
-                --plasma-link-color-visited: var(--text-positive);
-                --plasma-link-color-visited-hover: var(--text-positive-hover);
-                --plasma-link-color-visited-active: var(--text-positive-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textPositive};
+                --plasma-link-color-hover: ${textPositiveHover};
+                --plasma-link-color-active: ${textPositiveActive};
+                --plasma-link-color-visited: ${textPositive};
+                --plasma-link-color-visited-hover: ${textPositiveHover};
+                --plasma-link-color-visited-active: ${textPositiveActive};
                 --plasma-link-underline-border: 0;
             `,
             warning: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-warning);
-                --plasma-link-color-hover: var(--text-warning-hover);
-                --plasma-link-color-active: var(--text-warning-active);
-                --plasma-link-color-visited: var(--text-warning);
-                --plasma-link-color-visited-hover: var(--text-warning-hover);
-                --plasma-link-color-visited-active: var(--text-warning-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textWarning};
+                --plasma-link-color-hover: ${textWarningHover};
+                --plasma-link-color-active: ${textWarningActive};
+                --plasma-link-color-visited: ${textWarning};
+                --plasma-link-color-visited-hover: ${textWarningHover};
+                --plasma-link-color-visited-active: ${textWarningActive};
                 --plasma-link-underline-border: 0;
             `,
             negative: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
-                --plasma-link-color: var(--text-negative);
-                --plasma-link-color-hover: var(--text-negative-hover);
-                --plasma-link-color-active: var(--text-negative-active);
-                --plasma-link-color-visited: var(--text-negative);
-                --plasma-link-color-visited-hover: var(--text-negative-hover);
-                --plasma-link-color-visited-active: var(--text-negative-active);
+                --plasma-link-font-family: ${textM.fontFamily};
+                --plasma-link-color: ${textNegative};
+                --plasma-link-color-hover: ${textNegativeHover};
+                --plasma-link-color-active: ${textNegativeActive};
+                --plasma-link-color-visited: ${textNegative};
+                --plasma-link-color-visited-hover: ${textNegativeHover};
+                --plasma-link-color-visited-active: ${textNegativeActive};
                 --plasma-link-underline-border: 0;
             `,
             clear: css`
-                --plasma-link-font-family: var(--plasma-typo-text-m-font-family);
+                --plasma-link-font-family: ${textM.fontFamily};
                 --plasma-link-color: inherit;
                 --plasma-link-color-hover: inherit;
                 --plasma-link-color-active: inherit;
@@ -105,7 +132,7 @@ export const config = {
         },
         focused: {
             true: css`
-                --plasma-link-focus-color: var(--text-primary);
+                --plasma-link-focus-color: ${textPrimary};
             `,
         },
     },
