@@ -34,9 +34,9 @@ module.exports = {
                 ...config.resolve,
                 alias: {
                     ...config.resolve.alias,
-                    react: path.resolve(__dirname, 'node_modules', 'react'),
-                    'react-dom': path.resolve(__dirname, 'node_modules', 'react-dom'),
-                    'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
+                    react: path.dirname(require.resolve('react/package.json')),
+                    'react-dom': path.dirname(require.resolve('react-dom/package.json')),
+                    'styled-components': path.dirname(require.resolve('styled-components/package.json')),
                 },
             },
         };
