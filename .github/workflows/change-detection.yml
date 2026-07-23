@@ -35,7 +35,7 @@ jobs:
         uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
       - name: Install dependencies
-        run: npm run setup:deps:ci
+        run: npm run setup:ci
 
       - name: Set exclude-dependents env
         if: ${{ inputs.exclude-dependents }}
