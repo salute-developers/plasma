@@ -158,12 +158,7 @@ export const StyledCurrentValue = styled.span`
     }
 `;
 
-export const ScaleTick = styled.div<{
-    tickValue: number;
-    isVertical?: boolean;
-    sliderAlign?: 'center' | 'left' | 'right' | 'none';
-    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
-}>`
+export const ScaleTick = styled.div`
     position: absolute;
     width: 0;
     overflow: visible;
@@ -173,41 +168,78 @@ export const ScaleTick = styled.div<{
     font-weight: var(${tokens.valueFontWeight});
     letter-spacing: var(${tokens.valueLetterSpacing});
     line-height: var(${tokens.valueLineHeight});
+`;
 
-    &:before {
-        content: ${({ tickValue }) => `"${tickValue}"`};
-        position: absolute;
-        top: ${({ isVertical, scaleAlign }) => {
-            if (isVertical) return '50%';
-            if (scaleAlign === 'top') return 'auto';
+export const ScaleTickLabel = styled.span<{
+    isVertical?: boolean;
+    sliderAlign?: 'center' | 'left' | 'right' | 'none';
+    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
+    labelAlign?: 'start' | 'center' | 'end';
+}>`
+    position: absolute;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(${tokens.rangeValueColor});
+
+    top: ${({ isVertical, scaleAlign }) => {
+        if (isVertical) {
+            return '50%';
+        }
+
+        if (scaleAlign === 'top') {
+            return 'auto';
+        }
+
+        return '0';
+    }};
+
+    bottom: ${({ isVertical, scaleAlign }) => {
+        if (!isVertical && scaleAlign === 'top') {
             return '0';
-        }};
-        bottom: ${({ isVertical, scaleAlign }) => {
-            if (!isVertical && scaleAlign === 'top') return '0';
-            return 'unset';
-        }};
-        left: ${({ isVertical, sliderAlign }) => {
-            if (isVertical) {
-                if (sliderAlign === 'right') {
-                    return 'unset';
-                }
+        }
 
-                return '0';
-            }
+        return 'unset';
+    }};
+
+    left: ${({ isVertical, sliderAlign }) => {
+        if (isVertical && sliderAlign === 'right') {
+            return 'unset';
+        }
+
+        return '0';
+    }};
+
+    right: ${({ isVertical, sliderAlign }) => {
+        if (isVertical && sliderAlign === 'right') {
             return '0';
-        }};
-        right: ${({ isVertical, sliderAlign }) => {
-            if (isVertical && sliderAlign === 'right') {
-                return '0';
+        }
+
+        return 'unset';
+    }};
+
+    transform: ${({ isVertical, labelAlign = 'center' }) => {
+        if (isVertical) {
+            if (labelAlign === 'start') {
+                return 'translateY(0)';
             }
 
-            return 'unset';
-        }};
-        transform: ${({ isVertical }) => (isVertical ? 'translateY(-50%)' : 'translateX(-50%)')};
+            if (labelAlign === 'end') {
+                return 'translateY(-100%)';
+            }
 
-        color: var(${tokens.rangeValueColor});
-        cursor: pointer;
-    }
+            return 'translateY(-50%)';
+        }
+
+        if (labelAlign === 'start') {
+            return `translateX(calc(var(${tokens.tickSize}) / -2))`;
+        }
+
+        if (labelAlign === 'end') {
+            return `translateX(calc(-100% + var(${tokens.tickSize}) / 2))`;
+        }
+
+        return 'translateX(-50%)';
+    }};
 `;
 
 export const ScaleTickDot = styled.span<{
@@ -287,7 +319,7 @@ export const SliderBaseWrapper = styled.div`
     flex: 1;
     position: relative;
 
-    &:has(${StyledRange}:disabled) ${ScaleTicksWrapper} ${ScaleTick}:before {
+    &:has(${StyledRange}:disabled) ${ScaleTicksWrapper} ${ScaleTickLabel} {
         cursor: not-allowed;
     }
 

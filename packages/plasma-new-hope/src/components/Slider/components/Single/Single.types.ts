@@ -3,6 +3,25 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import type { SliderBaseProps, SliderInternalProps } from '../SliderBase/SliderBase.types';
 import { FormTypeNumber } from '../../../../types/FormType';
 
+export type ScaleTickAlign = 'start' | 'center' | 'end';
+
+export type ScaleTickItem = {
+    /**
+     * Значение деления на шкале.
+     */
+    value: number;
+    /**
+     * Отображаемая подпись деления.
+     * @default value
+     */
+    label?: string;
+    /**
+     * Выравнивание подписи относительно точки на шкале.
+     * @default 'center'
+     */
+    labelAlign?: ScaleTickAlign;
+};
+
 type SingleSliderPropsUnion =
     | {
           /**
@@ -209,7 +228,9 @@ export type SingleSliderProps = SliderBaseProps &
         /**
          * Массив значений для отображения шкалы делений под ползунком.
          * При клике на деление ползунок перемещается к соответствующему значению.
+         * Помимо чисел можно передать объекты с кастомной подписью и её выравниванием.
          * @example scaleTicks={[0, 25, 50, 75, 100]}
+         * @example scaleTicks={[{ value: 0, label: 'Мин' }, { value: 100, label: 'Макс', labelAlign: 'end' }]}
          */
-        scaleTicks?: number[];
+        scaleTicks?: number[] | ScaleTickItem[];
     };

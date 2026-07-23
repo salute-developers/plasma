@@ -12,6 +12,7 @@ import {
     visibility,
     valuePlacementsHorizontal,
     valuePlacementsVertical,
+    scaleTicksVariants,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -99,6 +100,7 @@ export const createMeta = ({
         hideMinValueDiff: 3,
         hideMaxValueDiff: 5,
         showTicks: false,
+        scaleTicksVariant: 'default',
         _valuePlacementHorizontalVisible: false,
         _valuePlacementVerticalVisible: false,
         ...defaultArgs,
@@ -187,6 +189,12 @@ export const createMeta = ({
         },
         showTicks: {
             control: { type: 'boolean' },
+            table: { category: 'slider' },
+        },
+        scaleTicksVariant: {
+            options: scaleTicksVariants,
+            control: { type: 'select' },
+            if: { arg: 'showTicks' },
             table: { category: 'slider' },
         },
         showCurrentValue: {

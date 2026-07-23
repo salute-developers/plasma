@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import type { FC } from 'react';
 import cls from 'classnames';
 
@@ -15,6 +15,7 @@ import {
     LabelWrapper,
     ScaleTick,
     ScaleTickDot,
+    ScaleTickLabel,
     ScaleTicksWrapper,
     SingleWrapper,
     SliderBaseWrapper,
@@ -27,6 +28,13 @@ import {
 } from './Single.styles';
 
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
+
+const normalizeScaleTicks = (scaleTicks: SingleSliderProps['scaleTicks']) =>
+    scaleTicks?.map((tick) =>
+        typeof tick === 'number'
+            ? { value: tick, label: String(tick) }
+            : { ...tick, label: tick.label ?? String(tick.value) },
+    );
 
 export const SingleSlider: FC<SingleSliderProps> = ({
     // value
@@ -92,6 +100,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const [dragValue, setDragValue] = useState(clampedDefaultValue ?? min);
 
     const value = clampedOuterValue ?? dragValue;
+
+    const normalizedScaleTicks = useMemo(() => normalizeScaleTicks(scaleTicks), [scaleTicks]);
 
     // Округляем значение, если оно не кратно новому шагу
     useEffect(() => {
@@ -288,24 +298,30 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     </StyledRangeValue>
                 )}
 
-                {scaleTicks && (
+                {normalizedScaleTicks && (
                     <ScaleTicksWrapper isVertical={isVertical} reversed={reversed}>
-                        {scaleTicks.map((tick) => {
-                            const tickStyle = getTickStyle({ tick, min, max, isVertical, reversed: reversed ?? false });
+                        {normalizedScaleTicks.map(({ value: tickValue, label: tickLabel, labelAlign }) => {
+                            const tickStyle = getTickStyle({
+                                tick: tickValue,
+                                min,
+                                max,
+                                isVertical,
+                                reversed: reversed ?? false,
+                            });
 
                             return (
-                                <ScaleTick
-                                    key={tick}
-                                    tickValue={tick}
-                                    isVertical={isVertical}
-                                    sliderAlign={sliderAlign}
-                                    scaleAlign={scaleAlign}
-                                    style={tickStyle}
-                                    onClick={() => handleTickClick(tick)}
-                                >
+                                <ScaleTick key={tickValue} style={tickStyle} onClick={() => handleTickClick(tickValue)}>
+                                    <ScaleTickLabel
+                                        isVertical={isVertical}
+                                        sliderAlign={sliderAlign}
+                                        scaleAlign={scaleAlign}
+                                        labelAlign={labelAlign}
+                                    >
+                                        {tickLabel}
+                                    </ScaleTickLabel>
                                     <ScaleTickDot
                                         isVertical={isVertical}
-                                        filled={tick <= value}
+                                        filled={tickValue <= value}
                                         reversed={reversed}
                                         scaleAlign={scaleAlign}
                                         sliderAlign={sliderAlign}
