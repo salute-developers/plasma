@@ -1,5 +1,7 @@
 import type { ButtonHTMLAttributes, PropsWithChildren, ReactNode, MouseEvent } from 'react';
 
+import type { Pin } from '../../utils/roundness';
+
 type CustomChipProps = {
     /**
      * Текстовая надпись
@@ -24,10 +26,13 @@ type CustomChipProps = {
     contentClearButton?: ReactNode;
     /**
      * Компонент c округлым border-radius
-     * @default
-     * false
+     * @default 'false'
      */
     pilled?: boolean;
+    /**
+     * Свойство задает скругление border-radius
+     */
+    pin?: Pin;
     /**
      * Компонент не активен
      * @default 'false'
