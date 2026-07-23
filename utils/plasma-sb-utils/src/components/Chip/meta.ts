@@ -1,6 +1,6 @@
 import { disableProps, InSpacingDecorator } from '../../index';
 
-import { appearances } from './fixtures';
+import { appearances, pinValues } from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -67,6 +67,11 @@ export const createMeta = ({
             },
             pilled: {
                 control: { type: 'boolean' },
+                table: { category: 'layout' },
+            },
+            pin: {
+                options: pinValues,
+                control: { type: 'select' },
                 table: { category: 'layout' },
             },
             hasClear: {
