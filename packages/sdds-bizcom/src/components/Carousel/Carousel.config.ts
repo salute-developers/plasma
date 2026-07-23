@@ -1,4 +1,5 @@
 import { css, carouselNewTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import { surfaceSolidDefault, surfaceTransparentTertiary } from '@salutejs/sdds-themes/tokens/sdds_bizcom';
 
 export const config = {
     defaults: {
@@ -8,8 +9,8 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.paginationDotBackground}: var(--surface-transparent-tertiary);
-                ${tokens.paginationDotActiveBackground}: var(--surface-solid-default);
+                ${tokens.paginationDotBackground}: ${surfaceTransparentTertiary};
+                ${tokens.paginationDotActiveBackground}: ${surfaceSolidDefault};
             `,
         },
         size: {

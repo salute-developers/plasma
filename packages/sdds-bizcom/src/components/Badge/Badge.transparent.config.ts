@@ -1,4 +1,19 @@
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    onDarkSurfaceTransparentCard,
+    onDarkTextPrimary,
+    onLightSurfaceTransparentDeep,
+    surfaceTransparentAccent,
+    surfaceTransparentNegative,
+    surfaceTransparentPositive,
+    surfaceTransparentSecondary,
+    surfaceTransparentWarning,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textWarning,
+} from '@salutejs/sdds-themes/tokens/sdds_bizcom';
 
 import { pilled, sizeL, sizeM, sizeS, sizeXS } from './Badge.config.common';
 
@@ -10,32 +25,32 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${badgeTokens.color}: var(--text-primary);
-                ${badgeTokens.background}: var(--surface-transparent-secondary);
+                ${badgeTokens.color}: ${textPrimary};
+                ${badgeTokens.background}: ${surfaceTransparentSecondary};
             `,
             accent: css`
-                ${badgeTokens.color}: var(--text-accent);
-                ${badgeTokens.background}: var(--surface-transparent-accent);
+                ${badgeTokens.color}: ${textAccent};
+                ${badgeTokens.background}: ${surfaceTransparentAccent};
             `,
             positive: css`
-                ${badgeTokens.color}: var(--text-positive);
-                ${badgeTokens.background}: var(--surface-transparent-positive);
+                ${badgeTokens.color}: ${textPositive};
+                ${badgeTokens.background}: ${surfaceTransparentPositive};
             `,
             warning: css`
-                ${badgeTokens.color}: var(--text-warning);
-                ${badgeTokens.background}: var(--surface-transparent-warning);
+                ${badgeTokens.color}: ${textWarning};
+                ${badgeTokens.background}: ${surfaceTransparentWarning};
             `,
             negative: css`
-                ${badgeTokens.color}: var(--text-negative);
-                ${badgeTokens.background}: var(--surface-transparent-negative);
+                ${badgeTokens.color}: ${textNegative};
+                ${badgeTokens.background}: ${surfaceTransparentNegative};
             `,
             dark: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--on-light-surface-transparent-deep);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${onLightSurfaceTransparentDeep};
             `,
             light: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
-                ${badgeTokens.background}: var(--on-dark-surface-transparent-card);
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${onDarkSurfaceTransparentCard};
             `,
         },
         size: {
