@@ -28,8 +28,8 @@
     "classnames": "^2.5.1",
     "contrast-ratio-checker": "^1.1.7",
     "next": "14.2.33",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
     "styled-components": "5.3.1"
   },
   "devDependencies": {
@@ -39,7 +39,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.0",
-    "eslint": "7.29.0",
+    "eslint": "8.47.0",
     "eslint-config-next": "14.2.33"
   }
 }
