@@ -347,6 +347,34 @@ export function App() {
             );
         }
         ```
+
+        Помимо чисел `scaleTicks` может принимать массив объектов с кастомной подписью (`label`) и её выравниванием относительно точки на шкале (`labelAlign`: `'start' | 'center' | 'end'`, по умолчанию `'center'`):
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/{{ package }}';
+
+        export function App() {
+            const [value, setValue] = useState(50);
+
+            return (
+                <div style=\{{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={value}
+                        label="Кастомные подписи"
+                        scaleTicks={[
+                            { value: 0, label: 'Мин', labelAlign: 'start' },
+                            { value: 50, label: 'Средний' },
+                            { value: 100, label: 'Макс', labelAlign: 'end' },
+                        ]}
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
     </TabItem>
 </Tabs>
 

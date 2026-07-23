@@ -149,6 +149,37 @@ describeFn('Slider', () => {
         cy.matchImageSnapshot();
     });
 
+    it('scaleTicks with custom labels and labelAlign', () => {
+        mount(
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    scaleTicks={[
+                        { value: 0, label: 'Мин', labelAlign: 'start' },
+                        { value: 50, label: 'Средний' },
+                        { value: 100, label: 'Макс', labelAlign: 'end' },
+                    ]}
+                />
+                <PadMe />
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    orientation="vertical"
+                    scaleTicks={[
+                        { value: 0, label: 'Мин', labelAlign: 'start' },
+                        { value: 50, label: 'Средний' },
+                        { value: 100, label: 'Макс', labelAlign: 'end' },
+                    ]}
+                    style={{ height: '15rem' }}
+                />
+            </div>,
+        );
+        cy.matchImageSnapshot();
+    });
+
     it('showCurrentValue, hideMinValueDiff, hideMaxValueDiff', () => {
         mount(
             <>
