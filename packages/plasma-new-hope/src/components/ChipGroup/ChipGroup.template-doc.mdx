@@ -91,3 +91,33 @@ export function App() {
     );
 }
 ```
+
+### Границы группы Chip
+Границы группы задаются с помощью свойства `shape`.
+
+```tsx live
+import React from 'react';
+import { ChipGroup, Chip } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <ChipGroup size="xs" shape="segmented">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+
+            <ChipGroup size="xs" shape="default">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+        </div>
+    );
+}
+```

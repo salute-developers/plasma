@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
 import { addFocus } from 'src/mixins';
 
-import { tokens } from '../../Chip.tokens';
+import { privateTokens, tokens } from '../../Chip.tokens';
 
 export const base = css`
-    --plasma_private-chip-outline-size: var(${tokens.outlineSize}, 0.063rem);
+    ${privateTokens.privateOutlineSize}: var(${tokens.outlineSize}, 0.063rem);
 
     :focus {
         outline: none;
@@ -12,7 +12,7 @@ export const base = css`
 
     ${addFocus({
         outlineOffset: '0.125rem',
-        outlineSize: 'var(--plasma_private-chip-outline-size)',
+        outlineSize: `var(${privateTokens.privateOutlineSize})`,
         outlineRadius: `var(${tokens.borderRadius})`,
         outlineColor: `var(${tokens.focusColor})`,
     })}

@@ -92,6 +92,31 @@ export function App() {
 }
 ```
 
+### Границы Chip
+Границы Chip задаются с помощью свойства `pin`. Возможные значения свойства `pin`:
++ `square` – обычное скругление;
++ `circle` – сильное скругление;
++ `clear` – нет скругления.
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/{{ package }}';
+
+export function App() {
+    return (
+        <div>
+            <Chip text="Chip" pin="square-square" />
+            <Chip text="Chip" pin="square-clear" />
+            <Chip text="Chip" pin="clear-square" />
+            <Chip text="Chip" pin="clear-clear" />
+            <Chip text="Chip" pin="clear-circle" />
+            <Chip text="Chip" pin="circle-clear" />
+            <Chip text="Chip" pin="circle-circle" />
+        </div>
+    );
+}
+```
+
 ### Градиентный текст
 Текст чипа можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`
 

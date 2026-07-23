@@ -10,8 +10,6 @@ export const base = css`
     letter-spacing: var(${tokens.letterSpacing});
     line-height: var(${tokens.lineHeight});
 
-    border-radius: var(${tokens.borderRadius});
-
     width: var(${tokens.width});
     height: var(${tokens.height});
 
