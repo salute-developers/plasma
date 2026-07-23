@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-insol-docs",
-  "version": "0.348.0-next-insol.0",
+  "version": "0.349.0-next-insol.0",
   "description": "SDDS INSOL documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "@salutejs/plasma-docs-ui": "0.540.0-next-insol.0",
     "@salutejs/plasma-icons": "1.244.0-next-insol.0",
     "@salutejs/plasma-typo": "0.48.0-next-insol.0",
-    "@salutejs/sdds-insol": "0.354.0-next-insol.0",
+    "@salutejs/sdds-insol": "0.355.0-next-insol.0",
     "@salutejs/sdds-themes": "0.72.0-next-insol.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",

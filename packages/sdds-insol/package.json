@@ -1,14 +1,22 @@
 {
   "name": "@salutejs/sdds-insol",
-  "version": "0.354.0-next-insol.0",
+  "version": "0.355.0-next-insol.0",
   "description": "Salute Design System / React UI kit for SDDS INSOL web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
     "access": "public"
   },
   "license": "MIT",
-  "files": ["dist", "types"],
-  "keywords": ["design-system", "react-components", "ui-kit", "react"],
+  "files": [
+    "dist",
+    "types"
+  ],
+  "keywords": [
+    "design-system",
+    "react-components",
+    "ui-kit",
+    "react"
+  ],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
@@ -95,9 +103,16 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": ["src/**/*.component-test.tsx", "src/**/*.stories.tsx"],
+    "ignoreFiles": [
+      "src/**/*.component-test.tsx",
+      "src/**/*.stories.tsx"
+    ],
     "atLeast": 99.89
   },
-  "contributors": ["salute.developers@gmail.com"],
-  "sideEffects": ["*.css"]
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
+  "sideEffects": [
+    "*.css"
+  ]
 }
