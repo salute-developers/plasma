@@ -31,7 +31,7 @@ interface ActiveTime {
 export const timePickerRoot = (
     Root: RootProps<HTMLDivElement, Omit<TimePickerProps, 'opened' | 'defaultValue' | 'onChange'>>,
 ) =>
-    forwardRef<HTMLDivElement, TimePickerProps>(
+    forwardRef<HTMLInputElement, TimePickerProps>(
         (
             {
                 className,
@@ -110,11 +110,11 @@ export const timePickerRoot = (
             ref,
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
+            const inputForkRef = useForkRef(inputRef, ref);
             const timeGridRootRef = useRef<HTMLDivElement | null>(null);
             const floatingPopoverRef = useRef<HTMLDivElement | null>(null);
 
             const rootRef = useRef<HTMLDivElement | null>(null);
-            const rootForkRef = useForkRef(rootRef, ref);
 
             const hoursHideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
             const minutesHideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -343,7 +343,7 @@ export const timePickerRoot = (
                     })}
                     disabled={disabled}
                     readonly={readonly}
-                    ref={rootForkRef}
+                    ref={rootRef}
                     {...(hintText && {
                         hintView,
                         hintSize,
@@ -361,7 +361,7 @@ export const timePickerRoot = (
                         zIndex={zIndex}
                         target={(referenceRef) => (
                             <StyledInput
-                                ref={inputRef}
+                                ref={inputForkRef}
                                 inputWrapperRef={referenceRef as MutableRefObject<HTMLDivElement>}
                                 className={cls({
                                     [classes.timePickerError]: valueError,
