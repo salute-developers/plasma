@@ -4,7 +4,13 @@ import { cx, isNumber } from 'src/utils';
 import { useDidMountEffect, useForkRef } from 'src/hooks';
 import { keyCodes } from 'src/utils/constants';
 
-import { defaultCharacterWidth, excludingNumberSchema, getPreciseValue, numberSchema } from '../../utils';
+import {
+    caretWidthOffset,
+    defaultCharacterWidth,
+    excludingNumberSchema,
+    getPreciseValue,
+    numberSchema,
+} from '../../utils';
 import { classes } from '../../NumberInput.tokens';
 
 import type { InputProps } from './Input.types';
@@ -64,11 +70,11 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
 
         const getInputWidth = (firstRender = true) => {
             if (!firstRender && inputHelperRef.current?.clientWidth) {
-                return `${inputHelperRef.current?.clientWidth}px`;
+                return `${inputHelperRef.current?.clientWidth + caretWidthOffset}px`;
             }
 
             if (value) {
-                return `${String(value).length}ch`;
+                return `calc(${String(value).length}ch + ${caretWidthOffset}px)`;
             }
 
             return defaultCharacterWidth;
