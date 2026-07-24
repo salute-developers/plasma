@@ -6,7 +6,7 @@
 
 Использование дизайн-системы Plasma позволяет реализовать [Canvas App](https://bit.ly/3Mx0UQq) как часть экосистемы виртуальных ассистентов семейства "Салют" и клиентские приложения B2B- и B2C-ориентированности. Все текущие приложения в экосистеме Salute реализованы с помощью Plasma.
 
-## Состав:
+## Состав
 
 -   @salutejs/plasma-web
 -   @salutejs/plasma-b2c
@@ -41,7 +41,11 @@
 
 [![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-icons?label=%40salutejs%2Fplasma-icons&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-icons)
 
+### plasma-ui
+
+> **Важно:** пакет `plasma-ui` переехал в репозиторий [salute-developers/plasma-ui](https://github.com/salute-developers/plasma-ui).
+
 ## Обратная связь
 
-Разработка дизайн-системы Plasma ведется в репозитории https://github.com/salute-developers/plasma.
+Разработка дизайн-системы Plasma ведется в репозитории <https://github.com/salute-developers/plasma>.
 Если вы хотите добавить новый компонент, вы можете прислать пулл-реквест следуя [правилам разработки](./CONTRIBUTING.md). Также вы можете [завести задачу](https://github.com/salute-developers/plasma/issues/new) на создание нового компонента или описать некоректное поведение текущего.

@@ -172,6 +172,8 @@ export const tokens = {
     textFieldTextAfterMargin: '--plasma-combobox-new-textfield-after-text-margin',
 
     textFieldDisabledOpacity: '--plasma-combobox-new-textfield-disabled-opacity',
+    textFieldDisabledBackgroundOpacity: '--plasma-combobox-new-textfield-disabled-background-opacity',
+    textFieldDisabledInnerContentOpacity: '--plasma-combobox-new-textfield-disabled-inner-content-opacity',
     textFieldReadOnlyOpacity: '--plasma-combobox-new-textfield-readonly-opacity',
 
     /** Токены для tooltip */

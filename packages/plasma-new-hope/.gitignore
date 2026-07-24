@@ -31,3 +31,5 @@ emotion/es
 styled-components/*
 build-sb-draft
 emotion/*
+
+/ai-components-build-sb

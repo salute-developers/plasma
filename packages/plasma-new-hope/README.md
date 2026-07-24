@@ -3,7 +3,7 @@
 В корне проекта plasma:
 
 ```sh
- npx lerna bootstrap --include-dependents --scope="@salutejs/plasma-new-hope"
+ npm install
 ```
 
 ### New Hope

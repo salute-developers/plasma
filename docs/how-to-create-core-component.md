@@ -492,8 +492,8 @@ export { myComponentTokens } from '@salutejs/plasma-new-hope/styled-components';
 ### 10. Проверьте
 
 ```bash
-# Bootstrap зависимостей
-npm run bootstrap
+# Установка зависимостей
+npm install
 
 # Сборка пакета
 cd packages/sdds-serv && npm run build
@@ -936,8 +936,8 @@ export const myComponentConfig = {
 ### Из корня проекта
 
 ```bash
-# Bootstrap зависимостей
-npm run bootstrap
+# Установка зависимостей
+npm install
 
 # Линтинг изменённых пакетов (относительно ветки dev)
 npm run lint

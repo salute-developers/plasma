@@ -1,7 +1,7 @@
 name: 'Prepare environment'
 
 description: |
-    Setup Node.js and install dependencies. Cache writes are disabled in untrusted contexts
+    Setup Node.js and dependency caches. Cache writes are disabled in untrusted contexts
     (fork PRs via pull_request_target) to prevent poisoning of shared caches.
 
     IMPORTANT: when invoked from a pull_request_target workflow, this action MUST be referenced
@@ -55,36 +55,3 @@ runs:
               # save), а не scoping'ом ключа. Отдельный -untrusted- namespace гарантировал бы
               # вечный miss — никто в этом action никогда не пишет в такой ключ.
               key: npm-trusted-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-        - name: Cache Cypress binary (trusted — restore + save)
-          if: steps.trust.outputs.untrusted == 'false'
-          uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-          with:
-              path: ~/.cache/Cypress
-              # Версия Cypress зафиксирована в package-lock.json, поэтому хэш lockfile —
-              # достаточный и детерминированный ключ.
-              key: cypress-trusted-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-        - name: Restore Cypress binary (untrusted — read trusted cache, no save)
-          if: steps.trust.outputs.untrusted == 'true'
-          uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-          with:
-              path: ~/.cache/Cypress
-              # Тот же ключ, что и у trusted-save ↑. Обоснование — см. npm restore шаг.
-              key: cypress-trusted-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-
-        - name: Install dependencies
-          shell: bash
-          run: npm ci --no-progress
-
-        - name: Verify Cypress install
-          # Доп. проверка целостности: сверяет SHA256 кэшированного бинаря с тем,
-          # что прописан в установленном cypress-пакете. Основная защита от подмены —
-          # запрет записи в кэш в untrusted-контексте (шаги Cache/Restore выше);
-          # verify ловит рассинхрон версия/бинарь и любые повреждения кэша.
-          shell: bash
-          run: npx cypress verify
-
-        - name: Apply patches
-          shell: bash
-          run: node_modules/.bin/patch-package

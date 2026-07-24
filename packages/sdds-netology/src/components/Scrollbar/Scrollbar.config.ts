@@ -1,10 +1,17 @@
+import {
+    surfaceTransparentPrimary,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
+} from '@salutejs/plasma-themes/tokens/plasma_b2c';
+
 export const config = {
     view: {
         default: {
-            trackColor: 'var(--surface-transparent-primary)',
-            thumbColor: 'var(--surface-transparent-tertiary)',
-            thumbHoverColor: 'var(--surface-transparent-tertiary-hover)',
-            thumbActiveColor: 'var(--surface-transparent-tertiary-active)',
+            trackColor: `${surfaceTransparentPrimary}`,
+            thumbColor: `${surfaceTransparentTertiary}`,
+            thumbHoverColor: `${surfaceTransparentTertiaryHover}`,
+            thumbActiveColor: `${surfaceTransparentTertiaryActive}`,
         },
     },
     size: {

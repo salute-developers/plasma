@@ -34,6 +34,9 @@ jobs:
         # Иначе action.yml возьмется из PR-checkout и весь защитный механизм обходится.
         uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
+      - name: Install dependencies
+        run: npm run setup:deps:ci
+
       - name: Set exclude-dependents env
         if: ${{ inputs.exclude-dependents }}
         run: echo "EXCLUDE_DEPENDENTS=--exclude-dependents" >> $GITHUB_ENV
@@ -59,4 +62,3 @@ jobs:
         id: set-output
         run: |
           echo "STATE=${{ steps.state.outputs.result }}" >> $GITHUB_OUTPUT
-

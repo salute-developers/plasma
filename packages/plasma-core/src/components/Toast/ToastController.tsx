@@ -105,7 +105,7 @@ export const ToastController: React.FC<ToastInfo> = ({ role, text, contentLeft, 
         if (isVisible) {
             hideTimeout.current = setTimeout(() => {
                 setIsVisible(false);
-            }, timeout);
+            }, timeout || 0);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [timeout, isVisible]);

@@ -111,6 +111,8 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.textAfterMargin}: var(${tokens.textFieldTextAfterMargin});
 
     ${textFieldTokens.disabledOpacity}: var(${tokens.textFieldDisabledOpacity});
+    ${textFieldTokens.disabledBackgroundOpacity}: var(${tokens.textFieldDisabledBackgroundOpacity});
+    ${textFieldTokens.disabledInnerContentOpacity}: var(${tokens.textFieldDisabledInnerContentOpacity});
 
     ${textFieldTokens.hintCustomIconTargetSize}: var(${tokens.textFieldHintCustomIconTargetSize});
     ${textFieldTokens.hintMargin}: var(${tokens.textFieldHintMargin});

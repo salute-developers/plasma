@@ -44,7 +44,7 @@ jobs:
 
       - uses: ./.github/actions/prepare-environment
 
-      - name: Set default scope
+      - name: Set package preparation scope
         run: |
           if [ "${{ inputs.prefix }}" = "plasma" ]; then
             echo "SCOPE={${{ inputs.scope }},core,hope,new-hope,themes,icons,typo,tokens,tokens-b2c,tokens-b2b,tokens-web,tokens-utils,cy-utils}" >> $GITHUB_ENV
@@ -67,7 +67,7 @@ jobs:
           scope: ${{ inputs.scope }}
           components: ${{ inputs.components }}
 
-      - name: Lerna bootstrap
+      - name: Install dependencies and prepare packages
         if: ${{ (inputs.test-all == 'true' || steps.check-test-files-exist.outputs.tests-exist == 'true') }}
         uses: nick-fields/retry@v3
         with:
@@ -76,9 +76,9 @@ jobs:
           retry_on: error
           command: |
             if [ "${{ inputs.prefix }}" = "plasma" ]; then
-              npx lerna bootstrap --scope=@salutejs/${{ inputs.prefix }}-${{env.SCOPE}} --scope="@salutejs/core-themes"
+              npm run setup:ci -- --scope="@salutejs/plasma-${SCOPE}" --scope="@salutejs/core-themes" --include-dependencies
             else
-              npx lerna bootstrap --scope=@salutejs/plasma-${{env.SCOPE}} --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}"
+              npm run setup:ci -- --scope="@salutejs/plasma-${SCOPE}" --scope="@salutejs/core-themes" --scope="@salutejs/${{ inputs.prefix }}-{${{ inputs.scope }},themes}" --include-dependencies
             fi
 
       - name: Run Cypress CT for Plasma ${{ inputs.scope }}

@@ -141,7 +141,7 @@ module.exports = {
                 // Загрузка компонентов для документации
                 async loadContent() {
                     return docgen
-                        .withCustomConfig('./tsconfig.json', {
+                        .withCustomConfig(path.resolve(__dirname, 'tsconfig.json'), {
                             shouldExtractLiteralValuesFromEnum: true,
                             shouldRemoveUndefinedFromOptional: true,
                             propFilter: () => {
@@ -236,9 +236,13 @@ module.exports = {
                         resolve: {
                             symlinks: false,
                             alias: {
-                                react: path.resolve(__dirname, 'node_modules', 'react'),
-                                'react-dom': path.resolve(__dirname, 'node_modules', 'react-dom'),
-                                'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
+                                react: path.dirname(require.resolve('react/package.json', { paths: [__dirname] })),
+                                'react-dom': path.dirname(
+                                    require.resolve('react-dom/package.json', { paths: [__dirname] }),
+                                ),
+                                'styled-components': path.dirname(
+                                    require.resolve('styled-components/package.json', { paths: [__dirname] }),
+                                ),
                             },
                         },
                     };

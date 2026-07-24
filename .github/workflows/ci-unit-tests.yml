@@ -24,8 +24,8 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
 
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap --ignore=${{env.LERNA_IGNORE_LIST}}
+      - name: Install dependencies
+        run: npm run setup:ci
 
       - name: Unit tests
         run: npm run test

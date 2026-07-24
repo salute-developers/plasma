@@ -187,6 +187,8 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-textarea-disabled-opacity',
+    disabledBackgroundOpacity: '--plasma-textarea-disabled-background-opacity',
+    disabledInnerContentOpacity: '--plasma-textarea-disabled-inner-content-opacity',
     inputColorDisabled: '--plasma-textarea-input-color-disabled',
 
     /** Токены для tooltip */
