@@ -4,13 +4,15 @@ title: ChipGroup
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # ChipGroup
 <Description name="ChipGroup" />
-<PropsTable name="ChipGroup" exclude={['css']} />
 
-## Использование
-Компонент `ChipGroup` - это обертка для Chip. Принимает в себя группу элементов.
+## Быстрый старт
+
+Компонент `ChipGroup` — это обёртка для `Chip`, принимает в себя группу элементов:
 
 ```tsx live
 import React from 'react';
@@ -29,12 +31,50 @@ export function App() {
 }
 ```
 
-## Примеры
+## Управление внешним видом
 
-### Размер и вид группы Chip
-Размер и вид группы элементов задается с помощью свойств `size` и `view` соответственно.
-С помощью свойства `isCommonChipStyles` можно отключить переопределение стилей для всех элементов внутри группы.
-Тогда каждый элемент будет иметь настраиваемый размер и вид.
+Размер и вид группы элементов задаются свойствами `size` и `view`. Свойство `isCommonChipStyles` (по умолчанию `true`) включает переопределение стилей для всех `Chip` внутри группы значениями группы — если отключить его, каждый элемент может иметь свой размер и вид:
+
+<Tabs>
+    <TabItem value="common" label="Общий стиль" default>
+        ```tsx live
+        import React from 'react';
+        import { ChipGroup, Chip } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <ChipGroup size="s" view="secondary">
+                    {Array(5)
+                        .fill(true)
+                        .map((_, i) => (
+                            <Chip text={`Chip ${i}`} />
+                        ))}
+                </ChipGroup>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="custom" label="Индивидуальный стиль">
+        ```tsx live
+        import React from 'react';
+        import { ChipGroup, Chip } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <ChipGroup isCommonChipStyles={false}>
+                    <Chip size="m" text="Default" />
+                    <Chip size="s" text="Secondary" view="secondary" />
+                    <Chip size="xs" text="Accent" view="accent" />
+                </ChipGroup>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Отступы между Chip
+
+Группа элементов имеет два вида отступов, задаваемых свойством `gap`:
 
 ```tsx live
 import React from 'react';
@@ -42,36 +82,7 @@ import { ChipGroup, Chip } from '@salutejs/sdds-finai';
 
 export function App() {
     return (
-        <div>
-            <ChipGroup size="s" view="clear">
-                {Array(5)
-                    .fill(true)
-                    .map((_, i) => (
-                        <Chip text={`Chip ${i}`} />
-                    ))}
-            </ChipGroup>
-
-            <ChipGroup isCommonChipStyles={false}>
-                <Chip size="m" text="Default" />
-                <Chip size="s" text="Clear" view="clear" />
-                <Chip size="xs" text="Accent" view="accent" />
-            </ChipGroup>
-        </div>
-    );
-}
-```
-
-### Отступы между Chip
-
-Группа элементов имеет два вида отступов:
-
-```tsx live
-import React from 'react';
-import { ChipGroup, Chip } from '@salutejs/sdds-finai';
-
-export function App() {
-    return (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <ChipGroup size="xs" gap="dense">
                 {Array(5)
                     .fill(true)
@@ -91,3 +102,60 @@ export function App() {
     );
 }
 ```
+
+## Скругления группы
+
+Скругления `Chip` внутри группы задаются свойством `shape`:
+
+```tsx live
+import React from 'react';
+import { ChipGroup, Chip } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <ChipGroup size="xs" shape="default">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+
+            <ChipGroup size="xs" shape="segmented">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+        </div>
+    );
+}
+```
+
+## Перенос элементов
+
+Свойство `isWrapped` включает перенос элементов на новую строку при нехватке ширины контейнера:
+
+```tsx live
+import React from 'react';
+import { ChipGroup, Chip } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <div style={{ width: '20rem' }}>
+            <ChipGroup isWrapped>
+                {Array(10)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Chip text={`Chip ${i}`} />
+                    ))}
+            </ChipGroup>
+        </div>
+    );
+}
+```
+
+## Таблица свойств
+<PropsTable name="ChipGroup" exclude={['css']} />
