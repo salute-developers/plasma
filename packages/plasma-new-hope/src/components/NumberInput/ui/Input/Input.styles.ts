@@ -54,7 +54,6 @@ export const Input = styled.input<{ dynamicWidth: string; isManualInput: boolean
     cursor: ${({ isManualInput }) => (isManualInput ? 'text' : 'default')};
     pointer-events: ${({ isManualInput }) => (isManualInput ? 'initial' : 'none')};
     caret-color: ${({ isManualInput }) => (isManualInput ? `var(${tokens.caretColor})` : 'transparent')};
-    transition: width 0.1s;
 `;
 
 export const InputWidthHelper = styled.span`
