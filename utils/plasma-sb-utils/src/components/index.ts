@@ -43,4 +43,5 @@ export * from './CodeField';
 export * from './CodeInput';
 export * from './CodeArea';
 export * from './Rating';
+export * from './Tabs';
 export * from './_ai';
