@@ -1,0 +1,1092 @@
+import { dateTimePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyL,
+    bodyLBold,
+    bodyS,
+    bodyXS,
+    bodyXSBold,
+    bodyXXS,
+    h3,
+    h3Bold,
+    h4,
+    h4Bold,
+    h5,
+    h5Bold,
+    inverseTextPrimary,
+    outlineNegativeMinor,
+    outlineNegativeMinorActive,
+    outlineNegativeMinorHover,
+    outlinePositiveMinor,
+    outlinePositiveMinorActive,
+    outlinePositiveMinorHover,
+    outlineSolidSecondary,
+    outlineTransparentPrimary,
+    outlineTransparentPrimaryHover,
+    shadowDownHardM,
+    shadowDownHardS,
+    shadowDownSoftS,
+    surfaceAccent,
+    surfaceClear,
+    surfaceNegative,
+    surfaceSolidCard,
+    surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceSolidSecondary,
+    surfaceTransparentPrimary,
+    surfaceTransparentSecondary,
+    surfaceTransparentTertiary,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textPrimaryHover,
+    textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
+    textTertiary,
+} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
+
+export const config = {
+    defaults: {
+        view: 'default',
+        size: 'm',
+        hintView: 'default',
+        hintSize: 'm',
+    },
+    variations: {
+        view: {
+            default: css`
+                ${tokens.outlineFocusColor}: ${surfaceAccent};
+
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+
+                ${tokens.textFieldContentSlotColor}: ${textPrimary};
+                ${tokens.textFieldContentRightSlotColor}: ${textSecondary};
+                ${tokens.textFieldContentRightSlotColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: ${textSecondaryActive};
+
+                ${tokens.textFieldBoxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
+
+                ${tokens.textFieldBorderColor}: ${outlineTransparentPrimary};
+                ${tokens.textFieldBorderColorFocus}: ${outlineSolidSecondary};
+                ${tokens.textFieldBorderColorHover}: ${outlineTransparentPrimaryHover};
+                ${tokens.textFieldBorderColorSuccess}: ${outlinePositiveMinor};
+                ${tokens.textFieldBorderColorSuccessFocus}: ${outlinePositiveMinorActive};
+                ${tokens.textFieldBorderColorSuccessHover}: ${outlinePositiveMinorHover};
+                ${tokens.textFieldBorderColorError}: ${outlineNegativeMinor};
+                ${tokens.textFieldBorderColorErrorFocus}: ${outlineNegativeMinorActive};
+                ${tokens.textFieldBorderColorErrorHover}: ${outlineNegativeMinorHover};
+
+                ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceSolidCard};
+
+                ${tokens.labelColor}: ${textPrimary};
+                ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorSuccess}: ${textPositive};
+
+                ${tokens.indicatorColor}: ${surfaceNegative};
+
+                ${tokens.textFieldTextBeforeColor}: ${textTertiary};
+                ${tokens.textFieldTextAfterColor}: ${textTertiary};
+
+                ${tokens.popoverShadow}: ${shadowDownSoftS};
+                ${tokens.popoverSeparatorBackground}: ${surfaceTransparentSecondary};
+                ${tokens.popoverBackgroundColor}: ${surfaceSolidCard};
+
+                ${tokens.calendarSelectedItemBackground}: ${surfaceSolidDefault};
+                ${tokens.calendarSelectedItemColor}: ${inverseTextPrimary};
+                ${tokens.calendarSelectableItemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.calendarCurrentItemBorderColor}: ${surfaceSolidDefault};
+                ${tokens.calendarCurrentItemBackgroundHover}: transparent;
+                ${tokens.calendarCurrentItemColorHover}: ${textPrimary};
+                ${tokens.calendarCurrentItemChildBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.calendarActiveItemBackground}: ${surfaceSolidDefault};
+                ${tokens.calendarActiveItemColor}: ${inverseTextPrimary};
+                ${tokens.calendarHoveredItemBackground}: ${surfaceAccent};
+                ${tokens.calendarHoveredItemColor}: ${textPrimary};
+                ${tokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
+                ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${tokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
+                ${tokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
+                ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
+                ${tokens.calendarContentSecondaryColor}: ${textSecondary};
+                ${tokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
+                ${tokens.calendarDisabledOpacity}: 0.4;
+                ${tokens.calendarSeparatorBackground}: ${surfaceTransparentSecondary};
+                ${tokens.hintIconColor}: ${textSecondary};
+
+                ${tokens.iconButtonColor}: ${textPrimary};
+                ${tokens.iconButtonBackgroundColor}: ${surfaceClear};
+                ${tokens.iconButtonColorHover}: ${textPrimaryHover};
+                ${tokens.iconButtonBackgroundColorHover}: ${surfaceClear};
+                ${tokens.iconButtonColorActive}: ${textPrimaryHover};
+                ${tokens.iconButtonBackgroundColorActive}: ${surfaceClear};
+                ${tokens.iconButtonFocusColor}: ${surfaceAccent};
+
+                ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${tokens.tooltipBoxShadow}: ${shadowDownHardS};
+                ${tokens.tooltipColor}: ${textPrimary};
+
+                ${tokens.timePickerItemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.timePickerItemBackgroundActive}: ${surfaceTransparentSecondary};
+                ${tokens.timePickerScrollbarColor}: ${surfaceTransparentTertiary};
+                ${tokens.timePickerScrollbarTrackColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.shortcutColor}: ${textPrimary};
+                ${tokens.shortcutBackgroundHover}: ${surfaceTransparentSecondary};
+
+                ${tokens.timeGridDisabledOpacity}: 0.4;
+            `,
+        },
+        size: {
+            xl: css`
+                ${tokens.textFieldHeight}: 4rem;
+                ${tokens.textFieldBorderRadius}: 1rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+                ${tokens.textFieldPadding}: 1.375rem 1.25rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.6255rem -0.0625rem 0;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.5rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyL.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyL.lineHeight};
+
+                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.938rem 0 0.813rem 0;
+
+                ${tokens.labelFontFamily}: ${bodyL.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyL.fontStyle};
+                ${tokens.labelFontSize}: ${bodyL.fontSize};
+                ${tokens.labelFontWeight}: ${bodyL.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyL.lineHeight};
+
+                ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.indicatorSize}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.813rem -2.938rem auto auto;
+
+                ${tokens.popoverBorderRadius}: 1rem;
+                ${tokens.popoverGap}: 1rem;
+                ${tokens.popoverPadding}: 1rem 1rem 1.125rem 1rem;
+                ${tokens.popoverVerticalPadding}: 2.125rem;
+
+                ${tokens.calendarWidth}: 28rem;
+                ${tokens.calendarHeight}: 28.375rem;
+
+                ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarYearItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarYearFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarMonthItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarMonthFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarQuarterFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarDayItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarDayFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
+                ${tokens.calendarEventItemBottom}: 0.5rem;
+                ${tokens.calendarHeaderWrapperPadding}: 0;
+                ${tokens.calendarHeaderArrowGap}: 0;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+
+                ${tokens.calendarHeaderPadding}: 0 0 0 0.75rem;
+                ${tokens.calendarHeaderDateGap}: 0.25rem;
+
+                ${tokens.calendarHeaderFontFamily}: ${h3.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h3.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h3.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h3.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h3.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h3.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h3Bold.fontWeight};
+
+                ${tokens.iconButtonHeight}: 4rem;
+                ${tokens.iconButtonWidth}: 4rem;
+                ${tokens.iconButtonPadding}: 1.25rem;
+                ${tokens.iconButtonRadius}: 1rem;
+
+                ${tokens.timePickerColumnWidth}: 4rem;
+                ${tokens.timePickerColumnHeight}: 28.375rem;
+                ${tokens.timePickerColumnGap}: 0.125rem;
+                ${tokens.timePickerItemHeight}: 4rem;
+                ${tokens.timePickerItemBorderRadius}: 0.875rem;
+                ${tokens.timePickerItemPadding}: 0;
+                ${tokens.timePickerItemFontFamily}: ${bodyL.fontFamily};
+                ${tokens.timePickerItemFontStyle}: ${bodyL.fontStyle};
+                ${tokens.timePickerItemFontSize}: ${bodyL.fontSize};
+                ${tokens.timePickerItemFontWeight}: ${bodyL.fontWeight};
+                ${tokens.timePickerItemLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.timePickerItemLineHeight}: ${bodyL.lineHeight};
+                ${tokens.timePickerScrollbarWidth}: 0.125rem;
+                ${tokens.timePickerScrollbarMargin}: 0.5rem;
+
+                ${tokens.shortcutFontFamily}: ${bodyL.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyL.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyL.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyL.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyL.lineHeight};
+
+                ${tokens.shortcutPadding}: 1.375rem 0.75rem;
+                ${tokens.shortcutGap}: 0.375rem;
+                ${tokens.shortcutBorderRadius}: 0.875rem;
+            `,
+            l: css`
+                ${tokens.textFieldHeight}: 3.5rem;
+                ${tokens.textFieldBorderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+                ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.5rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: ${bodyL.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyL.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyL.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyL.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyL.lineHeight};
+
+                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
+
+                ${tokens.labelFontFamily}: ${bodyL.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyL.fontStyle};
+                ${tokens.labelFontSize}: ${bodyL.fontSize};
+                ${tokens.labelFontWeight}: ${bodyL.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyL.lineHeight};
+
+                ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.indicatorSize}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
+
+                ${tokens.popoverBorderRadius}: 0.875rem;
+                ${tokens.popoverGap}: 1rem;
+                ${tokens.popoverPadding}: 1rem 1rem 1.125rem 1rem;
+                ${tokens.popoverVerticalPadding}: 2.125rem;
+
+                ${tokens.calendarWidth}: 24.5rem;
+                ${tokens.calendarHeight}: 25rem;
+
+                ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarYearItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarYearFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarMonthItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarMonthFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarQuarterFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarDayItemBorderRadius}: 0.75rem;
+
+                ${tokens.calendarDayFontFamily}: ${bodyL.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyL.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyL.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyL.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyL.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyLBold.fontWeight};
+
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
+                ${tokens.calendarEventItemBottom}: 0.5rem;
+                ${tokens.calendarHeaderWrapperPadding}: 0;
+                ${tokens.calendarHeaderArrowGap}: 0.5rem;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+
+                ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
+                ${tokens.calendarHeaderDateGap}: 0.25rem;
+
+                ${tokens.calendarHeaderFontFamily}: ${h3.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h3.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h3.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h3.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h3.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h3.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h3Bold.fontWeight};
+
+                ${tokens.iconButtonHeight}: 3.5rem;
+                ${tokens.iconButtonWidth}: 3.5rem;
+                ${tokens.iconButtonPadding}: 1.5rem;
+                ${tokens.iconButtonRadius}: 0.625rem;
+
+                ${tokens.timePickerColumnWidth}: 3.5rem;
+                ${tokens.timePickerColumnHeight}: 25rem;
+                ${tokens.timePickerColumnGap}: 0.125rem;
+                ${tokens.timePickerItemHeight}: 3.5rem;
+                ${tokens.timePickerItemBorderRadius}: 0.75rem;
+                ${tokens.timePickerItemPadding}: 0;
+                ${tokens.timePickerItemFontFamily}: ${bodyL.fontFamily};
+                ${tokens.timePickerItemFontStyle}: ${bodyL.fontStyle};
+                ${tokens.timePickerItemFontSize}: ${bodyL.fontSize};
+                ${tokens.timePickerItemFontWeight}: ${bodyL.fontWeight};
+                ${tokens.timePickerItemLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.timePickerItemLineHeight}: ${bodyL.lineHeight};
+                ${tokens.timePickerScrollbarWidth}: 0.125rem;
+                ${tokens.timePickerScrollbarMargin}: 0.5rem;
+
+                ${tokens.shortcutFontFamily}: ${bodyL.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyL.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyL.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyL.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.shortcutPadding}: 1.188rem 0.75rem;
+                ${tokens.shortcutGap}: 0.375rem;
+                ${tokens.shortcutBorderRadius}: 0.75rem;
+            `,
+            m: css`
+                ${tokens.textFieldHeight}: 3rem;
+                ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+                ${tokens.textFieldPadding}: 0.875rem 1rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.375rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelOffset}: 0.625rem;
+                ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+
+                ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
+
+                ${tokens.indicatorSize}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.938rem auto auto;
+
+                ${tokens.popoverBorderRadius}: 0.75rem;
+                ${tokens.popoverGap}: 1rem;
+                ${tokens.popoverPadding}: 1rem 1rem 1.125rem 1rem;
+                ${tokens.popoverVerticalPadding}: 2.125rem;
+
+                ${tokens.calendarWidth}: 21rem;
+                ${tokens.calendarHeight}: 20.5rem;
+
+                ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarYearItemBorderRadius}: 0.625rem;
+
+                ${tokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarMonthItemBorderRadius}: 0.625rem;
+
+                ${tokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.625rem;
+
+                ${tokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarDayItemBorderRadius}: 0.625rem;
+
+                ${tokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
+                ${tokens.calendarEventItemBottom}: 0.375rem;
+                ${tokens.calendarHeaderWrapperPadding}: 0;
+                ${tokens.calendarHeaderArrowGap}: 0;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+
+                ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
+                ${tokens.calendarHeaderDateGap}: 0.25rem;
+
+                ${tokens.calendarHeaderFontFamily}: ${h4.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h4.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h4.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h4.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h4.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h4.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h4Bold.fontWeight};
+
+                ${tokens.iconButtonHeight}: 3rem;
+                ${tokens.iconButtonWidth}: 3rem;
+                ${tokens.iconButtonPadding}: 0.75rem;
+                ${tokens.iconButtonRadius}: 0.5rem;
+
+                ${tokens.timePickerColumnWidth}: 3rem;
+                ${tokens.timePickerColumnHeight}: 20.5rem;
+                ${tokens.timePickerColumnGap}: 0.125rem;
+                ${tokens.timePickerItemHeight}: 3rem;
+                ${tokens.timePickerItemBorderRadius}: 0.625rem;
+                ${tokens.timePickerItemPadding}: 0;
+                ${tokens.timePickerItemFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.timePickerItemFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.timePickerItemFontSize}: ${bodyXS.fontSize};
+                ${tokens.timePickerItemFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.timePickerItemLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.timePickerItemLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.timePickerScrollbarWidth}: 0.125rem;
+                ${tokens.timePickerScrollbarMargin}: 0.5rem;
+
+                ${tokens.shortcutFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyXS.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.shortcutPadding}: 1.063rem 0.625rem;
+                ${tokens.shortcutGap}: 0.375rem;
+                ${tokens.shortcutBorderRadius}: 0.625rem;
+            `,
+            s: css`
+                ${tokens.textFieldHeight}: 2.5rem;
+                ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+                ${tokens.textFieldPadding}: 0.813rem 0.75rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.375rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelOffset}: 0.5rem;
+                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
+
+                ${tokens.indicatorSize}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.813rem auto auto;
+
+                ${tokens.popoverBorderRadius}: 0.625rem;
+                ${tokens.popoverGap}: 0.875rem;
+                ${tokens.popoverPadding}: 0.875rem 0.875rem 1rem 0.875rem;
+                ${tokens.popoverVerticalPadding}: 1.875rem;
+
+                ${tokens.calendarWidth}: 17.5rem;
+                ${tokens.calendarHeight}: 17rem;
+
+                ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarYearItemBorderRadius}: 0.5rem;
+
+                ${tokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
+
+                ${tokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
+
+                ${tokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarDayItemBorderRadius}: 0.5rem;
+
+                ${tokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
+                ${tokens.calendarEventItemBottom}: 0.25rem;
+                ${tokens.calendarHeaderWrapperPadding}: 0;
+                ${tokens.calendarHeaderArrowGap}: 0;
+                ${tokens.calendarHeaderArrowCustomSize}: 1rem;
+
+                ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
+                ${tokens.calendarHeaderDateGap}: 0.25rem;
+
+                ${tokens.calendarHeaderFontFamily}: ${h5.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h5.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h5.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h5.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h5.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h5.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h5Bold.fontWeight};
+
+                ${tokens.iconButtonHeight}: 2.5rem;
+                ${tokens.iconButtonWidth}: 2.5rem;
+                ${tokens.iconButtonPadding}: 0.75rem;
+                ${tokens.iconButtonRadius}: 0.5rem;
+
+                ${tokens.timePickerColumnWidth}: 2.5rem;
+                ${tokens.timePickerColumnHeight}: 17rem;
+                ${tokens.timePickerColumnGap}: 0.125rem;
+                ${tokens.timePickerItemHeight}: 2.5rem;
+                ${tokens.timePickerItemBorderRadius}: 0.5rem;
+                ${tokens.timePickerItemPadding}: 0;
+                ${tokens.timePickerItemFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.timePickerItemFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.timePickerItemFontSize}: ${bodyXS.fontSize};
+                ${tokens.timePickerItemFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.timePickerItemLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.timePickerItemLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.timePickerScrollbarWidth}: 0.125rem;
+                ${tokens.timePickerScrollbarMargin}: 0.5rem;
+
+                ${tokens.shortcutFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyXS.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.shortcutPadding}: 0.813rem 0.5rem;
+                ${tokens.shortcutGap}: 0.375rem;
+                ${tokens.shortcutBorderRadius}: 0.5rem;
+            `,
+            xs: css`
+                ${tokens.textFieldHeight}: 2rem;
+                ${tokens.textFieldBorderRadius}: 0.5rem;
+                ${tokens.textFieldPadding}: 0.5rem 0.625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.375rem -0.0625rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.625rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelOffset}: 0.375rem;
+                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
+
+                ${tokens.indicatorSize}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.625rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
+
+                ${tokens.popoverBorderRadius}: 0.5rem;
+                ${tokens.popoverGap}: 0.75rem;
+                ${tokens.popoverPadding}: 0.75rem 0.75rem 0.875rem 0.75rem;
+                ${tokens.popoverVerticalPadding}: 1.625rem;
+
+                ${tokens.calendarWidth}: 17.5rem;
+                ${tokens.calendarHeight}: 15.5rem;
+
+                ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarYearItemBorderRadius}: 0.375rem;
+
+                ${tokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
+                ${tokens.calendarMonthItemBorderRadius}: 0.375rem;
+
+                ${tokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarQuartersPadding}: 0.375rem 0 0 0;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.375rem;
+
+                ${tokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarDaysPadding}: 0.375rem 0 0 0;
+                ${tokens.calendarDayItemBorderRadius}: 0.375rem;
+
+                ${tokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyXS.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyXSBold.fontWeight};
+
+                ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
+
+                ${tokens.calendarEventItemBottom}: 0.25rem;
+                ${tokens.calendarHeaderWrapperPadding}: 0;
+                ${tokens.calendarHeaderArrowGap}: 0;
+                ${tokens.calendarHeaderArrowCustomSize}: 1rem;
+
+                ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
+                ${tokens.calendarHeaderDateGap}: 0.25rem;
+
+                ${tokens.calendarHeaderFontFamily}: ${h5.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${h5.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${h5.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${h5.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: ${h5.lineHeight};
+                ${tokens.calendarHeaderFontWeight}: ${h5.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${h5Bold.fontWeight};
+
+                ${tokens.iconButtonHeight}: 2rem;
+                ${tokens.iconButtonWidth}: 2rem;
+                ${tokens.iconButtonPadding}: 0.5rem;
+                ${tokens.iconButtonRadius}: 0.5rem;
+
+                ${tokens.timePickerColumnWidth}: 2rem;
+                ${tokens.timePickerColumnHeight}: 15.5rem;
+                ${tokens.timePickerColumnGap}: 0.125rem;
+                ${tokens.timePickerItemHeight}: 2rem;
+                ${tokens.timePickerItemBorderRadius}: 0.375rem;
+                ${tokens.timePickerItemPadding}: 0;
+                ${tokens.timePickerItemFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.timePickerItemFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.timePickerItemFontSize}: ${bodyXS.fontSize};
+                ${tokens.timePickerItemFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.timePickerItemLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.timePickerItemLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.timePickerScrollbarWidth}: 0.125rem;
+                ${tokens.timePickerScrollbarMargin}: 0.5rem;
+
+                ${tokens.shortcutFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyXS.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.shortcutPadding}: 0.563rem 0.375rem;
+                ${tokens.shortcutGap}: 0.375rem;
+                ${tokens.shortcutBorderRadius}: 0.375rem;
+            `,
+        },
+        hintView: {
+            default: css`
+                ${tokens.hintTooltipBackgroundColor}: ${surfaceSolidCardBrightness};
+                ${tokens.hintTooltipBoxShadow}: ${shadowDownHardM};
+                ${tokens.hintTooltipColor}: ${textPrimary};
+                ${tokens.hintTooltipArrowBackground}: ${surfaceSolidCardBrightness};
+            `,
+        },
+        hintSize: {
+            m: css`
+                ${tokens.hintTooltipPaddingTop}: 0.6875rem;
+                ${tokens.hintTooltipPaddingRight}: 0.875rem;
+                ${tokens.hintTooltipPaddingBottom}: 0.6875rem;
+                ${tokens.hintTooltipPaddingLeft}: 0.875rem;
+
+                ${tokens.hintTooltipMinHeight}: 2.5rem;
+                ${tokens.hintTooltipBorderRadius}: 0.625rem;
+
+                ${tokens.hintTooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.hintTooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.hintTooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.hintTooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.hintTooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.hintTooltipTextFontLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.hintTooltipContentLeftMargin}: 0.375rem;
+
+                ${tokens.hintTooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.hintTooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.hintTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.hintTooltipArrowHeight}: 0.5rem;
+                ${tokens.hintTooltipArrowEdgeMargin}: 0.625rem;
+            `,
+            s: css`
+                ${tokens.hintTooltipPaddingTop}: 0.5rem;
+                ${tokens.hintTooltipPaddingRight}: 0.75rem;
+                ${tokens.hintTooltipPaddingBottom}: 0.5rem;
+                ${tokens.hintTooltipPaddingLeft}: 0.75rem;
+
+                ${tokens.hintTooltipMinHeight}: 2rem;
+                ${tokens.hintTooltipBorderRadius}: 0.5rem;
+
+                ${tokens.hintTooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.hintTooltipTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.hintTooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.hintTooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.hintTooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.hintTooltipTextFontLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.hintTooltipContentLeftMargin}: 0.25rem;
+
+                ${tokens.hintTooltipArrowMaskWidth}: 1rem;
+                ${tokens.hintTooltipArrowMaskHeight}: 1rem;
+                ${tokens.hintTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.hintTooltipArrowHeight}: 0.375rem;
+                ${tokens.hintTooltipArrowEdgeMargin}: 0.5625rem;
+            `,
+        },
+        eventTooltipSize: {
+            m: css`
+                ${tokens.tooltipPaddingTop}: 0.6875rem;
+                ${tokens.tooltipPaddingRight}: 0.875rem;
+                ${tokens.tooltipPaddingBottom}: 0.6875rem;
+                ${tokens.tooltipPaddingLeft}: 0.875rem;
+
+                ${tokens.tooltipMinHeight}: 2.5rem;
+                ${tokens.tooltipBorderRadius}: 0.625rem;
+
+                ${tokens.tooltipTextFontFamily}: ${bodyS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.tooltipContentLeftMargin}: 0.375rem;
+
+                ${tokens.tooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.tooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.tooltipArrowHeight}: 0.5rem;
+                ${tokens.tooltipArrowEdgeMargin}: 0.625rem;
+                ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
+            `,
+            s: css`
+                ${tokens.tooltipPaddingTop}: 0.5rem;
+                ${tokens.tooltipPaddingRight}: 0.75rem;
+                ${tokens.tooltipPaddingBottom}: 0.5rem;
+                ${tokens.tooltipPaddingLeft}: 0.75rem;
+
+                ${tokens.tooltipMinHeight}: 2rem;
+                ${tokens.tooltipBorderRadius}: 0.5rem;
+
+                ${tokens.tooltipTextFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.tooltipTextFontSize}: ${bodyXS.fontSize};
+                ${tokens.tooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.tooltipTextFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.tooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.tooltipTextFontLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.tooltipContentLeftMargin}: 0.25rem;
+
+                ${tokens.tooltipArrowMaskWidth}: 1rem;
+                ${tokens.tooltipArrowMaskHeight}: 1rem;
+                ${tokens.tooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.tooltipArrowHeight}: 0.375rem;
+                ${tokens.tooltipArrowEdgeMargin}: 0.5625rem;
+                ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
+            `,
+        },
+        disabled: {
+            true: css`
+                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 0.4;
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.labelColor}: ${textPrimary};
+            `,
+        },
+        readOnly: {
+            true: css`
+                ${tokens.labelColorReadOnly}: ${textPrimary};
+                ${tokens.leftHelperColorReadOnly}: ${textSecondary};
+
+                ${tokens.textFieldColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceSolidSecondary};
+                ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
+
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
+            `,
+        },
+    },
+};
