@@ -40,4 +40,13 @@ export const base = css`
             border-radius: 0.063rem;
         }
     }
+
+    .${classes.dividerAlignRight} &.${classes.selectedTabsItem} {
+        width: 100%;
+
+        &::after {
+            left: unset;
+            right: 0;
+        }
+    }
 `;
