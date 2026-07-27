@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useMemo, useState, useLayoutEffect, useRef, KeyboardEvent } from 'react';
 import type { MutableRefObject } from 'react';
-import { cx, safeUseId } from 'src/utils';
+import cls from 'classnames';
+import { safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
 
 import { classes } from '../../../tokens';
@@ -28,6 +29,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
             id,
             disabled = false,
             clip = 'showAll',
+            dividerAlign = 'left',
             size,
             view,
             children,
@@ -48,12 +50,6 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
 
         const uniqId = safeUseId();
         const tabsId = id || uniqId;
-
-        const noDividerClass = !hasDivider ? classes.tabsNoDivider : undefined;
-        const hasTopArrowClass = !firstItemVisible ? classes.tabsHasTopArrow : undefined;
-        const hasBottomArrowClass = !lastItemVisible ? classes.tabsHasBottomArrow : undefined;
-        const clipScrollClass = clip === 'scroll' ? classes.tabsClipScroll : undefined;
-        const clipShowAllClass = clip === 'showAll' ? classes.tabsClipShowAll : undefined;
 
         const scrollRef = useRef<HTMLElement | null>(null);
         const trackRef = useRef<HTMLElement | null>(null);
@@ -214,14 +210,22 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
-                    className={cx(hasTopArrowClass, hasBottomArrowClass, noDividerClass, className)}
+                    className={cls(className, {
+                        [classes.tabsNoDivider]: !hasDivider,
+                        [classes.tabsHasTopArrow]: !firstItemVisible,
+                        [classes.tabsHasBottomArrow]: !lastItemVisible,
+                        [classes.dividerAlignRight]: dividerAlign === 'right',
+                    })}
                     onKeyDown={onKeyDown}
                     orientation={orientation}
                     {...rest}
                 >
                     {!firstItemVisible && clip === 'scroll' && PreviousButton}
                     <StyledContentWrapper
-                        className={cx(clipScrollClass, clipShowAllClass)}
+                        className={cls({
+                            [classes.tabsClipScroll]: clip === 'scroll',
+                            [classes.tabsClipShowAll]: clip === 'showAll',
+                        })}
                         ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
                         onScroll={handleScroll}
                     >
