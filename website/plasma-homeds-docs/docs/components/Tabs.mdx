@@ -121,6 +121,58 @@ export function App() {
 }
 ```
 
+### Расположение divider у вертикальных Tabs
+Для вертикальных Tabs можно расположить разделитель (`divider`) слева (по умолчанию) или справа с помощью свойства `dividerAlign`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, IconTabItem } from '@salutejs/plasma-homeds';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(4).fill(0);
+    const [leftIndex, setLeftIndex] = useState(0);
+    const [rightIndex, setRightIndex] = useState(0);
+
+    return (
+        <div style={{ display: 'flex', gap: '2rem' }}>
+            <Tabs view="divider" orientation="vertical" dividerAlign="left" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <IconTabItem
+                        view="divider"
+                        orientation="vertical"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === leftIndex}
+                        tabIndex={0}
+                        onClick={() => setLeftIndex(i)}
+                    >
+                        <IconClock size="xs" color="inherit" />
+                    </IconTabItem>
+                ))}
+            </Tabs>
+
+            <Tabs view="divider" orientation="vertical" dividerAlign="right" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <IconTabItem
+                        view="divider"
+                        orientation="vertical"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === rightIndex}
+                        tabIndex={0}
+                        onClick={() => setRightIndex(i)}
+                    >
+                        <IconClock size="xs" color="inherit" />
+                    </IconTabItem>
+                ))}
+            </Tabs>
+        </div>
+    );
+}
+```
+
+
 ### Пример с прокруткой
 При выборе Tab происходит прокрутка до выбранного TabItem.
 
