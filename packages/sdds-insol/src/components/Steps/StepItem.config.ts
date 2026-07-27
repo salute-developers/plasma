@@ -1,27 +1,4 @@
 import { css, stepsTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    inverseTextPrimary,
-    onDarkTextPrimary,
-    onDarkTextPrimaryHover,
-    surfaceAccent,
-    surfaceAccentHover,
-    surfaceNegative,
-    surfaceNegativeHover,
-    surfacePositive,
-    surfacePositiveHover,
-    surfaceSolidDefault,
-    surfaceSolidDefaultHover,
-    surfaceWarning,
-    surfaceWarningHover,
-    textNegative,
-    textNegativeHover,
-    textPositive,
-    textPositiveHover,
-    textPrimary,
-    textPrimaryHover,
-    textWarning,
-    textWarningHover,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -30,54 +7,54 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.completedIndicatorColor}: ${inverseTextPrimary};
-                ${tokens.completedIndicatorColorHover}: ${inverseTextPrimary};
-                ${tokens.completedIndicatorBackground}: ${surfaceSolidDefault};
-                ${tokens.completedIndicatorBackgroundHover}: ${surfaceSolidDefaultHover};
-                ${tokens.completedTitleColor}: ${textPrimary};
-                ${tokens.completedTitleColorHover}: ${textPrimaryHover};
+                ${tokens.completedIndicatorColor}: var(--inverse-text-primary);
+                ${tokens.completedIndicatorColorHover}: var(--inverse-text-primary);
+                ${tokens.completedIndicatorBackground}: var(--surface-solid-default);
+                ${tokens.completedIndicatorBackgroundHover}: var(--surface-solid-default-hover);
+                ${tokens.completedTitleColor}: var(--text-primary);
+                ${tokens.completedTitleColorHover}: var(--text-primary-hover);
 
-                ${tokens.dividerColor}: ${surfaceSolidDefault};
+                ${tokens.dividerColor}: var(--surface-solid-default);
             `,
             accent: css`
-                ${tokens.completedIndicatorColor}: ${onDarkTextPrimary};
-                ${tokens.completedIndicatorColorHover}: ${onDarkTextPrimaryHover};
-                ${tokens.completedIndicatorBackground}: ${surfaceAccent};
-                ${tokens.completedIndicatorBackgroundHover}: ${surfaceAccentHover};
-                ${tokens.completedTitleColor}: ${textPrimary};
-                ${tokens.completedTitleColorHover}: ${textPrimaryHover};
+                ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
+                ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.completedIndicatorBackground}: var(--surface-accent);
+                ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-hover);
+                ${tokens.completedTitleColor}: var(--text-primary);
+                ${tokens.completedTitleColorHover}: var(--text-primary-hover);
 
-                ${tokens.dividerColor}: ${surfaceAccent};
+                ${tokens.dividerColor}: var(--surface-accent);
             `,
             negative: css`
-                ${tokens.completedIndicatorColor}: ${onDarkTextPrimary};
-                ${tokens.completedIndicatorColorHover}: ${onDarkTextPrimaryHover};
-                ${tokens.completedIndicatorBackground}: ${surfaceNegative};
-                ${tokens.completedIndicatorBackgroundHover}: ${surfaceNegativeHover};
-                ${tokens.completedTitleColor}: ${textNegative};
-                ${tokens.completedTitleColorHover}: ${textNegativeHover};
+                ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
+                ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.completedIndicatorBackground}: var(--surface-negative);
+                ${tokens.completedIndicatorBackgroundHover}: var(--surface-negative-hover);
+                ${tokens.completedTitleColor}: var(--text-negative);
+                ${tokens.completedTitleColorHover}: var(--text-negative-hover);
 
-                ${tokens.dividerColor}: ${surfaceNegative};
+                ${tokens.dividerColor}: var(--surface-negative);
             `,
             warning: css`
-                ${tokens.completedIndicatorColor}: ${onDarkTextPrimary};
-                ${tokens.completedIndicatorColorHover}: ${onDarkTextPrimaryHover};
-                ${tokens.completedIndicatorBackground}: ${surfaceWarning};
-                ${tokens.completedIndicatorBackgroundHover}: ${surfaceWarningHover};
-                ${tokens.completedTitleColor}: ${textWarning};
-                ${tokens.completedTitleColorHover}: ${textWarningHover};
+                ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
+                ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.completedIndicatorBackground}: var(--surface-warning);
+                ${tokens.completedIndicatorBackgroundHover}: var(--surface-warning-hover);
+                ${tokens.completedTitleColor}: var(--text-warning);
+                ${tokens.completedTitleColorHover}: var(--text-warning-hover);
 
-                ${tokens.dividerColor}: ${surfaceWarning};
+                ${tokens.dividerColor}: var(--surface-warning);
             `,
             positive: css`
-                ${tokens.completedIndicatorColor}: ${onDarkTextPrimary};
-                ${tokens.completedIndicatorColorHover}: ${onDarkTextPrimaryHover};
-                ${tokens.completedIndicatorBackground}: ${surfacePositive};
-                ${tokens.completedIndicatorBackgroundHover}: ${surfacePositiveHover};
-                ${tokens.completedTitleColor}: ${textPositive};
-                ${tokens.completedTitleColorHover}: ${textPositiveHover};
+                ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
+                ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
+                ${tokens.completedIndicatorBackground}: var(--surface-positive);
+                ${tokens.completedIndicatorBackgroundHover}: var(--surface-positive-hover);
+                ${tokens.completedTitleColor}: var(--text-positive);
+                ${tokens.completedTitleColorHover}: var(--text-positive-hover);
 
-                ${tokens.dividerColor}: ${surfacePositive};
+                ${tokens.dividerColor}: var(--surface-positive);
             `,
         },
     },

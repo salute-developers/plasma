@@ -1,213 +1,121 @@
-# SDDS-INSOL
+# Библиотека компонентов SDDS INSOL
 
-Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+Реализация компонентов для создания веб-приложений.
 
 ## Использование
 
-Библиотека реализована с помощью:
+Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) , [styled-components](https://styled-components.com/) и [emotion](https://emotion.sh/);
 
--   [typescript](https://www.typescriptlang.org/)
--   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+Использование данного пакета предполагает установку зависимостей: `react` & `react-dom`;
 
-Однако их использование **необязательно**!
+Использование `styled-components` и `emotion` на проект необязательно, так же как и использование `typescript`.
 
-### Установка зависимостей
+**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components` или `emotion`.
+
+### Установка пакета
 
 ```bash
-$ npm install --save @salutejs/sdds-insol@next-insol @salutejs/sdds-themes@next-insol
+$ npm install --save react react-dom
+$ npm install --save @salutejs/sdds-insol @salutejs/plasma-typo @salutejs/sdds-themes
 ```
 
-Для работы со `styled-components`, необходимо установить
+Так же надо установить пакет styled-components
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-### Использование компонентов
+Или, если вы используете пакет @emotion
 
-Все компоненты доступны напрямую из пакета
-
-```jsx
-import styled from 'styled-components';
-import { Button } from '@salutejs/sdds-insol';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
-
-export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
-    return (
-        <>
-            <Button>Hello, SDDS!</Button>
-            <StyledP>Token usage example</StyledP>
-        </>
-    );
-};
+```bash
+$ npm install --save @emotion/styled @emotion/react @emotion/css
 ```
 
-## Подключение шрифтов
+## Настройка при работе с пакетом `styled-components`
 
-Типографическая система основана на фирменных шрифтах.
+Создайте компонент для подключения глобальных стилей:
 
-Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
+```jsx title="GlobalStyle.tsx"
+import { createGlobalStyle } from 'styled-components';
+import { standard } from '@salutejs/plasma-typo';
+import { sdds_insol__light } from '@salutejs/sdds-themes';
 
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
+const ThemeStyle = createGlobalStyle(sdds_insol__light);
+const TypoStyle = createGlobalStyle(standard);
 
-### Create react app
-
-Добавить внутрь тега `head`.
-
-```html
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-        />
-        <title>Wep App</title>
-    </head>
-    <body>
-        ...
-    </body>
-</html>
+export const GlobalStyle = () => (
+    <>
+        <ThemeStyle />
+        <TypoStyle />
+    </>
+);
 ```
 
-### NextJs
+## Настройка при работе с пакетом `@emotion`
 
-```tsx
-import Head from 'next/head';
+Создайте компонент для подключения глобальных стилей:
 
-import { H2, Button } from '@salutejs/sdds-insol';
+```jsx title="GlobalStyle.tsx"
+import { Global, css } from '@emotion/react';
+import { standard } from '@salutejs/plasma-typo';
+import { sdds_insol__light } from '@salutejs/sdds-themes';
 
-export default function Home() {
-    return (
-        <>
-            <Head>
-                <title>Create Next App with sdds-insol components</title>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-                />
-            </Head>
-            <div>
-                <main>
-                    <div>
-                        <H2> Salute </H2>
-                        <Button text="Hello" />
-                    </div>
-                </main>
-            </div>
-        </>
-    );
-}
+const themeStyle = css(sdds_insol__light);
+const typoStyle = css(standard);
+
+export const GlobalStyle = () => (
+    <>
+        <Global styles={themeStyle} />
+        <Global styles={typoStyle} />
+    </>
+);
 ```
 
-## Подключение темы
+### Корень приложения
 
-Точкой входа является корень приложения:
+В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
 
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 
-### Styled-components
+Для корректной работы server side rendering приложение нужно обернуть `SSRProvider` (доступен в sdds-insol);
+
+### Использование компонентов
+
+Все компоненты styled-components доступны из директории `components` или напрямую из пакета:
 
 ```jsx
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/sdds-insol';
-import { sdds_insol_next__light } from '@salutejs/sdds-themes';
+// App.tsx
+import { Button } from '@salutejs/sdds-insol';
+import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-insol';
 
-const Theme = createGlobalStyle(sdds_insol_next__light);
-
-const App = () => {
+export const App = () => {
     return (
         <>
-            <Theme />
-            <BodyL>Hello SDDS</BodyL>
-            <Button text="This is themed button" />
+            <Button>Hello, Plasma!</Button>
+
+            <p style={{ color: textAccent }}>Token usage example</p>
         </>
     );
 };
-
-export default App;
 ```
 
-## Токены
+#### `@emotion`
 
-Все `css` токены завернуты в `js` переменные для более удобного доступа:
-
-```js
-/** Основной цвет текста */
-export const textPrimary = 'var(--text-primary, #F5F5F5)';
-/** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #000000)';
-```
-
-### Способы подключения
-
-Есть два пути импорта токенов:
-
--   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-insol_next` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
-
-### Использование
+Все компоненты `@emotion` доступны из директории `emotion`:
 
 ```jsx
-import React from 'react';
-import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+// App.tsx
+import { Button } from '@salutejs/sdds-insol/emotion';
+import { textAccent } from '@salutejs/plasma-tokens/brands/sdds-insol';
 
-const AppStyled = styled.div`
-    padding: 2rem;
-    color: ${textAccent};
-    background-color: ${backgroundPrimary};
-`;
-
-const Container = styled.div`
-    ${textL};
-    margin: 1rem;
-`;
-
-const App = () => {
+export const App = () => {
     return (
-        <AppStyled>
-            <Container>
-                <span>Hello SDDS</span>
-            </Container>
-        </AppStyled>
+        <>
+            <Button>Hello, Plasma!</Button>
+
+            <p style={{ color: textAccent }}>Token usage example</p>
+        </>
     );
 };
-
-export default App;
-```
-
-## Типографика
-
-Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
-
-```ts
-import { BodyL, DsplL, H3 } from '@salutejs/sdds-insol';
-```
-
-### Токены типографики на примере компонента `DsplL`
-
-Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
-
-```tsx
-import { CSSObject } from 'styled-components';
-
-export const dsplL = ({
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
-} as unknown) as CSSObject;
 ```

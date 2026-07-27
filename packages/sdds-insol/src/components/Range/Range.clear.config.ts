@@ -4,35 +4,23 @@ export const config = {
     defaults: {
         view: 'default',
         size: 'l',
+        hintView: 'default',
+        hintSize: 'm',
     },
     variations: {
         view: {
             default: css`
-                ${tokens.background}: var(--surface-transparent-card);
-                ${tokens.shadow}: var(--shadow-down-soft-s);
-                ${tokens.backgroundError}: var(--surface-transparent-card);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-card);
+                ${tokens.background}: transparent;
+                ${tokens.backgroundError}: transparent;
+                ${tokens.backgroundSuccess}: transparent;
 
-                ${tokens.borderColor}: var(--outline-clear);
-                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
-                ${tokens.textFieldBorderColorHover}: var(--outline-clear);
+                ${tokens.clearDividerColor}: var(--surface-transparent-tertiary);
 
-                ${tokens.borderColorSuccess}: var(--outline-positive-minor);
-                ${tokens.textFieldBorderColorSuccess}: var(--outline-positive-minor);
-                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-positive-minor-active);
-                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-positive-minor-hover);
-
-                ${tokens.borderColorError}: var(--outline-negative-minor);
-                ${tokens.textFieldBorderColorError}: var(--outline-negative-minor);
-                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative-minor-active);
-                ${tokens.textFieldBorderColorErrorHover}: var(--outline-negative-minor-hover);
-
-                ${tokens.dividerColor}: var(--text-primary);
+                ${tokens.dividerColor}: var(--surface-transparent-clear);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
                 ${tokens.leftHelperColorSuccess}: var(--text-positive);
-
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
@@ -54,34 +42,53 @@ export const config = {
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
 
+                ${tokens.contentSlotColorSuccess}: var(--text-positive);
+                ${tokens.contentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.contentSlotColorSuccessActive}: var(--text-positive-active);
+
+                ${tokens.textFieldContentSlotColorSuccess}: var(--text-positive);
+                ${tokens.textFieldContentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.textFieldContentSlotColorSuccessActive}: var(--text-positive-active);
+
+                ${tokens.contentSlotColorError}: var(--text-negative);
+                ${tokens.contentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.contentSlotColorErrorActive}: var(--text-negative-active);
+
+                ${tokens.textFieldContentSlotColorError}: var(--text-negative);
+                ${tokens.textFieldContentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.textFieldContentSlotColorErrorActive}: var(--text-negative-active);
+
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldColorSuccess}: var(--text-positive);
+                ${tokens.textFieldColorError}: var(--text-negative);
+                ${tokens.focusColor}: var(--text-accent);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
-                ${tokens.indicatorColor}: var(--surface-negative);
-
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-clear);
-                ${tokens.textFieldColorError}: var(--text-negative);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-clear);
-                ${tokens.textFieldColorSuccess}: var(--text-positive);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-clear);
+                ${tokens.textFieldBackgroundColorFocus}: transparent;
+                ${tokens.textFieldBackgroundErrorColor}: transparent;
+                ${tokens.textFieldBackgroundErrorColorFocus}: transparent;
+                ${tokens.textFieldBackgroundSuccessColor}: transparent;
+                ${tokens.textFieldBackgroundSuccessColorFocus}: transparent;
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
 
-                ${tokens.focusColor}: var(--text-accent);
-                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldDividerColorSuccess}: var(--surface-positive);
+                ${tokens.textFieldDividerColorError}: var(--surface-negative);
+                ${tokens.textFieldDividerColorHover}: var(--text-secondary);
+                ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
+
+                ${tokens.indicatorColor}: var(--surface-negative);
             `,
         },
         size: {
             xl: css`
                 ${tokens.borderRadius}: 1rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.5rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-m-font-size);
@@ -89,13 +96,12 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 1.125rem;
+                ${tokens.leftContentMargin}: 0 1.125rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 4rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 1rem;
-                ${tokens.textFieldPadding}: 1.375rem 1.25rem;
+                ${tokens.textFieldPadding}: 1.375rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
@@ -116,19 +122,19 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.embedIconButtonHeight}: 4rem;
-                ${tokens.embedIconButtonWidth}: 4rem;
-                ${tokens.embedIconButtonPadding}: 1.25rem;
-                ${tokens.embedIconButtonRadius}: 1rem;
+                ${tokens.embedIconButtonWidth}: 2.25rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
-                ${tokens.labelWrapperOffset}: 0.75rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelWrapperTitleCaptionOffset}: 0.25rem;
                 ${tokens.contentGap}: 1rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 1.688rem -2.938rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.813rem 0 -0.438rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -152,14 +158,14 @@ export const config = {
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.563rem -1.25rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.563rem auto auto -1.25rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.563rem -3.5rem auto auto;
             `,
             l: css`
                 ${tokens.borderRadius}: 0.875rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-s-font-size);
@@ -167,13 +173,12 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 1rem;
+                ${tokens.leftContentMargin}: 0 1.125rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 3.5rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
-                ${tokens.textFieldPadding}: 1.188rem 1.125rem;
+                ${tokens.textFieldPadding}: 1.188rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
@@ -194,19 +199,19 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.embedIconButtonHeight}: 3.5rem;
-                ${tokens.embedIconButtonWidth}: 3.5rem;
-                ${tokens.embedIconButtonPadding}: 1rem;
-                ${tokens.embedIconButtonRadius}: 0.875rem;
+                ${tokens.embedIconButtonWidth}: 2.25rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
-                ${tokens.labelWrapperOffset}: 0.75rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelWrapperTitleCaptionOffset}: 0.25rem;
                 ${tokens.contentGap}: 1rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 1.438rem -2.938rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.563rem 0 -0.438rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -230,14 +235,14 @@ export const config = {
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.313rem -1.125rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.313rem auto auto -1.125rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.313rem -3.375rem auto auto;
             `,
             m: css`
                 ${tokens.borderRadius}: 0.75rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.25rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -245,13 +250,12 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.875rem;
+                ${tokens.leftContentMargin}: 0 0.875rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 3rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
-                ${tokens.textFieldPadding}: 1.063rem 1rem;
+                ${tokens.textFieldPadding}: 1.063rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -272,19 +276,19 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.embedIconButtonHeight}: 3rem;
-                ${tokens.embedIconButtonWidth}: 3rem;
-                ${tokens.embedIconButtonPadding}: 0.75rem;
-                ${tokens.embedIconButtonRadius}: 0.75rem;
+                ${tokens.embedIconButtonWidth}: 2.375rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.875rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
-                ${tokens.labelWrapperOffset}: 0.625rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelWrapperTitleCaptionOffset}: 0.25rem;
                 ${tokens.contentGap}: 0.875rem;
 
                 ${tokens.hintMargin}: -0.688rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 1.1875rem -2.813rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.313rem 0 -0.438rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -308,14 +312,14 @@ export const config = {
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.063rem -1rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.063rem auto auto -1rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.063rem -3.25rem auto auto;
             `,
             s: css`
                 ${tokens.borderRadius}: 0.625rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.125rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -323,13 +327,12 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.75rem;
+                ${tokens.leftContentMargin}: 0 0.75rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 2.5rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
-                ${tokens.textFieldPadding}: 0.813rem 0.75rem;
+                ${tokens.textFieldPadding}: 0.813rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -351,18 +354,18 @@ export const config = {
 
                 ${tokens.embedIconButtonHeight}: 2.5rem;
                 ${tokens.embedIconButtonWidth}: 2.5rem;
-                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
                 ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
-                ${tokens.labelWrapperOffset}: 0.5rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelWrapperTitleCaptionOffset}: 0.25rem;
                 ${tokens.contentGap}: 0.75rem;
 
                 ${tokens.hintMargin}: -0.688rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 0.938rem -2.688rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.063rem 0 -0.438rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.188rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -386,14 +389,14 @@ export const config = {
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 1.813rem -0.875rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 1.813rem auto auto -0.875rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 1.813rem -3.125rem auto auto;
             `,
             xs: css`
                 ${tokens.borderRadius}: 0.5rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 0.875rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -401,13 +404,12 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.5rem;
+                ${tokens.leftContentMargin}: 0 0.5rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 2rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
-                ${tokens.textFieldPadding}: 0.5625rem 0.625rem;
+                ${tokens.textFieldPadding}: 0.5625rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -428,19 +430,19 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.embedIconButtonHeight}: 2rem;
-                ${tokens.embedIconButtonWidth}: 2rem;
-                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonWidth}: 1.5rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.5rem;
                 ${tokens.embedIconButtonRadius}: 0.5rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
-                ${tokens.labelWrapperOffset}: 0.375rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelWrapperTitleCaptionOffset}: 0.25rem;
                 ${tokens.contentGap}: 0.5rem;
 
                 ${tokens.hintMargin}: -0.688rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 0.688rem -2.063rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 -0.188rem 0 -0.688rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.688rem;
 
                 ${tokens.titleCaptionOffset}: 0;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -464,8 +466,9 @@ export const config = {
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorMarginTop}: 0.125rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.375rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.375rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 1.875rem -0.75rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 1.625rem auto auto -0.75rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 1.625rem -2rem auto auto;
             `,
         },
         hintView: {
@@ -533,11 +536,11 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-solid-secondary);
+                ${tokens.backgroundReadOnly}: transparent;
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerColorReadOnly}: var(--text-secondary);
-                ${tokens.readOnlyOpacity}: 1;
+                ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.dividerOpacityReadOnly}: 0.4;
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
 

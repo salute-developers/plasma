@@ -1,21 +1,4 @@
 import { css, codeInputTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyM,
-    bodyMBold,
-    bodyS,
-    bodySBold,
-    dsplL,
-    dsplLBold,
-    dsplM,
-    dsplS,
-    h3,
-    h4,
-    h5,
-    outlineAccent,
-    textNegative,
-    textPrimary,
-    textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -25,12 +8,12 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.captionColor}: ${textSecondary};
-                ${tokens.captionColorError}: ${textNegative};
+                ${tokens.captionColor}: var(--text-secondary);
+                ${tokens.captionColorError}: var(--text-negative);
 
-                ${tokens.codeColor}: ${textPrimary};
-                ${tokens.codeColorError}: ${textNegative};
-                ${tokens.borderColorFocus}: ${outlineAccent};
+                ${tokens.codeColor}: var(--text-primary);
+                ${tokens.codeColorError}: var(--text-negative);
+                ${tokens.borderColorFocus}: var(--outline-accent);
             `,
         },
         size: {
@@ -40,10 +23,10 @@ export const config = {
 
                 ${tokens.separatorWidth}: 0.75rem;
 
-                ${tokens.fontFamily}: ${dsplL.fontFamily};
-                ${tokens.fontStyle}: ${dsplL.fontStyle};
-                ${tokens.fontWeight}: ${dsplLBold.fontWeight};
-                ${tokens.letterSpacing}: ${dsplL.letterSpacing};
+                ${tokens.fontFamily}: var(--plasma-typo-dspl-l-font-family);
+                ${tokens.fontStyle}: var(--plasma-typo-dspl-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-dspl-l-bold-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-dspl-l-letter-spacing);
 
                 ${tokens.largeFontSize}: 8rem;
                 ${tokens.largeLineHeight}: 8rem;
@@ -54,12 +37,12 @@ export const config = {
                 ${tokens.smallFontSize}: 5.5rem;
                 ${tokens.smallLineHeight}: 5.75rem;
 
-                ${tokens.captionFontFamily}: ${h3.fontFamily};
-                ${tokens.captionFontSize}: ${h3.fontSize};
-                ${tokens.captionFontStyle}: ${h3.fontStyle};
-                ${tokens.captionFontWeight}: ${h3.fontWeight};
-                ${tokens.captionLetterSpacing}: ${h3.letterSpacing};
-                ${tokens.captionLineHeight}: ${h3.lineHeight};
+                ${tokens.captionFontFamily}: var(--plasma-typo-h3-font-family);
+                ${tokens.captionFontSize}: var(--plasma-typo-h3-font-size);
+                ${tokens.captionFontStyle}: var(--plasma-typo-h3-font-style);
+                ${tokens.captionFontWeight}: var(--plasma-typo-h3-font-weight);
+                ${tokens.captionLetterSpacing}: var(--plasma-typo-h3-letter-spacing);
+                ${tokens.captionLineHeight}: var(--plasma-typo-h3-line-height);
 
                 ${tokens.largeCodeItemWidth}: 5rem;
                 ${tokens.largeCodeItemHeight}: 8rem;
@@ -79,10 +62,10 @@ export const config = {
 
                 ${tokens.separatorWidth}: 0.75rem;
 
-                ${tokens.fontFamily}: ${dsplM.fontFamily};
-                ${tokens.fontStyle}: ${bodyM.fontStyle};
-                ${tokens.fontWeight}: ${bodyMBold.fontWeight};
-                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.fontFamily}: var(--plasma-typo-dspl-m-font-family);
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-bold-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
 
                 ${tokens.largeFontSize}: 5.5rem;
                 ${tokens.largeLineHeight}: 5.75rem;
@@ -93,12 +76,12 @@ export const config = {
                 ${tokens.smallFontSize}: 3.5rem;
                 ${tokens.smallLineHeight}: 3.75rem;
 
-                ${tokens.captionFontFamily}: ${h4.fontFamily};
-                ${tokens.captionFontSize}: ${h4.fontSize};
-                ${tokens.captionFontStyle}: ${h4.fontStyle};
-                ${tokens.captionFontWeight}: ${h4.fontWeight};
-                ${tokens.captionLetterSpacing}: ${h4.letterSpacing};
-                ${tokens.captionLineHeight}: ${h4.lineHeight};
+                ${tokens.captionFontFamily}: var(--plasma-typo-h4-font-family);
+                ${tokens.captionFontSize}: var(--plasma-typo-h4-font-size);
+                ${tokens.captionFontStyle}: var(--plasma-typo-h4-font-style);
+                ${tokens.captionFontWeight}: var(--plasma-typo-h4-font-weight);
+                ${tokens.captionLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
+                ${tokens.captionLineHeight}: var(--plasma-typo-h4-line-height);
 
                 ${tokens.largeCodeItemWidth}: 3.5rem;
                 ${tokens.largeCodeItemHeight}: 5.75rem;
@@ -118,10 +101,10 @@ export const config = {
 
                 ${tokens.separatorWidth}: 0.5rem;
 
-                ${tokens.fontFamily}: ${dsplS.fontFamily};
-                ${tokens.fontStyle}: ${bodyS.fontStyle};
-                ${tokens.fontWeight}: ${bodySBold.fontWeight};
-                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.fontFamily}: var(--plasma-typo-dspl-s-font-family);
+                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
 
                 ${tokens.largeFontSize}: 4rem;
                 ${tokens.largeLineHeight}: 4.25rem;
@@ -132,12 +115,12 @@ export const config = {
                 ${tokens.smallFontSize}: 2.5rem;
                 ${tokens.smallLineHeight}: 2.75rem;
 
-                ${tokens.captionFontFamily}: ${h5.fontFamily};
-                ${tokens.captionFontSize}: ${h5.fontSize};
-                ${tokens.captionFontStyle}: ${h5.fontStyle};
-                ${tokens.captionFontWeight}: ${h5.fontWeight};
-                ${tokens.captionLetterSpacing}: ${h5.letterSpacing};
-                ${tokens.captionLineHeight}: ${h5.lineHeight};
+                ${tokens.captionFontFamily}: var(--plasma-typo-h5-font-family);
+                ${tokens.captionFontSize}: var(--plasma-typo-h5-font-size);
+                ${tokens.captionFontStyle}: var(--plasma-typo-h5-font-style);
+                ${tokens.captionFontWeight}: var(--plasma-typo-h5-font-weight);
+                ${tokens.captionLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
+                ${tokens.captionLineHeight}: var(--plasma-typo-h5-line-height);
 
                 ${tokens.largeCodeItemWidth}: 2.5rem;
                 ${tokens.largeCodeItemHeight}: 4.25rem;

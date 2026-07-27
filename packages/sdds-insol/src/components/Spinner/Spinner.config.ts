@@ -1,14 +1,4 @@
 import { css } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    textAccent,
-    textNegative,
-    textParagraph,
-    textPositive,
-    textPrimary,
-    textSecondary,
-    textTertiary,
-    textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -18,28 +8,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                --plasma-spinner-color: ${textPrimary};
+                --plasma-spinner-color: var(--text-primary);
             `,
             secondary: css`
-                --plasma-spinner-color: ${textSecondary};
+                --plasma-spinner-color: var(--text-secondary);
             `,
             tertiary: css`
-                --plasma-spinner-color: ${textTertiary};
+                --plasma-spinner-color: var(--text-tertiary);
             `,
             paragraph: css`
-                --plasma-spinner-color: ${textParagraph};
+                --plasma-spinner-color: var(--text-paragraph);
             `,
             accent: css`
-                --plasma-spinner-color: ${textAccent};
+                --plasma-spinner-color: var(--text-accent);
             `,
             positive: css`
-                --plasma-spinner-color: ${textPositive};
+                --plasma-spinner-color: var(--text-positive);
             `,
             warning: css`
-                --plasma-spinner-color: ${textWarning};
+                --plasma-spinner-color: var(--text-warning);
             `,
             negative: css`
-                --plasma-spinner-color: ${textNegative};
+                --plasma-spinner-color: var(--text-negative);
             `,
         },
     },

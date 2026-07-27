@@ -1,14 +1,4 @@
 import { css, indicatorTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    onDarkSurfaceSolidDefault,
-    onLightSurfaceSolidDefault,
-    surfaceAccent,
-    surfaceNegative,
-    surfacePositive,
-    surfaceSolidDefault,
-    surfaceSolidTertiary,
-    surfaceWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -18,28 +8,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.color}: ${surfaceSolidDefault};
+                ${tokens.color}: var(--surface-solid-default);
             `,
             accent: css`
-                ${tokens.color}: ${surfaceAccent};
+                ${tokens.color}: var(--surface-accent);
             `,
             inactive: css`
-                ${tokens.color}: ${surfaceSolidTertiary};
+                ${tokens.color}: var(--surface-solid-tertiary);
             `,
             positive: css`
-                ${tokens.color}: ${surfacePositive};
+                ${tokens.color}: var(--surface-positive);
             `,
             warning: css`
-                ${tokens.color}: ${surfaceWarning};
+                ${tokens.color}: var(--surface-warning);
             `,
             negative: css`
-                ${tokens.color}: ${surfaceNegative};
+                ${tokens.color}: var(--surface-negative);
             `,
             black: css`
-                ${tokens.color}: ${onLightSurfaceSolidDefault};
+                ${tokens.color}: var(--on-light-surface-solid-default);
             `,
             white: css`
-                ${tokens.color}: ${onDarkSurfaceSolidDefault};
+                ${tokens.color}: var(--on-dark-surface-solid-default);
             `,
         },
         size: {

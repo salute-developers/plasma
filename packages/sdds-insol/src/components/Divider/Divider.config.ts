@@ -1,10 +1,4 @@
 import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    inverseTextTertiary,
-    onDarkSurfaceTransparentTertiary,
-    onLightSurfaceTransparentTertiary,
-    surfaceTransparentTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -15,17 +9,17 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${dividerTokens.background}: ${surfaceTransparentTertiary};
+                ${dividerTokens.background}: var(--surface-transparent-tertiary);
             `,
             dark: css`
-                ${dividerTokens.background}: ${onDarkSurfaceTransparentTertiary};
+                ${dividerTokens.background}: var(--on-dark-surface-transparent-tertiary);
             `,
             light: css`
-                ${dividerTokens.background}: ${onLightSurfaceTransparentTertiary};
+                ${dividerTokens.background}: var(--on-light-surface-transparent-tertiary);
             `,
             // TODO поменять на корректный токен --inverse-surface-transparent-tertiary когда он появится
             inverse: css`
-                ${dividerTokens.background}: ${inverseTextTertiary};
+                ${dividerTokens.background}: var(--inverse-text-tertiary);
             `,
         },
         size: {

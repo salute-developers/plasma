@@ -3,17 +3,15 @@ import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
-import { getSegmentStories, getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { getSegmentStories } from '@salutejs/plasma-sb-utils';
 
-import { Counter } from '../Counter';
+import { Counter } from '../Counter/Counter';
 
 import { config as groupConfig } from './SegmentGroup.config';
 import { config as itemConfig } from './SegmentItem.config';
 import { SegmentProvider, SegmentItem, SegmentGroup, useSegment } from './Segment';
 
 type SegmentGroupProps = ComponentProps<typeof SegmentGroup>;
-
-const { views: segmentItemViews } = getConfigVariations(itemConfig);
 
 const getIconSizeProps = (size: string) => {
     switch (size) {
@@ -54,9 +52,7 @@ const getContentRight = (contentRightOption: string, size: string, segmentItemVi
                 <Counter
                     size={counterSize}
                     count={1}
-                    view={
-                        ['accent', 'accentTransparent'].includes(segmentItemView) && isSelected ? 'light' : 'positive'
-                    }
+                    view={segmentItemView === 'accent' && isSelected ? 'light' : 'positive'}
                 />
             );
         case 'text':
@@ -75,14 +71,6 @@ const { meta: META, Default } = getSegmentStories({
     useSegment,
     customGetContentLeft: getContentLeft,
     customGetContentRight: getContentRight,
-    additionalArgTypes: {
-        segmentItemView: {
-            options: segmentItemViews,
-            control: {
-                type: 'select',
-            },
-        },
-    },
 });
 
 const meta: Meta<SegmentGroupProps> = {

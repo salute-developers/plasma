@@ -1,28 +1,4 @@
 import { css, skeletonTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyL,
-    bodyM,
-    bodyS,
-    bodyXS,
-    bodyXXS,
-    dsplL,
-    dsplM,
-    dsplS,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    surfaceSkeletonDeepGradient,
-    surfaceSkeletonGradient,
-    surfaceTransparentSecondary,
-    surfaceTransparentTertiary,
-    textL,
-    textM,
-    textS,
-    textXS,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -32,88 +8,88 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, ${surfaceSkeletonGradient});
-                ${skeletonTokens.fadeInColor}: ${surfaceTransparentSecondary};
-                ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient, var(--surface-skeleton-gradient));
+                ${skeletonTokens.fadeInColor}: var(--surface-transparent-secondary);
+                ${skeletonTokens.fadeOutColor}: var(--surface-transparent-tertiary);
             `,
             lighter: css`
-                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, ${surfaceSkeletonDeepGradient});
-                ${skeletonTokens.fadeInColor}: ${surfaceTransparentSecondary};
-                ${skeletonTokens.fadeOutColor}: ${surfaceTransparentTertiary};
+                ${skeletonTokens.gradientColor}: var(--plasma-colors-skeleton-gradient-lighter, var(--surface-skeleton-deep-gradient));
+                ${skeletonTokens.fadeInColor}: var(--surface-transparent-secondary);
+                ${skeletonTokens.fadeOutColor}: var(--surface-transparent-tertiary);
             `,
         },
         size: {
             bodyL: css`
-                ${skeletonTokens.lineHeight}: ${bodyL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyL.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-l-font-size);
             `,
             bodyM: css`
-                ${skeletonTokens.lineHeight}: ${bodyM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyM.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-m-font-size);
             `,
             bodyS: css`
-                ${skeletonTokens.lineHeight}: ${bodyS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyS.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-s-font-size);
             `,
             bodyXS: css`
-                ${skeletonTokens.lineHeight}: ${bodyXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyXS.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-xs-font-size);
             `,
             bodyXXS: css`
-                ${skeletonTokens.lineHeight}: ${bodyXXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${bodyXXS.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-body-xxs-font-size);
             `,
             dsplL: css`
-                ${skeletonTokens.lineHeight}: ${dsplL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplL.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-dspl-l-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-dspl-l-font-size);
             `,
             dsplM: css`
-                ${skeletonTokens.lineHeight}: ${dsplM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplM.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-dspl-m-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-dspl-m-font-size);
             `,
             dsplS: css`
-                ${skeletonTokens.lineHeight}: ${dsplS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${dsplS.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-dspl-s-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-dspl-s-font-size);
             `,
             h1: css`
-                ${skeletonTokens.lineHeight}: ${h1.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h1.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h1-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h1-font-size);
             `,
             h2: css`
-                ${skeletonTokens.lineHeight}: ${h2.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h2.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h2-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h2-font-size);
             `,
             h3: css`
-                ${skeletonTokens.lineHeight}: ${h3.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h3.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h3-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h3-font-size);
             `,
             h4: css`
-                ${skeletonTokens.lineHeight}: ${h4.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h4.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h4-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h4-font-size);
             `,
             h5: css`
-                ${skeletonTokens.lineHeight}: ${h5.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h5.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h5-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h5-font-size);
             `,
             h6: css`
-                ${skeletonTokens.lineHeight}: ${h6.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${h6.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-h6-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-h6-font-size);
             `,
             textL: css`
-                ${skeletonTokens.lineHeight}: ${textL.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textL.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-l-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-l-font-size);
             `,
             textM: css`
-                ${skeletonTokens.lineHeight}: ${textM.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textM.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-m-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-m-font-size);
             `,
             textS: css`
-                ${skeletonTokens.lineHeight}: ${textS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textS.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-s-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-s-font-size);
             `,
             textXS: css`
-                ${skeletonTokens.lineHeight}: ${textXS.lineHeight};
-                ${skeletonTokens.visibleLineHeight}: ${textXS.fontSize};
+                ${skeletonTokens.lineHeight}: var(--plasma-typo-text-xs-line-height);
+                ${skeletonTokens.visibleLineHeight}: var(--plasma-typo-text-xs-font-size);
             `,
         },
     },

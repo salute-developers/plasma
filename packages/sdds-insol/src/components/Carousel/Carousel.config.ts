@@ -1,12 +1,4 @@
 import { css, carouselNewTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    surfaceSolidDefault,
-    surfaceTransparentSecondary,
-    surfaceTransparentSecondaryActive,
-    surfaceTransparentSecondaryHover,
-    surfaceTransparentTertiary,
-    textPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -16,14 +8,14 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.paginationDotBackground}: ${surfaceTransparentTertiary};
-                ${tokens.paginationDotActiveBackground}: ${surfaceSolidDefault};
-                ${tokens.controlIconButtonColor}: ${textPrimary};
-                ${tokens.controlIconButtonBackgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.controlIconButtonColorHover}: ${textPrimary};
-                ${tokens.controlIconButtonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.controlIconButtonColorActive}: ${textPrimary};
-                ${tokens.controlIconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
+                ${tokens.paginationDotBackground}: var(--surface-transparent-tertiary);
+                ${tokens.paginationDotActiveBackground}: var(--surface-solid-default);
+                ${tokens.controlIconButtonColor}: var(--text-primary);
+                ${tokens.controlIconButtonBackgroundColor}: var(--surface-transparent-secondary);
+                ${tokens.controlIconButtonColorHover}: var(--text-primary);
+                ${tokens.controlIconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.controlIconButtonColorActive}: var(--text-primary);
+                ${tokens.controlIconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
             `,
         },
         size: {

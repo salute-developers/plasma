@@ -1,130 +1,75 @@
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyL,
-    bodyLBold,
-    bodyM,
-    bodyMBold,
-    bodyS,
-    bodySBold,
-    bodyXS,
-    bodyXSBold,
-    inverseTextPrimary,
-    inverseTextPrimaryHover,
-    inverseTextSecondary,
-    onDarkTextPrimary,
-    onDarkTextPrimaryHover,
-    onDarkTextSecondary,
-    surfaceAccent,
-    surfaceSolidCard,
-    surfaceSolidDefault,
-    surfaceTransparentAccent,
-    surfaceTransparentAccentHover,
-    textAccent,
-    textAccentHover,
-    textPrimary,
-    textPrimaryHover,
-    textSecondary,
-    textTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
         view: 'clear',
-        size: 'xl',
+        size: 'xs',
     },
     variations: {
         view: {
-            default: css`
-                ${segmentTokens.itemColor}: ${textPrimary};
+            clear: css`
+                ${segmentTokens.itemColor}: var(--text-secondary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemAdditionalColor}: ${textSecondary};
-                ${segmentTokens.itemAdditionalColorHover}: ${textSecondary};
-                ${segmentTokens.itemSelectedColor}: ${inverseTextPrimary};
-                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceSolidDefault};
-                ${segmentTokens.itemSelectedColorHover}: ${inverseTextPrimaryHover};
-                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidDefault};
-                ${segmentTokens.itemSelectedAdditionalColor}: ${inverseTextSecondary};
-                ${segmentTokens.itemSelectedAdditionalColorHover}: ${inverseTextSecondary};
+                ${segmentTokens.itemAdditionalColor}: var(--text-tertiary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColor}: transparent;
+                ${segmentTokens.itemSelectedColorHover}: var(--text-primary);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: transparent;
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             secondary: css`
-                ${segmentTokens.itemColor}: ${textPrimary};
-                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
-                ${segmentTokens.itemSelectedColor}: ${textAccent};
-                ${segmentTokens.itemSelectedColorHover}: ${textAccentHover};
-
+                ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceSolidCard};
-                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidCard};
+                ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--text-accent);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
+                ${segmentTokens.itemSelectedColorHover}: var(--text-accent-hover);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--text-secondary);
 
-                ${segmentTokens.itemAdditionalColor}: ${textSecondary};
-                ${segmentTokens.itemAdditionalColorHover}: ${textSecondary};
-                ${segmentTokens.itemSelectedAdditionalColor}: ${textSecondary};
-                ${segmentTokens.itemSelectedAdditionalColorHover}: ${textSecondary};
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
+            `,
+            default: css`
+                ${segmentTokens.itemColor}: var(--text-primary);
+                ${segmentTokens.itemBackgroundColor}: transparent;
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
+                ${segmentTokens.itemBackgroundColorHover}: transparent;
+                ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
+                ${segmentTokens.itemSelectedColorHover}: var(--inverse-text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--inverse-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--inverse-text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
             accent: css`
-                ${segmentTokens.itemColor}: ${textPrimary};
+                ${segmentTokens.itemColor}: var(--text-primary);
                 ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
+                ${segmentTokens.itemColorHover}: var(--text-primary-hover);
                 ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemAdditionalColor}: ${textSecondary};
-                ${segmentTokens.itemAdditionalColorHover}: ${textSecondary};
-                ${segmentTokens.itemSelectedColor}: ${onDarkTextPrimary};
-                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceAccent};
-                ${segmentTokens.itemSelectedColorHover}: ${onDarkTextPrimaryHover};
-                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceAccent};
-                ${segmentTokens.itemSelectedAdditionalColor}: ${onDarkTextSecondary};
-                ${segmentTokens.itemSelectedAdditionalColorHover}: ${onDarkTextSecondary};
+                ${segmentTokens.itemAdditionalColor}: var(--text-secondary);
+                ${segmentTokens.itemAdditionalColorHover}: var(--text-secondary);
+                ${segmentTokens.itemSelectedColor}: var(--on-dark-text-primary);
+                ${segmentTokens.itemSelectedBackgroundColor}: var(--surface-accent);
+                ${segmentTokens.itemSelectedColorHover}: var(--on-dark-text-primary-hover);
+                ${segmentTokens.itemSelectedBackgroundColorHover}: var(--surface-accent);
+                ${segmentTokens.itemSelectedAdditionalColor}: var(--on-dark-text-secondary);
+                ${segmentTokens.itemSelectedAdditionalColorHover}: var(--on-dark-text-secondary);
 
-                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
-            `,
-            clear: css`
-                ${segmentTokens.itemColor}: ${textSecondary};
-                ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
-                ${segmentTokens.itemBackgroundColorHover}: transparent;
-                ${segmentTokens.itemAdditionalColor}: ${textTertiary};
-                ${segmentTokens.itemAdditionalColorHover}: ${textSecondary};
-                ${segmentTokens.itemSelectedColor}: ${textPrimaryHover};
-                ${segmentTokens.itemSelectedBackgroundColor}: transparent;
-                ${segmentTokens.itemSelectedColorHover}: ${textPrimary};
-                ${segmentTokens.itemSelectedBackgroundColorHover}: transparent;
-                ${segmentTokens.itemSelectedAdditionalColor}: ${textSecondary};
-                ${segmentTokens.itemSelectedAdditionalColorHover}: ${textSecondary};
-
-                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
-            `,
-            accentTransparent: css`
-                ${segmentTokens.itemColor}: ${textPrimary};
-                ${segmentTokens.itemColorHover}: ${textPrimaryHover};
-
-                ${segmentTokens.itemSelectedColor}: ${textAccent};
-                ${segmentTokens.itemSelectedColorHover}: ${textAccentHover};
-
-                ${segmentTokens.itemBackgroundColor}: transparent;
-                ${segmentTokens.itemBackgroundColorHover}: transparent;
-
-                ${segmentTokens.itemSelectedBackgroundColor}: ${surfaceTransparentAccent};
-                ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceTransparentAccentHover};
-
-                ${segmentTokens.itemAdditionalColor}: ${textSecondary};
-                ${segmentTokens.itemAdditionalColorHover}: ${textSecondary};
-
-                ${segmentTokens.itemSelectedAdditionalColor}: ${textSecondary};
-                ${segmentTokens.itemSelectedAdditionalColorHover}: ${textSecondary};
-
-                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: var(--text-accent);
             `,
         },
         size: {
@@ -138,13 +83,13 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0;
 
-                ${segmentTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyXS.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyXS.fontWeight};
-                ${segmentTokens.fontWeightSelectedItem}: ${bodyXSBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyXS.lineHeight};
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${segmentTokens.fontWeightSelectedItem}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
                 ${segmentTokens.itemBorderRadius}: 0.625rem;
@@ -156,13 +101,13 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.125rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
 
-                ${segmentTokens.fontFamily}: ${bodyS.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyS.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyS.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyS.fontWeight};
-                ${segmentTokens.fontWeightSelectedItem}: ${bodySBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyS.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyS.lineHeight};
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${segmentTokens.fontWeightSelectedItem}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             m: css`
                 ${segmentTokens.itemBorderRadius}: 0.75rem;
@@ -174,13 +119,13 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.25rem;
                 ${segmentTokens.itemMarginLeft}: 0rem;
 
-                ${segmentTokens.fontFamily}: ${bodyM.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyM.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyM.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyM.fontWeight};
-                ${segmentTokens.fontWeightSelectedItem}: ${bodyMBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyM.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyM.lineHeight};
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${segmentTokens.fontWeightSelectedItem}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             l: css`
                 ${segmentTokens.itemBorderRadius}: 0.875rem;
@@ -192,13 +137,13 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.375rem;
                 ${segmentTokens.itemMarginLeft}: 0;
 
-                ${segmentTokens.fontFamily}: ${bodyL.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyL.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyL.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyL.fontWeight};
-                ${segmentTokens.fontWeightSelectedItem}: ${bodyLBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyL.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyL.lineHeight};
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${segmentTokens.fontWeightSelectedItem}: var(--plasma-typo-body-s-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             xl: css`
                 ${segmentTokens.itemBorderRadius}: 1rem;
@@ -210,13 +155,13 @@ export const config = {
                 ${segmentTokens.itemIconMargin}: 0.375rem;
                 ${segmentTokens.itemMarginLeft}: 0;
 
-                ${segmentTokens.fontFamily}: ${bodyL.fontFamily};
-                ${segmentTokens.fontSize}: ${bodyL.fontSize};
-                ${segmentTokens.fontStyle}: ${bodyL.fontStyle};
-                ${segmentTokens.fontWeight}: ${bodyL.fontWeight};
-                ${segmentTokens.fontWeightSelectedItem}: ${bodyLBold.fontWeight};
-                ${segmentTokens.letterSpacing}: ${bodyL.letterSpacing};
-                ${segmentTokens.lineHeight}: ${bodyL.lineHeight};
+                ${segmentTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${segmentTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${segmentTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${segmentTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${segmentTokens.fontWeightSelectedItem}: var(--plasma-typo-body-m-bold-font-weight);
+                ${segmentTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${segmentTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
             `,
         },
         disabled: {

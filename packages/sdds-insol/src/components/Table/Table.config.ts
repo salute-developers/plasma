@@ -1,16 +1,4 @@
 import { css, tableTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyL,
-    bodyM,
-    bodyS,
-    bodySBold,
-    bodyXS,
-    bodyXSBold,
-    outlineAccent,
-    outlineTransparentTertiary,
-    surfaceTransparentTertiary,
-    textAccent,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -29,24 +17,24 @@ export const config = {
         },
         size: {
             l: css`
-                ${tokens.fontFamily}: ${bodyL.fontFamily};
-                ${tokens.fontSize}: ${bodyL.fontSize};
-                ${tokens.fontStyle}: ${bodyL.fontStyle};
-                ${tokens.fontWeight}: ${bodyL.fontWeight};
-                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
-                ${tokens.lineHeight}: ${bodyL.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.headerRowHeight}: 3.125rem;
                 ${tokens.rowHeight}: 3.125rem;
                 ${tokens.cellPadding}: 0.375rem 1rem;
                 ${tokens.checkboxCellPadding}: 0.375rem 1rem;
                 ${tokens.checkboxTriggerBorderWidth}: 0.0625rem;
-                ${tokens.checkboxTriggerBorderCheckedColor}: ${outlineAccent};
+                ${tokens.checkboxTriggerBorderCheckedColor}: var(--outline-accent);
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${tokens.checkboxTriggerBorderColor}: ${outlineTransparentTertiary};
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
                 ${tokens.checkboxFillColor}: transparent;
-                ${tokens.checkboxTriggerIconColor}: ${outlineAccent};
+                ${tokens.checkboxTriggerIconColor}: var(--outline-accent);
 
                 ${tokens.editableCellIconGap}: 0.5rem;
                 ${tokens.editableCellIconButtonWidth}: 3rem;
@@ -55,18 +43,18 @@ export const config = {
                 ${tokens.editableCellInputBorderRadius}: 0.875rem;
                 ${tokens.editableCellInputPadding}: 0 0.75rem;
 
-                ${tokens.editableCellInputBackground}: ${surfaceTransparentTertiary};
+                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
 
                 ${tokens.filterCheckboxPadding}: 0.75rem 0;
                 ${tokens.filterDividerMargin}: 0.375rem 1rem;
 
                 ${tokens.buttonHeight}: 2.5rem;
-                ${tokens.buttonFontFamily}: ${bodyS.fontFamily};
-                ${tokens.buttonFontSize}: ${bodyS.fontSize};
-                ${tokens.buttonFontStyle}: ${bodyS.fontStyle};
-                ${tokens.buttonFontWeight}: ${bodySBold.fontWeight};
-                ${tokens.buttonLetterSpacing}: ${bodyS.letterSpacing};
-                ${tokens.buttonLineHeight}: ${bodyS.lineHeight};
+                ${tokens.buttonFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.buttonFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.buttonFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.buttonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.buttonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.buttonLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.875rem;
@@ -76,45 +64,45 @@ export const config = {
                 ${tokens.selectItemIconMargin}: 0 0.375rem 0 0;
                 ${tokens.selectItemIconSize}: 1.5rem;
                 ${tokens.selectCellPadding}: 0;
-                ${tokens.selectCellTitleFontFamily}: ${bodyM.fontFamily};
-                ${tokens.selectCellTitleFontSize}: ${bodyM.fontSize};
-                ${tokens.selectCellTitleFontStyle}: ${bodyM.fontStyle};
-                ${tokens.selectCellTitleFontWeight}: ${bodyM.fontWeight};
-                ${tokens.selectCellTitleLetterSpacing}: ${bodyM.letterSpacing};
-                ${tokens.selectCellTitleLineHeight}: ${bodyM.lineHeight};
+                ${tokens.selectCellTitleFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.selectCellTitleFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.selectCellTitleFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.selectCellTitleFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.selectCellTitleLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.selectCellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.selectCheckboxTriggerSize}: 1.25rem;
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.selectCheckboxTriggerBorderWidth}: 0.0625rem;
-                ${tokens.selectCheckboxTriggerBorderCheckedColor}: ${textAccent};
+                ${tokens.selectCheckboxTriggerBorderCheckedColor}: var(--text-accent);
                 ${tokens.selectControlPanelPadding}: 0.5rem 1rem;
                 ${tokens.selectControlPanelGap}: 0.5rem;
 
-                ${tokens.linkButtonFontFamily}: ${bodyS.fontFamily};
-                ${tokens.linkButtonFontSize}: ${bodyS.fontSize};
-                ${tokens.linkButtonFontStyle}: ${bodyS.fontStyle};
-                ${tokens.linkButtonFontWeight}: ${bodySBold.fontWeight};
-                ${tokens.linkButtonLetterSpacing}: ${bodyS.letterSpacing};
-                ${tokens.linkButtonLineHeight}: ${bodyS.lineHeight};
+                ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.linkButtonFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.linkButtonFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.linkButtonFontWeight}: var(--plasma-typo-body-s-bold-font-weight);
+                ${tokens.linkButtonLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.linkButtonLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             m: css`
-                ${tokens.fontFamily}: ${bodyM.fontFamily};
-                ${tokens.fontSize}: ${bodyM.fontSize};
-                ${tokens.fontStyle}: ${bodyM.fontStyle};
-                ${tokens.fontWeight}: ${bodyM.fontWeight};
-                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
-                ${tokens.lineHeight}: ${bodyM.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.headerRowHeight}: 2.75rem;
                 ${tokens.rowHeight}: 2.75rem;
                 ${tokens.cellPadding}: 0.25rem 0.875rem;
                 ${tokens.checkboxCellPadding}: 0.25rem 0.75rem;
                 ${tokens.checkboxTriggerBorderWidth}: 0.0625rem;
-                ${tokens.checkboxTriggerBorderCheckedColor}: ${outlineAccent};
+                ${tokens.checkboxTriggerBorderCheckedColor}: var(--outline-accent);
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
-                ${tokens.checkboxTriggerBorderColor}: ${outlineTransparentTertiary};
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
                 ${tokens.checkboxFillColor}: transparent;
-                ${tokens.checkboxTriggerIconColor}: ${outlineAccent};
+                ${tokens.checkboxTriggerIconColor}: var(--outline-accent);
 
                 ${tokens.editableCellIconGap}: 0.375rem;
                 ${tokens.editableCellIconButtonWidth}: 2.5rem;
@@ -123,18 +111,18 @@ export const config = {
                 ${tokens.editableCellInputBorderRadius}: 0.625rem;
                 ${tokens.editableCellInputPadding}: 0 0.625rem;
 
-                ${tokens.editableCellInputBackground}: ${surfaceTransparentTertiary};
+                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
 
                 ${tokens.filterCheckboxPadding}: 0.5rem 0;
                 ${tokens.filterDividerMargin}: 0.375rem 0.875rem;
 
                 ${tokens.buttonHeight}: 2rem;
-                ${tokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${tokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.75rem;
@@ -144,45 +132,45 @@ export const config = {
                 ${tokens.selectItemIconMargin}: 0 0.375rem 0 0;
                 ${tokens.selectItemIconSize}: 1.5rem;
                 ${tokens.selectCellPadding}: 0;
-                ${tokens.selectCellTitleFontFamily}: ${bodyS.fontFamily};
-                ${tokens.selectCellTitleFontSize}: ${bodyS.fontSize};
-                ${tokens.selectCellTitleFontStyle}: ${bodyS.fontStyle};
-                ${tokens.selectCellTitleFontWeight}: ${bodyS.fontWeight};
-                ${tokens.selectCellTitleLetterSpacing}: ${bodyS.letterSpacing};
-                ${tokens.selectCellTitleLineHeight}: ${bodyS.lineHeight};
+                ${tokens.selectCellTitleFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.selectCellTitleFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.selectCellTitleFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.selectCellTitleFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.selectCellTitleLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.selectCellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.selectCheckboxTriggerSize}: 1.25rem;
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.selectCheckboxTriggerBorderWidth}: 0.0625rem;
-                ${tokens.selectCheckboxTriggerBorderCheckedColor}: ${textAccent};
+                ${tokens.selectCheckboxTriggerBorderCheckedColor}: var(--text-accent);
                 ${tokens.selectControlPanelPadding}: 0.25rem 0.875rem;
                 ${tokens.selectControlPanelGap}: 0.625rem;
 
-                ${tokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${tokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
             s: css`
-                ${tokens.fontFamily}: ${bodyS.fontFamily};
-                ${tokens.fontSize}: ${bodyS.fontSize};
-                ${tokens.fontStyle}: ${bodyS.fontStyle};
-                ${tokens.fontWeight}: ${bodyS.fontWeight};
-                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
-                ${tokens.lineHeight}: ${bodyS.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.headerRowHeight}: 2.125rem;
                 ${tokens.rowHeight}: 2.125rem;
                 ${tokens.cellPadding}: 0.125rem 0.5rem;
                 ${tokens.checkboxCellPadding}: 0.125rem 0.625rem;
                 ${tokens.checkboxTriggerBorderWidth}: 0.0625rem;
-                ${tokens.checkboxTriggerBorderCheckedColor}: ${outlineAccent};
+                ${tokens.checkboxTriggerBorderCheckedColor}: var(--outline-accent);
                 ${tokens.checkboxTriggerSize}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
-                ${tokens.checkboxTriggerBorderColor}: ${outlineTransparentTertiary};
+                ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
                 ${tokens.checkboxFillColor}: transparent;
-                ${tokens.checkboxTriggerIconColor}: ${outlineAccent};
+                ${tokens.checkboxTriggerIconColor}: var(--outline-accent);
 
                 ${tokens.editableCellIconGap}: 0.25rem;
                 ${tokens.editableCellIconButtonWidth}: 2rem;
@@ -191,18 +179,18 @@ export const config = {
                 ${tokens.editableCellInputBorderRadius}: 0.5rem;
                 ${tokens.editableCellInputPadding}: 0 0.375rem;
 
-                ${tokens.editableCellInputBackground}: ${surfaceTransparentTertiary};
+                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
 
                 ${tokens.filterCheckboxPadding}: 0.5rem 0;
                 ${tokens.filterDividerMargin}: 0.25rem 0.625rem;
 
                 ${tokens.buttonHeight}: 1.5rem;
-                ${tokens.buttonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.buttonFontSize}: ${bodyXS.fontSize};
-                ${tokens.buttonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.buttonLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.buttonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.buttonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.buttonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.buttonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.buttonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.buttonLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.selectPadding}: 0.125rem;
                 ${tokens.selectBorderRadius}: 0.625rem;
@@ -212,25 +200,25 @@ export const config = {
                 ${tokens.selectItemIconMargin}: 0 0.25rem 0 0;
                 ${tokens.selectItemIconSize}: 1rem;
                 ${tokens.selectCellPadding}: 0;
-                ${tokens.selectCellTitleFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.selectCellTitleFontSize}: ${bodyXS.fontSize};
-                ${tokens.selectCellTitleFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.selectCellTitleFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.selectCellTitleLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.selectCellTitleLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.selectCellTitleFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.selectCellTitleFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.selectCellTitleFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.selectCellTitleFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.selectCellTitleLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.selectCellTitleLineHeight}: var(--plasma-typo-body-xs-line-height);
                 ${tokens.selectCheckboxTriggerSize}: 0.875rem;
                 ${tokens.selectCheckboxTriggerBorderRadius}: 0.25rem;
                 ${tokens.selectCheckboxTriggerBorderWidth}: 0.0625rem;
-                ${tokens.selectCheckboxTriggerBorderCheckedColor}: ${textAccent};
+                ${tokens.selectCheckboxTriggerBorderCheckedColor}: var(--text-accent);
                 ${tokens.selectControlPanelPadding}: 0.25rem 0.625rem;
                 ${tokens.selectControlPanelGap}: 0.25rem;
 
-                ${tokens.linkButtonFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.linkButtonFontSize}: ${bodyXS.fontSize};
-                ${tokens.linkButtonFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.linkButtonFontWeight}: ${bodyXSBold.fontWeight};
-                ${tokens.linkButtonLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.linkButtonLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.linkButtonFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.linkButtonFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.linkButtonFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.linkButtonFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.linkButtonLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.linkButtonLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
     },

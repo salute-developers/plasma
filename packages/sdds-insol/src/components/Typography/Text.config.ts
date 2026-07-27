@@ -1,21 +1,4 @@
 import { css, typographyTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    textL,
-    textLBold,
-    textLMedium,
-    textM,
-    textMBold,
-    textMMedium,
-    textS,
-    textSBold,
-    textSlim,
-    textSlimBold,
-    textSlimMedium,
-    textSMedium,
-    textXS,
-    textXSBold,
-    textXSMedium,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const configL = {
     defaults: {
@@ -24,14 +7,14 @@ export const configL = {
     variations: {
         size: {
             l: css`
-                ${typographyTokens.typoFontFamily}: ${textL.fontFamily};
-                ${typographyTokens.typoFontSize}: ${textL.fontSize};
-                ${typographyTokens.typoFontStyle}: ${textL.fontStyle};
-                ${typographyTokens.typoFontWeight}: ${textL.fontWeight};
-                ${typographyTokens.typoFontWeightBold}: ${textLBold.fontWeight};
-                ${typographyTokens.typoFontWeightMedium}: ${textLMedium.fontWeight};
-                ${typographyTokens.typoFontLetterSpacing}: ${textL.letterSpacing};
-                ${typographyTokens.typoFontLineHeight}: ${textL.lineHeight};
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-l-font-family);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-text-l-font-size);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-text-l-font-style);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-text-l-font-weight);
+                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-text-l-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-text-l-medium-font-weight);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-l-letter-spacing);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-l-line-height);
             `,
         },
     },
@@ -44,14 +27,14 @@ export const configM = {
     variations: {
         size: {
             m: css`
-                ${typographyTokens.typoFontFamily}: ${textM.fontFamily};
-                ${typographyTokens.typoFontSize}: ${textM.fontSize};
-                ${typographyTokens.typoFontStyle}: ${textM.fontStyle};
-                ${typographyTokens.typoFontWeight}: ${textM.fontWeight};
-                ${typographyTokens.typoFontWeightBold}: ${textMBold.fontWeight};
-                ${typographyTokens.typoFontWeightMedium}: ${textMMedium.fontWeight};
-                ${typographyTokens.typoFontLetterSpacing}: ${textM.letterSpacing};
-                ${typographyTokens.typoFontLineHeight}: ${textM.lineHeight};
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-m-font-family);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-text-m-font-size);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-text-m-font-style);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-text-m-font-weight);
+                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-text-m-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-text-m-medium-font-weight);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-m-letter-spacing);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-m-line-height);
             `,
         },
     },
@@ -64,14 +47,14 @@ export const configS = {
     variations: {
         size: {
             s: css`
-                ${typographyTokens.typoFontFamily}: ${textS.fontFamily};
-                ${typographyTokens.typoFontSize}: ${textS.fontSize};
-                ${typographyTokens.typoFontStyle}: ${textS.fontStyle};
-                ${typographyTokens.typoFontWeight}: ${textS.fontWeight};
-                ${typographyTokens.typoFontWeightBold}: ${textSBold.fontWeight};
-                ${typographyTokens.typoFontWeightMedium}: ${textSMedium.fontWeight};
-                ${typographyTokens.typoFontLetterSpacing}: ${textS.letterSpacing};
-                ${typographyTokens.typoFontLineHeight}: ${textS.lineHeight};
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-s-font-family);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-text-s-font-size);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-text-s-font-style);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-text-s-font-weight);
+                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-text-s-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-text-s-medium-font-weight);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-s-letter-spacing);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-s-line-height);
             `,
         },
     },
@@ -84,14 +67,14 @@ export const configXS = {
     variations: {
         size: {
             xs: css`
-                ${typographyTokens.typoFontFamily}: ${textXS.fontFamily};
-                ${typographyTokens.typoFontSize}: ${textXS.fontSize};
-                ${typographyTokens.typoFontStyle}: ${textXS.fontStyle};
-                ${typographyTokens.typoFontWeight}: ${textXS.fontWeight};
-                ${typographyTokens.typoFontWeightBold}: ${textXSBold.fontWeight};
-                ${typographyTokens.typoFontWeightMedium}: ${textXSMedium.fontWeight};
-                ${typographyTokens.typoFontLetterSpacing}: ${textXS.letterSpacing};
-                ${typographyTokens.typoFontLineHeight}: ${textXS.lineHeight};
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-xs-font-family);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-text-xs-font-size);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-text-xs-font-style);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-text-xs-font-weight);
+                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-text-xs-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-text-xs-medium-font-weight);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-xs-letter-spacing);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-xs-line-height);
             `,
         },
     },
@@ -104,14 +87,14 @@ export const configSlim = {
     variations: {
         size: {
             slim: css`
-                ${typographyTokens.typoFontFamily}: ${textSlim.fontFamily};
-                ${typographyTokens.typoFontSize}: ${textSlim.fontSize};
-                ${typographyTokens.typoFontStyle}: ${textSlim.fontStyle};
-                ${typographyTokens.typoFontWeight}: ${textSlim.fontWeight};
-                ${typographyTokens.typoFontWeightBold}: ${textSlimBold.fontWeight};
-                ${typographyTokens.typoFontWeightMedium}: ${textSlimMedium.fontWeight};
-                ${typographyTokens.typoFontLetterSpacing}: ${textSlim.letterSpacing};
-                ${typographyTokens.typoFontLineHeight}: ${textSlim.lineHeight};
+                ${typographyTokens.typoFontFamily}: var(--plasma-typo-text-slim-font-family);
+                ${typographyTokens.typoFontSize}: var(--plasma-typo-text-slim-font-size);
+                ${typographyTokens.typoFontStyle}: var(--plasma-typo-text-slim-font-style);
+                ${typographyTokens.typoFontWeight}: var(--plasma-typo-text-slim-font-weight);
+                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-text-slim-bold-font-weight);
+                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-text-slim-medium-font-weight);
+                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-text-slim-letter-spacing);
+                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-text-slim-line-height);
             `,
         },
     },

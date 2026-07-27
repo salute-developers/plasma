@@ -1,12 +1,4 @@
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    surfaceAccent,
-    textAccent,
-    textPrimary,
-    textSecondary,
-    textSecondaryActive,
-    textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -16,22 +8,22 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemColor}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: ${textAccent};
-                ${tabsTokens.itemSelectedDividerColorHover}: ${textAccent};
+                ${tabsTokens.itemSelectedDividerColor}: var(--text-accent);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-accent);
 
                 ${tabsTokens.itemCursor}: pointer;
             `,

@@ -1,17 +1,4 @@
 import { css, dropzoneTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyS,
-    h4,
-    h4Bold,
-    outlineAccent,
-    outlineSolidSecondary,
-    outlineSolidSecondaryHover,
-    overlaySoft,
-    surfaceSolidCard,
-    surfaceSolidCardHover,
-    textPrimary,
-    textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -21,14 +8,14 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${dropzoneTokens.background}: ${surfaceSolidCard};
-                ${dropzoneTokens.backgroundHover}: ${surfaceSolidCardHover};
-                ${dropzoneTokens.overlayColorActive}: ${overlaySoft};
-                ${dropzoneTokens.borderColor}: ${outlineSolidSecondary};
-                ${dropzoneTokens.borderColorHover}: ${outlineSolidSecondaryHover};
-                ${dropzoneTokens.borderColorActive}: ${outlineAccent};
-                ${dropzoneTokens.titleColor}: ${textPrimary};
-                ${dropzoneTokens.descriptionColor}: ${textSecondary};
+                ${dropzoneTokens.background}: var(--surface-solid-card);
+                ${dropzoneTokens.backgroundHover}: var(--surface-solid-card-hover);
+                ${dropzoneTokens.overlayColorActive}: var(--overlay-soft);
+                ${dropzoneTokens.borderColor}: var(--outline-solid-secondary);
+                ${dropzoneTokens.borderColorHover}: var(--outline-solid-secondary-hover);
+                ${dropzoneTokens.borderColorActive}: var(--outline-accent);
+                ${dropzoneTokens.titleColor}: var(--text-primary);
+                ${dropzoneTokens.descriptionColor}: var(--text-secondary);
             `,
         },
         size: {
@@ -39,19 +26,19 @@ export const config = {
                 ${dropzoneTokens.contentGap}: 0.375rem;
                 ${dropzoneTokens.contentColumnGap}: 0.5rem;
 
-                ${dropzoneTokens.titleFontFamily}: ${h4.fontFamily};
-                ${dropzoneTokens.titleFontSize}: ${h4.fontSize};
-                ${dropzoneTokens.titleFontStyle}: ${h4.fontStyle};
-                ${dropzoneTokens.titleFontWeight}: ${h4Bold.fontWeight};
-                ${dropzoneTokens.titleLetterSpacing}: ${h4.letterSpacing};
-                ${dropzoneTokens.titleLineHeight}: ${h4.lineHeight};
+                ${dropzoneTokens.titleFontFamily}: var(--plasma-typo-h4-font-family);
+                ${dropzoneTokens.titleFontSize}: var(--plasma-typo-h4-font-size);
+                ${dropzoneTokens.titleFontStyle}: var(--plasma-typo-h4-font-style);
+                ${dropzoneTokens.titleFontWeight}: var(--plasma-typo-h4-bold-font-weight);
+                ${dropzoneTokens.titleLetterSpacing}: var(--plasma-typo-h4-letter-spacing);
+                ${dropzoneTokens.titleLineHeight}: var(--plasma-typo-h4-line-height);
 
-                ${dropzoneTokens.descriptionFontFamily}: ${bodyS.fontFamily};
-                ${dropzoneTokens.descriptionFontSize}: ${bodyS.fontSize};
-                ${dropzoneTokens.descriptionFontStyle}: ${bodyS.fontStyle};
-                ${dropzoneTokens.descriptionFontWeight}: ${bodyS.fontWeight};
-                ${dropzoneTokens.descriptionLetterSpacing}: ${bodyS.letterSpacing};
-                ${dropzoneTokens.descriptionLineHeight}: ${bodyS.lineHeight};
+                ${dropzoneTokens.descriptionFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${dropzoneTokens.descriptionFontSize}: var(--plasma-typo-body-s-font-size);
+                ${dropzoneTokens.descriptionFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${dropzoneTokens.descriptionFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${dropzoneTokens.descriptionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${dropzoneTokens.descriptionLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
         },
         disabled: {

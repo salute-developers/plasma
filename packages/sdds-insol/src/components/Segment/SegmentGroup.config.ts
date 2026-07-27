@@ -1,28 +1,27 @@
 import { css, segmentTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { surfaceSolidSecondary, textAccent, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
         view: 'clear',
-        size: 'xl',
+        size: 'xs',
     },
     variations: {
         view: {
             clear: css`
-                ${segmentTokens.arrowColor}: ${textSecondary};
+                ${segmentTokens.arrowColor}: var(--text-secondary);
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
             `,
             filled: css`
-                ${segmentTokens.arrowColor}: ${textSecondary};
+                ${segmentTokens.arrowColor}: var(--text-secondary);
                 ${segmentTokens.groupBackgroundColor}: transparent;
-                ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
+                ${segmentTokens.groupFilledBackgroundColor}: var(--text-accent);
             `,
         },
         size: {
             xs: css`
                 ${segmentTokens.groupBorderRadius}: 0.625rem;
-                ${segmentTokens.verticalGroupPilledBorderRadius}: 1.125rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.125rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.25rem 0.75rem;
@@ -30,7 +29,7 @@ export const config = {
             `,
             s: css`
                 ${segmentTokens.groupBorderRadius}: 0.75rem;
-                ${segmentTokens.verticalGroupPilledBorderRadius}: 1.375rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.375rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.5rem 0.875rem;
@@ -38,7 +37,7 @@ export const config = {
             `,
             m: css`
                 ${segmentTokens.groupBorderRadius}: 0.875rem;
-                ${segmentTokens.verticalGroupPilledBorderRadius}: 1.625rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.625rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 0.75rem 1.25rem;
@@ -46,7 +45,7 @@ export const config = {
             `,
             l: css`
                 ${segmentTokens.groupBorderRadius}: 1rem;
-                ${segmentTokens.verticalGroupPilledBorderRadius}: 1.875rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
@@ -54,7 +53,7 @@ export const config = {
             `,
             xl: css`
                 ${segmentTokens.groupBorderRadius}: 1.125rem;
-                ${segmentTokens.verticalGroupPilledBorderRadius}: 1.875rem;
+                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1rem 1.375rem;
@@ -67,17 +66,14 @@ export const config = {
             `,
         },
         pilled: {
-            true: css`
-                // NOTE: change groupPilledBorderRadius on token when added
-                ${segmentTokens.groupPilledBorderRadius}: 1000px;
-            `,
+            true: css``,
         },
         stretch: {
             true: css``,
         },
         filledBackground: {
             true: css`
-                ${segmentTokens.groupFilledBackgroundColor}: ${surfaceSolidSecondary};
+                ${segmentTokens.groupFilledBackgroundColor}: var(--surface-solid-secondary);
             `,
         },
         orientation: {

@@ -1,12 +1,4 @@
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    surfaceAccent,
-    surfaceTransparentPrimary,
-    surfaceTransparentTertiary,
-    textSecondary,
-    textSecondaryActive,
-    textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -16,36 +8,36 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${tabsTokens.arrowColor}: ${textSecondary};
-                ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
-                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
+                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: transparent;
                 ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             filled: css`
-                ${tabsTokens.arrowColor}: ${textSecondary};
-                ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
-                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
-                ${tabsTokens.tabsBackgroundColor}: ${surfaceTransparentPrimary};
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
+                ${tabsTokens.tabsBackgroundColor}: var(--surface-transparent-primary);
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;
                 ${tabsTokens.tabsDividerColor}: transparent;
                 ${tabsTokens.tabsDividerBorderRadius}: 0rem;
             `,
             divider: css`
-                ${tabsTokens.arrowColor}: ${textSecondary};
-                ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
-                ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
+                ${tabsTokens.arrowColor}: var(--text-secondary);
+                ${tabsTokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.arrowColorActive}: var(---text-secondary-active);
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
-                ${tabsTokens.tabsDividerColor}: ${surfaceTransparentTertiary};
+                ${tabsTokens.tabsDividerColor}: var(--surface-transparent-tertiary);
                 ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
             `,
         },

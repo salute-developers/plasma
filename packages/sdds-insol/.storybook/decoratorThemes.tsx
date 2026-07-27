@@ -1,9 +1,9 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
-import { sdds_insol_next__light, sdds_insol_next__dark } from '@salutejs/sdds-themes';
+import { sdds_insol__light, sdds_insol__dark } from '@salutejs/sdds-themes';
 
-import { ViewContainer } from '../src';
+import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 
 const DocumentStyle = createGlobalStyle`
     html:root {
@@ -33,8 +33,8 @@ export const ON_DARK_MODE = 'onDark';
 export const ON_LIGHT_MODE = 'onLight';
 
 const themes = {
-    [SDDS_INSOL_LIGHT_THEME]: createGlobalStyle(sdds_insol_next__light),
-    [SDDS_INSOL_DARK_THEME]: createGlobalStyle(sdds_insol_next__dark),
+    [SDDS_INSOL_LIGHT_THEME]: createGlobalStyle(sdds_insol__light),
+    [SDDS_INSOL_DARK_THEME]: createGlobalStyle(sdds_insol__dark),
 };
 
 type ViewType = {

@@ -1,13 +1,4 @@
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    onDarkTextPrimary,
-    onLightTextPrimary,
-    textAccent,
-    textNegative,
-    textPositive,
-    textPrimary,
-    textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 import { pilled, sizeL, sizeM, sizeS, sizeXS } from './Badge.config.common';
 
@@ -19,25 +10,25 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${badgeTokens.color}: ${textPrimary};
+                ${badgeTokens.color}: var(--text-primary);
             `,
             accent: css`
-                ${badgeTokens.color}: ${textAccent};
+                ${badgeTokens.color}: var(--text-accent);
             `,
             positive: css`
-                ${badgeTokens.color}: ${textPositive};
+                ${badgeTokens.color}: var(--text-positive);
             `,
             warning: css`
-                ${badgeTokens.color}: ${textWarning};
+                ${badgeTokens.color}: var(--text-warning);
             `,
             negative: css`
-                ${badgeTokens.color}: ${textNegative};
+                ${badgeTokens.color}: var(--text-negative);
             `,
             dark: css`
-                ${badgeTokens.color}: ${onLightTextPrimary};
+                ${badgeTokens.color}: var(--on-light-text-primary);
             `,
             light: css`
-                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.color}: var(--on-dark-text-primary);
             `,
         },
         size: {

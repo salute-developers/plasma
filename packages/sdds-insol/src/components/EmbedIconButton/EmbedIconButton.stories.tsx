@@ -17,7 +17,7 @@ const meta: Meta<StoryButtonProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'select',
+                type: 'inline-radio',
             },
         },
         view: {
@@ -48,7 +48,6 @@ const getSizeForIcon = (size) => {
         m: 's',
         l: 'm',
     };
-
     if (map[size]) {
         return map[size];
     }

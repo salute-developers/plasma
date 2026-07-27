@@ -1,15 +1,4 @@
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    inverseTextPrimary,
-    surfaceAccent,
-    surfaceSolidCard,
-    surfaceSolidDefault,
-    textAccent,
-    textPrimary,
-    textSecondary,
-    textSecondaryActive,
-    textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -19,78 +8,78 @@ export const config = {
     variations: {
         view: {
             clear: css`
-                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemColor}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             secondary: css`
-                ${tabsTokens.itemColor}: ${textPrimary};
+                ${tabsTokens.itemColor}: var(--text-primary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
-                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceSolidCard};
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
-                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidCard};
+                ${tabsTokens.itemSelectedColor}: var(--text-primary);
+                ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-card);
+                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
+                ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-card);
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             divider: css`
-                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemColor}: var(--text-secondary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedColor}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedColorHover}: var(--text-primary);
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: ${textAccent};
-                ${tabsTokens.itemSelectedDividerColorHover}: ${textAccent};
+                ${tabsTokens.itemSelectedDividerColor}: var(--text-accent);
+                ${tabsTokens.itemSelectedDividerColorHover}: var(--text-accent);
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             default: css`
-                ${tabsTokens.itemColor}: ${textPrimary};
+                ${tabsTokens.itemColor}: var(--text-primary);
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: var(--text-secondary-hover);
+                ${tabsTokens.itemColorActive}: var(--text-secondary-active);
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${inverseTextPrimary};
-                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceSolidDefault};
-                ${tabsTokens.itemSelectedColorHover}: ${inverseTextPrimary};
-                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidDefault};
+                ${tabsTokens.itemSelectedColor}: var(--inverse-text-primary);
+                ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-solid-default);
+                ${tabsTokens.itemSelectedColorHover}: var(--inverse-text-primary);
+                ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-solid-default);
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 

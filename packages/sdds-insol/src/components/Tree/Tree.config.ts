@@ -1,20 +1,4 @@
 import { css, treeTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyL,
-    bodyM,
-    bodyS,
-    bodyXS,
-    surfacePositive,
-    surfaceSolidDefault,
-    surfaceTransparentSecondary,
-    surfaceTransparentSecondaryActive,
-    surfaceTransparentSecondaryHover,
-    textAccent,
-    textPrimary,
-    textSecondary,
-    textSecondaryActive,
-    textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -24,24 +8,24 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.iconFolderColor}: ${textPrimary};
-                ${tokens.arrowColor}: ${textSecondary};
-                ${tokens.arrowColorHover}: ${textSecondaryHover};
-                ${tokens.arrowColorActive}: ${textSecondaryActive};
-                ${tokens.color}: ${textPrimary};
-                ${tokens.colorSelected}: ${textPrimary};
-                ${tokens.itemBackgroundColorSelected}: ${surfaceTransparentSecondary};
+                ${tokens.iconFolderColor}: var(--text-primary);
+                ${tokens.arrowColor}: var(--text-secondary);
+                ${tokens.arrowColorHover}: var(--text-secondary-hover);
+                ${tokens.arrowColorActive}: var(--text-secondary-active);
+                ${tokens.color}: var(--text-primary);
+                ${tokens.colorSelected}: var(--text-primary);
+                ${tokens.itemBackgroundColorSelected}: var(--surface-transparent-secondary);
                 ${tokens.itemBackgroundColorPrimary}: transparent;
 
-                ${tokens.itemBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.itemBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
-                ${tokens.checkboxBorderColor}: ${textSecondary};
-                ${tokens.checkboxBackgroundColor}: ${textAccent};
+                ${tokens.itemBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.itemBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${tokens.checkboxBorderColor}: var(--text-secondary);
+                ${tokens.checkboxBackgroundColor}: var(--text-accent);
                 ${tokens.itemDisabledOpacity}: 0.4;
-                ${tokens.itemDisabledBorderColor}: ${textSecondary};
-                ${tokens.itemDisabledColor}: ${textSecondary};
-                ${tokens.itemDraggableBorderColor}: ${surfacePositive};
-                ${tokens.itemDraggableLineColor}: ${surfaceSolidDefault};
+                ${tokens.itemDisabledBorderColor}: var(--text-secondary);
+                ${tokens.itemDisabledColor}: var(--text-secondary);
+                ${tokens.itemDraggableBorderColor}: var(--surface-positive);
+                ${tokens.itemDraggableLineColor}: var(--surface-solid-default);
             `,
         },
         size: {
@@ -69,12 +53,12 @@ export const config = {
                 ${tokens.checkboxInnerSize}: 1.25rem;
                 ${tokens.checkboxBorderRadius}: 0.375rem;
 
-                ${tokens.fontFamily}: ${bodyL.fontFamily};
-                ${tokens.fontSize}: ${bodyL.fontSize};
-                ${tokens.fontStyle}: ${bodyL.fontStyle};
-                ${tokens.fontWeight}: ${bodyL.fontWeight};
-                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
-                ${tokens.lineHeight}: ${bodyL.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             l: css`
                 ${tokens.itemHeight}: 3.5rem;
@@ -100,12 +84,12 @@ export const config = {
                 ${tokens.checkboxInnerSize}: 1.25rem;
                 ${tokens.checkboxBorderRadius}: 0.375rem;
 
-                ${tokens.fontFamily}: ${bodyL.fontFamily};
-                ${tokens.fontSize}: ${bodyL.fontSize};
-                ${tokens.fontStyle}: ${bodyL.fontStyle};
-                ${tokens.fontWeight}: ${bodyL.fontWeight};
-                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
-                ${tokens.lineHeight}: ${bodyL.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
                 ${tokens.itemHeight}: 3rem;
@@ -131,12 +115,12 @@ export const config = {
                 ${tokens.checkboxInnerSize}: 1.25rem;
                 ${tokens.checkboxBorderRadius}: 0.375rem;
 
-                ${tokens.fontFamily}: ${bodyM.fontFamily};
-                ${tokens.fontSize}: ${bodyM.fontSize};
-                ${tokens.fontStyle}: ${bodyM.fontStyle};
-                ${tokens.fontWeight}: ${bodyM.fontWeight};
-                ${tokens.letterSpacing}: ${bodyM.letterSpacing};
-                ${tokens.lineHeight}: ${bodyM.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
                 ${tokens.itemHeight}: 2.5rem;
@@ -162,12 +146,12 @@ export const config = {
                 ${tokens.checkboxInnerSize}: 1.25rem;
                 ${tokens.checkboxBorderRadius}: 0.375rem;
 
-                ${tokens.fontFamily}: ${bodyS.fontFamily};
-                ${tokens.fontSize}: ${bodyS.fontSize};
-                ${tokens.fontStyle}: ${bodyS.fontStyle};
-                ${tokens.fontWeight}: ${bodyS.fontWeight};
-                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
-                ${tokens.lineHeight}: ${bodyS.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             xs: css`
                 ${tokens.itemHeight}: 2rem;
@@ -193,12 +177,12 @@ export const config = {
                 ${tokens.checkboxInnerSize}: 0.875rem;
                 ${tokens.checkboxBorderRadius}: 0.25rem;
 
-                ${tokens.fontFamily}: ${bodyXS.fontFamily};
-                ${tokens.fontSize}: ${bodyXS.fontSize};
-                ${tokens.fontStyle}: ${bodyXS.fontStyle};
-                ${tokens.fontWeight}: ${bodyXS.fontWeight};
-                ${tokens.letterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.lineHeight}: ${bodyXS.lineHeight};
+                ${tokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
             `,
         },
     },

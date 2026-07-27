@@ -1,23 +1,4 @@
 import { css, sliderTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyL,
-    bodyM,
-    bodyS,
-    bodyXS,
-    onLightSurfaceSolidCard,
-    outlineClear,
-    outlineSolidSecondary,
-    shadowDownSoftS,
-    surfaceAccent,
-    surfaceAccentGradient,
-    surfaceSolidDefault,
-    surfaceSolidTertiary,
-    surfaceTransparentCard,
-    surfaceTransparentCardActive,
-    textAccent,
-    textPrimary,
-    textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -28,97 +9,97 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${sliderTokens.labelColor}: ${textPrimary};
+                ${sliderTokens.labelColor}: var(--text-primary);
 
-                ${sliderTokens.rangeValueColor}: ${textSecondary};
+                ${sliderTokens.rangeValueColor}: var(--text-secondary);
 
-                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
-                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidDefault};
+                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
+                ${sliderTokens.thumbFocusBorderColor}: var(--surface-solid-default);
 
-                ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
 
-                ${sliderTokens.fillColor}: ${surfaceSolidDefault};
+                ${sliderTokens.fillColor}: var(--surface-solid-default);
 
-                ${sliderTokens.tickDotColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.tickDotFilledColor}: ${surfaceSolidDefault};
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-solid-default);
 
-                ${sliderTokens.doubleBoxShadow}: ${shadowDownSoftS};
+                ${sliderTokens.doubleBoxShadow}: var(--shadow-down-soft-s);
 
-                ${sliderTokens.textFieldCaretColor}: ${textAccent};
-                ${sliderTokens.textFieldColor}: ${textPrimary};
-                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
-                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
+                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
 
-                ${sliderTokens.textFieldBorderColor}: ${outlineClear};
-                ${sliderTokens.textFieldBorderColorFocus}: ${outlineSolidSecondary};
-                ${sliderTokens.textFieldBorderColorHover}: ${outlineClear};
+                ${sliderTokens.textFieldBorderColor}: var(--outline-clear);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-clear);
 
-                ${sliderTokens.textFieldBackgroundColor}: ${surfaceTransparentCard};
-                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceTransparentCard};
-                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceTransparentCardActive};
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-card);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);
             `,
             accent: css`
-                ${sliderTokens.labelColor}: ${textPrimary};
+                ${sliderTokens.labelColor}: var(--text-primary);
 
-                ${sliderTokens.rangeValueColor}: ${textSecondary};
+                ${sliderTokens.rangeValueColor}: var(--text-secondary);
 
-                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
-                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidDefault};
+                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
+                ${sliderTokens.thumbFocusBorderColor}: var(--surface-solid-default);
 
-                ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
 
-                ${sliderTokens.fillColor}: ${surfaceAccent};
+                ${sliderTokens.fillColor}: var(--surface-accent);
 
-                ${sliderTokens.tickDotColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.tickDotFilledColor}: ${surfaceAccent};
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-accent);
 
-                ${sliderTokens.doubleBoxShadow}: ${shadowDownSoftS};
+                ${sliderTokens.doubleBoxShadow}: var(--shadow-down-soft-s);
 
-                ${sliderTokens.textFieldCaretColor}: ${textAccent};
-                ${sliderTokens.textFieldColor}: ${textPrimary};
-                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
-                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
+                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
 
-                ${sliderTokens.textFieldBorderColor}: ${outlineClear};
-                ${sliderTokens.textFieldBorderColorFocus}: ${outlineSolidSecondary};
-                ${sliderTokens.textFieldBorderColorHover}: ${outlineClear};
+                ${sliderTokens.textFieldBorderColor}: var(--outline-clear);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-clear);
 
-                ${sliderTokens.textFieldBackgroundColor}: ${surfaceTransparentCard};
-                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceTransparentCard};
-                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceTransparentCardActive};
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-card);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);
             `,
             gradient: css`
-                ${sliderTokens.labelColor}: ${textPrimary};
+                ${sliderTokens.labelColor}: var(--text-primary);
 
-                ${sliderTokens.rangeValueColor}: ${textSecondary};
+                ${sliderTokens.rangeValueColor}: var(--text-secondary);
 
-                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
-                ${sliderTokens.thumbFocusBorderColor}: ${surfaceAccentGradient};
+                ${sliderTokens.thumbBorderColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.thumbBackgroundColor}: var(--on-light-surface-solid-card);
+                ${sliderTokens.thumbFocusBorderColor}: var(--surface-accent-gradient);
 
-                ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
+                ${sliderTokens.railBackgroundColor}: var(--surface-solid-tertiary);
 
-                ${sliderTokens.fillColor}: ${surfaceAccentGradient};
+                ${sliderTokens.fillColor}: var(--surface-accent-gradient);
 
-                ${sliderTokens.tickDotColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.tickDotFilledColor}: ${surfaceAccentGradient};
+                ${sliderTokens.tickDotColor}: var(--surface-solid-tertiary);
+                ${sliderTokens.tickDotFilledColor}: var(--surface-accent-gradient);
 
-                ${sliderTokens.doubleBoxShadow}: ${shadowDownSoftS};
+                ${sliderTokens.doubleBoxShadow}: var(--shadow-down-soft-s);
 
-                ${sliderTokens.textFieldCaretColor}: ${textAccent};
-                ${sliderTokens.textFieldColor}: ${textPrimary};
-                ${sliderTokens.textFiledFocusColor}: ${textPrimary};
-                ${sliderTokens.textFieldPlaceholderColor}: ${textSecondary};
+                ${sliderTokens.textFieldCaretColor}: var(--text-accent);
+                ${sliderTokens.textFieldColor}: var(--text-primary);
+                ${sliderTokens.textFiledFocusColor}: var(--text-primary);
+                ${sliderTokens.textFieldPlaceholderColor}: var(--text-secondary);
 
-                ${sliderTokens.textFieldBorderColor}: ${outlineClear};
-                ${sliderTokens.textFieldBorderColorFocus}: ${outlineSolidSecondary};
-                ${sliderTokens.textFieldBorderColorHover}: ${outlineClear};
+                ${sliderTokens.textFieldBorderColor}: var(--outline-clear);
+                ${sliderTokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
+                ${sliderTokens.textFieldBorderColorHover}: var(--outline-clear);
 
-                ${sliderTokens.textFieldBackgroundColor}: ${surfaceTransparentCard};
-                ${sliderTokens.textFieldBackgroundColorHover}: ${surfaceTransparentCard};
-                ${sliderTokens.textFieldBackgroundColorFocus}: ${surfaceTransparentCardActive};
+                ${sliderTokens.textFieldBackgroundColor}: var(--surface-transparent-card);
+                ${sliderTokens.textFieldBackgroundColorHover}: var(--surface-transparent-card);
+                ${sliderTokens.textFieldBackgroundColorFocus}: var(--surface-transparent-card-active);
             `,
         },
         size: {
@@ -132,24 +113,24 @@ export const config = {
                 ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 1rem;
 
-                ${sliderTokens.labelFontFamily}: ${bodyL.fontFamily};
-                ${sliderTokens.labelFontSize}: ${bodyL.fontSize};
-                ${sliderTokens.labelFontStyle}: ${bodyL.fontStyle};
-                ${sliderTokens.labelFontWeight}: ${bodyL.fontWeight};
-                ${sliderTokens.labelLetterSpacing}: ${bodyL.letterSpacing};
-                ${sliderTokens.labelLineHeight}: ${bodyL.lineHeight};
+                ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${sliderTokens.labelFontSize}: var(--plasma-typo-body-l-font-size);
+                ${sliderTokens.labelFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${sliderTokens.labelFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${sliderTokens.rangeValueHorizontalMargin}: 0.75rem;
                 ${sliderTokens.rangeValueBottomOffset}: 0.875rem;
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.875rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.75rem;
 
-                ${sliderTokens.valueFontFamily}: ${bodyM.fontFamily};
-                ${sliderTokens.valueFontSize}: ${bodyM.fontSize};
-                ${sliderTokens.valueFontStyle}: ${bodyM.fontStyle};
-                ${sliderTokens.valueFontWeight}: ${bodyM.fontWeight};
-                ${sliderTokens.valueLetterSpacing}: ${bodyM.letterSpacing};
-                ${sliderTokens.valueLineHeight}: ${bodyM.lineHeight};
+                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-m-font-size);
+                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${sliderTokens.tickSize}: 0.5rem;
 
@@ -164,12 +145,12 @@ export const config = {
                 ${sliderTokens.textFieldHeight}: 3.5rem;
                 ${sliderTokens.textFieldPadding}: 1.25rem 1rem 1.25rem 1rem;
                 ${sliderTokens.textFieldBorderRadius}: 0.75rem;
-                ${sliderTokens.textFieldFontFamily}: ${bodyL.fontFamily};
-                ${sliderTokens.textFieldFontSize}: ${bodyL.fontSize};
-                ${sliderTokens.textFieldFontStyle}: ${bodyL.fontStyle};
-                ${sliderTokens.textFieldFontWeight}: ${bodyL.fontWeight};
-                ${sliderTokens.textFieldLetterSpacing}: ${bodyL.letterSpacing};
-                ${sliderTokens.textFieldLineHeight}: ${bodyL.lineHeight};
+                ${sliderTokens.textFieldFontFamily}: var(--plasma-typo-body-l-font-family);
+                ${sliderTokens.textFieldFontSize}: var(--plasma-typo-body-l-font-size);
+                ${sliderTokens.textFieldFontStyle}: var(--plasma-typo-body-l-font-style);
+                ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
                 ${sliderTokens.size}: 1.5rem;
@@ -181,24 +162,24 @@ export const config = {
                 ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 0.75rem;
 
-                ${sliderTokens.labelFontFamily}: ${bodyM.fontFamily};
-                ${sliderTokens.labelFontSize}: ${bodyM.fontSize};
-                ${sliderTokens.labelFontStyle}: ${bodyM.fontStyle};
-                ${sliderTokens.labelFontWeight}: ${bodyM.fontWeight};
-                ${sliderTokens.labelLetterSpacing}: ${bodyM.letterSpacing};
-                ${sliderTokens.labelLineHeight}: ${bodyM.lineHeight};
+                ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${sliderTokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                ${sliderTokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${sliderTokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${sliderTokens.rangeValueHorizontalMargin}: 0.75rem;
                 ${sliderTokens.rangeValueBottomOffset}: 0.75rem;
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.875rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.625rem;
 
-                ${sliderTokens.valueFontFamily}: ${bodyS.fontFamily};
-                ${sliderTokens.valueFontSize}: ${bodyS.fontSize};
-                ${sliderTokens.valueFontStyle}: ${bodyS.fontStyle};
-                ${sliderTokens.valueFontWeight}: ${bodyS.fontWeight};
-                ${sliderTokens.valueLetterSpacing}: ${bodyS.letterSpacing};
-                ${sliderTokens.valueLineHeight}: ${bodyS.lineHeight};
+                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-s-font-size);
+                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${sliderTokens.tickSize}: 0.5rem;
 
@@ -213,12 +194,12 @@ export const config = {
                 ${sliderTokens.textFieldHeight}: 3rem;
                 ${sliderTokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${sliderTokens.textFieldBorderRadius}: 0.75rem;
-                ${sliderTokens.textFieldFontFamily}: ${bodyM.fontFamily};
-                ${sliderTokens.textFieldFontSize}: ${bodyM.fontSize};
-                ${sliderTokens.textFieldFontStyle}: ${bodyM.fontStyle};
-                ${sliderTokens.textFieldFontWeight}: ${bodyM.fontWeight};
-                ${sliderTokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
-                ${sliderTokens.textFieldLineHeight}: ${bodyM.lineHeight};
+                ${sliderTokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${sliderTokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
+                ${sliderTokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
                 ${sliderTokens.size}: 1rem;
@@ -230,24 +211,24 @@ export const config = {
                 ${sliderTokens.labelWrapperOnlyIconMarginRight}: 0.625rem;
                 ${sliderTokens.labelWrapperVerticalMargin}: 0.625rem;
 
-                ${sliderTokens.labelFontFamily}: ${bodyS.fontFamily};
-                ${sliderTokens.labelFontSize}: ${bodyS.fontSize};
-                ${sliderTokens.labelFontStyle}: ${bodyS.fontStyle};
-                ${sliderTokens.labelFontWeight}: ${bodyS.fontWeight};
-                ${sliderTokens.labelLetterSpacing}: ${bodyS.letterSpacing};
-                ${sliderTokens.labelLineHeight}: ${bodyS.lineHeight};
+                ${sliderTokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${sliderTokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${sliderTokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${sliderTokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${sliderTokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${sliderTokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${sliderTokens.rangeValueHorizontalMargin}: 0.5rem;
                 ${sliderTokens.rangeValueBottomOffset}: 0.625rem;
                 ${sliderTokens.rangeValueHorizontalOffset}: 0.625rem;
                 ${sliderTokens.rangeValueVerticalMargin}: 0.5rem;
 
-                ${sliderTokens.valueFontFamily}: ${bodyXS.fontFamily};
-                ${sliderTokens.valueFontSize}: ${bodyXS.fontSize};
-                ${sliderTokens.valueFontStyle}: ${bodyXS.fontStyle};
-                ${sliderTokens.valueFontWeight}: ${bodyXS.fontWeight};
-                ${sliderTokens.valueLetterSpacing}: ${bodyXS.letterSpacing};
-                ${sliderTokens.valueLineHeight}: ${bodyXS.lineHeight};
+                ${sliderTokens.valueFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${sliderTokens.valueFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${sliderTokens.valueFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${sliderTokens.valueFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${sliderTokens.valueLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${sliderTokens.valueLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${sliderTokens.tickSize}: 0.5rem;
 
@@ -262,12 +243,12 @@ export const config = {
                 ${sliderTokens.textFieldHeight}: 2.5rem;
                 ${sliderTokens.textFieldPadding}: 0.5rem 1rem 0.5rem 1rem;
                 ${sliderTokens.textFieldBorderRadius}: 0.625rem;
-                ${sliderTokens.textFieldFontFamily}: ${bodyS.fontFamily};
-                ${sliderTokens.textFieldFontSize}: ${bodyS.fontSize};
-                ${sliderTokens.textFieldFontStyle}: ${bodyS.fontStyle};
-                ${sliderTokens.textFieldFontWeight}: ${bodyS.fontWeight};
-                ${sliderTokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
-                ${sliderTokens.textFieldLineHeight}: ${bodyS.lineHeight};
+                ${sliderTokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${sliderTokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
+                ${sliderTokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${sliderTokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${sliderTokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${sliderTokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
         },
         pointerSize: {

@@ -10,11 +10,13 @@ export const config = {
             default: css`
                 ${tokens.outlineFocusColor}: var(--surface-accent);
 
-                ${tokens.background}: var(--surface-transparent-card);
-                ${tokens.backgroundError}: var(--surface-transparent-card);
-                ${tokens.backgroundSuccess}: var(--surface-transparent-card);
+                ${tokens.background}: transparent;
+                ${tokens.backgroundError}: transparent;
+                ${tokens.backgroundSuccess}: transparent;
 
-                ${tokens.dividerColor}: var(--text-primary);
+                ${tokens.clearDividerColor}: var(--surface-transparent-tertiary);
+
+                ${tokens.dividerColor}: var(--surface-transparent-clear);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
@@ -28,7 +30,6 @@ export const config = {
                 ${tokens.contentSlotColorActive}: var(--text-primary-active);
 
                 ${tokens.embedIconButtonFocusColor}: var(--surface-accent);
-
                 ${tokens.contentSlotRightColor}: var(--text-primary);
                 ${tokens.contentSlotRightColorHover}: var(--text-primary-hover);
                 ${tokens.contentSlotRightColorActive}: var(--text-primary-active);
@@ -41,48 +42,69 @@ export const config = {
                 ${tokens.textFieldContentSlotRightColorHover}: var(--text-secondary-hover);
                 ${tokens.textFieldContentSlotRightColorActive}: var(--text-secondary-active);
 
+                ${tokens.contentSlotColorSuccess}: var(--text-positive);
+                ${tokens.contentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.contentSlotColorSuccessActive}: var(--text-positive-active);
+
+                ${tokens.textFieldContentSlotColorSuccess}: var(--text-positive);
+                ${tokens.textFieldContentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.textFieldContentSlotColorSuccessActive}: var(--text-positive-active);
+
+                ${tokens.contentSlotColorError}: var(--text-negative);
+                ${tokens.contentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.contentSlotColorErrorActive}: var(--text-negative-active);
+
+                ${tokens.textFieldContentSlotColorError}: var(--text-negative);
+                ${tokens.textFieldContentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.textFieldContentSlotColorErrorActive}: var(--text-negative-active);
+
                 ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldColorSuccess}: var(--text-positive);
+                ${tokens.textFieldColorError}: var(--text-negative);
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldClearPlaceholderColorFocus}: var(--text-tertiary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
+                ${tokens.focusColor}: var(--text-accent);
 
-                ${tokens.textFieldContentSlotColor}: var(--text-primary);
-                ${tokens.textFieldContentSlotColorHover}: var(--text-primary-hover);
-                ${tokens.textFieldContentSlotColorActive}: var(--text-primary-active);
+                ${tokens.textFieldBackgroundColor}: transparent;
+                ${tokens.textFieldBackgroundColorFocus}: transparent;
+                ${tokens.textFieldBackgroundErrorColor}: transparent;
+                ${tokens.textFieldBackgroundErrorColorFocus}: transparent;
+                ${tokens.textFieldBackgroundSuccessColor}: transparent;
+                ${tokens.textFieldBackgroundSuccessColorFocus}: transparent;
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
                 ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
                 ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
-                ${tokens.textFieldContentSlotRightOpacityReadOnly}: var(--text-secondary-active);
+                ${tokens.textFieldContentRightSlotColorActive}: var(--text-secondary-active);
 
-                ${tokens.indicatorColor}: var(--surface-negative);
-
-                ${tokens.textFieldBorderColorFocus}: var(--outline-solid-secondary);
-                ${tokens.textFieldBorderColorHover}: var(--outline-clear);
-
-                ${tokens.borderColorFocus}: var(--outline-solid-secondary);
-
-                ${tokens.borderColorSuccess}: var(--outline-positive-minor);
-                ${tokens.textFieldBorderColorSuccess}: var(--outline-positive-minor);
-                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-positive-minor-active);
-                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-positive-minor-hover);
-
-                ${tokens.borderColorError}: var(--outline-negative-minor);
-                ${tokens.textFieldBorderColorError}: var(--outline-negative-minor);
-                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative-minor-active);
-                ${tokens.textFieldBorderColorErrorHover}: var(--outline-negative-minor-hover);
-
-                ${tokens.textFieldBackgroundColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-transparent-clear);
-                ${tokens.textFieldColorError}: var(--text-negative);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-transparent-clear);
-                ${tokens.textFieldColorSuccess}: var(--text-positive);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-card);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-clear);
+                ${tokens.textFieldContentSlotColorSuccess}: var(--text-positive);
+                ${tokens.textFieldContentSlotColorSuccessHover}: var(--text-positive-hover);
+                ${tokens.textFieldContentSlotColorSuccessActive}: var(--text-positive-active);
+                ${tokens.textFieldContentSlotColorError}: var(--text-negative);
+                ${tokens.textFieldContentSlotColorErrorHover}: var(--text-negative-hover);
+                ${tokens.textFieldContentSlotColorErrorActive}: var(--text-negative-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
 
-                ${tokens.focusColor}: var(--text-accent);
+                ${tokens.textFieldDividerColorSuccess}: var(--surface-positive);
+                ${tokens.textFieldDividerColorError}: var(--surface-negative);
+                ${tokens.textFieldDividerColorHover}: var(--text-secondary);
+                ${tokens.textFieldDividerColorFocus}: var(--surface-accent);
+
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.indicatorColor}: var(--surface-negative);
 
                 ${tokens.popoverShadow}: var(--shadow-down-soft-s);
                 ${tokens.popoverSeparatorBackground}: var(--surface-transparent-secondary);
@@ -128,7 +150,6 @@ export const config = {
             xl: css`
                 ${tokens.width}: 30rem;
                 ${tokens.borderRadius}: 1rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 1.25rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -138,14 +159,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-m-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 1.125rem;
+                ${tokens.leftContentMargin}: 0 1.125rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.938rem 0 0.813rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.75rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
@@ -154,9 +175,9 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.embedIconButtonHeight}: 4rem;
-                ${tokens.embedIconButtonWidth}: 4rem;
-                ${tokens.embedIconButtonPadding}: 1.25rem;
-                ${tokens.embedIconButtonRadius}: 1rem;
+                ${tokens.embedIconButtonWidth}: 2.25rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -169,22 +190,24 @@ export const config = {
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorPlacement}: 1.75rem auto auto -0.875rem;
                 ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorPlacementRight}: 1.75rem -0.875rem auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.488rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.313rem -1.125rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.313rem auto auto -1.125rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.313rem -3.375rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintWithoutLabelPlacementOffset}: 1.688rem -2.938rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.813rem 0 -0.438rem;
+                ${tokens.hintWithoutLabelPlacementOffset}: 1.438rem -2.938rem auto auto;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
-                ${tokens.hintInnerLabelPlacementOffset}: 0.813rem -2.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.8125rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -196,8 +219,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 4rem;
                 ${tokens.textFieldBorderRadius}: 1rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 1.375rem 1.25rem 1.375rem 1.25rem;
+                ${tokens.textFieldPadding}: 1.375rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
@@ -213,21 +235,21 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.6255rem -0.0625rem 0;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.popoverBorderRadius}: 1rem;
+                ${tokens.popoverBorderRadius}: 0.875rem;
                 ${tokens.popoverGap}: 1rem;
                 ${tokens.popoverPadding}: 1rem 1rem 1.125rem 1rem;
                 ${tokens.popoverVerticalPadding}: 2.125rem;
 
-                ${tokens.calendarWidth}: 28rem;
-                ${tokens.calendarHeight}: 28.375rem;
+                ${tokens.calendarWidth}: 24.5rem;
+                ${tokens.calendarHeight}: 28.563rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarYearItemBorderRadius}: 0.875rem;
+                ${tokens.calendarYearItemBorderRadius}: 0.75rem;
 
                 ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.calendarYearFontSize}: var(--plasma-typo-body-m-font-size);
@@ -235,10 +257,10 @@ export const config = {
                 ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarMonthItemBorderRadius}: 0.875rem;
+                ${tokens.calendarMonthItemBorderRadius}: 0.75rem;
 
                 ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-m-font-size);
@@ -246,10 +268,10 @@ export const config = {
                 ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarQuarterItemBorderRadius}: 0.875rem;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.75rem;
 
                 ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.calendarQuarterFontSize}: var(--plasma-typo-body-m-font-size);
@@ -257,10 +279,10 @@ export const config = {
                 ${tokens.calendarQuarterFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarQuarterFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarQuarterFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarDayItemBorderRadius}: 0.875rem;
+                ${tokens.calendarDayItemBorderRadius}: 0.75rem;
 
                 ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.calendarDayFontSize}: var(--plasma-typo-body-m-font-size);
@@ -268,17 +290,16 @@ export const config = {
                 ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-m-bold-font-weight);
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarEventItemBottom}: 0.5rem;
-
                 ${tokens.calendarHeaderWrapperPadding}: 0;
-                ${tokens.calendarHeaderArrowGap}: 0;
+                ${tokens.calendarHeaderArrowGap}: 0.5rem;
                 ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
 
-                ${tokens.calendarHeaderPadding}: 0 0 0 1rem;
+                ${tokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
                 ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
@@ -292,7 +313,7 @@ export const config = {
                 ${tokens.iconButtonHeight}: 4rem;
                 ${tokens.iconButtonWidth}: 4rem;
                 ${tokens.iconButtonPadding}: 1.25rem;
-                ${tokens.iconButtonRadius}: 1rem;
+                ${tokens.iconButtonRadius}: 1.25rem;
 
                 ${tokens.shortcutFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.shortcutFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -308,9 +329,8 @@ export const config = {
             l: css`
                 ${tokens.width}: 26.5rem;
                 ${tokens.borderRadius}: 0.875rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-s-font-size);
@@ -318,14 +338,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-s-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 1rem;
+                ${tokens.leftContentMargin}: 0 1.125rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.75rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.75rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
@@ -334,38 +354,32 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.embedIconButtonHeight}: 3.5rem;
-                ${tokens.embedIconButtonWidth}: 3.5rem;
-                ${tokens.embedIconButtonPadding}: 1rem;
-                ${tokens.embedIconButtonRadius}: 0.875rem;
-
-                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.embedIconButtonWidth}: 2.25rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorPlacement}: 1.5rem auto auto -0.875rem;
+                ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 1.5rem -0.875rem auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.313rem -1.125rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.313rem auto auto -1.125rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.313rem -3.375rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 1.438rem -2.938rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.563rem 0 -0.438rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
-                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -377,8 +391,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
+                ${tokens.textFieldPadding}: 1.0625rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
@@ -394,8 +407,8 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -419,7 +432,7 @@ export const config = {
                 ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarMonthItemBorderRadius}: 0.75rem;
+                ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
 
                 ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-s-font-size);
@@ -430,7 +443,7 @@ export const config = {
                 ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarQuarterItemBorderRadius}: 0.75rem;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
                 ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.calendarQuarterFontSize}: var(--plasma-typo-body-s-font-size);
@@ -441,7 +454,7 @@ export const config = {
                 ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-s-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarDayItemBorderRadius}: 0.75rem;
+                ${tokens.calendarDayItemBorderRadius}: 0.5rem;
 
                 ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.calendarDayFontSize}: var(--plasma-typo-body-s-font-size);
@@ -454,7 +467,6 @@ export const config = {
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarEventItemBottom}: 0.5rem;
-
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
                 ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
@@ -475,12 +487,12 @@ export const config = {
                 ${tokens.iconButtonPadding}: 1.5rem;
                 ${tokens.iconButtonRadius}: 0.875rem;
 
-                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-l-font-family);
-                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${tokens.shortcutFontSize}: var(--plasma-typo-body-l-font-size);
-                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-l-font-weight);
-                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
-                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-l-line-height);
+                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.shortcutFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.shortcutPadding}: 1.188rem 0.75rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -489,9 +501,8 @@ export const config = {
             m: css`
                 ${tokens.width}: 23rem;
                 ${tokens.borderRadius}: 0.75rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.25rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -499,14 +510,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.875rem;
+                ${tokens.leftContentMargin}: 0 0.875rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.625rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.625rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -515,9 +526,9 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.embedIconButtonHeight}: 3rem;
-                ${tokens.embedIconButtonWidth}: 3rem;
-                ${tokens.embedIconButtonPadding}: 0.75rem;
-                ${tokens.embedIconButtonRadius}: 0.75rem;
+                ${tokens.embedIconButtonWidth}: 2.375rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.875rem;
+                ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
@@ -530,23 +541,24 @@ export const config = {
                 ${tokens.indicatorSizeInner}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.75rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
+                ${tokens.indicatorPlacement}: 1.25rem auto auto -0.875rem;
+                ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 1.25rem -0.875rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 2.063rem -1rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 2.063rem auto auto -1rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 2.063rem -3.25rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 1.1875rem -2.813rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.313rem 0 -0.438rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
-                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -558,8 +570,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
+                ${tokens.textFieldPadding}: 0.875rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -575,8 +586,8 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -589,7 +600,7 @@ export const config = {
                 ${tokens.calendarHeight}: 21rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarYearItemBorderRadius}: 0.625rem;
+                ${tokens.calendarYearItemBorderRadius}: 0.375rem;
 
                 ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.calendarYearFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -635,12 +646,11 @@ export const config = {
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarEventItemBottom}: 0.375rem;
-
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0;
                 ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
 
-                ${tokens.calendarHeaderPadding}: 0 0 0 0.75rem;
+                ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
                 ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h4-font-family);
@@ -653,15 +663,15 @@ export const config = {
 
                 ${tokens.iconButtonHeight}: 3rem;
                 ${tokens.iconButtonWidth}: 3rem;
-                ${tokens.iconButtonPadding}: 1.25rem;
+                ${tokens.iconButtonPadding}: 0.75rem;
                 ${tokens.iconButtonRadius}: 0.75rem;
 
-                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-m-font-family);
-                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${tokens.shortcutFontSize}: var(--plasma-typo-body-m-font-size);
-                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-m-font-weight);
-                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
-                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.shortcutFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.shortcutPadding}: 1.063rem 0.625rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -670,9 +680,8 @@ export const config = {
             s: css`
                 ${tokens.width}: 19.25rem;
                 ${tokens.borderRadius}: 0.625rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 1.125rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -680,14 +689,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.75rem;
+                ${tokens.leftContentMargin}: 0 0.75rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.5rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.5rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -697,7 +706,7 @@ export const config = {
 
                 ${tokens.embedIconButtonHeight}: 2.5rem;
                 ${tokens.embedIconButtonWidth}: 2.5rem;
-                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.75rem;
                 ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
@@ -711,23 +720,24 @@ export const config = {
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.6875rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
+                ${tokens.indicatorPlacement}: 1.063rem auto auto -0.75rem;
+                ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorPlacementRight}: 1.063rem -0.75rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.25rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.5rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 1.813rem -0.875rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 1.813rem auto auto -0.875rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 1.813rem -3.125rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 0.938rem -2.688rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 0.063rem 0 -0.438rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.438rem;
 
-                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.188rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -739,8 +749,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.813rem 0.75rem 0.813rem 0.75rem;
+                ${tokens.textFieldPadding}: 0.813rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -756,8 +765,8 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -816,10 +825,9 @@ export const config = {
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarEventItemBottom}: 0.25rem;
-
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0;
-                ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+                ${tokens.calendarHeaderArrowCustomSize}: 1rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
@@ -834,15 +842,15 @@ export const config = {
 
                 ${tokens.iconButtonHeight}: 2.5rem;
                 ${tokens.iconButtonWidth}: 2.5rem;
-                ${tokens.iconButtonPadding}: 0.5rem;
-                ${tokens.iconButtonRadius}: 0.625rem;
+                ${tokens.iconButtonPadding}: 0.75rem;
+                ${tokens.iconButtonRadius}: 0.5rem;
 
-                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.shortcutFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.shortcutFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.shortcutFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.shortcutFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.shortcutFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.shortcutLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.shortcutLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.shortcutPadding}: 0.813rem 0.5rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -851,9 +859,8 @@ export const config = {
             xs: css`
                 ${tokens.width}: 19rem;
                 ${tokens.borderRadius}: 0.5rem;
-                ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.dividerPadding}: 0 0.375rem;
+                ${tokens.dividerPadding}: 0 0.875rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.dividerFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.dividerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -861,14 +868,14 @@ export const config = {
                 ${tokens.dividerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.dividerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.leftContentMargin}: 0 0 0 0.5rem;
+                ${tokens.leftContentMargin}: 0 0.5rem 0 0;
                 ${tokens.rightContentMargin}: 0;
 
-                ${tokens.labelOffset}: 0.375rem;
+                ${tokens.labelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
-                ${tokens.labelWrapperOffset}: 0.375rem;
+                ${tokens.labelWrapperOffset}: 0.25rem;
                 ${tokens.labelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.labelFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -877,31 +884,32 @@ export const config = {
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.embedIconButtonHeight}: 2rem;
-                ${tokens.embedIconButtonWidth}: 2rem;
-                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonWidth}: 1.5rem;
+                ${tokens.embedIconButtonPadding}: 0 0 0.5rem;
                 ${tokens.embedIconButtonRadius}: 0.5rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
                 ${tokens.indicatorSizeInner}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
 
-                ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.625rem;
-                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
+                ${tokens.indicatorPlacement}: 0.813rem auto auto -0.625rem;
+                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0.813rem -0.625rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.75rem auto auto;
+                ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.988rem auto auto;
 
                 ${tokens.indicatorMarginTop}: 0.125rem;
                 ${tokens.indicatorOuterLeft}: -0.75rem;
-                ${tokens.indicatorWithoutLabelInner}: auto 0 -0.375rem auto;
-                ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.375rem 0;
+                ${tokens.indicatorWithoutLabelInner}: 1.675rem -0.75rem auto auto;
+                ${tokens.indicatorWithoutLabelInnerLeft}: 1.675rem auto auto -0.75rem;
+                ${tokens.indicatorWithoutLabelOuterHint}: 1.675rem -2rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem;
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintWithoutLabelPlacementOffset}: 0.688rem -2.063rem auto auto;
-                ${tokens.hintPlacementInnerMargin}: 0 -0.188rem 0 -0.688rem;
+                ${tokens.hintPlacementInnerMargin}: 0 -0.688rem;
 
-                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
-                ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -913,8 +921,7 @@ export const config = {
 
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
-                ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.5rem 0.625rem 0.5rem 0.625rem;
+                ${tokens.textFieldPadding}: 0.5625rem 0;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -930,8 +937,8 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.375rem -0.0625rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.625rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -944,7 +951,7 @@ export const config = {
                 ${tokens.calendarHeight}: 15.5rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarYearItemBorderRadius}: 0.5rem;
+                ${tokens.calendarYearItemBorderRadius}: 0.375rem;
 
                 ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.calendarYearFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -955,7 +962,7 @@ export const config = {
                 ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarQuartersPadding}: 0.375rem 0 0 0;
-                ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
+                ${tokens.calendarQuarterItemBorderRadius}: 0.375rem;
 
                 ${tokens.calendarQuarterFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.calendarQuarterFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -966,7 +973,7 @@ export const config = {
                 ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
+                ${tokens.calendarMonthItemBorderRadius}: 0.375rem;
 
                 ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -977,7 +984,7 @@ export const config = {
                 ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-font-weight);
 
                 ${tokens.calendarDaysPadding}: 0.375rem 0 0 0;
-                ${tokens.calendarDayItemBorderRadius}: 0.5rem;
+                ${tokens.calendarDayItemBorderRadius}: 0.375rem;
 
                 ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.calendarDayFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -990,7 +997,6 @@ export const config = {
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarEventItemBottom}: 0.25rem;
-
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0;
                 ${tokens.calendarHeaderArrowCustomSize}: 1rem;
@@ -1140,22 +1146,21 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-solid-secondary);
+                ${tokens.backgroundReadOnly}: transparent;
                 ${tokens.labelColorReadOnly}: var(--text-primary);
                 ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
 
-                ${tokens.dividerColorReadOnly}: var(--text-primary);
+                ${tokens.dividerColorReadOnly}: var(--text-secondary);
                 ${tokens.dividerOpacityReadOnly}: 0.4;
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
-                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
+                ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
 
                 ${tokens.rightContentOpacityReadOnly}: 0.4;
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-
-                ${tokens.borderColor}: transparent;
-                ${tokens.borderWidth}: 0;
+                ${tokens.textFieldReadOnlyOpacity}: 0.1;
+                ${tokens.rangeReadOnlyOpacity}: 0.1;
             `,
         },
     },

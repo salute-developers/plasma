@@ -1,44 +1,4 @@
 import { css, chipTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyL,
-    bodyLBold,
-    bodyM,
-    bodyMBold,
-    bodyS,
-    bodySBold,
-    bodyXS,
-    bodyXSBold,
-    bodyXXS,
-    bodyXXSBold,
-    inverseTextPrimary,
-    inverseTextSecondary,
-    inverseTextSecondaryHover,
-    onDarkTextPrimary,
-    onDarkTextSecondary,
-    onDarkTextSecondaryHover,
-    surfaceAccent,
-    surfaceAccentActive,
-    surfaceAccentHover,
-    surfaceNegative,
-    surfaceNegativeActive,
-    surfaceNegativeHover,
-    surfacePositive,
-    surfacePositiveActive,
-    surfacePositiveHover,
-    surfaceSolidDefault,
-    surfaceSolidDefaultActive,
-    surfaceSolidDefaultHover,
-    surfaceTransparentSecondary,
-    surfaceTransparentSecondaryActive,
-    surfaceTransparentSecondaryHover,
-    surfaceWarning,
-    surfaceWarningActive,
-    surfaceWarningHover,
-    textAccent,
-    textPrimary,
-    textSecondary,
-    textSecondaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
@@ -49,96 +9,96 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${chipTokens.color}: ${inverseTextPrimary};
-                ${chipTokens.background}: ${surfaceSolidDefault};
-                ${chipTokens.colorHover}: ${inverseTextPrimary};
-                ${chipTokens.backgroundHover}: ${surfaceSolidDefaultHover};
-                ${chipTokens.colorActive}: ${inverseTextPrimary};
-                ${chipTokens.backgroundActive}: ${surfaceSolidDefaultActive};
-                ${chipTokens.backgroundReadOnly}: ${surfaceSolidDefault};
-                ${chipTokens.colorReadOnly}: ${inverseTextPrimary};
-                ${chipTokens.backgroundReadOnlyHover}: ${surfaceSolidDefault};
-                ${chipTokens.colorReadOnlyHover}: ${inverseTextPrimary};
-                ${chipTokens.closeIconColor}: ${inverseTextSecondary};
-                ${chipTokens.closeIconColorHover}: ${inverseTextSecondaryHover};
+                ${chipTokens.color}: var(--inverse-text-primary);
+                ${chipTokens.background}: var(--surface-solid-default);
+                ${chipTokens.colorHover}: var(--inverse-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-solid-default-hover);
+                ${chipTokens.colorActive}: var(--inverse-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-solid-default-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-solid-default);
+                ${chipTokens.colorReadOnly}: var(--inverse-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-solid-default);
+                ${chipTokens.colorReadOnlyHover}: var(--inverse-text-primary);
+                ${chipTokens.closeIconColor}: var(--inverse-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--inverse-text-secondary-hover);
 
-                ${chipTokens.closeIconColor}: ${onDarkTextSecondary};
-                ${chipTokens.leftContentColor}: ${inverseTextPrimary};
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.leftContentColor}: var(--inverse-text-primary);
             `,
             secondary: css`
-                ${chipTokens.color}: ${textPrimary};
-                ${chipTokens.background}: ${surfaceTransparentSecondary};
-                ${chipTokens.colorHover}: ${textPrimary};
-                ${chipTokens.backgroundHover}: ${surfaceTransparentSecondaryHover};
-                ${chipTokens.colorActive}: ${textPrimary};
-                ${chipTokens.backgroundActive}: ${surfaceTransparentSecondaryActive};
-                ${chipTokens.backgroundReadOnly}: ${surfaceTransparentSecondary};
-                ${chipTokens.colorReadOnly}: ${textPrimary};
-                ${chipTokens.backgroundReadOnlyHover}: ${surfaceTransparentSecondary};
-                ${chipTokens.colorReadOnlyHover}: ${textPrimary};
-                ${chipTokens.closeIconColor}: ${textSecondary};
-                ${chipTokens.closeIconColorHover}: ${textSecondaryHover};
-                ${chipTokens.leftContentColor}: ${textPrimary};
+                ${chipTokens.color}: var(--text-primary);
+                ${chipTokens.background}: var(--surface-transparent-secondary);
+                ${chipTokens.colorHover}: var(--text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-transparent-secondary-hover);
+                ${chipTokens.colorActive}: var(--text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-transparent-secondary-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-transparent-secondary);
+                ${chipTokens.colorReadOnly}: var(--text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${chipTokens.colorReadOnlyHover}: var(--text-primary);
+                ${chipTokens.closeIconColor}: var(--text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);
+                ${chipTokens.leftContentColor}: var(--text-primary);
             `,
             accent: css`
-                ${chipTokens.color}: ${onDarkTextPrimary};
-                ${chipTokens.background}: ${surfaceAccent};
-                ${chipTokens.colorHover}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundHover}: ${surfaceAccentHover};
-                ${chipTokens.colorActive}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundActive}: ${surfaceAccentActive};
-                ${chipTokens.backgroundReadOnly}: ${surfaceAccent};
-                ${chipTokens.colorReadOnly}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundReadOnlyHover}: ${surfaceAccent};
-                ${chipTokens.colorReadOnlyHover}: ${onDarkTextPrimary};
-                ${chipTokens.closeIconColor}: ${onDarkTextSecondary};
-                ${chipTokens.closeIconColorHover}: ${onDarkTextSecondaryHover};
-                ${chipTokens.leftContentColor}: ${onDarkTextPrimary};
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-accent);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-accent-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-accent-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-accent);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             positive: css`
-                ${chipTokens.color}: ${onDarkTextPrimary};
-                ${chipTokens.background}: ${surfacePositive};
-                ${chipTokens.colorHover}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundHover}: ${surfacePositiveHover};
-                ${chipTokens.colorActive}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundActive}: ${surfacePositiveActive};
-                ${chipTokens.backgroundReadOnly}: ${surfacePositive};
-                ${chipTokens.colorReadOnly}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundReadOnlyHover}: ${surfacePositive};
-                ${chipTokens.colorReadOnlyHover}: ${onDarkTextPrimary};
-                ${chipTokens.closeIconColor}: ${onDarkTextSecondary};
-                ${chipTokens.closeIconColorHover}: ${onDarkTextSecondaryHover};
-                ${chipTokens.leftContentColor}: ${onDarkTextPrimary};
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-positive);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-positive-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-positive-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-positive);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-positive);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             warning: css`
-                ${chipTokens.color}: ${onDarkTextPrimary};
-                ${chipTokens.background}: ${surfaceWarning};
-                ${chipTokens.colorHover}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundHover}: ${surfaceWarningHover};
-                ${chipTokens.colorActive}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundActive}: ${surfaceWarningActive};
-                ${chipTokens.backgroundReadOnly}: ${surfaceWarning};
-                ${chipTokens.colorReadOnly}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundReadOnlyHover}: ${surfaceWarning};
-                ${chipTokens.colorReadOnlyHover}: ${onDarkTextPrimary};
-                ${chipTokens.closeIconColor}: ${onDarkTextSecondary};
-                ${chipTokens.closeIconColorHover}: ${onDarkTextSecondaryHover};
-                ${chipTokens.leftContentColor}: ${onDarkTextPrimary};
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-warning);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-warning-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-warning-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-warning);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-warning);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             negative: css`
-                ${chipTokens.color}: ${onDarkTextPrimary};
-                ${chipTokens.background}: ${surfaceNegative};
-                ${chipTokens.colorHover}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundHover}: ${surfaceNegativeHover};
-                ${chipTokens.colorActive}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundActive}: ${surfaceNegativeActive};
-                ${chipTokens.backgroundReadOnly}: ${surfaceNegative};
-                ${chipTokens.colorReadOnly}: ${onDarkTextPrimary};
-                ${chipTokens.backgroundReadOnlyHover}: ${surfaceNegative};
-                ${chipTokens.colorReadOnlyHover}: ${onDarkTextPrimary};
-                ${chipTokens.closeIconColor}: ${onDarkTextSecondary};
-                ${chipTokens.closeIconColorHover}: ${onDarkTextSecondaryHover};
-                ${chipTokens.leftContentColor}: ${onDarkTextPrimary};
+                ${chipTokens.color}: var(--on-dark-text-primary);
+                ${chipTokens.background}: var(--surface-negative);
+                ${chipTokens.colorHover}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundHover}: var(--surface-negative-hover);
+                ${chipTokens.colorActive}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundActive}: var(--surface-negative-active);
+                ${chipTokens.backgroundReadOnly}: var(--surface-negative);
+                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
+                ${chipTokens.backgroundReadOnlyHover}: var(--surface-negative);
+                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
+                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },
         size: {
@@ -149,12 +109,12 @@ export const config = {
                 ${chipTokens.height}: 3rem;
                 ${chipTokens.padding}: 0 1rem;
 
-                ${chipTokens.fontFamily}: ${bodyL.fontFamily};
-                ${chipTokens.fontSize}: ${bodyL.fontSize};
-                ${chipTokens.fontStyle}: ${bodyL.fontStyle};
-                ${chipTokens.fontWeight}: ${bodyLBold.fontWeight};
-                ${chipTokens.letterSpacing}: ${bodyLBold.letterSpacing};
-                ${chipTokens.lineHeight}: ${bodyL.lineHeight};
+                ${chipTokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${chipTokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${chipTokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-l-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${chipTokens.lineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.5rem;
@@ -171,12 +131,12 @@ export const config = {
                 ${chipTokens.height}: 2.5rem;
                 ${chipTokens.padding}: 0 0.875rem;
 
-                ${chipTokens.fontFamily}: ${bodyM.fontFamily};
-                ${chipTokens.fontSize}: ${bodyM.fontSize};
-                ${chipTokens.fontStyle}: ${bodyM.fontStyle};
-                ${chipTokens.fontWeight}: ${bodyMBold.fontWeight};
-                ${chipTokens.letterSpacing}: ${bodyMBold.letterSpacing};
-                ${chipTokens.lineHeight}: ${bodyM.lineHeight};
+                ${chipTokens.fontFamily}: var(--plasma-typo-body-m-font-family);
+                ${chipTokens.fontSize}: var(--plasma-typo-body-m-font-size);
+                ${chipTokens.fontStyle}: var(--plasma-typo-body-m-font-style);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${chipTokens.lineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.375rem;
@@ -193,12 +153,12 @@ export const config = {
                 ${chipTokens.height}: 2rem;
                 ${chipTokens.padding}: 0 0.875rem;
 
-                ${chipTokens.fontFamily}: ${bodyS.fontFamily};
-                ${chipTokens.fontSize}: ${bodyS.fontSize};
-                ${chipTokens.fontStyle}: ${bodyS.fontStyle};
-                ${chipTokens.fontWeight}: ${bodySBold.fontWeight};
-                ${chipTokens.letterSpacing}: ${bodySBold.letterSpacing};
-                ${chipTokens.lineHeight}: ${bodyS.lineHeight};
+                ${chipTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
+                ${chipTokens.fontSize}: var(--plasma-typo-body-s-font-size);
+                ${chipTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${chipTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
@@ -215,12 +175,12 @@ export const config = {
                 ${chipTokens.height}: 1.5rem;
                 ${chipTokens.padding}: 0 0.625rem;
 
-                ${chipTokens.fontFamily}: ${bodyXS.fontFamily};
-                ${chipTokens.fontSize}: ${bodyXS.fontSize};
-                ${chipTokens.fontStyle}: ${bodyXS.fontStyle};
-                ${chipTokens.fontWeight}: ${bodyXSBold.fontWeight};
-                ${chipTokens.letterSpacing}: ${bodyXSBold.letterSpacing};
-                ${chipTokens.lineHeight}: ${bodyXS.lineHeight};
+                ${chipTokens.fontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${chipTokens.fontSize}: var(--plasma-typo-body-xs-font-size);
+                ${chipTokens.fontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${chipTokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
@@ -237,12 +197,12 @@ export const config = {
                 ${chipTokens.height}: 1.25rem;
                 ${chipTokens.padding}: 0 0.5rem;
 
-                ${chipTokens.fontFamily}: ${bodyXXS.fontFamily};
-                ${chipTokens.fontSize}: ${bodyXXS.fontSize};
-                ${chipTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${chipTokens.fontWeight}: ${bodyXXSBold.fontWeight};
-                ${chipTokens.letterSpacing}: ${bodyXXSBold.letterSpacing};
-                ${chipTokens.lineHeight}: ${bodyXXS.lineHeight};
+                ${chipTokens.fontFamily}: var(--plasma-typo-body-xxs-font-family);
+                ${chipTokens.fontSize}: var(--plasma-typo-body-xxs-font-size);
+                ${chipTokens.fontStyle}: var(--plasma-typo-body-xxs-font-style);
+                ${chipTokens.fontWeight}: var(--plasma-typo-body-xxs-font-weight);
+                ${chipTokens.letterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
+                ${chipTokens.lineHeight}: var(--plasma-typo-body-xxs-line-height);
 
                 ${chipTokens.leftContentMarginLeft}: -0.125rem;
                 ${chipTokens.leftContentMarginRight}: 0.125rem;
@@ -260,7 +220,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${chipTokens.focusColor}: ${textAccent};
+                ${chipTokens.focusColor}: var(--text-accent);
             `,
         },
         pilled: {

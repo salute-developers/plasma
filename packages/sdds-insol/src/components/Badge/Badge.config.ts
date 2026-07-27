@@ -1,29 +1,4 @@
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    inverseTextPrimary,
-    onDarkSurfaceSolidDefault,
-    onDarkSurfaceTransparentCard,
-    onDarkTextPrimary,
-    onLightSurfaceSolidDefault,
-    onLightSurfaceTransparentDeep,
-    onLightTextPrimary,
-    surfaceAccent,
-    surfaceClear,
-    surfaceNegative,
-    surfacePositive,
-    surfaceSolidDefault,
-    surfaceTransparentAccent,
-    surfaceTransparentNegative,
-    surfaceTransparentPositive,
-    surfaceTransparentSecondary,
-    surfaceTransparentWarning,
-    surfaceWarning,
-    textAccent,
-    textNegative,
-    textPositive,
-    textPrimary,
-    textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 import { pilled, sizeL, sizeM, sizeS, sizeXS } from './Badge.config.common';
 
@@ -35,67 +10,67 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${badgeTokens.color}: ${inverseTextPrimary};
-                ${badgeTokens.background}: ${surfaceSolidDefault};
+                ${badgeTokens.color}: var(--inverse-text-primary);
+                ${badgeTokens.background}: var(--surface-solid-default);
 
-                ${badgeTokens.colorTransparent}: ${textPrimary};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentSecondary};
+                ${badgeTokens.colorTransparent}: var(--text-primary);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-secondary);
 
-                ${badgeTokens.colorClear}: ${textPrimary};
+                ${badgeTokens.colorClear}: var(--text-primary);
             `,
             accent: css`
-                ${badgeTokens.color}: ${onDarkTextPrimary};
-                ${badgeTokens.background}: ${surfaceAccent};
+                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.background}: var(--surface-accent);
 
-                ${badgeTokens.colorTransparent}: ${textAccent};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentAccent};
+                ${badgeTokens.colorTransparent}: var(--text-accent);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-accent);
 
-                ${badgeTokens.colorClear}: ${textAccent};
+                ${badgeTokens.colorClear}: var(--text-accent);
             `,
             positive: css`
-                ${badgeTokens.color}: ${onDarkTextPrimary};
-                ${badgeTokens.background}: ${surfacePositive};
+                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.background}: var(--surface-positive);
 
-                ${badgeTokens.colorTransparent}: ${textPositive};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentPositive};
+                ${badgeTokens.colorTransparent}: var(--text-positive);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-positive);
 
-                ${badgeTokens.colorClear}: ${textPositive};
+                ${badgeTokens.colorClear}: var(--text-positive);
             `,
             warning: css`
-                ${badgeTokens.color}: ${onDarkTextPrimary};
-                ${badgeTokens.background}: ${surfaceWarning};
+                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.background}: var(--surface-warning);
 
-                ${badgeTokens.colorTransparent}: ${textWarning};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentWarning};
+                ${badgeTokens.colorTransparent}: var(--text-warning);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-warning);
 
-                ${badgeTokens.colorClear}: ${textWarning};
+                ${badgeTokens.colorClear}: var(--text-warning);
             `,
             negative: css`
-                ${badgeTokens.color}: ${onDarkTextPrimary};
-                ${badgeTokens.background}: ${surfaceNegative};
+                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.background}: var(--surface-negative);
 
-                ${badgeTokens.colorTransparent}: ${textNegative};
-                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentNegative};
+                ${badgeTokens.colorTransparent}: var(--text-negative);
+                ${badgeTokens.backgroundTransparent}: var(--surface-transparent-negative);
 
-                ${badgeTokens.colorClear}: ${textNegative};
+                ${badgeTokens.colorClear}: var(--text-negative);
             `,
             dark: css`
-                ${badgeTokens.color}: ${onDarkTextPrimary};
-                ${badgeTokens.background}: ${onLightSurfaceSolidDefault};
+                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.background}: var(--on-light-surface-solid-default);
 
-                ${badgeTokens.colorTransparent}: ${onDarkTextPrimary};
-                ${badgeTokens.backgroundTransparent}: ${onLightSurfaceTransparentDeep};
+                ${badgeTokens.colorTransparent}: var(--on-dark-text-primary);
+                ${badgeTokens.backgroundTransparent}: var(--on-light-surface-transparent-deep);
 
-                ${badgeTokens.colorClear}: ${onLightTextPrimary};
+                ${badgeTokens.colorClear}: var(--on-light-text-primary);
             `,
             light: css`
-                ${badgeTokens.color}: ${onLightTextPrimary};
-                ${badgeTokens.background}: ${onDarkSurfaceSolidDefault};
+                ${badgeTokens.color}: var(--on-light-text-primary);
+                ${badgeTokens.background}: var(--on-dark-surface-solid-default);
 
-                ${badgeTokens.colorTransparent}: ${onDarkTextPrimary};
-                ${badgeTokens.backgroundTransparent}: ${onDarkSurfaceTransparentCard};
+                ${badgeTokens.colorTransparent}: var(--on-dark-text-primary);
+                ${badgeTokens.backgroundTransparent}: var(--on-dark-surface-transparent-card);
 
-                ${badgeTokens.colorClear}: ${onDarkTextPrimary};
+                ${badgeTokens.colorClear}: var(--on-dark-text-primary);
             `,
         },
         size: {
@@ -122,7 +97,7 @@ export const config = {
         },
         clear: {
             true: css`
-                ${badgeTokens.backgroundClear}: ${surfaceClear};
+                ${badgeTokens.backgroundClear}: var(--surface-clear);
             `,
         },
     },
