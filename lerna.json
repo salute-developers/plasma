@@ -5,9 +5,6 @@
     "loglevel": "verbose",
     "exact": true,
     "command": {
-        "bootstrap": {
-            "npmClientArgs": ["--no-audit", "--loglevel error", "--no-progress", "--unsafe-perm"]
-        },
         "publish": {
             "verifyAccess": false
         },

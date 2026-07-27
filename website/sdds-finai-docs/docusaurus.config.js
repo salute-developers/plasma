@@ -136,7 +136,7 @@ const config = {
                 name: 'docusaurus-plugin-react-docgen-typescript',
                 async loadContent() {
                     // Загрузка компонентов для документации
-                    return withCustomConfig('./tsconfig.json', {
+                    return withCustomConfig(path.resolve(__dirname, 'tsconfig.json'), {
                         shouldExtractLiteralValuesFromEnum: true,
                         shouldRemoveUndefinedFromOptional: true,
                         propFilter: () => {
@@ -233,9 +233,13 @@ const config = {
                         resolve: {
                             symlinks: false,
                             alias: {
-                                react: path.resolve(__dirname, 'node_modules', 'react'),
-                                'react-dom': path.resolve(__dirname, 'node_modules', 'react-dom'),
-                                'styled-components': path.resolve(__dirname, 'node_modules', 'styled-components'),
+                                react: path.dirname(require.resolve('react/package.json', { paths: [__dirname] })),
+                                'react-dom': path.dirname(
+                                    require.resolve('react-dom/package.json', { paths: [__dirname] }),
+                                ),
+                                'styled-components': path.dirname(
+                                    require.resolve('styled-components/package.json', { paths: [__dirname] }),
+                                ),
                             },
                         },
                     };

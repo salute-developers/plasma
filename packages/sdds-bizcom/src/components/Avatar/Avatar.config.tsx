@@ -1,4 +1,32 @@
 import { css, avatarTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    bodyS,
+    bodyXXS,
+    inverseTextPrimary,
+    onDarkSurfaceSolidDefault,
+    onDarkSurfaceTransparentCard,
+    onDarkTextPrimary,
+    onLightSurfaceSolidDefault,
+    onLightSurfaceTransparentDeep,
+    onLightTextPrimary,
+    surfaceAccent,
+    surfaceClear,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceSolidTertiary,
+    surfaceTransparentAccent,
+    surfaceTransparentNegative,
+    surfaceTransparentPositive,
+    surfaceTransparentSecondary,
+    surfaceTransparentWarning,
+    surfaceWarning,
+    textAccent,
+    textNegative,
+    textPositive,
+    textPrimary,
+    textWarning,
+} from '@salutejs/sdds-themes/tokens/sdds_bizcom';
 
 export const config = {
     defaults: {
@@ -13,8 +41,8 @@ export const config = {
                 ${tokens.color}: radial-gradient(88% 150% at 0% 100%, rgba(0, 120, 153, 1), rgba(25, 125, 97, 1) 100%);
                 ${tokens.backgroundColor}: radial-gradient(88% 150% at 0% 100%, rgba(0, 120, 153, 0.2), rgba(25, 125, 97, 0.2) 100%);
                 /* stylelint-enable value-list-comma-space-after */
-                ${tokens.statusOnlineColor}: var(--surface-positive);
-                ${tokens.statusOfflineColor}: var(--surface-solid-tertiary);
+                ${tokens.statusOnlineColor}: ${surfacePositive};
+                ${tokens.statusOfflineColor}: ${surfaceSolidTertiary};
                 ${tokens.scaleHover}: 1.02;
                 ${tokens.fontFamily}: var(--plasma-typo-text-font-family);
             `,
@@ -34,12 +62,12 @@ export const config = {
                 ${tokens.badgePadding}: 0 0.688rem;
                 ${tokens.badgePaddingIconOnly}: 0 0.375rem;
 
-                ${tokens.badgeFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.badgeFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.badgeFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.badgeFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.badgeLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.badgeLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.badgeFontFamily}: ${bodyS.fontFamily};
+                ${tokens.badgeFontSize}: ${bodyS.fontSize};
+                ${tokens.badgeFontStyle}: ${bodyS.fontStyle};
+                ${tokens.badgeFontWeight}: ${bodyS.fontWeight};
+                ${tokens.badgeLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.badgeLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.badgeLeftContentMarginLeft}: -0.063rem;
                 ${tokens.badgeLeftContentMarginRight}: 0.25rem;
@@ -51,12 +79,12 @@ export const config = {
                 ${tokens.counterBorderRadius}: 1rem;
                 ${tokens.counterHeight}: 1.75rem;
                 ${tokens.counterPadding}: 0 0.625rem;
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-s-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-s-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-s-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.counterFontFamily}: ${bodyS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyS.lineHeight};
             `,
             l: css`
                 ${tokens.avatarSize}: 3rem;
@@ -73,12 +101,12 @@ export const config = {
                 ${tokens.badgePadding}: 0 0.438rem;
                 ${tokens.badgePaddingIconOnly}: 0 0.25rem;
 
-                ${tokens.badgeFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.badgeFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.badgeFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.badgeFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.badgeLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.badgeLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.badgeFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.badgeFontSize}: ${bodyXXS.fontSize};
+                ${tokens.badgeFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.badgeFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.badgeLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.badgeLineHeight}: ${bodyXXS.lineHeight};
 
                 ${tokens.badgeLeftContentMarginLeft}: -0.063rem;
                 ${tokens.badgeLeftContentMarginRight}: 0.125rem;
@@ -90,12 +118,12 @@ export const config = {
                 ${tokens.counterBorderRadius}: 1rem;
                 ${tokens.counterHeight}: 1.25rem;
                 ${tokens.counterPadding}: 0 0.375rem;
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             m: css`
                 ${tokens.avatarSize}: 2.25rem;
@@ -112,12 +140,12 @@ export const config = {
                 ${tokens.badgePadding}: 0 0.25rem;
                 ${tokens.badgePaddingIconOnly}: 0 0.188rem;
 
-                ${tokens.badgeFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.badgeFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.badgeFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.badgeFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.badgeLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.badgeLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.badgeFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.badgeFontSize}: ${bodyXXS.fontSize};
+                ${tokens.badgeFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.badgeFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.badgeLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.badgeLineHeight}: ${bodyXXS.lineHeight};
 
                 ${tokens.badgeLeftContentMarginLeft}: -0.063rem;
                 ${tokens.badgeLeftContentMarginRight}: 0.125rem;
@@ -129,12 +157,12 @@ export const config = {
                 ${tokens.counterBorderRadius}: 1rem;
                 ${tokens.counterHeight}: 1rem;
                 ${tokens.counterPadding}: 0 0.25rem;
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             s: css`
                 ${tokens.avatarSize}: 1.5rem;
@@ -149,12 +177,12 @@ export const config = {
                 ${tokens.counterBorderRadius}: 1rem;
                 ${tokens.counterHeight}: 0.75rem;
                 ${tokens.counterPadding}: 0 0.125rem;
-                ${tokens.counterFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${tokens.counterFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${tokens.counterFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${tokens.counterFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${tokens.counterLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${tokens.counterLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
+                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
             `,
             fit: css`
                 ${tokens.avatarSize}: 100%;
@@ -169,7 +197,7 @@ export const config = {
             true: css`
                 ${tokens.outlineSize}: 0.1rem;
                 ${tokens.outlineOffset}: -0.2rem;
-                ${tokens.outlineColor}: var(--surface-accent);
+                ${tokens.outlineColor}: ${surfaceAccent};
             `,
         },
         shape: {
@@ -185,104 +213,104 @@ export const config = {
         },
         badgeView: {
             default: css`
-                ${tokens.badgeColor}: var(--inverse-text-primary);
-                ${tokens.badgeBackground}: var(--surface-solid-default);
+                ${tokens.badgeColor}: ${inverseTextPrimary};
+                ${tokens.badgeBackground}: ${surfaceSolidDefault};
 
-                ${tokens.badgeColorTransparent}: var(--text-primary);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-secondary);
+                ${tokens.badgeColorTransparent}: ${textPrimary};
+                ${tokens.badgeBackgroundTransparent}: ${surfaceTransparentSecondary};
 
-                ${tokens.badgeColorClear}: var(--text-primary);
-                ${tokens.badgeBackgroundClear}: var(--surface-clear);
+                ${tokens.badgeColorClear}: ${textPrimary};
+                ${tokens.badgeBackgroundClear}: ${surfaceClear};
             `,
             accent: css`
-                ${tokens.badgeColor}: var(--on-dark-text-primary);
-                ${tokens.badgeBackground}: var(--surface-accent);
+                ${tokens.badgeColor}: ${onDarkTextPrimary};
+                ${tokens.badgeBackground}: ${surfaceAccent};
 
-                ${tokens.badgeColorTransparent}: var(--text-accent);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-accent);
+                ${tokens.badgeColorTransparent}: ${textAccent};
+                ${tokens.badgeBackgroundTransparent}: ${surfaceTransparentAccent};
 
-                ${tokens.badgeColorClear}: var(--text-accent);
-                ${tokens.badgeBackgroundClear}: var(--surface-clear);
+                ${tokens.badgeColorClear}: ${textAccent};
+                ${tokens.badgeBackgroundClear}: ${surfaceClear};
             `,
             positive: css`
-                ${tokens.badgeColor}: var(--on-dark-text-primary);
-                ${tokens.badgeBackground}: var(--surface-positive);
+                ${tokens.badgeColor}: ${onDarkTextPrimary};
+                ${tokens.badgeBackground}: ${surfacePositive};
 
-                ${tokens.badgeColorTransparent}: var(--text-positive);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-positive);
+                ${tokens.badgeColorTransparent}: ${textPositive};
+                ${tokens.badgeBackgroundTransparent}: ${surfaceTransparentPositive};
 
-                ${tokens.badgeColorClear}: var(--text-positive);
-                ${tokens.badgeBackgroundClear}: var(--surface-clear);
+                ${tokens.badgeColorClear}: ${textPositive};
+                ${tokens.badgeBackgroundClear}: ${surfaceClear};
             `,
             warning: css`
-                ${tokens.badgeColor}: var(--on-dark-text-primary);
-                ${tokens.badgeBackground}: var(--surface-warning);
+                ${tokens.badgeColor}: ${onDarkTextPrimary};
+                ${tokens.badgeBackground}: ${surfaceWarning};
 
-                ${tokens.badgeColorTransparent}: var(--text-warning);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-warning);
+                ${tokens.badgeColorTransparent}: ${textWarning};
+                ${tokens.badgeBackgroundTransparent}: ${surfaceTransparentWarning};
 
-                ${tokens.badgeColorClear}: var(--text-warning);
-                ${tokens.badgeBackgroundClear}: var(--surface-clear);
+                ${tokens.badgeColorClear}: ${textWarning};
+                ${tokens.badgeBackgroundClear}: ${surfaceClear};
             `,
             negative: css`
-                ${tokens.badgeColor}: var(--on-dark-text-primary);
-                ${tokens.badgeBackground}: var(--surface-negative);
+                ${tokens.badgeColor}: ${onDarkTextPrimary};
+                ${tokens.badgeBackground}: ${surfaceNegative};
 
-                ${tokens.badgeColorTransparent}: var(--text-negative);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-negative);
+                ${tokens.badgeColorTransparent}: ${textNegative};
+                ${tokens.badgeBackgroundTransparent}: ${surfaceTransparentNegative};
 
-                ${tokens.badgeColorClear}: var(--text-negative);
-                ${tokens.badgeBackgroundClear}: var(--surface-clear);
+                ${tokens.badgeColorClear}: ${textNegative};
+                ${tokens.badgeBackgroundClear}: ${surfaceClear};
             `,
             dark: css`
-                ${tokens.badgeColor}: var(--on-dark-text-primary);
-                ${tokens.badgeBackground}: var(--on-light-surface-solid-default);
+                ${tokens.badgeColor}: ${onDarkTextPrimary};
+                ${tokens.badgeBackground}: ${onLightSurfaceSolidDefault};
 
-                ${tokens.badgeColorTransparent}: var(--on-dark-text-primary);
-                ${tokens.badgeBackgroundTransparent}: var(--on-light-surface-transparent-deep);
+                ${tokens.badgeColorTransparent}: ${onDarkTextPrimary};
+                ${tokens.badgeBackgroundTransparent}: ${onLightSurfaceTransparentDeep};
 
-                ${tokens.badgeColorClear}: var(--on-light-text-primary);
-                ${tokens.badgeBackgroundClear}: var(--surface-clear);
+                ${tokens.badgeColorClear}: ${onLightTextPrimary};
+                ${tokens.badgeBackgroundClear}: ${surfaceClear};
             `,
             light: css`
-                ${tokens.badgeColor}: var(--on-light-text-primary);
-                ${tokens.badgeBackground}: var(--on-dark-surface-solid-default);
+                ${tokens.badgeColor}: ${onLightTextPrimary};
+                ${tokens.badgeBackground}: ${onDarkSurfaceSolidDefault};
 
-                ${tokens.badgeColorTransparent}: var(--on-dark-text-primary);
-                ${tokens.badgeBackgroundTransparent}: var(--on-dark-surface-transparent-card);
+                ${tokens.badgeColorTransparent}: ${onDarkTextPrimary};
+                ${tokens.badgeBackgroundTransparent}: ${onDarkSurfaceTransparentCard};
 
-                ${tokens.badgeColorClear}: var(--on-dark-text-primary);
-                ${tokens.badgeBackgroundClear}: var(--surface-clear);
+                ${tokens.badgeColorClear}: ${onDarkTextPrimary};
+                ${tokens.badgeBackgroundClear}: ${surfaceClear};
             `,
         },
         counterView: {
             default: css`
-                ${tokens.counterColor}: var(--inverse-text-primary);
-                ${tokens.counterBackground}: var(--surface-solid-default);
+                ${tokens.counterColor}: ${inverseTextPrimary};
+                ${tokens.counterBackground}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--surface-accent);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${surfaceAccent};
             `,
             positive: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--surface-positive);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${surfacePositive};
             `,
             warning: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--surface-warning);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${surfaceWarning};
             `,
             negative: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--surface-negative);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${surfaceNegative};
             `,
             dark: css`
-                ${tokens.counterColor}: var(--on-dark-text-primary);
-                ${tokens.counterBackground}: var(--on-light-surface-solid-default);
+                ${tokens.counterColor}: ${onDarkTextPrimary};
+                ${tokens.counterBackground}: ${onLightSurfaceSolidDefault};
             `,
             light: css`
-                ${tokens.counterColor}: var(--on-light-text-primary);
-                ${tokens.counterBackground}: var(--on-dark-surface-solid-default);
+                ${tokens.counterColor}: ${onLightTextPrimary};
+                ${tokens.counterBackground}: ${onDarkSurfaceSolidDefault};
             `,
         },
     },

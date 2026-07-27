@@ -14,6 +14,11 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Set options
+      shell: bash
+      run: |
+        echo "OPTIONS=--no-audit --no-progress --package-lock-only --ignore-scripts" >> "$GITHUB_ENV"
+
     - name: Sync package-lock's root  level
       shell: bash
       run: npm i --silent --no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps
@@ -29,8 +34,7 @@ runs:
           npx lerna clean -y
           npx lerna bootstrap --ignore-scripts
         command: |
-          npx lerna clean -y
-          npx lerna bootstrap --ignore-scripts --no-ci
+          npm install --silent ${{ env.OPTIONS }}
 
     - name: Extract branch name
       id: branch

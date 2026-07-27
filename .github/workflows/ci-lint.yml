@@ -36,12 +36,10 @@ jobs:
             - name: Prepare environment
               uses: ./.github/actions/prepare-environment
 
-            # INFO: Для корректной работы ESLint не нужно build typings, etc.
-            # INFO: Только установить пакеты и сделать symlink
-            - name: Lerna bootstrap
-              run: npx lerna bootstrap --ignore-scripts
+            - name: Install dependencies
+              run: npm run setup:ci
 
-            - name: Check disk usage after bootstrap
+            - name: Check disk usage after install
               run: df -h
 
             - name: Lint
