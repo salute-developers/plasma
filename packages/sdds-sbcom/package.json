@@ -11,7 +11,7 @@
   "keywords": ["design-system", "react-components", "react", "ui-kit"],
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:salute-developers/plasma.git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
     "directory": "packages/sdds-sbcom"
   },
   "exports": {

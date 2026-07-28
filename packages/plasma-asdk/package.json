@@ -10,7 +10,7 @@
   "keywords": ["design-system", "react-components", "ui-kit", "react"],
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:salute-developers/plasma.git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
     "directory": "packages/plasma-asdk"
   },
   "main": "index.js",
