@@ -34,6 +34,7 @@ const PACKAGE_MAP = {
     web: 'plasma-web',
     cs: 'sdds-cs',
     insol: 'sdds-insol',
+    'insol-next': 'sdds-insol-next',
     netology: 'sdds-netology',
     bizcom: 'sdds-bizcom',
     serv: 'sdds-serv',
