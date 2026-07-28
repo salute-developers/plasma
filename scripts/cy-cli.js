@@ -16,6 +16,7 @@ const PACKAGES = [
     'web',
     'cs',
     'insol',
+    'insol-next',
     'netology',
     'bizcom',
     'serv',
