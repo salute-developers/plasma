@@ -4,6 +4,11 @@
   "description": "All color palettes for Salute Ecosystem",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/plasma-colors"
+  },
   "module": "es/index.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,13 +25,6 @@
     "generate": "npx ts-node ./lib/generate.ts",
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
   },
-  "files": [
-    "dist",
-    "es"
-  ],
-  "contributors": [
-    "Vasiliy Loginevskiy",
-    "Anton Vinogradov",
-    "Fanil Zubairov"
-  ]
+  "files": ["dist", "es"],
+  "contributors": ["salute.developers@gmail.com"]
 }
