@@ -58,6 +58,8 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
 
             const arrowRef = useRef(null);
 
+            const [, alignment] = placement.split('-');
+
             const handleToggle = (opened: boolean) => {
                 setOpened(opened);
             };
@@ -135,6 +137,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                                             height={ARROW_HEIGHT}
                                             fill={`var(${tokens.backgroundColor})`}
                                             d={ARROW_POLYGON}
+                                            staticOffset={alignment ? ARROW_PADDING : undefined}
                                         />
                                     )}
                                 </Wrapper>
