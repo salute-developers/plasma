@@ -78,6 +78,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
 
             const arrowRef = useRef(null);
 
+            const [, alignment] = placement.split('-');
+
             const handleToggle = (opened: boolean) => {
                 setInnerOpened(opened);
 
@@ -162,6 +164,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                                                     height={ARROW_HEIGHT}
                                                     fill={`var(${tokens.backgroundColor})`}
                                                     d={ARROW_POLYGON}
+                                                    staticOffset={alignment ? ARROW_PADDING : undefined}
                                                 />
                                             )}
 
