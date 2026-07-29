@@ -21,7 +21,7 @@ runs:
 
     - name: Sync package-lock's root  level
       shell: bash
-      run: npm i --silent --no-audit --no-progress --package-lock-only --lockfile-version 2 --legacy-peer-deps
+      run: npm i --silent ${{ env.OPTIONS }}
 
     - name: Sync package-lock files
       uses: nick-fields/retry@v2.9.0
@@ -31,10 +31,14 @@ runs:
         max_attempts: 3
         on_retry_command: |
           git reset --hard
-          npx lerna clean -y
-          npx lerna bootstrap --ignore-scripts
+          npm i --silent ${{ env.OPTIONS }}
         command: |
           npm install --silent ${{ env.OPTIONS }}
+      
+    - name: Root deps don't update correctly on first regeneration
+      shell: bash
+      run: |
+        npm i ${{ env.OPTIONS }}
 
     - name: Extract branch name
       id: branch
