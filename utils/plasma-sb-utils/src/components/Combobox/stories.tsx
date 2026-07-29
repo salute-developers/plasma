@@ -7,7 +7,9 @@ const getIconSize = (size?: string) => {
     return size === 'xs' ? 'xs' : 's';
 };
 
-export const createSingleStory = (Combobox: any) => {
+type GetContentRight = (size: string, disabled?: boolean, readOnly?: boolean) => JSX.Element | undefined;
+
+export const createSingleStory = (Combobox: any, getContentRight?: GetContentRight) => {
     return ({ enableContentLeft, ...rest }: any) => {
         const [value, setValue] = useState('');
 
@@ -19,13 +21,14 @@ export const createSingleStory = (Combobox: any) => {
                     value={value}
                     onChange={setValue}
                     contentLeft={enableContentLeft ? <IconDone size={getIconSize(rest.size)} /> : undefined}
+                    contentRight={getContentRight?.(rest.size, rest.disabled, rest.readOnly)}
                 />
             </div>
         );
     };
 };
 
-export const createMultipleStory = (Combobox: any) => {
+export const createMultipleStory = (Combobox: any, getContentRight?: GetContentRight) => {
     return ({ enableContentLeft, ...rest }: any) => {
         const [value, setValue] = useState<Array<string>>([]);
 
@@ -38,6 +41,7 @@ export const createMultipleStory = (Combobox: any) => {
                     value={value}
                     onChange={setValue}
                     contentLeft={enableContentLeft ? <IconDone size={getIconSize(rest.size)} /> : undefined}
+                    contentRight={getContentRight?.(rest.size, rest.disabled, rest.readOnly)}
                 />
             </div>
         );
