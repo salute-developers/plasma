@@ -153,6 +153,7 @@ export const tokens = {
     textFieldClearIndicatorHintInnerRight: '--plasma-autocomplete-textfield-clear-indicator-hint-placement-inner-right',
 
     textFieldBoxShadow: '--plasma-autocomplete-textfield-box-shadow',
+    textFieldBoxShadowSecondary: '--plasma-autocomplete-textfield-box-shadow-secondary',
 
     // Токены для дропдауна
     background: '--plasma-autocomplete-background',

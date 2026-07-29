@@ -594,14 +594,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -614,14 +608,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -915,14 +903,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -935,14 +917,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1236,14 +1212,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1256,14 +1226,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1557,14 +1521,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -1577,14 +1535,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2142,14 +2094,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2162,14 +2108,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2726,14 +2666,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -2746,14 +2680,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -3305,14 +3233,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -3325,14 +3247,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -3889,14 +3805,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -3909,14 +3819,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -4497,14 +4401,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -4517,14 +4415,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5003,14 +4895,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5023,14 +4909,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5514,14 +5394,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -5534,14 +5408,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6020,14 +5888,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6040,14 +5902,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6830,14 +6686,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -6850,14 +6700,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7151,14 +6995,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7171,14 +7009,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7472,14 +7304,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7492,14 +7318,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7793,14 +7613,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -7813,14 +7627,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8368,14 +8176,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8388,14 +8190,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8962,14 +8758,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -8982,14 +8772,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -9541,14 +9325,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -9561,14 +9339,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10130,14 +9902,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10150,14 +9916,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10738,14 +10498,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -10758,14 +10512,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -11239,14 +10987,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -11259,14 +11001,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -11750,14 +11486,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -11770,14 +11500,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(13, 133, 35)",
-                                "rgb(13, 168, 171)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(13, 133, 35)", "rgb(13, 168, 171)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -12251,14 +11975,8 @@
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85
@@ -12271,14 +11989,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "rgb(26, 158, 50)",
-                                "rgb(4, 198, 201)"
-                            ],
-                            "locations": [
-                                0,
-                                1
-                            ],
+                            "colors": ["rgb(26, 158, 50)", "rgb(4, 198, 201)"],
+                            "locations": [0, 1],
                             "startPoint": {
                                 "x": 0.15,
                                 "y": 0.85

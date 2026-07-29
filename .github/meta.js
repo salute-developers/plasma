@@ -80,6 +80,11 @@ module.exports = {
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'sdds-themes'],
         themes: 'sdds-themes',
     },
+    'sdds-insol-next': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-new-hope'],
+        required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'sdds-themes'],
+        themes: 'sdds-themes',
+    },
     'sdds-netology': {
         scope: [...commonScope, 'plasma-themes', 'plasma-new-hope'],
         required: ['plasma-sb-utils', 'plasma-new-hope', 'plasma-core', 'core-themes'],
