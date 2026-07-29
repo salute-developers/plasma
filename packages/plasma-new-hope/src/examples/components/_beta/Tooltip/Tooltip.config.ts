@@ -30,6 +30,9 @@ export const config = {
                 ${tokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.tailWidth}: 20px;
+                ${tokens.tailHeight}: 8px;
+                ${tokens.tailSideCurvature}: -10%;
             `,
             s: css`
                 ${tokens.borderRadius}: 0.5rem;
@@ -41,6 +44,9 @@ export const config = {
                 ${tokens.fontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.letterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.lineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.tailWidth}: 14px;
+                ${tokens.tailHeight}: 6px;
+                ${tokens.tailSideCurvature}: -10%;
             `,
         },
     },
