@@ -348,6 +348,78 @@ export function App() {
         }
         ```
     </TabItem>
+    <TabItem value="labelAlign" label="Кастомные подписи">
+        Помимо чисел `scaleTicks` может принимать массив объектов вида `{ value, label, labelAlign }`:
+        - `value` — значение деления;
+        - `label` — произвольная подпись (по умолчанию — строковое представление `value`);
+        - `labelAlign` — выравнивание подписи относительно точки на шкале: `'start' | 'center' | 'end'` (по умолчанию `'center'`).
+
+        `start` смещает подпись так, чтобы она начиналась от точки деления, `end` — чтобы заканчивалась на ней, `center` — центрирует подпись относительно точки:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [value, setValue] = useState(50);
+
+            return (
+                <div style={{ width: '25rem', display: 'flex', flexDirection: 'column' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={value}
+                        label="Кастомные подписи"
+                        scaleTicks={[
+                            { value: 0, label: 'Мин', labelAlign: 'start' },
+                            { value: 50, label: 'Средний' },
+                            { value: 100, label: 'Макс', labelAlign: 'end' },
+                        ]}
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="tickType" label="tickType">
+        Свойство `tickType` задаёт внешний вид делений на шкале (заданных через `scaleTicks`):
+        - `bullet` (по умолчанию) — точка на шкале;
+        - `separator` — деление в виде разделителя, визуально разбивающего дорожку и заполненную часть на скруглённые сегменты. Разделители всегда добавляются на границах трека, если `min`/`max` присутствуют в `scaleTicks`, а высота разделителя зависит от `pointerSize`:
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Slider } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [v1, setV1] = useState(50);
+            const [v2, setV2] = useState(50);
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column', width: '25rem' }}>
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={v1}
+                        label="Bullet (по умолчанию)"
+                        scaleTicks={[0, 20, 40, 60, 80, 100]}
+                        tickType="bullet"
+                        onChange={setV1}
+                    />
+                    <Slider
+                        min={0}
+                        max={100}
+                        value={v2}
+                        label="Separator"
+                        scaleTicks={[0, 20, 40, 60, 80, 100]}
+                        tickType="separator"
+                        onChange={setV2}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Подпись

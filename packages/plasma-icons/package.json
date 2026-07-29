@@ -24,7 +24,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:salute-developers/plasma.git"
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/plasma-icons"
   },
   "exports": {
     ".": {

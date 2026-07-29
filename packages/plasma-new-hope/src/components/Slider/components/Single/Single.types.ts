@@ -3,6 +3,25 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import type { SliderBaseProps, SliderInternalProps } from '../SliderBase/SliderBase.types';
 import { FormTypeNumber } from '../../../../types/FormType';
 
+type ScaleTickAlign = 'start' | 'center' | 'end';
+
+export type ScaleTickItem = {
+    /**
+     * Значение деления на шкале.
+     */
+    value: number;
+    /**
+     * Отображаемая подпись деления.
+     * @default то, что указано в value
+     */
+    label?: string;
+    /**
+     * Выравнивание подписи относительно точки на шкале.
+     * @default 'center'
+     */
+    labelAlign?: ScaleTickAlign;
+};
+
 type SingleSliderPropsUnion =
     | {
           /**
@@ -50,7 +69,7 @@ type SingleSliderOrientationPropsUnion =
           orientation?: 'horizontal';
           /**
            * Расположение подписи.
-           * @default top
+           * @default `top`
            * @description
            * Может принимать три значения:
            * top - отображение справа
@@ -60,7 +79,7 @@ type SingleSliderOrientationPropsUnion =
           labelPlacement?: 'top' | 'left' | 'none';
           /**
            * Расположение значений минимума и максимума интервала.
-           * @default bottom
+           * @default `bottom`
            * @description
            * Может принимать три значения:
            * - top - отображение сверху
@@ -178,7 +197,7 @@ export type SingleSliderProps = SliderBaseProps &
 
         /**
          * Размер ползунка
-         * @default small
+         * @default 'small'
          * @description
          * Может принимать три значения:
          * small - размер s;
@@ -188,8 +207,17 @@ export type SingleSliderProps = SliderBaseProps &
         pointerSize?: 'small' | 'large' | 'none';
 
         /**
+         * Вид отметки деления на шкале.
+         * @default 'bullet'
+         * @description
+         * bullet - точка на шкале (как сейчас);
+         * separator - шкала визуально разделяется на скруглённые сегменты с зазором в месте деления.
+         */
+        tickType?: 'bullet' | 'separator';
+
+        /**
          * Условия отображения ползунка
-         * @default always
+         * @default 'always'
          * @description
          * always - всегда отображать
          * hover - при наведении на Slider
@@ -199,7 +227,7 @@ export type SingleSliderProps = SliderBaseProps &
 
         /**
          * Условия появления ползунка, при pointerVisibility: true
-         * @default always
+         * @default 'always'
          * @description
          * always - всегда отображать
          * hover - при наведении на Slider
@@ -209,7 +237,9 @@ export type SingleSliderProps = SliderBaseProps &
         /**
          * Массив значений для отображения шкалы делений под ползунком.
          * При клике на деление ползунок перемещается к соответствующему значению.
+         * Помимо чисел можно передать объекты с кастомной подписью и её выравниванием.
          * @example scaleTicks={[0, 25, 50, 75, 100]}
+         * @example scaleTicks={[{ value: 0, label: 'Мин' }, { value: 100, label: 'Макс', labelAlign: 'end' }]}
          */
-        scaleTicks?: number[];
+        scaleTicks?: number[] | ScaleTickItem[];
     };

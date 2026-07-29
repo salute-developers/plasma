@@ -29,6 +29,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+        id-token: write # выдать OIDC-токен
+        contents: read  # для actions/checkou
     env:
       GITHUB_TOKEN: ${{ secrets.gh_token }}
       NPM_REGISTRY_TOKEN: ${{ secrets.npm_registry_token }}

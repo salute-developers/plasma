@@ -149,6 +149,144 @@ describeFn('Slider', () => {
         cy.matchImageSnapshot();
     });
 
+    it('scaleTicks with custom labels and labelAlign', () => {
+        mount(
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    scaleTicks={[
+                        { value: 0, label: 'Мин', labelAlign: 'start' },
+                        { value: 50, label: 'Средний' },
+                        { value: 100, label: 'Макс', labelAlign: 'end' },
+                    ]}
+                />
+                <PadMe />
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    orientation="vertical"
+                    scaleTicks={[
+                        { value: 0, label: 'Мин', labelAlign: 'start' },
+                        { value: 50, label: 'Средний' },
+                        { value: 100, label: 'Макс', labelAlign: 'end' },
+                    ]}
+                    style={{ height: '15rem' }}
+                />
+            </div>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('tickType: separator with custom labels and labelAlign', () => {
+        mount(
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    tickType="separator"
+                    scaleTicks={[
+                        { value: 0, label: 'Мин', labelAlign: 'start' },
+                        { value: 50, label: 'Средний' },
+                        { value: 100, label: 'Макс', labelAlign: 'end' },
+                    ]}
+                />
+                <PadMe />
+                <Slider
+                    value={50}
+                    min={0}
+                    max={100}
+                    orientation="vertical"
+                    tickType="separator"
+                    scaleTicks={[
+                        { value: 0, label: 'Мин', labelAlign: 'start' },
+                        { value: 50, label: 'Средний' },
+                        { value: 100, label: 'Макс', labelAlign: 'end' },
+                    ]}
+                    style={{ height: '15rem' }}
+                />
+            </div>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('tickType: bullet, separator', () => {
+        const commonArgs = {
+            min: 0,
+            max: 100,
+            scaleTicks: [0, 20, 40, 60, 80, 100],
+        } as SliderProps;
+
+        mount(
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                <Slider {...commonArgs} value={50} tickType="bullet" />
+                <PadMe />
+                <Slider {...commonArgs} value={0} tickType="separator" />
+                <PadMe />
+                <Slider {...commonArgs} value={50} tickType="separator" />
+                <PadMe />
+                <Slider {...commonArgs} value={100} tickType="separator" />
+            </div>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('tickType: separator, vertical, reversed', () => {
+        const commonArgs = {
+            min: 0,
+            max: 100,
+            scaleTicks: [0, 20, 40, 60, 80, 100],
+            orientation: 'vertical',
+            tickType: 'separator',
+        } as SliderProps;
+
+        mount(
+            <div style={{ display: 'flex', gap: '1rem', height: '20rem' }}>
+                <Slider {...commonArgs} value={0} />
+                <PadMe />
+                <Slider {...commonArgs} value={50} />
+                <PadMe />
+                <Slider {...commonArgs} value={100} />
+                <PadMe />
+                <Slider {...commonArgs} value={50} reversed />
+            </div>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('tickType: separator, pointerSize small, large', () => {
+        mount(
+            <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
+                <Slider
+                    min={0}
+                    max={100}
+                    value={50}
+                    scaleTicks={[0, 20, 40, 60, 80, 100]}
+                    tickType="separator"
+                    pointerSize="small"
+                />
+                <PadMe />
+                <Slider
+                    min={0}
+                    max={100}
+                    value={50}
+                    scaleTicks={[0, 20, 40, 60, 80, 100]}
+                    tickType="separator"
+                    pointerSize="large"
+                />
+            </div>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('tickType: separator, scaleTicks without min and max', () => {
+        mount(<Slider min={0} max={100} value={50} scaleTicks={[20, 40, 60, 80]} tickType="separator" />);
+        cy.matchImageSnapshot();
+    });
+
     it('showCurrentValue, hideMinValueDiff, hideMaxValueDiff', () => {
         mount(
             <>

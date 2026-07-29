@@ -4,23 +4,13 @@ title: Chip
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Chip
-Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
-
-## Chip
 <Description name="Chip" />
-<PropsTable name="Chip" exclude={['css', 'focused']} />
 
-## Использование
-Компонент `Chip` может содержать текст, который указывается в
-свойстве `text`, или любой контент напрямую через `children`.
-
-Свойство `text` можно использовать вместе со свойствами `contentLeft` и `contentRight`.
-С их помощью можно размещать **иконку** слева или справа от текста.
-
-Так же есть свойство `contentClearButton`, которое позволяет прокинуть custom **иконку**.
-Отключить отображение иконки закрытия можно с помощью свойства `hasClear`.
+## Быстрый старт
 
 ```tsx live
 import React from 'react';
@@ -29,71 +19,147 @@ import { IconDownload } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div>
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <Chip text="Текст" />
-
             <Chip text="Текст" contentLeft={<IconDownload color="inherit" />} />
-
-            <Chip contentLeft={<IconDownload color="inherit" />} />
-
-            <Chip text="Текст" />
-
-            <Chip text="Текст" contentLeft={<IconDownload color="inherit" />} />
-
-            <Chip>
-                Текст
-            </Chip>
-
             <Chip text="Текст" hasClear={false} />
         </div>
     );
 }
 ```
 
-## Примеры
+## Управление внешним видом
 
-### Размер Chip
-Размер Chip задается с помощью свойства `size`. Возможные значения свойства: `"m"`, `"s"`, `"xs"` или `"xxs"`:
+Внешний вид компонента определяется свойствами `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="Вид" default>
+        ```tsx live
+        import React from 'react';
+        import { Chip } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                    <Chip text="Default" view="default" />
+                    <Chip text="Secondary" view="secondary" />
+                    <Chip text="Accent" view="accent" />
+                    <Chip text="Positive" view="positive" />
+                    <Chip text="Warning" view="warning" />
+                    <Chip text="Negative" view="negative" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Размер">
+        ```tsx live
+        import React from 'react';
+        import { Chip } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                    <Chip text="Chip" size="l" />
+                    <Chip text="Chip" size="m" />
+                    <Chip text="Chip" size="s" />
+                    <Chip text="Chip" size="xs" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Контент
+
+Компонент `Chip` может содержать текст, который указывается в свойстве `text`, или любой контент напрямую через `children`.
+
+Свойство `text` можно использовать вместе со свойствами `contentLeft` и `contentRight` — с их помощью можно разместить **иконку** слева или справа от текста.
+
+Иконку кнопки закрытия можно заменить через свойство `contentClearButton`, а отключить её отображение — свойством `hasClear`:
 
 ```tsx live
 import React from 'react';
 import { Chip } from '@salutejs/sdds-finai';
+import { IconDownload } from '@salutejs/plasma-icons';
 
 export function App() {
     return (
-        <div>
-            <Chip text="Chip" size="m" />
-            <Chip text="Chip" size="s" />
-            <Chip text="Chip" size="xs" />
-            <Chip text="Chip" size="xxs" />
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Chip text="Текст" />
+            <Chip text="Текст" contentLeft={<IconDownload color="inherit" />} />
+            <Chip contentLeft={<IconDownload color="inherit" />} />
+            <Chip>Текст</Chip>
+            <Chip text="Текст" hasClear={false} />
         </div>
     );
 }
 ```
 
-### Вид Chip
-Вид Chip задается с помощью свойства `view`.
+Свойство `onClickClose` позволяет обработать нажатие на иконку закрытия, например, чтобы удалить чип:
 
 ```tsx live
-import React from 'react';
+import React, { useState } from 'react';
 import { Chip } from '@salutejs/sdds-finai';
 
 export function App() {
-    return (
-        <div>
-            <Chip text="Chip" size="m" view="default" />
-            <Chip text="Chip" size="m" view="clear" />
-            <Chip text="Chip" size="m" view="accent" />
-            <Chip text="Chip" size="m" view="positive" />
-            <Chip text="Chip" size="m" view="warning" />
-            <Chip text="Chip" size="m" view="negative" />
-        </div>
-    );
+    const [visible, setVisible] = useState(true);
+
+    return visible ? <Chip text="Удали меня" onClickClose={() => setVisible(false)} /> : null;
 }
 ```
 
-### Градиентный текст
-Текст чипа можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`
+## Скругления
+
+Скругления `Chip` задаются свойствами `pilled` и `pin`. Если задано `pin`, оно имеет приоритет над `pilled`.
+
+<Tabs>
+    <TabItem value="pilled" label="pilled" default>
+        ```tsx live
+        import React from 'react';
+        import { Chip } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                    <Chip text="pilled=false" />
+                    <Chip text="pilled=true" pilled />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="pin" label="pin">
+        Возможные значения свойства `pin`:
+        + `square` – обычное скругление;
+        + `circle` – сильное скругление;
+        + `clear` – нет скругления.
+
+        ```tsx live
+        import React from 'react';
+        import { Chip } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                    <Chip text="Chip" pin="square-square" />
+                    <Chip text="Chip" pin="square-clear" />
+                    <Chip text="Chip" pin="clear-square" />
+                    <Chip text="Chip" pin="clear-clear" />
+                    <Chip text="Chip" pin="clear-circle" />
+                    <Chip text="Chip" pin="circle-clear" />
+                    <Chip text="Chip" pin="circle-circle" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Градиентный текст
+
+Текст чипа можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`:
 
 ```tsx live
 import React from 'react';
@@ -107,8 +173,9 @@ export function App() {
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-    }
+        }
     `;
+
     return (
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <GradientChip text="Градиент" />
@@ -116,3 +183,25 @@ export function App() {
     );
 }
 ```
+
+## Состояния
+
+Компонент поддерживает состояния `disabled` и `readOnly`:
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '1rem' }}>
+            <Chip text="Активный" />
+            <Chip text="Неактивный" disabled />
+            <Chip text="Только чтение" readOnly />
+        </div>
+    );
+}
+```
+
+## Таблица свойств
+<PropsTable name="Chip" exclude={['css', 'focused']} />

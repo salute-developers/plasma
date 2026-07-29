@@ -1,9 +1,7 @@
 import { css } from 'styled-components';
 
-import { classes, tokens } from '../../Chip.tokens';
-
-export const base = css`
-    &.${String(classes.pilled)} {
-        border-radius: var(${tokens.pilledBorderRadius});
-    }
-`;
+/*
+    border-radius для pilled вычисляется в Chip.tsx (см. chipBorderRadius)
+    совместно со свойством pin и применяется через --plasma_computed-chip-br
+*/
+export const base = css``;

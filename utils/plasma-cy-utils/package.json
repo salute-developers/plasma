@@ -8,7 +8,7 @@
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:salute-developers/plasma.git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
     "directory": "utils/plasma-cy-utils"
   },
   "scripts": {

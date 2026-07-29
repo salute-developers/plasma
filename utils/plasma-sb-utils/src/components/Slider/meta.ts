@@ -12,6 +12,8 @@ import {
     visibility,
     valuePlacementsHorizontal,
     valuePlacementsVertical,
+    scaleTicksVariants,
+    tickTypes,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -74,6 +76,11 @@ export const createMeta = ({
         },
         InSpacingDecorator,
     ],
+    parameters: {
+        controls: {
+            disableSaveFromUI: true,
+        },
+    },
     component,
     args: {
         view: 'default',
@@ -99,6 +106,8 @@ export const createMeta = ({
         hideMinValueDiff: 3,
         hideMaxValueDiff: 5,
         showTicks: false,
+        scaleTicksVariant: 'default',
+        tickType: 'bullet',
         _valuePlacementHorizontalVisible: false,
         _valuePlacementVerticalVisible: false,
         ...defaultArgs,
@@ -187,6 +196,17 @@ export const createMeta = ({
         },
         showTicks: {
             control: { type: 'boolean' },
+            table: { category: 'slider' },
+        },
+        scaleTicksVariant: {
+            options: scaleTicksVariants,
+            control: { type: 'select' },
+            if: { arg: 'showTicks' },
+            table: { category: 'slider' },
+        },
+        tickType: {
+            options: tickTypes,
+            control: { type: 'select' },
             table: { category: 'slider' },
         },
         showCurrentValue: {

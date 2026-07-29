@@ -1,16 +1,21 @@
 import type { HTMLAttributes } from 'react';
 
 export type Gap = 'dense' | 'wide';
+export type Shape = 'default' | 'segmented';
 
 type CustomChipGroupProps = {
     /**
      * Отступы между элементами внутри группы
-     * @default
-     * dense
+     * @default dense
      * @description
      * Доступные значения: 'dense' | 'wide'.
      */
     gap?: Gap;
+    /**
+     * Скругления для чипов внутри группы
+     * @default default
+     */
+    shape?: Shape;
     /**
      * Вид группы
      * @description
@@ -25,8 +30,7 @@ type CustomChipGroupProps = {
     size?: string;
     /**
      * Группа будет переопределять view и size для всех элементов внутри
-     * @default
-     * true
+     * @default 'true'
      * @description
      * Если значение передано как true, для каждого элемента внутри группы
      * view и size берутся из значений группы.

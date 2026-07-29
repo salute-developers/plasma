@@ -1,8 +1,10 @@
 import React, { forwardRef, MouseEvent } from 'react';
+import type { CSSProperties } from 'react';
 import { GRADIENT_TEXT_CLASS } from 'src/utils/constants';
 import cls from 'classnames';
 
 import type { RootProps } from '../../engines';
+import { convertRoundnessMatrix } from '../../utils/roundness';
 import { IconClose } from '../_Icon/Icons/IconClose';
 
 import { base as viewCSS } from './variations/_view/base';
@@ -13,7 +15,7 @@ import { base as focusedCSS } from './variations/_focused/base';
 import { base as pilledCSS } from './variations/_pilled/base';
 import type { ChipProps } from './Chip.types';
 import { StyledContentClear, StyledContentLeft, StyledContentMain, StyledContentRight, base } from './Chip.styles';
-import { classes, tokens } from './Chip.tokens';
+import { classes, privateTokens, tokens } from './Chip.tokens';
 
 export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
     forwardRef<HTMLButtonElement, ChipProps>((props, ref) => {
@@ -30,8 +32,10 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             onClick,
             onClickClose,
             pilled = false,
+            pin,
             readOnly = false,
             disabled = false,
+            style,
             // @ts-ignore
             _forceChipManipulationWithReadonly,
             // @ts-ignore
@@ -41,6 +45,9 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
 
         const txt = !text && typeof children === 'string' ? children : text;
         const pilledClass = pilled ? classes.pilled : undefined;
+        const chipBorderRadius = pin
+            ? convertRoundnessMatrix(pin, `var(${tokens.borderRadius})`, `var(${tokens.pilledBorderRadius})`)
+            : `var(${pilled ? tokens.pilledBorderRadius : tokens.borderRadius})`;
 
         const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
             // TODO: #1547
@@ -75,6 +82,12 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                 disabled={disabled}
                 readOnly={!disabled && readOnly && !_forceChipManipulationWithReadonly}
                 size={size}
+                style={
+                    {
+                        ...style,
+                        [privateTokens.computedBorderRadius]: chipBorderRadius,
+                    } as CSSProperties
+                }
                 {...rest}
             >
                 {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}

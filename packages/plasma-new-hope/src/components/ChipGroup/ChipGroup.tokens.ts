@@ -4,7 +4,16 @@ export const classes = {
     dense: 'chip-group-gap-dense',
     wide: 'chip-group-gap-wide',
 
+    segmented: 'chip-group-shape-segmented',
+    default: 'chip-group-shape-default',
+
     wrap: 'chip-group-wrap',
+};
+
+export const privateTokens = {
+    radiusInner: '--plasma_private-chip-radius-inner',
+    leftSideRadius: '--plasma_private-chip-left-side-radius',
+    rightSideRadius: '--plasma_private-chip-right-side-radius',
 };
 
 export const tokens = {
@@ -22,6 +31,9 @@ export const tokens = {
 
     chipGroupItemsGap: '--plasma-chip-group-items-gap',
     chipBorderRadius: '--plasma-chip-group-items-border-radius',
+    chipSegmentedRadius: '--plasma-chip-group-item-segmented-radius',
+    chipDefaultRadius: '--plasma-chip-group-item-default-radius',
+    chipSideRadius: '--plasma-chip-group-side-item-radius',
     chipHeight: '--plasma-chip-group-item-height',
     chipWidth: '--plasma-chip-group-item-width',
     chipPadding: '--plasma-chip-group-item-padding',
