@@ -31,6 +31,9 @@ export const config = {
                 ${tokens.fontWeight}: ${bodyS.fontWeight};
                 ${tokens.letterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.lineHeight}: ${bodyS.lineHeight};
+                ${tokens.tailWidth}: 20px;
+                ${tokens.tailHeight}: 8px;
+                ${tokens.tailSideCurvature}: -10%;
             `,
             s: css`
                 ${tokens.borderRadius}: 0.5rem;
@@ -42,6 +45,9 @@ export const config = {
                 ${tokens.fontWeight}: ${bodyXS.fontWeight};
                 ${tokens.letterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.lineHeight}: ${bodyXS.lineHeight};
+                ${tokens.tailWidth}: 14px;
+                ${tokens.tailHeight}: 6px;
+                ${tokens.tailSideCurvature}: -10%;
             `,
         },
     },

@@ -1,5 +1,5 @@
 import { css, _beta_tooltipTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyS, shadowDownHardM, surfaceSolidCardBrightness, textPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
+import { bodyS, surfaceSolidCardBrightness, textPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -10,7 +10,9 @@ export const config = {
         view: {
             default: css`
                 ${tokens.backgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.boxShadow}: ${shadowDownHardM};
+                ${tokens.boxShadow}: none;
+                ${tokens.dropShadow}: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.16))
+                    drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.08));
                 ${tokens.color}: ${textPrimary};
             `,
         },
@@ -25,6 +27,9 @@ export const config = {
                 ${tokens.fontWeight}: ${bodyS.fontWeight};
                 ${tokens.letterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.lineHeight}: ${bodyS.lineHeight};
+                ${tokens.tailWidth}: 20px;
+                ${tokens.tailHeight}: 8px;
+                ${tokens.tailSideCurvature}: 0%;
             `,
         },
     },
