@@ -11,10 +11,11 @@ type CreateStoriesProps = {
     disablePropsList?: string[];
     defaultArgs?: {};
     additionalArgTypes?: {};
+    getContentRight?: (size: string, disabled?: boolean, readOnly?: boolean) => JSX.Element | undefined;
 };
 
 export const getComboboxStories = (config: CreateStoriesProps) => {
-    const { component, componentConfig, ...rest } = config;
+    const { component, componentConfig, getContentRight, ...rest } = config;
 
     const comboboxConfig = getConfigVariations(componentConfig);
 
@@ -24,7 +25,7 @@ export const getComboboxStories = (config: CreateStoriesProps) => {
         ...rest,
     });
 
-    const SingleStoryComponent = createSingleStory(component);
+    const SingleStoryComponent = createSingleStory(component, getContentRight);
 
     const Single = {
         render: (args: any) => <SingleStoryComponent {...args} />,
@@ -38,7 +39,7 @@ export const getComboboxStories = (config: CreateStoriesProps) => {
         },
     };
 
-    const MultipleStoryComponent = createMultipleStory(component);
+    const MultipleStoryComponent = createMultipleStory(component, getContentRight);
 
     const Multiple = {
         render: (args: any) => <MultipleStoryComponent {...args} />,
