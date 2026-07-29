@@ -885,6 +885,8 @@ export const config = {
         },
         disabled: {
             true: css`
+                ${tokens.textFieldColor}: ${textSecondary};
+                ${tokens.textFieldChipColor}: ${onDarkTextSecondary};
                 ${tokens.textFieldDisabledOpacity}: 1;
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentSecondary};
                 ${tokens.textFieldBorderColor}: transparent;
@@ -910,4 +912,13 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            disabled: true,
+            chipView: 'secondary',
+            style: css`
+                ${tokens.textFieldChipColor}: ${textSecondary};
+            `,
+        },
+    ],
 };

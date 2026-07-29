@@ -1,6 +1,8 @@
+import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getComboboxStories } from '@salutejs/plasma-sb-utils';
+import { IconLockOutline } from '@salutejs/plasma-icons';
 
 import { Combobox } from './Combobox';
 import { config } from './Combobox.config';
@@ -19,6 +21,13 @@ const { meta: META, Single, Multiple, SelectAll, AddItem } = getComboboxStories(
             options: ['default', 'viewMode'],
             control: { type: 'select' },
         },
+    },
+    getContentRight: (size: string, disabled?: boolean) => {
+        if (disabled) {
+            return <IconLockOutline size={size === 'xs' ? 'xs' : 's'} color="inherit" />;
+        }
+
+        return undefined;
     },
 });
 
