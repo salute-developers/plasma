@@ -8,7 +8,6 @@ import {
     useFocus,
     useDismiss,
     useRole,
-    FloatingArrow,
     arrow,
     offset,
     shift,
@@ -22,11 +21,11 @@ import {
 import { css } from 'styled-components';
 
 import { Slot } from '../../_Slot/Slot';
-import { ARROW_HEIGHT, ARROW_PADDING, ARROW_POLYGON, ARROW_WIDTH } from '../Popover/Popover';
-import { getFloatingPortalProps } from '../Popover/utils';
+import { ARROW_PADDING } from '../Popover/Popover';
+import { getFloatingPortalProps, useTailStyle } from '../Popover/utils';
 
-import { tokens, classes } from './Tooltip.tokens';
-import { base, Wrapper, IconWrapper } from './Tooltip.styles';
+import { classes } from './Tooltip.tokens';
+import { base, Wrapper, IconWrapper, Tail } from './Tooltip.styles';
 import type { TooltipProps } from './Tooltip.types';
 
 export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, 'target' | 'children' | 'iconSlot'>>) =>
@@ -56,15 +55,20 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
         ) => {
             const [opened, setOpened] = useState(false);
 
-            const arrowRef = useRef(null);
-
-            const [, alignment] = placement.split('-');
+            const arrowRef = useRef<HTMLDivElement | null>(null);
 
             const handleToggle = (opened: boolean) => {
                 setOpened(opened);
             };
 
-            const { refs, floatingStyles, context } = useFloating({
+            const {
+                refs,
+                floatingStyles,
+                context,
+                middlewareData,
+                placement: calculatedPlacement,
+                isPositioned,
+            } = useFloating({
                 whileElementsMounted: autoUpdate,
                 placement,
                 open: opened,
@@ -76,7 +80,20 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                         }),
                     outsideFlip && flip(),
                     hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
-                    offset((hasTail ? ARROW_HEIGHT : 0) + outerOffset),
+                    offset(
+                        ({ placement: currentPlacement }) => {
+                            if (!hasTail) {
+                                return outerOffset;
+                            }
+
+                            const side = currentPlacement.split('-')[0];
+                            const { width = 0, height = 0 } = arrowRef.current?.getBoundingClientRect() ?? {};
+                            const tailOffset = side === 'top' || side === 'bottom' ? height : width;
+
+                            return tailOffset + outerOffset;
+                        },
+                        [outerOffset, hasTail],
+                    ),
                 ],
             });
 
@@ -103,6 +120,8 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
 
             const { getReferenceProps, getFloatingProps } = useInteractions([dismiss, role, click, hover, focus]);
 
+            const { side, tailStyle } = useTailStyle(calculatedPlacement, middlewareData, ARROW_PADDING);
+
             return (
                 <>
                     <Slot ref={refs.setReference} {...getReferenceProps()}>
@@ -115,7 +134,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                                 ref={refs.setFloating}
                                 size={size}
                                 view={view}
-                                style={{ ...floatingStyles, zIndex }}
+                                style={{ ...floatingStyles, zIndex, visibility: isPositioned ? 'visible' : 'hidden' }}
                                 {...getFloatingProps()}
                             >
                                 <Wrapper
@@ -130,15 +149,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                                     {children}
 
                                     {hasTail && (
-                                        <FloatingArrow
-                                            ref={arrowRef}
-                                            context={context}
-                                            width={ARROW_WIDTH}
-                                            height={ARROW_HEIGHT}
-                                            fill={`var(${tokens.backgroundColor})`}
-                                            d={ARROW_POLYGON}
-                                            staticOffset={alignment ? ARROW_PADDING : undefined}
-                                        />
+                                        <Tail ref={arrowRef} side={side} style={tailStyle} aria-hidden="true" />
                                     )}
                                 </Wrapper>
                             </Root>
