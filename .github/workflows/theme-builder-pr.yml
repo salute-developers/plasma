@@ -56,6 +56,7 @@ jobs:
       - name: s3 Upload build
         run: >
           s3cmd
+          --debug
           --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
           --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           --host ${{ secrets.AWS_ENDPOINT }}
