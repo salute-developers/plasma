@@ -1,4 +1,4 @@
-name: Release
+name: Publish npm
 
 # Единая точка входа для всех публикаций в npm.
 
@@ -46,7 +46,7 @@ jobs:
             npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
 
     publish-latest:
-        name: Release
+        name: Publish latest version
         if: github.event_name == 'push'
         permissions:
             id-token: write # выдать OIDC-токен для npm trusted publishing
@@ -59,7 +59,7 @@ jobs:
             npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
 
     publish-next:
-        name: Release ${{ inputs.release }}
+        name: Release next-sbcom
         if: github.event_name == 'workflow_dispatch' && startsWith(inputs.release, 'next-')
         permissions:
             id-token: write # выдать OIDC-токен для npm trusted publishing
@@ -73,7 +73,7 @@ jobs:
             npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
 
     publish-rc:
-        name: Publish RC version
+        name: Publish release candidate
         if: github.event_name == 'workflow_dispatch' && inputs.release == 'rc'
         permissions:
             id-token: write # выдать OIDC-токен для npm trusted publishing
