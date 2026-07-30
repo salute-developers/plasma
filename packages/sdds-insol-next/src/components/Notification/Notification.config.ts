@@ -2,7 +2,11 @@ import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-compon
 import {
     bodyS,
     bodySBold,
-    surfaceTransparentCard,
+    surfaceCardGradient,
+    surfaceInfoGradient,
+    surfaceNegativeGradient,
+    surfacePositiveGradient,
+    surfaceWarningGradient,
     textInfo,
     textNegative,
     textPositive,
@@ -23,7 +27,7 @@ export const config = {
                 ${notificationTokens.titleColor}: ${textPrimary};
                 ${notificationTokens.contentLeftIconColor}: ${textPrimary};
                 ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
+                ${notificationTokens.background}: ${surfaceCardGradient};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -77,7 +81,7 @@ export const config = {
                 ${notificationTokens.titleColor}: ${textNegative};
                 ${notificationTokens.contentLeftIconColor}: ${textNegative};
                 ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
+                ${notificationTokens.background}: ${surfaceNegativeGradient};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -131,7 +135,7 @@ export const config = {
                 ${notificationTokens.titleColor}: ${textPositive};
                 ${notificationTokens.contentLeftIconColor}: ${textPositive};
                 ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
+                ${notificationTokens.background}: ${surfacePositiveGradient};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -185,7 +189,7 @@ export const config = {
                 ${notificationTokens.titleColor}: ${textWarning};
                 ${notificationTokens.contentLeftIconColor}: ${textWarning};
                 ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
+                ${notificationTokens.background}: ${surfaceWarningGradient};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
@@ -239,7 +243,7 @@ export const config = {
                 ${notificationTokens.titleColor}: ${textInfo};
                 ${notificationTokens.contentLeftIconColor}: ${textInfo};
                 ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
+                ${notificationTokens.background}: ${surfaceInfoGradient};
                 ${notificationTokens.borderRadius}: 0.75rem;
                 ${notificationTokens.padding}: 0.375rem;
 
