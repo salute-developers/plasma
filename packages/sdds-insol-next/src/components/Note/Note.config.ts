@@ -1,10 +1,10 @@
 import { css, noteTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    surfaceTransparentInfo,
-    surfaceTransparentNegative,
-    surfaceTransparentPositive,
-    surfaceTransparentSecondary,
-    surfaceTransparentWarning,
+    surfaceCardGradient,
+    surfacePositiveGradient,
+    surfaceWarningGradient,
+    surfaceNegativeGradient,
+    surfaceInfoGradient,
     textInfo,
     textL,
     textLBold,
@@ -31,27 +31,27 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: ${surfaceTransparentSecondary};
+                ${tokens.background}: ${surfaceCardGradient};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textPrimary};
             `,
             positive: css`
-                ${tokens.background}: ${surfaceTransparentPositive};
+                ${tokens.background}: ${surfacePositiveGradient};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textPositive};
             `,
             warning: css`
-                ${tokens.background}: ${surfaceTransparentWarning};
+                ${tokens.background}: ${surfaceWarningGradient};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textWarning};
             `,
             negative: css`
-                ${tokens.background}: ${surfaceTransparentNegative};
+                ${tokens.background}: ${surfaceNegativeGradient};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textNegative};
             `,
             info: css`
-                ${tokens.background}: ${surfaceTransparentInfo};
+                ${tokens.background}: ${surfaceInfoGradient};
                 ${tokens.color}: ${textPrimary};
                 ${tokens.contentBeforeColor}: ${textInfo};
             `,
@@ -75,7 +75,6 @@ export const config = {
                 ${tokens.closeIconButtonSize}: 1.5rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
-                ${tokens.fixedContentBeforeHeight}: 2rem;
                 ${tokens.fixedContentBeforePadding}: 0.25rem 0rem;
 
                 ${tokens.titleFontFamily}: ${textL.fontFamily};
@@ -111,7 +110,6 @@ export const config = {
                 ${tokens.closeIconButtonSize}: 1.5rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1.5rem;
-                ${tokens.fixedContentBeforeHeight}: 1.625rem;
                 ${tokens.fixedContentBeforePadding}: 0rem;
 
                 ${tokens.titleFontFamily}: ${textM.fontFamily};
@@ -147,7 +145,6 @@ export const config = {
                 ${tokens.closeIconButtonSize}: 1.5rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1rem;
-                ${tokens.fixedContentBeforeHeight}: 1.125rem;
                 ${tokens.fixedContentBeforePadding}: 0.063rem 0rem;
 
                 ${tokens.titleFontFamily}: ${textS.fontFamily};
@@ -183,7 +180,6 @@ export const config = {
                 ${tokens.closeIconButtonSize}: 1rem;
 
                 ${tokens.fixedContentBeforeWidth}: 1rem;
-                ${tokens.fixedContentBeforeHeight}: 1rem;
                 ${tokens.fixedContentBeforePadding}: 0rem;
 
                 ${tokens.titleFontFamily}: ${textXS.fontFamily};
