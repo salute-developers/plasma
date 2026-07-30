@@ -53,6 +53,11 @@ jobs:
         run: |
           pip3 install s3cmd
 
+
+      - name: DNS
+        run: |
+          nslookup obs.ru-moscow-1.hc.sbercloud.ru || echo "FAIL: не резолвится через DNS раннера"
+
       - name: s3 Upload build
         run: >
           s3cmd
