@@ -56,7 +56,7 @@ jobs:
 
       - name: DNS
         run: |
-          nslookup obs.ru-moscow-1.hc.sbercloud.ru || echo "FAIL: не резолвится через DNS раннера"
+           nslookup obs.ru-moscow-1.hc.sbercloud.ru 77.88.8.8
 
       - name: s3 Upload build
         run: >
