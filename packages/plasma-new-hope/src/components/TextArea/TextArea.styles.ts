@@ -381,6 +381,7 @@ export const StyledPlaceholder = styled.label<{
 export const StyledIndicator = styled.div`
     position: absolute;
     border-radius: 50%;
+    z-index: 1;
 
     background-color: var(${tokens.indicatorColor});
 
