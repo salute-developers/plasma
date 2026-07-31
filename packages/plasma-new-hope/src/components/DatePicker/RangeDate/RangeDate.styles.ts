@@ -22,6 +22,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.borderColorReadOnly}: var(${tokens.borderColorReadOnly});
     
     ${rangeTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
+    ${rangeTokens.shadow}: var(${tokens.rangeShadow}, none);
 
     ${rangeTokens.clearDividerColor}: var(${tokens.clearDividerColor});
     ${rangeTokens.dividerColor}: var(${tokens.dividerColor});

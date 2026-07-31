@@ -21,8 +21,9 @@ export const mapSizesToOffset = (size?: string): number => {
         case 'm':
             return 4;
         case 'l':
-        case 'xl':
             return 6;
+        case 'xl':
+            return 8;
         default:
             return 4;
     }

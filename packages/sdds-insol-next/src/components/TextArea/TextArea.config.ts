@@ -17,9 +17,9 @@ import {
     shadowDownHardM,
     surfaceAccent,
     surfaceNegative,
-    surfaceSolidCard,
     surfaceSolidCardBrightness,
     surfaceSolidSecondary,
+    surfaceTransparentCard,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
     surfaceTransparentPrimaryHover,
@@ -48,10 +48,10 @@ export const config = {
                 ${tokens.borderColorFocus}: ${outlineSolidSecondary};
                 ${tokens.borderColorHover}: ${outlineTransparentPrimaryHover};
 
-                ${tokens.backgroundColor}: ${surfaceSolidCard};
-                ${tokens.backgroundColorHover}: ${surfaceSolidCard};
-                ${tokens.backgroundColorActive}: ${surfaceSolidCard};
-                ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
+                ${tokens.backgroundColor}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorHover}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorActive}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorFocus}: ${surfaceTransparentCard};
 
                 ${tokens.labelOuterColor}: ${textPrimary};
                 ${tokens.inputColor}: ${textPrimary};
@@ -88,18 +88,18 @@ export const config = {
                 ${tokens.borderColorFocus}: ${outlineWarningActive};
                 ${tokens.borderColorHover}: ${outlineWarningHover};
 
-                ${tokens.backgroundColor}: ${surfaceSolidCard};
-                ${tokens.backgroundColorHover}: ${surfaceSolidCard};
-                ${tokens.backgroundColorActive}: ${surfaceSolidCard};
-                ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
+                ${tokens.backgroundColor}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorHover}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorActive}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorFocus}: ${surfaceTransparentCard};
 
                 ${tokens.labelOuterColor}: ${textPrimary};
                 ${tokens.inputColor}: ${textWarning};
                 ${tokens.inputColorFocus}: ${textWarning};
                 ${tokens.inputCaretColor}: ${textAccent};
 
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textWarning};
+                ${tokens.placeholderColorFocus}: ${textWarning};
 
                 ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textSecondary};
@@ -128,18 +128,18 @@ export const config = {
                 ${tokens.borderColorFocus}: ${outlineNegativeActive};
                 ${tokens.borderColorHover}: ${outlineNegativeHover};
 
-                ${tokens.backgroundColor}: ${surfaceSolidCard};
-                ${tokens.backgroundColorHover}: ${surfaceSolidCard};
-                ${tokens.backgroundColorActive}: ${surfaceSolidCard};
-                ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
+                ${tokens.backgroundColor}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorHover}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorActive}: ${surfaceTransparentCard};
+                ${tokens.backgroundColorFocus}: ${surfaceTransparentCard};
 
                 ${tokens.labelOuterColor}: ${textPrimary};
                 ${tokens.inputColor}: ${textNegative};
                 ${tokens.inputColorFocus}: ${textNegative};
                 ${tokens.inputCaretColor}: ${textAccent};
 
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColorFocus}: ${textNegative};
 
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textSecondary};
@@ -167,21 +167,22 @@ export const config = {
         size: {
             xl: css`
                 ${tokens.inputWidth}: 100%;
-                ${tokens.inputHeight}: 6.812rem;
+                ${tokens.inputHeight}: 5rem;
                 ${tokens.inputMinHeight}: 1.625rem;
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.borderSize}: 0.063rem;
                 ${tokens.borderRadiusWithHelpers}: 1rem 1rem 0 0;
 
-                ${tokens.inputPaddingTop}: 1.313rem;
+                ${tokens.inputPaddingTop}: 1.25rem;
                 ${tokens.inputPaddingRight}: 1.25rem;
                 ${tokens.inputPaddingRightWithRightContent}: 3.5rem;
-                ${tokens.inputPaddingBottom}: 0.75rem;
+                ${tokens.inputPaddingBottom}: 0.875rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0rem;
                 ${tokens.inputPaddingLeft}: 1.25rem;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 1.25rem;
-                ${tokens.helpersPaddingBottom}: 0.75rem;
+                ${tokens.helpersPaddingRight}: 1.375rem;
+                ${tokens.helpersPaddingBottom}: 0.875rem;
                 ${tokens.helpersPaddingLeft}: 1.25rem;
                 ${tokens.helpersOffset}: 0rem;
 
@@ -241,27 +242,28 @@ export const config = {
             `,
             l: css`
                 ${tokens.inputWidth}: 100%;
-                ${tokens.inputHeight}: 6.812rem;
+                ${tokens.inputHeight}: 5rem;
                 ${tokens.inputMinHeight}: 1.625rem;
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.borderSize}: 0.063rem;
                 ${tokens.borderRadiusWithHelpers}: 0.875rem 0.875rem 0 0;
 
-                ${tokens.inputPaddingTop}: 1.063rem;
+                ${tokens.inputPaddingTop}: 1rem;
                 ${tokens.inputPaddingRight}: 1.125rem;
-                ${tokens.inputPaddingRightWithRightContent}: 3.625rem;
-                ${tokens.inputPaddingBottom}: 0.75rem;
+                ${tokens.inputPaddingRightWithRightContent}: 3.375rem;
+                ${tokens.inputPaddingBottom}: 0.875rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0rem;
                 ${tokens.inputPaddingLeft}: 1.125rem;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
-                ${tokens.helpersPaddingRight}: 1.125rem;
-                ${tokens.helpersPaddingBottom}: 0.75rem;
+                ${tokens.helpersPaddingRight}: 1.25rem;
+                ${tokens.helpersPaddingBottom}: 0.875rem;
                 ${tokens.helpersPaddingLeft}: 1.125rem;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 1.063rem;
-                ${tokens.rightContentRight}: 1rem;
-                ${tokens.rightContentHeight}: 1.25rem;
+                ${tokens.rightContentTop}: 1rem;
+                ${tokens.rightContentRight}: 1.125rem;
+                ${tokens.rightContentHeight}: 1.5rem;
 
                 ${tokens.labelMarginBottom}: 0.75rem;
 
@@ -315,16 +317,17 @@ export const config = {
             `,
             m: css`
                 ${tokens.inputWidth}: 100%;
-                ${tokens.inputHeight}: 7rem;
+                ${tokens.inputHeight}: 5rem;
                 ${tokens.inputMinHeight}: 1.125rem;
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderSize}: 0.063rem;
                 ${tokens.borderRadiusWithHelpers}: 0.75rem 0.75rem 0 0;
 
-                ${tokens.inputPaddingTop}: 0.875rem;
-                ${tokens.inputPaddingRight}: 1rem;
-                ${tokens.inputPaddingRightWithRightContent}: 3.375rem;
+                ${tokens.inputPaddingTop}: 0.75rem;
+                ${tokens.inputPaddingRight}: 0.875rem;
+                ${tokens.inputPaddingRightWithRightContent}: 2.875rem;
                 ${tokens.inputPaddingBottom}: 0.75rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0rem;
                 ${tokens.inputPaddingLeft}: 1rem;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
@@ -333,9 +336,9 @@ export const config = {
                 ${tokens.helpersPaddingLeft}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 0.875rem;
+                ${tokens.rightContentTop}: 0.75rem;
                 ${tokens.rightContentRight}: 0.875rem;
-                ${tokens.rightContentHeight}: 1.25rem;
+                ${tokens.rightContentHeight}: 1.5rem;
 
                 ${tokens.labelMarginBottom}: 0.625rem;
 
@@ -389,16 +392,17 @@ export const config = {
             `,
             s: css`
                 ${tokens.inputWidth}: 100%;
-                ${tokens.inputHeight}: 7.187rem;
+                ${tokens.inputHeight}: 5rem;
                 ${tokens.inputMinHeight}: 0.625rem;
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.borderSize}: 0.063rem;
                 ${tokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0 0;
 
-                ${tokens.inputPaddingTop}: 0.688rem;
-                ${tokens.inputPaddingRight}: 0.875rem;
-                ${tokens.inputPaddingRightWithRightContent}: 3.125rem;
+                ${tokens.inputPaddingTop}: 0.5rem;
+                ${tokens.inputPaddingRight}: 0.75rem;
+                ${tokens.inputPaddingRightWithRightContent}: 2.625rem;
                 ${tokens.inputPaddingBottom}: 0.75rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0rem;
                 ${tokens.inputPaddingLeft}: 0.875rem;
 
                 ${tokens.helpersPaddingTop}: 0.75rem;
@@ -407,9 +411,9 @@ export const config = {
                 ${tokens.helpersPaddingLeft}: 0.875rem;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 0.688rem;
+                ${tokens.rightContentTop}: 0.5rem;
                 ${tokens.rightContentRight}: 0.75rem;
-                ${tokens.rightContentHeight}: 1.25rem;
+                ${tokens.rightContentHeight}: 1.5rem;
 
                 ${tokens.labelMarginBottom}: 0.5rem;
 
@@ -463,25 +467,26 @@ export const config = {
             `,
             xs: css`
                 ${tokens.inputWidth}: 100%;
-                ${tokens.inputHeight}: 7.312rem;
+                ${tokens.inputHeight}: 5rem;
                 ${tokens.inputMinHeight}: 0.625rem;
                 ${tokens.borderRadius}: 0.5rem;
                 ${tokens.borderSize}: 0.063rem;
                 ${tokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0 0;
 
-                ${tokens.inputPaddingTop}: 0.563rem;
-                ${tokens.inputPaddingRight}: 0.625rem;
-                ${tokens.inputPaddingRightWithRightContent}: 2.125rem;
-                ${tokens.inputPaddingBottom}: 0.563rem;
+                ${tokens.inputPaddingTop}: 0.5rem;
+                ${tokens.inputPaddingRight}: 0.5rem;
+                ${tokens.inputPaddingRightWithRightContent}: 1.75rem;
+                ${tokens.inputPaddingBottom}: 0.5rem;
+                ${tokens.inputPaddingBottomWithHelpers}: 0rem;
                 ${tokens.inputPaddingLeft}: 0.625rem;
 
                 ${tokens.helpersPaddingTop}: 0.5rem;
                 ${tokens.helpersPaddingRight}: 0.625rem;
-                ${tokens.helpersPaddingBottom}: 0.563rem;
+                ${tokens.helpersPaddingBottom}: 0.5rem;
                 ${tokens.helpersPaddingLeft}: 0.625rem;
                 ${tokens.helpersOffset}: 0rem;
 
-                ${tokens.rightContentTop}: 0.563rem;
+                ${tokens.rightContentTop}: 0.5rem;
                 ${tokens.rightContentRight}: 0.5rem;
                 ${tokens.rightContentHeight}: 1rem;
 

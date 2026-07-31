@@ -306,7 +306,7 @@ export const config = {
 
                 ${tokens.embedIconButtonHeight}: 3rem;
                 ${tokens.embedIconButtonWidth}: 3rem;
-                ${tokens.embedIconButtonPadding}: 0.75rem;
+                ${tokens.embedIconButtonPadding}: 0.875rem;
                 ${tokens.embedIconButtonRadius}: 0.75rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
@@ -384,7 +384,7 @@ export const config = {
 
                 ${tokens.embedIconButtonHeight}: 2.5rem;
                 ${tokens.embedIconButtonWidth}: 2.5rem;
-                ${tokens.embedIconButtonPadding}: 0.5rem;
+                ${tokens.embedIconButtonPadding}: 0.75rem;
                 ${tokens.embedIconButtonRadius}: 0.625rem;
 
                 ${tokens.indicatorWrapperGap}: 0.25rem;
