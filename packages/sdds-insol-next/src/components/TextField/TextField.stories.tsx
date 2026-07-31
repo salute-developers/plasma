@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { getTextFieldStories } from '@salutejs/plasma-sb-utils';
@@ -10,21 +9,10 @@ import { config } from './TextField.config';
 
 type TextFieldProps = ComponentProps<typeof TextField>;
 
-const StyledIconBellFill = styled(IconBellFill)<{ customSize?: string }>`
-    ${({ customSize }) =>
-        customSize &&
-        `
-            width: ${customSize};
-            height: ${customSize};
-            flex: 0 0 ${customSize};
-        `}
-`;
-
 const customIcon = (size: string) => {
     const iconSize = size === 'xs' ? 'xs' : 's';
-    const iconCustomSize = size === 'm' ? '1.25rem' : undefined;
 
-    return <StyledIconBellFill color="inherit" customSize={iconCustomSize} size={iconSize} />;
+    return <IconBellFill color="inherit" size={iconSize} />;
 };
 
 const { meta: META, Default, Chips } = getTextFieldStories({

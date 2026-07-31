@@ -2,7 +2,10 @@ import { dateTimePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/s
 import {
     bodyL,
     bodyLBold,
+    bodyM,
+    bodyMBold,
     bodyS,
+    bodySBold,
     bodyXS,
     bodyXSBold,
     bodyXXS,
@@ -151,10 +154,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 4rem;
                 ${tokens.textFieldBorderRadius}: 1rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 1.375rem 1.25rem;
+                ${tokens.textFieldPadding}: 1.25rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.6255rem -0.0625rem 0;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem 0 -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0 -0.125rem 0.75rem;
                 ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.5rem;
@@ -207,7 +210,7 @@ export const config = {
                 ${tokens.hintTargetSize}: 2.375rem;
                 ${tokens.hintInnerLabelPlacementOffset}: 0.813rem -2.938rem auto auto;
 
-                ${tokens.popoverBorderRadius}: 1rem;
+                ${tokens.popoverBorderRadius}: 0.875rem;
                 ${tokens.popoverGap}: 1rem;
                 ${tokens.popoverPadding}: 1rem 1rem 1.125rem 1rem;
                 ${tokens.popoverVerticalPadding}: 2.125rem;
@@ -312,7 +315,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
+                ${tokens.textFieldPadding}: 1rem 1.125rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
@@ -440,8 +443,8 @@ export const config = {
 
                 ${tokens.iconButtonHeight}: 3.5rem;
                 ${tokens.iconButtonWidth}: 3.5rem;
-                ${tokens.iconButtonPadding}: 1.5rem;
-                ${tokens.iconButtonRadius}: 0.625rem;
+                ${tokens.iconButtonPadding}: 1rem;
+                ${tokens.iconButtonRadius}: 0.875rem;
 
                 ${tokens.timePickerColumnWidth}: 3.5rem;
                 ${tokens.timePickerColumnHeight}: 25rem;
@@ -473,10 +476,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.875rem 1rem;
+                ${tokens.textFieldPadding}: 0.75rem 0.875rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.625rem;
                 ${tokens.textFieldRightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.375rem;
@@ -485,23 +488,23 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
-                ${tokens.textFieldFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.textFieldLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.textFieldLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.textFieldFontFamily}: ${bodyM.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyM.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyM.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyM.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.labelOffset}: 0.625rem;
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
-                ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.labelFontSize}: ${bodyXS.fontSize};
-                ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.labelFontFamily}: ${bodyM.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyM.fontStyle};
+                ${tokens.labelFontSize}: ${bodyM.fontSize};
+                ${tokens.labelFontWeight}: ${bodyM.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
                 ${tokens.labelInnerFontSize}: ${bodyXXS.fontSize};
@@ -535,51 +538,51 @@ export const config = {
                 ${tokens.popoverVerticalPadding}: 2.125rem;
 
                 ${tokens.calendarWidth}: 21rem;
-                ${tokens.calendarHeight}: 20.5rem;
+                ${tokens.calendarHeight}: 21rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarYearItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarYearFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarYearFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarYearFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarYearFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarYearFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarYearFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarMonthItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarMonthFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarMonthFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarMonthFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarMonthFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarMonthFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarMonthFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarQuarterFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarQuarterFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarQuarterFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarQuarterFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarDayItemBorderRadius}: 0.625rem;
 
-                ${tokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarDayFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarDayFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarDayFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarDayFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarDayFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarDaySelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarDayFontFamily}: ${bodyM.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyM.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyM.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyM.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyM.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyMBold.fontWeight};
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
@@ -602,29 +605,29 @@ export const config = {
                 ${tokens.iconButtonHeight}: 3rem;
                 ${tokens.iconButtonWidth}: 3rem;
                 ${tokens.iconButtonPadding}: 0.75rem;
-                ${tokens.iconButtonRadius}: 0.5rem;
+                ${tokens.iconButtonRadius}: 0.75rem;
 
                 ${tokens.timePickerColumnWidth}: 3rem;
-                ${tokens.timePickerColumnHeight}: 20.5rem;
+                ${tokens.timePickerColumnHeight}: 21rem;
                 ${tokens.timePickerColumnGap}: 0.125rem;
                 ${tokens.timePickerItemHeight}: 3rem;
                 ${tokens.timePickerItemBorderRadius}: 0.625rem;
                 ${tokens.timePickerItemPadding}: 0;
-                ${tokens.timePickerItemFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.timePickerItemFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.timePickerItemFontSize}: ${bodyXS.fontSize};
-                ${tokens.timePickerItemFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.timePickerItemLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.timePickerItemLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.timePickerItemFontFamily}: ${bodyM.fontFamily};
+                ${tokens.timePickerItemFontStyle}: ${bodyM.fontStyle};
+                ${tokens.timePickerItemFontSize}: ${bodyM.fontSize};
+                ${tokens.timePickerItemFontWeight}: ${bodyM.fontWeight};
+                ${tokens.timePickerItemLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.timePickerItemLineHeight}: ${bodyM.lineHeight};
                 ${tokens.timePickerScrollbarWidth}: 0.125rem;
                 ${tokens.timePickerScrollbarMargin}: 0.5rem;
 
-                ${tokens.shortcutFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.shortcutFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.shortcutFontSize}: ${bodyXS.fontSize};
-                ${tokens.shortcutFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.shortcutLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.shortcutLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.shortcutFontFamily}: ${bodyM.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyM.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyM.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyM.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.shortcutPadding}: 1.063rem 0.625rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -634,10 +637,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.813rem 0.75rem;
+                ${tokens.textFieldPadding}: 0.5rem 0.75rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.5rem;
                 ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.375rem;
@@ -646,23 +649,23 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
-                ${tokens.textFieldFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.textFieldLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.textFieldLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.textFieldFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.labelOffset}: 0.5rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
-                ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.labelFontSize}: ${bodyXS.fontSize};
-                ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.labelFontSize}: ${bodyS.fontSize};
+                ${tokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
                 ${tokens.labelInnerFontSize}: ${bodyXXS.fontSize};
@@ -701,46 +704,46 @@ export const config = {
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarYearItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarYearFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarYearFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarYearFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarYearFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarYearFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarYearFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarMonthFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarMonthFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarMonthFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarMonthFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarMonthFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarMonthFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarQuartersPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarQuarterFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarQuarterFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarQuarterFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarQuarterFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarQuarterFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarQuarterFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarQuarterFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarQuarterFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarQuarterFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarQuarterSelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarDayItemBorderRadius}: 0.5rem;
 
-                ${tokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.calendarDayFontSize}: ${bodyXS.fontSize};
-                ${tokens.calendarDayFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.calendarDayFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.calendarDayFontLineHeight}: ${bodyXS.lineHeight};
-                ${tokens.calendarDayFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.calendarDaySelectedFontWeight}: ${bodyXSBold.fontWeight};
+                ${tokens.calendarDayFontFamily}: ${bodyS.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyS.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyS.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyS.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyS.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodySBold.fontWeight};
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
@@ -762,8 +765,8 @@ export const config = {
 
                 ${tokens.iconButtonHeight}: 2.5rem;
                 ${tokens.iconButtonWidth}: 2.5rem;
-                ${tokens.iconButtonPadding}: 0.75rem;
-                ${tokens.iconButtonRadius}: 0.5rem;
+                ${tokens.iconButtonPadding}: 0.5rem;
+                ${tokens.iconButtonRadius}: 0.625rem;
 
                 ${tokens.timePickerColumnWidth}: 2.5rem;
                 ${tokens.timePickerColumnHeight}: 17rem;
@@ -771,21 +774,21 @@ export const config = {
                 ${tokens.timePickerItemHeight}: 2.5rem;
                 ${tokens.timePickerItemBorderRadius}: 0.5rem;
                 ${tokens.timePickerItemPadding}: 0;
-                ${tokens.timePickerItemFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.timePickerItemFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.timePickerItemFontSize}: ${bodyXS.fontSize};
-                ${tokens.timePickerItemFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.timePickerItemLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.timePickerItemLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.timePickerItemFontFamily}: ${bodyS.fontFamily};
+                ${tokens.timePickerItemFontStyle}: ${bodyS.fontStyle};
+                ${tokens.timePickerItemFontSize}: ${bodyS.fontSize};
+                ${tokens.timePickerItemFontWeight}: ${bodyS.fontWeight};
+                ${tokens.timePickerItemLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.timePickerItemLineHeight}: ${bodyS.lineHeight};
                 ${tokens.timePickerScrollbarWidth}: 0.125rem;
                 ${tokens.timePickerScrollbarMargin}: 0.5rem;
 
-                ${tokens.shortcutFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.shortcutFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.shortcutFontSize}: ${bodyXS.fontSize};
-                ${tokens.shortcutFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.shortcutLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.shortcutLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.shortcutFontFamily}: ${bodyS.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyS.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyS.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyS.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.shortcutPadding}: 0.813rem 0.5rem;
                 ${tokens.shortcutGap}: 0.375rem;
@@ -852,8 +855,8 @@ export const config = {
 
                 ${tokens.popoverBorderRadius}: 0.5rem;
                 ${tokens.popoverGap}: 0.75rem;
-                ${tokens.popoverPadding}: 0.75rem 0.75rem 0.875rem 0.75rem;
-                ${tokens.popoverVerticalPadding}: 1.625rem;
+                ${tokens.popoverPadding}: 0.5rem 0.75rem 0.625rem;
+                ${tokens.popoverVerticalPadding}: 1.125rem;
 
                 ${tokens.calendarWidth}: 17.5rem;
                 ${tokens.calendarHeight}: 15.5rem;
@@ -925,7 +928,7 @@ export const config = {
                 ${tokens.iconButtonPadding}: 0.5rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
 
-                ${tokens.timePickerColumnWidth}: 2rem;
+                ${tokens.timePickerColumnWidth}: 2.5rem;
                 ${tokens.timePickerColumnHeight}: 15.5rem;
                 ${tokens.timePickerColumnGap}: 0.125rem;
                 ${tokens.timePickerItemHeight}: 2rem;

@@ -59,6 +59,7 @@ export const config = {
                 ${tokens.background}: ${surfaceTransparentCard};
                 ${tokens.backgroundError}: ${surfaceTransparentCard};
                 ${tokens.backgroundSuccess}: ${surfaceTransparentCard};
+                ${tokens.rangeShadow}: ${shadowDownSoftS};
 
                 ${tokens.dividerColor}: ${textPrimary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -352,7 +353,7 @@ export const config = {
                 ${tokens.shortcutLetterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.shortcutLineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.shortcutPadding}: 1.313rem 0.875rem;
+                ${tokens.shortcutPadding}: 1.25rem 0.875rem;
                 ${tokens.shortcutGap}: 0.375rem;
                 ${tokens.shortcutBorderRadius}: 0.875rem;
             `,
@@ -447,7 +448,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -525,7 +526,7 @@ export const config = {
 
                 ${tokens.iconButtonHeight}: 3.5rem;
                 ${tokens.iconButtonWidth}: 3.5rem;
-                ${tokens.iconButtonPadding}: 1.5rem;
+                ${tokens.iconButtonPadding}: 1rem;
                 ${tokens.iconButtonRadius}: 0.875rem;
 
                 ${tokens.shortcutFontFamily}: ${bodyL.fontFamily};
@@ -535,7 +536,7 @@ export const config = {
                 ${tokens.shortcutLetterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.shortcutLineHeight}: ${bodyL.lineHeight};
 
-                ${tokens.shortcutPadding}: 1.188rem 0.75rem;
+                ${tokens.shortcutPadding}: 1.0625rem 0.75rem;
                 ${tokens.shortcutGap}: 0.375rem;
                 ${tokens.shortcutBorderRadius}: 0.75rem;
             `,
@@ -612,7 +613,7 @@ export const config = {
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
+                ${tokens.textFieldPadding}: 0.875rem;
                 ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldFontStyle}: ${bodyXS.fontStyle};
                 ${tokens.textFieldFontSize}: ${bodyXS.fontSize};
@@ -628,8 +629,8 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.625rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -639,7 +640,7 @@ export const config = {
                 ${tokens.popoverVerticalPadding}: 2.125rem;
 
                 ${tokens.calendarWidth}: 21rem;
-                ${tokens.calendarHeight}: 21rem;
+                ${tokens.calendarHeight}: 20.5rem;
 
                 ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
                 ${tokens.calendarYearItemBorderRadius}: 0.625rem;
@@ -706,7 +707,7 @@ export const config = {
 
                 ${tokens.iconButtonHeight}: 3rem;
                 ${tokens.iconButtonWidth}: 3rem;
-                ${tokens.iconButtonPadding}: 1.25rem;
+                ${tokens.iconButtonPadding}: 0.75rem;
                 ${tokens.iconButtonRadius}: 0.75rem;
 
                 ${tokens.shortcutFontFamily}: ${bodyM.fontFamily};
@@ -716,7 +717,7 @@ export const config = {
                 ${tokens.shortcutLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.shortcutLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.shortcutPadding}: 1.063rem 0.625rem;
+                ${tokens.shortcutPadding}: 0.875rem 0.625rem;
                 ${tokens.shortcutGap}: 0.375rem;
                 ${tokens.shortcutBorderRadius}: 0.625rem;
             `,
@@ -809,8 +810,8 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.5rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -897,7 +898,7 @@ export const config = {
                 ${tokens.shortcutLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.shortcutLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.shortcutPadding}: 0.813rem 0.5rem;
+                ${tokens.shortcutPadding}: 0.6875rem 0.5rem;
                 ${tokens.shortcutGap}: 0.375rem;
                 ${tokens.shortcutBorderRadius}: 0.5rem;
             `,
