@@ -444,7 +444,7 @@ export const config = {
                 ${tokens.textFieldBorderRadius}: 0.875rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
@@ -574,8 +574,8 @@ export const config = {
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.625rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -649,7 +649,7 @@ export const config = {
                 ${tokens.margin}: 0.25rem;
                 ${tokens.borderRadius}: 0.75rem;
 
-                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemHeight}: 1.25rem;
                 ${tokens.itemPadding}: 0.875rem;
                 ${tokens.itemPaddingTight}: 0.625rem 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
@@ -704,8 +704,8 @@ export const config = {
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.5rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -781,7 +781,7 @@ export const config = {
                 ${tokens.margin}: 0.25rem;
                 ${tokens.borderRadius}: 0.625rem;
 
-                ${tokens.itemHeight}: 1rem;
+                ${tokens.itemHeight}: 1.25rem;
                 ${tokens.itemPadding}: 0.75rem 0.625rem;
                 ${tokens.itemPaddingTight}: 0.5rem 0.625rem;
                 ${tokens.itemBorderRadius}: 0.5rem;

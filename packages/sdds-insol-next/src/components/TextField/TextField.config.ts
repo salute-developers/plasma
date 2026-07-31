@@ -99,8 +99,8 @@ export const config = {
                 ${tokens.focusColor}: ${textAccent};
 
                 ${tokens.color}: ${textPositive};
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textPositive};
+                ${tokens.placeholderColorFocus}: ${textPositive};
 
                 ${tokens.backgroundColor}: ${surfaceSolidCard};
                 ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
@@ -114,8 +114,8 @@ export const config = {
                 ${tokens.textAfterColor}: ${textTertiary};
 
                 ${tokens.labelColor}: ${textPrimary};
-                ${tokens.leftHelperColor}: color-mix(in oklab, ${textPositive} 70%, transparent);
-                ${tokens.rightHelperColor}: color-mix(in oklab, ${textPositive} 70%, transparent);
+                ${tokens.leftHelperColor}: ${textPositive};
+                ${tokens.rightHelperColor}: ${textPositive};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -131,8 +131,8 @@ export const config = {
                 ${tokens.focusColor}: ${textAccent};
 
                 ${tokens.color}: ${textWarning};
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textWarning};
+                ${tokens.placeholderColorFocus}: ${textWarning};
 
                 ${tokens.backgroundColor}: ${surfaceSolidCard};
                 ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
@@ -146,8 +146,8 @@ export const config = {
                 ${tokens.textAfterColor}: ${textTertiary};
 
                 ${tokens.labelColor}: ${textPrimary};
-                ${tokens.leftHelperColor}: color-mix(in oklab, ${textWarning} 70%, transparent);
-                ${tokens.rightHelperColor}: color-mix(in oklab, ${textWarning} 70%, transparent);
+                ${tokens.leftHelperColor}: ${textWarning};
+                ${tokens.rightHelperColor}: ${textWarning};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -163,8 +163,8 @@ export const config = {
                 ${tokens.focusColor}: ${textAccent};
 
                 ${tokens.color}: ${textNegative};
-                ${tokens.placeholderColor}: ${textSecondary};
-                ${tokens.placeholderColorFocus}: ${textTertiary};
+                ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColorFocus}: ${textNegative};
 
                 ${tokens.backgroundColor}: ${surfaceSolidCard};
                 ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
@@ -178,8 +178,8 @@ export const config = {
                 ${tokens.textAfterColor}: ${textTertiary};
 
                 ${tokens.labelColor}: ${textPrimary};
-                ${tokens.leftHelperColor}: color-mix(in oklab, ${textNegative} 70%, transparent);
-                ${tokens.rightHelperColor}: color-mix(in oklab, ${textNegative} 70%, transparent);
+                ${tokens.leftHelperColor}: ${textNegative};
+                ${tokens.rightHelperColor}: ${textNegative};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -292,7 +292,7 @@ export const config = {
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
+                ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
 
                 ${tokens.fontFamily}: ${bodyL.fontFamily};
@@ -387,8 +387,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.leftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
-                ${tokens.rightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.125rem 0.375rem -0.125rem 0rem;
+                ${tokens.rightContentMargin}: -0.125rem 0rem -0.125rem 0.625rem;
 
                 ${tokens.fontFamily}: ${bodyM.fontFamily};
                 ${tokens.fontSize}: ${bodyM.fontSize};
@@ -482,8 +482,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.borderWidth}: 0.0625rem;
 
-                ${tokens.leftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
-                ${tokens.rightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0rem;
+                ${tokens.rightContentMargin}: -0.1875rem 0rem -0.1875rem 0.5rem;
 
                 ${tokens.fontFamily}: ${bodyS.fontFamily};
                 ${tokens.fontSize}: ${bodyS.fontSize};

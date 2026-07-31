@@ -36,6 +36,7 @@ import {
     textSecondaryHover,
     textTertiary,
     textWarning,
+    shadowDownSoftS,
 } from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
@@ -84,7 +85,7 @@ export const config = {
                 ${tokens.textFieldBoxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
 
                 ${tokens.background}: ${surfaceSolidCard};
-                ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
+                ${tokens.boxShadow}: ${shadowDownSoftS};
                 ${tokens.itemBackground}: var(--plasma-colors-transparent);
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.itemColor}: ${textPrimary};
@@ -131,7 +132,7 @@ export const config = {
                 ${tokens.textFieldBoxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
 
                 ${tokens.background}: ${surfaceSolidCard};
-                ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
+                ${tokens.boxShadow}: ${shadowDownSoftS};
                 ${tokens.itemBackground}: var(--plasma-colors-transparent);
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.itemColor}: ${textPrimary};
@@ -178,7 +179,7 @@ export const config = {
                 ${tokens.textFieldBoxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
 
                 ${tokens.background}: ${surfaceSolidCard};
-                ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
+                ${tokens.boxShadow}: ${shadowDownSoftS};
                 ${tokens.itemBackground}: var(--plasma-colors-transparent);
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.itemColor}: ${textPrimary};
@@ -225,7 +226,7 @@ export const config = {
                 ${tokens.textFieldBoxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
 
                 ${tokens.background}: ${surfaceSolidCard};
-                ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
+                ${tokens.boxShadow}: ${shadowDownSoftS};
                 ${tokens.itemBackground}: var(--plasma-colors-transparent);
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.itemColor}: ${textPrimary};
@@ -299,7 +300,7 @@ export const config = {
 
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 1.25rem 1.125rem;
+                ${tokens.itemPadding}: 1.3125rem 1.125rem;
                 ${tokens.itemBorderRadius}: 0.875rem;
 
                 ${tokens.itemFontFamily}: ${bodyL.fontFamily};
@@ -321,7 +322,7 @@ export const config = {
                 ${tokens.textFieldBorderRadius}: 0.875rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.625rem -0.0625rem 0rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
@@ -378,7 +379,7 @@ export const config = {
 
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 1rem;
+                ${tokens.itemPadding}: 1.0625rem 1rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
 
                 ${tokens.itemFontFamily}: ${bodyL.fontFamily};
@@ -400,8 +401,8 @@ export const config = {
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.625rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -461,12 +462,12 @@ export const config = {
                 ${tokens.itemPadding}: 0.875rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
 
-                ${tokens.itemFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.itemFontSize}: ${bodyXS.fontSize};
-                ${tokens.itemFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.itemFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.itemFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.itemFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.itemFontFamily}: ${bodyM.fontFamily};
+                ${tokens.itemFontSize}: ${bodyM.fontSize};
+                ${tokens.itemFontStyle}: ${bodyM.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyM.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.emptyStatePadding}: 1.625rem 0.875rem 0.875rem 0.875rem;
                 ${tokens.emptyStateGap}: 0.375rem;
@@ -480,8 +481,8 @@ export const config = {
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.5rem -0.1875rem 0rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.5rem;
 
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
@@ -540,15 +541,15 @@ export const config = {
 
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 0.75rem 0.625rem;
+                ${tokens.itemPadding}: 0.6875rem 0.625rem;
                 ${tokens.itemBorderRadius}: 0.5rem;
 
-                ${tokens.itemFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.itemFontSize}: ${bodyXS.fontSize};
-                ${tokens.itemFontStyle}: ${bodyXS.fontStyle};
-                ${tokens.itemFontWeight}: ${bodyXS.fontWeight};
-                ${tokens.itemFontLetterSpacing}: ${bodyXS.letterSpacing};
-                ${tokens.itemFontLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.itemFontFamily}: ${bodyS.fontFamily};
+                ${tokens.itemFontSize}: ${bodyS.fontSize};
+                ${tokens.itemFontStyle}: ${bodyS.fontStyle};
+                ${tokens.itemFontWeight}: ${bodyS.fontWeight};
+                ${tokens.itemFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.itemFontLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.emptyStatePadding}: 1.375rem 0.625rem 0.625rem 0.625rem;
                 ${tokens.emptyStateGap}: 0.25rem;
@@ -620,8 +621,8 @@ export const config = {
 
                 ${tokens.borderRadius}: 0.5rem;
                 ${tokens.padding}: 0.125rem;
-                ${tokens.itemPadding}: 0.5rem;
-                ${tokens.itemBorderRadius}: 0.5rem;
+                ${tokens.itemPadding}: 0.5625rem 0.5rem;
+                ${tokens.itemBorderRadius}: 0.375rem;
 
                 ${tokens.itemFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.itemFontSize}: ${bodyXS.fontSize};
