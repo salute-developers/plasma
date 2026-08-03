@@ -29,6 +29,7 @@ export const tokens = {
     fixedContentBeforeWidth: '--plasma-note-fixed-content-before-width',
     fixedContentBeforeHeight: '--plasma-note-fixed-content-before-height',
     fixedContentBeforePadding: '--plasma-note-fixed-content-before-padding',
+    fixedContentBeforeAlignSelf: '--plasma-note-fixed-content-before-align-self',
 
     titleFontFamily: '--plasma-note-title-font-family',
     titleFontSize: '--plasma-note-title-font-size',
