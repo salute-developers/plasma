@@ -1,0 +1,29 @@
+{
+  "name": "@salutejs/bundle-size",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Bundle size regression checks for final Plasma/SDDS packages across bundlers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "utils/bundle-size"
+  },
+  "scripts": {
+    "measure": "node scripts/measure.mjs",
+    "check": "node scripts/measure.mjs --check",
+    "update-baseline": "node scripts/measure.mjs --update"
+  },
+  "devDependencies": {
+    "@emotion/react": "11.11.4",
+    "@emotion/styled": "11.11.5",
+    "@rspack/core": "1.7.12",
+    "@salutejs/plasma-b2c": "1.626.0",
+    "@salutejs/plasma-giga": "0.353.0",
+    "@salutejs/sdds-serv": "0.357.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "5.3.1",
+    "vite": "5.4.21",
+    "webpack": "5.104.1"
+  }
+}

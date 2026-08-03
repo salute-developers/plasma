@@ -1,0 +1,432 @@
+{
+    "@salutejs/plasma-b2c": {
+        ".": {
+            "single": {
+                "vite": {
+                    "raw": 22172,
+                    "gzip": 2991,
+                    "brotli": 2542,
+                    "moduleCount": 14,
+                    "css": 0
+                },
+                "webpack": {
+                    "raw": 14373,
+                    "gzip": 2417,
+                    "brotli": 2028,
+                    "moduleCount": 3,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 14368,
+                    "gzip": 2484,
+                    "brotli": 2093,
+                    "moduleCount": 1,
+                    "css": 0
+                }
+            },
+            "full": {
+                "vite": {
+                    "raw": 3589640,
+                    "gzip": 574465,
+                    "brotli": 390450,
+                    "moduleCount": 1543,
+                    "css": 0
+                },
+                "webpack": {
+                    "raw": 2702888,
+                    "gzip": 478677,
+                    "brotli": 329082,
+                    "moduleCount": 45,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 2695957,
+                    "gzip": 482181,
+                    "brotli": 331029,
+                    "moduleCount": 40,
+                    "css": 0
+                }
+            }
+        },
+        "./css": {
+            "single": {
+                "vite": {
+                    "raw": 19224,
+                    "gzip": 7158,
+                    "brotli": 6309,
+                    "moduleCount": 18,
+                    "css": 6339
+                },
+                "webpack": {
+                    "raw": 14155,
+                    "gzip": 6086,
+                    "brotli": 5418,
+                    "moduleCount": 6,
+                    "css": 6388
+                },
+                "rspack": {
+                    "raw": 14137,
+                    "gzip": 6109,
+                    "brotli": 5409,
+                    "moduleCount": 3,
+                    "css": 4745
+                }
+            },
+            "full": {
+                "vite": {
+                    "raw": 1619444,
+                    "gzip": 394945,
+                    "brotli": 294854,
+                    "moduleCount": 1962,
+                    "css": 1955837
+                },
+                "webpack": {
+                    "raw": 1095007,
+                    "gzip": 309639,
+                    "brotli": 239155,
+                    "moduleCount": 576,
+                    "css": 1980925
+                },
+                "rspack": {
+                    "raw": 1081765,
+                    "gzip": 307263,
+                    "brotli": 237032,
+                    "moduleCount": 569,
+                    "css": 1872145
+                }
+            }
+        }
+    },
+    "@salutejs/plasma-giga": {
+        ".": {
+            "single": {
+                "vite": {
+                    "raw": 14269,
+                    "gzip": 4571,
+                    "brotli": 4021,
+                    "moduleCount": 22,
+                    "css": 12218
+                },
+                "webpack": {
+                    "raw": 10891,
+                    "gzip": 4052,
+                    "brotli": 3602,
+                    "moduleCount": 11,
+                    "css": 12276
+                },
+                "rspack": {
+                    "raw": 10845,
+                    "gzip": 4074,
+                    "brotli": 3638,
+                    "moduleCount": 7,
+                    "css": 12123
+                }
+            },
+            "full": {
+                "vite": {
+                    "raw": 2555985,
+                    "gzip": 678033,
+                    "brotli": 510962,
+                    "moduleCount": 2272,
+                    "css": 1984082
+                },
+                "webpack": {
+                    "raw": 1727764,
+                    "gzip": 537042,
+                    "brotli": 415838,
+                    "moduleCount": 885,
+                    "css": 2003482
+                },
+                "rspack": {
+                    "raw": 1711702,
+                    "gzip": 530309,
+                    "brotli": 412672,
+                    "moduleCount": 878,
+                    "css": 1931754
+                }
+            }
+        },
+        "./styled-components": {
+            "single": {
+                "vite": {
+                    "raw": 38721,
+                    "gzip": 8242,
+                    "brotli": 7102,
+                    "moduleCount": 41,
+                    "css": 0
+                },
+                "webpack": {
+                    "raw": 25753,
+                    "gzip": 6734,
+                    "brotli": 5855,
+                    "moduleCount": 6,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 25636,
+                    "gzip": 6704,
+                    "brotli": 5848,
+                    "moduleCount": 3,
+                    "css": 0
+                }
+            },
+            "full": {
+                "vite": {
+                    "raw": 4189486,
+                    "gzip": 822726,
+                    "brotli": 586585,
+                    "moduleCount": 1763,
+                    "css": 0
+                },
+                "webpack": {
+                    "raw": 3080054,
+                    "gzip": 677477,
+                    "brotli": 489179,
+                    "moduleCount": 354,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 3088671,
+                    "gzip": 686034,
+                    "brotli": 496819,
+                    "moduleCount": 349,
+                    "css": 0
+                }
+            }
+        }
+    },
+    "@salutejs/sdds-serv": {
+        ".": {
+            "single": {
+                "vite": {
+                    "raw": 14269,
+                    "gzip": 4571,
+                    "brotli": 4021,
+                    "moduleCount": 22,
+                    "css": 12218
+                },
+                "webpack": {
+                    "raw": 10891,
+                    "gzip": 4052,
+                    "brotli": 3602,
+                    "moduleCount": 11,
+                    "css": 12276
+                },
+                "rspack": {
+                    "raw": 10845,
+                    "gzip": 4074,
+                    "brotli": 3638,
+                    "moduleCount": 7,
+                    "css": 12099
+                }
+            },
+            "full": {
+                "vite": {
+                    "raw": 2538216,
+                    "gzip": 674265,
+                    "brotli": 507292,
+                    "moduleCount": 2247,
+                    "css": 1976223
+                },
+                "webpack": {
+                    "raw": 1715963,
+                    "gzip": 533801,
+                    "brotli": 413263,
+                    "moduleCount": 877,
+                    "css": 1995548
+                },
+                "rspack": {
+                    "raw": 1700292,
+                    "gzip": 527206,
+                    "brotli": 410429,
+                    "moduleCount": 870,
+                    "css": 1927067
+                }
+            }
+        },
+        "./styled-components": {
+            "single": {
+                "webpack": {
+                    "raw": 27142,
+                    "gzip": 7060,
+                    "brotli": 6175,
+                    "moduleCount": 7,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 28777,
+                    "gzip": 7049,
+                    "brotli": 6207,
+                    "moduleCount": 4,
+                    "css": 0
+                }
+            },
+            "full": {
+                "webpack": {
+                    "raw": 3236304,
+                    "gzip": 682784,
+                    "brotli": 490395,
+                    "moduleCount": 356,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 3236433,
+                    "gzip": 690947,
+                    "brotli": 499372,
+                    "moduleCount": 351,
+                    "css": 0
+                }
+            }
+        },
+        "./emotion": {
+            "single": {
+                "webpack": {
+                    "raw": 26740,
+                    "gzip": 7061,
+                    "brotli": 6131,
+                    "moduleCount": 7,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 28376,
+                    "gzip": 7062,
+                    "brotli": 6181,
+                    "moduleCount": 4,
+                    "css": 0
+                }
+            },
+            "full": {
+                "webpack": {
+                    "raw": 3210750,
+                    "gzip": 681669,
+                    "brotli": 489609,
+                    "moduleCount": 356,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 3211238,
+                    "gzip": 690063,
+                    "brotli": 498711,
+                    "moduleCount": 351,
+                    "css": 0
+                }
+            }
+        },
+        "./ai": {
+            "single": {
+                "vite": {
+                    "raw": 28699,
+                    "gzip": 10040,
+                    "brotli": 8626,
+                    "moduleCount": 36,
+                    "css": 19023
+                },
+                "webpack": {
+                    "raw": 21743,
+                    "gzip": 8631,
+                    "brotli": 7492,
+                    "moduleCount": 14,
+                    "css": 19086
+                },
+                "rspack": {
+                    "raw": 21621,
+                    "gzip": 8656,
+                    "brotli": 7564,
+                    "moduleCount": 10,
+                    "css": 18182
+                }
+            },
+            "full": {
+                "vite": {
+                    "raw": 1228135,
+                    "gzip": 364175,
+                    "brotli": 283086,
+                    "moduleCount": 659,
+                    "css": 163198
+                },
+                "webpack": {
+                    "raw": 837196,
+                    "gzip": 291125,
+                    "brotli": 233649,
+                    "moduleCount": 395,
+                    "css": 164308
+                },
+                "rspack": {
+                    "raw": 831452,
+                    "gzip": 289153,
+                    "brotli": 232521,
+                    "moduleCount": 390,
+                    "css": 158064
+                }
+            }
+        },
+        "./ai/styled-components": {
+            "single": {
+                "webpack": {
+                    "raw": 23844,
+                    "gzip": 5114,
+                    "brotli": 4241,
+                    "moduleCount": 4,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 24337,
+                    "gzip": 5126,
+                    "brotli": 4219,
+                    "moduleCount": 2,
+                    "css": 0
+                }
+            },
+            "full": {
+                "webpack": {
+                    "raw": 926148,
+                    "gzip": 300282,
+                    "brotli": 240837,
+                    "moduleCount": 320,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 925947,
+                    "gzip": 298859,
+                    "brotli": 240274,
+                    "moduleCount": 316,
+                    "css": 0
+                }
+            }
+        },
+        "./ai/emotion": {
+            "single": {
+                "webpack": {
+                    "raw": 23435,
+                    "gzip": 5128,
+                    "brotli": 4227,
+                    "moduleCount": 4,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 23927,
+                    "gzip": 5141,
+                    "brotli": 4207,
+                    "moduleCount": 2,
+                    "css": 0
+                }
+            },
+            "full": {
+                "webpack": {
+                    "raw": 920448,
+                    "gzip": 299930,
+                    "brotli": 240559,
+                    "moduleCount": 320,
+                    "css": 0
+                },
+                "rspack": {
+                    "raw": 920278,
+                    "gzip": 298570,
+                    "brotli": 239873,
+                    "moduleCount": 316,
+                    "css": 0
+                }
+            }
+        }
+    }
+}
