@@ -38,21 +38,6 @@ export const config = {
                 ${chipTokens.closeIconColorHover}: var(--text-secondary-hover);
                 ${chipTokens.leftContentColor}: var(--text-primary);
             `,
-            accent: css`
-                ${chipTokens.color}: var(--on-dark-text-primary);
-                ${chipTokens.background}: var(--surface-accent);
-                ${chipTokens.colorHover}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundHover}: var(--surface-accent-hover);
-                ${chipTokens.colorActive}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundActive}: var(--surface-accent-active);
-                ${chipTokens.backgroundReadOnly}: var(--surface-accent);
-                ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
-                ${chipTokens.backgroundReadOnlyHover}: var(--surface-accent);
-                ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
-                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
-                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
-                ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
-            `,
             positive: css`
                 ${chipTokens.color}: var(--on-dark-text-primary);
                 ${chipTokens.background}: var(--surface-positive);
@@ -64,8 +49,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-positive);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
-                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
-                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-primary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             warning: css`
@@ -79,8 +64,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-warning);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
-                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
-                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-primary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
             negative: css`
@@ -94,8 +79,8 @@ export const config = {
                 ${chipTokens.colorReadOnly}: var(--on-dark-text-primary);
                 ${chipTokens.backgroundReadOnlyHover}: var(--surface-negative);
                 ${chipTokens.colorReadOnlyHover}: var(--on-dark-text-primary);
-                ${chipTokens.closeIconColor}: var(--on-dark-text-secondary);
-                ${chipTokens.closeIconColorHover}: var(--on-dark-text-secondary-hover);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-primary);
+                ${chipTokens.closeIconColorHover}: var(--on-dark-text-primary-hover);
                 ${chipTokens.leftContentColor}: var(--on-dark-text-primary);
             `,
         },
@@ -147,7 +132,7 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${chipTokens.disabledOpacity}: 0.4;
+                ${chipTokens.disabledOpacity}: 1;
             `,
         },
         focused: {
@@ -159,4 +144,56 @@ export const config = {
             true: css``,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            disabled: true,
+            style: css`
+                ${chipTokens.color}: var(--text-tertiary);
+                ${chipTokens.background}: var(--surface-solid-tertiary);
+                ${chipTokens.closeIconColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'secondary',
+            disabled: true,
+            style: css`
+                ${chipTokens.color}: var(--text-tertiary);
+                ${chipTokens.background}: var(--surface-solid-tertiary);
+                ${chipTokens.closeIconColor}: var(--text-tertiary);
+            `,
+        },
+        {
+            view: 'accent',
+            disabled: true,
+            style: css`
+                ${chipTokens.color}: var(--on-dark-text-positive-minor);
+                ${chipTokens.background}: var(--surface-accent);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-positive-minor);
+            `,
+        },
+        {
+            view: 'positive',
+            disabled: true,
+            style: css`
+                ${chipTokens.color}: var(--on-dark-text-positive-minor);
+                ${chipTokens.background}: var(--surface-positive);
+                ${chipTokens.closeIconColor}: var(--on-dark-text-positive-minor);
+            `,
+        },
+        {
+            view: 'warning',
+            disabled: true,
+            style: css`
+                ${chipTokens.background}: var(--surface-warning-minor);
+            `,
+        },
+        {
+            view: 'negative',
+            disabled: true,
+            style: css`
+                ${chipTokens.background}: var(--surface-negative-minor);
+            `,
+        },
+    ],
 };
