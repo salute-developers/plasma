@@ -209,8 +209,6 @@ export const config = {
 
                 ${chipTokens.fontFamily}: ${bodyXXS.fontFamily};
                 ${chipTokens.fontSize}: ${bodyXXS.fontSize};
-                ${chipTokens.fontStyle}: ${bodyXXS.fontStyle};
-                ${chipTokens.fontWeight}: ${bodyXXS.fontWeight};
                 ${chipTokens.letterSpacing}: ${bodyXXS.letterSpacing};
                 ${chipTokens.lineHeight}: ${bodyXXS.lineHeight};
 
@@ -220,6 +218,50 @@ export const config = {
                 ${chipTokens.rightContentMarginRight}: -0.125rem;
                 ${chipTokens.clearContentMarginLeft}: 0.25rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
+                ${chipTokens.closeIconSize}: 0.75rem;
+            `,
+            '28xs': css`
+                ${chipTokens.borderRadius}: 0.5rem;
+                ${chipTokens.pilledBorderRadius}: 1.25rem;
+                ${chipTokens.width}: auto;
+                ${chipTokens.height}: 1.75rem;
+                ${chipTokens.padding}: 0 0.75rem 0 0.6875rem;
+
+                ${chipTokens.fontFamily}: ${bodyS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyS.lineHeight};
+
+                ${chipTokens.leftContentMarginLeft}: 0;
+                ${chipTokens.leftContentMarginRight}: 0.125rem;
+                ${chipTokens.rightContentMarginLeft}: 0.125rem;
+                ${chipTokens.rightContentMarginRight}: -0.125rem;
+                ${chipTokens.clearContentMarginLeft}: 0.25rem;
+                ${chipTokens.clearContentMarginRight}: -0.125rem;
+                ${chipTokens.closeIconSize}: 1rem;
+            `,
+            '16xxs': css`
+                ${chipTokens.borderRadius}: 0.25rem;
+                ${chipTokens.pilledBorderRadius}: 1.25rem;
+                ${chipTokens.width}: auto;
+                ${chipTokens.height}: 1rem;
+                ${chipTokens.padding}: 0 0.25rem;
+
+                ${chipTokens.fontFamily}: ${bodyXXS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyXXS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyXXS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyXXS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyXXS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyXXS.lineHeight};
+
+                ${chipTokens.leftContentMarginLeft}: 0;
+                ${chipTokens.leftContentMarginRight}: 0.125rem;
+                ${chipTokens.rightContentMarginLeft}: 0.125rem;
+                ${chipTokens.rightContentMarginRight}: -0.063rem;
+                ${chipTokens.clearContentMarginLeft}: 0.125rem;
+                ${chipTokens.clearContentMarginRight}: -0.063rem;
                 ${chipTokens.closeIconSize}: 0.75rem;
             `,
         },
