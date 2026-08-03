@@ -8,7 +8,9 @@ const iconSizeMapper: Record<string, string> = {
     m: '1.5rem',
     s: '1rem',
     xs: '0.75rem',
+    '28xs': '0.75rem',
     xxs: '0.75rem',
+    '16xxs': '0.75rem',
 };
 
 const ChipIcon = (props: React.SVGProps<SVGSVGElement>) => (
