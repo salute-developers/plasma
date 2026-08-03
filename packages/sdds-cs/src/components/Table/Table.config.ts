@@ -6,6 +6,7 @@ import {
     bodyXS,
     bodyXSBold,
     onDarkTextPrimary,
+    surfaceSolidSecondary,
     textAccent,
     textSecondary,
 } from '@salutejs/sdds-themes/tokens/sdds_cs';
@@ -53,7 +54,7 @@ export const config = {
                 ${tokens.editableCellInputBorderRadius}: 0.875rem;
                 ${tokens.editableCellInputPadding}: 0 0.75rem;
 
-                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
+                ${tokens.editableCellInputBackground}: ${surfaceSolidSecondary};
 
                 ${tokens.filterCheckboxPadding}: 0.75rem 0;
                 ${tokens.filterDividerMargin}: 0.375rem 0.75rem;
@@ -121,7 +122,7 @@ export const config = {
                 ${tokens.editableCellInputBorderRadius}: 0.625rem;
                 ${tokens.editableCellInputPadding}: 0 0.625rem;
 
-                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
+                ${tokens.editableCellInputBackground}: ${surfaceSolidSecondary};
 
                 ${tokens.filterCheckboxPadding}: 0.5rem 0;
                 ${tokens.filterDividerMargin}: 0.375rem 0.75rem;
@@ -189,7 +190,7 @@ export const config = {
                 ${tokens.editableCellInputBorderRadius}: 0.5rem;
                 ${tokens.editableCellInputPadding}: 0 0.375rem;
 
-                ${tokens.editableCellInputBackground}: var(--surface-transparent-tertiary);
+                ${tokens.editableCellInputBackground}: ${surfaceSolidSecondary};
 
                 ${tokens.filterCheckboxPadding}: 0.5rem 0;
                 ${tokens.filterDividerMargin}: 0.25rem 0.5rem;

@@ -247,7 +247,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldLabelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLabelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLabelInnerFontStyle}: ${bodyXS.fontStyle};

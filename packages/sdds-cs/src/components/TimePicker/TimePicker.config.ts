@@ -54,8 +54,8 @@ export const config = {
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
-                ${tokens.textFieldBackgroundErrorColor}: var--surface-solid-card);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var--surface-solid-card);
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceSolidCard};
 
@@ -90,7 +90,7 @@ export const config = {
                 ${tokens.itemFocusColor}: ${surfaceAccent};
 
                 ${tokens.scrollbarColor}: ${surfaceSolidTertiary};
-                ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
+                ${tokens.scrollbarTrackColor}: ${surfaceSolidPrimary};
 
                 ${tokens.disabledOpacity}: 0.4;
 

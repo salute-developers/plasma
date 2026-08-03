@@ -15,6 +15,7 @@ import {
     surfaceSolidCard,
     surfaceSolidDefault,
     surfaceSolidDefaultHover,
+    surfaceSolidDefaultActive,
     surfaceSolidPrimary,
     surfaceTransparentAccent,
     textAccent,
@@ -70,19 +71,19 @@ export const config = {
                 ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
                 ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldChipCloseIconColor}: ${textSecondary};
-                ${tokens.textFieldChipCloseIconColorHover}: ${textSecondaryHover};
-                ${tokens.textFieldChipCloseIconColorReadonly}: ${textSecondary};
-                ${tokens.textFieldChipColor}: ${textPrimary};
-                ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorHover}: ${textPrimary};
-                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.textFieldChipColorActive}: ${textPrimary};
-                ${tokens.textFieldChipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorReadOnly}: ${textPrimary};
-                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorReadOnlyHover}: ${textPrimary};
+                ${tokens.textFieldChipCloseIconColor}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${inverseTextPrimary};
+                ${tokens.textFieldChipColor}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.textFieldChipColorActive}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundActive}: ${surfaceSolidDefaultActive};
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnly}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${inverseTextPrimary};
                 ${tokens.textFieldChipOpacityReadonly}: 0.72;
                 ${tokens.dropdownBorderColor}: ${surfaceSolidPrimary};
 
@@ -131,19 +132,19 @@ export const config = {
                 ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
                 ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldChipCloseIconColor}: ${textSecondary};
-                ${tokens.textFieldChipCloseIconColorHover}: ${textSecondaryHover};
-                ${tokens.textFieldChipCloseIconColorReadonly}: ${textSecondary};
-                ${tokens.textFieldChipColor}: ${textPrimary};
-                ${tokens.textFieldChipBackground}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorHover}: ${textPrimary};
-                ${tokens.textFieldChipBackgroundHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.textFieldChipColorActive}: ${textPrimary};
-                ${tokens.textFieldChipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.textFieldChipBackgroundReadOnly}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorReadOnly}: ${textPrimary};
-                ${tokens.textFieldChipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
-                ${tokens.textFieldChipColorReadOnlyHover}: ${textPrimary};
+                ${tokens.textFieldChipCloseIconColor}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${inverseTextPrimary};
+                ${tokens.textFieldChipColor}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundHover}: ${surfaceSolidDefaultHover};
+                ${tokens.textFieldChipColorActive}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundActive}: ${surfaceSolidDefaultActive};
+                ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnly}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackgroundReadOnlyHover}: ${surfaceSolidDefault};
+                ${tokens.textFieldChipColorReadOnlyHover}: ${inverseTextPrimary};
                 ${tokens.textFieldChipOpacityReadonly}: 0.72;
                 ${tokens.dropdownBorderColor}: ${surfaceSolidPrimary};
 
@@ -277,7 +278,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldLabelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLabelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLabelInnerFontStyle}: ${bodyXS.fontStyle};

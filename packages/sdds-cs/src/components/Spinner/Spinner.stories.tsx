@@ -2,12 +2,17 @@ import React, { useState, useRef, useEffect, ComponentProps } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';
 import { BodyL } from '../Typography';
 
+import { config } from './Spinner.config';
+
 import { Spinner } from '.';
+
+const { views } = getConfigVariations(config);
 
 const meta: Meta<typeof Spinner> = {
     title: 'Data Display/Spinner',
@@ -21,7 +26,7 @@ const meta: Meta<typeof Spinner> = {
             },
         },
         view: {
-            options: ['default', 'secondary', 'tertiary', 'paragraph', 'accent', 'positive', 'warning', 'negative'],
+            options: views,
             control: {
                 type: 'select',
             },

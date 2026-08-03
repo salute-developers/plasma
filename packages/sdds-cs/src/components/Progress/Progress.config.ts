@@ -9,6 +9,7 @@ import {
     surfacePositive,
     surfaceSolidDefault,
     surfaceSolidSecondary,
+    surfaceSolidTertiary,
     surfaceWarning,
     textNegative,
     textPositive,
@@ -36,7 +37,7 @@ export const config = {
             `,
             secondary: css`
                 ${progressTokens.trackBackgroundColor}: ${surfaceSolidSecondary};
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-transparent-tertiary);
+                ${progressTokens.progressFilledBackgroundColor}: ${surfaceSolidTertiary};
                 ${progressTokens.labelColor}: ${textPrimary};
                 ${progressTokens.labelIconColor}: ${textPrimary};
                 ${progressTokens.valueColor}: ${textSecondary};
@@ -45,14 +46,6 @@ export const config = {
             accent: css`
                 ${progressTokens.trackBackgroundColor}: ${surfaceSolidSecondary};
                 ${progressTokens.progressFilledBackgroundColor}: ${surfaceAccent};
-                ${progressTokens.labelColor}: ${textPrimary};
-                ${progressTokens.labelIconColor}: ${textPrimary};
-                ${progressTokens.valueColor}: ${textSecondary};
-                ${progressTokens.captionColor}: ${textSecondary};
-            `,
-            accentGradient: css`
-                ${progressTokens.trackBackgroundColor}: ${surfaceSolidSecondary};
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);
                 ${progressTokens.labelColor}: ${textPrimary};
                 ${progressTokens.labelIconColor}: ${textPrimary};
                 ${progressTokens.valueColor}: ${textSecondary};
