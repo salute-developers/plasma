@@ -50,14 +50,6 @@ export const config = {
                 ${progressTokens.valueColor}: ${textSecondary};
                 ${progressTokens.captionColor}: ${textSecondary};
             `,
-            accentGradient: css`
-                ${progressTokens.trackBackgroundColor}: ${surfaceSolidSecondary};
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);
-                ${progressTokens.labelColor}: ${textPrimary};
-                ${progressTokens.labelIconColor}: ${textPrimary};
-                ${progressTokens.valueColor}: ${textSecondary};
-                ${progressTokens.captionColor}: ${textSecondary};
-            `,
             info: css`
                 ${progressTokens.trackBackgroundColor}: ${surfaceSolidSecondary};
                 ${progressTokens.progressFilledBackgroundColor}: ${surfaceInfo};
