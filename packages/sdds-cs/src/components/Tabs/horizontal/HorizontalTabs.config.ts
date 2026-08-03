@@ -1,6 +1,7 @@
 import {
     outlineSolidPrimary,
     surfaceAccent,
+    surfaceSolidPrimary,
     textAccent,
     textAccentActive,
     textAccentMinor,
@@ -32,7 +33,7 @@ export const config = {
                 ${tabsTokens.arrowColor}: ${textSecondary};
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
                 ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
-                ${tabsTokens.tabsBackgroundColor}: var(--surface-transparent-primary);
+                ${tabsTokens.tabsBackgroundColor}: ${surfaceSolidPrimary};
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.tabsDividerHeight}: 0rem;

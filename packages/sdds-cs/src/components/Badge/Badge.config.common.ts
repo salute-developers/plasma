@@ -1,3 +1,4 @@
+import { bodyS } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { badgeTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const sizeS = `
@@ -6,12 +7,12 @@ export const sizeS = `
     ${badgeTokens.padding}: 0 0.5rem;
     ${badgeTokens.paddingIconOnly}: 0 0.375rem;
 
-    ${badgeTokens.fontFamily}: var(--plasma-typo-body-s-font-family);
-    ${badgeTokens.fontSize}: var(--plasma-typo-body-s-font-size);
-    ${badgeTokens.fontStyle}: var(--plasma-typo-body-s-font-style);
-    ${badgeTokens.fontWeight}: var(--plasma-typo-body-s-font-weight);
-    ${badgeTokens.letterSpacing}: var(--plasma-typo-body-s-letter-spacing);
-    ${badgeTokens.lineHeight}: var(--plasma-typo-body-s-line-height);
+    ${badgeTokens.fontFamily}: ${bodyS.fontFamily};
+    ${badgeTokens.fontSize}: ${bodyS.fontSize};
+    ${badgeTokens.fontStyle}: ${bodyS.fontStyle};
+    ${badgeTokens.fontWeight}: ${bodyS.fontWeight};
+    ${badgeTokens.letterSpacing}: ${bodyS.letterSpacing};
+    ${badgeTokens.lineHeight}: ${bodyS.lineHeight};
 
     ${badgeTokens.leftContentMarginLeft}: -0.0625rem;
     ${badgeTokens.leftContentMarginRight}: 0.125rem;

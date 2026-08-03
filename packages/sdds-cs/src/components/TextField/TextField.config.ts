@@ -5,11 +5,15 @@ import {
     outlineAccent,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
+    shadowDownHardM,
     surfaceClear,
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidCardActive,
     surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceSolidDefaultActive,
+    surfaceSolidDefaultHover,
     surfaceSolidPrimary,
     textAccent,
     textAccentActive,
@@ -60,14 +64,14 @@ export const config = {
                 ${tokens.chipCloseIconColorReadonly}: ${textSecondary};
                 ${tokens.chipCloseIconColorHover}: ${textPrimary};
                 ${tokens.chipColor}: ${textPrimary};
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
+                ${tokens.chipBackground}: ${surfaceSolidDefault};
                 ${tokens.chipColorHover}: ${textPrimaryHover};
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.chipBackgroundHover}: ${surfaceSolidDefaultHover};
                 ${tokens.chipColorActive}: ${textPrimary};
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundActive}: ${surfaceSolidDefaultActive};
+                ${tokens.chipBackgroundReadOnly}: ${surfaceSolidDefault};
                 ${tokens.chipColorReadOnly}: ${textPrimary};
-                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundReadOnlyHover}: ${surfaceSolidDefault};
                 ${tokens.chipColorReadOnlyHover}: ${textPrimary};
                 ${tokens.chipOpacityReadonly}: 0.72;
 
@@ -104,14 +108,14 @@ export const config = {
                 ${tokens.chipCloseIconColorReadonly}: ${textSecondary};
                 ${tokens.chipCloseIconColorHover}: ${textPrimary};
                 ${tokens.chipColor}: ${textPrimary};
-                ${tokens.chipBackground}: var(--surface-transparent-secondary);
+                ${tokens.chipBackground}: ${surfaceSolidDefault};
                 ${tokens.chipColorHover}: ${textPrimary};
-                ${tokens.chipBackgroundHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.chipBackgroundHover}: ${surfaceSolidDefaultHover};
                 ${tokens.chipColorActive}: ${textPrimary};
-                ${tokens.chipBackgroundActive}: var(--surface-transparent-secondary-active);
-                ${tokens.chipBackgroundReadOnly}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundActive}: ${surfaceSolidDefaultActive};
+                ${tokens.chipBackgroundReadOnly}: ${surfaceSolidDefault};
                 ${tokens.chipColorReadOnly}: ${textPrimary};
-                ${tokens.chipBackgroundReadOnlyHover}: var(--surface-transparent-secondary);
+                ${tokens.chipBackgroundReadOnlyHover}: ${surfaceSolidDefault};
                 ${tokens.chipColorReadOnlyHover}: ${textPrimary};
                 ${tokens.chipOpacityReadonly}: 0.72;
 
@@ -166,13 +170,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyS.fontStyle};
                 ${tokens.leftHelperFontWeight}: ${bodyS.fontWeight};
                 ${tokens.leftHelperLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
@@ -287,7 +299,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.tooltipBoxShadow}: ${shadowDownHardM};
                 ${tokens.tooltipColor}: ${textPrimary};
                 ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,

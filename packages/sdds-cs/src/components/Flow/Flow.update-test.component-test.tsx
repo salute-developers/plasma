@@ -23,7 +23,7 @@ describe('sdds-cs: Flow', () => {
     const Flow = getComponent('Flow') as typeof FlowCS;
 
     const FlowCustom = styled(Flow)`
-        background: var(--surface-transparent-primary);
+        background: var(--surface-solid-primary);
         border-radius: 0.5rem;
     `;
 
