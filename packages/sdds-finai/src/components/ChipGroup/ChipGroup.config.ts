@@ -3,6 +3,7 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    bodyXXS,
     inverseTextPrimary,
     onDarkTextPrimary,
     surfaceAccent,
@@ -159,7 +160,79 @@ export const config = {
                 ${tokens.chipRightContentMarginRight}: -0.125rem;
                 ${tokens.chipClearContentMarginLeft}: 0.25rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
+                ${tokens.chipCloseIconSize}: 0.75rem;
+            `,
+            xxs: css`
+                ${tokens.chipBorderRadius}: 0.375rem;
+                ${tokens.chipDefaultRadius}: 0.375rem;
+                ${tokens.chipSegmentedRadius}: 0.125rem;
+                ${tokens.chipSideRadius}: 0.375rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 1.25rem;
+                ${tokens.chipPadding}: 0 0.5rem;
+
+                ${tokens.chipFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyXXS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyXXS.lineHeight};
+
+                ${tokens.chipLeftContentMarginLeft}: -0.125rem;
+                ${tokens.chipLeftContentMarginRight}: 0.125rem;
+                ${tokens.chipRightContentMarginLeft}: 0.125rem;
+                ${tokens.chipRightContentMarginRight}: -0.125rem;
+                ${tokens.chipClearContentMarginLeft}: 0.25rem;
+                ${tokens.chipClearContentMarginRight}: -0.25rem;
+                ${tokens.chipCloseIconSize}: 0.75rem;
+            `,
+            '28xs': css`
+                ${tokens.chipBorderRadius}: 0.5rem;
+                ${tokens.chipDefaultRadius}: 0.5rem;
+                ${tokens.chipSegmentedRadius}: 0.125rem;
+                ${tokens.chipSideRadius}: 0.5rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 1.75rem;
+                ${tokens.chipPadding}: 0 0.75rem 0 0.6875rem;
+
+                ${tokens.chipFontFamily}: ${bodyS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.chipLeftContentMarginLeft}: 0;
+                ${tokens.chipLeftContentMarginRight}: 0.125rem;
+                ${tokens.chipRightContentMarginLeft}: 0.125rem;
+                ${tokens.chipRightContentMarginRight}: -0.125rem;
+                ${tokens.chipClearContentMarginLeft}: 0.25rem;
+                ${tokens.chipClearContentMarginRight}: -0.125rem;
                 ${tokens.chipCloseIconSize}: 1rem;
+            `,
+            '16xxs': css`
+                ${tokens.chipBorderRadius}: 0.25rem;
+                ${tokens.chipDefaultRadius}: 0.25rem;
+                ${tokens.chipSegmentedRadius}: 0.125rem;
+                ${tokens.chipSideRadius}: 0.25rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 1rem;
+                ${tokens.chipPadding}: 0 0.25rem;
+
+                ${tokens.chipFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyXXS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyXXS.lineHeight};
+
+                ${tokens.chipLeftContentMarginLeft}: 0;
+                ${tokens.chipLeftContentMarginRight}: 0.125rem;
+                ${tokens.chipRightContentMarginLeft}: 0.125rem;
+                ${tokens.chipRightContentMarginRight}: -0.063rem;
+                ${tokens.chipClearContentMarginLeft}: 0.125rem;
+                ${tokens.chipClearContentMarginRight}: -0.063rem;
+                ${tokens.chipCloseIconSize}: 0.75rem;
             `,
         },
         gap: {
