@@ -1,5 +1,6 @@
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    dataPurpleExtra,
     onDarkTextPrimary,
     onLightTextPrimary,
     textAccent,
@@ -38,6 +39,9 @@ export const config = {
             `,
             light: css`
                 ${badgeTokens.color}: ${onDarkTextPrimary};
+            `,
+            purple: css`
+                ${badgeTokens.color}: ${dataPurpleExtra};
             `,
         },
         size: {

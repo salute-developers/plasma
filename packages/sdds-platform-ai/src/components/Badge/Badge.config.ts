@@ -1,5 +1,7 @@
 import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    dataPurpleExtra,
+    dataTransparentPurpleExtra,
     inverseTextPrimary,
     onDarkSurfaceSolidDefault,
     onDarkSurfaceTransparentCard,
@@ -95,6 +97,15 @@ export const config = {
                 ${badgeTokens.backgroundTransparent}: ${onDarkSurfaceTransparentCard};
 
                 ${badgeTokens.colorClear}: ${onDarkTextPrimary};
+            `,
+            purple: css`
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${dataPurpleExtra};
+
+                ${badgeTokens.colorTransparent}: ${dataPurpleExtra};
+                ${badgeTokens.backgroundTransparent}: ${dataTransparentPurpleExtra};
+
+                ${badgeTokens.colorClear}: ${dataPurpleExtra};
             `,
         },
         size: {

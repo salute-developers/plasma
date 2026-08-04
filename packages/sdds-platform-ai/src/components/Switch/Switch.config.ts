@@ -4,8 +4,8 @@ import {
     bodyS,
     bodyXS,
     surfaceAccent,
-    surfaceSolidDefault,
-    surfaceSolidDefaultHover,
+    surfaceAccentExtra,
+    surfaceAccentExtraHover,
     surfaceSolidPrimary,
     surfaceTransparentTertiary,
     surfaceTransparentTertiaryHover,
@@ -83,10 +83,10 @@ export const config = {
                 ${switchTokens.labelColor}: ${textPrimary};
                 ${switchTokens.descriptionColor}: ${textSecondary};
                 ${switchTokens.descriptionMaxLines}: initial;
-                ${switchTokens.trackBackgroundColorOn}: ${surfaceSolidDefault};
-                ${switchTokens.trackBackgroundColorOnHover}: ${surfaceSolidDefaultHover};
+                ${switchTokens.trackBackgroundColorOn}: ${surfaceAccentExtra};
+                ${switchTokens.trackBackgroundColorOnHover}: ${surfaceAccentExtraHover};
                 ${switchTokens.trackBackgroundColorOff}: ${surfaceTransparentTertiary};
-                ${switchTokens.trackBackgroundColorOffHover}: ${surfaceTransparentTertiaryHover};
+                ${switchTokens.trackBackgroundColorOffHover}: ${surfaceAccentExtraHover};
                 ${switchTokens.trackBorderWidthOn}: 0;
                 ${switchTokens.trackBorderWidthOff}: 0;
                 ${switchTokens.thumbBackgroundColorOn}: ${surfaceSolidPrimary};
