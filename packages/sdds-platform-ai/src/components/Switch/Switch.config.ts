@@ -8,7 +8,6 @@ import {
     surfaceAccentExtraHover,
     surfaceSolidPrimary,
     surfaceTransparentTertiary,
-    surfaceTransparentTertiaryHover,
     textPrimary,
     textSecondary,
 } from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
