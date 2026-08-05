@@ -73,11 +73,11 @@ export * from './components/DateTimePicker';
 export * from './components/File';
 export * from './components/TextFieldSlider';
 
-// INFO: Disabled components
-// export * from './components/Link';
-// export * from './components/Overlay';
-// export * from './components/Popup';
-// export * from './components/Table';
+// INFO: prev disabled components
+export * from './components/Link';
+export * from './components/Overlay';
+export * from './components/Popup';
+export * from './components/Table';
 
 export * from './mixins';
 export * from './tokens';
