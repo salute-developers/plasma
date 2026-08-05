@@ -18,6 +18,10 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
+    # Токен нужен только для checkout. Права, переданные вызывающим workflow,
+    # здесь принудительно понижаются до чтения - даже если вызывающий имеет write.
+    permissions:
+      contents: read
     outputs:
       STATE: ${{ steps.set-output.outputs.STATE }}
 
@@ -30,7 +34,7 @@ jobs:
 
       - name: Prepare environment
         # Remote ref (а не локальный ./...) — обязательно, т.к. workflow вызывается
-        # из pull_request_target цепочек (documentation-deploy-pr, publish-canary).
+        # из pull_request_target цепочек (documentation-deploy-pr).
         # Иначе action.yml возьмется из PR-checkout и весь защитный механизм обходится.
         uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
