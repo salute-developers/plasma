@@ -3,7 +3,7 @@ id: tooltip
 title: Tooltip
 ---
 
-import { Badge } from '@site/src/components';
+import { Badge, PropsTable } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -66,12 +66,13 @@ export function App() {
         ```tsx live
         import * as Beta from '@salutejs/sdds-cs/beta';
         import { Button } from '@salutejs/sdds-cs';
+        import { surfaceSolidCard } from '@salutejs/sdds-themes/tokens';
 
         export function App() {
             const ref = useRef<HTMLDivElement>(null);
 
             return (
-                <div ref={ref} style={{ minHeight: '8rem', padding: '1rem', background: 'var(--surface-solid-card)' }}>
+                <div ref={ref} style={{ minHeight: '8rem', padding: '1rem', background: `${surfaceSolidCard}` }}>
                     <Beta.Tooltip portal={ref} target={<Button text="Открыть" />}>Контент в портале</Beta.Tooltip>
                 </div>
             );
@@ -79,3 +80,6 @@ export function App() {
         ```
     </TabItem>
 </Tabs>
+
+## API
+<PropsTable name="TooltipBeta" />
