@@ -42,6 +42,33 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.captionGap}: 0.875rem;
+                ${tokens.codeItemsGap}: 0.125rem;
+
+                ${tokens.separatorWidth}: 0.25rem;
+
+                ${tokens.codeItemWidth}: 3rem;
+                ${tokens.codeItemHeight}: 4rem;
+
+                ${tokens.fontFamily}: ${bodyL.fontFamily};
+                ${tokens.fontSize}: ${bodyL.fontSize};
+                ${tokens.fontStyle}: ${bodyL.fontStyle};
+                ${tokens.fontWeight}: ${bodyLBold.fontWeight};
+                ${tokens.letterSpacing}: ${bodyL.letterSpacing};
+                ${tokens.lineHeight}: ${bodyL.lineHeight};
+
+                ${tokens.captionFontFamily}: ${bodyS.fontFamily};
+                ${tokens.captionFontSize}: ${bodyS.fontSize};
+                ${tokens.captionFontStyle}: ${bodyS.fontStyle};
+                ${tokens.captionFontWeight}: ${bodyS.fontWeight};
+                ${tokens.captionLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.captionLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.borderRadius}: 1rem;
+                ${tokens.borderRadiusSegmented}: 0.5rem;
+                ${tokens.segmentedSideBorderRadius}: 1rem;
+            `,
             l: css`
                 ${tokens.captionGap}: 0.875rem;
                 ${tokens.codeItemsGap}: 0.125rem;

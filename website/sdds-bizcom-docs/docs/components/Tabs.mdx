@@ -121,6 +121,58 @@ export function App() {
 }
 ```
 
+### Расположение divider у вертикальных Tabs
+Для вертикальных Tabs можно расположить разделитель (`divider`) слева (по умолчанию) или справа с помощью свойства `dividerAlign`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, IconTabItem } from '@salutejs/sdds-bizcom';
+import { IconClock } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = Array(4).fill(0);
+    const [leftIndex, setLeftIndex] = useState(0);
+    const [rightIndex, setRightIndex] = useState(0);
+
+    return (
+        <div style={{ display: 'flex', gap: '2rem' }}>
+            <Tabs view="divider" orientation="vertical" dividerAlign="left" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <IconTabItem
+                        view="divider"
+                        orientation="vertical"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === leftIndex}
+                        tabIndex={0}
+                        onClick={() => setLeftIndex(i)}
+                    >
+                        <IconClock size="xs" color="inherit" />
+                    </IconTabItem>
+                ))}
+            </Tabs>
+
+            <Tabs view="divider" orientation="vertical" dividerAlign="right" size="xs" style={{ width: '15rem' }}>
+                {items.map((_, i) => (
+                    <IconTabItem
+                        view="divider"
+                        orientation="vertical"
+                        key={`item:${i}`}
+                        size="xs"
+                        selected={i === rightIndex}
+                        tabIndex={0}
+                        onClick={() => setRightIndex(i)}
+                    >
+                        <IconClock size="xs" color="inherit" />
+                    </IconTabItem>
+                ))}
+            </Tabs>
+        </div>
+    );
+}
+```
+
+
 ### Пример с прокруткой
 При выборе Tab происходит прокрутка до выбранного TabItem.
 
@@ -251,6 +303,70 @@ export function App() {
                     )}
                 </Tabs>
             </div>
+        </div>
+    );
+}
+```
+
+### Пример с Dropdown и перемещением выбранного элемента в видимую область
+При выборе элемента в Dropdown он перемещается в видимую область (на последнее видимое место),
+а крайний видимый TabItem, который он вытеснил, уходит в Dropdown.
+
+```tsx live
+import React, { useState } from 'react';
+import { Tabs, TabItem, Dropdown } from '@salutejs/sdds-bizcom';
+
+export function App() {
+    const items = Array(8).fill(0);
+
+    const maxItemQuantity = 3;
+
+    const [order, setOrder] = useState(items.map((_, i) => i));
+    const [selected, setSelected] = useState(order[0]);
+
+    const visibleItems = order.slice(0, maxItemQuantity);
+    const otherItems = order.slice(maxItemQuantity);
+
+    const dropdownItems = otherItems.map((itemIndex) => ({
+        label: `Label${itemIndex + 1}`,
+        value: itemIndex,
+    }));
+
+    const onSelectDropdownItem = (item) => {
+        setOrder((prevOrder) => {
+            const newOrder = prevOrder.filter((itemIndex) => itemIndex !== item.value);
+            newOrder.splice(maxItemQuantity - 1, 0, item.value);
+
+            return newOrder;
+        });
+        setSelected(item.value);
+    };
+
+    return (
+        <div style={{ height: '15rem', alignItems: 'flex-start' }}>
+            <Tabs clip="showAll" view="divider" size="xs">
+                {visibleItems.map((itemIndex) => (
+                    <TabItem
+                        key={`item:${itemIndex}`}
+                        view="divider"
+                        selected={itemIndex === selected}
+                        onClick={() => setSelected(itemIndex)}
+                        tabIndex={0}
+                        size="xs"
+                    >
+                        {`Label${itemIndex + 1}`}
+                    </TabItem>
+                ))}
+                {dropdownItems.length > 0 && (
+                    <div style={{ marginLeft: '1.75rem' }}>
+                        <Dropdown size="xs" items={dropdownItems} onItemSelect={onSelectDropdownItem}>
+                            <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
+                                ShowAll
+                            </TabItem>
+                        </Dropdown>
+                    </div>
+                )}
+            </Tabs>
         </div>
     );
 }

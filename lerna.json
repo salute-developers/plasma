@@ -2,12 +2,9 @@
     "packages": ["packages/*", "packages/themes/*", "utils/*", "website/*-docs", "website/plasma-website"],
     "version": "independent",
     "ignoreChanges": ["*.md", "*.component-test.tsx", "package-lock.json"],
-    "loglevel": "verbose",
+    "loglevel": "silly",
     "exact": true,
     "command": {
-        "bootstrap": {
-            "npmClientArgs": ["--no-audit", "--loglevel error", "--no-progress", "--unsafe-perm"]
-        },
         "publish": {
             "verifyAccess": false
         },

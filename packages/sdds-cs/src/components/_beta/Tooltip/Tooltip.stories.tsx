@@ -1,11 +1,13 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
+import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Button } from '../../Button';
 
 import { Tooltip } from './Tooltip';
+import { config } from './Tooltip.config';
 
 type StoryProps = ComponentProps<typeof Tooltip>;
 
@@ -24,8 +26,8 @@ const placements = [
     'left-end',
 ];
 const trigger = ['click', 'hover', 'focus'];
-const view = ['default'];
-const size = ['m', 's'];
+
+const { views } = getConfigVariations(config);
 
 const meta: Meta<StoryProps> = {
     title: '_Beta/Overlay/Tooltip',
@@ -74,13 +76,7 @@ const meta: Meta<StoryProps> = {
             },
         },
         view: {
-            options: view,
-            control: {
-                type: 'select',
-            },
-        },
-        size: {
-            options: size,
+            options: views,
             control: {
                 type: 'select',
             },
@@ -101,7 +97,6 @@ const meta: Meta<StoryProps> = {
         delayOpen: 0,
         delayClose: 0,
         view: 'default',
-        size: 'm',
         hasIcon: false,
     },
 };

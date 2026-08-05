@@ -7,6 +7,7 @@ export const tokens = {
     borderRadius: '--plasma-tooltip-border-radius',
     padding: '--plasma-tooltip-padding',
     boxShadow: '--plasma-tooltip-box-shadow',
+    dropShadow: '--plasma-tooltip-drop-shadow',
     gap: '--plasma-tooltip-gap',
     color: '--plasma-tooltip-color',
     fontFamily: '--plasma-tooltip-font-family',
@@ -15,4 +16,7 @@ export const tokens = {
     fontWeight: '--plasma-tooltip-font-weight',
     letterSpacing: '--plasma-tooltip-letter-spacing',
     lineHeight: '--plasma-tooltip-lineheight',
+    tailWidth: '--plasma-tooltip-tail-width',
+    tailHeight: '--plasma-tooltip-tail-height',
+    tailSideCurvature: '--plasma-tooltip-tail-side-curvature',
 };

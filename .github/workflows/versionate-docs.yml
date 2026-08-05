@@ -26,8 +26,8 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-environment
       
-      - name: Lerna bootstrap
-        run: npx lerna bootstrap
+      - name: Install dependencies
+        run: npm run setup:ci
       
       # Проверит лог коммитов, по ним забекапит нужные версии нужных сайтов документации
       - name: Versionate script

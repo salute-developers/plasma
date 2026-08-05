@@ -16,6 +16,8 @@ const contentSizeMapper: Record<string, string> = {
     s: '1rem',
     xs: '0.75rem',
     xxs: '0.75rem',
+    '28xs': '0.75rem',
+    '16xxs': '0.75rem',
 };
 
 const { meta: META, Default: DefaultStory } = getChipStories({

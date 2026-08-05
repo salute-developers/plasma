@@ -25,6 +25,33 @@ export const config = {
             `,
         },
         size: {
+            xl: css`
+                ${tokens.captionGap}: 0.875rem;
+                ${tokens.codeItemsGap}: 0.125rem;
+
+                ${tokens.separatorWidth}: 0.25rem;
+
+                ${tokens.codeItemWidth}: 3rem;
+                ${tokens.codeItemHeight}: 4rem;
+
+                ${tokens.fontFamily}: var(--plasma-typo-body-l-font-family);
+                ${tokens.fontSize}: var(--plasma-typo-body-l-font-size);
+                ${tokens.fontStyle}: var(--plasma-typo-body-l-font-style);
+                ${tokens.fontWeight}: var(--plasma-typo-body-l-bold-font-weight);
+                ${tokens.letterSpacing}: var(--plasma-typo-body-l-letter-spacing);
+                ${tokens.lineHeight}: var(--plasma-typo-body-l-line-height);
+
+                ${tokens.captionFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.captionFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.captionFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.captionFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.captionLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.captionLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.borderRadius}: 1rem;
+                ${tokens.borderRadiusSegmented}: 0.5rem;
+                ${tokens.segmentedSideBorderRadius}: 1rem;
+            `,
             l: css`
                 ${tokens.captionGap}: 0.875rem;
                 ${tokens.codeItemsGap}: 0.125rem;

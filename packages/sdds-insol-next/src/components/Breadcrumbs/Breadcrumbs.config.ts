@@ -1,0 +1,62 @@
+import { css, breadcrumbsTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { bodyL, bodyM, bodyS, bodyXS, surfaceAccent, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_insol_next';
+
+export const config = {
+    defaults: {
+        view: 'default',
+        size: 'm',
+    },
+    variations: {
+        view: {
+            default: css`
+                ${breadcrumbsTokens.breadcrumbsColor}: ${textPrimary};
+                ${breadcrumbsTokens.breadcrumbsColorText}: ${textPrimary};
+                ${breadcrumbsTokens.breadcrumbsColorSeparator}: ${textPrimary};
+                ${breadcrumbsTokens.breadcrumbsOpacity}: 0.4;
+                ${breadcrumbsTokens.breadcrumbsFocusOutlineColor}: ${surfaceAccent};
+            `,
+        },
+        size: {
+            l: css`
+                ${breadcrumbsTokens.breadcrumbsGap}: 0.5rem;
+
+                ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyL.fontFamily};
+                ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyL.fontSize};
+                ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyL.fontStyle};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyL.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyL.letterSpacing};
+                ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyL.lineHeight};
+            `,
+            m: css`
+                ${breadcrumbsTokens.breadcrumbsGap}: 0.375rem;
+
+                ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyM.fontFamily};
+                ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyM.fontSize};
+                ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyM.fontStyle};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyM.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyM.letterSpacing};
+                ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyM.lineHeight};
+            `,
+            s: css`
+                ${breadcrumbsTokens.breadcrumbsGap}: 0.25rem;
+
+                ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyS.fontFamily};
+                ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyS.fontSize};
+                ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyS.fontStyle};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyS.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyS.letterSpacing};
+                ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyS.lineHeight};
+            `,
+            xs: css`
+                ${breadcrumbsTokens.breadcrumbsGap}: 0rem;
+
+                ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyXS.fontFamily};
+                ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyXS.fontSize};
+                ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyXS.fontStyle};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyXS.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyXS.letterSpacing};
+                ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyXS.lineHeight};
+            `,
+        },
+    },
+};

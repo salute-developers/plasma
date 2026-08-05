@@ -16,8 +16,8 @@ jobs:
             -   name: Prepare environment
                 uses: ./.github/actions/prepare-environment
 
-            -   name: Lerna bootstrap
-                run: npx lerna bootstrap --scope="@salutejs/{plasma-icons,plasma-sb-utils,plasma-tokens,plasma-tokens-utils,core-themes,plasma-typo,plasma-new-hope,plasma-colors,sdds-themes,plasma-core,sdds-platform-ai}"
+            -   name: Install dependencies
+                run: npm run setup:ci
 
             -   name: Prepare directory
                 run: mkdir -p s3_local_storybook_build

@@ -3054,12 +3054,12 @@
                     "enabled": true
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#94F9A7FF",
+                    "value": "#D8F3DDFF",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
                     "enabled": true
                 },
                 "surfacePositiveMinorActive": {
-                    "value": "#8BF99FFF",
+                    "value": "#D5F1DAFF",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
                     "enabled": true
                 },
@@ -3168,11 +3168,6 @@
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": true
                 },
-                "surfacePositiveMinor": {
-                    "value": "[general.green.150]",
-                    "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
-                    "enabled": true
-                },
                 "surfaceNegativeMinor": {
                     "value": "[general.red.150]",
                     "comment": "Минорный цвет фона поверхности/контрола ошибка на светлом фоне",
@@ -3275,6 +3270,11 @@
                 "surfaceAccentExtraActive": {
                     "value": "#030303FF",
                     "comment": ""
+                },
+                "surfacePositiveMinor": {
+                    "value": "#E0F5E4",
+                    "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -3674,12 +3674,12 @@
                     "enabled": true
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#94F9A7FF",
+                    "value": "#D8F3DDFF",
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
                 "surfacePositiveMinorActive": {
-                    "value": "#8BF99FFF",
+                    "value": "#D5F1DAFF",
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
@@ -3788,11 +3788,6 @@
                     "comment": "Инвертированный цвет фона поверхности/контрола информация",
                     "enabled": true
                 },
-                "surfacePositiveMinor": {
-                    "value": "[general.green.150]",
-                    "comment": "Инвертированный минорный цвет фона поверхности/контрола успех",
-                    "enabled": true
-                },
                 "surfaceWarningMinor": {
                     "value": "[general.orange.150]",
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола предупреждение",
@@ -3895,6 +3890,11 @@
                 "surfaceAccentExtra": {
                     "value": "[general.gray.1000]",
                     "comment": ""
+                },
+                "surfacePositiveMinor": {
+                    "value": "#E0F5E4",
+                    "comment": "Инвертированный минорный цвет фона поверхности/контрола успех",
+                    "enabled": true
                 }
             }
         },
@@ -8134,12 +8134,12 @@
                     "enabled": true
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#94F9A7FF",
+                    "value": "#D8F3DDFF",
                     "comment": "Минорный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
                 "surfacePositiveMinorActive": {
-                    "value": "#8BF99FFF",
+                    "value": "#D5F1DAFF",
                     "comment": "Минорный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
@@ -8221,11 +8221,6 @@
                 "surfaceInfo": {
                     "value": "[general.blue.500]",
                     "comment": "Цвет фона поверхности/контрола информация",
-                    "enabled": true
-                },
-                "surfacePositiveMinor": {
-                    "value": "[general.green.150]",
-                    "comment": "Минорный цвет фона поверхности/контрола успех",
                     "enabled": true
                 },
                 "surfaceWarningMinor": {
@@ -8380,6 +8375,11 @@
                 "surfaceAccentExtraActive": {
                     "value": "#030303FF",
                     "comment": ""
+                },
+                "surfacePositiveMinor": {
+                    "value": "#E0F5E4",
+                    "comment": "Минорный цвет фона поверхности/контрола успех",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -8434,17 +8434,17 @@
                     "enabled": true
                 },
                 "surfaceSolidCardHover": {
-                    "value": "#0D0D0DFF",
+                    "value": "#1C1C1CFF",
                     "comment": "Основной фон для карточек на темном фоне",
                     "enabled": true
                 },
                 "surfaceSolidCardActive": {
-                    "value": "#030303FF",
+                    "value": "#121212FF",
                     "comment": "Основной фон для карточек на темном фоне",
                     "enabled": true
                 },
                 "surfaceSolidCardBrightness": {
-                    "value": "#171717FF",
+                    "value": "#262626FF",
                     "comment": "Основной фон для карточек на темном фоне",
                     "enabled": true
                 },
@@ -8937,11 +8937,6 @@
                     "value": "#FA5F0508",
                     "comment": ""
                 },
-                "surfaceSolidCard": {
-                    "value": "[general.gray.1000]",
-                    "comment": "Основной фон для карточек на темном фоне",
-                    "enabled": true
-                },
                 "surfaceAccentExtra": {
                     "value": "[general.green.500]",
                     "comment": ""
@@ -8999,6 +8994,11 @@
                         }
                     },
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
+                    "enabled": true
+                },
+                "surfaceSolidCard": {
+                    "value": "[general.gray.950]",
+                    "comment": "Основной фон для карточек на темном фоне",
                     "enabled": true
                 }
             },
@@ -9384,12 +9384,12 @@
                     "enabled": true
                 },
                 "surfacePositiveMinorHover": {
-                    "value": "#94F9A7FF",
+                    "value": "#D8F3DDFF",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
                     "enabled": true
                 },
                 "surfacePositiveMinorActive": {
-                    "value": "#8BF99FFF",
+                    "value": "#D5F1DAFF",
                     "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
                     "enabled": true
                 },
@@ -9481,11 +9481,6 @@
                 "surfaceWarningMinor": {
                     "value": "[general.orange.150]",
                     "comment": "Минорный цвет фона поверхности/контрола предупреждение на светлом фоне",
-                    "enabled": true
-                },
-                "surfacePositiveMinor": {
-                    "value": "[general.green.150]",
-                    "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
                     "enabled": true
                 },
                 "surfaceInfoMinor": {
@@ -9620,6 +9615,11 @@
                 "surfaceAccentExtraActive": {
                     "value": "#030303FF",
                     "comment": ""
+                },
+                "surfacePositiveMinor": {
+                    "value": "#E0F5E4",
+                    "comment": "Минорный цвет фона поверхности/контрола успех на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {

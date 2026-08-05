@@ -7,15 +7,27 @@ import { base } from './ChipGroup.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as gapCSS } from './variations/_gap/base';
+import { base as shapeCSS } from './variations/_shape/base';
 import type { ChipGroupProps } from './ChipGroup.types';
 import { classes } from './ChipGroup.tokens';
 
 export const chipGroupRoot = (Root: RootProps<HTMLDivElement, ChipGroupProps>) =>
     forwardRef<HTMLDivElement, ChipGroupProps>((props, ref) => {
-        const { children, view, size, className, isWrapped, gap = 'dense', isCommonChipStyles = true, ...rest } = props;
+        const {
+            children,
+            view,
+            size,
+            className,
+            isWrapped,
+            gap = 'dense',
+            shape = 'default',
+            isCommonChipStyles = true,
+            ...rest
+        } = props;
 
         const overrideStylesClass = isCommonChipStyles ? classes.chipGroupOverrideStyles : undefined;
         const wrappedClass = isWrapped ? classes.wrap : undefined;
+        const shapeClass = classes[shape];
 
         return (
             <Root
@@ -23,7 +35,8 @@ export const chipGroupRoot = (Root: RootProps<HTMLDivElement, ChipGroupProps>) =
                 view={view}
                 size={size}
                 gap={gap}
-                className={cx(overrideStylesClass, wrappedClass, className)}
+                shape={shape}
+                className={cx(overrideStylesClass, wrappedClass, shapeClass, className)}
                 {...rest}
             >
                 {children}
@@ -46,10 +59,14 @@ export const chipGroupConfig = {
         gap: {
             css: gapCSS,
         },
+        shape: {
+            css: shapeCSS,
+        },
     },
     defaults: {
         view: 'primary',
         size: 'm',
         gap: 'dense',
+        shape: 'default',
     },
 };

@@ -140,6 +140,7 @@ export const tokens = {
     titleCaptionLineHeight: '--plasma-date-picker-title-caption-line-height',
     /** Токены контейнера календаря */
     popoverShadow: '--plasma-date-picker-popover-shadow',
+    rangeShadow: '--plasma-date-picker-range-shadow',
     popoverGap: '--plasma-date-picker-popover-gap',
     popoverBorderRadius: '--plasma-date-picker-popover-border-radius',
     popoverPadding: '--plasma-date-picker-popover-padding',
@@ -149,6 +150,8 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--plasma-date-picker-disabled-opacity',
+    disabledBackgroundOpacity: '--plasma-date-picker-disabled-background-opacity',
+    disabledInnerContentOpacity: '--plasma-date-picker-disabled-inner-content-opacity',
 
     rangeReadOnlyOpacity: '--plasma-date-picker-readonly-opacity',
 
@@ -418,4 +421,6 @@ export const tokens = {
     shortcutBorderRadius: '--plasma-date-picker-shortcut-item-border-radius',
 
     outlineFocusColor: '--plasma-date-picker-outline-focus',
+    textFieldDisabledBackgroundOpacity: '--plasma-date-picker-disabled-textfield-background-opacity',
+    textFieldDisabledInnerContentOpacity: '--plasma-date-picker-disabled-textfield-inner-content-opacity',
 };

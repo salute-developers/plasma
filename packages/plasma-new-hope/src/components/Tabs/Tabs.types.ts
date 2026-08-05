@@ -100,6 +100,13 @@ export type CustomVerticalTabsProps = {
      */
     orientation: 'vertical';
     /**
+     * Расположение divider
+     * @default 'left'
+     * @description
+     * актуально только при `orientation="vertical"`
+     */
+    dividerAlign?: 'left' | 'right';
+    /**
      * Наличие divider
      * @default true
      */

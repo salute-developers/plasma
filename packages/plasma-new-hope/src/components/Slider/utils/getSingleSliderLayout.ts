@@ -1,6 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 
 import { classes } from '../Slider.tokens';
+import type { ScaleTickItem } from '../components/Single/Single.types';
 
 interface GetSingleSliderLayoutParams {
     value: number;
@@ -9,7 +10,7 @@ interface GetSingleSliderLayoutParams {
     isVertical: boolean;
     isHovered: boolean;
     reversed?: boolean;
-    scaleTicks?: number[];
+    scaleTicks?: number[] | ScaleTickItem[];
     showRangeValues?: boolean;
     showScale?: boolean;
     showCurrentValue?: boolean;

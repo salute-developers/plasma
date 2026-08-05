@@ -44,7 +44,6 @@ export const base = css`
     ${TextBox} {
         gap: var(${tokens.contentGap});
         min-height: var(${tokens.fixedContentBeforeHeight});
-        align-self: stretch;
         overflow: hidden;
     }
 

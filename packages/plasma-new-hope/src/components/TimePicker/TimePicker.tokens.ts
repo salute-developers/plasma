@@ -189,6 +189,8 @@ export const tokens = {
 
     /** Прозрачность для всего компонента в состоянии disabled */
     disabledOpacity: '--sdds-core-time-picker-disabled-opacity',
+    disabledBackgroundOpacity: '--sdds-core-time-picker-disabled-background-opacity',
+    disabledInnerContentOpacity: '--sdds-core-time-picker-disabled-inner-content-opacity',
 
     dropdownMarginTop: '--sdds-core-time-picker-dropdown-margin-top',
 

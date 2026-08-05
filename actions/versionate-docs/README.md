@@ -4,7 +4,6 @@
 
 ```bash
 npm ci
-npx lerna bootstrap
 ```
 
 ## Описание работы

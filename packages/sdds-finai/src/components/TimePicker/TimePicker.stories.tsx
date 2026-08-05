@@ -11,14 +11,12 @@ const { meta: META, Default } = getTimePickerStories({
     defaultArgs: { ...config.defaults, enableContentLeft: false, valueEdited: false },
     additionalArgTypes: {
         valueEdited: { control: { type: 'boolean' }, table: { category: 'variation' } },
-    },
-    disablePropsList: ['enableContentLeft'],
-    additionalArgTypes: {
         appearance: {
             options: ['default', 'clear', 'viewMode'],
             control: { type: 'select' },
         },
     },
+    disablePropsList: ['enableContentLeft'],
     customIcon: (size: string, _type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';
         if (disabled) {

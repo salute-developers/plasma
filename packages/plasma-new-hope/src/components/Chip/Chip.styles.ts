@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { applyEllipsis } from '../../mixins';
 
-import { tokens } from './Chip.tokens';
+import { privateTokens, tokens } from './Chip.tokens';
 
 export const base = css`
     position: relative;
@@ -14,6 +14,12 @@ export const base = css`
     border: none;
     cursor: pointer;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    /*
+        ${privateTokens.computedBorderRadius} is defined in Chip.tsx
+    */
+    ${privateTokens.privateBorderRadius}: var(${privateTokens.computedBorderRadius});
+    border-radius: var(${privateTokens.privateBorderRadius});
 `;
 
 export const StyledContentLeft = styled.div`

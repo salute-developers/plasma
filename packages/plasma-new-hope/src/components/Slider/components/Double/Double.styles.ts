@@ -45,6 +45,8 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.caretColor}: var(${tokens.textFieldCaretColor});
     ${textFieldTokens.placeholderColor}: var(${tokens.textFieldPlaceholderColor});
     ${textFieldTokens.disabledOpacity}: var(${tokens.disabledOpacity});
+    ${textFieldTokens.disabledBackgroundOpacity}: var(${tokens.disabledBackgroundOpacity});
+    ${textFieldTokens.disabledInnerContentOpacity}: var(${tokens.disabledInnerContentOpacity});
 
     ${textFieldTokens.height}: var(${tokens.textFieldHeight});
     ${textFieldTokens.padding}: var(${tokens.textFieldPadding});

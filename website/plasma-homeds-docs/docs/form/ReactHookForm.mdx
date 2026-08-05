@@ -272,6 +272,90 @@ export function App() {
 
 ```
 
+### Особенности работы
+
+#### DatePicker и DatePickerRange
+
+Свойство `name` и `onChange` лучше передавать напрямую, так как типы передаваемые из `register` в параметрах `min` и `max` несовместимы.
+
+Так как `DatePicker` имеет нестандартную форму `onChange`, для интеграции с обязательными полями удобнее использовать `Controller`.
+При этом `field.ref` из `Controller` попадает на реальный `<input>` внутри `DatePicker`, поэтому `setFocus()` и авто-скролл к полю при ошибке валидации работают корректно.
+
+```tsx live
+import { useForm, Controller } from "react-hook-form";
+import React from "react";
+import { Button, DatePicker } from "@salutejs/plasma-homeds";
+
+export function App() {
+  const {
+    control,
+    handleSubmit,
+    setFocus,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <div>
+      <div
+        style={{
+          height: "120vh",
+          display: "flex",
+          alignItems: "flex-end",
+          justifyContent: "center",
+          paddingBottom: "24px",
+        }}
+      >
+        Прокрутите вниз к форме, нажмите «Отправить» с пустыми полями или кнопку setFocus —
+        страница должна проскроллиться к полю, а поле — получить фокус.
+      </div>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        style={{ display: "flex", flexDirection: "column", gap: "20px", maxWidth: "400px" }}
+      >
+        <Controller
+          name="birthDate"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <DatePicker
+              {...field}
+              label="Дата рождения"
+              placeholder="ДД.ММ.ГГГГ"
+              valueError={Boolean(errors.birthDate)}
+              leftHelper={errors.birthDate ? "Заполните поле" : undefined}
+            />
+          )}
+        />
+        <Controller
+          name="issueDate"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <DatePicker
+              {...field}
+              label="Дата выдачи"
+              placeholder="ДД.ММ.ГГГГ"
+              valueError={Boolean(errors.issueDate)}
+              leftHelper={errors.issueDate ? "Заполните поле" : undefined}
+            />
+          )}
+        />
+        <div style={{ display: "flex", gap: "12px" }}>
+          <Button type="submit">Отправить</Button>
+          <Button type="button" view="secondary" onClick={() => setFocus("issueDate")}>
+            setFocus("issueDate")
+          </Button>
+        </div>
+      </form>
+    </div>
+  );
+}
+```
+
 ### Пример с валидацией
 
 [Пример CodeSandbox](https://codesandbox.io/p/sandbox/form-validation-qj7kp6)

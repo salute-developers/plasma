@@ -121,6 +121,8 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.textAfterMargin}: var(${comboboxTokens.textFieldTextAfterMargin});
 
     ${textFieldTokens.disabledOpacity}: var(${comboboxTokens.textFieldDisabledOpacity});
+    ${textFieldTokens.disabledBackgroundOpacity}: var(${comboboxTokens.textFieldDisabledBackgroundOpacity});
+    ${textFieldTokens.disabledInnerContentOpacity}: var(${comboboxTokens.textFieldDisabledInnerContentOpacity});
 
     ${textFieldTokens.hintCustomIconTargetSize}: var(${comboboxTokens.textFieldHintCustomIconTargetSize});
     ${textFieldTokens.hintMargin}: var(${comboboxTokens.textFieldHintMargin});
@@ -208,4 +210,5 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 });
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${comboboxTokens.textFieldClearIndicatorHintInnerRight});
     ${textFieldTokens.boxShadow}: var(${comboboxTokens.textFieldBoxShadow});
+    ${textFieldTokens.boxShadowSecondary}: var(${comboboxTokens.textFieldBoxShadowSecondary});
 `;

@@ -56,6 +56,9 @@ export const config = {
         size: {
             l: css`
                 ${tokens.chipBorderRadius}: 0.75rem;
+                ${tokens.chipDefaultRadius}: 0.75rem;
+                ${tokens.chipSegmentedRadius}: 0.375rem;
+                ${tokens.chipSideRadius}: 0.75rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 3rem;
                 ${tokens.chipPadding}: 0 1rem;
@@ -77,6 +80,9 @@ export const config = {
             `,
             m: css`
                 ${tokens.chipBorderRadius}: 0.625rem;
+                ${tokens.chipDefaultRadius}: 0.625rem;
+                ${tokens.chipSegmentedRadius}: 0.25rem;
+                ${tokens.chipSideRadius}: 0.625rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.5rem;
                 ${tokens.chipPadding}: 0 0.875rem;
@@ -98,6 +104,9 @@ export const config = {
             `,
             s: css`
                 ${tokens.chipBorderRadius}: 0.5rem;
+                ${tokens.chipDefaultRadius}: 0.5rem;
+                ${tokens.chipSegmentedRadius}: 0.25rem;
+                ${tokens.chipSideRadius}: 0.5rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2rem;
                 ${tokens.chipPadding}: 0 0.875rem;
@@ -119,6 +128,9 @@ export const config = {
             `,
             xs: css`
                 ${tokens.chipBorderRadius}: 0.375rem;
+                ${tokens.chipDefaultRadius}: 0.375rem;
+                ${tokens.chipSegmentedRadius}: 0.125rem;
+                ${tokens.chipSideRadius}: 0.375rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 1.5rem;
                 ${tokens.chipPadding}: 0 0.625rem;
@@ -146,6 +158,10 @@ export const config = {
             wide: css`
                 ${tokens.chipGroupItemsGap}: 0.5rem;
             `,
+        },
+        shape: {
+            segmented: css``,
+            default: css``,
         },
     },
 };

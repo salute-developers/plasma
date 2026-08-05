@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useContext } from 'react';
+import cls from 'classnames';
 import { useForkRef } from 'src/hooks';
 import type { RootProps } from 'src/engines';
-import { cx } from 'src/utils';
 import { TabsContext, VerticalIconTabItemProps } from 'src/components/Tabs';
 
 import { classes } from '../../../tokens';
@@ -35,8 +35,6 @@ export const verticalIconTabItemRoot = (Root: RootProps<HTMLButtonElement, Verti
 
         const role = 'tab';
 
-        const selectedClass = selected ? classes.selectedTabsItem : undefined;
-
         const { hasKeyNavigation, navigationTabIndex, onItemFocus, handleClick } = useTabItem({
             refs,
             innerRef,
@@ -52,7 +50,9 @@ export const verticalIconTabItemRoot = (Root: RootProps<HTMLButtonElement, Verti
         return (
             <Root
                 ref={ref}
-                className={cx(selectedClass, className)}
+                className={cls(className, {
+                    [classes.selectedTabsItem]: selected,
+                })}
                 disabled={disabled}
                 role={role}
                 view={view}

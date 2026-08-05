@@ -6,10 +6,6 @@ on:
       with-update-package-lock:
         type: boolean
         default: false
-      cmd:
-        type: string
-        default: "bootstrap"
-        description: "Execute npm run cmd. For example cmd='bootstrap' => npm run bootstrap"
       commit-message:
         type: string
         default: 'chore: Update package-lock.json files [skip ci]'
@@ -21,6 +17,10 @@ on:
         type: string
         description: "@auto-it cli arguments for example --no-changelog"
         default: ''
+      prepare-since:
+        type: string
+        description: "Prepare only packages changed since this git ref and their dependencies"
+        default: ''
     secrets:
       gh_token:
         required: true
@@ -29,6 +29,9 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+        id-token: write # выдать OIDC-токен
+        contents: read  # для actions/checkou
     env:
       GITHUB_TOKEN: ${{ secrets.gh_token }}
       NPM_REGISTRY_TOKEN: ${{ secrets.npm_registry_token }}
@@ -64,10 +67,17 @@ jobs:
           # Иначе action.yml возьмется из PR-checkout и весь защитный механизм обходится.
         uses: salute-developers/plasma/.github/actions/prepare-environment@dev
 
-      - name: Lerna bootstrap
-        run: npm run ${{ inputs.cmd }} -- --ignore="@salutejs/{*-docs,plasma-website}"
+      - name: Install dependencies and prepare packages
+        env:
+          PREPARE_SINCE: ${{ inputs.prepare-since }}
+        run: |
+          if [ -n "$PREPARE_SINCE" ]; then
+            npm run setup:ci -- --since="$PREPARE_SINCE" --include-dependencies
+          else
+            npm run setup:ci
+          fi
 
-      - name: Check disk usage after bootstrap
+      - name: Check disk usage after install
         run: df -h
 
       - name: Release Info

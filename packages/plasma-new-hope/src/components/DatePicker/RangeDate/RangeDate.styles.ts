@@ -22,6 +22,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.borderColorReadOnly}: var(${tokens.borderColorReadOnly});
     
     ${rangeTokens.borderWidth}: var(${tokens.textFieldBorderWidth});
+    ${rangeTokens.shadow}: var(${tokens.rangeShadow}, none);
 
     ${rangeTokens.clearDividerColor}: var(${tokens.clearDividerColor});
     ${rangeTokens.dividerColor}: var(${tokens.dividerColor});
@@ -208,6 +209,9 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.textFieldColorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${rangeTokens.textFieldBackgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
     ${rangeTokens.textFieldPlaceholderColorReadOnly}: var(${tokens.textFieldPlaceholderColorReadOnly});
+
+    ${rangeTokens.disabledBackgroundOpacity}: var(${tokens.textFieldDisabledBackgroundOpacity});
+    ${rangeTokens.disabledInnerContentOpacity}: var(${tokens.textFieldDisabledInnerContentOpacity});
 `;
 
 export const base = css`

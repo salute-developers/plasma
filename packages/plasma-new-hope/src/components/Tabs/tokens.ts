@@ -16,6 +16,7 @@ export const classes = {
     tabsClipScroll: 'tabs-clip-scroll',
     tabsClipShowAll: 'tabs-clip-show-all',
     tabsTruncate: 'tabs-truncate',
+    dividerAlignRight: 'divider-align-right',
 };
 
 export const tokens = {

@@ -77,6 +77,12 @@ export const tokens = {
     tickDotFilledColor: '--plasma-slider-tick-dot-filled-color',
     tickDotOffset: '--plasma-slider-tick-dot-offset',
 
+    tickSeparatorGap: '--plasma-slider-tick-separator-gap',
+    tickSeparatorWidth: '--plasma-slider-tick-separator-width',
+    tickSeparatorHeight: '--plasma-slider-tick-separator-height',
+    tickSeparatorBorderRadius: '--plasma-slider-tick-separator-border-radius',
+    trackSegmentBorderRadius: '--plasma-slider-track-segment-border-radius',
+
     currentValueTopOffset: '--plasma-slider-current-value-top-offset',
 
     railBackgroundColor: '--plasma-slider-rail-background-color',
@@ -115,4 +121,6 @@ export const tokens = {
     textFieldBorderColorFocus: '--plasma-slider-text-field-border-color-focus',
 
     disabledOpacity: '--plasma-slider-disabled-opacity',
+    disabledBackgroundOpacity: '--plasma-slider-disabled-background-opacity',
+    disabledInnerContentOpacity: '--plasma-slider-disabled-inner-content-opacity',
 };

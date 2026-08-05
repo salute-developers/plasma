@@ -76,6 +76,8 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.textBeforeMargin}: var(${autocompleteTokens.textFieldTextBeforeMargin});
     ${textFieldTokens.textAfterMargin}: var(${autocompleteTokens.textFieldTextAfterMargin});
     ${textFieldTokens.disabledOpacity}: var(${autocompleteTokens.textFieldDisabledOpacity});
+    ${textFieldTokens.disabledBackgroundOpacity}: var(${autocompleteTokens.textFieldDisabledBackgroundOpacity});
+    ${textFieldTokens.disabledInnerContentOpacity}: var(${autocompleteTokens.textFieldDisabledInnerContentOpacity});
     ${textFieldTokens.focusColor}: var(${autocompleteTokens.textFieldFocusColor});
     ${textFieldTokens.contentSlotColor}: var(${autocompleteTokens.textFieldContentSlotColor});
     ${textFieldTokens.contentSlotColorHover}: var(${autocompleteTokens.textFieldContentSlotColorHover});
@@ -95,6 +97,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.clearIndicatorLabelPlacementInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorLabelPlacementInnerRight});
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${autocompleteTokens.textFieldClearIndicatorHintInnerRight});
     ${textFieldTokens.boxShadow}: var(${autocompleteTokens.textFieldBoxShadow});
+    ${textFieldTokens.boxShadowSecondary}: var(${autocompleteTokens.textFieldBoxShadowSecondary});
         
     ${textFieldTokens.rightContentWithHintMargin}: var(${autocompleteTokens.textFieldRightContentWithHintMargin});
     ${textFieldTokens.contentRightWrapperGap}: var(${autocompleteTokens.textFieldContentRightWrapperGap});
