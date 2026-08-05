@@ -2,29 +2,36 @@ import { datePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/style
 import {
     bodyL,
     bodyLBold,
+    bodyLMedium,
     bodyM,
     bodyMBold,
     bodyS,
     bodySBold,
+    bodyXSMedium,
     h3,
     h3Bold,
     h4,
     h4Bold,
-    inverseTextPrimary,
+    onDarkTextPrimary,
+    outlinePositive,
     shadowDownHardM,
     shadowDownHardS,
     shadowDownSoftS,
     surfaceAccent,
+    surfaceAccentHover,
     surfaceClear,
     surfaceNegative,
-    surfaceSolidCard,
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
+    surfaceTransparentAccent,
+    surfaceTransparentCard,
     surfaceTransparentNegative,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
+    surfaceTransparentSecondaryHover,
     textAccent,
     textNegative,
+    textParagraph,
     textPositive,
     textPrimary,
     textPrimaryActive,
@@ -49,7 +56,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.outlineFocusColor}: ${surfaceAccent};
+                ${tokens.outlineFocusColor}: ${outlinePositive};
 
                 ${tokens.background}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundError}: ${surfaceTransparentNegative};
@@ -115,23 +122,24 @@ export const config = {
                 ${tokens.focusColor}: ${textAccent};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
 
+                ${tokens.calendarDayOfWeekColor}: ${textParagraph};
                 ${tokens.popoverShadow}: ${shadowDownSoftS};
                 ${tokens.popoverSeparatorBackground}: ${surfaceTransparentSecondary};
-                ${tokens.popoverBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.popoverBackgroundColor}: ${surfaceTransparentCard};
 
-                ${tokens.calendarSelectedItemBackground}: ${surfaceSolidDefault};
-                ${tokens.calendarSelectedItemColor}: ${inverseTextPrimary};
-                ${tokens.calendarSelectableItemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.calendarSelectedItemBackground}: ${surfaceAccent};
+                ${tokens.calendarSelectedItemColor}: ${onDarkTextPrimary};
+                ${tokens.calendarSelectableItemBackgroundHover}: ${surfaceTransparentSecondaryHover};
                 ${tokens.calendarCurrentItemBorderColor}: ${surfaceSolidDefault};
                 ${tokens.calendarCurrentItemBackgroundHover}: transparent;
                 ${tokens.calendarCurrentItemColorHover}: ${textPrimary};
                 ${tokens.calendarCurrentItemChildBackgroundHover}: ${surfaceTransparentSecondary};
-                ${tokens.calendarActiveItemBackground}: ${surfaceSolidDefault};
-                ${tokens.calendarActiveItemColor}: ${inverseTextPrimary};
-                ${tokens.calendarHoveredItemBackground}: ${surfaceAccent};
+                ${tokens.calendarActiveItemBackground}: ${surfaceAccent};
+                ${tokens.calendarActiveItemColor}: ${textPrimary};
+                ${tokens.calendarHoveredItemBackground}: ${surfaceAccentHover};
                 ${tokens.calendarHoveredItemColor}: ${textPrimary};
-                ${tokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
-                ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${tokens.calendarRangeBackground}: ${surfaceTransparentAccent};
+                ${tokens.calendarOutlineFocusColor}: ${outlinePositive};
                 ${tokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
                 ${tokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
@@ -993,49 +1001,35 @@ export const config = {
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
-                ${tokens.popoverBorderRadius}: 0.5rem;
+                ${tokens.popoverBorderRadius}: 1.5rem;
                 ${tokens.popoverGap}: 0.75rem;
-                ${tokens.popoverPadding}: 0.75rem 0.75rem 0.875rem 0.75rem;
+                ${tokens.popoverPadding}: 1rem;
                 ${tokens.popoverVerticalPadding}: 1.625rem;
 
                 ${tokens.calendarWidth}: 17.5rem;
                 ${tokens.calendarHeight}: 15.5rem;
 
-                ${tokens.calendarYearsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarYearItemBorderRadius}: 0.5rem;
+                ${tokens.calendarYearsPadding}: 0.75rem 0 0 0;
+                ${tokens.calendarYearItemBorderRadius}: 2rem;
 
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarYearFontFamily}: var(--plasma-typo-body-xs-font-family);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarYearFontSize}: var(--plasma-typo-body-xs-font-size);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarYearFontStyle}: var(--plasma-typo-body-xs-font-style);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarYearFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarYearFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarYearFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarYearSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarYearFontFamily}: ${bodyXSMedium.fontFamily};
+                ${tokens.calendarYearFontSize}: ${bodyXSMedium.fontSize};
+                ${tokens.calendarYearFontStyle}: ${bodyXSMedium.fontStyle};
+                ${tokens.calendarYearFontLetterSpacing}: ${bodyXSMedium.letterSpacing};
+                ${tokens.calendarYearFontLineHeight}: ${bodyXSMedium.lineHeight};
+                ${tokens.calendarYearFontWeight}: ${bodyXSMedium.fontWeight};
+                ${tokens.calendarYearSelectedFontWeight}: ${bodyXSMedium.fontWeight};
 
-                ${tokens.calendarMonthsPadding}: 0.5rem 0 0 0;
-                ${tokens.calendarMonthItemBorderRadius}: 0.5rem;
+                ${tokens.calendarMonthsPadding}: 0.75rem 0 0 0;
+                ${tokens.calendarMonthItemBorderRadius}: 2rem;
 
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarMonthFontFamily}: var(--plasma-typo-body-xs-font-family);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarMonthFontSize}: var(--plasma-typo-body-xs-font-size);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarMonthFontStyle}: var(--plasma-typo-body-xs-font-style);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarMonthFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarMonthFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarMonthFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarMonthSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarMonthFontFamily}: ${bodyXSMedium.fontFamily};
+                ${tokens.calendarMonthFontSize}: ${bodyXSMedium.fontSize};
+                ${tokens.calendarMonthFontStyle}: ${bodyXSMedium.fontStyle};
+                ${tokens.calendarMonthFontLetterSpacing}: ${bodyXSMedium.letterSpacing};
+                ${tokens.calendarMonthFontLineHeight}: ${bodyXSMedium.lineHeight};
+                ${tokens.calendarMonthFontWeight}: ${bodyXSMedium.fontWeight};
+                ${tokens.calendarMonthSelectedFontWeight}: ${bodyXSMedium.fontWeight};
 
                 ${tokens.calendarQuartersPadding}: 0.375rem 0 0 0;
                 ${tokens.calendarQuarterItemBorderRadius}: 0.5rem;
@@ -1055,50 +1049,36 @@ export const config = {
                 /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
                 ${tokens.calendarQuarterSelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
 
-                ${tokens.calendarDaysPadding}: 0.375rem 0 0 0;
-                ${tokens.calendarDayItemBorderRadius}: 0.5rem;
+                ${tokens.calendarDaysPadding}: 0.75rem 0 0 0;
+                ${tokens.calendarDayItemBorderRadius}: 2rem;
 
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarDayFontFamily}: var(--plasma-typo-body-xs-font-family);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarDayFontSize}: var(--plasma-typo-body-xs-font-size);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarDayFontStyle}: var(--plasma-typo-body-xs-font-style);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarDayFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarDayFontLineHeight}: var(--plasma-typo-body-xs-line-height);
-                /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarDayFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                /* NOTE: no token bodyXsBold in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarDaySelectedFontWeight}: var(--plasma-typo-body-xs-bold-font-weight);
+                ${tokens.calendarDayFontFamily}: ${bodyXSMedium.fontFamily};
+                ${tokens.calendarDayFontSize}: ${bodyXSMedium.fontSize};
+                ${tokens.calendarDayFontStyle}: ${bodyXSMedium.fontStyle};
+                ${tokens.calendarDayFontLetterSpacing}: ${bodyXSMedium.letterSpacing};
+                ${tokens.calendarDayFontLineHeight}: ${bodyXSMedium.lineHeight};
+                ${tokens.calendarDayFontWeight}: ${bodyXSMedium.fontWeight};
+                ${tokens.calendarDaySelectedFontWeight}: ${bodyXSMedium.fontWeight};
 
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarHeaderWrapperPadding}: 0;
-                ${tokens.calendarHeaderArrowGap}: 0;
-                ${tokens.calendarHeaderArrowCustomSize}: 1rem;
+                ${tokens.calendarHeaderArrowGap}: 0.5rem;
+                ${tokens.calendarHeaderArrowCustomSize}: 1.25rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
 
-                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarHeaderFontFamily}: var(--plasma-typo-h5-font-family);
-                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarHeaderFontSize}: var(--plasma-typo-h5-font-size);
-                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarHeaderFontStyle}: var(--plasma-typo-h5-font-style);
-                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarHeaderFontLetterSpacing}: var(--plasma-typo-h5-letter-spacing);
-                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarHeaderFontLineHeight}: var(--plasma-typo-h5-line-height);
-                /* NOTE: no token h5 in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarHeaderFontWeight}: var(--plasma-typo-h5-font-weight);
-                /* NOTE: no token h5Bold in @salutejs/sdds-themes/tokens */
-                ${tokens.calendarHeaderFontWeightBold}: var(--plasma-typo-h5-bold-font-weight);
+                ${tokens.calendarHeaderFontFamily}: ${bodyLMedium.fontFamily};
+                ${tokens.calendarHeaderFontSize}: ${bodyLMedium.fontSize};
+                ${tokens.calendarHeaderFontStyle}: ${bodyLMedium.fontStyle};
+                ${tokens.calendarHeaderFontLetterSpacing}: ${bodyLMedium.letterSpacing};
+                ${tokens.calendarHeaderFontLineHeight}: 1.25rem;
+                ${tokens.calendarHeaderFontWeight}: ${bodyLMedium.fontWeight};
+                ${tokens.calendarHeaderFontWeightBold}: ${bodyLMedium.fontWeight};
 
-                ${tokens.iconButtonHeight}: 2rem;
-                ${tokens.iconButtonWidth}: 2rem;
+                ${tokens.iconButtonHeight}: 1.25rem;
+                ${tokens.iconButtonWidth}: 1.25rem;
                 ${tokens.iconButtonPadding}: 0.5rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
 
