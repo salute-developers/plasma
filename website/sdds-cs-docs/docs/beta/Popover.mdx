@@ -3,7 +3,7 @@ id: popover
 title: Popover
 ---
 
-import { Badge } from '@site/src/components';
+import { PropsTable, Badge } from '@site/src/components';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -87,12 +87,13 @@ export function App() {
         ```tsx live
         import * as Beta from '@salutejs/sdds-cs/beta';
         import { Button } from '@salutejs/sdds-cs';
+        import { surfaceSolidCard } from '@salutejs/sdds-themes/tokens';
 
         export function App() {
             const ref = useRef<HTMLDivElement>(null);
 
             return (
-                <div ref={ref} style={{ minHeight: '10rem', padding: '1rem', background: 'var(--surface-solid-card)' }}>
+                <div ref={ref} style={{ minHeight: '10rem', padding: '1rem', background: `${surfaceSolidCard}` }}>
                     <Beta.Popover portal={ref} target={<Button text="Открыть" />}>Контент в портале</Beta.Popover>
                 </div>
             );
@@ -100,3 +101,7 @@ export function App() {
         ```
     </TabItem>
 </Tabs>
+
+
+## API
+<PropsTable name="PopoverBeta" />
