@@ -1,0 +1,23 @@
+name: 'Parse next-build command'
+description: 'Parses /next-build PR comments (or workflow_dispatch inputs), checks author authorization, and resolves the ref to check out'
+
+inputs:
+    token:
+        description: The GitHub token used to create an authenticated client.
+        required: true
+
+outputs:
+    allowed:
+        description: 'true if the trigger is authorized to run'
+    package:
+        description: 'Target package directory name under packages/'
+    build:
+        description: 'Target exports key ("." or "styled-components" etc.), empty = all'
+    pr-number:
+        description: 'PR number (empty for workflow_dispatch)'
+    head-sha:
+        description: 'Commit sha to check out (PR head sha, or current sha for workflow_dispatch)'
+
+runs:
+    using: 'node20'
+    main: 'index.js'

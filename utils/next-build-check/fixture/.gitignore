@@ -1,0 +1,7 @@
+node_modules
+.next
+*.tgz
+package-lock.json
+next-env.d.ts
+next.config.js
+pages/

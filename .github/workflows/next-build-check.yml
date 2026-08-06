@@ -1,0 +1,156 @@
+name: Next.js build check
+
+# Проверяет, что конечный пакет (packages/<pkg>) реально собирается внутри Next.js-приложения
+# для конкретного build-варианта из его package.json#exports.
+#
+# Запуск:
+#   - комментарий в PR: /next-build <package> [build]
+#     (build не указан -> прогоняются все варианты из exports)
+#   - вручную через workflow_dispatch
+
+on:
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      package:
+        description: 'Имя папки пакета под packages/, например sdds-serv'
+        required: true
+        type: string
+      build:
+        description: 'Ключ из exports, например "." или "styled-components". Пусто = все варианты.'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number || github.event.inputs.package }}
+  cancel-in-progress: true
+
+jobs:
+  parse-command:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: read
+    outputs:
+      allowed: ${{ steps.parse.outputs.allowed }}
+      package: ${{ steps.parse.outputs.package }}
+      build: ${{ steps.parse.outputs.build }}
+      pr-number: ${{ steps.parse.outputs.pr-number }}
+      head-sha: ${{ steps.parse.outputs.head-sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies for parse-next-build-command
+        run: |
+          cd .github/actions/parse-next-build-command
+          npm ci
+
+      - name: Parse command and check authorization
+        id: parse
+        uses: ./.github/actions/parse-next-build-command
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  build:
+    name: Build (${{ needs.parse-command.outputs.package }} / ${{ needs.parse-command.outputs.build || 'all' }})
+    needs: parse-command
+    if: ${{ needs.parse-command.outputs.allowed == 'true' }}
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    outputs:
+      results: ${{ steps.run-checks.outputs.results }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+          ref: ${{ needs.parse-command.outputs.head-sha }}
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          package-manager-cache: false
+
+      - name: Validate package exists
+        env:
+          PKG: ${{ needs.parse-command.outputs.package }}
+        run: |
+          if [[ ! "$PKG" =~ ^[A-Za-z0-9_-]+$ ]]; then
+            echo "::error::Недопустимое имя пакета: $PKG"
+            exit 1
+          fi
+
+          if [ ! -f "packages/$PKG/package.json" ]; then
+            echo "::error::packages/$PKG не найден"
+            exit 1
+          fi
+
+      - name: Install dependencies and build target package
+        env:
+          PKG: ${{ needs.parse-command.outputs.package }}
+        run: npm run setup:ci -- --scope="@salutejs/$PKG" --include-dependencies
+
+      - name: Run Next.js build check(s)
+        id: run-checks
+        env:
+          PKG: ${{ needs.parse-command.outputs.package }}
+          BUILD: ${{ needs.parse-command.outputs.build }}
+        run: |
+          set -e
+          STATUS=0
+          RESULTS_FILE=$(mktemp)
+
+          if [ -n "$BUILD" ]; then
+            KEYS="$BUILD"
+          else
+            KEYS=$(node -e "console.log(Object.keys(require('./packages/${PKG}/package.json').exports).join(' '))")
+          fi
+
+          for KEY in $KEYS; do
+            if npx ts-node --project utils/next-build-check/tsconfig.json utils/next-build-check/cli.ts --package="$PKG" --build="$KEY" --ci; then
+              echo "- ✅ \`$KEY\`" >> "$RESULTS_FILE"
+            else
+              echo "- ❌ \`$KEY\`" >> "$RESULTS_FILE"
+              STATUS=1
+            fi
+          done
+
+          {
+            echo "results<<NEXT_BUILD_RESULTS_EOF"
+            cat "$RESULTS_FILE"
+            echo "NEXT_BUILD_RESULTS_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+          exit $STATUS
+
+  comment-result:
+    name: Report result
+    needs: [parse-command, build]
+    if: ${{ always() && github.event_name == 'issue_comment' && needs.parse-command.outputs.allowed == 'true' }}
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          number: ${{ needs.parse-command.outputs.pr-number }}
+          header: Next.js build check
+          message: |
+            **Пакет:** `${{ needs.parse-command.outputs.package }}`
+            **Build:** `${{ needs.parse-command.outputs.build || 'все варианты из exports' }}`
+
+            ${{ needs.build.outputs.results }}
