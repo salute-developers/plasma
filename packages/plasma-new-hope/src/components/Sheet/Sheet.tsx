@@ -1,6 +1,7 @@
 import React, { forwardRef, useRef } from 'react';
 
 import { RootProps } from '../../engines';
+import { useEscKeyDown } from '../../hooks';
 import { Overlay } from '../Overlay';
 import { cx } from '../../utils';
 
@@ -30,6 +31,9 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 opened,
                 children,
                 onClose,
+                onOverlayClick,
+                onEscKeyDown,
+                closeOnEsc = true,
                 hasHandle = true,
                 handlePlacement,
                 contentHeader,
@@ -53,6 +57,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
 
             useOverflow({ opened });
             useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, hasScrollEvents, onClose });
+            useEscKeyDown({ opened, closeOnEsc, onEscKeyDown, onClose });
 
             const hasHeader = Boolean(contentHeader);
             const hasFooter = Boolean(contentFooter);
@@ -62,6 +67,15 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             const overlayBackgroundToken = withBlur
                 ? `var(${tokens.sheetOverlayWithBlurColor})`
                 : `var(${tokens.sheetOverlayColor})`;
+
+            const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+                if (onOverlayClick) {
+                    onOverlayClick(event);
+                    return;
+                }
+
+                onClose();
+            };
 
             return (
                 <Root opened={opened} onClose={onClose} view={view} handlePlacement={handlePlacement} ref={rootRef}>
@@ -89,7 +103,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                             backgroundColorProperty={overlayBackgroundToken}
                             withBlur={withBlur}
                             isClickable
-                            onOverlayClick={onClose}
+                            onOverlayClick={handleOverlayClick}
                         />
                     )}
                 </Root>

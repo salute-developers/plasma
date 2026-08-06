@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import type { ComponentProps } from 'react';
 import styled from 'styled-components';
+import { action } from 'storybook/actions';
 
 import { Button } from '../Button/Button';
 import { WithTheme } from '../../_helpers';
@@ -9,7 +10,13 @@ import { Body } from '../typography/components/Body/Body';
 
 import { Sheet } from './Sheet';
 
-const meta: Meta<typeof Sheet> = {
+type StorySheetProps = ComponentProps<typeof Sheet> & {
+    storyHasHeader: boolean;
+    storyHasFooter: boolean;
+    fullScreen?: boolean;
+};
+
+const meta: Meta<StorySheetProps> = {
     title: 'Overlay/Sheet',
     decorators: [WithTheme],
     argTypes: {
@@ -34,15 +41,6 @@ const meta: Meta<typeof Sheet> = {
 
 export default meta;
 
-type StorySheetProps = ComponentProps<typeof Sheet> & {
-    storyHasHeader: boolean;
-    storyHasFooter: boolean;
-};
-
-type StorySheetPropsExtension = StorySheetProps & {
-    fullScreen: boolean;
-};
-
 const StyledBody = styled(Body)`
     padding-bottom: 300px;
 `;
@@ -50,6 +48,13 @@ const StyledBody = styled(Body)`
 const StyledBodyFullScreen = styled(Body)`
     height: calc(100vh - 10rem);
 `;
+
+const onCloseAction = action('onClose');
+
+const createOnClose = (setOpened: (opened: boolean) => void) => () => {
+    setOpened(false);
+    onCloseAction();
+};
 
 const StoryDefault = ({
     withOverlay,
@@ -62,8 +67,9 @@ const StoryDefault = ({
     withBlur,
     handlePlacement,
     fullScreen,
-}: StorySheetPropsExtension) => {
+}: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
+    const handleClose = createOnClose(setOpened);
 
     return (
         <>
@@ -73,7 +79,7 @@ const StoryDefault = ({
                 handlePlacement={handlePlacement}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setOpened(false)}
+                onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
@@ -109,11 +115,12 @@ export const Default: StoryObj<StorySheetProps> = {
 
 const StoryWithoutOverlay = () => {
     const [opened, setOpened] = useState(false);
+    const handleClose = createOnClose(setOpened);
 
     return (
         <>
             <Button onClick={() => setOpened(true)}>Открыть</Button>
-            <Sheet opened={opened} withOverlay={false} onClose={() => setOpened(false)}>
+            <Sheet opened={opened} withOverlay={false} onClose={handleClose}>
                 <StyledBody>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
                     consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel illum ea
@@ -141,6 +148,7 @@ const StoryWithScroll = ({
     withBlur,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
+    const handleClose = createOnClose(setOpened);
 
     return (
         <>
@@ -149,7 +157,7 @@ const StoryWithScroll = ({
                 opened={opened}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setOpened(false)}
+                onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
@@ -211,6 +219,7 @@ const StoryWithInsideScroll = ({
     withBlur,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
+    const handleClose = createOnClose(setOpened);
 
     return (
         <>
@@ -219,7 +228,7 @@ const StoryWithInsideScroll = ({
                 opened={opened}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setOpened(false)}
+                onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
@@ -283,6 +292,7 @@ const StoryWithDoubleScroll = ({
     withBlur,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
+    const handleClose = createOnClose(setOpened);
 
     return (
         <>
@@ -291,7 +301,7 @@ const StoryWithDoubleScroll = ({
                 opened={opened}
                 withOverlay={withOverlay}
                 withTransition={withTransition}
-                onClose={() => setOpened(false)}
+                onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 contentHeader={
