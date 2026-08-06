@@ -32,6 +32,11 @@
       "import": "./dist/styled-components/es/index.js",
       "require": "./dist/styled-components/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./beta": {
+      "import": "./dist/beta/es/index.js",
+      "require": "./dist/beta/cjs/index.js",
+      "types": "./dist/beta/types/index.d.ts"
     }
   },
   "peerDependencies": {
@@ -79,7 +84,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "npm run build:css && npm run build:styled-components",
+    "build": "npm run build:css && npm run build:styled-components && npm run build:beta",
     "postbuild": "npm run generate:typings",
     "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
     "build:css": "rm -rf dist/css && rollup -c",
@@ -87,7 +92,10 @@
     "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
     "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
     "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "generate:typings": "rm -rf types && tsc",
+    "prebuild:beta": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
+    "build:beta": "rm -rf dist/beta/es dist/beta/cjs && BETA=true rollup -c",
+    "postbuild:beta": "rm -rf src-css",
+    "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
     "storybook": "npm run storybook:sc",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
