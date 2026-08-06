@@ -29,6 +29,21 @@
       "import": "./dist/emotion/es/index.js",
       "require": "./dist/emotion/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./ai": {
+      "import": "./dist/ai/css/es/index.js",
+      "require": "./dist/ai/css/cjs/index.js",
+      "types": "./types/ai.d.ts"
+    },
+    "./ai/styled-components": {
+      "import": "./dist/ai/styled-components/es/index.js",
+      "require": "./dist/ai/styled-components/cjs/index.js",
+      "types": "./types/ai.d.ts"
+    },
+    "./ai/emotion": {
+      "import": "./dist/ai/emotion/es/index.js",
+      "require": "./dist/ai/emotion/cjs/index.js",
+      "types": "./types/ai.d.ts"
     }
   },
   "peerDependencies": {
