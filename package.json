@@ -19,6 +19,7 @@
     "cy:run": "node scripts/cy-run.js",
     "cy:cli": "node scripts/cy-cli.js",
     "cy:open": "cypress open --component --browser chromium",
+    "next:build": "ts-node --project utils/next-build-check/tsconfig.json utils/next-build-check/cli.ts",
     "cy:report:coverage": "nyc report --reporter=cobertura --reporter=html",
     "extract-docgen-info": "lerna run extract-docgen-info",
     "lint:scripts": "eslint ./scripts ./auto-plugins/src --ext .js,.ts --quiet",
