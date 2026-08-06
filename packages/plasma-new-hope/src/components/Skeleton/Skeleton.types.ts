@@ -10,7 +10,7 @@ export type SkeletonBaseProps = {
      */
     customFadeInColor?: string;
     /**
-     * Значение цвета фона в кл=онце анимации `pulse`
+     * Значение цвета фона в конце анимации `pulse`
      */
     customFadeOutColor?: string;
     /**
@@ -18,9 +18,14 @@ export type SkeletonBaseProps = {
      */
     roundness?: Roundness;
     /**
-     * Скругленность
+     * Тип анимации
+     * @default 'shimmer'
      */
     animationType?: 'shimmer' | 'pulse';
+    /**
+     * Длительность одного цикла анимации в миллисекундах
+     */
+    animationDuration?: number;
 };
 
 export type SkeletonSizeProps = {

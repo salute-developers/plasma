@@ -25,6 +25,9 @@ export const StyledVisibleLine = styled.div<StyledVisibleLineProps>`
         ${privateTokens.lineSkeletonGradient}: ${({ gradientColor }) =>
             gradientColor || `var(${tokens.gradientColor})`};
 
+        ${tokens.shimmerDuration}: ${({ animationDuration }) =>
+            animationDuration !== undefined ? `${animationDuration}ms` : `var(${tokens.shimmerDuration})`};
+
         ${applySkeletonShimmerGradient(`var(${privateTokens.lineSkeletonGradient})`, tokens.shimmerDuration)};
     }
 
@@ -33,6 +36,9 @@ export const StyledVisibleLine = styled.div<StyledVisibleLineProps>`
             customFadeInColor || `var(${tokens.fadeInColor})`};
         ${privateTokens.skeletonFadeOutColor}: ${({ customFadeOutColor }) =>
             customFadeOutColor || `var(${tokens.fadeOutColor})`};
+
+        ${tokens.pulseDuration}: ${({ animationDuration }) =>
+            animationDuration !== undefined ? `${animationDuration}ms` : `var(${tokens.pulseDuration})`};
 
         ${applySkeletonPulseGradient(
             privateTokens.skeletonFadeInColor,

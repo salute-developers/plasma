@@ -21,6 +21,7 @@ export type StyledRectProps = {
     height: string;
     customFadeInColor?: string;
     customFadeOutColor?: string;
+    animationDuration?: number;
 };
 
 export type RectSkeletonProps = HTMLAttributes<HTMLDivElement> & CustomSkeletonRectProps & SkeletonGradientProps;

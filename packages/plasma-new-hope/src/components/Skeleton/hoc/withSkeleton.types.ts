@@ -13,7 +13,12 @@ type PulseConfig = {
     customFadeOutColor?: string;
 };
 
-export type AnimationConfig = ShimmerConfig | PulseConfig;
+export type AnimationConfig = (ShimmerConfig | PulseConfig) & {
+    /**
+     * Длительность одного цикла анимации в миллисекундах.
+     */
+    duration?: number;
+};
 
 export type WithSkeletonProps = {
     /**
