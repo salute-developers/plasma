@@ -6,6 +6,17 @@
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./managerVersions": {
+      "types": "./lib/managerVersions.d.ts",
+      "default": "./lib/managerVersions.js"
+    },
+    "./package.json": "./package.json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/salute-developers/plasma.git",
