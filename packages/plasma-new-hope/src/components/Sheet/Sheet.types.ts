@@ -7,9 +7,27 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     opened?: boolean;
 
     /**
-     * Обработчик закрытия шторки. Вызывается при клике по оверлею или смахиванию шторки вниз
+     * Обработчик закрытия шторки. Вызывается при смахивании шторки вниз,
+     * при клике по оверлею (если не передан onOverlayClick)
+     * и при нажатии ESC (если не передан onEscKeyDown).
      */
     onClose: () => void;
+
+    /**
+     * Обработчик клика по оверлею (если не передан, используется onClose).
+     */
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Закрывать шторку при нажатии на ESC.
+     * @default true
+     */
+    closeOnEsc?: boolean;
+
+    /**
+     * Обработчик нажатия ESC (если не передан, используется onClose).
+     */
+    onEscKeyDown?: (event: KeyboardEvent) => void;
 
     /**
      * Слот для контента в заголовке
