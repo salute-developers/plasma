@@ -82,9 +82,9 @@ export * from './components/EmptyState';
 export * from './components/ViewContainer';
 export * from './components/Loader';
 export * from './components/Skeleton';
+export * from './components/Flow';
 
 // INFO: Disabled components
-// export * from './components/Flow';
 // export * from './components/Grid';
 // export * from './components/Link';
 // export * from './components/Portal';
