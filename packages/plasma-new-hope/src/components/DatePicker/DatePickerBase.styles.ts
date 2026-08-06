@@ -38,7 +38,11 @@ export const StyledCalendarContent = styled.div<{ innerWidth?: string; innerHeig
 
 export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarSelectedItemBackground}: var(${tokens.calendarSelectedItemBackground});
+    ${calendarBaseTokens.calendarSelectedItemBackgroundHover}: var(${tokens.calendarSelectedItemBackgroundHover});
+    ${calendarBaseTokens.calendarSelectedItemHoverCursor}: var(${tokens.calendarSelectedItemHoverCursor});
     ${calendarBaseTokens.calendarSelectedItemColor}: var(${tokens.calendarSelectedItemColor});
+    ${calendarBaseTokens.calendarSelectedItemStartBorderRadius}: var(${tokens.calendarSelectedItemStartBorderRadius});
+    ${calendarBaseTokens.calendarSelectedItemEndBorderRadius}: var(${tokens.calendarSelectedItemEndBorderRadius});
     ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(${tokens.calendarSelectableItemBackgroundHover});
     ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(${tokens.calendarCurrentItemBorderColor});
     ${calendarBaseTokens.calendarCurrentItemBorderWidth}: var(${tokens.calendarCurrentItemBorderWidth});

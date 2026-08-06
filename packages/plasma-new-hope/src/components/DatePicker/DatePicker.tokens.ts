@@ -325,7 +325,11 @@ export const tokens = {
     iconButtonFocusColor: '--plasma-date-picker-icon-button__focus-color',
 
     calendarSelectedItemBackground: '--plasma-date-picker-calendar__selected-item-background',
+    calendarSelectedItemBackgroundHover: '--plasma-date-picker-calendar__selected-item-background-hover',
+    calendarSelectedItemHoverCursor: '--plasma-date-picker-calendar__selected-item-hover-cursor',
     calendarSelectedItemColor: '--plasma-date-picker-calendar__selected-item-color',
+    calendarSelectedItemStartBorderRadius: '--plasma-date-picker-calendar__selected-item-start-border-radius',
+    calendarSelectedItemEndBorderRadius: '--plasma-date-picker-calendar__selected-item-end-border-radius',
     calendarSelectableItemBackgroundHover: '--plasma-date-picker-calendar__selectable-item-background-hover',
     calendarCurrentItemBorderColor: '--plasma-date-picker-calendar__current-item-border-color',
     calendarCurrentItemBorderWidth: '--plasma-date-picker-calendar__current-item-border-width',
