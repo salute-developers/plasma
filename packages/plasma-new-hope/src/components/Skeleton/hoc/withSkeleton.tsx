@@ -48,7 +48,7 @@ export const withSkeleton = <P extends WithSkeletonProps, E extends Element = El
             } as P & RefAttributes<E>;
 
             return (
-                <Wrapper style={wrapperStyle}>
+                <Wrapper style={wrapperStyle} animationDuration={animationConfig?.duration}>
                     <Component {...componentProps} />
                 </Wrapper>
             );

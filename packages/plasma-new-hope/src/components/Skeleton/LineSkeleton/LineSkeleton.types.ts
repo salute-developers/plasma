@@ -10,6 +10,7 @@ export type StyledVisibleLineProps = {
     gradientColor?: string;
     customFadeInColor?: string;
     customFadeOutColor?: string;
+    animationDuration?: number;
 };
 
 export type LineSkeletonProps = HTMLAttributes<HTMLDivElement> &

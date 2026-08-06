@@ -7,6 +7,9 @@ const baseSkeletonArgTypes = {
         options: animationTypeOptions,
         control: { type: 'select' },
     },
+    animationDuration: {
+        control: { type: 'number', min: 0 },
+    },
     customGradientColor: {
         if: { arg: 'animationType', eq: 'shimmer' },
     },
@@ -89,31 +92,21 @@ export const createButtonStory = (withSkeleton: any, Button: any) => {
             customFadeOutColor: '',
         },
         argTypes: {
-            animationType: {
-                options: animationTypeOptions,
-                control: { type: 'select' },
-            },
-            customGradientColor: {
-                if: { arg: 'animationType', eq: 'shimmer' },
-            },
-            customFadeInColor: {
-                if: { arg: 'animationType', eq: 'pulse' },
-            },
-            customFadeOutColor: {
-                if: { arg: 'animationType', eq: 'pulse' },
-            },
+            ...baseSkeletonArgTypes,
         },
         render: ({
             animationType,
             customGradientColor,
             customFadeInColor,
             customFadeOutColor,
+            animationDuration,
             ...args
         }: {
             animationType: 'shimmer' | 'pulse';
             customGradientColor: string;
             customFadeInColor: string;
             customFadeOutColor: string;
+            animationDuration: number;
             [key: string]: unknown;
         }) => {
             const animationConfig =
@@ -122,8 +115,13 @@ export const createButtonStory = (withSkeleton: any, Button: any) => {
                           type: 'pulse' as const,
                           customFadeInColor: customFadeInColor || undefined,
                           customFadeOutColor: customFadeOutColor || undefined,
+                          duration: animationDuration ?? undefined,
                       }
-                    : { type: 'shimmer' as const, customGradientColor: customGradientColor || undefined };
+                    : {
+                          type: 'shimmer' as const,
+                          customGradientColor: customGradientColor || undefined,
+                          duration: animationDuration ?? undefined,
+                      };
 
             return <ButtonSkeleton view="default" text="test" animationConfig={animationConfig} {...args} />;
         },
