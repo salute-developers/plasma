@@ -13,6 +13,8 @@ const CalendarDouble = component(mergedCalendarDoubleConfig);
 export const baseCalendarTokens = `
     ${calendarBaseTokens.calendarSeparatorBackground}: var(${tokens.calendarSeparatorBackground});
     ${calendarBaseTokens.calendarSelectedItemBackground}: var(${tokens.calendarSelectedItemBackground});
+    ${calendarBaseTokens.calendarSelectedItemBackgroundHover}: var(${tokens.calendarSelectedItemBackgroundHover});
+    ${calendarBaseTokens.calendarSelectedItemHoverCursor}: var(${tokens.calendarSelectedItemHoverCursor});
     ${calendarBaseTokens.calendarSelectedItemColor}: var(${tokens.calendarSelectedItemColor});
     ${calendarBaseTokens.calendarSelectableItemBackgroundHover}: var(${tokens.calendarSelectableItemBackgroundHover});
     ${calendarBaseTokens.calendarCurrentItemBorderColor}: var(${tokens.calendarCurrentItemBorderColor});

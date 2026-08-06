@@ -121,7 +121,11 @@ export const tokens = {
 
     calendarBackgroundColor: '--plasma-calendar-background',
     calendarSelectedItemBackground: '--plasma-calendar-selected-item-background',
+    calendarSelectedItemBackgroundHover: '--plasma-calendar-selected-item-background-hover',
+    calendarSelectedItemHoverCursor: '--plasma-calendar-selected-item-hover-cursor',
     calendarSelectedItemColor: '--plasma-calendar-selected-item-color',
+    calendarSelectedItemStartBorderRadius: '--plasma-calendar-selected-item-start-border-radius',
+    calendarSelectedItemEndBorderRadius: '--plasma-calendar-selected-item-end-border-radius',
     calendarSelectableItemBackgroundHover: '--plasma-calendar-selectable-item-bg-hover',
     calendarCurrentItemBorderColor: '--plasma-calendar-current-item-border-color',
     calendarCurrentItemBorderWidth: '--plasma-calendar-current-item-border-width',

@@ -239,6 +239,8 @@ export const tokens = {
     calendarSeparatorBackground: '--plasma-date-time-picker-calendar__separator-background',
     calendarSelectedItemBackground: '--plasma-date-time-picker-calendar__selected-item-background',
     calendarSelectedItemColor: '--plasma-date-time-picker-calendar__selected-item-color',
+    calendarSelectedItemBackgroundHover: '--plasma-date-picker-calendar__selected-item-background-hover',
+    calendarSelectedItemHoverCursor: '--plasma-date-picker-calendar__selected-item-hover-cursor',
     calendarSelectableItemBackgroundHover: '--plasma-date-time-picker-calendar__selectable-item-background-hover',
     calendarCurrentItemBorderColor: '--plasma-date-time-picker-calendar__current-item-border-color',
     calendarCurrentItemBorderWidth: '--plasma-date-time-picker-calendar__current-item-border-width',
