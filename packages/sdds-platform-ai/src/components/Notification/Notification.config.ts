@@ -2,16 +2,14 @@ import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-compon
 import {
     bodyS,
     bodySBold,
-    outlineInfo,
-    outlineNegative,
-    shadowDownSoftM,
-    surfaceAccentGradient,
-    surfaceSolidSecondary,
-    surfaceTransparentCard,
+    surfaceInfoMinor,
+    surfaceNegativeMinor,
+    surfacePositiveMinor,
+    surfaceSolidTertiary,
+    surfaceWarningMinor,
     textPrimary,
     textSecondary,
-    textTertiary,
-    textWarning,
+    textSecondaryHover,
 } from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 
 export const config = {
@@ -24,68 +22,53 @@ export const config = {
             default: css`
                 ${notificationTokens.titleColor}: ${textPrimary};
                 ${notificationTokens.contentLeftIconColor}: ${textPrimary};
-                ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceSolidSecondary};
-                ${notificationTokens.borderRadius}: 2rem;
-                ${notificationTokens.borderWidth}: 0.5rem;
-                ${notificationTokens.borderColor}: ${surfaceTransparentCard};
-                ${notificationTokens.boxShadow}: ${shadowDownSoftM};
+                ${notificationTokens.contentColor}: ${textPrimary};
+                ${notificationTokens.background}: ${surfaceSolidTertiary};
 
-                ${notificationTokens.closeIconColor}: ${textTertiary};
-                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
             `,
             negative: css`
                 ${notificationTokens.titleColor}: ${textPrimary};
                 ${notificationTokens.contentLeftIconColor}: ${textPrimary};
-                ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
-                ${notificationTokens.borderRadius}: 2rem;
-                ${notificationTokens.borderWidth}: 0.5rem;
-                ${notificationTokens.borderColor}: ${outlineNegative};
-                ${notificationTokens.boxShadow}: ${shadowDownSoftM};
+                ${notificationTokens.contentColor}: ${textPrimary};
+                ${notificationTokens.background}: ${surfaceNegativeMinor};
 
-                ${notificationTokens.closeIconColor}: ${textTertiary};
-                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
             `,
             positive: css`
                 ${notificationTokens.titleColor}: ${textPrimary};
                 ${notificationTokens.contentLeftIconColor}: ${textPrimary};
-                ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
-                ${notificationTokens.borderRadius}: 2rem;
-                ${notificationTokens.borderWidth}: 0.5rem;
-                ${notificationTokens.borderColor}: ${surfaceAccentGradient};
-                ${notificationTokens.boxShadow}: ${shadowDownSoftM};
+                ${notificationTokens.contentColor}: ${textPrimary};
+                ${notificationTokens.background}: ${surfacePositiveMinor};
 
-                ${notificationTokens.closeIconColor}: ${textTertiary};
-                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
             `,
             warning: css`
-                ${notificationTokens.titleColor}: ${textWarning};
-                ${notificationTokens.contentLeftIconColor}: ${textWarning};
-                ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
-                ${notificationTokens.borderRadius}: 0.75rem;
+                ${notificationTokens.titleColor}: ${textPrimary};
+                ${notificationTokens.contentLeftIconColor}: ${textPrimary};
+                ${notificationTokens.contentColor}: ${textPrimary};
+                ${notificationTokens.background}: ${surfaceWarningMinor};
 
-                ${notificationTokens.closeIconColor}: ${textTertiary};
-                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
             `,
             info: css`
                 ${notificationTokens.titleColor}: ${textPrimary};
                 ${notificationTokens.contentLeftIconColor}: ${textPrimary};
-                ${notificationTokens.contentColor}: ${textSecondary};
-                ${notificationTokens.background}: ${surfaceTransparentCard};
-                ${notificationTokens.borderRadius}: 2rem;
-                ${notificationTokens.borderWidth}: 0.5rem;
-                ${notificationTokens.borderColor}: ${outlineInfo};
-                ${notificationTokens.boxShadow}: ${shadowDownSoftM};
+                ${notificationTokens.contentColor}: ${textPrimary};
+                ${notificationTokens.background}: ${surfaceInfoMinor};
 
-                ${notificationTokens.closeIconColor}: ${textTertiary};
-                ${notificationTokens.closeIconColorOnHover}: ${textPrimary};
+                ${notificationTokens.closeIconColor}: ${textSecondary};
+                ${notificationTokens.closeIconColorOnHover}: ${textSecondaryHover};
             `,
         },
         size: {
             xs: css`
+                ${notificationTokens.borderRadius}: 0.75rem;
+
                 ${notificationTokens.contentPaddingTopWithoutIcon}: 0.25rem;
                 ${notificationTokens.horizontalLayoutRightPaddingWithoutCloseIcon}: 1rem;
 
@@ -123,7 +106,6 @@ export const config = {
                 ${notificationTokens.closeIconTop}: 0.5rem;
                 ${notificationTokens.closeIconRight}: 0.5rem;
 
-                ${notificationTokens.padding}: 0.25rem 0.75rem 0.75rem 0.75rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
 
                 ${notificationTokens.contentPaddingTop}: 0.25rem;
@@ -141,7 +123,7 @@ export const config = {
             `,
             vertical: css`
                 ${notificationTokens.width}: 15rem;
-                ${notificationTokens.padding}: 0.25rem 0.75rem 0.75rem 0.75rem;
+                ${notificationTokens.padding}: 0.25rem 0.75rem 0.375rem 0.75rem;
             `,
         },
         closeIconType: {
