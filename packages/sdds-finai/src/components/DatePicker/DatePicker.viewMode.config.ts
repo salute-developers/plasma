@@ -50,7 +50,7 @@ export const config = {
                 ${tokens.borderColorError}: transparent;
                 ${tokens.borderColorSuccess}: transparent;
 
-                ${tokens.dividerColor}: ${textPrimary};
+                ${tokens.dividerColor}: ${textSecondary};
                 ${tokens.labelColor}: ${textSecondary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};

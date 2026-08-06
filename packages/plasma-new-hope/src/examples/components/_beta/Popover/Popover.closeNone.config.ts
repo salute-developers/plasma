@@ -21,14 +21,23 @@ export const config = {
             l: css`
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.padding}: 0.75rem;
+                ${tokens.tailWidth}: 20px;
+                ${tokens.tailHeight}: 8px;
+                ${tokens.tailSideCurvature}: -10%;
             `,
             m: css`
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.padding}: 0.625rem;
+                ${tokens.tailWidth}: 20px;
+                ${tokens.tailHeight}: 8px;
+                ${tokens.tailSideCurvature}: -10%;
             `,
             s: css`
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.padding}: 0.5rem;
+                ${tokens.tailWidth}: 20px;
+                ${tokens.tailHeight}: 8px;
+                ${tokens.tailSideCurvature}: -10%;
             `,
         },
     },

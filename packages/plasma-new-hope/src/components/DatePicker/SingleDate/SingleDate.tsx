@@ -3,6 +3,7 @@ import cls from 'classnames';
 import type { KeyboardEvent, FocusEvent, MouseEvent, MutableRefObject, RefObject } from 'react';
 import type { DateInfo, DateType } from 'src/components/Calendar/Calendar.types';
 import type { RootProps } from 'src/engines';
+import { useForkRef } from 'src/hooks';
 import { getSizeValueFromProp, noop } from 'src/utils';
 
 import { getDateFormatDelimiter } from '../utils/dateHelper';
@@ -128,6 +129,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
             ref,
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
+            const inputForkRef = useForkRef(inputRef, ref);
             const innerRef = useRef<HTMLInputElement | null>(null);
             const calendarRootRef = useRef<HTMLDivElement | null>(null);
             const floatingPopoverRef = useRef<HTMLDivElement | null>(null);
@@ -312,7 +314,6 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                     className={cls(classes.datePickerRoot, className, { [classes.datePickerstretched]: stretched })}
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
-                    ref={ref}
                     eventTooltipSize={eventTooltipOptions?.size}
                     {...(hintText && {
                         hintView,
@@ -333,7 +334,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                         portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
                         target={(referenceRef) => (
                             <StyledInput
-                                ref={inputRef}
+                                ref={inputForkRef}
                                 inputWrapperRef={referenceRef as MutableRefObject<HTMLDivElement>}
                                 className={cls(datePickerErrorClass, datePickerSuccessClass, datePickerEditedClass)}
                                 value={inputValue}

@@ -38,6 +38,9 @@ export const config = {
         size: {
             m: css`
                 ${tokens.chipBorderRadius}: 0.625rem;
+                ${tokens.chipDefaultRadius}: 0.625rem;
+                ${tokens.chipSegmentedRadius}: 0.25rem;
+                ${tokens.chipSideRadius}: 0.625rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.5rem;
                 ${tokens.chipPadding}: 0 0.875rem;
@@ -59,6 +62,9 @@ export const config = {
             `,
             s: css`
                 ${tokens.chipBorderRadius}: 0.5rem;
+                ${tokens.chipDefaultRadius}: 0.5rem;
+                ${tokens.chipSegmentedRadius}: 0.25rem;
+                ${tokens.chipSideRadius}: 0.5rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2rem;
                 ${tokens.chipPadding}: 0 0.875rem;
@@ -86,6 +92,10 @@ export const config = {
             wide: css`
                 ${tokens.chipGroupItemsGap}: 0.5rem;
             `,
+        },
+        shape: {
+            segmented: css``,
+            default: css``,
         },
     },
 };

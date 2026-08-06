@@ -1,4 +1,161 @@
 {
+    "0.351.0": {
+        "date": "2026-08-05",
+        "core": [
+            {
+                "component": "TextField",
+                "children": [
+                    {
+                        "text": "добавлен раздел с `hintTargetPlacement` в раздел документации по подсказкам",
+                        "link": "https://github.com/salute-developers/plasma/pull/2994",
+                        "id": 2994
+                    }
+                ]
+            },
+            {
+                "component": "Tabs",
+                "children": [
+                    {
+                        "text": "добавлен пример с Dropdown и перемещением выбранного элемента в видимую область",
+                        "link": "https://github.com/salute-developers/plasma/pull/2999",
+                        "id": 2999
+                    },
+                    {
+                        "text": "добавлен `dividerAlign`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2992",
+                        "id": 2992
+                    }
+                ]
+            },
+            {
+                "component": "TextField-like",
+                "children": [
+                    {
+                        "text": "исправлен `disabled`-режим",
+                        "link": "https://github.com/salute-developers/plasma/pull/2975",
+                        "id": 2975
+                    }
+                ]
+            },
+            {
+                "component": "NumberInput",
+                "children": [
+                    {
+                        "text": "добавлен компенсационный отступ 2 пикселя для Safari",
+                        "link": "https://github.com/salute-developers/plasma/pull/2985",
+                        "id": 2985
+                    }
+                ]
+            },
+            {
+                "component": "Slider",
+                "children": [
+                    {
+                        "text": "добавлена возможность задать кастомные подписи и указать позиционирование для них\n\nдобавлен вариант `separator` для отображения делений делений на шкале",
+                        "link": "https://github.com/salute-developers/plasma/pull/2982",
+                        "id": 2982
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker, TimePicker",
+                "children": [
+                    {
+                        "text": "исправлен проброс `ref` с `Root` на `input`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2986",
+                        "id": 2986
+                    }
+                ]
+            },
+            {
+                "component": "Popover, Tooltip (beta)",
+                "children": [
+                    {
+                        "text": "добавлен отступ от края всплывающего окна при позиционировании с alignment",
+                        "link": "https://github.com/salute-developers/plasma/pull/2996",
+                        "id": 2996
+                    },
+                    {
+                        "text": "добавлена возможность конфигурации tail",
+                        "link": "https://github.com/salute-developers/plasma/pull/3000",
+                        "id": 3000
+                    }
+                ]
+            },
+            {
+                "component": "CodeField",
+                "children": [
+                    {
+                        "text": "добавлен размер `xl`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2998",
+                        "id": 2998
+                    }
+                ]
+            },
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "исправлено значение `z-index` для `requiredIndicator`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3006",
+                        "id": 3006
+                    }
+                ]
+            }
+        ],
+        "lib": [
+            {
+                "component": "Chip",
+                "children": [
+                    {
+                        "text": "добавлено свойство `pin`, которое позволяет задавать различные скругления на каждый угол",
+                        "link": "https://github.com/salute-developers/plasma/pull/2984",
+                        "id": 2984
+                    },
+                    {
+                        "text": "добавлены размеры `28xs` и `16xxs`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3010",
+                        "id": 3010
+                    }
+                ]
+            },
+            {
+                "component": "ChipGroup",
+                "children": [
+                    {
+                        "text": "добавлено свойство `shape`, для задания скруглений",
+                        "link": "https://github.com/salute-developers/plasma/pull/2984",
+                        "id": 2984
+                    }
+                ]
+            },
+            {
+                "component": "Select, Combobox",
+                "children": [
+                    {
+                        "text": "конфиги для chipView приведены в соответствие с макетами;",
+                        "link": "https://github.com/salute-developers/plasma/pull/2997",
+                        "id": 2997
+                    },
+                    {
+                        "text": "изменения согласно макетам и changelog от `02.06.2026`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2989",
+                        "id": 2989
+                    }
+                ]
+            },
+            {
+                "component": "DatePickerRange, Range",
+                "children": [
+                    {
+                        "text": "изменен цвет `divider` согласно макетам",
+                        "link": "https://github.com/salute-developers/plasma/pull/2988",
+                        "id": 2988
+                    }
+                ]
+            }
+        ]
+    },
     "0.349.0": {
         "date": "2026-07-22",
         "core": [

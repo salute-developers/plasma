@@ -30,7 +30,7 @@ export const StyledButton = styled(Button)`
     ${buttonTokens.buttonFontFamily}: var(${tokens.fontFamily});
     ${buttonTokens.buttonFontSize}: var(${tokens.fontSize});
     ${buttonTokens.buttonFontStyle}: var(${tokens.fontStyle});
-    ${buttonTokens.buttonFontWeight}: 600;
+    ${buttonTokens.buttonFontWeight}: var(${tokens.fontWeight});
     ${buttonTokens.buttonLetterSpacing}: var(${tokens.fontLetterSpacing});
     ${buttonTokens.buttonLineHeight}: var(${tokens.fontLineHeight});
     margin: var(${tokens.buttonMargin});

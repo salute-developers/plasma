@@ -34,7 +34,7 @@ runs:
           npm i --silent ${{ env.OPTIONS }}
         command: |
           npm install --silent ${{ env.OPTIONS }}
-
+      
     - name: Root deps don't update correctly on first regeneration
       shell: bash
       run: |

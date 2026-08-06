@@ -242,8 +242,8 @@
   --surface-negative-active: #ED0C23FF;
   --surface-info-hover: #209CEEFF;
   --surface-info-active: #0F81CCFF;
-  --surface-positive-minor-hover: #94F9A7FF;
-  --surface-positive-minor-active: #8BF99FFF;
+  --surface-positive-minor-hover: #D8F3DDFF;
+  --surface-positive-minor-active: #D5F1DAFF;
   --surface-warning-minor-hover: #FEDCC8FF;
   --surface-warning-minor-active: #FED9C3FF;
   --surface-negative-minor-hover: #FFD6DAFF;
@@ -260,7 +260,6 @@
   --surface-transparent-info-active: #118CDF33;
   --surface-accent-minor: #9EFAAF;
   --surface-info: #118CDF;
-  --surface-positive-minor: #9EFAAF;
   --surface-warning-minor: #FEE2D2;
   --surface-negative-minor: #FFE0E3;
   --surface-info-minor: #CFECFF;
@@ -284,6 +283,7 @@
   --surface-accent-extra: #080808;
   --surface-accent-extra-hover: #262626FF;
   --surface-accent-extra-active: #030303FF;
+  --surface-positive-minor: #E0F5E4FF;
   --on-dark-surface-solid-primary-hover: #1C1C1CFF;
   --on-dark-surface-solid-primary-active: #121212FF;
   --on-dark-surface-solid-primary: #171717;
@@ -294,9 +294,9 @@
   --on-dark-surface-solid-tertiary-hover: #404040FF;
   --on-dark-surface-solid-tertiary-active: #303030FF;
   --on-dark-surface-solid-tertiary: #363636;
-  --on-dark-surface-solid-card-hover: #0D0D0DFF;
-  --on-dark-surface-solid-card-active: #030303FF;
-  --on-dark-surface-solid-card-brightness: #171717FF;
+  --on-dark-surface-solid-card-hover: #1C1C1CFF;
+  --on-dark-surface-solid-card-active: #121212FF;
+  --on-dark-surface-solid-card-brightness: #262626FF;
   --on-dark-surface-solid-default-hover: #FFFFFFFF;
   --on-dark-surface-solid-default-active: #F5F5F5FF;
   --on-dark-surface-solid-default: #F9F9F9;
@@ -370,10 +370,10 @@
   --on-dark-surface-transparent-negative-minor: #FA5F050D;
   --on-dark-surface-transparent-negative-minor-hover: #FA5F051C;
   --on-dark-surface-transparent-negative-minor-active: #FA5F0508;
-  --on-dark-surface-solid-card: #080808;
   --on-dark-surface-accent-extra: #1A9E32;
   --on-dark-surface-accent-extra-hover: #1DAF37FF;
   --on-dark-surface-accent-extra-active: #18952FFF;
+  --on-dark-surface-solid-card: #171717;
   --on-light-surface-solid-primary-hover: #F2F2F2FF;
   --on-light-surface-solid-primary-active: #F0F0F0FF;
   --on-light-surface-solid-primary: #F5F5F5;
@@ -427,8 +427,8 @@
   --on-light-surface-negative-active: #ED0C23FF;
   --on-light-surface-info-hover: #209CEEFF;
   --on-light-surface-info-active: #0F81CCFF;
-  --on-light-surface-positive-minor-hover: #94F9A7FF;
-  --on-light-surface-positive-minor-active: #8BF99FFF;
+  --on-light-surface-positive-minor-hover: #D8F3DDFF;
+  --on-light-surface-positive-minor-active: #D5F1DAFF;
   --on-light-surface-warning-minor-hover: #FEDCC8FF;
   --on-light-surface-warning-minor-active: #FED9C3FF;
   --on-light-surface-negative-minor-hover: #FFD6DAFF;
@@ -447,7 +447,6 @@
   --on-light-surface-transparent-accent: #1A9E321F;
   --on-light-surface-info: #118CDF;
   --on-light-surface-warning-minor: #FEE2D2;
-  --on-light-surface-positive-minor: #9EFAAF;
   --on-light-surface-info-minor: #CFECFF;
   --on-light-surface-negative-minor: #FFE0E3;
   --on-light-surface-transparent-warning: #FA5F051F;
@@ -467,6 +466,7 @@
   --on-light-surface-accent-extra: #080808;
   --on-light-surface-accent-extra-hover: #262626FF;
   --on-light-surface-accent-extra-active: #030303FF;
+  --on-light-surface-positive-minor: #E0F5E4FF;
   --inverse-surface-solid-primary-hover: #1C1C1CFF;
   --inverse-surface-solid-primary-active: #121212FF;
   --inverse-surface-solid-primary: #171717;

@@ -1,4 +1,9 @@
 export const defaultCharacterWidth = '1ch';
+/**
+ * Запас под каретку: в Safari каретка занимает реальное место в контенте,
+ * и без запаса первый символ обрезается при фокусе (ширина инпута точно равна ширине текста).
+ */
+export const caretWidthOffset = 2;
 export const numberSchema = /^(-)?\d+(\.\d+)?$/;
 export const excludingNumberSchema = /[^-.\d]/g;
 

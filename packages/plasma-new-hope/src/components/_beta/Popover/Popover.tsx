@@ -9,7 +9,6 @@ import {
     useDismiss,
     useRole,
     FloatingFocusManager,
-    FloatingArrow,
     arrow,
     offset,
     useHover,
@@ -26,9 +25,9 @@ import { IconClose } from '../../_Icon';
 import { Resizable } from '../../_Resizable';
 import { Slot } from '../../_Slot/Slot';
 
-import { sizeToIconSize, matchPlacements, getFloatingPortalProps } from './utils';
-import { tokens, classes } from './Popover.tokens';
-import { base, CloseButton, Wrapper } from './Popover.styles';
+import { sizeToIconSize, matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
+import { classes } from './Popover.tokens';
+import { base, CloseButton, Wrapper, Tail } from './Popover.styles';
 import type { PopoverProps } from './Popover.types';
 
 /* Ширина хвостика */
@@ -76,7 +75,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
 
             const opened = outerOpened ?? innerOpened;
 
-            const arrowRef = useRef(null);
+            const arrowRef = useRef<HTMLDivElement | null>(null);
 
             const handleToggle = (opened: boolean) => {
                 setInnerOpened(opened);
@@ -86,7 +85,14 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                 }
             };
 
-            const { refs, floatingStyles, context } = useFloating({
+            const {
+                refs,
+                floatingStyles,
+                context,
+                middlewareData,
+                placement: calculatedPlacement,
+                isPositioned,
+            } = useFloating({
                 whileElementsMounted: autoUpdate,
                 placement,
                 open: opened,
@@ -98,7 +104,20 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                         }),
                     outsideFlip && flip(),
                     hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
-                    offset((hasTail ? ARROW_HEIGHT : 0) + outerOffset),
+                    offset(
+                        ({ placement: currentPlacement }) => {
+                            if (!hasTail) {
+                                return outerOffset;
+                            }
+
+                            const side = currentPlacement.split('-')[0];
+                            const { width = 0, height = 0 } = arrowRef.current?.getBoundingClientRect() ?? {};
+                            const tailOffset = side === 'top' || side === 'bottom' ? height : width;
+
+                            return tailOffset + outerOffset;
+                        },
+                        [outerOffset, hasTail],
+                    ),
                 ],
             });
 
@@ -125,6 +144,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
 
             const { getReferenceProps, getFloatingProps } = useInteractions([dismiss, role, click, hover, focus]);
 
+            const { side, tailStyle } = useTailStyle(calculatedPlacement, middlewareData, ARROW_PADDING);
+
             return (
                 <>
                     <Slot ref={refs.setReference} {...getReferenceProps()}>
@@ -138,7 +159,11 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                                     ref={refs.setFloating}
                                     size={size}
                                     view={view}
-                                    style={{ ...floatingStyles, zIndex }}
+                                    style={{
+                                        ...floatingStyles,
+                                        zIndex,
+                                        visibility: isPositioned ? 'visible' : 'hidden',
+                                    }}
                                     {...getFloatingProps()}
                                 >
                                     <Resizable
@@ -155,14 +180,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                                             {...rest}
                                         >
                                             {hasTail && (
-                                                <FloatingArrow
-                                                    ref={arrowRef}
-                                                    context={context}
-                                                    width={ARROW_WIDTH}
-                                                    height={ARROW_HEIGHT}
-                                                    fill={`var(${tokens.backgroundColor})`}
-                                                    d={ARROW_POLYGON}
-                                                />
+                                                <Tail ref={arrowRef} side={side} style={tailStyle} aria-hidden="true" />
                                             )}
 
                                             {children}

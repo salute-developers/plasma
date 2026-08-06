@@ -43,6 +43,7 @@ export * from './components/TimePicker';
 // Data entry (inputs)
 export * from './components/Range';
 export * from './components/NumberInput';
+export * from './components/NumberFormat';
 export * from './components/TextArea';
 export * from './components/TextField';
 export * from './components/TextFieldGroup';

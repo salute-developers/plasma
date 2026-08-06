@@ -140,6 +140,7 @@ export const tokens = {
     titleCaptionLineHeight: '--plasma-date-picker-title-caption-line-height',
     /** Токены контейнера календаря */
     popoverShadow: '--plasma-date-picker-popover-shadow',
+    rangeShadow: '--plasma-date-picker-range-shadow',
     popoverGap: '--plasma-date-picker-popover-gap',
     popoverBorderRadius: '--plasma-date-picker-popover-border-radius',
     popoverPadding: '--plasma-date-picker-popover-padding',

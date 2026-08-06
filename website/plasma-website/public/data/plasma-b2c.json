@@ -1,4 +1,110 @@
 {
+    "1.628.0": {
+        "date": "2026-08-05",
+        "core": [
+            {
+                "component": "TextField",
+                "children": [
+                    {
+                        "text": "добавлен раздел с `hintTargetPlacement` в раздел документации по подсказкам",
+                        "link": "https://github.com/salute-developers/plasma/pull/2994",
+                        "id": 2994
+                    }
+                ]
+            },
+            {
+                "component": "Tabs",
+                "children": [
+                    {
+                        "text": "добавлен пример с Dropdown и перемещением выбранного элемента в видимую область",
+                        "link": "https://github.com/salute-developers/plasma/pull/2999",
+                        "id": 2999
+                    },
+                    {
+                        "text": "добавлен `dividerAlign`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2992",
+                        "id": 2992
+                    }
+                ]
+            },
+            {
+                "component": "TextField-like",
+                "children": [
+                    {
+                        "text": "исправлен `disabled`-режим",
+                        "link": "https://github.com/salute-developers/plasma/pull/2975",
+                        "id": 2975
+                    }
+                ]
+            },
+            {
+                "component": "NumberInput",
+                "children": [
+                    {
+                        "text": "добавлен компенсационный отступ 2 пикселя для Safari",
+                        "link": "https://github.com/salute-developers/plasma/pull/2985",
+                        "id": 2985
+                    }
+                ]
+            },
+            {
+                "component": "Slider",
+                "children": [
+                    {
+                        "text": "добавлена возможность задать кастомные подписи и указать позиционирование для них\n\nдобавлен вариант `separator` для отображения делений делений на шкале",
+                        "link": "https://github.com/salute-developers/plasma/pull/2982",
+                        "id": 2982
+                    }
+                ]
+            },
+            {
+                "component": "DatePicker, TimePicker",
+                "children": [
+                    {
+                        "text": "исправлен проброс `ref` с `Root` на `input`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2986",
+                        "id": 2986
+                    }
+                ]
+            },
+            {
+                "component": "Popover, Tooltip (beta)",
+                "children": [
+                    {
+                        "text": "добавлен отступ от края всплывающего окна при позиционировании с alignment",
+                        "link": "https://github.com/salute-developers/plasma/pull/2996",
+                        "id": 2996
+                    },
+                    {
+                        "text": "добавлена возможность конфигурации tail",
+                        "link": "https://github.com/salute-developers/plasma/pull/3000",
+                        "id": 3000
+                    }
+                ]
+            },
+            {
+                "component": "CodeField",
+                "children": [
+                    {
+                        "text": "добавлен размер `xl`",
+                        "link": "https://github.com/salute-developers/plasma/pull/2998",
+                        "id": 2998
+                    }
+                ]
+            },
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "исправлено значение `z-index` для `requiredIndicator`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3006",
+                        "id": 3006
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
     "1.626.0": {
         "date": "2026-07-22",
         "core": [

@@ -8,8 +8,8 @@
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/salute-developers/pashka.git",
-    "directory": "packages/plasma-tokens-utils"
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "utils/plasma-tokens-utils"
   },
   "scripts": {
     "prepare": "npm run build",
@@ -39,7 +39,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "lib"
-  ]
+  "files": ["lib"]
 }

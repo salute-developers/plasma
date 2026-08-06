@@ -4,6 +4,11 @@
   "description": "",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/plasma-tokens-b2c"
+  },
   "module": "es/index.js",
   "main": "index.js",
   "types": "index.d.ts",
@@ -52,10 +57,6 @@
     "sizes.js.map",
     "theme.json"
   ],
-  "contributors": [
-    "Vasiliy Loginevskiy",
-    "Anton Vinogradov",
-    "Fanil Zubairov"
-  ],
+  "contributors": ["Vasiliy Loginevskiy", "Anton Vinogradov", "Fanil Zubairov"],
   "sideEffects": false
 }

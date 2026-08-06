@@ -229,6 +229,32 @@ export function App() {
 }
 ```
 
+Когда `label` отсутствует или задан `labelPlacement="inner"`, иконка подсказки по умолчанию (`hintTargetPlacement="outer"`) отображается снаружи поля.
+Чтобы расположить иконку внутри поля, используйте `hintTargetPlacement="inner"`:
+
+```tsx live
+import React from 'react';
+import { TextField } from '@salutejs/plasma-b2c';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+            <TextField
+                labelPlacement="inner"
+                placeholder="Введите значение"
+                hintText="hintTargetPlacement по умолчанию (outer)"
+            />
+            <TextField
+                labelPlacement="inner"
+                placeholder="Введите значение"
+                hintText="hintTargetPlacement=inner"
+                hintTargetPlacement="inner"
+            />
+        </div>
+    );
+}
+```
+
 ### Обязательность поля
 
 :::tip

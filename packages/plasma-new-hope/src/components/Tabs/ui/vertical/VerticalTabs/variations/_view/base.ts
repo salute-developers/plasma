@@ -16,6 +16,13 @@ export const base = css`
         border-radius: var(${tokens.tabsDividerBorderRadius});
     }
 
+    &.${classes.dividerAlignRight} {
+        &::after {
+            left: unset;
+            right: 0;
+        }
+    }
+
     &.${classes.tabsHasTopArrow} {
         &::after {
             top: 1.5rem;

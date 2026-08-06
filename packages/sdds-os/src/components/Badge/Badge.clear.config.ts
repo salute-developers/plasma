@@ -25,10 +25,10 @@ export const config = {
                 ${badgeTokens.color}: var(--text-negative);
             `,
             dark: css`
-                ${badgeTokens.color}: var(--on-light-text-primary);
+                ${badgeTokens.color}: var(--on-dark-text-tertiary);
             `,
             light: css`
-                ${badgeTokens.color}: var(--on-dark-text-primary);
+                ${badgeTokens.color}: var(--on-dark-text-tertiary);
             `,
         },
         size: {

@@ -94,6 +94,30 @@ export const StyledProgress = styled.div`
     }
 `;
 
+export const TrackSegment = styled.div`
+    position: absolute;
+    top: 50%;
+    right: auto;
+    transform: translateY(-50%);
+    height: var(${tokens.railThickness});
+    border-radius: var(${tokens.trackSegmentBorderRadius});
+    background-color: var(${tokens.railBackgroundColor});
+    pointer-events: none;
+
+    .${classes.verticalOrientation} & {
+        top: auto;
+        bottom: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: var(${tokens.railThickness});
+        height: auto;
+    }
+`;
+
+export const ProgressSegment = styled(TrackSegment)`
+    background-color: var(${tokens.fillColor});
+`;
+
 export const StyledCurrentValue = styled.span`
     position: absolute;
     top: var(${tokens.currentValueTopOffset});
@@ -158,12 +182,7 @@ export const StyledCurrentValue = styled.span`
     }
 `;
 
-export const ScaleTick = styled.div<{
-    tickValue: number;
-    isVertical?: boolean;
-    sliderAlign?: 'center' | 'left' | 'right' | 'none';
-    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
-}>`
+export const ScaleTick = styled.div`
     position: absolute;
     width: 0;
     overflow: visible;
@@ -173,41 +192,78 @@ export const ScaleTick = styled.div<{
     font-weight: var(${tokens.valueFontWeight});
     letter-spacing: var(${tokens.valueLetterSpacing});
     line-height: var(${tokens.valueLineHeight});
+`;
 
-    &:before {
-        content: ${({ tickValue }) => `"${tickValue}"`};
-        position: absolute;
-        top: ${({ isVertical, scaleAlign }) => {
-            if (isVertical) return '50%';
-            if (scaleAlign === 'top') return 'auto';
+export const ScaleTickLabel = styled.span<{
+    isVertical?: boolean;
+    sliderAlign?: 'center' | 'left' | 'right' | 'none';
+    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
+    labelAlign?: 'start' | 'center' | 'end';
+}>`
+    position: absolute;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(${tokens.rangeValueColor});
+
+    top: ${({ isVertical, scaleAlign }) => {
+        if (isVertical) {
+            return '50%';
+        }
+
+        if (scaleAlign === 'top') {
+            return 'auto';
+        }
+
+        return '0';
+    }};
+
+    bottom: ${({ isVertical, scaleAlign }) => {
+        if (!isVertical && scaleAlign === 'top') {
             return '0';
-        }};
-        bottom: ${({ isVertical, scaleAlign }) => {
-            if (!isVertical && scaleAlign === 'top') return '0';
-            return 'unset';
-        }};
-        left: ${({ isVertical, sliderAlign }) => {
-            if (isVertical) {
-                if (sliderAlign === 'right') {
-                    return 'unset';
-                }
+        }
 
-                return '0';
-            }
+        return 'unset';
+    }};
+
+    left: ${({ isVertical, sliderAlign }) => {
+        if (isVertical && sliderAlign === 'right') {
+            return 'unset';
+        }
+
+        return '0';
+    }};
+
+    right: ${({ isVertical, sliderAlign }) => {
+        if (isVertical && sliderAlign === 'right') {
             return '0';
-        }};
-        right: ${({ isVertical, sliderAlign }) => {
-            if (isVertical && sliderAlign === 'right') {
-                return '0';
+        }
+
+        return 'unset';
+    }};
+
+    transform: ${({ isVertical, labelAlign = 'center' }) => {
+        if (isVertical) {
+            if (labelAlign === 'start') {
+                return `translateY(calc(var(${tokens.tickSize}) / -2))`;
             }
 
-            return 'unset';
-        }};
-        transform: ${({ isVertical }) => (isVertical ? 'translateY(-50%)' : 'translateX(-50%)')};
+            if (labelAlign === 'end') {
+                return `translateY(calc(-100% + var(${tokens.tickSize}) / 2))`;
+            }
 
-        color: var(${tokens.rangeValueColor});
-        cursor: pointer;
-    }
+            return 'translateY(-50%)';
+        }
+
+        if (labelAlign === 'start') {
+            return `translateX(calc(var(${tokens.tickSize}) / -2))`;
+        }
+
+        if (labelAlign === 'end') {
+            return `translateX(calc(-100% + var(${tokens.tickSize}) / 2))`;
+        }
+
+        return 'translateX(-50%)';
+    }};
 `;
 
 export const ScaleTickDot = styled.span<{
@@ -252,6 +308,54 @@ export const ScaleTickDot = styled.span<{
     background-color: ${({ filled }) => (filled ? `var(${tokens.tickDotFilledColor})` : `var(${tokens.tickDotColor})`)};
 `;
 
+export const TickSeparator = styled.span<{
+    filled?: boolean;
+    isVertical?: boolean;
+    scaleAlign?: 'top' | 'side' | 'bottom' | 'none';
+    sliderAlign?: 'center' | 'left' | 'right' | 'none';
+}>`
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+
+    top: ${({ isVertical, scaleAlign }) => {
+        if (isVertical) {
+            return '50%';
+        }
+
+        if (scaleAlign === 'top') {
+            return `calc(100% + var(${tokens.size}) / 2)`;
+        }
+
+        return `calc(var(${tokens.size}) / -2)`;
+    }};
+
+    left: ${({ isVertical, sliderAlign }) => {
+        if (isVertical) {
+            if (sliderAlign === 'right') {
+                return `calc(100% + var(${tokens.size}) / 2)`;
+            }
+
+            return `calc(var(${tokens.size}) / -2)`;
+        }
+
+        return '0';
+    }};
+
+    transform: translate(-50%, -50%);
+    display: block;
+    border-radius: var(${tokens.tickSeparatorBorderRadius});
+    width: var(${tokens.tickSeparatorWidth});
+    height: var(${tokens.tickSeparatorHeight});
+
+    .${classes.verticalOrientation} & {
+        width: var(${tokens.tickSeparatorHeight});
+        height: var(${tokens.tickSeparatorWidth});
+    }
+
+    background-color: ${({ filled }) => (filled ? `var(${tokens.tickDotFilledColor})` : `var(${tokens.tickDotColor})`)};
+`;
+
 export const ScaleTicksWrapper = styled.datalist<{ isVertical?: boolean; reversed?: boolean }>`
     position: relative;
     display: block;
@@ -287,7 +391,7 @@ export const SliderBaseWrapper = styled.div`
     flex: 1;
     position: relative;
 
-    &:has(${StyledRange}:disabled) ${ScaleTicksWrapper} ${ScaleTick}:before {
+    &:has(${StyledRange}:disabled) ${ScaleTicksWrapper} ${ScaleTickLabel} {
         cursor: not-allowed;
     }
 

@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import type { FC } from 'react';
 import cls from 'classnames';
 
-import { classes } from '../../Slider.tokens';
+import { classes, tokens } from '../../Slider.tokens';
 import { FormTypeNumber } from '../../../../types/FormType';
 import { useRangeHandlers } from '../../hooks/useRangeHandlers';
 import { getTickStyle } from '../../utils/getTickStyle';
 import { getSingleSliderLayout } from '../../utils/getSingleSliderLayout';
+import { getTrackSegments } from '../../utils/getTrackSegments';
 
 import type { SingleSliderProps } from './Single.types';
 import {
     Label,
     LabelContent,
     LabelWrapper,
+    ProgressSegment,
     ScaleTick,
     ScaleTickDot,
+    ScaleTickLabel,
     ScaleTicksWrapper,
     SingleWrapper,
     SliderBaseWrapper,
@@ -24,9 +27,18 @@ import {
     StyledRange,
     StyledRangeValue,
     StyledTrack,
+    TickSeparator,
+    TrackSegment,
 } from './Single.styles';
 
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
+
+const normalizeScaleTicks = (scaleTicks: SingleSliderProps['scaleTicks']) =>
+    scaleTicks?.map((tick) =>
+        typeof tick === 'number'
+            ? { value: tick, label: String(tick) }
+            : { ...tick, label: tick.label ?? String(tick.value) },
+    );
 
 export const SingleSlider: FC<SingleSliderProps> = ({
     // value
@@ -79,6 +91,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     // scale
     scaleTicks,
+    tickType = 'bullet',
 
     // остальные HTMLAttributes идут на SliderContainer
     ...rest
@@ -92,6 +105,20 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     const [dragValue, setDragValue] = useState(clampedDefaultValue ?? min);
 
     const value = clampedOuterValue ?? dragValue;
+
+    const normalizedScaleTicks = useMemo(() => normalizeScaleTicks(scaleTicks), [scaleTicks]);
+
+    const cutValues = useMemo(() => normalizedScaleTicks?.map(({ value: tickValue }) => tickValue) ?? [], [
+        normalizedScaleTicks,
+    ]);
+
+    const { trackSegments, progressSegments } = useMemo(
+        () =>
+            tickType === 'separator'
+                ? getTrackSegments({ min, max, value, cutValues, isVertical })
+                : { trackSegments: [], progressSegments: [] },
+        [tickType, min, max, value, cutValues, isVertical],
+    );
 
     // Округляем значение, если оно не кратно новому шагу
     useEffect(() => {
@@ -241,8 +268,21 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     })}
                     {...rest}
                 >
-                    <StyledTrack />
-                    <StyledProgress style={progressSizeStyle} />
+                    {tickType === 'separator' ? (
+                        <>
+                            {trackSegments.map((segmentStyle, index) => (
+                                <TrackSegment key={`track-segment-${index}`} style={segmentStyle} />
+                            ))}
+                            {progressSegments.map((segmentStyle, index) => (
+                                <ProgressSegment key={`progress-segment-${index}`} style={segmentStyle} />
+                            ))}
+                        </>
+                    ) : (
+                        <>
+                            <StyledTrack />
+                            <StyledProgress style={progressSizeStyle} />
+                        </>
+                    )}
 
                     <StyledRange
                         type="range"
@@ -288,28 +328,45 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     </StyledRangeValue>
                 )}
 
-                {scaleTicks && (
+                {normalizedScaleTicks && (
                     <ScaleTicksWrapper isVertical={isVertical} reversed={reversed}>
-                        {scaleTicks.map((tick) => {
-                            const tickStyle = getTickStyle({ tick, min, max, isVertical, reversed: reversed ?? false });
+                        {normalizedScaleTicks.map(({ value: tickValue, label: tickLabel, labelAlign }) => {
+                            const tickStyle = getTickStyle({
+                                tick: tickValue,
+                                min,
+                                max,
+                                isVertical,
+                                reversed: reversed ?? false,
+                                edgeOffset: tickType === 'separator' ? `var(${tokens.tickSeparatorWidth})` : undefined,
+                            });
 
                             return (
-                                <ScaleTick
-                                    key={tick}
-                                    tickValue={tick}
-                                    isVertical={isVertical}
-                                    sliderAlign={sliderAlign}
-                                    scaleAlign={scaleAlign}
-                                    style={tickStyle}
-                                    onClick={() => handleTickClick(tick)}
-                                >
-                                    <ScaleTickDot
+                                <ScaleTick key={tickValue} style={tickStyle} onClick={() => handleTickClick(tickValue)}>
+                                    <ScaleTickLabel
                                         isVertical={isVertical}
-                                        filled={tick <= value}
-                                        reversed={reversed}
-                                        scaleAlign={scaleAlign}
                                         sliderAlign={sliderAlign}
-                                    />
+                                        scaleAlign={scaleAlign}
+                                        labelAlign={labelAlign}
+                                    >
+                                        {tickLabel}
+                                    </ScaleTickLabel>
+                                    {tickType === 'bullet' && (
+                                        <ScaleTickDot
+                                            isVertical={isVertical}
+                                            filled={tickValue <= value}
+                                            reversed={reversed}
+                                            scaleAlign={scaleAlign}
+                                            sliderAlign={sliderAlign}
+                                        />
+                                    )}
+                                    {tickType === 'separator' && (
+                                        <TickSeparator
+                                            isVertical={isVertical}
+                                            filled={tickValue <= value}
+                                            scaleAlign={scaleAlign}
+                                            sliderAlign={sliderAlign}
+                                        />
+                                    )}
                                 </ScaleTick>
                             );
                         })}

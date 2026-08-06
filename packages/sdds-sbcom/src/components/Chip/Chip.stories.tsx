@@ -11,10 +11,7 @@ type ChipProps = ComponentProps<typeof Chip>;
 const { meta: META, Default } = getChipStories({
     component: Chip,
     componentConfig: config,
-    defaultArgs: {
-        ...config.defaults,
-    },
-    disablePropsList: ['appearance'],
+    disablePropsList: ['appearance', 'pin'],
 });
 
 const meta: Meta<ChipProps> = {

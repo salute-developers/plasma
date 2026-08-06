@@ -4,6 +4,11 @@
   "description": "Core-themes package",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/themes/core-themes"
+  },
   "module": "build/esm/index.js",
   "main": "build/cjs/index.js",
   "types": "build/cjs/index.d.ts",
@@ -18,19 +23,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "build"
-  ],
+  "files": ["build"],
   "devDependencies": {
     "@salutejs/plasma-tokens-utils": "0.54.0-next-sbcom.0",
     "@types/node": "16.7.13",
     "jszip": "3.10.1",
     "ts-node": "10.2.1"
   },
-  "contributors": [
-    "Виноградов Антон Александрович",
-    "Неретин Артём Андреевич",
-    "Vasiliy Loginevskiy"
-  ],
+  "contributors": ["Виноградов Антон Александрович", "Неретин Артём Андреевич", "Vasiliy Loginevskiy"],
   "sideEffects": false
 }

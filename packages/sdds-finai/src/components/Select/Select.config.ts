@@ -54,6 +54,7 @@ import {
     surfacePositiveHover,
     surfaceSolidCard,
     surfaceSolidDefault,
+    surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
     surfaceTransparentCard,
     surfaceTransparentNegative,
@@ -84,7 +85,7 @@ export const config = {
         view: 'default',
         size: 's',
         labelPlacement: 'outer',
-        chipView: 'default',
+        chipView: 'secondary',
         hintView: 'default',
         hintSize: 'm',
     },
@@ -773,13 +774,15 @@ export const config = {
         },
         chipView: {
             default: css`
-                ${tokens.textFieldChipColor}: ${textPrimary};
-                ${tokens.textFieldChipColorHover}: ${textPrimary};
-                ${tokens.textFieldChipBackground}: ${surfaceTransparentSecondary};
+                ${tokens.textFieldChipColor}: ${inverseTextPrimary};
+                ${tokens.textFieldChipColorHover}: ${inverseTextPrimary};
+                ${tokens.textFieldChipColorActive}: ${inverseTextPrimary};
+                ${tokens.textFieldChipBackground}: ${surfaceSolidDefault};
                 ${tokens.textFieldChipBackgroundHover}: ${surfaceSolidDefaultHover};
-                ${tokens.textFieldChipCloseIconColor}: ${textSecondary};
-                ${tokens.textFieldChipCloseIconColorReadonly}: ${textSecondary};
-                ${tokens.textFieldChipCloseIconColorHover}: ${textSecondaryHover};
+                ${tokens.textFieldChipBackgroundActive}: ${surfaceSolidDefaultActive};
+                ${tokens.textFieldChipCloseIconColor}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${inverseTextSecondary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${inverseTextSecondaryHover};
 
                 ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceSolidDefault};
                 ${tokens.textFieldChipColorReadOnly}: ${inverseTextPrimary};
@@ -789,12 +792,14 @@ export const config = {
             `,
             secondary: css`
                 ${tokens.textFieldChipColor}: ${textPrimary};
-                ${tokens.textFieldChipColorHover}: ${textPrimary};
+                ${tokens.textFieldChipColorHover}: ${textPrimaryHover};
+                ${tokens.textFieldChipColorActive}: ${textPrimaryActive};
                 ${tokens.textFieldChipBackground}: ${surfaceTransparentSecondary};
                 ${tokens.textFieldChipBackgroundHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.textFieldChipCloseIconColor}: ${textSecondary};
-                ${tokens.textFieldChipCloseIconColorHover}: ${textSecondaryHover};
-                ${tokens.textFieldChipCloseIconColorReadonly}: ${textSecondary};
+                ${tokens.textFieldChipBackgroundActive}: ${surfaceTransparentSecondaryActive};
+                ${tokens.textFieldChipCloseIconColor}: ${textTertiary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${textTertiary};
+                ${tokens.textFieldChipCloseIconColorReadonly}: ${textTertiary};
 
                 ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceTransparentSecondary};
                 ${tokens.textFieldChipColorReadOnly}: ${textPrimary};
@@ -805,11 +810,13 @@ export const config = {
             accent: css`
                 ${tokens.textFieldChipColor}: ${onDarkTextPrimary};
                 ${tokens.textFieldChipColorHover}: ${onDarkTextPrimary};
+                ${tokens.textFieldChipColorActive}: ${onDarkTextPrimary};
                 ${tokens.textFieldChipBackground}: ${surfaceAccent};
                 ${tokens.textFieldChipBackgroundHover}: ${surfaceAccentHover};
+                ${tokens.textFieldChipBackgroundActive}: ${surfaceAccentActive};
                 ${tokens.textFieldChipCloseIconColor}: ${onDarkTextSecondary};
                 ${tokens.textFieldChipCloseIconColorReadonly}: ${onDarkTextSecondary};
-                ${tokens.textFieldChipCloseIconColorHover}: ${onDarkTextPrimary};
+                ${tokens.textFieldChipCloseIconColorHover}: ${onDarkTextSecondaryHover};
 
                 ${tokens.textFieldChipBackgroundReadOnly}: ${surfaceAccent};
                 ${tokens.textFieldChipColorReadOnly}: ${onDarkTextPrimary};
@@ -878,6 +885,8 @@ export const config = {
         },
         disabled: {
             true: css`
+                ${tokens.textFieldColor}: ${textSecondary};
+                ${tokens.textFieldChipColor}: ${onDarkTextSecondary};
                 ${tokens.textFieldDisabledOpacity}: 1;
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentSecondary};
                 ${tokens.textFieldBorderColor}: transparent;
@@ -903,4 +912,13 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            disabled: true,
+            chipView: 'secondary',
+            style: css`
+                ${tokens.textFieldChipColor}: ${textSecondary};
+            `,
+        },
+    ],
 };

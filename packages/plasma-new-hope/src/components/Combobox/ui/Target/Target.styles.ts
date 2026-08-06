@@ -210,4 +210,5 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 });
     ${textFieldTokens.clearIndicatorHintInnerRight}: var(${comboboxTokens.textFieldClearIndicatorHintInnerRight});
     ${textFieldTokens.boxShadow}: var(${comboboxTokens.textFieldBoxShadow});
+    ${textFieldTokens.boxShadowSecondary}: var(${comboboxTokens.textFieldBoxShadowSecondary});
 `;

@@ -3,6 +3,12 @@ export const classes = {
     chipItem: 'chip-item',
 };
 
+export const privateTokens = {
+    computedBorderRadius: '--plasma_computed-chip-br',
+    privateBorderRadius: '--plasma_private-chip-br',
+    privateOutlineSize: '--plasma_private-chip-outline-size',
+};
+
 export const tokens = {
     background: '--plasma-chip-background',
     color: '--plasma-chip-color',

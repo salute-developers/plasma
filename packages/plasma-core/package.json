@@ -7,6 +7,11 @@
     "access": "public"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/plasma-core"
+  },
   "main": "index.js",
   "module": "es/index.js",
   "types": "index.d.ts",
@@ -66,13 +71,9 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": [
-      "src/**/*component-test.tsx"
-    ],
+    "ignoreFiles": ["src/**/*component-test.tsx"],
     "atLeast": 99
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
+  "contributors": ["salute.developers@gmail.com"],
   "sideEffects": false
 }

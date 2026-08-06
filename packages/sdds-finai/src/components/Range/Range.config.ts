@@ -57,7 +57,7 @@ export const config = {
                 ${tokens.borderColorSuccess}: ${outlineTransparentPositive};
                 ${tokens.borderColorEdited}: ${outlineTransparentInfo};
 
-                ${tokens.dividerColor}: ${textPrimary};
+                ${tokens.dividerColor}: ${textSecondary};
                 ${tokens.labelColor}: ${textSecondary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};

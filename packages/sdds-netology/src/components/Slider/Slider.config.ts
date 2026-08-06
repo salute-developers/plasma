@@ -22,6 +22,7 @@ export const config = {
         view: 'default',
         size: 'm',
         pointerSize: 'small',
+        tickType: 'bullet',
     },
     variations: {
         view: {
@@ -132,11 +133,13 @@ export const config = {
                 ${sliderTokens.valueLineHeight}: ${bodyM.lineHeight};
 
                 ${sliderTokens.tickSize}: 0.5rem;
+                ${sliderTokens.tickSeparatorGap}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.625rem;
 
                 ${sliderTokens.railThickness}: 0.25rem;
                 ${sliderTokens.railBorderRadius}: 0.125rem;
+                ${sliderTokens.trackSegmentBorderRadius}: 1000px;
 
                 ${sliderTokens.textFieldWrapperGap}: 0.125rem;
 
@@ -180,11 +183,13 @@ export const config = {
                 ${sliderTokens.valueLineHeight}: ${bodyS.lineHeight};
 
                 ${sliderTokens.tickSize}: 0.5rem;
+                ${sliderTokens.tickSeparatorGap}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.75rem;
 
                 ${sliderTokens.railThickness}: 0.25rem;
                 ${sliderTokens.railBorderRadius}: 0.125rem;
+                ${sliderTokens.trackSegmentBorderRadius}: 1000px;
 
                 ${sliderTokens.textFieldWrapperGap}: 0.125rem;
 
@@ -228,11 +233,13 @@ export const config = {
                 ${sliderTokens.valueLineHeight}: ${bodyXS.lineHeight};
 
                 ${sliderTokens.tickSize}: 0.5rem;
+                ${sliderTokens.tickSeparatorGap}: 0.5rem;
 
                 ${sliderTokens.currentValueTopOffset}: 1.25rem;
 
                 ${sliderTokens.railThickness}: 0.25rem;
                 ${sliderTokens.railBorderRadius}: 0.125rem;
+                ${sliderTokens.trackSegmentBorderRadius}: 1000px;
 
                 ${sliderTokens.textFieldWrapperGap}: 0.125rem;
 
@@ -252,14 +259,26 @@ export const config = {
                 ${sliderTokens.thumbSize}: 1rem;
                 ${sliderTokens.thumbBorderStyle}: solid;
                 ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+
+                ${sliderTokens.tickSeparatorWidth}: 0.25rem;
+                ${sliderTokens.tickSeparatorHeight}: 0.5rem;
+                ${sliderTokens.tickSeparatorBorderRadius}: 0.25rem;
             `,
             large: css`
                 ${sliderTokens.thumbSize}: 1.25rem;
                 ${sliderTokens.thumbBorderStyle}: solid;
                 ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+
+                ${sliderTokens.tickSeparatorWidth}: 0.25rem;
+                ${sliderTokens.tickSeparatorHeight}: 1rem;
+                ${sliderTokens.tickSeparatorBorderRadius}: 0.25rem;
             `,
             none: css`
                 ${sliderTokens.thumbSize}: 0rem;
+
+                ${sliderTokens.tickSeparatorWidth}: 0.25rem;
+                ${sliderTokens.tickSeparatorHeight}: 0.5rem;
+                ${sliderTokens.tickSeparatorBorderRadius}: 0.25rem;
             `,
         },
         disabled: {
