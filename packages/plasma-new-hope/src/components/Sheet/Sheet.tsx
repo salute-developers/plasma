@@ -45,6 +45,9 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 withTransition = true,
                 hasScrollEvents = true,
                 throttleMs,
+                snapPoints,
+                defaultSnapPoint,
+                onSnapPointChange,
                 className,
                 view,
                 ...restProps
@@ -55,9 +58,23 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             const contentRef = useRef<HTMLDivElement>(null);
             const handleRef = useRef<HTMLDivElement>(null);
 
+            const hasSnapPoints = Boolean(snapPoints && snapPoints.length > 0);
+
             useOverflow({ opened });
-            useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, hasScrollEvents, onClose });
+            useSheetSwipe({
+                contentWrapperRef,
+                contentRef,
+                handleRef,
+                throttleMs,
+                hasScrollEvents,
+                onClose,
+                opened,
+                snapPoints,
+                defaultSnapPoint,
+                onSnapPointChange,
+            });
             useEscKeyDown({ opened, closeOnEsc, onEscKeyDown, onClose });
+
 
             const hasHeader = Boolean(contentHeader);
             const hasFooter = Boolean(contentFooter);
@@ -82,12 +99,18 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                     <StyledContentWrapper
                         opened={opened}
                         withTransition={withTransition}
+                        hasSnapPoints={hasSnapPoints}
                         className={cx(closedClass, className)}
                         ref={contentWrapperRef}
                         {...restProps}
                     >
                         {hasHandle && <StyledSheetHandle ref={handleRef} />}
-                        <StyledSheetContent hasHeader={hasHeader} hasFooter={hasFooter} ref={contentRef}>
+                        <StyledSheetContent
+                            hasHeader={hasHeader}
+                            hasFooter={hasFooter}
+                            hasSnapPoints={hasSnapPoints}
+                            ref={contentRef}
+                        >
                             {hasHeader && (
                                 <StyledSheetHeader isHeaderFixed={isHeaderFixed}>{contentHeader}</StyledSheetHeader>
                             )}

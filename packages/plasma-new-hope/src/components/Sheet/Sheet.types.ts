@@ -1,5 +1,7 @@
 import type { ReactNode, HTMLAttributes } from 'react';
 
+export type SheetSnapPoint = number | string;
+
 export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Состояние шторки, открыта или скрыта
@@ -99,6 +101,25 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
      * true
      */
     hasScrollEvents?: boolean;
+
+    /**
+     * Точки остановки шторки.
+     * Числа в диапазоне `0..1` — доля высоты viewport, строки — CSS-размеры (`'320px'`, `'50%'`, `'40dvh'`).
+     * Если не передано или массив пуст — snap-points отключены.
+     */
+    snapPoints?: SheetSnapPoint[];
+
+    /**
+     * Начальная точка остановки.
+     * По умолчанию — первая из `snapPoints`.
+     */
+    defaultSnapPoint?: SheetSnapPoint;
+
+    /**
+     * Обработчик смены активной точки остановки.
+     */
+    onSnapPointChange?: (snapPoint: SheetSnapPoint) => void;
+
     view?: string;
 }
 

@@ -370,3 +370,65 @@ export const WithDoubleScroll: StoryObj<StorySheetProps> = {
     },
     render: (args) => <StoryWithDoubleScroll {...args} />,
 };
+
+const SNAP_POINTS = [0.3, 0.6, 0.95];
+
+const StoryWithSnapPoints = ({
+    withOverlay,
+    withTransition,
+    storyHasFooter,
+    isFooterFixed,
+    storyHasHeader,
+    isHeaderFixed,
+    hasHandle,
+    withBlur,
+    handlePlacement,
+}: StorySheetProps) => {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+            <Sheet
+                opened={opened}
+                handlePlacement={handlePlacement}
+                withOverlay={withOverlay}
+                withTransition={withTransition}
+                onClose={() => setOpened(false)}
+                hasHandle={hasHandle}
+                withBlur={withBlur}
+                snapPoints={SNAP_POINTS}
+                defaultSnapPoint={SNAP_POINTS[0]}
+                contentHeader={
+                    storyHasHeader ? (
+                        <div>
+                            <h4>Snap points</h4>
+                        </div>
+                    ) : undefined
+                }
+                isHeaderFixed={isHeaderFixed}
+                contentFooter={
+                    storyHasFooter ? (
+                        <div>
+                            <p>footer</p>
+                        </div>
+                    ) : undefined
+                }
+                isFooterFixed={isFooterFixed}
+            >
+                <StyledBody>
+                    Потяните шторку вверх или вниз, чтобы перейти между точками остановки. Сильный свайп вниз закроет
+                    шторку.
+                </StyledBody>
+            </Sheet>
+        </>
+    );
+};
+
+export const WithSnapPoints: StoryObj<StorySheetProps> = {
+    args: {
+        storyHasHeader: true,
+        storyHasFooter: true,
+    },
+    render: (args) => <StoryWithSnapPoints {...args} />,
+};
