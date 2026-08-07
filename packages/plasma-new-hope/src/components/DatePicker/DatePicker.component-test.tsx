@@ -151,7 +151,7 @@ describeFn('DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('label, leftHelper, placeholder', () => {
+    it('label, leftHelper, placeholder, titleCaption', () => {
         mount(
             <>
                 <Demo label="Лейбл" leftHelper="Подсказка к полю" placeholder="Выберите дату" />
@@ -162,6 +162,7 @@ describeFn('DatePicker', () => {
                     leftHelper="Подсказка к полю"
                     placeholder="Выберите дату"
                     defaultDate={new Date(2023, 5, 14)}
+                    titleCaption="Подсказка к полю сверху справа"
                 />
             </>,
         );
@@ -717,7 +718,7 @@ describeFnRange('DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
-    it('label, leftHelper, placeholder', () => {
+    it('label, leftHelper, placeholder, titleCaption', () => {
         mount(
             <>
                 <Demo label="Лейбл" leftHelper="Подсказка к полю" placeholder="Выберите дату" />
@@ -725,6 +726,7 @@ describeFnRange('DatePickerRange', () => {
                 <Demo
                     id="demo"
                     label="Лейбл"
+                    titleCaption="Подсказка к полю сверху справа"
                     leftHelper="Подсказка к полю"
                     placeholder="Выберите дату"
                     defaultFirstDate={new Date(2023, 5, 14)}

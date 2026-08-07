@@ -141,6 +141,15 @@ export const tokens = {
     leftHelperLetterSpacing: '--plasma-date-time-picker__left-helper-letter-spacing',
     leftHelperLineHeight: '--plasma-date-time-picker__left-helper-line-height',
 
+    titleCaptionOffset: '--plasma-date-time-picker-title-caption-offset',
+    titleCaptionColor: '--plasma-date-time-picker-title-caption-color',
+    titleCaptionFontFamily: '--plasma-date-time-picker-title-caption-font-family',
+    titleCaptionFontStyle: '--plasma-date-time-picker-title-caption-font-style',
+    titleCaptionFontSize: '--plasma-date-time-picker-title-caption-font-size',
+    titleCaptionFontWeight: '--plasma-date-time-picker-title-caption-font-weight',
+    titleCaptionLetterSpacing: '--plasma-date-time-picker-title-caption-letter-spacing',
+    titleCaptionLineHeight: '--plasma-date-time-picker-title-caption-line-height',
+
     /** Токены контейнера календаря */
     popoverShadow: '--plasma-date-time-picker-popover-shadow',
     popoverGap: '--plasma-date-time-picker-popover-gap',

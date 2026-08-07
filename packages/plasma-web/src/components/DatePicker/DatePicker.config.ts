@@ -11,10 +11,10 @@ export const config = {
                 ${tokens.outlineFocusColor}: var(--surface-accent);
 
                 ${tokens.background}: var(--surface-clear);
-                ${tokens.borderColor}: var(--surface-transparent-tertiary);
+                ${tokens.borderColor}: var(--outline-transparent-primary);
                 ${tokens.borderColorError}: var(--surface-negative);
                 ${tokens.borderColorSuccess}: var(--surface-positive);
-                ${tokens.borderColorHover}: var(--text-secondary);
+                ${tokens.borderColorHover}: var(--outline-transparent-primary-hover);
                 ${tokens.borderColorFocus}: var(--surface-accent);
 
                 ${tokens.dividerColor}: var(--text-primary);

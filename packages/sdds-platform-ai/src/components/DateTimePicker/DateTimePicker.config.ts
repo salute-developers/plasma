@@ -76,6 +76,7 @@ export const config = {
                 ${tokens.textFieldBorderColorHover}: ${outlineTransparentPrimaryHover};
                 ${tokens.textFieldBorderColorFocus}: ${outlineSolidDefault};
 
+                ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
@@ -184,6 +185,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;

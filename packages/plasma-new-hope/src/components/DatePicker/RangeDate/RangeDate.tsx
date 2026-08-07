@@ -72,6 +72,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 requiredPlacement = 'right',
                 hasRequiredIndicator = false,
                 label,
+                titleCaption,
                 leftHelper,
                 contentLeft,
                 contentRight,
@@ -551,6 +552,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
                         label={label}
+                        titleCaption={titleCaption}
                         leftHelper={leftHelper}
                         required={required}
                         requiredIndicatorPlacement={requiredPlacement}

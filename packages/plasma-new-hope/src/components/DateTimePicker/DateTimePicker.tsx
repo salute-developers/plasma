@@ -81,6 +81,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 // input props
                 label,
                 labelPlacement = 'outer',
+                titleCaption,
                 keepPlaceholder,
                 requiredPlacement = 'right',
                 required = false,
@@ -248,6 +249,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 size={size}
                                 label={label}
                                 labelPlacement={labelPlacement}
+                                titleCaption={titleCaption}
                                 keepPlaceholder={keepPlaceholder}
                                 requiredPlacement={requiredPlacement}
                                 required={required}

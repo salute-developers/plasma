@@ -31,6 +31,7 @@ const commonArgs = {
     hasClearDivider: false,
     size: 'l',
     view: 'default',
+    titleCaption: 'Подсказка к полю сверху справа',
     label: 'Лейбл',
     leftHelper: 'Подсказка к полю',
     preserveInvalidOnBlur: false,

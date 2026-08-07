@@ -50,6 +50,7 @@ export const createMeta = ({
             appearance: 'default',
             hasClearDivider: false,
             label: 'Лейбл',
+            titleCaption: 'Подсказка к полю сверху справа',
             leftHelper: 'Подсказка к полю',
             placeholder: '30.05.2024 00:00:00',
             size: 'l',
@@ -133,6 +134,10 @@ export const createMeta = ({
                 table: { category: 'layout' },
             },
             label: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+            },
+            titleCaption: {
                 control: { type: 'text' },
                 table: { category: 'layout' },
             },
