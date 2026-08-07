@@ -18,12 +18,14 @@ export const config = {
                 ${segmentTokens.groupBackgroundColor}: transparent;
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
                 ${segmentTokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${segmentTokens.indicatorTransition}: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
             `,
             filled: css`
                 ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
                 ${segmentTokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${segmentTokens.indicatorTransition}: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
             `,
         },
         size: {
