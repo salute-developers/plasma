@@ -19,6 +19,7 @@ export const base = css`
     box-sizing: border-box;
     min-width: 0;
     white-space: nowrap;
+    z-index: 2;
 
     appearance: none;
     border: none;

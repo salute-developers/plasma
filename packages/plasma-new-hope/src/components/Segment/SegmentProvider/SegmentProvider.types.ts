@@ -36,4 +36,6 @@ export type SegmentContextType = {
     setHasDivider: Dispatch<SetStateAction<boolean>>;
     orientation: SegmentOrientation;
     setOrientation: Dispatch<SetStateAction<SegmentOrientation>>;
+    registerItemRef: (value: string, node: HTMLElement | null) => void;
+    getItemRef: (value: string) => HTMLElement | null | undefined;
 };

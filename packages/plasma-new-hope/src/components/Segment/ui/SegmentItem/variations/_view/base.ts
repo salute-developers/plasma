@@ -22,7 +22,6 @@ export const base = css`
 
     &.${classes.selectedSegmentItem} {
         color: var(${tokens.itemSelectedColor});
-        background-color: var(${tokens.itemSelectedBackgroundColor});
 
         ${RightContent} {
             color: var(${tokens.itemSelectedColor});
@@ -34,7 +33,6 @@ export const base = css`
 
         &:hover {
             color: var(${tokens.itemSelectedColorHover});
-            background-color: var(${tokens.itemSelectedBackgroundColorHover});
 
             ${RightContent} {
                 color: var(${tokens.itemSelectedColorHover});
@@ -42,6 +40,15 @@ export const base = css`
 
             ${RightContent}.${classes.segmentAdditionalText} {
                 color: var(${tokens.itemSelectedAdditionalColorHover});
+            }
+        }
+
+        /* фон в single-режиме рисует StyledThumb (SegmentGroup); здесь он нужен только для multiple */
+        &.${classes.segmentMultipleSelection} {
+            background-color: var(${tokens.itemSelectedBackgroundColor});
+
+            &:hover {
+                background-color: var(${tokens.itemSelectedBackgroundColorHover});
             }
         }
     }

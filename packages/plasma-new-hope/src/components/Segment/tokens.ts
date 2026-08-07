@@ -10,6 +10,16 @@ export const classes = {
     segmentXsSize: 'segment-xs-size',
     segmentAdditionalText: 'segment-additional-text',
     segmentTruncate: 'segment-truncate',
+    segmentMultipleSelection: 'segment-multiple-selection',
+};
+
+export const privateTokens = {
+    thumbX: '--plasma_private-segment-thumb-x',
+    thumbY: '--plasma_private-segment-thumb-y',
+    thumbWidth: '--plasma_private-segment-thumb-width',
+    thumbHeight: '--plasma_private-segment-thumb-height',
+    thumbOpacity: '--plasma_private-segment-thumb-opacity',
+    thumbBackground: '--plasma_private-segment-thumb-background',
 };
 
 export const tokens = {
@@ -60,6 +70,8 @@ export const tokens = {
     itemSelectedBackgroundColorHover: '--plasma-segment-item-selected-background-color-hover',
     itemSelectedAdditionalColor: '--plasma-segment-item-selected-additional-color',
     itemSelectedAdditionalColorHover: '--plasma-segment-item-selected-additional-color-hover',
+
+    indicatorTransition: '--plasma-segment-indicator-transition',
 
     disabledOpacity: '--plasma-segment-disabled-opacity',
 
