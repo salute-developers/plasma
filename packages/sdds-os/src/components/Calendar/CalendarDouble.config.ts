@@ -97,6 +97,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;
@@ -166,6 +167,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarDoubleTokens.calendarHeaderDateGap}: 0.25rem;

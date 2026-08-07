@@ -312,6 +312,7 @@ export const config = {
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
                 ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+                ${tokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 1rem;
                 ${tokens.calendarHeaderDateGap}: 0.5rem;
@@ -494,6 +495,7 @@ export const config = {
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0.5rem;
                 ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+                ${tokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 1rem;
                 ${tokens.calendarHeaderDateGap}: 0.5rem;
@@ -676,6 +678,7 @@ export const config = {
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0;
                 ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+                ${tokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
@@ -858,6 +861,7 @@ export const config = {
                 ${tokens.calendarHeaderWrapperPadding}: 0;
                 ${tokens.calendarHeaderArrowGap}: 0;
                 ${tokens.calendarHeaderArrowCustomSize}: 1.5rem;
+                ${tokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;
@@ -1063,8 +1067,9 @@ export const config = {
                 ${tokens.calendarCurrentItemBorderWidth}: 0.063rem;
 
                 ${tokens.calendarHeaderWrapperPadding}: 0;
-                ${tokens.calendarHeaderArrowGap}: 0.5rem;
-                ${tokens.calendarHeaderArrowCustomSize}: 1.25rem;
+                ${tokens.calendarHeaderArrowGap}: 0;
+                ${tokens.calendarHeaderArrowCustomSize}: 1rem;
+                ${tokens.calendarHeaderArrowSize}: 1rem;
 
                 ${tokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${tokens.calendarHeaderDateGap}: 0.25rem;

@@ -112,6 +112,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarEventItemBottom}: 0.5rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -184,6 +185,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarEventItemBottom}: 0.5rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -256,6 +258,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarEventItemBottom}: 0.375rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -328,6 +331,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarEventItemBottom}: 0.25rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1rem;
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -400,6 +404,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarEventItemBottom}: 0.25rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1rem;
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0;
                 ${calendarDoubleTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;

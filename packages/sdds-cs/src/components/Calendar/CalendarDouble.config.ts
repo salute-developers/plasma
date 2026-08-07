@@ -105,6 +105,7 @@ export const config = {
 
                 ${calendarDoubleTokens.calendarHeaderArrowGap}: 0.5rem;
                 ${calendarDoubleTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarDoubleTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.5rem 0 0 0;
                 ${calendarDoubleTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
