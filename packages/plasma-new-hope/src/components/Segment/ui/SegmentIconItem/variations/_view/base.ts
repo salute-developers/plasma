@@ -13,11 +13,18 @@ export const base = css`
 
     &.${classes.selectedSegmentItem} {
         color: var(${tokens.itemSelectedColor});
-        background-color: var(${tokens.itemSelectedBackgroundColor});
 
         &:hover {
             color: var(${tokens.itemSelectedColorHover});
-            background-color: var(${tokens.itemSelectedBackgroundColorHover});
+        }
+
+        /* фон в single-режиме рисует StyledThumb (SegmentGroup); здесь он нужен только для multiple */
+        &.${classes.segmentMultipleSelection} {
+            background-color: var(${tokens.itemSelectedBackgroundColor});
+
+            &:hover {
+                background-color: var(${tokens.itemSelectedBackgroundColorHover});
+            }
         }
     }
 `;
