@@ -202,3 +202,84 @@ export function App() {
     );
 }
 ```
+
+### Настройка анимации
+
+Анимацию нажатия можно задать непосредственно для корневого элемента Button. В примере кнопка уменьшается и подсвечивается при клике.
+
+```tsx live
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Button } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedButton = styled(Button)`
+        overflow: hidden;
+        transition: background-color 100ms ease;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: #fff;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        &.animation-playing {
+            animation: button-press 300ms ease-out;
+            transition: none;
+        }
+
+        &.animation-playing::after {
+            animation: button-flash 300ms linear;
+        }
+
+        @keyframes button-press {
+            0% {
+                scale: 1;
+            }
+
+            66.67% {
+                scale: 0.95;
+            }
+
+            100% {
+                scale: 1;
+            }
+        }
+
+        @keyframes button-flash {
+            0% {
+                opacity: 0;
+            }
+
+            66.67% {
+                opacity: 0.15;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    `;
+
+    function Demo() {
+        const [playing, setPlaying] = useState(false);
+
+        return (
+            <AnimatedButton
+                size="32"
+                className={playing ? 'animation-playing' : undefined}
+                onClick={() => setPlaying(true)}
+                onAnimationEnd={() => setPlaying(false)}
+            >
+                Нажать
+            </AnimatedButton>
+        );
+    }
+
+    return <Demo />;
+}
+```

@@ -198,3 +198,22 @@ export function App() {
 }
 ```
 
+### Настройка анимации
+
+Скорость вращения Spinner настраивается через `animation-duration` класса `.spinner-wrapper`.
+
+```tsx live
+import React from 'react';
+import styled from 'styled-components';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedLoader = styled(Loader)`
+        .spinner-wrapper {
+            animation-duration: 1000ms;
+        }
+    `;
+
+    return <AnimatedLoader type="spinner" size="40" view="accent" />;
+}
+```

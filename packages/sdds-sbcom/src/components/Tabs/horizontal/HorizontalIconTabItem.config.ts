@@ -1,9 +1,12 @@
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    inverseTextPrimary,
+    outlinePositive,
     surfaceAccent,
     surfaceSolidCard,
-    surfaceSolidDefault,
+    surfaceTransparentAccent,
+    textAccent,
+    textAccentHover,
+    textParagraph,
     textPrimary,
     textSecondary,
     textSecondaryActive,
@@ -56,40 +59,40 @@ export const config = {
                 ${tabsTokens.itemCursor}: pointer;
             `,
             divider: css`
-                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemColor}: ${textParagraph};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: ${textAccentHover};
+                ${tabsTokens.itemColorActive}: ${textAccent};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedColor}: ${textAccent};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedColorHover}: ${textAccent};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
-                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColor}: ${surfaceAccent};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${surfaceAccent};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             default: css`
-                ${tabsTokens.itemColor}: ${textPrimary};
+                ${tabsTokens.itemColor}: ${textParagraph};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: ${textAccentHover};
+                ${tabsTokens.itemColorActive}: ${textAccent};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${inverseTextPrimary};
-                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceSolidDefault};
-                ${tabsTokens.itemSelectedColorHover}: ${inverseTextPrimary};
-                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidDefault};
+                ${tabsTokens.itemSelectedColor}: ${textAccent};
+                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceTransparentAccent};
+                ${tabsTokens.itemSelectedColorHover}: ${textAccent};
+                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceTransparentAccent};
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: ${outlinePositive};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 
@@ -174,4 +177,22 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            size: 's',
+            style: css`
+                ${tabsTokens.itemBorderRadius}: 2rem;
+                ${tabsTokens.itemPilledBorderRadius}: 2rem;
+            `,
+        },
+        {
+            view: 'divider',
+            size: 's',
+            style: css`
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
+                ${tabsTokens.itemPilledBorderRadius}: 0.5rem;
+            `,
+        },
+    ],
 };

@@ -23,7 +23,7 @@ import {
 export const config = {
     defaults: {
         view: 'white',
-        size: 'm',
+        size: '32',
     },
     variations: {
         view: {
@@ -66,6 +66,10 @@ export const config = {
             '40': css`
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
+
+                ${loaderTokens.progressBarCircularSize}: 40;
+                ${loaderTokens.progressBarCircularHeight}: 2.5rem;
+                ${loaderTokens.progressBarCircularWidth}: 2.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.188rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 4;
                 ${loaderTokens.progressBarCircularContentFontFamily}: ${h2.fontFamily};
@@ -82,9 +86,9 @@ export const config = {
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
 
-                ${loaderTokens.progressBarCircularSize}: 88;
-                ${loaderTokens.progressBarCircularHeight}: 5.5rem;
-                ${loaderTokens.progressBarCircularWidth}: 5.5rem;
+                ${loaderTokens.progressBarCircularSize}: 32;
+                ${loaderTokens.progressBarCircularHeight}: 2rem;
+                ${loaderTokens.progressBarCircularWidth}: 2rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.125rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 4;
                 ${loaderTokens.progressBarCircularContentFontFamily}: var(--plasma-typo-h5-font-family);
@@ -100,9 +104,9 @@ export const config = {
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
 
-                ${loaderTokens.progressBarCircularSize}: 56;
-                ${loaderTokens.progressBarCircularHeight}: 3.5rem;
-                ${loaderTokens.progressBarCircularWidth}: 3.5rem;
+                ${loaderTokens.progressBarCircularSize}: 24;
+                ${loaderTokens.progressBarCircularHeight}: 1.5rem;
+                ${loaderTokens.progressBarCircularWidth}: 1.5rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.094rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
                 ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyL.fontFamily};
@@ -117,9 +121,9 @@ export const config = {
                 ${loaderTokens.width}: 100%;
                 ${loaderTokens.height}: 100%;
 
-                ${loaderTokens.progressBarCircularSize}: 48;
-                ${loaderTokens.progressBarCircularHeight}: 3rem;
-                ${loaderTokens.progressBarCircularWidth}: 3rem;
+                ${loaderTokens.progressBarCircularSize}: 16;
+                ${loaderTokens.progressBarCircularHeight}: 1rem;
+                ${loaderTokens.progressBarCircularWidth}: 1rem;
                 ${loaderTokens.progressBarCircularStrokeWidth}: 0.063rem;
                 ${loaderTokens.progressBarCircularStrokeSize}: 2;
                 ${loaderTokens.progressBarCircularContentFontFamily}: ${bodyM.fontFamily};
