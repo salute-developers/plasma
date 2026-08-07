@@ -55,6 +55,7 @@ export const config = {
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
+                ${tokens.titleCaptionColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textSecondary};
                 ${tokens.contentSlotColorHover}: ${textSecondaryHover};
@@ -185,6 +186,14 @@ export const config = {
                 ${tokens.labelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -348,6 +357,14 @@ export const config = {
                 ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;

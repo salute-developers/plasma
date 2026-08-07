@@ -152,11 +152,16 @@ describeFn('DateTimePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('label, leftHelper, placeholder', () => {
+    it('label, leftHelper, placeholder, titleCaption', () => {
         cy.viewport(750, 700);
         mount(
             <>
-                <Demo label="Лейбл" leftHelper="Подсказка к полю" placeholder="Выберите дату" />
+                <Demo
+                    label="Лейбл"
+                    leftHelper="Подсказка к полю"
+                    placeholder="Выберите дату"
+                    titleCaption="Подсказка к полю сверху справа"
+                />
                 <PadMe />
                 <Demo
                     id="demo"
