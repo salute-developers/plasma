@@ -3,6 +3,8 @@ import { MutableRefObject, createContext } from 'react';
 export class TabItemRefs {
     public items: MutableRefObject<HTMLElement | null>[] = [];
 
+    public selectedItem: HTMLElement | null = null;
+
     public current = 0;
 
     constructor(value?: number) {
@@ -20,6 +22,16 @@ export class TabItemRefs {
 
     public setCurrent(value: number) {
         this.current = value;
+    }
+
+    public setSelectedItem(item: HTMLElement | null) {
+        this.selectedItem = item;
+    }
+
+    public unsetSelectedItem(item: HTMLElement | null) {
+        if (this.selectedItem === item) {
+            this.selectedItem = null;
+        }
     }
 }
 

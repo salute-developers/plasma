@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { addFocus } from 'src/mixins';
 
 import { classes, privateTokens, tokens } from '../../../tokens';
+import { StyledTabsContent } from '../../TabsSelection.styles';
 
 export const base = css`
     display: flex;
@@ -11,7 +12,7 @@ export const base = css`
     padding: var(${tokens.tabsPadding}, 0);
 `;
 
-export const StyledContent = styled.div`
+export const StyledContent = styled(StyledTabsContent)`
     display: inline-flex;
     flex-direction: row;
     align-items: center;

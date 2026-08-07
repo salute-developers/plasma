@@ -1,5 +1,7 @@
 export const classes = {
     avatarItem: 'avatar-item',
+    avatarWrapper: 'avatar-wrapper',
+    avatarStatus: 'avatar-status',
     extraPlacementTopRight: 'avatar-extra-placement-top-right',
     extraPlacementTopLeft: 'avatar-extra-placement-top-left',
     extraPlacementBottomLeft: 'avatar-extra-placement-bottom-left',

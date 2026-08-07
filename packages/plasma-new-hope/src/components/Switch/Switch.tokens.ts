@@ -67,6 +67,7 @@ export const tokens = {
 };
 
 export const classes = {
+    switchTrack: 'switch-track',
     beforeSwitchLabelPosition: 'switch-label-position-before',
     afterSwitchLabelPosition: 'switch-label-position-after',
     singleLine: 'switch-single-line',

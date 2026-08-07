@@ -122,12 +122,12 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarRootProps>) => 
                 {...extraViewProp}
                 {...rest}
             >
-                <Wrapper isScalable={isScalable} borderRadius={borderRadius}>
+                <Wrapper className={classes.avatarWrapper} isScalable={isScalable} borderRadius={borderRadius}>
                     {getAvatarContent({ customText, url, initials, name, customBorderRadius: borderRadius })}
                 </Wrapper>
 
                 {status && (
-                    <StatusIcon>
+                    <StatusIcon className={classes.avatarStatus}>
                         <StyledIndicator aria-label={statusLabels[status]} status={status} />
                     </StatusIcon>
                 )}
