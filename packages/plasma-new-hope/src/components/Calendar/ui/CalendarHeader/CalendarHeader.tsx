@@ -28,7 +28,6 @@ import {
 export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     type = 'Days',
     startYear = 0,
-    size,
     firstDate,
     secondDate,
     isDouble,
@@ -75,7 +74,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                     <StyledHeaderDate>{MONTH_NAMES[locale][date.monthIndex]}</StyledHeaderDate>
                     <StyledHeaderDate>
                         {date.year}
-                        <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                        <StyledHeaderArrow color="inherit" sizeCustomProperty={tokens.calendarHeaderArrowSize} />
                     </StyledHeaderDate>
                 </>
             );
@@ -85,7 +84,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             return (
                 <StyledHeaderDate>
                     {date.year}
-                    <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                    <StyledHeaderArrow color="inherit" sizeCustomProperty={tokens.calendarHeaderArrowSize} />
                 </StyledHeaderDate>
             );
         }
@@ -96,7 +95,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             return (
                 <StyledHeaderDate>
                     {yearValue}—{yearValue + YEAR_RENDER_COUNT - 1}
-                    <StyledHeaderArrow color="inherit" size={size === 'xs' ? 'xs' : 's'} />
+                    <StyledHeaderArrow color="inherit" sizeCustomProperty={tokens.calendarHeaderArrowSize} />
                 </StyledHeaderDate>
             );
         }

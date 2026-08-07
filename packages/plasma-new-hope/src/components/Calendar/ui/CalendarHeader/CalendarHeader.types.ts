@@ -7,7 +7,6 @@ export interface CalendarHeaderProps extends HTMLAttributes<HTMLDivElement> {
     firstDate: DateObject;
     onPrev: () => void;
     onNext: () => void;
-    size?: string;
     secondDate?: DateObject;
     startYear?: number;
     type?: CalendarStateType;

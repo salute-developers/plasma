@@ -276,7 +276,6 @@ export const calendarDoubleRoot = (
                     )}
                     <CalendarHeader
                         isDouble
-                        size={rest.size}
                         firstDate={firstDate}
                         secondDate={secondDate}
                         startYear={startYear}

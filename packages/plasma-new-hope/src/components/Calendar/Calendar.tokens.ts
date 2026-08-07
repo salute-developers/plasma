@@ -38,6 +38,7 @@ export const tokens = {
 
     /* Токены размера сетки лет */
     calendarYearsPadding: '--plasma-calendar-years-padding',
+    calendarYearsRowGap: '--plasma-calendar-years-row-gap',
     calendarYearItemBorderRadius: '--plasma-calendar-year-item-border-radius',
 
     calendarYearFontFamily: '--plasma-calendar-year-font-family',
@@ -50,6 +51,7 @@ export const tokens = {
 
     /* Токены размера сетки дней */
     calendarQuartersPadding: '--plasma-calendar-quarters-padding',
+    calendarQuartersRowGap: '--plasma-calendar-quarters-row-gap',
     calendarQuarterItemBorderRadius: '--plasma-calendar-quarter-item-border-radius',
 
     calendarQuarterFontFamily: '--plasma-calendar-quarter-font-family',
@@ -62,6 +64,7 @@ export const tokens = {
 
     /* Токены размера сетки месяцев */
     calendarMonthsPadding: '--plasma-calendar-months-padding',
+    calendarMonthsRowGap: '--plasma-calendar-months-row-gap',
     calendarMonthItemBorderRadius: '--plasma-calendar-month-item-border-radius',
 
     calendarMonthFontFamily: '--plasma-calendar-month-font-family',
@@ -74,6 +77,7 @@ export const tokens = {
 
     /* Токены размера сетки дней */
     calendarDaysPadding: '--plasma-calendar-days-padding',
+    calendarDaysRowGap: '--plasma-calendar-days-row-gap',
     calendarDayItemBorderRadius: '--plasma-calendar-day-item-border-radius',
 
     calendarDayFontFamily: '--plasma-calendar-day-font-family',
@@ -105,6 +109,7 @@ export const tokens = {
     calendarHeaderFontWeight: '--plasma-calendar-header-font-weight',
     calendarHeaderFontWeightBold: '--plasma-calendar-header-font-weight-bold',
     calendarHeaderArrowColor: '--plasma-calendar-header-arrow-color',
+    calendarHeaderArrowSize: '--plasma-calendar-header-arrow-size',
 
     /* Токены стрелок навигации календаря */
     iconButtonColor: '--plasma-calendar-icon-button-color',
