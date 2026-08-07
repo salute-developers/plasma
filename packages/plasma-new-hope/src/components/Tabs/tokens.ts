@@ -17,6 +17,9 @@ export const classes = {
     tabsClipShowAll: 'tabs-clip-show-all',
     tabsTruncate: 'tabs-truncate',
     dividerAlignRight: 'divider-align-right',
+    tabsSelection: 'tabs-selection',
+    tabsSelectionHorizontal: 'tabs-selection-horizontal',
+    tabsSelectionVertical: 'tabs-selection-vertical',
 };
 
 export const tokens = {

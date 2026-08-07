@@ -42,7 +42,16 @@ export const base = css`
             align-items: flex-start;
             box-sizing: border-box;
             width: 100%;
-            transition: top 0.1s ease-in-out, transform 0.1s ease-in-out, padding 0.1s ease-in-out, color 0.1s ease-in-out, font-size 0.1s ease-in-out, font-weight 0.1s ease-in-out, letter-spacing 0.1s ease-in-out, line-height 0.1s ease-in-out;
+            transition:
+                top 0.1s ease-in-out,
+                transform 0.1s ease-in-out,
+                padding 0.1s ease-in-out,
+                color 0.1s ease-in-out,
+                opacity 0.1s ease-in-out,
+                font-size 0.1s ease-in-out,
+                font-weight 0.1s ease-in-out,
+                letter-spacing 0.1s ease-in-out,
+                line-height 0.1s ease-in-out;
         }
     }
         

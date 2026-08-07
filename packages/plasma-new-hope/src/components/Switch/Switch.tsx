@@ -70,7 +70,7 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                             {label}
                         </StyledLabel>
                     )}
-                    <StyledTrigger aria-hidden />
+                    <StyledTrigger aria-hidden className={classes.switchTrack} />
                 </StyledContent>
                 {description && <StyledDescription>{description}</StyledDescription>}
             </Root>

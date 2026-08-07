@@ -8,6 +8,7 @@ import { SpinnerSvg } from './SpinnerSvg';
 import { SpinnerWrapper, base, BodyWrapper } from './Spinner.styles';
 import type { SpinnerProps } from './Spinner.types';
 import { useInnerProps } from './hooks';
+import { classes } from './Spinner.tokens';
 
 export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
     forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
@@ -29,7 +30,11 @@ export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
 
         return (
             <Root ref={ref} id={innerId} {...rest} style={rootStyle}>
-                <SpinnerWrapper width={innerProps.wrapperWidth} height={innerProps.wrapperHeight}>
+                <SpinnerWrapper
+                    className={classes.spinnerWrapper}
+                    width={innerProps.wrapperWidth}
+                    height={innerProps.wrapperHeight}
+                >
                     <SpinnerSvg
                         id={innerId}
                         width={innerProps.svgWidth}

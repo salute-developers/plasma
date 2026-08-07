@@ -81,11 +81,6 @@ export const StyledTrigger = styled.div`
         right: auto;
         left: 0;
 
-        transition: width 0.15s ease-in-out 0s, left 0.3s ease-in-out 0s, right 0.3s ease-in-out 0s;
-    }
-
-    ${StyledInput}:checked ~ &::after {
-        right: 0;
-        left: auto;
+        transition: width 0.15s ease-in-out 0s, transform 0.3s ease-in-out 0s;
     }
 `;

@@ -38,13 +38,14 @@ export const horizontalIconTabItemRoot = (Root: RootProps<HTMLButtonElement, Hor
         const role = 'tab';
 
         const animatedClass = animated ? classes.tabItemAnimated : undefined;
-        const selectedClass = isActive || selected ? classes.selectedTabsItem : undefined;
+        const isSelected = isActive || selected;
+        const selectedClass = isSelected ? classes.selectedTabsItem : undefined;
 
         const { hasKeyNavigation, navigationTabIndex, onItemFocus, handleClick } = useTabItem({
             refs,
             innerRef,
             itemIndex,
-            selected,
+            selected: isSelected,
             disabled,
             onIndexChange,
             onClick,

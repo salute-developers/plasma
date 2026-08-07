@@ -54,14 +54,15 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLButtonElement, Horizon
         const animatedClass = animated ? classes.tabItemAnimated : undefined;
         const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
 
-        const selectedClass = isActive || selected ? classes.selectedTabsItem : undefined;
+        const isSelected = isActive || selected;
+        const selectedClass = isSelected ? classes.selectedTabsItem : undefined;
         const truncateClass = maxWidth !== 'auto' ? classes.tabsTruncate : undefined;
 
         const { hasKeyNavigation, navigationTabIndex, onItemFocus, handleClick } = useTabItem({
             refs,
             innerRef,
             itemIndex,
-            selected,
+            selected: isSelected,
             disabled,
             onIndexChange,
             onClick,

@@ -9,6 +9,8 @@ import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { VerticalTabsProps } from '../../../Tabs.types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
 import { getFirstOverflowingTab, getLastOverflowingTab } from '../../../utils';
+import { TabsSelection } from '../../TabsSelection';
+import { useTabsSelection } from '../../hooks/useTabsSelection';
 
 import { base, StyledArrow, StyledContent, StyledContentWrapper } from './VerticalTabs.styles';
 import { base as sizeCSS } from './variations/_size/base';
@@ -54,6 +56,8 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
         const scrollRef = useRef<HTMLElement | null>(null);
         const trackRef = useRef<HTMLElement | null>(null);
         const upArrowRef = useRef<HTMLButtonElement | null>(null);
+        const selectionRef = useRef<HTMLSpanElement | null>(null);
+        useTabsSelection({ refs, trackRef, selectionRef });
 
         const onPrev = useCallback(() => {
             if (disabled || !scrollRef.current) {
@@ -231,6 +235,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     >
                         <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>
                             {children}
+                            <TabsSelection ref={selectionRef} dividerAlign={dividerAlign} orientation="vertical" />
                         </StyledContent>
                     </StyledContentWrapper>
                     {!lastItemVisible && clip === 'scroll' && NextButton}

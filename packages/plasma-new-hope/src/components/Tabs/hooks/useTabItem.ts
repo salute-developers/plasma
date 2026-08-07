@@ -86,6 +86,22 @@ export const useTabItem = ({
     }, [refs]);
 
     useLayoutEffect(() => {
+        const item = innerRef.current;
+
+        if (!refs || !item) {
+            return undefined;
+        }
+
+        if (selected) {
+            refs.setSelectedItem(item);
+        } else {
+            refs.unsetSelectedItem(item);
+        }
+
+        return () => refs.unsetSelectedItem(item);
+    }, [refs, innerRef, selected]);
+
+    useLayoutEffect(() => {
         if (!selected || !innerRef.current) {
             return;
         }
