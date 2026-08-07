@@ -289,10 +289,10 @@ describeFn('Segment', () => {
     it('navigate with arrow', () => {
         mount(
             <SegmentProvider>
-                <SegmentGroup style={{ width: '10rem' }} view="filled">
-                    <SegmentItem value="segment_1" label="Segment 1" view="default" />
-                    <SegmentItem value="segment_2" label="Segment 2" view="default" />
-                    <SegmentItem value="segment_3" label="Segment 3" view="default" />
+                <SegmentGroup style={{ width: '10rem' }} view="filled" size="xs" clip>
+                    <SegmentItem value="segment_1" label="Segment 1" view="default" size="xs" />
+                    <SegmentItem value="segment_2" label="Segment 2" view="default" size="xs" />
+                    <SegmentItem value="segment_3" label="Segment 3" view="default" size="xs" />
                 </SegmentGroup>
             </SegmentProvider>,
         );
