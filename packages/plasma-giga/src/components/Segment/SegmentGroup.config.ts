@@ -69,8 +69,7 @@ export const config = {
             `,
             xl: css`
                 ${segmentTokens.groupBorderRadius}: 1.125rem;
-                // NOTE: change on token when added
-                ${segmentTokens.groupPilledBorderRadius}: 1000px;
+                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1.25rem 1.5rem;
