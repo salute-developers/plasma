@@ -429,7 +429,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                         <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
                             {hasOuterLabel && (
                                 <StyledIndicatorWrapper>
-                                    <Label id={labelId} htmlFor={id}>
+                                    <Label className={classes.textFieldLabel} id={labelId} htmlFor={id}>
                                         {innerLabelValue}
                                     </Label>
 
@@ -583,6 +583,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     placeholder={innerPlaceholderValue}
                                     hasFocus={hasFocus}
                                     className={cx(
+                                        classes.textFieldInput,
                                         hasValueClass,
                                         keepPlaceholderClass,
                                         classTextEllipsis,
@@ -600,7 +601,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     {...rest}
                                 />
                                 {hasInnerLabel && (
-                                    <Label data-root id={labelId} htmlFor={innerId}>
+                                    <Label className={classes.textFieldLabel} data-root id={labelId} htmlFor={innerId}>
                                         <InputPlaceholderValue className={cx(classTextEllipsis)}>
                                             {innerLabelValue}
                                         </InputPlaceholderValue>

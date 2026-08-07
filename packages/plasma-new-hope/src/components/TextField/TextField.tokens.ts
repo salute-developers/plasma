@@ -19,6 +19,8 @@ export const classes = {
     inputTextEllipsis: 'textfield-input-text-ellipsis',
     contentRightCompensationMargin: 'textfield-content-right-compensation-margin',
     readOnlyInput: 'textfield-readonly-input',
+    textFieldInput: 'textfield-input',
+    textFieldLabel: 'textfield-label',
 };
 
 export const privateTokens = {

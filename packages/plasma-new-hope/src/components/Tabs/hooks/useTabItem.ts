@@ -7,6 +7,7 @@ export type UseTabItemProps = {
     innerRef: RefObject<HTMLButtonElement>;
     orientation?: 'horizontal' | ' vertical';
     selected?: boolean;
+    isActive?: boolean;
     disableScroll?: boolean;
     disabled?: boolean;
     itemIndex?: number;
@@ -19,6 +20,7 @@ export const useTabItem = ({
     innerRef,
     itemIndex,
     selected,
+    isActive,
     disableScroll,
     orientation,
     disabled,
@@ -86,6 +88,22 @@ export const useTabItem = ({
 
         return () => refs.unregister(innerRef);
     }, [refs]);
+
+    useLayoutEffect(() => {
+        const item = innerRef.current;
+
+        if (!refs || !item) {
+            return undefined;
+        }
+
+        if (selected || isActive) {
+            refs.setSelectedItem(item);
+        } else {
+            refs.unsetSelectedItem(item);
+        }
+
+        return () => refs.unsetSelectedItem(item);
+    }, [refs, innerRef, selected, isActive]);
 
     useLayoutEffect(() => {
         if (!selected || disableScroll || !innerRef.current) {

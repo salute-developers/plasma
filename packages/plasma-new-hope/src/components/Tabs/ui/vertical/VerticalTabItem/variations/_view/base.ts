@@ -30,16 +30,10 @@ export const base = css`
 
     &.${classes.selectedTabsItem} {
         color: var(${tokens.itemSelectedColor});
-        background-color: var(${tokens.itemSelectedBackgroundColor});
         cursor: var(${tokens.itemCursor});
 
         &:hover {
             color: var(${tokens.itemSelectedColorHover});
-            background-color: var(${tokens.itemSelectedBackgroundColorHover});
-
-            &::after {
-                background: var(${tokens.itemSelectedDividerColorHover});
-            }
         }
 
         ${TabItemValue} {
@@ -49,22 +43,5 @@ export const base = css`
                 color: var(${tokens.itemSelectedValueColorHover});
             }
         }
-
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            background: var(${tokens.itemSelectedDividerColor});
-            width: var(${tokens.itemSelectedDividerWidth});
-
-            border-radius: 0.063rem;
-        }
-    }
-
-    .${classes.dividerAlignRight} &.${classes.selectedTabsItem}::after {
-        left: unset;
-        right: 0;
     }
 `;

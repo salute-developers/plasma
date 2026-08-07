@@ -14,7 +14,6 @@ export const base = css`
 
         &.${classes.selectedTabsItem}:hover {
             color: var(${tokens.itemSelectedColor});
-            background-color: var(${tokens.itemSelectedBackgroundColor});
         }
     }
 `;
