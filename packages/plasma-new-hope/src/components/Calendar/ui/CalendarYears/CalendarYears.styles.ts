@@ -9,6 +9,7 @@ export const StyledCalendarYears = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    row-gap: var(${tokens.calendarYearsRowGap}, 0);
 
     width: 100%;
     height: 100%;
