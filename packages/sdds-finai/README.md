@@ -8,24 +8,42 @@
 
 -   [typescript](https://www.typescriptlang.org/)
 -   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+-   [emotion](https://emotion.sh/)
+-   обычного `css` (linaria)
 
-Однако их использование **необязательно**!
+По умолчанию пакет отдаёт сборку **styled-components**. Также доступны таргеты `emotion` и `css`.
 
 ### Установка зависимостей
 
 ```bash
-$ npm install --save @salutejs/sdds-finai @salutejs/sdds-themes
+npm install --save @salutejs/sdds-finai @salutejs/sdds-themes
 ```
 
 Для работы со `styled-components`, необходимо установить
 
 ```bash
-$ npm install --save styled-components@5.3.1
+npm install --save styled-components@5.3.1
 ```
+
+Или, если вы используете `@emotion`
+
+```bash
+npm install --save @emotion/styled @emotion/react @emotion/css
+```
+
+Для таргета `css` runtime CSS-in-JS не нужен.
 
 ### Использование компонентов
 
-Все компоненты доступны напрямую из пакета
+Компоненты доступны из разных entry points:
+
+```jsx
+import { Button } from '@salutejs/sdds-finai'; // styled-components (default)
+import { Button } from '@salutejs/sdds-finai/emotion';
+import { Button } from '@salutejs/sdds-finai/css';
+```
+
+Пример со `styled-components`:
 
 ```jsx
 import styled from 'styled-components';
@@ -41,6 +59,38 @@ export const App = () => {
         <>
             <Button>Hello, FinAI!</Button>
             <StyledP>Token usage example</StyledP>
+        </>
+    );
+};
+```
+
+#### `@emotion`
+
+```jsx
+import { Button } from '@salutejs/sdds-finai/emotion';
+import { textAccent } from '@salutejs/sdds-themes/tokens';
+
+export const App = () => {
+    return (
+        <>
+            <Button>Hello, FinAI!</Button>
+            <p style={{ color: textAccent }}>Token usage example</p>
+        </>
+    );
+};
+```
+
+#### `css`
+
+```jsx
+import { Button } from '@salutejs/sdds-finai/css';
+import { textAccent } from '@salutejs/sdds-themes/tokens';
+
+export const App = () => {
+    return (
+        <>
+            <Button>Hello, FinAI!</Button>
+            <p style={{ color: textAccent }}>Token usage example</p>
         </>
     );
 };
@@ -113,7 +163,9 @@ export default function Home() {
 Точкой входа является корень приложения:
 
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
--   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+-   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` / `app/layout.tsx` и подключите стили в нем.
+
+### С помощью `styled-components`
 
 ```jsx
 import React from 'react';
@@ -127,6 +179,49 @@ const App = () => {
     return (
         <>
             <Theme />
+            <BodyL>Hello FinAI</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+#### С помощью `emotion`
+
+```jsx
+import React from 'react';
+import { Global, css } from '@emotion/react';
+import { Button, BodyL } from '@salutejs/sdds-finai/emotion';
+import { sdds_finai__light } from '@salutejs/sdds-themes';
+
+const themeStyle = css(sdds_finai__light);
+
+const App = () => {
+    return (
+        <>
+            <Global styles={themeStyle} />
+            <BodyL>Hello FinAI</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+#### С помощью импорта `css` файла
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/sdds-finai/css';
+
+import '@salutejs/sdds-themes/css/sdds_finai__light.css';
+
+const App = () => {
+    return (
+        <>
             <BodyL>Hello FinAI</BodyL>
             <Button text="This is themed button" />
         </>
