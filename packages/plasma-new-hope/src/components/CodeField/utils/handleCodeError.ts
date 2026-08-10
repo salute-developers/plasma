@@ -11,9 +11,11 @@ type ValidateSymbolsArgs = {
     codeErrorBehavior: CodeErrorBehavior;
     currentCode: Array<string>;
     inputContainerRef: MutableRefObject<HTMLDivElement | null>;
-    inputRefs: MutableRefObject<Array<HTMLInputElement | null>>;
+    inputRef: MutableRefObject<HTMLInputElement | null>;
     captionRef: MutableRefObject<HTMLDivElement | null>;
     setInnerValue: Dispatch<SetStateAction<Array<string>>>;
+    setActiveIndex: Dispatch<SetStateAction<number | null>>;
+    setSelectedIndex: Dispatch<SetStateAction<number | null>>;
     codeSetter: (newCode: Array<string>) => void;
 };
 
@@ -21,15 +23,30 @@ export const handleCodeError = ({
     codeLength,
     codeErrorBehavior,
     currentCode,
-    inputRefs,
+    inputRef,
     inputContainerRef,
     captionRef,
     setInnerValue,
+    setActiveIndex,
+    setSelectedIndex,
     codeSetter,
 }: ValidateSymbolsArgs) => {
     if (!inputContainerRef.current) {
         return;
     }
+
+    const selectItem = (start: number, end: number) => {
+        const input = inputRef.current;
+
+        if (!input) {
+            return;
+        }
+
+        input.focus();
+        input.setSelectionRange(start, end);
+        setActiveIndex(start);
+        setSelectedIndex(start < end ? start : null);
+    };
 
     switch (codeErrorBehavior) {
         case 'keep':
@@ -46,8 +63,7 @@ export const handleCodeError = ({
                 inputContainerRef.current?.classList.remove(classes.codeErrorAnimation);
 
                 setTimeout(() => {
-                    inputRefs.current[inputRefs.current.length - 1]?.setSelectionRange(0, 1);
-                    inputRefs.current[inputRefs.current.length - 1]?.focus();
+                    selectItem(codeLength - 1, codeLength);
                 }, 0);
             }, ANIMATION_TIMEOUT);
 
@@ -64,7 +80,7 @@ export const handleCodeError = ({
             setTimeout(() => {
                 codeSetter(getCodeValue(codeLength, ''));
 
-                inputRefs.current[0]?.focus();
+                selectItem(0, 0);
                 inputContainerRef.current?.classList.remove(
                     classes.codeError,
                     classes.codeErrorAnimation,
