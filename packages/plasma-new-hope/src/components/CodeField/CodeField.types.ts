@@ -1,4 +1,4 @@
-import type { Dispatch, HTMLAttributes, InputHTMLAttributes, ReactNode, SetStateAction } from 'react';
+import type { Dispatch, InputHTMLAttributes, MouseEventHandler, ReactNode, SetStateAction } from 'react';
 
 export type ItemErrorBehavior = 'remove-symbol' | 'keep' | 'forbid-enter';
 export type CodeErrorBehavior = 'remove-code' | 'keep';
@@ -91,5 +91,8 @@ export type CodeFieldProps = {
      * Коллбек, вызываемый при вводе полного значения в поле
      */
     onFullCodeEnter?: (code: string) => void;
-} & Pick<InputHTMLAttributes<HTMLInputElement>, 'aria-label' | 'autoComplete' | 'inputMode'> &
-    Omit<HTMLAttributes<HTMLDivElement>, 'onChange'>;
+    /**
+     * Коллбэк, вызываемый при клике
+     */
+    onClick?: MouseEventHandler<HTMLDivElement>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'onClick' | 'size' | 'width'>;

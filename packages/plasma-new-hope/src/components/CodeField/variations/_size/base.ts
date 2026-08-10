@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { CaptionWrapper, CodeGroup, CodeWrapper, ItemInput } from '../../CodeField.styles';
+import { CaptionWrapper, CodeGroup, CodeWrapper, ItemCaret, ItemInput, NativeInput } from '../../CodeField.styles';
 import { tokens } from '../../CodeField.tokens';
 
 export const base = css`
@@ -20,6 +20,14 @@ export const base = css`
         font-weight: var(${tokens.fontWeight});
         letter-spacing: var(${tokens.letterSpacing});
         line-height: var(${tokens.lineHeight});
+    }
+
+    ${ItemCaret} {
+        height: var(${tokens.fontSize});
+    }
+
+    ${NativeInput} {
+        font-size: var(${tokens.codeItemHeight});
     }
 
     ${CaptionWrapper} {
