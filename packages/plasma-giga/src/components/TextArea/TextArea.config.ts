@@ -5,28 +5,31 @@ import {
     bodyS,
     bodyXS,
     bodyXXS,
+    outlineSolidPrimary,
+    outlineTransparentNegative,
+    outlineTransparentNegativeHover,
+    outlineTransparentPositive,
+    outlineTransparentPositiveHover,
+    outlineTransparentWarning,
+    outlineTransparentWarningHover,
     surfaceAccent,
     surfaceNegative,
     surfacePositive,
     surfaceSolidCardBrightness,
+    surfaceSolidDefault,
     surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentNegativeHover,
     surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
     surfaceTransparentPositiveHover,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
     surfaceTransparentPrimaryHover,
-    surfaceTransparentSecondary,
     surfaceTransparentTertiary,
     surfaceTransparentTertiaryActive,
     surfaceTransparentTertiaryHover,
     surfaceTransparentWarning,
-    surfaceTransparentWarningActive,
     surfaceTransparentWarningHover,
     surfaceWarning,
-    textAccent,
     textNegative,
     textPositive,
     textPrimary,
@@ -47,17 +50,18 @@ export const config = {
             default: css`
                 ${tokens.inputBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.inputBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentPrimary};
+                ${tokens.borderColor}: ${outlineSolidPrimary};
+                ${tokens.borderColorHover}: ${surfaceSolidDefault};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
 
                 ${tokens.helpersBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
-                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentSecondary};
+                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentPrimary};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textAccent};
+                ${tokens.inputCaretColor}: ${surfaceSolidDefault};
 
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
@@ -89,17 +93,18 @@ export const config = {
             positive: css`
                 ${tokens.inputBackgroundColor}: ${surfaceTransparentPositive};
                 ${tokens.inputBackgroundColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentPositiveActive};
                 ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentPositive};
+                ${tokens.borderColor}: ${outlineTransparentPositive};
+                ${tokens.borderColorHover}: ${outlineTransparentPositiveHover};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
 
                 ${tokens.helpersBackgroundColor}: ${surfaceTransparentPositive};
                 ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentPositiveActive};
                 ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentPositive};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textPositive};
+                ${tokens.inputCaretColor}: ${surfaceSolidDefault};
 
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
@@ -131,17 +136,18 @@ export const config = {
             warning: css`
                 ${tokens.inputBackgroundColor}: ${surfaceTransparentWarning};
                 ${tokens.inputBackgroundColorHover}: ${surfaceTransparentWarningHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentWarningActive};
                 ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentWarning};
+                ${tokens.borderColor}: ${outlineTransparentWarning};
+                ${tokens.borderColorHover}: ${outlineTransparentWarningHover};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
 
                 ${tokens.helpersBackgroundColor}: ${surfaceTransparentWarning};
                 ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentWarningHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentWarningActive};
                 ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentWarning};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textWarning};
+                ${tokens.inputCaretColor}: ${surfaceSolidDefault};
 
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
@@ -173,17 +179,18 @@ export const config = {
             negative: css`
                 ${tokens.inputBackgroundColor}: ${surfaceTransparentNegative};
                 ${tokens.inputBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentNegativeActive};
                 ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.borderColor}: ${outlineTransparentNegative};
+                ${tokens.borderColorHover}: ${outlineTransparentNegativeHover};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
 
                 ${tokens.helpersBackgroundColor}: ${surfaceTransparentNegative};
                 ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentNegativeActive};
                 ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentNegative};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textNegative};
+                ${tokens.inputCaretColor}: ${surfaceSolidDefault};
 
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
@@ -645,6 +652,7 @@ export const config = {
                 ${tokens.readOnlyOpacity}: 0.1;
                 ${tokens.backgroundColorReadOnly}: ${surfaceTransparentPrimary};
                 ${tokens.inputColorReadOnly}: ${textPrimary};
+                ${tokens.containerBorderColorReadOnly}: ${outlineSolidPrimary};
                 ${tokens.dividerColorReadOnly}: ${surfaceTransparentPrimary};
                 ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
             `,
