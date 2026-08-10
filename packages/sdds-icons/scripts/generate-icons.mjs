@@ -165,6 +165,33 @@ const generateSize = async (size, outputRoot) => {
 
     await fs.writeFile(path.join(outputDirectory, 'index.ts'), barrel);
 
+    const dynamicIconImports = [
+        `// This file is generated from svg/${size}. Do not edit it manually.`,
+        '',
+        'const dynamicIconImports = {',
+        ...componentNames.map(
+            (componentName) => `    ${componentName}: () => import('./${componentName}.js'),`,
+        ),
+        '} as const;',
+        '',
+        'export default dynamicIconImports;',
+        '',
+    ].join('\n');
+    const dynamicEntrypoint = [
+        `// This file is generated from svg/${size}. Do not edit it manually.`,
+        '',
+        "export { DynamicIcon, DynamicIcon as default, iconNames, isIconName } from './DynamicIcon.js';",
+        "export type { DynamicIconProps, IconName } from './DynamicIcon.js';",
+        "export { default as dynamicIconImports } from './dynamicIconImports.js';",
+        '',
+    ].join('\n');
+
+    await Promise.all([
+        fs.writeFile(path.join(outputDirectory, 'dynamicIconImports.ts'), dynamicIconImports),
+        fs.writeFile(path.join(outputDirectory, 'dynamic.ts'), dynamicEntrypoint),
+        fs.copyFile(path.join(factoryRoot, 'DynamicIcon.tsx'), path.join(outputDirectory, 'DynamicIcon.tsx')),
+    ]);
+
     return { size, count: componentNames.length };
 };
 
