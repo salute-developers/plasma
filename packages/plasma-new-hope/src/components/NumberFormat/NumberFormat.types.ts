@@ -22,8 +22,6 @@ export type CustomNumericFormatProps = Omit<
     | 'renderText'
     | 'valueIsNumericString'
     | 'isAllowed'
-    | 'suffix'
-    | 'prefix'
 >;
 
 export type CustomNumberFormatProps = {
@@ -65,6 +63,14 @@ export type CustomNumberFormatProps = {
      * Разрешает ведущие нули (например, "0123").
      */
     allowLeadingZeros?: boolean;
+    /**
+     * Префикс текста в поле ввода.
+     */
+    prefix?: string;
+    /**
+     * Суффикс текста в поле ввода.
+     */
+    suffix?: string;
     /**
      * Функция для валидации входного значения.
      * Если эта функция возвращает false, метод onChange не будет вызван, и значение ввода не изменится.
