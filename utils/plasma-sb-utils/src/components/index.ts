@@ -23,6 +23,7 @@ export * from './Skeleton';
 export * from './InformationWrapper';
 export { getPaginationStories } from './Pagination';
 export { getNumberInputStories } from './NumberInput';
+export * from './NumberFormat';
 export * from './Chip';
 export * from './Note';
 export * from './Carousel';
