@@ -253,9 +253,9 @@ export const sdds_finai__light = ([
   --surface-transparent-secondary: #ADB9C238;
   --surface-transparent-tertiary: #8A959D47;
   --surface-transparent-deep: #30373CC7;
-  --surface-accent-minor: #ECF6FCFF;
   --surface-accent: #199AF0;
   --surface-info: #199AF0;
+  --surface-accent-minor: #ECF6FCFF;
   --on-dark-surface-solid-primary-hover: #20282DFF;
   --on-dark-surface-solid-primary-active: #0B0D0FFF;
   --on-dark-surface-solid-secondary-hover: #2C343AFF;
@@ -760,7 +760,6 @@ export const sdds_finai__light = ([
   --data-sky-blue-light-active: #DBF7FFFF;
   --data-orchid: #C46BFF;
   --data-blue-minor: #CFECFF;
-  --data-orchid-minor: #DEB7F7;
   --data-blue-light: #EDF8FF;
   --data-arctic: #14CC98;
   --data-green: #1A9E32;
@@ -843,6 +842,7 @@ export const sdds_finai__light = ([
   --data-green-transparent-active: #1A9E3247;
   --data-orange-transparent-hover: #FA5F0542;
   --data-orange-transparent-active: #FA5F0547;
+  --data-orchid-minor: #DEB7F7;
   --on-dark-data-yellow-hover: #B87A00FF;
   --on-dark-data-yellow-active: #996600FF;
   --on-dark-data-yellow-minor-hover: #5D3F04FF;
@@ -1054,9 +1054,7 @@ export const sdds_finai__light = ([
   --inverse-data-sky-blue-light-active: #08141CFF;
   --inverse-data-blue-minor: #0D3B59;
   --inverse-data-yellow-light: #211807;
-  --inverse-data-sky-blue-light: #0A1924;
   --inverse-data-orchid: #AD42F5;
-  --inverse-data-orchid-minor: #722BA1;
   --inverse-data-orange: #FA5F05;
   --inverse-data-orange-minor: #85380C;
   --inverse-data-orange-light: #3D1D0A;
@@ -1135,6 +1133,10 @@ export const sdds_finai__light = ([
   --inverse-data-green-transparent-active: #1A9E322E;
   --inverse-data-blue-transparent-hover: #118CDF5C;
   --inverse-data-blue-transparent-active: #118CDF2E;
+  --inverse-data-orchid-minor: #722BA1;
+  --inverse-data-blue-light: #0A1924;
+  --inverse-data-blue-light-hover: #0C1F2CFF;
+  --inverse-data-blue-light-active: #08141CFF;
   color: var(--text-primary);
   background-color: var(--background-primary);
 }
