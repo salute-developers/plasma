@@ -499,8 +499,8 @@ export const sdds_finai__dark = ([
   --inverse-surface-accent-minor: #071A26FF;
   --inverse-surface-accent: #199AF0;
   --inverse-surface-info: #199AF0;
-  --background-primary: #060A0C;
   --background-primary-brightness: #15191BFF;
+  --background-primary: #060A0C;
   --dark-background-primary: #060A0C;
   --light-background-primary: #F2F5F8;
   --inverse-background-primary: #F2F5F8;
@@ -758,8 +758,6 @@ export const sdds_finai__dark = ([
   --data-green: #1A9E32;
   --data-yellow-light: #211807;
   --data-blue-light: #0A1924;
-  --data-orchid: #AD42F5;
-  --data-orchid-minor: #722BA1;
   --data-yellow: #A16B00;
   --data-yellow-minor: #493203;
   --data-orange: #FA5F05;
@@ -843,6 +841,8 @@ export const sdds_finai__dark = ([
   --data-green-transparent-active: #1A9E322E;
   --data-blue-transparent-hover: #118CDF5C;
   --data-blue-transparent-active: #118CDF2E;
+  --data-orchid: #AD42F5;
+  --data-orchid-minor: #722BA1;
   --on-dark-data-yellow-hover: #B87A00FF;
   --on-dark-data-yellow-active: #996600FF;
   --on-dark-data-yellow-minor-hover: #5D3F04FF;
@@ -855,7 +855,6 @@ export const sdds_finai__dark = ([
   --on-dark-data-sky-blue-light-hover: #E0F8FFFF;
   --on-dark-data-sky-blue-light-active: #DBF7FFFF;
   --on-dark-data-blue-minor: #0D3B59;
-  --on-dark-data-orchid-minor: #722BA1;
   --on-dark-data-red-minor: #9C1422;
   --on-dark-data-red-light: #4A0D13;
   --on-dark-data-green: #1A9E32;
@@ -873,7 +872,6 @@ export const sdds_finai__dark = ([
   --on-dark-data-gray-minor: #30373C;
   --on-dark-data-yellow-light: #211807;
   --on-dark-data-blue-light: #0A1924;
-  --on-dark-data-orchid: #AD42F5;
   --on-dark-data-yellow: #A16B00;
   --on-dark-data-yellow-minor: #493203;
   --on-dark-data-orange: #FA5F05;
@@ -941,6 +939,8 @@ export const sdds_finai__dark = ([
   --on-dark-data-green-transparent-active: #1A9E322E;
   --on-dark-data-blue-transparent-hover: #118CDF5C;
   --on-dark-data-blue-transparent-active: #118CDF2E;
+  --on-dark-data-orchid-minor: #722BA1;
+  --on-dark-data-orchid: #AD42F5;
   --on-light-data-yellow: #F3A912;
   --on-light-data-yellow-hover: #F5B638FF;
   --on-light-data-yellow-active: #E49C0CFF;
@@ -956,8 +956,6 @@ export const sdds_finai__dark = ([
   --on-light-data-sky-blue-light-active: #DBF7FFFF;
   --on-light-data-blue-light: #EDF8FF;
   --on-light-data-blue-minor: #CFECFF;
-  --on-light-data-orchid: #C46BFF;
-  --on-light-data-orchid-minor: #DEB7F7;
   --on-light-data-arctic: #14CC98;
   --on-light-data-green: #1A9E32;
   --on-light-data-green-minor: #28D247;
@@ -1039,6 +1037,8 @@ export const sdds_finai__dark = ([
   --on-light-data-orange-transparent-active: #FA5F0547;
   --on-light-data-green-light-hover: #94F9A7FF;
   --on-light-data-green-light-active: #8BF99FFF;
+  --on-light-data-orchid-minor: #DEB7F7;
+  --on-light-data-orchid: #C46BFF;
   --inverse-data-yellow: #F3A912;
   --inverse-data-yellow-hover: #F5B638FF;
   --inverse-data-yellow-active: #E49C0CFF;
@@ -1050,12 +1050,8 @@ export const sdds_finai__dark = ([
   --inverse-data-yellow-light: #FFF6E5;
   --inverse-data-yellow-light-hover: #FFF4E0FF;
   --inverse-data-yellow-light-active: #FFF3DBFF;
-  --inverse-data-sky-blue-light: #E8FAFF;
   --inverse-data-sky-blue-light-hover: #E0F8FFFF;
   --inverse-data-sky-blue-light-active: #DBF7FFFF;
-  --inverse-data-blue-minor: #0D3B59;
-  --inverse-data-orchid: #AD42F5;
-  --inverse-data-orchid-minor: #722BA1;
   --inverse-data-orange: #FA5F05;
   --inverse-data-orange-minor: #85380C;
   --inverse-data-orange-light: #3D1D0A;
@@ -1081,12 +1077,12 @@ export const sdds_finai__dark = ([
   --inverse-data-blue-transparent: #118CDF33;
   --inverse-data-red-transparent: #FF293E33;
   --inverse-data-yellow-transparent: #F3A9128F;
-  --inverse-data-blue-minor-hover: #114C74FF;
-  --inverse-data-blue-minor-active: #0A2F47FF;
-  --inverse-data-orchid-hover: #BE69F7FF;
-  --inverse-data-orchid-active: #A52FF4FF;
-  --inverse-data-orchid-minor-hover: #7D2FB1FF;
-  --inverse-data-orchid-minor-active: #662791FF;
+  --inverse-data-blue-minor-hover: #C7E9FFFF;
+  --inverse-data-blue-minor-active: #C2E7FFFF;
+  --inverse-data-orchid-hover: #C061FFFF;
+  --inverse-data-orchid-active: #BC57FFFF;
+  --inverse-data-orchid-minor-hover: #DAACF6FF;
+  --inverse-data-orchid-minor-active: #D6A3F5FF;
   --inverse-data-orange-hover: #FB782DFF;
   --inverse-data-orange-active: #E65705FF;
   --inverse-data-orange-minor-hover: #95400EFF;
@@ -1135,6 +1131,12 @@ export const sdds_finai__dark = ([
   --inverse-data-blue-transparent-active: #118CDF47;
   --inverse-data-red-transparent-hover: #FF293E42;
   --inverse-data-red-transparent-active: #FF293E47;
+  --inverse-data-orchid-minor: #DEB7F7;
+  --inverse-data-orchid: #C46BFF;
+  --inverse-data-blue-light-hover: #E5F5FFFF;
+  --inverse-data-blue-light-active: #E0F3FFFF;
+  --inverse-data-blue-light: #EDF8FF;
+  --inverse-data-blue-minor: #CFECFF;
   color: var(--text-primary);
   background-color: var(--background-primary);
 }
