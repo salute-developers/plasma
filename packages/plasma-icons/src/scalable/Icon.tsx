@@ -1093,6 +1093,7 @@ export const iconSectionsSet = {
         messageNewFill: 'MessageNewFill',
         messageNewOutline: 'MessageNewOutline',
         messageAddOutline: 'MessageAddOutline',
+        messageAddFill: 'MessageAddFill',
     },
     Media: {
         cameraDashFill: 'CameraDashFill',
