@@ -945,6 +945,7 @@ export const iconSectionsSet = {
         bookOpenFill: 'BookOpenFill',
         blankGenerateOutline: 'BlankGenerateOutline',
         blankGenerateFill: 'BlankGenerateFill',
+        blankGenerateAltOutline: 'BlankGenerateAltOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
