@@ -13,6 +13,7 @@ export * from './components/ProgressBarCircular';
 // Navigation
 export * from './components/Breadcrumbs';
 export * from './components/Dropdown';
+export * from './components/Link';
 export * from './components/Pagination';
 export * from './components/Tabs';
 
@@ -86,7 +87,6 @@ export * from './components/Flow';
 
 // INFO: Disabled components
 // export * from './components/Grid';
-// export * from './components/Link';
 // export * from './components/Portal';
 // export * from './components/Price';
 // export * from './components/Sheet';
