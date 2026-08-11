@@ -946,6 +946,7 @@ export const iconSectionsSet = {
         blankGenerateOutline: 'BlankGenerateOutline',
         blankGenerateFill: 'BlankGenerateFill',
         blankGenerateAltOutline: 'BlankGenerateAltOutline',
+        blankGenerateAltFill: 'BlankGenerateAltFill',
     },
     Instruments: {
         boxFill: 'BoxFill',
