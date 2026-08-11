@@ -943,6 +943,7 @@ export const iconSectionsSet = {
         blankXmlOutline: 'BlankXmlOutline',
         blankXmlFill: 'BlankXmlFill',
         bookOpenFill: 'BookOpenFill',
+        blankGenerateOutline: 'BlankGenerateOutline',
     },
     Instruments: {
         boxFill: 'BoxFill',
