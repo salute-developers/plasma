@@ -31,3 +31,4 @@ emotion/es
 styled-components/*
 build-sb-draft
 emotion/*
+*.tgz

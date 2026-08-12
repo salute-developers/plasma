@@ -31,5 +31,6 @@ emotion/es
 styled-components/*
 build-sb-draft
 emotion/*
+*.tgz
 
 /ai-components-build-sb
