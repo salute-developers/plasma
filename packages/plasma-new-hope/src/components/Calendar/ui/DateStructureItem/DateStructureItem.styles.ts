@@ -128,7 +128,7 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
             outlineSize: '0.063rem',
             outlineOffset: '0.125rem',
             outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-            outlineRadius: `var(${innerTokens.dateStructureBorderRadius})`,
+            outlineRadius: 'inherit',
         })};
 
         &.${classes.currentItem} {
@@ -136,7 +136,7 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
                 outlineSize: '0.063rem',
                 outlineOffset: '0.1875rem',
                 outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-                outlineRadius: `var(${innerTokens.dateStructureBorderRadius})`,
+                outlineRadius: 'inherit',
             })};
         }
     }
