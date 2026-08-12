@@ -19,7 +19,7 @@ type GetBaseVisualTestsArgs = {
     /**
      * Дочерние элементы, передаваемые внутрь компонента.
      */
-    children?: ReactNode | ((props: any) => ReactNode);
+    children?: ReactNode;
     /**
      * Действие, выполняемое перед снятием скриншота (например, открытие дропдауна).
      */
