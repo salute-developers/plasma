@@ -69,5 +69,5 @@ npm run next:build -- --package=sdds-serv --build=styled-components --ci
 
 `.github/workflows/next-build-check.yml`:
 
--   комментарий в PR — `/next-build <package> [build]` (без `build` — прогоняются все варианты из `exports`), доступно только `OWNER`/`MEMBER`/`COLLABORATOR`;
+-   комментарий в PR — `/next-build <package> [build]` (без `build` — прогоняются все варианты из `exports`), доступно пользователям с правами `write`, `maintain` или `admin` на репозиторий;
 -   вручную — `workflow_dispatch` с теми же `package`/`build`.

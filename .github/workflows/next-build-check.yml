@@ -43,25 +43,76 @@ jobs:
       pr-number: ${{ steps.parse.outputs.pr-number }}
       head-sha: ${{ steps.parse.outputs.head-sha }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          show-progress: false
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: '.nvmrc'
-
-      - name: Install dependencies for parse-next-build-command
-        run: |
-          cd .github/actions/parse-next-build-command
-          npm ci
-
       - name: Parse command and check authorization
         id: parse
-        uses: ./.github/actions/parse-next-build-command
+        uses: actions/github-script@v9
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            if (context.eventName === 'workflow_dispatch') {
+              core.setOutput('allowed', 'true');
+              core.setOutput('package', context.payload.inputs.package);
+              core.setOutput('build', context.payload.inputs.build || '');
+              core.setOutput('pr-number', '');
+              core.setOutput('head-sha', context.sha);
+
+              return;
+            }
+
+            const comment = context.payload.comment;
+            const issue = context.payload.issue;
+
+            if (!issue?.pull_request) {
+              core.setOutput('allowed', 'false');
+
+              return;
+            }
+
+            const match = comment.body.match(/^\/next-build\s+([A-Za-z0-9_-]+)(?:\s+(\S+))?\s*$/m);
+
+            if (!match) {
+              core.setOutput('allowed', 'false');
+
+              return;
+            }
+
+            const { data: access } = await github.rest.repos.getCollaboratorPermissionLevel({
+              ...context.repo,
+              username: comment.user.login,
+            });
+            const permissionLevels = {
+              none: 0,
+              read: 1,
+              triage: 2,
+              write: 3,
+              maintain: 4,
+              admin: 5,
+            };
+
+            if ((permissionLevels[access.permission] || 0) < permissionLevels.write) {
+              core.setOutput('allowed', 'false');
+              core.warning(
+                `/next-build triggered by ${comment.user.login} (${access.permission}) — not authorized, skipping.`,
+              );
+
+              return;
+            }
+
+            const { data: pr } = await github.rest.pulls.get({
+              ...context.repo,
+              pull_number: issue.number,
+            });
+
+            core.setOutput('allowed', 'true');
+            core.setOutput('package', match[1]);
+            core.setOutput('build', match[2] || '');
+            core.setOutput('pr-number', String(issue.number));
+            core.setOutput('head-sha', pr.head.sha);
+
+            await github.rest.reactions.createForIssueComment({
+              ...context.repo,
+              comment_id: comment.id,
+              content: 'eyes',
+            });
 
   build:
     name: Build (${{ needs.parse-command.outputs.package }} / ${{ needs.parse-command.outputs.build || 'all' }})
