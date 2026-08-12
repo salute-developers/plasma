@@ -37,6 +37,11 @@ describeFn('Link', () => {
                 <Link href={url} underline="always">
                     Always underline
                 </Link>
+                <PadMe />
+                <Link href={url} underline="always">
+                    Always underline with multiline text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Link>
             </>,
         );
 

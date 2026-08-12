@@ -22,7 +22,6 @@ export * from './components/ButtonBase';
 export * from './components/Button';
 export * from './components/ButtonGroup';
 export * from './components/IconButton';
-export * from './components/LinkButton';
 export * from './components/EmbedIconButton';
 export * from './components/Calendar';
 export * from './components/Radiobox';
