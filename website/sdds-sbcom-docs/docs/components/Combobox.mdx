@@ -157,6 +157,43 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="chipsPlaceholder" label="Placeholder with chips">
+        В режиме множественного выбора placeholder можно скрыть, когда выбран хотя бы один чип.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [value, setValue] = useState<string[]>(['north_america']);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                },
+            ];
+
+            return (
+                <div style={{ width: "300px", height: "300px" }}>
+                    <Combobox
+                        multiple
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        placeholder={value.length > 0 ? '' : 'Placeholder'}
+                        label="Label"
+                        helperText="Helper text"
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
     <TabItem value="predefined" label="Predefined">
         Есть возможность задать значения по дефолту. Также можно управлять состоянием снаружи компонента.
 
