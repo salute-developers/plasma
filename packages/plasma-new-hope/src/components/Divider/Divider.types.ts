@@ -26,4 +26,8 @@ export interface DividerProps extends HTMLAttributes<HTMLDivElement> {
      * @default 'm'
      */
     size?: string;
+    /**
+     * Пользовательский цвет разделителя
+     */
+    color?: string;
 }
