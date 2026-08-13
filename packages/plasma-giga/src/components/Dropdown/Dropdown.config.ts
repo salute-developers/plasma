@@ -4,6 +4,8 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    outlineTransparentPrimary,
+    shadowDownSoftM,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
@@ -53,14 +55,15 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyL.lineHeight};
             `,
             l: css`
-                ${tokens.padding}: 0.125rem;
+                ${tokens.padding}: 0.625rem;
                 ${tokens.width}: 17.5rem;
-                ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderRadius}: 1.5rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1rem 1.125rem;
-                ${tokens.itemPaddingTight}: 0.75rem 1.125rem;
-                ${tokens.itemBorderRadius}: 0.75rem;
+                ${tokens.itemPadding}: 1rem;
+                ${tokens.itemPaddingTight}: 0.75rem 1rem;
+                ${tokens.itemBorderRadius}: 0.875rem;
 
                 ${tokens.dividerMarginTop}: 0.5rem;
                 ${tokens.dividerMarginRight}: 1.125rem;
@@ -90,13 +93,14 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyL.lineHeight};
             `,
             m: css`
-                ${tokens.padding}: 0.125rem;
+                ${tokens.padding}: 0.5rem;
                 ${tokens.width}: 15rem;
-                ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderRadius}: 1.125rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.75rem 0.875rem;
-                ${tokens.itemPaddingTight}: 0.5rem 0.875rem;
+                ${tokens.itemPadding}: 0.8125rem 0.75rem;
+                ${tokens.itemPaddingTight}: 0.5625rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
 
                 ${tokens.dividerMarginTop}: 0.375rem;
@@ -127,14 +131,15 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyM.lineHeight};
             `,
             s: css`
-                ${tokens.padding}: 0.125rem;
+                ${tokens.padding}: 0.375rem;
                 ${tokens.width}: 12.5rem;
-                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderRadius}: 1rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 0.5rem 0.75rem;
-                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
-                ${tokens.itemBorderRadius}: 0.5rem;
+                ${tokens.itemPadding}: 0.625rem 0.5rem;
+                ${tokens.itemPaddingTight}: 0.375rem 0.5rem;
+                ${tokens.itemBorderRadius}: 0.625rem;
 
                 ${tokens.dividerMarginTop}: 0.375rem;
                 ${tokens.dividerMarginRight}: 0.75rem;
@@ -205,6 +210,8 @@ export const config = {
             default: css`
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${tokens.borderColor}: ${outlineTransparentPrimary};
+                ${tokens.boxShadow}: ${shadowDownSoftM};
             `,
         },
     },

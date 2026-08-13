@@ -96,7 +96,7 @@ export const Default: Story = {
         disabled: false,
         singleLine: false,
         size: 'm',
-        view: 'accent',
+        view: 'default',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -133,7 +133,7 @@ const StoryLive = (props: RadioboxProps) => {
 export const Live: Story = {
     args: {
         size: 'm',
-        view: 'accent',
+        view: 'default',
         singleLine: false,
         focused: true,
     },
