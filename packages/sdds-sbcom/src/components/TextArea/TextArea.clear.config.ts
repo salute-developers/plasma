@@ -256,8 +256,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.75rem -2.488rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -337,8 +337,9 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.5rem -2.488rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0rem;
+                ${tokens.scrollbarMarginRight}: 0.375rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -411,8 +412,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -485,8 +486,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0rem;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -559,8 +560,8 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
                 ${tokens.clearIndicatorHintInnerRight}: 0.813rem -1.875rem auto auto;
 
-                ${tokens.scrollbarWidth}: 0.188rem;
-                ${tokens.scrollbarBorderWidth}: 0.063rem;
+                ${tokens.scrollbarWidth}: 0.25rem;
+                ${tokens.scrollbarBorderWidth}: 0rem;
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;

@@ -340,7 +340,7 @@ export const config = {
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
 
                 ${tokens.scrollbarWidth}: 0.25rem;
-                ${tokens.scrollbarBorderWidth}: 0;
+                ${tokens.scrollbarBorderWidth}: 0rem;
                 ${tokens.scrollbarBorderRadius}: 0.5rem;
                 ${tokens.scrollbarMarginRight}: 0.375rem;
 
