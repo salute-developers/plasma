@@ -1,6 +1,3 @@
-import { createApplyPaperMixin } from '@salutejs/plasma-new-hope/styled-components';
-import * as allTokens from '@salutejs/plasma-themes/tokens/plasma_web';
-
 export {
     addFocus,
     syntheticFocus,
@@ -40,4 +37,4 @@ export type {
 
 export { addScrollbar } from '../components/Scrollbar/Scrollbar';
 
-export const applyPaper = createApplyPaperMixin(allTokens);
+export { applyPaper } from './applyPaper';
