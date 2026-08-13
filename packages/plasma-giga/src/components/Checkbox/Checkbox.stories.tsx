@@ -15,7 +15,8 @@ const onFocus = action('onFocus');
 const onBlur = action('onBlur');
 
 const { sizes } = getConfigVariations(config);
-const views = ['accent', 'negative'];
+const views = ['default', 'positive', 'negative'];
+const checkIcons = ['check', 'cross'];
 
 const propsToDisable = [
     'name',
@@ -54,13 +55,19 @@ const meta: Meta<CheckboxProps> = {
         size: {
             options: sizes,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
         view: {
             options: views,
             control: {
-                type: 'inline-radio',
+                type: 'select',
+            },
+        },
+        checkIcon: {
+            options: checkIcons,
+            control: {
+                type: 'select',
             },
         },
         ...disableProps(propsToDisable),
@@ -167,8 +174,9 @@ export const Default: Story = {
         disabled: false,
         singleLine: false,
         size: 'm',
-        view: 'accent',
+        view: 'default',
         focused: true,
+        checkIcon: 'check',
     },
     render: (args) => <StoryDefault {...args} />,
 };
@@ -218,6 +226,7 @@ const StoryLive = (args) => {
                     onFocus={onFocus}
                     onBlur={onBlur}
                     {...args}
+                    checkIcon={item.value === 'russian' ? 'cross' : undefined}
                 />
             ))}
         </>
@@ -227,13 +236,13 @@ const StoryLive = (args) => {
 export const Live: Story = {
     args: {
         size: 'm',
-        view: 'accent',
+        view: 'default',
         singleLine: false,
         focused: true,
         disabled: false,
     },
     argTypes: {
-        ...disableProps(['label', 'description']),
+        ...disableProps(['label', 'description', 'checkIcon']),
     },
     render: (args) => <StoryLive {...args} />,
 };

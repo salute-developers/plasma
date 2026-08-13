@@ -7,7 +7,8 @@ import {
     inverseSurfaceSolidDefault,
     onDarkSurfaceSolidDefault,
     surfaceAccent,
-    surfaceAccentHover,
+    surfaceSolidDefault,
+    surfaceSolidDefaultHover,
     surfaceTransparentTertiary,
     surfaceTransparentTertiaryHover,
     textPrimary,
@@ -100,8 +101,8 @@ export const config = {
                 ${switchTokens.labelColor}: ${textPrimary};
                 ${switchTokens.descriptionColor}: ${textSecondary};
                 ${switchTokens.descriptionMaxLines}: initial;
-                ${switchTokens.trackBackgroundColorOn}: ${surfaceAccent};
-                ${switchTokens.trackBackgroundColorOnHover}: ${surfaceAccentHover};
+                ${switchTokens.trackBackgroundColorOn}: ${surfaceSolidDefault};
+                ${switchTokens.trackBackgroundColorOnHover}: ${surfaceSolidDefaultHover};
                 ${switchTokens.trackBackgroundColorOff}: ${surfaceTransparentTertiary};
                 ${switchTokens.trackBackgroundColorOffHover}: ${surfaceTransparentTertiaryHover};
                 ${switchTokens.trackBorderWidthOn}: 0;
