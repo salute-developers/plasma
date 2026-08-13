@@ -1,4 +1,5 @@
 import type { SyntheticEvent, InputHTMLAttributes, ReactNode, HTMLAttributes } from 'react';
+import type { NumberFormatValues } from 'react-number-format';
 
 type SegmentationProps =
     | {
@@ -22,6 +23,10 @@ export type NumberInputProps = {
      */
     value?: string | number;
     /**
+     * Числовое значение по умолчанию.
+     */
+    defaultValue?: string | number;
+    /**
      * Минимальное значение.
      */
     min?: number;
@@ -35,10 +40,60 @@ export type NumberInputProps = {
      */
     step?: number;
     /**
-     * Количество знаков после запятой.
+     * Количество знаков после запятой при вычислениях.
      * @default 2
      */
     precision?: number;
+    /**
+     * Разделитель тысяч.
+     * Может быть строкой (например, " ") или булевым значением.
+     *
+     * @example 123 456 789
+     */
+    thousandSeparator?: boolean | string;
+    /**
+     * Разделитель десятичных знаков.
+     *
+     * @default '.'
+     * @example 123.456
+     */
+    decimalSeparator?: string;
+    /**
+     * Стиль группировки тысяч:
+     * - 'thousand' (123 456 789),
+     * - 'lakh' (индийский стиль, 12 34 56 789),
+     * - 'wan' (китайский стиль, 1 2345 6789),
+     * - 'none' (без группировки).
+     *
+     * @default 'thousand'
+     */
+    thousandsGroupStyle?: 'thousand' | 'lakh' | 'wan' | 'none';
+    /**
+     * Максимальное количество знаков после десятичного разделителя при вводе и отображении.
+     * @default 2
+     */
+    decimalScale?: number;
+    /**
+     * Фиксирует количество знаков после десятичного разделителя, добавляя нули.
+     */
+    fixedDecimalScale?: boolean;
+    /**
+     * Разрешает ввод отрицательных чисел.
+     *
+     * @default true
+     */
+    allowNegative?: boolean;
+    /**
+     * Разрешает ведущие нули.
+     *
+     * @default false
+     */
+    allowLeadingZeros?: boolean;
+    /**
+     * Функция для дополнительной валидации значения при ручном вводе и изменении кнопками.
+     * Если функция возвращает false, значение компонента не изменяется.
+     */
+    isAllowed?: (values: NumberFormatValues) => boolean;
     /**
      * Контрол в состоянии загрузки.
      */
@@ -120,7 +175,7 @@ export type NumberInputProps = {
      */
     onDecrement?: (value: number) => void;
 } & SegmentationProps &
-    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange' | 'value'>;
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'onChange' | 'value' | 'defaultValue' | 'type'>;
 
 export type NumberInputRootProps = {
     size?: string;

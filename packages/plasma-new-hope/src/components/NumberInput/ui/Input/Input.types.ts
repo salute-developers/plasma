@@ -1,5 +1,19 @@
 import type { SyntheticEvent, InputHTMLAttributes, Dispatch, SetStateAction, ReactNode } from 'react';
 
+import type { NumberInputProps } from '../../NumberInput.types';
+
+type NumberInputFormatProps = Pick<
+    NumberInputProps,
+    | 'thousandSeparator'
+    | 'decimalSeparator'
+    | 'thousandsGroupStyle'
+    | 'decimalScale'
+    | 'fixedDecimalScale'
+    | 'allowNegative'
+    | 'allowLeadingZeros'
+    | 'isAllowed'
+>;
+
 export type InputProps = {
     value: number | string | undefined;
     isInputFocused: boolean;
@@ -7,6 +21,7 @@ export type InputProps = {
     setIsAnimationRun: Dispatch<SetStateAction<boolean>>;
     setInnerValue: Dispatch<SetStateAction<number | string | undefined>>;
 
+    defaultValue?: number | string | undefined;
     min?: number;
     max?: number;
     precision?: number;
@@ -27,4 +42,5 @@ export type InputProps = {
     onFocusHandled?: () => void;
 
     onChange?: (event: SyntheticEvent<HTMLInputElement> | null, value: number | string | undefined) => void;
-} & Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>;
+} & NumberInputFormatProps &
+    Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'defaultValue' | 'type'>;

@@ -1,4 +1,5 @@
 import React, { CSSProperties, forwardRef, useState } from 'react';
+import { numericFormatter } from 'react-number-format';
 
 import type { RootProps } from '../../engines';
 import { cx, getSizeValueFromProp, isNumber } from '../../utils';
@@ -24,10 +25,19 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                 style,
                 width,
                 value: outerValue,
+                defaultValue,
                 min,
                 max,
                 step = 1,
                 precision = 2,
+                thousandSeparator,
+                decimalSeparator,
+                thousandsGroupStyle,
+                decimalScale,
+                fixedDecimalScale,
+                allowNegative,
+                allowLeadingZeros,
+                isAllowed,
                 isLoading,
                 loader,
                 size,
@@ -65,7 +75,7 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
 
             const [isInputFocused, setIsInputFocused] = useState(false);
             const [isAnimationRun, setIsAnimationRun] = useState(false);
-            const [innerValue, setInnerValue] = useState<number | string | undefined>('');
+            const [innerValue, setInnerValue] = useState<number | string | undefined>(defaultValue ?? '');
             const [shouldFocusInput, setShouldFocusInput] = useState(false);
 
             const value = outerValue ?? innerValue;
@@ -106,19 +116,42 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
             const onlyIncrementShownClass = onlyShowIncrement ? classes.onlyIncrementShown : undefined;
             const onlyDecrementShownClass = onlyShowDecrement ? classes.onlyDecrementShown : undefined;
 
+            const isStepperValueAllowed = (nextValue: number) => {
+                if (!isAllowed) {
+                    return true;
+                }
+
+                const stringValue = String(nextValue);
+                const formattedValue = numericFormatter(stringValue, {
+                    thousandSeparator,
+                    decimalSeparator,
+                    thousandsGroupStyle,
+                    decimalScale,
+                    fixedDecimalScale,
+                    allowNegative,
+                    allowLeadingZeros,
+                });
+
+                return isAllowed({ formattedValue, value: stringValue, floatValue: nextValue });
+            };
+
             const handleDecrement = () => {
                 if (isLoading || disabled || isAnimationRun) {
                     return;
-                }
-
-                if (onlyShowDecrement) {
-                    setShouldFocusInput(true);
                 }
 
                 const processedValue = isNumber(value) && value !== '' ? Number(value) : max ?? 0;
                 const preciseDiff = getPreciseValue(processedValue - step, precision);
                 const diffValue = Number(preciseDiff);
                 const resValue = min !== undefined && diffValue <= min ? min : diffValue;
+
+                if (!isStepperValueAllowed(resValue)) {
+                    return;
+                }
+
+                if (onlyShowDecrement) {
+                    setShouldFocusInput(true);
+                }
 
                 setInnerValue(resValue);
 
@@ -136,14 +169,18 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                     return;
                 }
 
-                if (onlyShowIncrement) {
-                    setShouldFocusInput(true);
-                }
-
                 const processedValue = isNumber(value) && value !== '' ? Number(value) : min ?? 0;
                 const preciseDiff = getPreciseValue(processedValue + step, precision);
                 const diffValue = Number(preciseDiff);
                 const resValue = max !== undefined && diffValue >= max ? max : diffValue;
+
+                if (!isStepperValueAllowed(resValue)) {
+                    return;
+                }
+
+                if (onlyShowIncrement) {
+                    setShouldFocusInput(true);
+                }
 
                 setInnerValue(resValue);
 
@@ -221,6 +258,14 @@ export const numberInputRoot = (Root: RootProps<HTMLDivElement, NumberInputRootP
                             segmentation={segmentation}
                             value={value}
                             precision={precision}
+                            thousandSeparator={thousandSeparator}
+                            decimalSeparator={decimalSeparator}
+                            thousandsGroupStyle={thousandsGroupStyle}
+                            fixedDecimalScale={fixedDecimalScale}
+                            decimalScale={decimalScale}
+                            allowNegative={allowNegative}
+                            allowLeadingZeros={allowLeadingZeros}
+                            isAllowed={isAllowed}
                             min={min}
                             max={max}
                             isManualInput={isManualInput}
