@@ -30,8 +30,6 @@ export const StyledCalendarContent = styled.div<{ innerWidth?: string; innerHeig
     background: var(${tokens.popoverBackgroundColor});
     box-shadow: var(${tokens.popoverShadow});
 
-    overflow: hidden;
-
     width: ${({ innerWidth }) => innerWidth || 'fit-content'};
     height: ${({ innerHeight }) => innerHeight || 'fit-content'};
 `;

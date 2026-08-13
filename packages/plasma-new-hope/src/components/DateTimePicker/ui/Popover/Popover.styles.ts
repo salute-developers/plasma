@@ -19,8 +19,6 @@ export const StyledPopover = styled(Popover)<{ innerWidth?: string; innerHeight?
         background: var(${tokens.popoverBackgroundColor});
         box-shadow: var(${tokens.popoverShadow});
 
-        overflow: hidden;
-
         width: ${({ innerWidth }) => innerWidth || 'fit-content'};
         height: ${({ innerHeight }) => innerHeight || 'fit-content'};
     }
