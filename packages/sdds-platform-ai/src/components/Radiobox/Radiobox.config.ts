@@ -3,7 +3,7 @@ import {
     bodyM,
     bodyS,
     bodyXS,
-    onDarkTextPrimary,
+    inverseTextPrimary,
     textAccent,
     textPrimary,
     textSecondary,
@@ -73,7 +73,7 @@ export const config = {
         view: {
             accent: css`
                 ${radioboxTokens.fillColor}: ${textPrimary};
-                ${radioboxTokens.ellipseColor}: ${onDarkTextPrimary};
+                ${radioboxTokens.ellipseColor}: ${inverseTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
                 ${radioboxTokens.triggerBorderColor}: ${textSecondary};
