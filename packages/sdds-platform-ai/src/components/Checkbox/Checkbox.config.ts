@@ -3,7 +3,7 @@ import {
     bodyM,
     bodyS,
     bodyXS,
-    onDarkTextPrimary,
+    inverseTextPrimary,
     textAccent,
     textNegative,
     textPrimary,
@@ -66,7 +66,7 @@ export const config = {
         view: {
             accent: css`
                 ${checkboxTokens.fillColor}: ${textPrimary};
-                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
                 ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
@@ -75,7 +75,7 @@ export const config = {
             `,
             negative: css`
                 ${checkboxTokens.fillColor}: ${textNegative};
-                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: ${textNegative};
