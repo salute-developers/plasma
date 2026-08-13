@@ -1,10 +1,7 @@
 name: Notification ready for review
 
 on:
-    pull_request:
-        types: [ ready_for_review ]
-        branches:
-            - dev
+    workflow_dispatch:
 
 jobs:
     notification-review:
