@@ -7,11 +7,11 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as orientationCSS } from './variations/_orientation/base';
 import type { DividerProps } from './Divider.types';
-import { classes } from './Divider.tokens';
+import { classes, tokens } from './Divider.tokens';
 
 export const dividerRoot = (Root: RootProps<HTMLDivElement, DividerProps>) =>
     forwardRef<HTMLDivElement, DividerProps>(
-        ({ view, className, style, orientation = 'horizontal', length = '100%', ...rest }, ref) => {
+        ({ view, className, style, color, orientation = 'horizontal', length = '100%', ...rest }, ref) => {
             const orientationClass = classes[orientation as keyof typeof classes];
 
             const scaleToken = {
@@ -27,6 +27,7 @@ export const dividerRoot = (Root: RootProps<HTMLDivElement, DividerProps>) =>
                     style={{
                         ...style,
                         ...scaleToken,
+                        [tokens.background]: color,
                     }}
                     {...rest}
                 />
