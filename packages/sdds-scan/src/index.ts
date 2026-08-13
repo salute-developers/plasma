@@ -14,6 +14,7 @@ export * from './components/ProgressBarCircular';
 export * from './components/Breadcrumbs';
 export * from './components/Dropdown';
 export * from './components/Link';
+export * from './components/LinkButton';
 export * from './components/Pagination';
 export * from './components/Tabs';
 
