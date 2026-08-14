@@ -19,6 +19,9 @@ const commonDisabledArgs = [
     'contentFooter',
     'zIndex',
     'onClose',
+    'snapPoints',
+    'initialSnapPoint',
+    'onSnapPointChange',
 ];
 
 export const createMeta = ({
