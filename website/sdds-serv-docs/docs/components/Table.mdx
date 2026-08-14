@@ -1,6 +1,7 @@
 ---
 id: table
 title: Table
+description: "Визуализация табличных данных: сортировка, фильтрация, редактирование ячеек."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -1001,7 +1002,6 @@ export function App() {
 ```
 
 ## API
-<PropsTable name="Table" />
 
 Обязательными полями являются `data` и `columns`. Формат следующий:
 
@@ -1061,3 +1061,7 @@ export type TableColumnData = {
     setCellProps?: (record: TableRowData, cellId: string) => HTMLAttributes<any> & TdHTMLAttributes<any>;
 };
 ```
+
+## API
+
+<PropsTable name="Table" />

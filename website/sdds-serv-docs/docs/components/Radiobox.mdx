@@ -1,13 +1,13 @@
 ---
 id: radiobox
 title: Radiobox
+description: "Радиокнопка — выбор одного значения из группы."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
 
 # Radiobox
 <Description name="Radiobox" />
-<PropsTable name="Radiobox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />
 
 :::caution Устаревшие значения для свойства view
 Актуальным значением для свойства `view` - является `accent`.
@@ -44,3 +44,7 @@ export function App() {
     <Radiobox name="radio-1" label="Радиокнопка 2" description="Описание 2" />
 </RadioGroup>
 ```
+
+## API
+
+<PropsTable name="Radiobox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />

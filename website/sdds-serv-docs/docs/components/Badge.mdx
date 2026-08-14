@@ -1,13 +1,13 @@
 ---
 id: badge
 title: Badge
+description: "Отображение бейджа или тега."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
 
 # Badge
 <Description name="Badge" />
-<PropsTable name="Badge"  exclude={['css']} />
 
 ## Примеры
 
@@ -16,7 +16,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 Возможные значения свойства: `l`, `m`, `s`, `xs`.
 
-```tsx live 
+```tsx live
 import React from 'react';
 import { Badge } from '@salutejs/sdds-serv';
 
@@ -35,7 +35,7 @@ export function App() {
 ### Скругленность badge
 Скругленность задается с помощью свойства `pilled`:
 
-```tsx live 
+```tsx live
 import React from 'react';
 import { Badge } from '@salutejs/sdds-serv';
 
@@ -61,7 +61,7 @@ export function App() {
 Свойства `transparent` и `clear` устарели. Используйте `appearance="transparent"` и `appearance="clear"` соответственно.
 :::
 
-```tsx live 
+```tsx live
 import React from 'react';
 import { Badge } from '@salutejs/sdds-serv';
 
@@ -91,7 +91,7 @@ export function App() {
 ```
 
 ### Иконка слева / справа
-В левой или правой части badge можно отобразить иконку. 
+В левой или правой части badge можно отобразить иконку.
 Если же нужен Badge с иконкой без текста, нужно использовать `contentLeft`.
 
 ```tsx live
@@ -102,28 +102,28 @@ import { IconEye } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div>
-            <Badge 
-                text="Бейдж" 
-                size="l"   
-                view="primary" 
+            <Badge
+                text="Бейдж"
+                size="l"
+                view="primary"
                 contentLeft={
                     <IconEye color="inherit" size="xs" />
-                } 
+                }
             />
-            <Badge 
-                text="Бейдж" 
-                size="l"   
-                view="primary" 
+            <Badge
+                text="Бейдж"
+                size="l"
+                view="primary"
                 contentRight={
                     <IconEye color="inherit" size="xs" />
-                } 
+                }
             />
-            <Badge 
-                size="l"   
-                view="default" 
+            <Badge
+                size="l"
+                view="default"
                 contentLeft={
                     <IconEye color="inherit" size="xs" />
-                } 
+                }
             />
         </div>
     );
@@ -131,7 +131,7 @@ export function App() {
 ```
 
 ### Задание цвета текста и фона
-Цвет текста и фона можно задать с помощью свойств 
+Цвет текста и фона можно задать с помощью свойств
 `customColor` и `customBackgroundColor` соответственно.
 
 ```tsx live
@@ -141,12 +141,12 @@ import { Badge } from '@salutejs/sdds-serv';
 export function App() {
     return (
         <div>
-            <Badge 
-                text="Бейдж" 
-                size="l"   
-                view="default" 
+            <Badge
+                text="Бейдж"
+                size="l"
+                view="default"
                 customColor="antiquewhite"
-                customBackgroundColor="darkolivegreen" 
+                customBackgroundColor="darkolivegreen"
             />
         </div>
     );
@@ -179,3 +179,7 @@ export function App() {
     );
 }
 ```
+
+## API
+
+<PropsTable name="Badge"  exclude={['css']} />

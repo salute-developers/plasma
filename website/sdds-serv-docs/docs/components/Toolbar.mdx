@@ -1,6 +1,7 @@
 ---
 id: toolbar
 title: Toolbar
+description: "Панель инструментов с горизонтальной или вертикальной ориентацией."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -10,7 +11,6 @@ Toolbar может отображаться в горизонтальном и �
 
 ## Toolbar
 <Description name="Toolbar" />
-<PropsTable name="Toolbar" exclude={['css', 'focused']} />
 
 ## Использование
 Компонент `Toolbar` должен содержать контент передаваемый в `children`.
@@ -116,3 +116,7 @@ export function App() {
     );
 }
 ```
+
+## API
+
+<PropsTable name="Toolbar" exclude={['css', 'focused']} />

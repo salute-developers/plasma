@@ -1,6 +1,7 @@
 ---
 id: accordion
 title: Accordion
+description: "Разделение контента на сворачиваемые секции."
 ---
 
 import { PropsTable } from '@site/src/components';
@@ -9,11 +10,8 @@ import TabItem from '@theme/TabItem';
 
 # Accordion
 Компонент выпадающей информации
-<PropsTable name="Accordion" />
 
 # AccordionItem
-Компонент выпадающей информации
-<PropsTable name="AccordionItem" exclude={['value']} />
 
 Компонент представляет собой заголовок и контент, который раскрывается при нажатии.
 
@@ -233,7 +231,6 @@ import TabItem from '@theme/TabItem';
     }
     ```
 
-
 ### Использование AccordionItem атрибута Type
 
 <Tabs>
@@ -293,7 +290,6 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
-
 ### Использование AccordionItem с кастомной иконкой contentRight и анимацией
 
 Если передать `contentRight`, компонент полностью отдаёт управление иконкой снаружи и не применяет встроенную анимацию поворота (она работает только для иконки по умолчанию `type="sign"`/`type="arrow"`). Чтобы анимировать кастомную иконку, нужно самостоятельно менять её стиль в зависимости от состояния `opened`.
@@ -343,3 +339,13 @@ export function App() {
     );
 }
 ```
+
+## API
+
+### Accordion
+
+<PropsTable name="Accordion" />
+
+### AccordionItem
+
+<PropsTable name="AccordionItem" exclude={['value']} />

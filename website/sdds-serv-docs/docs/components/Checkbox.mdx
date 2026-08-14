@@ -1,13 +1,13 @@
 ---
 id: checkbox
 title: Checkbox
+description: "Ввод логического значения — флажок (checkbox)."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
 
 # Checkbox
 <Description name="Checkbox" />
-<PropsTable name="Checkbox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />
 
 :::caution Устаревшие значения для свойства view
 Актуальным значением для свойства `view` - является `accent`.
@@ -61,3 +61,7 @@ export function App() {
     );
 }
 ```
+
+## API
+
+<PropsTable name="Checkbox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />

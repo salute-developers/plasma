@@ -1,13 +1,13 @@
 ---
 id: number-format
 title: NumberFormat
+description: "Форматирование числа: разделители разрядов, префикс и суффикс."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
 
 # NumberFormat
 <Description name="NumberFormat" />
-<PropsTable name="NumberFormat" exclude={['css']} />
 
 ## Использование
 Компонент `NumberFormat` представляет собой поле ввода с поле ввода числовых значений.
@@ -207,3 +207,7 @@ const options = {
 
 const value = numberFormatter(String(num), options)
 ```
+
+## API
+
+<PropsTable name="NumberFormat" exclude={['css']} />

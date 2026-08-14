@@ -1,6 +1,7 @@
 ---
 id: skeleton
 title: Skeleton
+description: "Индикация загрузки контента — скелетон-заглушка."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -83,10 +84,6 @@ export function App() {
 }
 ```
 
-### Props
-
-<PropsTable name="LineSkeleton" />
-
 ## RectSkeleton
 <Description name="RectSkeleton" />
 
@@ -103,10 +100,6 @@ export function App() {
 }
 ```
 
-### Props
-
-<PropsTable name="RectSkeleton" />
-
 ## TextSkeleton
 <Description name="TextSkeleton" />
 
@@ -122,10 +115,6 @@ export function App() {
     );
 }
 ```
-
-### Props
-
-<PropsTable name="TextSkeleton" />
 
 ## withSkeleton
 
@@ -308,3 +297,17 @@ export default function App() {
 ```
 
 При `skeleton={true}` и `aria-busy={true}` screen-reader оповещает пользователя о соответствующем статусе компонента.
+
+## API
+
+### LineSkeleton
+
+<PropsTable name="LineSkeleton" />
+
+### RectSkeleton
+
+<PropsTable name="RectSkeleton" />
+
+### TextSkeleton
+
+<PropsTable name="TextSkeleton" />
