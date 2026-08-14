@@ -13,17 +13,19 @@ const Root = styled.div<{
     dynamicVariants: (props: HTMLAnyAttributes) => any[];
     intersectionStyles: PolymorphicClassName[];
     responsiveStyles?: PolymorphicClassName;
+    invariants?: PolymorphicClassName;
 }>`
     ${({ base }) => base};
     ${({ staticVariants }) => staticVariants};
     ${({ dynamicVariants }) => dynamicVariants};
     ${({ intersectionStyles }) => intersectionStyles};
     ${({ responsiveStyles }) => responsiveStyles};
+    ${({ invariants }) => invariants};
 `;
 
 /* eslint-disable no-underscore-dangle */
 export const _component = (componentConfig: ComponentConfig) => {
-    const { tag, base, intersections, responsive } = componentConfig;
+    const { tag, base, intersections, invariants, responsive } = componentConfig;
     const staticVariants = getStaticVariants(componentConfig);
     const dynamicVariants = getDynamicVariants(componentConfig);
 
@@ -42,6 +44,7 @@ export const _component = (componentConfig: ComponentConfig) => {
                 dynamicVariants={dynamicVariants}
                 intersectionStyles={intersectionStyles}
                 responsiveStyles={responsiveStyles}
+                invariants={invariants}
                 {...rest}
                 ref={ref}
             />

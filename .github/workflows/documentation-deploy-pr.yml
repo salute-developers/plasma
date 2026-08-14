@@ -4,8 +4,6 @@ on:
     pull_request_target:
         branches:
             - dev
-            - next-insol
-            - next-platform-ai
             - next-sbcom
         paths-ignore:
             - 'docs/**'
@@ -14,6 +12,9 @@ on:
             - master
         paths-ignore:
             - 'docs/**'
+
+permissions:
+    contents: read
 
 concurrency:
     # New commit on branch cancels running workflows of the same branch
@@ -216,6 +217,9 @@ jobs:
         needs: [ state, deploy-website, deploy-artifacts ]
         if: ${{ always() && (contains(needs.deploy-website.result, 'success') || contains(needs.deploy-artifacts.result, 'success')) }}
         runs-on: ubuntu-22.04
+        permissions:
+            contents: read
+            pull-requests: write
         steps:
             -   uses: actions/checkout@v4
                 with:

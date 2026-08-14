@@ -55,6 +55,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
 
                 // layout
                 label,
+                titleCaption,
                 labelPlacement = 'outer',
                 keepPlaceholder,
                 required = false,
@@ -356,6 +357,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                                 hasRequiredIndicator={hasRequiredIndicator}
                                 label={label}
                                 labelPlacement={labelPlacement}
+                                titleCaption={titleCaption}
                                 keepPlaceholder={keepPlaceholder}
                                 autoComplete={autoComplete}
                                 appearance={appearance}

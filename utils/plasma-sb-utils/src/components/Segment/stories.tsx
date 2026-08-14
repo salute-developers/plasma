@@ -159,7 +159,7 @@ export const createIconItemStory = ({ SegmentGroup, SegmentIconItem, SegmentProv
         orientation,
         segmentItemView,
         hasBackground,
-        args,
+        ...args
     }: any) => {
         const iconSize = getContentSize(size);
 

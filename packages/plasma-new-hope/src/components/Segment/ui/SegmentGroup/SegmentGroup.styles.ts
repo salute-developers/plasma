@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { addFocus } from 'src/mixins';
 
-import { classes, tokens } from '../../tokens';
+import { classes, privateTokens, tokens } from '../../tokens';
 import { dividerConfig, dividerTokens } from '../../../Divider';
 
 const mergedDividerConfig = mergeConfig(dividerConfig);
@@ -48,10 +48,31 @@ export const base = css`
 `;
 
 export const StyledContent = styled.div`
+    position: relative;
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     max-width: 100%;
+`;
+
+export const StyledThumb = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    width: var(${privateTokens.thumbWidth}, 0px);
+    height: var(${privateTokens.thumbHeight}, 0px);
+    opacity: var(${privateTokens.thumbOpacity}, 0);
+    transform: translate3d(var(${privateTokens.thumbX}, 0px), var(${privateTokens.thumbY}, 0px), 0);
+
+    /* itemSelectedBackgroundColor и border-radius объявлены как CSS-переменные на самих
+       SegmentItem, а не на SegmentGroup — thumb им не потомок, поэтому каскадом не достать.
+       Значения копируются из выбранного item через getComputedStyle в SegmentGroup.tsx. */
+    background-color: var(${privateTokens.thumbBackground}, transparent);
+
+    transition: var(${tokens.indicatorTransition}, opacity 0.2s ease-in-out);
 `;
 
 export const StyledContentWrapper = styled.div`

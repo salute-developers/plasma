@@ -1,8 +1,7 @@
 name: Code review completed
 
 on:
-    pull_request_review:
-        types: [ submitted ]
+    workflow_dispatch:
 
 jobs:
     notify:
@@ -25,7 +24,7 @@ jobs:
                         const path = '.github/teammates.json';
                         const teammates = JSON.parse(fs.readFileSync(path, 'utf8'));
                         const teammatesGH = Object.keys(teammates);
-                        
+
                         const { data: reviews } = await github.rest.pulls.listReviews({
                             owner: context.repo.owner,
                             repo: context.repo.repo,

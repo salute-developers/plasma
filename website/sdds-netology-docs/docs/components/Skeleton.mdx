@@ -46,6 +46,27 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
+### Длительность анимации
+
+Свойство `animationDuration` позволяет регулировать скорость анимации, переопределяя длительность цикла, заданную по умолчанию.
+Значение указывается в миллисекундах.
+Значение `0` отключает анимацию.
+
+```tsx live
+import React from 'react';
+import { LineSkeleton, RectSkeleton, TextSkeleton } from '@salutejs/sdds-netology';
+
+export function App() {
+    return (
+        <>
+            <LineSkeleton size="h3" animationDuration={1200} />
+            <RectSkeleton width="12rem" height="8rem" animationDuration={600} />
+            <TextSkeleton size="textM" lines={4} animationDuration={0} />
+        </>
+    );
+}
+```
+
 ## LineSkeleton
 <Description name="LineSkeleton" />
 
@@ -181,6 +202,31 @@ export function App() {
         ```
     </TabItem>
 </Tabs>
+
+### Длительность анимации
+
+Поле `duration` в `animationConfig` задаёт длительность одного цикла анимации в миллисекундах.
+Значение `0` отключает анимацию.
+
+```tsx live
+import React from 'react';
+import { Button, withSkeleton } from '@salutejs/sdds-netology';
+
+export function App() {
+    const ButtonSkeleton = withSkeleton(Button);
+
+    return (
+        <ButtonSkeleton
+            text="Загрузка..."
+            skeleton={true}
+            animationConfig={{
+                type: 'shimmer',
+                duration: 1000,
+            }}
+        />
+    );
+}
+```
 
 ### Кастомные цвета
 

@@ -18,12 +18,14 @@ export const config = {
                 ${segmentTokens.groupBackgroundColor}: transparent;
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
                 ${segmentTokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${segmentTokens.indicatorTransition}: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
             `,
             filled: css`
                 ${segmentTokens.arrowColor}: ${textSecondary};
                 ${segmentTokens.groupBackgroundColor}: transparent;
                 ${segmentTokens.groupFilledBackgroundColor}: ${textAccent};
                 ${segmentTokens.dividerColor}: ${surfaceTransparentTertiary};
+                ${segmentTokens.indicatorTransition}: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
             `,
         },
         size: {
@@ -69,8 +71,7 @@ export const config = {
             `,
             xl: css`
                 ${segmentTokens.groupBorderRadius}: 1.125rem;
-                // NOTE: change on token when added
-                ${segmentTokens.groupPilledBorderRadius}: 1000px;
+                ${segmentTokens.groupPilledBorderRadius}: 1.875rem;
                 ${segmentTokens.groupWidth}: auto;
                 ${segmentTokens.groupHeight}: auto;
                 ${segmentTokens.groupArrowPadding}: 1.25rem 1.5rem;

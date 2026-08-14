@@ -1491,10 +1491,10 @@ export const inverseSurfaceAccent = 'var(--inverse-surface-accent, #199AF0)';
 export const inverseSurfaceInfo = 'var(--inverse-surface-info, #199AF0)';
 
 /** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #060A0C)';
+export const backgroundPrimaryBrightness = 'var(--background-primary-brightness, #15191B)';
 
 /** Основной фон */
-export const backgroundPrimaryBrightness = 'var(--background-primary-brightness, #15191B)';
+export const backgroundPrimary = 'var(--background-primary, #060A0C)';
 
 /** Основной фон на темном фоне */
 export const darkBackgroundPrimary = 'var(--dark-background-primary, #060A0C)';
@@ -2294,10 +2294,6 @@ export const dataDefaultDataYellowLight = 'var(--data-default-data-yellow-light,
 /** Светлый голубой цвет для данных */
 export const dataDefaultDataBlueLight = 'var(--data-default-data-blue-light, #0A1924)';
 
-export const dataDefaultDataOrchid = 'var(--data-default-data-orchid, #AD42F5)';
-
-export const dataDefaultDataOrchidMinor = 'var(--data-default-data-orchid-minor, #722BA1)';
-
 /** Желтый цвет для данных */
 export const dataDefaultDataYellow = 'var(--data-default-data-yellow, #A16B00)';
 
@@ -2469,6 +2465,10 @@ export const dataDefaultDataBlueTransparentHover = 'var(--data-default-data-blue
 
 export const dataDefaultDataBlueTransparentActive = 'var(--data-default-data-blue-transparent-active, #118CDF2E)';
 
+export const dataDefaultDataOrchid = 'var(--data-default-data-orchid, #AD42F5)';
+
+export const dataDefaultDataOrchidMinor = 'var(--data-default-data-orchid-minor, #722BA1)';
+
 /** Цвет успеха с градиентом */
 export const dataOnDarkDataPositiveGradient =
     'var(--data-on-dark-data-positive-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%))';
@@ -2544,8 +2544,6 @@ export const dataOnDarkDataSkyBlueLightActive = 'var(--data-on-dark-data-sky-blu
 
 export const dataOnDarkDataBlueMinor = 'var(--data-on-dark-data-blue-minor, #0D3B59)';
 
-export const dataOnDarkDataOrchidMinor = 'var(--data-on-dark-data-orchid-minor, #722BA1)';
-
 export const dataOnDarkDataRedMinor = 'var(--data-on-dark-data-red-minor, #9C1422)';
 
 export const dataOnDarkDataRedLight = 'var(--data-on-dark-data-red-light, #4A0D13)';
@@ -2581,8 +2579,6 @@ export const dataOnDarkDataYellowLight = 'var(--data-on-dark-data-yellow-light, 
 
 /** Светлый голубой цвет для данных на темном фоне */
 export const dataOnDarkDataBlueLight = 'var(--data-on-dark-data-blue-light, #0A1924)';
-
-export const dataOnDarkDataOrchid = 'var(--data-on-dark-data-orchid, #AD42F5)';
 
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #A16B00)';
@@ -2722,6 +2718,10 @@ export const dataOnDarkDataBlueTransparentHover = 'var(--data-on-dark-data-blue-
 
 export const dataOnDarkDataBlueTransparentActive = 'var(--data-on-dark-data-blue-transparent-active, #118CDF2E)';
 
+export const dataOnDarkDataOrchidMinor = 'var(--data-on-dark-data-orchid-minor, #722BA1)';
+
+export const dataOnDarkDataOrchid = 'var(--data-on-dark-data-orchid, #AD42F5)';
+
 /** Цвет успеха с градиентом */
 export const dataOnLightDataPositiveGradient =
     'var(--data-on-light-data-positive-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
@@ -2805,10 +2805,6 @@ export const dataOnLightDataSkyBlueLightActive = 'var(--data-on-light-data-sky-b
 export const dataOnLightDataBlueLight = 'var(--data-on-light-data-blue-light, #EDF8FF)';
 
 export const dataOnLightDataBlueMinor = 'var(--data-on-light-data-blue-minor, #CFECFF)';
-
-export const dataOnLightDataOrchid = 'var(--data-on-light-data-orchid, #C46BFF)';
-
-export const dataOnLightDataOrchidMinor = 'var(--data-on-light-data-orchid-minor, #DEB7F7)';
 
 export const dataOnLightDataArctic = 'var(--data-on-light-data-arctic, #14CC98)';
 
@@ -2975,6 +2971,10 @@ export const dataOnLightDataGreenLightHover = 'var(--data-on-light-data-green-li
 
 export const dataOnLightDataGreenLightActive = 'var(--data-on-light-data-green-light-active, #8BF99FFF)';
 
+export const dataOnLightDataOrchidMinor = 'var(--data-on-light-data-orchid-minor, #DEB7F7)';
+
+export const dataOnLightDataOrchid = 'var(--data-on-light-data-orchid, #C46BFF)';
+
 /** Цвет успеха с градиентом */
 export const dataInverseDataPositiveGradient =
     'var(--data-inverse-data-positive-gradient, radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0%, rgba(0, 172, 123, 0.68) 30.401%, rgba(237, 248, 255, 0.32) 54.577%, rgba(255, 255, 255, 0) 73.282%))';
@@ -3049,19 +3049,10 @@ export const dataInverseDataYellowLightHover = 'var(--data-inverse-data-yellow-l
 export const dataInverseDataYellowLightActive = 'var(--data-inverse-data-yellow-light-active, #FFF3DBFF)';
 
 /** Инвертированный светлый голубой цвет для данных */
-export const dataInverseDataSkyBlueLight = 'var(--data-inverse-data-sky-blue-light, #E8FAFF)';
-
-/** Инвертированный светлый голубой цвет для данных */
 export const dataInverseDataSkyBlueLightHover = 'var(--data-inverse-data-sky-blue-light-hover, #E0F8FFFF)';
 
 /** Инвертированный светлый голубой цвет для данных */
 export const dataInverseDataSkyBlueLightActive = 'var(--data-inverse-data-sky-blue-light-active, #DBF7FFFF)';
-
-export const dataInverseDataBlueMinor = 'var(--data-inverse-data-blue-minor, #0D3B59)';
-
-export const dataInverseDataOrchid = 'var(--data-inverse-data-orchid, #AD42F5)';
-
-export const dataInverseDataOrchidMinor = 'var(--data-inverse-data-orchid-minor, #722BA1)';
 
 export const dataInverseDataOrange = 'var(--data-inverse-data-orange, #FA5F05)';
 
@@ -3114,17 +3105,17 @@ export const dataInverseDataRedTransparent = 'var(--data-inverse-data-red-transp
 /** Инвертированный прозрачный желтый цвет для данных */
 export const dataInverseDataYellowTransparent = 'var(--data-inverse-data-yellow-transparent, #F3A9128F)';
 
-export const dataInverseDataBlueMinorHover = 'var(--data-inverse-data-blue-minor-hover, #114C74FF)';
+export const dataInverseDataBlueMinorHover = 'var(--data-inverse-data-blue-minor-hover, #C7E9FFFF)';
 
-export const dataInverseDataBlueMinorActive = 'var(--data-inverse-data-blue-minor-active, #0A2F47FF)';
+export const dataInverseDataBlueMinorActive = 'var(--data-inverse-data-blue-minor-active, #C2E7FFFF)';
 
-export const dataInverseDataOrchidHover = 'var(--data-inverse-data-orchid-hover, #BE69F7FF)';
+export const dataInverseDataOrchidHover = 'var(--data-inverse-data-orchid-hover, #C061FFFF)';
 
-export const dataInverseDataOrchidActive = 'var(--data-inverse-data-orchid-active, #A52FF4FF)';
+export const dataInverseDataOrchidActive = 'var(--data-inverse-data-orchid-active, #BC57FFFF)';
 
-export const dataInverseDataOrchidMinorHover = 'var(--data-inverse-data-orchid-minor-hover, #7D2FB1FF)';
+export const dataInverseDataOrchidMinorHover = 'var(--data-inverse-data-orchid-minor-hover, #DAACF6FF)';
 
-export const dataInverseDataOrchidMinorActive = 'var(--data-inverse-data-orchid-minor-active, #662791FF)';
+export const dataInverseDataOrchidMinorActive = 'var(--data-inverse-data-orchid-minor-active, #D6A3F5FF)';
 
 export const dataInverseDataOrangeHover = 'var(--data-inverse-data-orange-hover, #FB782DFF)';
 
@@ -3221,6 +3212,21 @@ export const dataInverseDataBlueTransparentActive = 'var(--data-inverse-data-blu
 export const dataInverseDataRedTransparentHover = 'var(--data-inverse-data-red-transparent-hover, #FF293E42)';
 
 export const dataInverseDataRedTransparentActive = 'var(--data-inverse-data-red-transparent-active, #FF293E47)';
+
+export const dataInverseDataOrchidMinor = 'var(--data-inverse-data-orchid-minor, #DEB7F7)';
+
+export const dataInverseDataOrchid = 'var(--data-inverse-data-orchid, #C46BFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const dataInverseDataBlueLightHover = 'var(--data-inverse-data-blue-light-hover, #E5F5FFFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const dataInverseDataBlueLightActive = 'var(--data-inverse-data-blue-light-active, #E0F3FFFF)';
+
+/** Инвертированный светлый голубой цвет для данных */
+export const dataInverseDataBlueLight = 'var(--data-inverse-data-blue-light, #EDF8FF)';
+
+export const dataInverseDataBlueMinor = 'var(--data-inverse-data-blue-minor, #CFECFF)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';

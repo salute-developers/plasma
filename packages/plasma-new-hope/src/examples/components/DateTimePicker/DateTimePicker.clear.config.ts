@@ -51,6 +51,8 @@ export const config = {
 
                 ${tokens.hintIconColor}: var(--text-secondary);
 
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+
                 ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);

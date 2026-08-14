@@ -4,6 +4,7 @@ import { getConfigVariations } from '../../helpers';
 
 import { createMeta } from './meta';
 import { createDefaultStory } from './stories';
+import { getIconSize as defaultGetIconSize, NoteIconSize } from './fixtures';
 
 type CreateNoteStoriesProps = {
     component: any;
@@ -15,10 +16,19 @@ type CreateNoteStoriesProps = {
     additionalComponents: {
         LinkButton: any;
     };
+    getIconSize?: (size?: string, isScalable?: boolean) => NoteIconSize;
+    linkButtonSize?: string;
 };
 
 export const getNoteStories = (config: CreateNoteStoriesProps) => {
-    const { component, componentConfig, additionalComponents, ...rest } = config;
+    const {
+        component,
+        componentConfig,
+        additionalComponents,
+        getIconSize = defaultGetIconSize,
+        linkButtonSize,
+        ...rest
+    } = config;
 
     const noteConfig = getConfigVariations(componentConfig);
 
@@ -28,7 +38,10 @@ export const getNoteStories = (config: CreateNoteStoriesProps) => {
         ...rest,
     });
 
-    const DefaultStoryComponent = createDefaultStory(component, additionalComponents);
+    const DefaultStoryComponent = createDefaultStory(component, additionalComponents, {
+        getIconSize,
+        linkButtonSize,
+    });
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,

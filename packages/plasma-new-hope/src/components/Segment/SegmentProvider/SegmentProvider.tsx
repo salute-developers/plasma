@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
 import type { FC } from 'react';
 
 import {
@@ -44,6 +44,18 @@ export const SegmentProvider: FC<SegmentProviderProps> = ({
     const [selectedSegmentItems, setSelectedSegmentItems] = useState<string[]>(defaultSelected || []);
     const selected = outerSelected ?? selectedSegmentItems;
 
+    const itemNodesRef = useRef<Map<string, HTMLElement | null>>(new Map());
+
+    const registerItemRef = (itemValue: string, node: HTMLElement | null) => {
+        if (node) {
+            itemNodesRef.current.set(itemValue, node);
+        } else {
+            itemNodesRef.current.delete(itemValue);
+        }
+    };
+
+    const getItemRef = useCallback((itemValue: string) => itemNodesRef.current.get(itemValue), []);
+
     const handleSelect = (label: string) => {
         if (selectionMode !== 'multiple') {
             setSelectedSegmentItems((prevSelected) =>
@@ -74,6 +86,8 @@ export const SegmentProvider: FC<SegmentProviderProps> = ({
         setHasDivider,
         orientation,
         setOrientation,
+        registerItemRef,
+        getItemRef,
     };
 
     return <SegmentContext.Provider value={contextValue}>{children}</SegmentContext.Provider>;

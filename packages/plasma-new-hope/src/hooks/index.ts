@@ -10,3 +10,4 @@ export { useCodeHook } from './useCodeHook';
 export { useDisableScroll } from './useDisableScroll';
 export { useForkRef } from './useForkRef';
 export { useResizeObserver } from './useResizeObserver';
+export { useEscKeyDown } from './useEscKeyDown';

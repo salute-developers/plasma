@@ -2927,12 +2927,12 @@
                     "comment": "Третичный фон",
                     "enabled": false
                 },
-                "backgroundPrimary": {
-                    "value": "[general.coolGray.1000]",
-                    "comment": "Основной фон"
-                },
                 "backgroundPrimaryBrightness": {
                     "value": "#15191B",
+                    "comment": "Основной фон"
+                },
+                "backgroundPrimary": {
+                    "value": "[general.coolGray.1000]",
                     "comment": "Основной фон"
                 }
             },
@@ -4791,14 +4791,6 @@
                     "value": "[general.blue.950]",
                     "comment": "Светлый голубой цвет для данных"
                 },
-                "dataOrchid": {
-                    "value": "[general.orchid.600]",
-                    "comment": ""
-                },
-                "dataOrchidMinor": {
-                    "value": "[general.orchid.800]",
-                    "comment": ""
-                },
                 "dataYellow": {
                     "value": "[general.amber.700]",
                     "comment": "Желтый цвет для данных"
@@ -5130,6 +5122,14 @@
                 "dataBlueTransparentActive": {
                     "value": "#118CDF2E",
                     "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -5229,10 +5229,6 @@
                     "value": "[general.blue.850]",
                     "comment": ""
                 },
-                "dataOrchidMinor": {
-                    "value": "[general.orchid.800]",
-                    "comment": ""
-                },
                 "dataRedMinor": {
                     "value": "[general.red.800]",
                     "comment": ""
@@ -5300,10 +5296,6 @@
                 "dataBlueLight": {
                     "value": "[general.blue.950]",
                     "comment": "Светлый голубой цвет для данных на темном фоне"
-                },
-                "dataOrchid": {
-                    "value": "[general.orchid.600]",
-                    "comment": ""
                 },
                 "dataYellow": {
                     "value": "[general.amber.700]",
@@ -5572,6 +5564,14 @@
                 "dataBlueTransparentActive": {
                     "value": "#118CDF2E",
                     "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.600]",
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -5681,14 +5681,6 @@
                 },
                 "dataBlueMinor": {
                     "value": "[general.blue.150]",
-                    "comment": ""
-                },
-                "dataOrchid": {
-                    "value": "[general.orchid.400]",
-                    "comment": ""
-                },
-                "dataOrchidMinor": {
-                    "value": "[general.orchid.250]",
                     "comment": ""
                 },
                 "dataArctic": {
@@ -6014,6 +6006,14 @@
                 "dataGreenLightActive": {
                     "value": "#8BF99FFF",
                     "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.250]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.400]",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -6109,10 +6109,6 @@
                     "value": "#FFF3DBFF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.skyBlue.100]",
-                    "comment": "Инвертированный светлый голубой цвет для данных"
-                },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
@@ -6120,18 +6116,6 @@
                 "dataSkyBlueLightActive": {
                     "value": "#DBF7FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
-                },
-                "dataBlueMinor": {
-                    "value": "[general.blue.850]",
-                    "comment": ""
-                },
-                "dataOrchid": {
-                    "value": "[general.orchid.600]",
-                    "comment": ""
-                },
-                "dataOrchidMinor": {
-                    "value": "[general.orchid.800]",
-                    "comment": ""
                 },
                 "dataOrange": {
                     "value": "[general.orange.500]",
@@ -6234,27 +6218,27 @@
                     "comment": "Инвертированный прозрачный желтый цвет для данных"
                 },
                 "dataBlueMinorHover": {
-                    "value": "#114C74FF",
+                    "value": "#C7E9FFFF",
                     "comment": ""
                 },
                 "dataBlueMinorActive": {
-                    "value": "#0A2F47FF",
+                    "value": "#C2E7FFFF",
                     "comment": ""
                 },
                 "dataOrchidHover": {
-                    "value": "#BE69F7FF",
+                    "value": "#C061FFFF",
                     "comment": ""
                 },
                 "dataOrchidActive": {
-                    "value": "#A52FF4FF",
+                    "value": "#BC57FFFF",
                     "comment": ""
                 },
                 "dataOrchidMinorHover": {
-                    "value": "#7D2FB1FF",
+                    "value": "#DAACF6FF",
                     "comment": ""
                 },
                 "dataOrchidMinorActive": {
-                    "value": "#662791FF",
+                    "value": "#D6A3F5FF",
                     "comment": ""
                 },
                 "dataOrangeHover": {
@@ -6447,6 +6431,30 @@
                 },
                 "dataRedTransparentActive": {
                     "value": "#FF293E47",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.250]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.400]",
+                    "comment": ""
+                },
+                "dataBlueLightHover": {
+                    "value": "#E5F5FFFF",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataBlueLightActive": {
+                    "value": "#E0F3FFFF",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.100]",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataBlueMinor": {
+                    "value": "[general.blue.150]",
                     "comment": ""
                 }
             }
@@ -7960,10 +7968,6 @@
                     "value": "#30373cc7",
                     "comment": "Глубокий прозрачный фон поверхности/контрола"
                 },
-                "surfaceAccentMinor": {
-                    "value": "#ECF6FC",
-                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
-                },
                 "surfaceAccent": {
                     "value": "[general.blue.400]",
                     "comment": "Акцентный фон поверхности/контрола"
@@ -7971,6 +7975,10 @@
                 "surfaceInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет фона поверхности/контрола информация"
+                },
+                "surfaceAccentMinor": {
+                    "value": "#ECF6FC",
+                    "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
                 }
             },
             "onDark": {
@@ -11241,10 +11249,6 @@
                     "value": "[general.blue.150]",
                     "comment": ""
                 },
-                "dataOrchidMinor": {
-                    "value": "[general.orchid.250]",
-                    "comment": ""
-                },
                 "dataBlueLight": {
                     "value": "[general.blue.100]",
                     "comment": "Светлый голубой цвет для данных"
@@ -11571,6 +11575,10 @@
                 },
                 "dataOrangeTransparentActive": {
                     "value": "#FA5F0547",
+                    "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.250]",
                     "comment": ""
                 }
             },
@@ -12567,16 +12575,8 @@
                     "value": "[general.amber.950]",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
-                "dataSkyBlueLight": {
-                    "value": "[general.blue.950]",
-                    "comment": "Инвертированный светлый голубой цвет для данных"
-                },
                 "dataOrchid": {
                     "value": "[general.orchid.600]",
-                    "comment": ""
-                },
-                "dataOrchidMinor": {
-                    "value": "[general.orchid.800]",
                     "comment": ""
                 },
                 "dataOrange": {
@@ -12890,6 +12890,22 @@
                 "dataBlueTransparentActive": {
                     "value": "#118CDF2E",
                     "comment": ""
+                },
+                "dataOrchidMinor": {
+                    "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataBlueLight": {
+                    "value": "[general.blue.950]",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataBlueLightHover": {
+                    "value": "#0C1F2CFF",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataBlueLightActive": {
+                    "value": "#08141CFF",
+                    "comment": "Инвертированный светлый голубой цвет для данных"
                 }
             }
         }

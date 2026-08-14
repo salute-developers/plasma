@@ -1,6 +1,7 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef, useCallback, useMemo } from 'react';
 import type { MouseEvent } from 'react';
 import type { RootProps } from 'src/engines/types';
+import { useForkRef } from 'src/hooks';
 import { cx, safeUseId, extractTextFrom } from 'src/utils';
 
 import { classes } from '../../tokens';
@@ -14,8 +15,8 @@ import { base as pilledCSS } from './variations/_pilled/base';
 import type { SegmentItemProps } from './SegmentItem.types';
 import { StyledContent, base, LeftContent, RightContent } from './SegmentItem.styles';
 
-export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemProps>) =>
-    forwardRef<HTMLLabelElement, SegmentItemProps>((props, outerRef) => {
+export const segmentItemRoot = (Root: RootProps<HTMLButtonElement, SegmentItemProps>) =>
+    forwardRef<HTMLButtonElement, SegmentItemProps>((props, outerRef) => {
         const {
             style,
             size,
@@ -32,7 +33,15 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
-        const { disabledGroup, handleSelect, selectedSegmentItems, hasDivider, orientation } = useSegmentInner();
+        const {
+            disabledGroup,
+            handleSelect,
+            selectedSegmentItems,
+            hasDivider,
+            orientation,
+            selectionMode,
+            registerItemRef,
+        } = useSegmentInner();
 
         const uniqId = safeUseId();
         const segmentId = id || `label-${uniqId}`;
@@ -41,9 +50,19 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
         const pilledClass = pilled ? classes.segmentPilled : undefined;
         const xsSize = size === 'xs' ? classes.segmentXsSize : undefined;
         const truncateClass = maxWidth !== 'auto' ? classes.segmentTruncate : undefined;
+        const multipleSelectionClass = selectionMode === 'multiple' ? classes.segmentMultipleSelection : undefined;
 
-        const isSelected = selectedSegmentItems?.includes(value || ariaLabelDefault);
+        const itemValue = value || ariaLabelDefault;
+        const isSelected = selectedSegmentItems?.includes(itemValue);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
+
+        const setItemRef = useCallback(
+            (node: HTMLButtonElement | null) => {
+                registerItemRef(itemValue, node);
+            },
+            [itemValue, registerItemRef],
+        );
+        const ref = useForkRef(outerRef, setItemRef);
 
         const handleSelectSegment = (event: MouseEvent<HTMLButtonElement>) => {
             if (disabledGroup) {
@@ -51,22 +70,30 @@ export const segmentItemRoot = (Root: RootProps<HTMLLabelElement, SegmentItemPro
             }
 
             customHandleSelect?.(event);
-            handleSelect?.(value || ariaLabelDefault);
+            handleSelect?.(itemValue);
         };
 
         return (
             <>
-                {hasDivider && <StyledDivider orientation={dividerOrientationMap[orientation]} />}
+                {hasDivider && <StyledDivider orientation={dividerOrientationMap[orientation]} data-segment-divider />}
 
                 <Root
                     view={view}
                     size={size}
                     id={segmentId}
-                    ref={outerRef}
+                    ref={ref}
                     aria-label={ariaLabelExternal || ariaLabelDefault}
                     value={value}
                     pilled={pilled}
-                    className={cx(classes.segmentItem, selectedClass, pilledClass, xsSize, truncateClass, className)}
+                    className={cx(
+                        classes.segmentItem,
+                        selectedClass,
+                        pilledClass,
+                        xsSize,
+                        truncateClass,
+                        multipleSelectionClass,
+                        className,
+                    )}
                     onClick={handleSelectSegment}
                     tabIndex={disabledGroup ? -1 : 0}
                     disabled={disabledGroup}
