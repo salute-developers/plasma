@@ -1,13 +1,13 @@
 ---
 id: textFieldGroup
 title: TextFieldGroup
+description: "Группа текстовых полей."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
 
 # TextFieldGroup
 <Description name="TextFieldGroup" />
-<PropsTable name="TextFieldGroup" exclude={['css']} />
 
 ## Использование
 Компонент `TextFieldGroup` - это обертка для TextField. Принимает в себя группу TextField.
@@ -33,7 +33,7 @@ export function App() {
 
 ### Размер
 Размер TextFieldGroup задается с помощью свойства `size`.
-С помощью свойства `isCommonTextFieldStyles` можно отключить переопределение стилей для всех input внутри группы. 
+С помощью свойства `isCommonTextFieldStyles` можно отключить переопределение стилей для всех input внутри группы.
 Тогда каждый input будет иметь настраиваемый размер.
 
 ```tsx live
@@ -50,7 +50,7 @@ export function App() {
                         <TextField placeholder={`input #${i}`} />
                     ))}
             </TextFieldGroup>
-            
+
             <TextFieldGroup isCommonTextFieldStyles={false}>
                 <TextField placeholder="Размер l" size="l" />
                 <TextField placeholder="Размер m" size="m" />
@@ -124,3 +124,7 @@ export function App() {
     );
 }
 ```
+
+## API
+
+<PropsTable name="TextFieldGroup" exclude={['css']} />

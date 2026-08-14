@@ -1,14 +1,15 @@
 ---
 id: breadcrumbs
 title: Breadcrumbs
+description: "Навигационная цепочка «хлебные крошки» — список ссылок с разделителем."
 ---
 
 import { PropsTable } from '@site/src/components';
 
 # Breadcrumbs
-<PropsTable name="Breadcrumbs" />
+Навигационная цепочка «хлебные крошки» — список ссылок с разделителем.
 
-# Типизация элементов
+## Типизация элементов
 
 Параметр `items` является обязательным и поддерживает следующие типы:
 
@@ -52,7 +53,7 @@ type Items =
 
 При использовании одного из трёх вариантов, свойства остальных будут не доступны.
 
-# Пример
+## Пример
 
 ```tsx live
 import React from 'react';
@@ -81,7 +82,7 @@ export function App() {
     );
 }
 ```
-# Использование с shorter
+## Использование с shorter
 ```tsx live
 import React from 'react';
 import { Breadcrumbs } from '@salutejs/sdds-serv';
@@ -107,7 +108,7 @@ export function App() {
 }
 ```
 
-# Использование с кастомным элементом
+## Использование с кастомным элементом
 ```tsx live
 import React from 'react';
 import { Breadcrumbs, Dropdown } from '@salutejs/sdds-serv';
@@ -138,7 +139,6 @@ export function App() {
         { title: 'Contacts' },
     ];
 
-
     return (
         <div style={{height: '200px'}}>
             <Breadcrumbs items={items} />
@@ -146,3 +146,7 @@ export function App() {
     );
 }
 ```
+
+## API
+
+<PropsTable name="Breadcrumbs" />

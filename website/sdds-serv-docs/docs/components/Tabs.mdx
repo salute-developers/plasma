@@ -1,6 +1,7 @@
 ---
 id: tabs
 title: Tabs
+description: "Вкладки — переключение между разными представлениями."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -12,12 +13,10 @@ import { PropsTable, Description } from '@site/src/components';
 ## Tabs
 
 <Description name="Tabs" />
-<PropsTable name="Tabs" />
 
 ## TabItem
 
 <Description name="TabItem" />
-<PropsTable name="TabItem" />
 
 :::caution Взаимоисключающие свойства
 Свойство `value` - это значение Tab. Оно отображается справа от основного текста.<br/>
@@ -27,13 +26,11 @@ import { PropsTable, Description } from '@site/src/components';
 ## IconTabItem
 
 <Description name="IconTabItem" />
-<PropsTable name="IconTabItem" />
 
 ## TabsController (deprecated)
 Вместо этого используйте Tabs, TabItem, указав параметры index, itemIndex, onIndexChange.
 
 <Description name="TabsController" />
-<PropsTable name="TabsController" />
 
 ## Использование
 
@@ -171,7 +168,6 @@ export function App() {
     );
 }
 ```
-
 
 ### Пример с прокруткой
 При выборе Tab происходит прокрутка до выбранного TabItem.
@@ -467,3 +463,21 @@ export function App() {
     );
 }
 ```
+
+## API
+
+### Tabs
+
+<PropsTable name="Tabs" />
+
+### TabItem
+
+<PropsTable name="TabItem" />
+
+### IconTabItem
+
+<PropsTable name="IconTabItem" />
+
+### TabsController
+
+<PropsTable name="TabsController" />

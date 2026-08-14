@@ -1,6 +1,7 @@
 ---
 id: react-hook-form
 title: React Hook Form
+description: "Компоненты поддерживают работу с библиотекой [React Hook Form](https://react-hook-form.com/)."
 sidebar_position: 2
 ---
 
@@ -8,13 +9,10 @@ sidebar_position: 2
 
 Компоненты поддерживают работу с библиотекой [React Hook Form](https://react-hook-form.com/)
 
-
-
 ```tsx live
-
 import { useForm } from 'react-hook-form';
 import React from 'react';
-import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, DatePickerRange, Autocomplete } from "@salutejs/sdds-serv";
+import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, Combobox, Autocomplete, Select } from "@salutejs/sdds-serv";
 
 export function App() {
     const langName = 'language';
@@ -290,6 +288,7 @@ export function App() {
     ];
 
     const { register, handleSubmit } = useForm();
+
     const onSubmit = (data) => {
         console.log(data);
     };
@@ -328,7 +327,7 @@ export function App() {
 
 ```
 
-### Особенности работы 
+### Особенности работы
 
 #### DatePicker и DatePickerRange
 
@@ -486,6 +485,4 @@ export function App() {
     </form>
   );
 }
-
-
 ```

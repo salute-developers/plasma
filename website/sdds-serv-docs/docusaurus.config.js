@@ -235,17 +235,22 @@ module.exports = {
                 description:
                     'React-компоненты дизайн-системы SDDS SERV для веб-приложений. Три варианта поставки: предсобранный CSS (по умолчанию), styled-components и emotion.',
                 version: pckgJson.dependencies['@salutejs/sdds-serv'],
+                // страницы guides/* имеют абсолютный slug (/next, /how-to-mcp, ...) — плагин не учитывает
+                // его при сопоставлении с маршрутами, поэтому вычищаем служебные сегменты из URL вручную
+                pathTransformation: {
+                    ignorePaths: ['docs', 'guides'],
+                },
                 includeOrder: [
                     'intro*',
-                    'next*',
-                    'how-to-mcp*',
-                    'how-to-icons*',
-                    'react_17*',
-                    'FAQ*',
+                    'guides/next*',
+                    'guides/how-to-mcp*',
+                    'guides/how-to-icons*',
+                    'guides/react_17*',
+                    'guides/FAQ*',
                     'components/**',
-                    'form/**',
                     'ai/**',
                     'utils/**',
+                    'form/**',
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-serv @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',

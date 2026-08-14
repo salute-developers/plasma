@@ -1,6 +1,7 @@
 ---
 id: notification
 title: Notification
+description: "Динамические уведомления и алерты; часть системы уведомлений."
 ---
 
 import { PropsTable } from '@site/src/components';
@@ -61,14 +62,12 @@ const NotificationID = addNotification({
     },
 }, 3000);
 
-
 closeNotification(NotificationID);
 ```
 
 :::info
 `onTimeoutClose` - вызывается при автоматическом закрытии по timeout
 :::
-
 
 ## NotificationsProvider
 
@@ -221,8 +220,12 @@ export function App() {
 }
 ```
 
-## Notification props
+## API
+
+### Notification
+
 <PropsTable name="Notification" />
 
-## Notifications provider props
+### NotificationsProvider
+
 <PropsTable name="NotificationsProvider" />
