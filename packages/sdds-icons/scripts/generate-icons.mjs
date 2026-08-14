@@ -215,11 +215,12 @@ const validateIconSets = async () => {
 };
 
 const copyFactories = (outputRoot) =>
-    Promise.all(
-        sizes.map((size) =>
+    Promise.all([
+        fs.copyFile(path.join(factoryRoot, 'createIcon.tsx'), path.join(outputRoot, 'createIcon.tsx')),
+        ...sizes.map((size) =>
             fs.copyFile(path.join(factoryRoot, `createIcon${size}.tsx`), path.join(outputRoot, `createIcon${size}.tsx`)),
         ),
-    );
+    ]);
 
 export const generateIcons = async ({ outputRoot }) => {
     const resolvedOutputRoot = path.resolve(outputRoot);
