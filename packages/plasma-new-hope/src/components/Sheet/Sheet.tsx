@@ -75,7 +75,6 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             });
             useEscKeyDown({ opened, closeOnEsc, onEscKeyDown, onClose });
 
-
             const hasHeader = Boolean(contentHeader);
             const hasFooter = Boolean(contentFooter);
 

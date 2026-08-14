@@ -1,7 +1,7 @@
 import type { ReactNode, HTMLAttributes, CSSProperties } from 'react';
 
-export type BottomSheetSnapPoint = number | string;
-export type BottomSheetSnapPoints = string[] | number[];
+export type BottomSheetSnapPoint = string;
+export type BottomSheetSnapPoints = string[];
 
 export interface BottomSheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
@@ -74,7 +74,7 @@ export interface BottomSheetProps extends HTMLAttributes<HTMLDivElement> {
     onClose?: () => void;
     /**
      * Точки остановки шторки.
-     * Числа в диапазоне `0..1` — доля высоты viewport, строки — CSS-размеры ('320px', '50%', '40dvh').
+     * CSS-размеры: '320px', '50%', '40dvh'.
      * Если не передано или массив пуст — snap-points отключены.
      */
     snapPoints?: BottomSheetSnapPoints;

@@ -1,18 +1,10 @@
-import type { SheetSnapPoint } from '../Sheet.types';
+import type { SheetSnapPoint, SheetSnapPoints } from '../Sheet.types';
 
 /**
  * Преобразует snap-точку в пиксели относительно высоты viewport.
- * Числа `0..1` — доля высоты, строки — CSS-длины.
+ * Строки — CSS-длины ('50%', '320px', '40dvh').
  */
 export const resolveSnapPointToPx = (point: SheetSnapPoint, viewportHeight: number): number => {
-    if (typeof point === 'number') {
-        if (point >= 0 && point <= 1) {
-            return point * viewportHeight;
-        }
-
-        return point;
-    }
-
     const trimmed = point.trim();
 
     if (trimmed.endsWith('%')) {
@@ -68,9 +60,9 @@ export const findNearestSnapPoint = (heightPx: number, pointsPx: number[]): numb
  * Сортирует snap-точки по возрастанию высоты, сохраняя исходные значения.
  */
 export const getSortedSnapPoints = (
-    snapPoints: SheetSnapPoint[],
+    snapPoints: SheetSnapPoints,
     viewportHeight: number,
-): { points: SheetSnapPoint[]; pointsPx: number[] } => {
+): { points: SheetSnapPoints; pointsPx: number[] } => {
     const resolved = snapPoints.map((point) => ({
         point,
         px: resolveSnapPointToPx(point, viewportHeight),
@@ -88,7 +80,7 @@ export const getSortedSnapPoints = (
  * Возвращает preferred-точку, если она есть в snapPoints, иначе первую точку.
  */
 export const resolveActiveSnapPoint = (
-    snapPoints?: SheetSnapPoint[],
+    snapPoints?: SheetSnapPoints,
     preferred?: SheetSnapPoint,
 ): SheetSnapPoint | undefined => {
     if (!snapPoints?.length) {
