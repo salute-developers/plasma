@@ -88,7 +88,7 @@ export const getSortedSnapPoints = (
  * Возвращает preferred-точку, если она есть в snapPoints, иначе первую точку.
  */
 export const resolveActiveSnapPoint = (
-    snapPoints: SheetSnapPoint[] | undefined,
+    snapPoints?: SheetSnapPoint[],
     preferred?: SheetSnapPoint,
 ): SheetSnapPoint | undefined => {
     if (!snapPoints?.length) {
