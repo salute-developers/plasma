@@ -41,6 +41,8 @@ const createOnClose = (setOpened: (opened: boolean) => void) => () => {
     onCloseAction();
 };
 
+const SNAP_POINTS = [0.3, 0.6, 0.95];
+
 export const createDefaultStory = (BottomSheet: React.ComponentType<any>, { Button, Body, H3 }: Components) => {
     return ({ showContentBeforeHeader, showContentHeader, showContentFooter, ...rest }: any) => {
         const [opened, setOpened] = useState(false);
@@ -80,6 +82,50 @@ export const createDefaultStory = (BottomSheet: React.ComponentType<any>, { Butt
                                 </Body>
                             </Source>
                         ))}
+                    </BodyContent>
+                </BottomSheet>
+            </>
+        );
+    };
+};
+
+export const createWithSnapPointsStory = (BottomSheet: React.ComponentType<any>, { Button, Body, H3 }: Components) => {
+    return ({ showContentBeforeHeader, showContentHeader, showContentFooter, ...rest }: any) => {
+        const [opened, setOpened] = useState(false);
+        const onClose = createOnClose(setOpened);
+
+        return (
+            <>
+                <Button onClick={() => setOpened(true)}>Открыть</Button>
+                <BottomSheet
+                    {...rest}
+                    opened={opened}
+                    onClose={onClose}
+                    snapPoints={SNAP_POINTS}
+                    initialSnapPoint={SNAP_POINTS[0]}
+                    contentBeforeHeader={showContentBeforeHeader ? <StyledImage /> : undefined}
+                    contentHeader={
+                        showContentHeader ? (
+                            <HeaderContent>
+                                <H3>Точки остановки</H3>
+                            </HeaderContent>
+                        ) : undefined
+                    }
+                    contentFooter={
+                        showContentFooter ? (
+                            <FooterContent>
+                                <Button stretching="filled" view="default">
+                                    Сохранить
+                                </Button>
+                            </FooterContent>
+                        ) : undefined
+                    }
+                >
+                    <BodyContent>
+                        <Body>
+                            Потяните шторку за ручку вверх или вниз, чтобы перейти между точками остановки. Сильный
+                            свайп вниз закроет шторку.
+                        </Body>
                     </BodyContent>
                 </BottomSheet>
             </>
