@@ -46,7 +46,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 hasScrollEvents = true,
                 throttleMs,
                 snapPoints,
-                defaultSnapPoint,
+                initialSnapPoint,
                 onSnapPointChange,
                 className,
                 view,
@@ -70,7 +70,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 onClose,
                 opened,
                 snapPoints,
-                defaultSnapPoint,
+                initialSnapPoint,
                 onSnapPointChange,
             });
             useEscKeyDown({ opened, closeOnEsc, onEscKeyDown, onClose });

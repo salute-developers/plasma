@@ -149,7 +149,7 @@ export function App() {
 
 По умолчанию snap-points выключены. Без `snapPoints` поведение шторки не меняется.
 
-Начальную точку можно задать через `defaultSnapPoint` (по умолчанию — первая из `snapPoints`).
+Начальную точку можно задать через `initialSnapPoint` (по умолчанию — первая из `snapPoints`).
 Смену активной точки можно отслеживать через `onSnapPointChange`.
 
 ```tsx live
@@ -168,7 +168,7 @@ export function App() {
                 opened={opened}
                 onClose={() => setOpened(false)}
                 snapPoints={snapPoints}
-                defaultSnapPoint={snapPoints[0]}
+                initialSnapPoint={snapPoints[0]}
             >
                 <div style=\{{ 'padding-bottom': '300px' }}>
                     Потяните шторку вверх или вниз между точками остановки.

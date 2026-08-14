@@ -1,6 +1,7 @@
 import type { ReactNode, HTMLAttributes } from 'react';
 
 export type SheetSnapPoint = number | string;
+export type SheetSnapPoints = string[] | number[];
 
 export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
@@ -104,16 +105,16 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
 
     /**
      * Точки остановки шторки.
-     * Числа в диапазоне `0..1` — доля высоты viewport, строки — CSS-размеры (`'320px'`, `'50%'`, `'40dvh'`).
+     * Числа в диапазоне `0..1` — доля высоты viewport, строки — CSS-размеры ('320px', '50%', '40dvh').
      * Если не передано или массив пуст — snap-points отключены.
      */
-    snapPoints?: SheetSnapPoint[];
+    snapPoints?: SheetSnapPoints;
 
     /**
      * Начальная точка остановки.
      * По умолчанию — первая из `snapPoints`.
      */
-    defaultSnapPoint?: SheetSnapPoint;
+    initialSnapPoint?: SheetSnapPoint;
 
     /**
      * Обработчик смены активной точки остановки.
