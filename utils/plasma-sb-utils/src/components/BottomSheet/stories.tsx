@@ -41,7 +41,7 @@ const createOnClose = (setOpened: (opened: boolean) => void) => () => {
     onCloseAction();
 };
 
-const SNAP_POINTS = [0.3, 0.6, 0.95];
+const SNAP_POINTS = ['30%', '60%', '95%'];
 
 export const createDefaultStory = (BottomSheet: React.ComponentType<any>, { Button, Body, H3 }: Components) => {
     return ({ showContentBeforeHeader, showContentHeader, showContentFooter, ...rest }: any) => {
