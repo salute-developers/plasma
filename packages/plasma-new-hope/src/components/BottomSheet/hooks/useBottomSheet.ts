@@ -137,7 +137,7 @@ export const useBottomSheet = (args: {
 
         activeSnapPointRef.current = applyActiveSnapHeight(panel, points, preferred);
 
-        return;
+        return undefined;
     }, [opened]);
 
     // Overflow и разделители body.

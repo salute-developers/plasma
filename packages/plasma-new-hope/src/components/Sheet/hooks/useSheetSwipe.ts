@@ -148,8 +148,8 @@ export const useSheetSwipe = (args: {
 
         activeSnapPointRef.current = applyActiveSnapHeight(contentWrapperEl, points, preferred);
 
-        return;
-    }, [opened, contentWrapperRef]);
+        return undefined;
+    }, [opened]);
 
     useEffect(() => {
         const contentWrapperEl = contentWrapperRef.current;

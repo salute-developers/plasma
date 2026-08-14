@@ -371,7 +371,7 @@ export const WithDoubleScroll: StoryObj<StorySheetProps> = {
     render: (args) => <StoryWithDoubleScroll {...args} />,
 };
 
-const SNAP_POINTS = [0.3, 0.6, 0.95];
+const SNAP_POINTS = ['30%', '60%', '95%'];
 
 const StoryWithSnapPoints = ({
     withOverlay,

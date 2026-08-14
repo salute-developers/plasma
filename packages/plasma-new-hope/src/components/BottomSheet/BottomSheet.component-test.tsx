@@ -90,8 +90,8 @@ describeFn('BottomSheet', () => {
     it('with snap points', () => {
         mount(
             renderBottomSheet({
-                snapPoints: [0.4, 0.7],
-                initialSnapPoint: 0.4,
+                snapPoints: ['40%', '70%'],
+                initialSnapPoint: '40%',
             }),
         );
 

@@ -145,7 +145,7 @@ export function App() {
 ### Точки остановки (snap-points)
 
 С помощью свойства `snapPoints` можно задать несколько высот, на которых шторка останавливается при свайпе.
-Числа в диапазоне `0..1` — доля высоты экрана, строки — CSS-размеры (`'320px'`, `'50%'`).
+Значения — CSS-размеры ('320px', '50%', '40dvh').
 
 По умолчанию snap-points выключены. Без `snapPoints` поведение шторки не меняется.
 
@@ -159,7 +159,7 @@ import { Button } from '@salutejs/{{ package }}';
 
 export function App() {
     const [opened, setOpened] = useState(false);
-    const snapPoints = [0.3, 0.6, 0.95];
+    const snapPoints = ['30%', '60%', '95%'];
 
     return (
         <>
