@@ -66,7 +66,7 @@ const StoryDefault = ({
     hasHandle,
     withBlur,
     handlePlacement,
-    fullScreen,
+    fullScreen = false,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
     const handleClose = createOnClose(setOpened);
@@ -398,7 +398,7 @@ const StoryWithSnapPoints = ({
                 hasHandle={hasHandle}
                 withBlur={withBlur}
                 snapPoints={SNAP_POINTS}
-                defaultSnapPoint={SNAP_POINTS[0]}
+                initialSnapPoint={SNAP_POINTS[0]}
                 contentHeader={
                     storyHasHeader ? (
                         <div>

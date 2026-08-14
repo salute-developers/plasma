@@ -46,6 +46,9 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                 onClose = noop,
                 onOverlayClick,
                 onEscKeyDown,
+                snapPoints,
+                initialSnapPoint,
+                onSnapPointChange,
                 className,
                 view,
                 size,
@@ -65,10 +68,14 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                 content,
                 onClose,
                 hasHandle,
+                snapPoints,
+                initialSnapPoint,
+                onSnapPointChange,
             });
 
             useEscKeyDown({ opened, closeOnEsc, onEscKeyDown, onClose });
 
+            const hasSnapPoints = Boolean(snapPoints && snapPoints.length > 0);
             const panelClassName = cx(classes.panel, withTransition && classes.animated, !opened && classes.closed);
 
             const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -97,7 +104,7 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                     <Panel
                         ref={panelRef}
                         className={panelClassName}
-                        style={{ maxHeight, zIndex: getPanelZIndex(zIndex) }}
+                        style={{ maxHeight: hasSnapPoints ? '100%' : maxHeight, zIndex: getPanelZIndex(zIndex) }}
                     >
                         {hasHandle && (
                             <Handler ref={handleRef} $placement={handlePlacement} className={classes.hasHandle} />
