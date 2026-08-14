@@ -20,7 +20,7 @@ const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: 'SDDS SERV',
-    tagline: 'Дизайн-система для разработки современных приложений.',
+    tagline: 'Дизайн-система для разработки современных веб приложений.',
     url: 'https://plasma.sberdevices.ru/',
     baseUrl,
     onBrokenLinks: 'warn',
@@ -218,6 +218,43 @@ module.exports = {
             };
         },
         ['./src/plugins/yandex-metrika/index.js', { counterID: 110736780 }],
+        [
+            'docusaurus-plugin-llms',
+            {
+                excludeImports: true,
+                removeDuplicateHeadings: true,
+                generateLLMsTxt: true,
+                generateLLMsFullTxt: true,
+                // routeBasePath доков — '/', как в preset-classic; иначе плагин строит ссылки с /docs/
+                docsDir: [{ path: 'docs', routeBasePath: '/' }],
+                // .md-копии страниц в выдаче сборки: ссылки в llms.txt ведут на них (конвенция llmstxt.org)
+                generateMarkdownFiles: true,
+                // Docusaurus (_examples, components/_*) не имеют маршрутов
+                ignoreFiles: ['**/_*/**', '**/_*.md', '**/_*.mdx'],
+                title: 'Библиотека компонентов SDDS SERV',
+                description:
+                    'React-компоненты дизайн-системы SDDS SERV для веб-приложений. Три варианта поставки: предсобранный CSS (по умолчанию), styled-components и emotion.',
+                version: pckgJson.dependencies['@salutejs/sdds-serv'],
+                includeOrder: [
+                    'intro*',
+                    'next*',
+                    'how-to-mcp*',
+                    'how-to-icons*',
+                    'react_17*',
+                    'FAQ*',
+                    'components/**',
+                    'form/**',
+                    'ai/**',
+                    'utils/**',
+                ],
+                rootContent: [
+                    'Установка: `npm install @salutejs/sdds-serv @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
+                    'Точки входа: `@salutejs/sdds-serv` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-serv/styled-components` — нужен styled-components@5.3.1, `@salutejs/sdds-serv/emotion` — нужны пакеты @emotion/*. AI-компоненты — из `@salutejs/sdds-serv/ai`.',
+                    'Темы: `sdds_serv__light`, `sdds_serv__dark`, `sdds_serv_malachite__light` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
+                    'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-serv`.',
+                ].join('\n\n'),
+            },
+        ],
     ],
     markdown: {
         format: 'detect',
