@@ -18,3 +18,14 @@ export {
     TextS,
     TextXS,
 } from './Typography';
+export {
+    addTypographRule,
+    afterShortWord,
+    createTypograph,
+    dash,
+    defaultTypographRules,
+    quotes,
+    setTypographRules,
+    typograph,
+} from './typograph';
+export type { TypographProps, TypographRule } from './typograph';

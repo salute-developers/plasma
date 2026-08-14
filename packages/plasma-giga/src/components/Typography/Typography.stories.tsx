@@ -45,6 +45,14 @@ export default meta;
 
 type Story = StoryObj;
 
+type TypographStoryProps = {
+    typograph?: boolean;
+    children?: string;
+    noWrap?: boolean;
+    breakWord?: boolean;
+    color?: string;
+};
+
 export const Dspl: Story = {
     render: (props) => (
         <>
@@ -207,6 +215,9 @@ export const Body: Story = {
 };
 
 export const Text: Story = {
+    args: {
+        typograph: false,
+    },
     render: (props) => (
         <>
             <TextL {...props}>TextL</TextL>
@@ -250,5 +261,90 @@ export const Text: Story = {
                 1234567890
             </TextXS>
         </>
+    ),
+};
+
+const typographCardStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: 8,
+    padding: 16,
+    borderRadius: 16,
+    background: 'var(--surface-solid-secondary)',
+};
+
+const typographCaptionStyle: React.CSSProperties = {
+    color: 'var(--text-secondary)',
+};
+
+const TypographRuleCard = ({ title, hint, example }: { title: string; hint: string; example: string }) => (
+    <div style={typographCardStyle}>
+        <H6 bold={false}>{title}</H6>
+        <BodyXS style={typographCaptionStyle}>{hint}</BodyXS>
+        <TextS typograph style={{ maxWidth: 160 }}>
+            {example}
+        </TextS>
+    </div>
+);
+
+export const Typograph: StoryObj<TypographStoryProps> = {
+    args: {
+        typograph: true,
+        children: 'он сказал "привет" в лесу — и ушёл',
+    },
+    argTypes: {
+        children: {
+            control: { type: 'text' },
+        },
+    },
+    render: ({ children, ...props }) => (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 720 }}>
+            <div>
+                <H4>Дефолтные правила</H4>
+                <BodyS style={typographCaptionStyle}>
+                    При typograph=true к строке применяются три правила. Узкая колонка показывает, как ведут себя
+                    переносы.
+                </BodyS>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 12 }}>
+                <TypographRuleCard
+                    title="Кавычки"
+                    hint={'"цитата" → «ёлочки» и „лапки“'}
+                    example={'журнал "Вестник "Науки""'}
+                />
+                <TypographRuleCard
+                    title="Предлоги"
+                    hint="Слова из 1–2 букв не висят в конце строки"
+                    example="и в не лесу стояла избушка"
+                />
+                <TypographRuleCard
+                    title="Тире"
+                    hint="Тире не уезжает на новую строку"
+                    example="Наш ГигаЧат — помощник"
+                />
+            </div>
+
+            <div>
+                <H4>Песочница</H4>
+                <BodyS style={{ ...typographCaptionStyle, marginBottom: 12 }}>
+                    Слева исходная строка, справа — с typograph. Текст можно менять в Controls.
+                </BodyS>
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+                    <div style={typographCardStyle}>
+                        <BodyXS style={typographCaptionStyle}>без typograph</BodyXS>
+                        <TextM {...props} typograph={false} style={{ maxWidth: 200 }}>
+                            {children}
+                        </TextM>
+                    </div>
+                    <div style={typographCardStyle}>
+                        <BodyXS style={typographCaptionStyle}>typograph=true</BodyXS>
+                        <TextM {...props} typograph style={{ maxWidth: 200 }}>
+                            {children}
+                        </TextM>
+                    </div>
+                </div>
+            </div>
+        </div>
     ),
 };
