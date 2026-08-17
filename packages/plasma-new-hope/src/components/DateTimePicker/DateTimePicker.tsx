@@ -114,6 +114,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 hintContentLeft,
 
                 // callbacks
+                onChangeVisibleDate,
                 onChangeValue,
                 onCommitDate,
                 onToggle,
@@ -350,6 +351,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 includeEdgeDates={includeEdgeDates}
                                 lang={lang}
                                 handleCalendarPick={handleCalendarPick}
+                                onChangeVisibleDate={onChangeVisibleDate}
                             />
 
                             <StyledSeparator />

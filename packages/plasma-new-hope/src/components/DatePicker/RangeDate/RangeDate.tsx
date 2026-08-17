@@ -145,6 +145,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 onChange,
                 onChangeFirstValue,
                 onChangeSecondValue,
+                onChangeVisibleDate,
 
                 onCommitFirstDate,
                 onCommitSecondDate,
@@ -701,6 +702,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         calendarContainerWidth={calendarContainerWidth}
                         calendarContainerHeight={calendarContainerHeight}
                         type={type}
+                        onChangeVisibleDate={onChangeVisibleDate}
                         onToggle={handleToggle}
                         lang={lang}
                         isDoubleCalendar={isDoubleCalendar}

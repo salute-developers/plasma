@@ -160,6 +160,10 @@ export type DatePickerCalendarProps = {
      * @default 'left'
      */
     dateShortcutsPlacement?: 'right' | 'left';
+    /**
+     * Обработчик изменения отображаемых месяца или года при навигации по календарю.
+     */
+    onChangeVisibleDate?: (date: Date) => void;
 };
 
 export type DatePickerVariationProps = {

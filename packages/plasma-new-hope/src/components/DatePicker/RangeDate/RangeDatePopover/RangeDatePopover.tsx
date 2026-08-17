@@ -47,7 +47,7 @@ export const RangeDatePopover = ({
     calendarContainerHeight,
     stretched,
 
-    type,
+    type = 'Days',
     size,
     lang = 'ru',
 
@@ -63,6 +63,7 @@ export const RangeDatePopover = ({
     onChangeValue,
     onChangeStartOfRange,
     onChangeSingleValue,
+    onChangeVisibleDate,
 
     onToggle,
 }: RangeDatePopoverProps) => {
@@ -159,6 +160,7 @@ export const RangeDatePopover = ({
                             onChangeValue={onChangeValue}
                             onChangeStartOfRange={onChangeStartOfRange}
                             onChangeSingleValue={onChangeSingleValue}
+                            onChangeVisibleDate={onChangeVisibleDate}
                         />
                     </StyledCalendarContent>
                 </Root>
@@ -230,6 +232,7 @@ export const RangeDatePopover = ({
                         onChangeValue={onChangeValue}
                         onChangeStartOfRange={onChangeStartOfRange}
                         onChangeSingleValue={onChangeSingleValue}
+                        onChangeVisibleDate={onChangeVisibleDate}
                     />
                 </StyledCalendarContent>
             </Root>

@@ -7,7 +7,7 @@ import type {
     ItemProps,
     Locales,
 } from '../Calendar.types';
-import type { CalendarStateType } from '../store/types';
+import { CalendarState, CalendarStateType } from '../store/types';
 
 import { isSelectProcess } from './calendarRangeHelper';
 import { MONTHS, YEAR_RENDER_COUNT, I18N } from './constants';
@@ -17,6 +17,31 @@ export const getDaysInMonth = (monthIndex: number, year: number) => new Date(yea
 export const getOffsetDayInWeek = (monthIndex: number, year: number) => (new Date(year, monthIndex).getDay() || 7) - 1;
 
 export const getStartYear = (year: number) => Math.floor(year / YEAR_RENDER_COUNT) * YEAR_RENDER_COUNT;
+
+export const getPrevYear = (currentYear: number, step = 1) => Math.max(0, currentYear - step);
+
+/**
+ * Первое число видимого периода: месяца в режиме дней, года в режимах месяцев и кварталов,
+ * первого года страницы в режиме годов.
+ */
+export const getVisibleDate = (
+    calendarState: CalendarStateType,
+    { monthIndex, year }: DateObject,
+    startYear: number,
+): Date => {
+    if (calendarState === CalendarState.Years) {
+        return new Date(startYear, 0);
+    }
+
+    if (calendarState === CalendarState.Months || calendarState === CalendarState.Quarters) {
+        return new Date(year, 0);
+    }
+
+    return new Date(year, monthIndex);
+};
+
+export const getVisibleDateFromValue = (calendarState: CalendarStateType, date: Date): Date =>
+    getVisibleDate(calendarState, getDateFromValue(date), getStartYear(date.getFullYear()));
 
 export const getNextDate = (currentYear: number, currentMonth: number) =>
     currentMonth + 1 === MONTHS.length ? [currentYear + 1, 0] : [currentYear, currentMonth + 1];
