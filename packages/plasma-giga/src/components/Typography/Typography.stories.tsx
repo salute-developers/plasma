@@ -46,7 +46,6 @@ export default meta;
 type Story = StoryObj;
 
 type TypographStoryProps = {
-    typograph?: boolean;
     children?: string;
     noWrap?: boolean;
     breakWord?: boolean;
@@ -289,7 +288,6 @@ const TypographRuleCard = ({ title, hint, example }: { title: string; hint: stri
 
 export const Typograph: StoryObj<TypographStoryProps> = {
     args: {
-        typograph: true,
         children: 'он сказал "привет" в лесу — и ушёл',
     },
     argTypes: {
@@ -316,7 +314,7 @@ export const Typograph: StoryObj<TypographStoryProps> = {
                 <TypographRuleCard
                     title="Предлоги"
                     hint="Слова из 1–2 букв не висят в конце строки"
-                    example="и в не лесу стояла избушка"
+                    example="в лесу стоял я у избушки"
                 />
                 <TypographRuleCard
                     title="Тире"

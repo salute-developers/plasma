@@ -12,10 +12,6 @@ const TRAILING_WRAP = /["<>]+$/;
 const LEFT_BOUNDARY = /[\s([«„]/;
 const LETTER = /[А-Яа-яЁёA-Za-z]/;
 
-// Тире прижимается к предыдущему слову: оторвавшись на новую строку, оно
-// мимикрирует под начало прямой речи.
-const SPACED_DASH = /[ \t]+([—–])/g;
-
 const urlToken = (index: number) =>
     `${PLACEHOLDER_START}${String.fromCharCode(PLACEHOLDER_MARK + index)}${PLACEHOLDER_END}`;
 
@@ -95,9 +91,40 @@ export const afterShortWord = (text: string): string => {
 };
 
 /**
- * Прижимает длинное и среднее тире к предыдущему слову.
+ * Прижимает длинное и среднее тире к предыдущему слову: оторвавшись на новую
+ * строку, оно мимикрирует под начало прямой речи.
  */
-export const dash = (text: string): string => text.replace(SPACED_DASH, `${NBSP}$1`);
+export const dash = (text: string): string => {
+    let out = '';
+    let i = 0;
+
+    while (i < text.length) {
+        const char = text[i];
+
+        if (char === ' ' || char === '\t') {
+            let j = i;
+
+            while (j < text.length && (text[j] === ' ' || text[j] === '\t')) {
+                j += 1;
+            }
+
+            const next = text[j];
+
+            if (next === '—' || next === '–') {
+                out += `${NBSP}${next}`;
+                i = j + 1;
+            } else {
+                out += text.slice(i, j);
+                i = j;
+            }
+        } else {
+            out += char;
+            i += 1;
+        }
+    }
+
+    return out;
+};
 
 /**
  * Прячет URL за плейсхолдеры на время применения правил (аналог typograf safeTags).
