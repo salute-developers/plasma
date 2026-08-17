@@ -16,7 +16,7 @@ import type { RootProps } from 'src/engines';
 
 import { useForkRef } from '../../../hooks';
 import type { Calendar, CalendarConfigProps, CalendarValueType, DateInfo, DateObject } from '../Calendar.types';
-import { YEAR_RENDER_COUNT, getNextDate, isValueUpdate, I18N } from '../utils';
+import { YEAR_RENDER_COUNT, getNextDate, getVisibleDate, getVisibleDateFromValue, isValueUpdate, I18N } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears, EventTooltip } from '../ui';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
@@ -60,6 +60,7 @@ export const calendarDoubleRoot = (
                 locale = 'ru',
                 stretched,
                 onChangeValue,
+                onChangeVisibleDate,
                 ...rest
             },
             outerRootRef,
@@ -109,6 +110,8 @@ export const calendarDoubleRoot = (
                 calendarState,
                 date,
                 dispatch,
+                startYear,
+                onChangeVisibleDate,
             });
 
             const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
@@ -135,7 +138,13 @@ export const calendarDoubleRoot = (
                 handleOnChangeQuarter,
                 handleOnChangeYear,
                 handleUpdateCalendarState,
-            } = useCalendarDateChange({ type, onChangeValue: handleOnChangeValue, onSelectIndexes, dispatch });
+            } = useCalendarDateChange({
+                type,
+                onChangeValue: handleOnChangeValue,
+                onChangeVisibleDate,
+                onSelectIndexes,
+                dispatch,
+            });
 
             const updateSecondDate = () => {
                 if (calendarState === CalendarState.Days) {
@@ -236,6 +245,15 @@ export const calendarDoubleRoot = (
                             type: ActionType.UPDATE_DATE,
                             payload: { value },
                         });
+
+                        const currentVisibleDate = getVisibleDate(calendarState, date, startYear);
+                        const nextVisibleDate = getVisibleDateFromValue(calendarState, value);
+
+                        if (nextVisibleDate.getTime() !== currentVisibleDate.getTime()) {
+                            if (onChangeVisibleDate) {
+                                onChangeVisibleDate(nextVisibleDate);
+                            }
+                        }
                     }
                 }
 

@@ -3,12 +3,14 @@ import { useCallback } from 'react';
 import type { DateObject } from '../Calendar.types';
 import { ActionType, CalendarState, CalendarStateType } from '../store/types';
 import { sizeMap } from '../store/reducer';
+import { getStartYear, getVisibleDate } from '../utils';
 
 import type { UseCalendarDateChangeArgs } from './types';
 
 export const useCalendarDateChange = ({
     type,
     onChangeValue,
+    onChangeVisibleDate,
     onSelectIndexes,
     dispatch,
 }: UseCalendarDateChangeArgs) => {
@@ -59,8 +61,11 @@ export const useCalendarDateChange = ({
                     size: sizeMap.Days.double,
                 },
             });
+            if (onChangeVisibleDate) {
+                onChangeVisibleDate(getVisibleDate(CalendarState.Days, newDate, getStartYear(newDate.year)));
+            }
         },
-        [onChangeValue, onSelectIndexes, type],
+        [dispatch, onChangeVisibleDate, onChangeValue, onSelectIndexes, type],
     );
 
     const handleOnChangeYear = useCallback(
@@ -82,6 +87,9 @@ export const useCalendarDateChange = ({
                         size: sizeMap.Quarters.double,
                     },
                 });
+                if (onChangeVisibleDate) {
+                    onChangeVisibleDate(getVisibleDate(CalendarState.Quarters, newDate, getStartYear(newDate.year)));
+                }
 
                 return;
             }
@@ -94,8 +102,11 @@ export const useCalendarDateChange = ({
                     size: sizeMap.Months.double,
                 },
             });
+            if (onChangeVisibleDate) {
+                onChangeVisibleDate(getVisibleDate(CalendarState.Months, newDate, getStartYear(newDate.year)));
+            }
         },
-        [onChangeValue, onSelectIndexes, type],
+        [dispatch, onChangeVisibleDate, onChangeValue, onSelectIndexes, type],
     );
 
     const handleUpdateCalendarState = useCallback((newCalendarState: CalendarStateType, newSize: [number, number]) => {

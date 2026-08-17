@@ -18,7 +18,7 @@ import { RootProps } from 'src/engines';
 import type { Calendar, CalendarConfigProps, CalendarValueType, DateInfo, DateObject } from '../Calendar.types';
 import { getInitialState, reducer, sizeMap } from '../store/reducer';
 import { ActionType, CalendarState } from '../store/types';
-import { I18N, isValueUpdate } from '../utils';
+import { I18N, getVisibleDate, getVisibleDateFromValue, isValueUpdate } from '../utils';
 import { useKeyNavigation, useCalendarNavigation, useCalendarDateChange } from '../hooks';
 import { CalendarDays, CalendarHeader, CalendarMonths, CalendarQuarters, CalendarYears, EventTooltip } from '../ui';
 import { classes } from '../Calendar.tokens';
@@ -59,6 +59,7 @@ export const calendarBaseRoot = (
                 locale = 'ru',
                 stretched,
                 onChangeValue,
+                onChangeVisibleDate,
                 ...rest
             },
             outerRootRef,
@@ -108,6 +109,8 @@ export const calendarBaseRoot = (
                 calendarState,
                 date,
                 dispatch,
+                startYear,
+                onChangeVisibleDate,
             });
 
             const [selectIndexes, onKeyDown, onSelectIndexes, outerRefs, isOutOfRange] = useKeyNavigation({
@@ -133,7 +136,13 @@ export const calendarBaseRoot = (
                 handleOnChangeQuarter,
                 handleOnChangeYear,
                 handleUpdateCalendarState,
-            } = useCalendarDateChange({ type, onChangeValue: handleOnChangeValue, onSelectIndexes, dispatch });
+            } = useCalendarDateChange({
+                type,
+                onChangeValue: handleOnChangeValue,
+                onChangeVisibleDate,
+                onSelectIndexes,
+                dispatch,
+            });
 
             // Изменяем ключ каждый раз как пытаемся перейти на даты которые находятся за пределами min/max ограничений.
             // Это необходимо для того чтобы screen-reader корректно озвучивал уведомление aria-live="assertive"
@@ -199,6 +208,15 @@ export const calendarBaseRoot = (
                         type: ActionType.UPDATE_DATE,
                         payload: { value },
                     });
+
+                    const currentVisibleDate = getVisibleDate(calendarState, date, startYear);
+                    const nextVisibleDate = getVisibleDateFromValue(calendarState, value);
+
+                    if (nextVisibleDate.getTime() !== currentVisibleDate.getTime()) {
+                        if (onChangeVisibleDate) {
+                            onChangeVisibleDate(nextVisibleDate);
+                        }
+                    }
                 }
 
                 if (!value && !prevValue) {
