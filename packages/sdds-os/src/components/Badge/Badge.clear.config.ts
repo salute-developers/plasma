@@ -12,9 +12,6 @@ export const config = {
             default: css`
                 ${badgeTokens.color}: var(--text-primary);
             `,
-            accent: css`
-                ${badgeTokens.color}: var(--text-accent);
-            `,
             positive: css`
                 ${badgeTokens.color}: var(--text-positive);
             `,

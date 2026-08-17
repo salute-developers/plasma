@@ -16,16 +16,6 @@ export const config = {
 
                 ${tokens.dividerColor}: var(--surface-solid-default);
             `,
-            accent: css`
-                ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
-                ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
-                ${tokens.completedIndicatorBackground}: var(--surface-accent);
-                ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-hover);
-                ${tokens.completedTitleColor}: var(--text-primary);
-                ${tokens.completedTitleColorHover}: var(--text-primary-hover);
-
-                ${tokens.dividerColor}: var(--surface-accent);
-            `,
             negative: css`
                 ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
                 ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);

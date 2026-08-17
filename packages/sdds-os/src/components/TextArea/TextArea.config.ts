@@ -10,14 +10,18 @@ export const config = {
         view: {
             default: css`
                 ${tokens.inputBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.inputBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.inputBackgroundColorHover}: var(--surface-solid-primary);
                 ${tokens.inputBackgroundColorActive}: var(--surface-solid-primary-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-secondary);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-primary);
 
                 ${tokens.helpersBackgroundColor}: var(--surface-solid-primary);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-primary);
                 ${tokens.helpersBackgroundColorActive}: var(--surface-solid-primary-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-secondary);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-primary);
+
+                ${tokens.borderColor}: var(--outline-clear);
+                ${tokens.borderColorHover}: var(--on-light-outline-solid-primary-hover);
+                ${tokens.borderColorFocus}: var(--outline-primary);
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
@@ -50,20 +54,70 @@ export const config = {
                 ${tokens.hintIconColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
-            warning: css`
-                ${tokens.inputBackgroundColor}: var(--surface-solid-warning);
-                ${tokens.inputBackgroundColorHover}: var(--surface-solid-warning-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-solid-warning-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-warning);
+            positive: css`
+                ${tokens.inputBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.inputBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.inputBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-primary);
 
-                ${tokens.helpersBackgroundColor}: var(--surface-solid-warning);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-warning-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-warning-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-warning);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-primary);
+
+                ${tokens.inputColor}: var(--text-primary);
+                ${tokens.inputColorFocus}: var(--text-primary);
+                ${tokens.inputCaretColor}: var(--text-positive);
+
+                ${tokens.borderColor}: var(--outline-positive);
+                ${tokens.borderColorHover}: var(--outline-positive-hover);
+                ${tokens.borderColorFocus}: var(--outline-positive-active);
+
+                ${tokens.placeholderColor}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.rightHelperColor}: var(--text-secondary);
+
+                ${tokens.rightContentColor}: var(--text-secondary);
+                ${tokens.rightContentColorHover}: var(--text-secondary-hover);
+                ${tokens.rightContentColorActive}: var(--text-secondary-active);
+
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
+
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-solid-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-solid-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.scrollbarTrackBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.scrollbarTrackBackgroundColorHover}: var(--surface-solid-primary-hover);
+
+                ${tokens.dividerColor}: var(--surface-positive);
+                ${tokens.dividerColorHover}: var(--surface-positive);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+            `,
+            warning: css`
+                ${tokens.inputBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.inputBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.inputBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-primary);
+
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-primary);
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
                 ${tokens.inputCaretColor}: var(--text-warning);
+
+                ${tokens.borderColor}: var(--outline-warning);
+                ${tokens.borderColorHover}: var(--outline-warning-hover);
+                ${tokens.borderColorFocus}: var(--outline-warning-active);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
@@ -93,19 +147,23 @@ export const config = {
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
             negative: css`
-                ${tokens.inputBackgroundColor}: var(--surface-solid-negative);
-                ${tokens.inputBackgroundColorHover}: var(--surface-solid-negative-hover);
-                ${tokens.inputBackgroundColorActive}: var(--surface-solid-negative-active);
-                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-negative);
+                ${tokens.inputBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.inputBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.inputBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.inputBackgroundColorFocus}: var(--surface-solid-primary);
 
-                ${tokens.helpersBackgroundColor}: var(--surface-solid-negative);
-                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-negative-hover);
-                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-negative-active);
-                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-negative);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.helpersBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.helpersBackgroundColorActive}: var(--surface-solid-primary-active);
+                ${tokens.helpersBackgroundColorFocus}: var(--surface-solid-primary);
 
                 ${tokens.inputColor}: var(--text-primary);
                 ${tokens.inputColorFocus}: var(--text-primary);
                 ${tokens.inputCaretColor}: var(--text-negative);
+
+                ${tokens.borderColor}: var(--outline-negative);
+                ${tokens.borderColorHover}: var(--outline-negative-hover);
+                ${tokens.borderColorFocus}: var(--outline-negative-active);
 
                 ${tokens.placeholderColor}: var(--text-secondary);
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
@@ -345,17 +403,40 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
-                ${tokens.backgroundColorReadOnly}: var(--surface-solid-primary);
+                ${tokens.readOnlyOpacity}: 1;
+                ${tokens.backgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.inputColorReadOnly}: var(--text-primary);
                 ${tokens.dividerColorReadOnly}: var(--surface-solid-primary);
-                ${tokens.contentSlotRightOpacityReadOnly}: 0.4;
+                ${tokens.contentSlotRightOpacityReadOnly}: 1;
+                ${tokens.rightContentColor}: var(--text-tertiary);
+                ${tokens.inputBackgroundColor}: var(--surface-solid-secondary);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-secondary);
+                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.rightHelperColor}: var(--text-secondary);
+                ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
+                ${tokens.labelOuterColor}: var(--text-primary);
+                ${tokens.labelInnerColor}: var(--text-primary);
             `,
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 1;
                 ${tokens.inputColorDisabled}: var(--text-secondary);
+                ${tokens.backgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.inputBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.helpersBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderColorHover}: transparent;
+                ${tokens.borderColorFocus}: transparent;
+                ${tokens.leftHelperColor}: var(--text-tertiary);
+                ${tokens.rightHelperColor}: var(--text-tertiary);
+                ${tokens.titleCaptionColor}: var(--text-tertiary);
+                ${tokens.labelOuterColor}: var(--text-secondary);
+                ${tokens.labelInnerColor}: var(--text-secondary);
+                ${tokens.rightContentColor}: var(--text-tertiary);
+
                 ${tokens.dividerColorReadOnly}: var(--surface-solid-primary);
                 ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
             `,

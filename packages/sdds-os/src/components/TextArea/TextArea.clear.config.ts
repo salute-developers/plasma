@@ -45,6 +45,43 @@ export const config = {
                 ${tokens.hintIconColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
             `,
+            positive: css`
+                ${tokens.inputBackgroundColor}: transparent;
+                ${tokens.inputBackgroundColorHover}: transparent;
+                ${tokens.inputBackgroundColorActive}: transparent;
+                ${tokens.inputBackgroundColorFocus}: transparent;
+
+                ${tokens.helpersBackgroundColor}: transparent;
+                ${tokens.helpersBackgroundColorHover}: transparent;
+                ${tokens.helpersBackgroundColorActive}: transparent;
+                ${tokens.helpersBackgroundColorFocus}: transparent;
+
+                ${tokens.inputColor}: var(--text-positive);
+                ${tokens.inputColorFocus}: var(--text-positive);
+                ${tokens.inputCaretColor}: var(--text-accent);
+
+                ${tokens.placeholderColor}: var(--text-positive);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
+
+                ${tokens.leftHelperColor}: var(--text-positive);
+                ${tokens.rightHelperColor}: var(--text-secondary);
+
+                ${tokens.rightContentColor}: var(--text-secondary);
+                ${tokens.rightContentColorHover}: var(--text-secondary-hover);
+                ${tokens.rightContentColorActive}: var(--text-secondary-active);
+
+                ${tokens.indicatorColor}: var(--surface-negative);
+                ${tokens.optionalColor}: var(--text-tertiary);
+
+                ${tokens.labelOuterColor}: var(--text-primary);
+
+                ${tokens.dividerColor}: var(--surface-positive);
+                ${tokens.dividerColorHover}: var(--surface-positive);
+                ${tokens.dividerColorFocus}: var(--surface-accent);
+
+                ${tokens.hintIconColor}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-secondary);
+            `,
             warning: css`
                 ${tokens.inputBackgroundColor}: transparent;
                 ${tokens.inputBackgroundColorHover}: transparent;
