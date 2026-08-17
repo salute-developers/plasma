@@ -112,6 +112,9 @@ describeFn('DatePicker', () => {
 
         cy.get('input').first().click();
         cy.matchImageSnapshot();
+
+        cy.viewport(500, 600);
+        assertPopoverFillsAvailableHeight();
     });
 
     it('calendarContainerWidth, calendarContainerHeight', () => {
@@ -737,6 +740,34 @@ describeFnRange('DatePickerRange', () => {
 
         cy.get('#demo input').first().click();
         cy.matchImageSnapshot();
+    });
+
+    it('popover is positioned at the input bottom when leftHelper is set', () => {
+        mount(
+            <Demo
+                id="demo"
+                leftHelper="Подсказка к полю"
+                defaultFirstDate={new Date(2023, 5, 14)}
+                defaultSecondDate={new Date(2023, 5, 17)}
+                placement="bottom"
+                disableFlip
+            />,
+        );
+
+        cy.get('#demo input').first().click();
+        cy.get('#demo')
+            .contains('Подсказка к полю')
+            .then(($helper) => {
+                const inputWrapper = $helper[0].parentElement?.previousElementSibling as HTMLElement | null;
+
+                expect(inputWrapper).not.to.equal(null);
+
+                const inputBottom = inputWrapper?.getBoundingClientRect().bottom ?? 0;
+
+                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
+                    expect($popover[0].getBoundingClientRect().top).to.be.closeTo(inputBottom, 1);
+                });
+            });
     });
 
     it('format', () => {

@@ -121,6 +121,9 @@ describeFn('DateTimePicker', () => {
         cy.get('input').first().click();
 
         cy.matchImageSnapshot();
+
+        cy.viewport(750, 600);
+        assertPopoverFillsAvailableHeight();
     });
 
     it('defaultDate, enableContentLeft, enableContentRight', () => {
