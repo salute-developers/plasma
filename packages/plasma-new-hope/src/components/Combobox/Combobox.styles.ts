@@ -17,7 +17,7 @@ export const ListWrapper = styled.div<{
     padding: calc(var(${tokens.padding}) + var(${tokens.dropdownBorderWidth}, 0rem));
     border-radius: var(${tokens.borderRadius});
     box-sizing: border-box;
-    background: var(${constants.background});
+    background: var(${tokens.dropdownBackgroundColor}, var(${constants.background}));
     box-shadow: ${constants.boxShadow},
         inset 0 0 0 var(${tokens.dropdownBorderWidth}, 0rem) var(${tokens.dropdownBorderColor}, transparent);
 `;
