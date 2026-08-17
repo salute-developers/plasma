@@ -57,10 +57,10 @@ import { Button } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div>
-            <Button text="Button" size="xl" />
-            <Button text="Button" size="l" />
-            <Button text="Button" size="m" />
-            <Button text="Button" size="s" />
+            <Button text="Button" size="48" />
+            <Button text="Button" size="40" />
+            <Button text="Button" size="32" />
+            <Button text="Button" size="24" />
         </div>
     );
 }
@@ -114,10 +114,11 @@ export function App() {
 + `"accentWhite"`
 + `"primaryWhite"`
 + `"accentGrey"`
-+ `"accentClear"`
++ `"accentGreyClear"`
 + `"dangerTint"`
-+ `"dangerClear"`
++ `"dangerTintClear"`
 + `"primaryGrey"`
++ `"primaryGreyClear"`
 
 ```tsx live
 import React from 'react';
@@ -126,14 +127,15 @@ import { Button } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            <Button text="Кнопка" size="s" view="accentFiled" />
-            <Button text="Кнопка" size="s" view="accentWhite" />
-            <Button text="Кнопка" size="s" view="primaryWhite" />
-            <Button text="Кнопка" size="s" view="accentGrey" />
-            <Button text="Кнопка" size="s" view="accentClear" />
-            <Button text="Кнопка" size="s" view="dangerTint" />
-            <Button text="Кнопка" size="s" view="dangerClear" />
-            <Button text="Кнопка" size="s" view="primaryGrey" />
+            <Button text="Кнопка" size="24" view="accentFiled" />
+            <Button text="Кнопка" size="24" view="accentWhite" />
+            <Button text="Кнопка" size="24" view="primaryWhite" />
+            <Button text="Кнопка" size="24" view="accentGrey" />
+            <Button text="Кнопка" size="24" view="accentGreyClear" />
+            <Button text="Кнопка" size="24" view="dangerTint" />
+            <Button text="Кнопка" size="24" view="dangerTintClear" />
+            <Button text="Кнопка" size="24" view="primaryGrey" />
+            <Button text="Кнопка" size="24" view="primaryGreyClear" />
         </div>
     );
 }
