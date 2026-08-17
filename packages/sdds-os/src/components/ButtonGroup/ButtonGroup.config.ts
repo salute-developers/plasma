@@ -19,18 +19,6 @@ export const config = {
                 ${buttonGroupTokens.buttonColorActive}: var(--inverse-text-primary);
                 ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
             `,
-            accent: css`
-                ${buttonGroupTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonIconColor}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonGroupTokens.buttonBackgroundColor}: var(--surface-accent);
-                ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonGroupTokens.buttonColorActive}: var(--on-dark-text-primary);
-                ${buttonGroupTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
-            `,
             secondary: css`
                 ${buttonGroupTokens.buttonColor}: var(--text-primary);
                 ${buttonGroupTokens.buttonTextColor}: var(--text-primary);

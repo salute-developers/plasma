@@ -17,16 +17,6 @@ export const config = {
                 ${linkButtonTokens.linkButtonTextColorHover}: var(--text-primary-hover);
                 ${linkButtonTokens.linkButtonTextColorActive}: var(--text-primary-active);
             `,
-            accent: css`
-                ${linkButtonTokens.linkButtonIconColor}: var(--text-accent);
-                ${linkButtonTokens.linkButtonTextColor}: var(--text-accent);
-                ${linkButtonTokens.linkButtonBackgroundColor}: var(---surface-solid-clear);
-                ${linkButtonTokens.linkButtonIconColorHover}: var(--text-accent-hover);
-                ${linkButtonTokens.linkButtonIconColorActive}: var(--text-accent-active);
-                ${linkButtonTokens.linkButtonFocusColor}: var(--surface-accent);
-                ${linkButtonTokens.linkButtonTextColorHover}: var(--text-accent-hover);
-                ${linkButtonTokens.linkButtonTextColorActive}: var(--text-accent-active);
-            `,
             secondary: css`
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-secondary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-secondary);
@@ -169,13 +159,6 @@ export const config = {
             style: css`
                 ${linkButtonTokens.linkButtonIconColor}: var(--text-tertiary);
                 ${linkButtonTokens.linkButtonTextColor}: var(--text-tertiary);
-            `,
-        },
-        {
-            view: 'accent',
-            disabled: true,
-            style: css`
-                ${linkButtonTokens.linkButtonDisabledOpacity}: 0.4;
             `,
         },
         {

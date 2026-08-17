@@ -15,18 +15,8 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--inverse-text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-default);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--inverse-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--inverse-text-primary-active);
-            `,
-            accent: css`
-                ${buttonTokens.buttonColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonTextColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonIconColor}: var(--on-dark-text-primary);
-                ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-accent-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--surface-solid-default-active);
             `,
             secondary: css`
                 ${buttonTokens.buttonColor}: var(--text-primary);
@@ -85,8 +75,8 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--on-dark-text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--on-light-surface-solid-default);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-dark-text-primary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
             `,
             white: css`
                 ${buttonTokens.buttonColor}: var(--on-light-text-primary);
@@ -95,8 +85,8 @@ export const config = {
                 ${buttonTokens.buttonValueColor}: var(--on-light-text-secondary);
                 ${buttonTokens.buttonBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: var(--on-light-text-primary-hover);
-                ${buttonTokens.buttonColorActive}: var(--on-light-text-primary-active);
+                ${buttonTokens.buttonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${buttonTokens.buttonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
         },
         size: {
@@ -190,17 +180,6 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: var(--text-tertiary);
                 ${buttonTokens.buttonValueColor}: var(--text-tertiary);
                 ${buttonTokens.buttonBackgroundColor}: var(--surface-solid-tertiary);
-            `,
-        },
-        {
-            view: 'accent',
-            disabled: true,
-            style: css`
-                ${buttonTokens.buttonColor}: var(--on-dark-text-accent-minor);
-                ${buttonTokens.buttonTextColor}: var(--on-dark-text-accent-minor);
-                ${buttonTokens.buttonIconColor}: var(--on-dark-text-accent-minor);
-                ${buttonTokens.buttonValueColor}: var(--on-dark-text-accent-minor);
-                ${buttonTokens.buttonBackgroundColor}: var(--surface-accent);
             `,
         },
         {

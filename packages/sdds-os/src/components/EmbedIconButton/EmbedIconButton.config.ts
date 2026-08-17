@@ -15,13 +15,6 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-primary-hover);
                 ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-primary-active);
             `,
-            accent: css`
-                ${embedIconButtonTokens.embedIconButtonColor}: var(--text-accent);
-                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-solid-clear);
-                ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
-                ${embedIconButtonTokens.embedIconButtonColorHover}: var(--text-accent-hover);
-                ${embedIconButtonTokens.embedIconButtonColorActive}: var(--text-accent-active);
-            `,
             secondary: css`
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-secondary);
                 ${embedIconButtonTokens.embedIconButtonBackgroundColor}: var(--surface-solid-clear);
@@ -122,13 +115,6 @@ export const config = {
             disabled: true,
             style: css`
                 ${embedIconButtonTokens.embedIconButtonColor}: var(--text-tertiary);
-            `,
-        },
-        {
-            view: 'accent',
-            disabled: true,
-            style: css`
-                ${embedIconButtonTokens.embedIconButtonDisabledOpacity}: 0.4;
             `,
         },
         {
