@@ -28,4 +28,5 @@ export {
     setTypographRules,
     typograph,
 } from './typograph';
+export { withTypograph } from './typograph/withTypograph';
 export type { TypographProps, TypographRule } from './typograph';

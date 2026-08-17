@@ -11,6 +11,7 @@ import {
     setTypographRules,
     typograph,
 } from './typograph';
+import { withTypograph } from './typograph/withTypograph';
 
 describe('plasma-giga: ResponsiveTypography', () => {
     const BodyL = getComponent('BodyL');
@@ -296,8 +297,8 @@ describe('plasma-giga: typograph', () => {
     });
 });
 
-describe('plasma-giga: Typography typograph prop', () => {
-    const TextM = getComponent('TextM');
+describe('plasma-giga: withTypograph', () => {
+    const TextM = withTypograph(getComponent('TextM'));
 
     afterEach(() => {
         setTypographRules(defaultTypographRules);
@@ -306,46 +307,58 @@ describe('plasma-giga: Typography typograph prop', () => {
     it('обрабатывает строковых children', () => {
         mount(
             <CypressTestDecorator>
-                <TextM id="typo" typograph>
-                    {'в лесу — "привет"'}
-                </TextM>
+                <TextM data-testid="typo">{'в лесу — "привет"'}</TextM>
             </CypressTestDecorator>,
         );
 
-        cy.get('#typo').should('have.text', `в${NBSP}лесу${NBSP}— «привет»`);
+        cy.get('[data-testid="typo"]').should('have.text', `в${NBSP}лесу${NBSP}— «привет»`);
     });
 
-    it('не обрабатывает текст без пропа', () => {
+    it('не обрабатывает текст без HOC', () => {
+        const PlainTextM = getComponent('TextM');
+
         mount(
             <CypressTestDecorator>
-                <TextM id="typo">{'в лесу — "привет"'}</TextM>
+                <PlainTextM data-testid="typo">{'в лесу — "привет"'}</PlainTextM>
             </CypressTestDecorator>,
         );
 
-        cy.get('#typo').should('have.text', 'в лесу — "привет"');
+        cy.get('[data-testid="typo"]').should('have.text', 'в лесу — "привет"');
     });
 
     it('не трогает смешанных children', () => {
         mount(
             <CypressTestDecorator>
-                <TextM id="typo" typograph>
+                <TextM data-testid="typo">
                     в лесу <span>и ещё</span>
                 </TextM>
             </CypressTestDecorator>,
         );
 
-        cy.get('#typo').should('have.text', 'в лесу и ещё');
+        cy.get('[data-testid="typo"]').should('have.text', 'в лесу и ещё');
     });
 
     it('принимает кастомный пайплайн', () => {
         mount(
             <CypressTestDecorator>
-                <TextM id="typo" typograph={[quotes]}>
+                <TextM data-testid="typo" typograph={[quotes]}>
                     {'в лесу "привет"'}
                 </TextM>
             </CypressTestDecorator>,
         );
 
-        cy.get('#typo').should('have.text', 'в лесу «привет»');
+        cy.get('[data-testid="typo"]').should('have.text', 'в лесу «привет»');
+    });
+
+    it('typograph={false} отключает обработку', () => {
+        mount(
+            <CypressTestDecorator>
+                <TextM data-testid="typo" typograph={false}>
+                    {'в лесу — "привет"'}
+                </TextM>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('[data-testid="typo"]').should('have.text', 'в лесу — "привет"');
     });
 });

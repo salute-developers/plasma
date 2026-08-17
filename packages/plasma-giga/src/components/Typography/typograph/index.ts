@@ -6,8 +6,8 @@ export type TypographRule = (text: string) => string;
 
 export interface TypographProps {
     /**
-     * `true` — дефолтные правила и правила из `addTypographRule`.
-     * Массив — полный пайплайн только для этого компонента.
+     * `true` или не передан — дефолтные правила и правила из `addTypographRule`.
+     * `false` — без обработки. Массив — полный пайплайн только для этого компонента.
      */
     typograph?: boolean | TypographRule[];
 }
@@ -33,7 +33,7 @@ export const typograph = (text: string, rules: TypographRule[] = getTypographRul
     createTypograph(rules)(text);
 
 /**
- * Добавляет правило в конец пайплайна для `typograph={true}`.
+ * Добавляет правило в конец пайплайна для компонентов, обёрнутых в `withTypograph`.
  * Вызывать на бутстрапе приложения.
  */
 export const addTypographRule = (rule: TypographRule): void => {

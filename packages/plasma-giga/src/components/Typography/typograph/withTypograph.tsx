@@ -5,12 +5,13 @@ import { typograph } from '.';
 import type { TypographProps } from '.';
 
 /**
- * Прогоняет строковые children через пайплайн типографики по пропу `typograph`.
+ * HOC: прогоняет строковые children через пайплайн типографики.
+ * По умолчанию включён. Массив задаёт пайплайн инстанса.
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const withTypograph = <P extends Record<string, any>>(Component: FunctionComponent<P>) => {
     const Wrapped = forwardRef<HTMLElement, P & TypographProps>((props, ref) => {
-        const { typograph: typographProp, children, ...rest } = props;
+        const { typograph: typographProp = true, children, ...rest } = props;
 
         const nextChildren =
             typographProp && typeof children === 'string'

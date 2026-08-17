@@ -1,4 +1,3 @@
-import type { FunctionComponent } from 'react';
 import {
     bodyConfig,
     dsplConfig,
@@ -35,11 +34,6 @@ import {
     configS as textConfigSCustom,
     configXS as textConfigXSCustom,
 } from './Text.config';
-import { withTypograph } from './typograph/withTypograph';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const typographyComponentWithTypograph = <K extends Record<string, any>>(comp: FunctionComponent<K>) =>
-    typographyComponent(withTypograph(comp));
 
 const bodyMConfig = mergeConfig(bodyConfig, bodyConfigMCustom);
 const BodyMComponent = typographyComponent(component(bodyMConfig));
@@ -84,16 +78,16 @@ const heading6Config = mergeConfig(headingConfig, headingConfigH6Custom);
 const Heading6Component = typographyComponent(component(heading6Config));
 
 const textMConfig = mergeConfig(textConfig, textConfigMCustom);
-const TextMComponent = typographyComponentWithTypograph(component(textMConfig));
+const TextMComponent = typographyComponent(component(textMConfig));
 
 const textLConfig = mergeConfig(textConfig, textConfigLCustom);
-const TextLComponent = typographyComponentWithTypograph(component(textLConfig));
+const TextLComponent = typographyComponent(component(textLConfig));
 
 const textSConfig = mergeConfig(textConfig, textConfigSCustom);
-const TextSComponent = typographyComponentWithTypograph(component(textSConfig));
+const TextSComponent = typographyComponent(component(textSConfig));
 
 const textXSConfig = mergeConfig(textConfig, textConfigXSCustom);
-const TextXSComponent = typographyComponentWithTypograph(component(textXSConfig));
+const TextXSComponent = typographyComponent(component(textXSConfig));
 
 export const BodyM = BodyMComponent;
 export const BodyL = BodyLComponent;

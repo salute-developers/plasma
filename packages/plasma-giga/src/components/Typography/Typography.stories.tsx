@@ -21,6 +21,7 @@ import {
     TextM,
     TextS,
     TextXS,
+    withTypograph,
 } from '.';
 
 const meta: Meta = {
@@ -214,9 +215,6 @@ export const Body: Story = {
 };
 
 export const Text: Story = {
-    args: {
-        typograph: false,
-    },
     render: (props) => (
         <>
             <TextL {...props}>TextL</TextL>
@@ -276,13 +274,14 @@ const typographCaptionStyle: React.CSSProperties = {
     color: 'var(--text-secondary)',
 };
 
+const TextMTypo = withTypograph(TextM);
+const TextSTypo = withTypograph(TextS);
+
 const TypographRuleCard = ({ title, hint, example }: { title: string; hint: string; example: string }) => (
     <div style={typographCardStyle}>
         <H6 bold={false}>{title}</H6>
         <BodyXS style={typographCaptionStyle}>{hint}</BodyXS>
-        <TextS typograph style={{ maxWidth: 160 }}>
-            {example}
-        </TextS>
+        <TextSTypo style={{ maxWidth: 160 }}>{example}</TextSTypo>
     </div>
 );
 
@@ -294,14 +293,14 @@ export const Typograph: StoryObj<TypographStoryProps> = {
         children: {
             control: { type: 'text' },
         },
+        ...disableProps(['typograph']),
     },
     render: ({ children, ...props }) => (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 720 }}>
             <div>
                 <H4>Дефолтные правила</H4>
                 <BodyS style={typographCaptionStyle}>
-                    При typograph=true к строке применяются три правила. Узкая колонка показывает, как ведут себя
-                    переносы.
+                    withTypograph прогоняет строку через три правила. Узкая колонка показывает, как ведут себя переносы.
                 </BodyS>
             </div>
 
@@ -326,20 +325,20 @@ export const Typograph: StoryObj<TypographStoryProps> = {
             <div>
                 <H4>Песочница</H4>
                 <BodyS style={{ ...typographCaptionStyle, marginBottom: 12 }}>
-                    Слева исходная строка, справа — с typograph. Текст можно менять в Controls.
+                    Слева исходный TextM, справа — обёрнутый в withTypograph. Текст можно менять в Controls.
                 </BodyS>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
                     <div style={typographCardStyle}>
-                        <BodyXS style={typographCaptionStyle}>без typograph</BodyXS>
-                        <TextM {...props} typograph={false} style={{ maxWidth: 200 }}>
+                        <BodyXS style={typographCaptionStyle}>TextM</BodyXS>
+                        <TextM {...props} style={{ maxWidth: 200 }}>
                             {children}
                         </TextM>
                     </div>
                     <div style={typographCardStyle}>
-                        <BodyXS style={typographCaptionStyle}>typograph=true</BodyXS>
-                        <TextM {...props} typograph style={{ maxWidth: 200 }}>
+                        <BodyXS style={typographCaptionStyle}>withTypograph(TextM)</BodyXS>
+                        <TextMTypo {...props} style={{ maxWidth: 200 }}>
                             {children}
-                        </TextM>
+                        </TextMTypo>
                     </div>
                 </div>
             </div>
