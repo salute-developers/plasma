@@ -10,6 +10,7 @@ const URL_RE = /https?:\/\/[^\s]+/gi;
 const TRAILING_WRAP = /["<>]+$/;
 
 const LEFT_BOUNDARY = /[\s([«„]/;
+const OPENING_QUOTE = /[\s([{«„:;—–]/;
 const LETTER = /[А-Яа-яЁёA-Za-z]/;
 
 const urlToken = (index: number) =>
@@ -41,7 +42,7 @@ export const quotes = (text: string): string => {
             out += char;
         } else {
             const prev = text[i - 1];
-            const isOpening = prev === undefined || /[\s([{«„]/.test(prev);
+            const isOpening = prev === undefined || OPENING_QUOTE.test(prev);
 
             if (isOpening) {
                 out += depth === 0 ? '«' : '„';
