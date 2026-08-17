@@ -32,6 +32,14 @@ const openDateTimePicker = () => {
     cy.get('input').first().click();
 };
 
+const assertPopoverFillsAvailableHeight = () =>
+    cy.get('.popover-root').should(($popover) => {
+        const popoverWindow = $popover[0].ownerDocument.defaultView;
+        const popoverRect = $popover[0].getBoundingClientRect();
+
+        expect(popoverRect.bottom).to.be.closeTo(popoverWindow?.innerHeight ?? 0, 1);
+    });
+
 getBaseVisualTests({
     component: 'DateTimePicker',
     componentProps: {
@@ -116,14 +124,42 @@ describeFn('DateTimePicker', () => {
 
     it('stretch', () => {
         cy.viewport(750, 700);
-        mount(<Demo defaultDate={new Date(2023, 5, 14, 0, 0, 0)} stretched />);
+        mount(
+            <Demo
+                defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                calendarContainerWidth={0}
+                calendarContainerHeight={0}
+                stretched
+            />,
+        );
 
         cy.get('input').first().click();
 
+        assertPopoverFillsAvailableHeight();
         cy.matchImageSnapshot();
 
         cy.viewport(750, 600);
         assertPopoverFillsAvailableHeight();
+    });
+
+    it('custom calendar size has priority over stretched', () => {
+        cy.viewport(750, 700);
+        mount(
+            <Demo
+                defaultDate={new Date(2023, 5, 14, 0, 0, 0)}
+                calendarContainerWidth="30rem"
+                calendarContainerHeight="25rem"
+                stretched
+            />,
+        );
+
+        cy.get('input').first().click();
+        cy.get('.popover-root').should(($popover) => {
+            const popoverRect = $popover[0].getBoundingClientRect();
+
+            expect(popoverRect.width).to.be.closeTo(480, 1);
+            expect(popoverRect.height).to.be.closeTo(400, 1);
+        });
     });
 
     it('defaultDate, enableContentLeft, enableContentRight', () => {

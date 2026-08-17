@@ -57,6 +57,8 @@ export const createDefaultStory = (DatePicker: any, customIcon?: CustomIcon) => 
         hasShortcuts,
         shortcutsPlacement,
         shortcutsWidth,
+        calendarContainerWidth,
+        calendarContainerHeight,
         ...rest
     }: any) => {
         const [isOpen, setIsOpen] = useState(false);
@@ -110,9 +112,12 @@ export const createDefaultStory = (DatePicker: any, customIcon?: CustomIcon) => 
                 autoComplete="off"
                 dateShortcutsPlacement={shortcutsPlacement}
                 dateShortcutsWidth={shortcutsWidth}
+                calendarContainerWidth={calendarContainerWidth === '0' ? undefined : calendarContainerWidth}
+                calendarContainerHeight={calendarContainerHeight === '0' ? undefined : calendarContainerHeight}
                 {...(hasShortcuts && { dateShortcuts })}
                 {...inputViews}
                 {...rest}
+                frame="document"
             />
         );
     };
@@ -141,6 +146,8 @@ export const createRangeStory = (DatePickerRange: any, customIcon?: CustomIcon) 
         hasShortcuts,
         shortcutsPlacement,
         shortcutsWidth,
+        calendarContainerWidth,
+        calendarContainerHeight,
         ...rest
     }: any) => {
         const rangeRef = useRef<any>(null);
@@ -223,11 +230,14 @@ export const createRangeStory = (DatePickerRange: any, customIcon?: CustomIcon) 
                 eventQuarterList={eventQuarterList}
                 eventYearList={eventYearList}
                 dateShortcutsPlacement={shortcutsPlacement}
+                calendarContainerWidth={calendarContainerWidth === '0' ? undefined : calendarContainerWidth}
+                calendarContainerHeight={calendarContainerHeight === '0' ? undefined : calendarContainerHeight}
                 dateShortcutsWidth={shortcutsWidth}
                 {...(hasShortcuts && { dateShortcuts: dateShortcutsRange })}
                 {...inputsViews}
                 {...dividerIconProps}
                 {...rest}
+                frame="document"
             />
         );
     };

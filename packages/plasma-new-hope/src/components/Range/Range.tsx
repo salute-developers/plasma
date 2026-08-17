@@ -99,6 +99,8 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
             },
             ref,
         ) => {
+            const { inputWrapperRef, ...rootProps } = rest;
+
             const rangeRef = useRef<HTMLDivElement>(null);
             const firstTextFieldRef = useRef<HTMLInputElement>(null);
             const secondTextFieldRef = useRef<HTMLInputElement>(null);
@@ -197,7 +199,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                         hintView,
                         hintSize,
                     })}
-                    {...rest}
+                    {...rootProps}
                 >
                     <InformationWrapperUI
                         className={cx(
@@ -236,6 +238,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                             : { hintText: undefined })}
                     >
                         <ContentWrapper
+                            ref={inputWrapperRef}
                             className={cx(
                                 clearClass,
                                 clearDividerClass,

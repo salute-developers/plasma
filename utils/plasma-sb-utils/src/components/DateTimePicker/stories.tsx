@@ -43,6 +43,8 @@ export const createDefaultStory = (
         min,
         max,
         hasShortcuts,
+        calendarContainerWidth,
+        calendarContainerHeight,
         ...rest
     }: any) => {
         const [isOpen, setIsOpen] = useState(false);
@@ -71,6 +73,8 @@ export const createDefaultStory = (
                 lang={lang}
                 min={toValidDate(min)}
                 max={toValidDate(max)}
+                calendarContainerWidth={calendarContainerWidth === '0' ? undefined : calendarContainerWidth}
+                calendarContainerHeight={calendarContainerHeight === '0' ? undefined : calendarContainerHeight}
                 {...(hasShortcuts && { dateShortcuts })}
                 {...rest}
             />

@@ -41,6 +41,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 preventOverflow = true,
                 usePortal = false,
                 resizable,
+                stretchHeight,
                 view,
                 onToggle,
                 onResizeStart,
@@ -102,7 +103,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 offsetOuter: offset,
             });
 
-            const { styles, attributes, forceUpdate } = usePopper(rootEl, popoverEl, {
+            const { styles, attributes, forceUpdate, state: popperState } = usePopper(rootEl, popoverEl, {
                 // TODO: #1121
                 // eslint-disable-next-line no-nested-ternary
                 placement: isAutoArray
@@ -133,6 +134,39 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     },
                 ],
             });
+
+            useLayoutEffect(() => {
+                if (!innerIsOpen || !stretchHeight || !popoverEl) {
+                    popoverEl?.style.removeProperty('height');
+                    return undefined;
+                }
+
+                const popoverWindow = popoverEl.ownerDocument.defaultView;
+
+                if (!popoverWindow) {
+                    return undefined;
+                }
+
+                const updateAvailableHeight = () => {
+                    const popoverRect = popoverEl.getBoundingClientRect();
+                    const placementValue = popperState?.placement ?? popoverEl.dataset.popperPlacement ?? '';
+                    const isPlacedAbove = placementValue.startsWith('top');
+                    const nextAvailableHeight = isPlacedAbove
+                        ? popoverRect.bottom
+                        : popoverWindow.innerHeight - popoverRect.top;
+                    const normalizedAvailableHeight = Math.max(Math.floor(nextAvailableHeight), 0);
+                    const nextHeight = `${normalizedAvailableHeight}px`;
+
+                    if (popoverEl.style.height !== nextHeight) {
+                        popoverEl.style.height = nextHeight;
+                    }
+                };
+
+                updateAvailableHeight();
+                popoverWindow.addEventListener('resize', updateAvailableHeight);
+
+                return () => popoverWindow.removeEventListener('resize', updateAvailableHeight);
+            }, [innerIsOpen, popoverEl, popperState?.placement, stretchHeight, styles.popper.transform]);
 
             const handleToggle = useCallback(
                 (nextIsOpen: boolean, event: React.SyntheticEvent | Event) => {

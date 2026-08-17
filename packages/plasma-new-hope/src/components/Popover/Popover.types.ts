@@ -101,6 +101,12 @@ export type CustomPopoverProps = {
      */
     animated?: boolean;
 
+    /**
+     * Растянуть Popover до границы доступной области по вертикали.
+     * @internal
+     */
+    stretchHeight?: boolean;
+
     view?: string;
 };
 
