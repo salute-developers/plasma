@@ -5,6 +5,7 @@ import type {
     FocusEvent,
     FocusEventHandler,
     MutableRefObject,
+    Ref,
     SyntheticEvent,
     SetStateAction,
 } from 'react';
@@ -540,7 +541,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             const handleBlurSecondTextfield = (event: FocusEvent<HTMLInputElement>) =>
                 handleBlur(event, onBlurSecondTextfield);
 
-            const RangeComponent = (
+            const renderRange = (inputWrapperRef: Ref<HTMLElement>) => (
                 <>
                     {/* TODO https://github.com/salute-developers/plasma/issues/1227
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -548,6 +549,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     <StyledRange
                         size={size}
                         ref={rangeRef}
+                        inputWrapperRef={inputWrapperRef as Ref<HTMLDivElement>}
                         autoComplete={autoComplete}
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
@@ -673,7 +675,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         calendarFocusedDate={calendarFocusedDate}
-                        target={RangeComponent}
+                        target={renderRange}
                         opened={openedValue}
                         includeEdgeDates={includeEdgeDates}
                         eventTooltipOptions={eventTooltipOptions}

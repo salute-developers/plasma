@@ -230,4 +230,8 @@ export const base = css`
             width: 100%;
         }
     }
+
+    &.${classes.datePickerCalendarstretched} {
+        height: 100%;
+    }
 `;

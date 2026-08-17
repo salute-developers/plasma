@@ -1,6 +1,7 @@
 import {
     flip,
     shift,
+    size,
     useFloating,
     useInteractions,
     useDismiss,
@@ -60,6 +61,9 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
             disableFlip,
             closeOnOverlayClick,
             closeOnEsc,
+            innerWidth,
+            innerHeight,
+            stretchHeight,
         },
         ref,
     ) => {
@@ -67,7 +71,6 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
                     ancestorScroll: false,
-                    ancestorResize: false,
                     layoutShift: false,
                 });
             },
@@ -81,6 +84,15 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
                 }),
                 ...(disableFlip ? [] : [flip({ fallbackAxisSideDirection: 'end' })]),
                 shift(),
+                size({
+                    apply({ availableHeight, elements }) {
+                        const nextHeight = stretchHeight ? `${Math.max(Math.floor(availableHeight), 0)}px` : '';
+
+                        if (elements.floating.style.height !== nextHeight) {
+                            elements.floating.style.height = nextHeight;
+                        }
+                    },
+                }),
             ],
         });
 
@@ -110,15 +122,20 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
                     ref={isTargetAsFunction ? undefined : refs.setReference}
                     {...getReferenceProps({ onClick: handleClick })}
                 >
-                    {typeof target === 'function' ? target(refs.setReference as any) : target}
+                    {typeof target === 'function' ? target(refs.setReference) : target}
                 </FloatingTarget>
 
                 {opened && (
                     <FloatingPortal {...getFloatingPortalProps(portal, wrappedId)}>
                         <FloatingContent
                             ref={refs.setFloating}
-                            style={{ ...floatingStyles, zIndex: zIndex || 1000 }}
+                            style={{
+                                ...floatingStyles,
+                                zIndex: zIndex || 1000,
+                            }}
                             {...getFloatingProps()}
+                            innerWidth={innerWidth}
+                            innerHeight={innerHeight}
                         >
                             {children}
                         </FloatingContent>

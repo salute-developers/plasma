@@ -1,17 +1,22 @@
 import React, { forwardRef, SyntheticEvent, useLayoutEffect, useRef, useState } from 'react';
 import cls from 'classnames';
-import type { KeyboardEvent, FocusEvent, MouseEvent, MutableRefObject, RefObject } from 'react';
+import type { KeyboardEvent, FocusEvent, MouseEvent, Ref, RefObject } from 'react';
 import type { DateInfo, DateType } from 'src/components/Calendar/Calendar.types';
 import type { RootProps } from 'src/engines';
 import { useForkRef } from 'src/hooks';
-import { getSizeValueFromProp, noop } from 'src/utils';
+import { noop } from 'src/utils';
 
 import { getDateFormatDelimiter } from '../utils/dateHelper';
 import { useDatePicker } from '../hooks/useDatePicker';
 import { classes } from '../DatePicker.tokens';
 import { InputHidden, StyledCalendar, StyledCalendarContent } from '../DatePickerBase.styles';
 import { keys, useKeyNavigation } from '../hooks/useKeyboardNavigation';
-import { getFormattedDates, invokeOnCommitDate } from '../utils';
+import {
+    getCalendarContainerSize,
+    getFormattedDates,
+    hasCustomCalendarContainerSize,
+    invokeOnCommitDate,
+} from '../utils';
 import { StyledShortcutList } from '../ui';
 import { FloatingPopover } from '../FloatingPopover';
 
@@ -161,12 +166,11 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
             const calendarValue: DateType = initialValues.originalDate;
             const inputValue = initialValues.formattedDate;
 
-            const calendarContainerWidthValue = calendarContainerWidth
-                ? getSizeValueFromProp(calendarContainerWidth, 'rem')
-                : undefined;
-            const calendarContainerHeightValue = calendarContainerHeight
-                ? getSizeValueFromProp(calendarContainerHeight, 'rem')
-                : undefined;
+            const calendarContainerWidthValue = getCalendarContainerSize(calendarContainerWidth, stretched);
+            const calendarContainerHeightValue = getCalendarContainerSize(calendarContainerHeight, stretched);
+            const isCalendarHeightStretched = Boolean(
+                stretched && !hasCustomCalendarContainerSize(calendarContainerHeight),
+            );
 
             const {
                 datePickerErrorClass,
@@ -332,11 +336,14 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                         disableFlip={disableFlip}
                         closeOnOverlayClick={closeOnOverlayClick}
                         closeOnEsc={closeOnEsc}
+                        innerWidth={calendarContainerWidthValue}
+                        innerHeight={calendarContainerHeightValue}
+                        stretchHeight={isCalendarHeightStretched}
                         portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
                         target={(referenceRef) => (
                             <StyledInput
                                 ref={inputForkRef}
-                                inputWrapperRef={referenceRef as MutableRefObject<HTMLDivElement>}
+                                inputWrapperRef={referenceRef as Ref<HTMLDivElement>}
                                 className={cls(datePickerErrorClass, datePickerSuccessClass, datePickerEditedClass)}
                                 value={inputValue}
                                 size={size}
@@ -386,6 +393,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                             size={size}
                             className={cls(classes.datePickerRoot, className, {
                                 [classes.datePickerstretched]: stretched,
+                                [classes.datePickerCalendarstretched]: isCalendarHeightStretched,
                             })}
                             disabled={disabled}
                             readOnly={!disabled && readOnly}
@@ -400,7 +408,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                                         items={dateShortcuts}
                                         setShortcutDate={onCalendarPick}
                                         dateShortcutsWidth={dateShortcutsWidth}
-                                        calendarContainerHeight={calendarContainerHeight}
+                                        calendarContainerHeight={calendarContainerHeightValue}
                                         dateShortcutsPlacement={dateShortcutsPlacement}
                                     />
                                 ) : null}

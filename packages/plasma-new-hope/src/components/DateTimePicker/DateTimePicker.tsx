@@ -4,6 +4,8 @@ import cls from 'classnames';
 import type { RootProps } from 'src/engines';
 import { useForkRef } from 'src/hooks';
 
+import { getCalendarContainerSize } from '../DatePicker/utils';
+
 import type { DateTimePickerProps, DateTimePickerRootProps } from './DateTimePicker.types';
 import { base, CalendarContainerOverlay, LeftHelper } from './DateTimePicker.styles';
 import { base as sizeCSS } from './variations/_size/base';
@@ -124,6 +126,9 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
         ) => {
             const inputRef = useRef<HTMLInputElement | null>(null);
             const inputInnerRef = useForkRef(inputRef, ref);
+
+            const calendarContainerWidthValue = getCalendarContainerSize(calendarContainerWidth, stretched);
+            const calendarContainerHeightValue = getCalendarContainerSize(calendarContainerHeight, stretched);
 
             const calendarOverlayRef = useRef<HTMLDivElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(false);
@@ -300,6 +305,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                         zIndex={zIndex}
                         calendarContainerWidth={calendarContainerWidth}
                         calendarContainerHeight={calendarContainerHeight}
+                        stretched={stretched}
                         onToggle={handleToggle}
                     >
                         <CalendarContainerOverlay ref={calendarOverlayRef} onClick={handleCalendarOverlayClick} />
@@ -318,7 +324,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                     items={dateShortcuts}
                                     setShortcutDate={handleCalendarPick}
                                     dateShortcutsWidth={dateShortcutsWidth}
-                                    calendarContainerHeight={calendarContainerHeight}
+                                    calendarContainerHeight={calendarContainerHeightValue}
                                     dateShortcutsPlacement={dateShortcutsPlacement}
                                 />
                             ) : null}
@@ -326,8 +332,8 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                             <CalendarGrid
                                 value={calendarGridValue}
                                 isDouble={isDouble}
-                                calendarContainerWidth={calendarContainerWidth}
-                                calendarContainerHeight={calendarContainerHeight}
+                                calendarContainerWidth={calendarContainerWidthValue}
+                                calendarContainerHeight={calendarContainerHeightValue}
                                 type={type}
                                 eventTooltipOptions={eventTooltipOptions}
                                 eventList={eventList}
@@ -352,9 +358,9 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 value={timeVisibleValue}
                                 format={timeFormat}
                                 columns={timeColumnsCount}
-                                calendarContainerWidth={calendarContainerWidth}
-                                calendarContainerHeight={calendarContainerHeight}
-                                dropdownHeight={calendarContainerHeight}
+                                calendarContainerWidth={calendarContainerWidthValue}
+                                calendarContainerHeight={calendarContainerHeightValue}
+                                dropdownHeight={calendarContainerHeightValue}
                                 onChange={handleTimePick}
                                 {...(isDateEqualEdge(min) && { min })}
                                 {...(isDateEqualEdge(max) && { max })}

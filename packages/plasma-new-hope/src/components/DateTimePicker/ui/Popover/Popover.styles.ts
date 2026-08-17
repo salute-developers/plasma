@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 
-import { popoverConfig } from '../../../Popover';
+import { popoverClasses, popoverConfig } from '../../../Popover';
 import { classes, tokens } from '../../DateTimePicker.tokens';
 
 const mergedPopoverConfig = mergeConfig(popoverConfig);
 const Popover = component(mergedPopoverConfig);
 
-export const StyledPopover = styled(Popover)<{ innerWidth?: string; innerHeight?: string }>`
+export const StyledPopover = styled(Popover)<{
+    $stretchWidth?: boolean;
+    innerWidth?: string;
+    innerHeight?: string;
+}>`
+    .${popoverClasses.root} {
+        width: ${({ $stretchWidth }) => ($stretchWidth ? '100%' : 'fit-content')};
+    }
+
     .${classes.root} {
         box-sizing: border-box;
 

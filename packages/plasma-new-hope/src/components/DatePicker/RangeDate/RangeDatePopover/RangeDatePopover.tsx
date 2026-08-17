@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import cls from 'classnames';
 import type { MouseEvent, RefObject, SyntheticEvent } from 'react';
-import { getSizeValueFromProp } from 'src/utils';
 
 import { classes } from '../../DatePicker.tokens';
 import { StyledShortcutList } from '../../ui';
 import { FloatingPopover } from '../../FloatingPopover';
 import { StyledCalendarContent } from '../../DatePickerBase.styles';
+import { getCalendarContainerSize, hasCustomCalendarContainerSize } from '../../utils';
 
 import type { RangeDatePopoverProps } from './RangeDatePopover.types';
 import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles';
@@ -72,12 +72,9 @@ export const RangeDatePopover = ({
     const doubleCalendarRootRef = useRef<HTMLDivElement | null>(null);
     const floatingPopoverRef = useRef<HTMLDivElement | null>(null);
 
-    const calendarContainerWidthValue = calendarContainerWidth
-        ? getSizeValueFromProp(calendarContainerWidth, 'rem')
-        : undefined;
-    const calendarContainerHeightValue = calendarContainerHeight
-        ? getSizeValueFromProp(calendarContainerHeight, 'rem')
-        : undefined;
+    const calendarContainerWidthValue = getCalendarContainerSize(calendarContainerWidth, stretched);
+    const calendarContainerHeightValue = getCalendarContainerSize(calendarContainerHeight, stretched);
+    const isCalendarHeightStretched = Boolean(stretched && !hasCustomCalendarContainerSize(calendarContainerHeight));
 
     const handleToggle = (isOpen: boolean, event?: SyntheticEvent | Event) => {
         setIsInnerOpen(isOpen);
@@ -111,10 +108,16 @@ export const RangeDatePopover = ({
                 closeOnEsc={closeOnEsc}
                 portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
                 target={target}
+                innerWidth={calendarContainerWidthValue}
+                innerHeight={calendarContainerHeightValue}
+                stretchHeight={isCalendarHeightStretched}
             >
                 <Root
                     ref={doubleCalendarRootRef}
-                    className={cls(classes.datePickerRoot, { [classes.datePickerstretched]: stretched })}
+                    className={cls(classes.datePickerRoot, {
+                        [classes.datePickerstretched]: stretched,
+                        [classes.datePickerCalendarstretched]: isCalendarHeightStretched,
+                    })}
                     onClick={handleCalendarRootClick}
                 >
                     <StyledCalendarContent
@@ -126,7 +129,7 @@ export const RangeDatePopover = ({
                                 items={dateShortcuts}
                                 setShortcutDate={onShortcutDateSelect}
                                 dateShortcutsWidth={dateShortcutsWidth}
-                                calendarContainerHeight={calendarContainerHeight}
+                                calendarContainerHeight={calendarContainerHeightValue}
                                 dateShortcutsPlacement={dateShortcutsPlacement}
                             />
                         ) : null}
@@ -176,10 +179,16 @@ export const RangeDatePopover = ({
             closeOnEsc={closeOnEsc}
             portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
             target={target}
+            innerWidth={calendarContainerWidthValue}
+            innerHeight={calendarContainerHeightValue}
+            stretchHeight={isCalendarHeightStretched}
         >
             <Root
                 ref={calendarRootRef}
-                className={cls(classes.datePickerRoot, { [classes.datePickerstretched]: stretched })}
+                className={cls(classes.datePickerRoot, {
+                    [classes.datePickerstretched]: stretched,
+                    [classes.datePickerCalendarstretched]: isCalendarHeightStretched,
+                })}
                 onClick={handleCalendarRootClick}
             >
                 <StyledCalendarContent
@@ -191,7 +200,7 @@ export const RangeDatePopover = ({
                             items={dateShortcuts}
                             setShortcutDate={onShortcutDateSelect}
                             dateShortcutsWidth={dateShortcutsWidth}
-                            calendarContainerHeight={calendarContainerHeight}
+                            calendarContainerHeight={calendarContainerHeightValue}
                             dateShortcutsPlacement={dateShortcutsPlacement}
                         />
                     ) : null}

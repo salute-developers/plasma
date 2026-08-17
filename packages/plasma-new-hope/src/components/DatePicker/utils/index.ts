@@ -3,3 +3,4 @@ export { getOriginalDates } from './getOriginalDates';
 export { normalizeDates } from './normalizeDates';
 export { getMaskedDateOnInput } from './getMaskedDateOnInput';
 export { invokeOnCommitDate } from './invokeOnCommitDate';
+export { getCalendarContainerSize, hasCustomCalendarContainerSize } from './getCalendarContainerSize';
