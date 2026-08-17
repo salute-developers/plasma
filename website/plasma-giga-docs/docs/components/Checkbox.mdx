@@ -10,7 +10,7 @@ import { PropsTable, Description } from '@site/src/components';
 <PropsTable name="Checkbox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />
 
 :::caution Устаревшие значения для свойства view
-Актуальным значением для свойства `view` - является `accent`.
+Актуальным значением для свойства `view` - является `default`.
 
 Все остальные значения `deprecated` и будут удалены в ближайшее время!
 :::
@@ -26,6 +26,19 @@ export function App() {
     return (
         <Checkbox label="Чекбокс" description="Описание" defaultChecked />
     );
+}
+```
+
+## Иконка выбранного состояния
+
+Свойство `checkIcon` управляет иконкой выбранного состояния. По умолчанию используется значение `check` — стандартная галочка. Значение `cross` включает предустановленную иконку крестика без необходимости передавать её извне. Также в `checkIcon` можно передать произвольную иконку.
+
+```tsx live
+import React from 'react';
+import { Checkbox } from '@salutejs/plasma-giga';
+
+export function App() {
+    return <Checkbox label="Чекбокс с крестиком" defaultChecked checkIcon="cross" />;
 }
 ```
 
