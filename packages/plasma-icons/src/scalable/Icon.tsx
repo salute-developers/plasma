@@ -190,6 +190,7 @@ export const iconSectionsSet = {
         textAlignCenterOutline: 'TextAlignCenterOutline',
         textAlignRightOutline: 'TextAlignRightOutline',
         searchAIFill: 'SearchAIFill',
+        searchAIOutline: 'SearchAIOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
