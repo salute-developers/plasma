@@ -17,6 +17,9 @@ type LoadedIcon = {
     name: IconName;
     component: IconComponent;
 };
+type IconLoader = () => Promise<{ default: IconComponent }>;
+
+const iconLoaders = dynamicIconImports as Record<IconName, IconLoader>;
 
 export const iconNames = Object.keys(dynamicIconImports) as IconName[];
 
@@ -28,7 +31,7 @@ const loadIcon = async (name: IconName): Promise<IconComponent> => {
         throw new Error(`[sdds-icons]: Icon "${name}" was not found`);
     }
 
-    const iconModule = await dynamicIconImports[name]();
+    const iconModule = await iconLoaders[name]();
 
     return iconModule.default;
 };
