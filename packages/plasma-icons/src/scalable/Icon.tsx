@@ -188,6 +188,7 @@ export const iconSectionsSet = {
         translateFill: 'TranslateFill',
         textAlignLeftOutline: 'TextAlignLeftOutline',
         textAlignCenterOutline: 'TextAlignCenterOutline',
+        textAlignRightOutline: 'TextAlignRightOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
