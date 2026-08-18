@@ -106,7 +106,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.leftHelperColor}: var(${comboboxTokens.textFieldLeftHelperColor});
     ${textFieldTokens.leftHelperColorFocus}: var(${comboboxTokens.textFieldLeftHelperColorFocus});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${comboboxTokens.textFieldLeftHelperColorReadOnly});
-    ${textFieldTokens.leftHelperOffset}: var(${comboboxTokens.textFieldLeftHelperOffset});
+    ${textFieldTokens.leftHelperPadding}: var(${comboboxTokens.textFieldLeftHelperPadding});
 
     ${textFieldTokens.leftHelperFontFamily}: var(${comboboxTokens.textFieldLeftHelperFontFamily});
     ${textFieldTokens.leftHelperFontStyle}: var(${comboboxTokens.textFieldLeftHelperFontStyle});

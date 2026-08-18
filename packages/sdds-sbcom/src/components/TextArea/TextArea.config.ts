@@ -292,9 +292,12 @@ export const config = {
                 ${tokens.helpersPaddingBottom}: 0.75rem;
                 ${tokens.helpersPaddingLeft}: 1rem;
                 ${tokens.outsideHelpersPaddingTop}: 0.25rem;
+                ${tokens.outsideHelpersPaddingBottom}: 0.25rem;
                 ${tokens.outsideHelpersPaddingLeft}: 1rem;
                 ${tokens.outsideHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
+                ${tokens.helpersGap}: 0.5rem;
+                ${tokens.helpersAlignItems}: center;
 
                 ${tokens.rightContentTop}: 0.5rem;
                 ${tokens.rightContentRight}: 0.5rem;
@@ -337,7 +340,7 @@ export const config = {
                 ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
 
                 ${tokens.scrollbarWidth}: 0.25rem;
-                ${tokens.scrollbarBorderWidth}: 0;
+                ${tokens.scrollbarBorderWidth}: 0rem;
                 ${tokens.scrollbarBorderRadius}: 0.5rem;
                 ${tokens.scrollbarMarginRight}: 0.375rem;
 

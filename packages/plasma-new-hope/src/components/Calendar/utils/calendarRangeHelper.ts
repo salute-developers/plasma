@@ -52,6 +52,10 @@ export const getSideForSelected = (date: DateObject, startValue: Date, endValue:
     const startValueTime = startValue.getTime();
     const endValueTime = endValue.getTime();
 
+    if (startValueTime === endValueTime) {
+        return undefined;
+    }
+
     if (currentDateTime === startValueTime) {
         return 'right';
     }

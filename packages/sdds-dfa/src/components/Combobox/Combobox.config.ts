@@ -303,7 +303,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.82rem -2.938rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.82rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -424,7 +424,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -545,7 +545,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -666,7 +666,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -787,7 +787,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};

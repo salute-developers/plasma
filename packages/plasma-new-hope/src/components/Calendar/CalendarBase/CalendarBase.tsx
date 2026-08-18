@@ -231,7 +231,6 @@ export const calendarBaseRoot = (
                         </IsOutOfRange>
                     )}
                     <CalendarHeader
-                        size={rest.size}
                         firstDate={date}
                         startYear={startYear}
                         type={calendarState}

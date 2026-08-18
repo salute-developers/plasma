@@ -190,7 +190,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyS.fontStyle};
@@ -321,7 +321,7 @@ export const config = {
                 ${tokens.disclosureIconColorHover}: transparent;
                 ${tokens.textFieldPadding}: 0;
                 ${tokens.textFieldLabelOffset}: 0.25rem;
-                ${tokens.textFieldLeftHelperOffset}: 0rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0rem 0 0 0;
                 ${tokens.textFieldBorderColor}: transparent;
                 ${tokens.textFieldBorderWidth}: 0;
             `,

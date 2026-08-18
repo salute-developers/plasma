@@ -64,7 +64,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.leftHelperColor}: var(${autocompleteTokens.textFieldLeftHelperColor});
     ${textFieldTokens.leftHelperColorFocus}: var(${autocompleteTokens.textFieldLeftHelperColorFocus});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${autocompleteTokens.textFieldLeftHelperColorReadOnly});
-    ${textFieldTokens.leftHelperOffset}: var(${autocompleteTokens.textFieldLeftHelperOffset});
+    ${textFieldTokens.leftHelperPadding}: var(${autocompleteTokens.textFieldLeftHelperPadding});
     ${textFieldTokens.leftHelperFontFamily}: var(${autocompleteTokens.textFieldLeftHelperFontFamily});
     ${textFieldTokens.leftHelperFontStyle}: var(${autocompleteTokens.textFieldLeftHelperFontStyle});
     ${textFieldTokens.leftHelperFontSize}: var(${autocompleteTokens.textFieldLeftHelperFontSize});

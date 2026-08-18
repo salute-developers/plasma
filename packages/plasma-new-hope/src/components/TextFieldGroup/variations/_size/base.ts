@@ -30,7 +30,7 @@ export const base = css`
         ${textFieldTokens.labelLetterSpacing}: var(${tokens.labelLetterSpacing});
         ${textFieldTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
-        ${textFieldTokens.leftHelperOffset}: var(${tokens.leftHelperOffset});
+        ${textFieldTokens.leftHelperPadding}: var(${tokens.leftHelperPadding});
         ${textFieldTokens.leftHelperFontFamily}: var(${tokens.leftHelperFontFamily});
         ${textFieldTokens.leftHelperFontSize}: var(${tokens.leftHelperFontSize});
         ${textFieldTokens.leftHelperFontStyle}: var(${tokens.leftHelperFontStyle});

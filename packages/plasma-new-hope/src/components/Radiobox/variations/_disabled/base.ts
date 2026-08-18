@@ -8,6 +8,6 @@ export const base = css`
     }
 
     input:disabled + label {
-        cursor: not-allowed;
+        cursor: var(${tokens.radioboxCursor}, not-allowed);
     }
 `;

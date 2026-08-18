@@ -18,6 +18,14 @@ export type SelectedProps = {
      */
     selectedBackground?: string;
     /**
+     * Цвет фона выбранного элемента, при наведении.
+     */
+    selectedBackgroundHover?: string;
+    /**
+     * Курсор, при наведении на выбранный элемент.
+     */
+    selectedCursorOnHover?: string;
+    /**
      * Цвет текста выбранного элемента.
      */
     selectedColor?: string;
@@ -49,6 +57,8 @@ export const addSelected = (args: SelectedProps) => {
         minHeight,
         selectedFontWeight,
         selectedBackground,
+        selectedBackgroundHover,
+        selectedCursorOnHover,
         selectedColor,
         selectableBackgroundHover,
         currentBorderColor,
@@ -75,8 +85,12 @@ export const addSelected = (args: SelectedProps) => {
             border: 0;
             background-color: ${selectedBackground};
             color: ${selectedColor};
-            cursor: default;
+            cursor: ${selectedCursorOnHover};
             font-weight: ${selectedFontWeight};
+
+            &:hover {
+                background-color: ${selectedBackgroundHover};
+            }
         };
 
         &.${classes.currentItem} {
@@ -91,6 +105,12 @@ export const addSelected = (args: SelectedProps) => {
                     background-color: ${selectedBackground};
                     min-width: ${minWidth};
                     min-height: ${minHeight};
+                }
+
+                &:hover {
+                    & > div:first-of-type {
+                        background-color: ${selectedBackgroundHover};
+                    }
                 }
             }
         };

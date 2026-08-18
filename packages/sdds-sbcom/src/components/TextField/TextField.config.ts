@@ -85,7 +85,7 @@ export const config = {
                 ${tokens.boxShadowSecondary}: inset 0 0 0 0.0625rem ${outlinePositive};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
                 ${tokens.dividerColorHover}: ${textSecondary};
-                ${tokens.dividerColorFocus}: ${surfaceAccent};
+                ${tokens.dividerColorFocus}: ${surfacePositive};
 
                 ${tokens.focusColor}: ${textAccent};
                 ${tokens.indicatorColor}: ${surfaceNegative};
@@ -179,7 +179,7 @@ export const config = {
                 ${tokens.boxShadowSecondary}: inset 0 0 0 0.0625rem ${outlineNegative};
                 ${tokens.dividerColor}: ${surfaceNegative};
                 ${tokens.dividerColorHover}: ${surfaceNegative};
-                ${tokens.dividerColorFocus}: ${surfaceAccent};
+                ${tokens.dividerColorFocus}: ${surfaceNegative};
 
                 ${tokens.focusColor}: ${textAccent};
                 ${tokens.indicatorColor}: ${surfaceNegative};
@@ -223,7 +223,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -316,7 +316,9 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.helpersAlign}: center;
+
+                ${tokens.leftHelperPadding}: 0.25rem 0.25rem 0.25rem 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -324,7 +326,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.rightHelperOffset}: 0.25rem 1rem 0 0;
+                ${tokens.rightHelperOffset}: 0.25rem 1rem 0.25rem 0.25rem;
                 ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
@@ -402,7 +404,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -488,7 +490,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -574,7 +576,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};

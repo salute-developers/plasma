@@ -31,6 +31,7 @@ const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
     customIcon,
+    disablePropsList: ['rightHelper'],
 });
 
 const meta: Meta<TextFieldProps> = {

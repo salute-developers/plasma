@@ -14,7 +14,15 @@ const { meta: META, Default } = getDatePickerStories({
 });
 
 const meta: Meta<DatePickerProps> = {
-    ...META,
+    ...{
+        ...META,
+        args: {
+            ...META.args,
+            calendarContainerWidth: '286px',
+            calendarContainerHeight: '292px',
+            size: 'xs',
+        },
+    },
     title: 'Data Entry/⚠️ DatePicker',
 };
 

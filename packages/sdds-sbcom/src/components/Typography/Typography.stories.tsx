@@ -2,10 +2,10 @@ import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
 
-import { DsplS, H1, H2, H3, H4, HXlMedium, HXxlMedium, BodyL, BodyM, BodyS, BodyXS, BodyXXS } from '.';
+import { DsplS, H1, H2, H3, H4, HXlMedium, HXxlMedium, BodyL, BodyM, BodyS, BodyXS, BodyXXS, BodyXXXS } from '.';
 
 const meta: Meta = {
-    title: 'Data Display/⚠️ Typography',
+    title: 'Data Display/Typography',
     component: DsplS,
     argTypes: {
         ...disableProps(['size', 'bold', 'medium', 'as', 'forwardedAs', 'isNumeric']),
@@ -224,6 +224,21 @@ export const Body: Story = {
             <BodyXXS isItalic={enableFontStyleItalic} isNumeric {...rest}>
                 1234567890
             </BodyXXS>
+            <BodyXXXS isItalic={enableFontStyleItalic} {...rest}>
+                BodyXXXS
+            </BodyXXXS>
+            <BodyXXXS isItalic={enableFontStyleItalic} medium {...rest}>
+                BodyXXXS Medium
+            </BodyXXXS>
+            <BodyXXXS isItalic={enableFontStyleItalic} bold {...rest}>
+                BodyXXXS Bold
+            </BodyXXXS>
+            <BodyXXXS isItalic={enableFontStyleItalic} extraBold {...rest}>
+                BodyXXXS Extra Bold
+            </BodyXXXS>
+            <BodyXXXS isItalic={enableFontStyleItalic} isNumeric {...rest}>
+                1234567890
+            </BodyXXXS>
         </>
     ),
 };

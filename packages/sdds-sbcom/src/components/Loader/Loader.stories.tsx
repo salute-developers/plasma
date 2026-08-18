@@ -1,9 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
 import React, { ComponentProps, useEffect } from 'react';
-import { IconCross } from '@salutejs/plasma-icons';
-
-import { Button } from '../Button';
 
 import { config } from './Loader.config';
 
@@ -11,11 +8,11 @@ import { Loader } from '.';
 
 const { views, sizes } = getConfigVariations(config);
 
-const sizeSpinner = ['s', 'm', 'l'];
+const sizeSpinner = ['40', '32', '24', '16'] as const;
 
 type StoryPropsDefault = ComponentProps<typeof Loader> & {
     progressSize?: string;
-    spinnerSize?: string;
+    spinnerSize?: typeof sizeSpinner;
 };
 
 const meta: Meta<StoryPropsDefault> = {
@@ -41,16 +38,6 @@ const meta: Meta<StoryPropsDefault> = {
         },
         spinnerSize: {
             options: sizeSpinner,
-            control: {
-                type: 'select',
-            },
-            if: {
-                arg: 'type',
-                eq: 'spinner',
-            },
-        },
-        type: {
-            options: ['spinner', 'progress'],
             control: {
                 type: 'select',
             },
@@ -105,25 +92,7 @@ const meta: Meta<StoryPropsDefault> = {
 
 export default meta;
 
-const getContent = (value: number, size?: string) => {
-    if (size === 'xxl' || size === 'xl') {
-        if (value >= 100) {
-            return '100%';
-        }
-        if (value <= 0) {
-            return '0%';
-        }
-        return `${value}%`;
-    }
-
-    if (size !== 'xxs') {
-        return <IconCross size={size === 'l' ? 's' : 'xs'} />;
-    }
-
-    return '';
-};
-
-const LoaderContent = (args) => {
+const LoaderContent = (args: StoryPropsDefault) => {
     const [progress, setProgress] = React.useState(0);
     const [toggle, setToggle] = React.useState(false);
 
@@ -145,24 +114,20 @@ const LoaderContent = (args) => {
     }, [toggle, setProgress]);
 
     return (
-        <div style={{ position: 'relative', width: '100%' }}>
-            <Button onClick={() => setToggle(true)}>Show Loader</Button>
-            {toggle && (
-                <Loader size={args.spinnerSize ?? args.progressSize ?? 'm'} maxValue={100} value={progress} {...args}>
-                    {getContent(progress, args.progressSize)}
-                </Loader>
-            )}
-        </div>
+        // <div style={{ position:'relative' }}>
+        <Loader size={args.spinnerSize ?? '40'} maxValue={100} value={progress} type="spinner" {...args} />
+        /* <IconCross size={'m'} /> */
+        /* </Loader> */
+        // </div>
     );
 };
 
 export const Default: StoryObj<StoryPropsDefault> = {
     args: {
-        view: 'default',
+        view: 'white',
         progressSize: 'm',
-        spinnerSize: 'm',
+        spinnerSize: '40',
         hasOverlay: false,
-        type: 'spinner',
         hasTrack: true,
     },
     render: ({ ...args }) => {

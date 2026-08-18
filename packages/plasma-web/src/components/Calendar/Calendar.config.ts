@@ -96,6 +96,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 1rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
@@ -165,6 +166,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 1rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
@@ -234,6 +236,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.75rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
@@ -303,6 +306,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
@@ -372,6 +376,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1rem;
 
                 ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 0.5rem;
                 ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;

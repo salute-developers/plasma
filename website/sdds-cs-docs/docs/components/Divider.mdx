@@ -55,3 +55,21 @@ export function App() {
     );
 }
 ```
+
+### Цвет разделителя
+Цвет разделителя можно изменить с помощью свойства `color`:
+
+```tsx live
+import React from 'react';
+import { Divider } from '@salutejs/sdds-cs';
+import { surfacePositive, surfaceNegative } from '@salutejs/sdds-themes/tokens/sdds_cs';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', height: '4rem' }}>
+            <Divider orientation="horizontal" length="10rem" color={surfacePositive} />
+            <Divider orientation="vertical" length="4rem" color={surfaceNegative} />
+        </div>
+    );
+}
+```

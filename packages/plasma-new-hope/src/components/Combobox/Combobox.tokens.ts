@@ -157,7 +157,7 @@ export const tokens = {
     textFieldLeftHelperColor: '--plasma-combobox-new-textfield-left-helper-color',
     textFieldLeftHelperColorFocus: '--plasma-combobox-new-textfield-left-helper-color-focus',
     textFieldLeftHelperColorReadOnly: '--plasma-combobox-new-textfield-left-helper-color-readonly',
-    textFieldLeftHelperOffset: '--plasma-combobox-new-textfield-left-helper-offset',
+    textFieldLeftHelperPadding: '--plasma-combobox-new-textfield-left-helper-padding',
 
     textFieldLeftHelperFontFamily: '--plasma-combobox-new-textfield-left-helper-font-family',
     textFieldLeftHelperFontStyle: '--plasma-combobox-new-textfield-left-helper-font-style',

@@ -39,4 +39,7 @@ export const tokens = {
 
     disabledOpacity: '--plasma-radiobox-disabled-opacity',
     focusColor: '--plasma-radiobox-focus-color',
+
+    /** Токены для управления UI cursor */
+    radioboxCursor: '--plasma-radiobox-cursor',
 };

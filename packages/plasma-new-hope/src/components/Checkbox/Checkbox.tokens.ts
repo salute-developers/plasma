@@ -41,4 +41,7 @@ export const tokens = {
 
     focusColor: '--plasma-checkbox-focus-color',
     disabledOpacity: '--plasma-checkbox-disabled-opacity',
+
+    /** Токены для управления UI cursor */
+    checkboxCursor: '--plasma-checkbox-cursor',
 };

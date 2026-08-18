@@ -54,3 +54,21 @@ export function App() {
     );
 }
 ```
+
+### Цвет разделителя
+Цвет разделителя можно изменить с помощью свойства `color`:
+
+```tsx live
+import React from 'react';
+import { Divider } from '@salutejs/plasma-web';
+import { success, critical } from '@salutejs/plasma-themes/tokens/plasma_web';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center', height: '4rem' }}>
+            <Divider orientation="horizontal" length="10rem" color={success} />
+            <Divider orientation="vertical" length="4rem" color={critical} />
+        </div>
+    );
+}
+```

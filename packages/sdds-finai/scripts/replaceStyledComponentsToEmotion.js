@@ -1,7 +1,7 @@
 /**
  * Заменяет импорты styled-components на Emotion во временной копии исходников.
  */
-
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs');
 const path = require('path');
 

@@ -3,32 +3,33 @@ import {
     bodySMedium,
     h4Medium,
     onDarkTextPrimary,
-    onDarkTextPrimaryActive,
     onDarkTextPrimaryHover,
     onDarkTextSecondary,
     onLightSurfaceAccent,
     onLightSurfaceSolidPrimary,
+    onLightSurfaceSolidPrimaryActive,
+    onLightSurfaceSolidPrimaryHover,
     onLightTextAccent,
     onLightTextPrimary,
+    outlinePositive,
     spacing2x,
     spacing3x,
-    surfaceAccent,
     surfaceAccentActive,
     surfaceAccentHover,
     surfaceClear,
-    surfaceNegativeActive,
-    surfaceNegativeHover,
-    surfacePositiveActive,
-    surfacePositiveHover,
     surfaceTransparentNegative,
+    surfaceTransparentNegativeActive,
+    surfaceTransparentNegativeHover,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
-    surfaceWarningActive,
-    surfaceWarningHover,
     textAccent,
+    textAccentHover,
     textNegative,
+    textNegativeActive,
     textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
     textSecondary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
@@ -51,90 +52,105 @@ export const config = {
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceAccent};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${onLightSurfaceAccent} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
             `,
             accentWhite: css`
-                ${buttonTokens.buttonColor}: ${textPrimary};
+                ${buttonTokens.buttonColor}: ${onLightTextAccent};
                 ${buttonTokens.buttonTextColor}: ${onLightTextAccent};
                 ${buttonTokens.buttonSpinnerColor}: ${onLightTextAccent};
-                ${buttonTokens.buttonIconColor}: ${textPrimary};
+                ${buttonTokens.buttonIconColor}: ${onLightTextAccent};
                 ${buttonTokens.buttonValueColor}: ${textSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidPrimary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${onLightSurfaceSolidPrimary} 40%, transparent);
+                ${buttonTokens.buttonBackgroundColorHover}: ${onLightSurfaceSolidPrimaryHover};
+                ${buttonTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidPrimaryActive};
             `,
             primaryWhite: css`
                 ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonTextColor}: ${onLightTextPrimary};
                 ${buttonTokens.buttonSpinnerColor}: ${onLightTextPrimary};
-                ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonIconColor}: ${onLightTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidPrimary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: ${surfacePositiveHover};
-                ${buttonTokens.buttonBackgroundColorActive}: ${surfacePositiveActive};
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${onLightSurfaceSolidPrimary} 40%, transparent);
+                ${buttonTokens.buttonBackgroundColorHover}: ${onLightSurfaceSolidPrimaryHover};
+                ${buttonTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidPrimaryActive};
             `,
             accentGrey: css`
-                ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonColor}: ${textAccent};
                 ${buttonTokens.buttonTextColor}: ${textAccent};
                 ${buttonTokens.buttonSpinnerColor}: ${textAccent};
-                ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonIconColor}: ${textAccent};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceWarningHover};
-                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceWarningActive};
-            `,
-            accentClear: css`
-                ${buttonTokens.buttonColor}: ${textPrimary};
-                ${buttonTokens.buttonTextColor}: ${textAccent};
-                ${buttonTokens.buttonSpinnerColor}: ${textAccent};
-                ${buttonTokens.buttonIconColor}: ${textPrimary};
-                ${buttonTokens.buttonValueColor}: ${textSecondary};
-                ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceTransparentSecondary} 40%, transparent);
                 ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
             `,
+            accentGreyClear: css`
+                ${buttonTokens.buttonColor}: ${textAccent};
+                ${buttonTokens.buttonTextColor}: ${textAccent};
+                ${buttonTokens.buttonColorHover}: ${textAccentHover};
+                ${buttonTokens.buttonSpinnerColor}: ${textAccent};
+                ${buttonTokens.buttonIconColor}: ${textAccent};
+                ${buttonTokens.buttonValueColor}: ${textSecondary};
+                ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceClear} 40%, transparent);
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceClear};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceClear};
+            `,
             dangerTint: css`
-                ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonColor}: ${textNegative};
                 ${buttonTokens.buttonTextColor}: ${textNegative};
                 ${buttonTokens.buttonSpinnerColor}: ${textNegative};
-                ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonIconColor}: ${textNegative};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentNegative};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceNegativeHover};
-                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceNegativeActive};
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceTransparentNegative} 40%, transparent);
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentNegativeHover};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceTransparentNegativeActive};
             `,
-            dangerClear: css`
-                ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
+            dangerTintClear: css`
+                ${buttonTokens.buttonColor}: ${textNegative};
                 ${buttonTokens.buttonTextColor}: ${textNegative};
                 ${buttonTokens.buttonSpinnerColor}: ${textNegative};
-                ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonIconColor}: ${textNegative};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceClear} 40%, transparent);
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceClear};
                 ${buttonTokens.buttonColorHover}: ${onDarkTextPrimaryHover};
-                ${buttonTokens.buttonColorActive}: ${onDarkTextPrimaryActive};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceClear};
+                ${buttonTokens.buttonColorActive}: ${textNegativeActive};
             `,
             primaryGrey: css`
-                ${buttonTokens.buttonColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonColor}: ${textPrimary};
                 ${buttonTokens.buttonTextColor}: ${textPrimary};
                 ${buttonTokens.buttonSpinnerColor}: ${textPrimary};
-                ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
+                ${buttonTokens.buttonIconColor}: ${textPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
                 ${buttonTokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
-                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceTransparentSecondary} 40%, transparent);
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
                 ${buttonTokens.buttonColorHover}: ${onDarkTextPrimaryHover};
-                ${buttonTokens.buttonColorActive}: ${onDarkTextPrimaryActive};
+            `,
+            primaryGreyClear: css`
+                ${buttonTokens.buttonColor}: ${textPrimary};
+                ${buttonTokens.buttonTextColor}: ${textPrimary};
+                ${buttonTokens.buttonSpinnerColor}: ${textPrimary};
+                ${buttonTokens.buttonIconColor}: ${textPrimary};
+                ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${buttonTokens.buttonBackgroundColor}: ${surfaceClear};
+                ${buttonTokens.buttonLoadingBackgroundColor}: color-mix(in srgb, ${surfaceClear} 40%, transparent);
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceClear};
+                ${buttonTokens.buttonColorHover}: ${textPrimaryHover};
+                ${buttonTokens.buttonColorActive}: ${textPrimaryActive};
             `,
         },
         size: {
-            xl: css`
+            '48': css`
                 ${buttonTokens.buttonHeight}: 3rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
                 ${buttonTokens.buttonRadius}: 2rem;
@@ -145,7 +161,6 @@ export const config = {
                 ${buttonTokens.buttonFontWeight}: ${h4Medium.fontWeight};
                 ${buttonTokens.buttonLetterSpacing}: ${h4Medium.letterSpacing};
                 ${buttonTokens.buttonLineHeight}: ${h4Medium.lineHeight};
-
                 ${buttonTokens.buttonSpinnerSize}: 1.5rem;
 
 
@@ -156,7 +171,7 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
             `,
-            l: css`
+            '40': css`
                 ${buttonTokens.buttonHeight}: 2.5rem;
                 ${buttonTokens.buttonWidth}: 12.5rem;
                 ${buttonTokens.buttonRadius}: 2rem;
@@ -176,7 +191,7 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.5rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.375rem;
             `,
-            m: css`
+            '32': css`
                 ${buttonTokens.buttonHeight}: 2rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonRadius}: 2rem;
@@ -196,7 +211,7 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.375rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
-            s: css`
+            '24': css`
                 ${buttonTokens.buttonHeight}: 1.5rem;
                 ${buttonTokens.buttonWidth}: 11.25rem;
                 ${buttonTokens.buttonRadius}: 2rem;
@@ -224,7 +239,8 @@ export const config = {
         },
         focused: {
             true: css`
-                ${buttonTokens.buttonFocusColor}: ${surfaceAccent};
+                ${buttonTokens.buttonFocusColor}: ${outlinePositive};
+                ${buttonTokens.buttonCursor}: default;
             `,
         },
         stretching: {

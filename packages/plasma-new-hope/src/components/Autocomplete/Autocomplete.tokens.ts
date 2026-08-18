@@ -86,7 +86,7 @@ export const tokens = {
 
     textFieldLeftHelperColor: '--plasma-autocomplete-textfield-left-helper-color',
     textFieldLeftHelperColorReadOnly: '--plasma-autocomplete-textfield-left-helper-color-readonly',
-    textFieldLeftHelperOffset: '--plasma-autocomplete-textfield-left-helper-offset',
+    textFieldLeftHelperPadding: '--plasma-autocomplete-textfield-left-helper-padding',
 
     textFieldLeftHelperFontFamily: '--plasma-autocomplete-textfield-left-helper-font-family',
     textFieldLeftHelperFontStyle: '--plasma-autocomplete-textfield-left-helper-font-style',
