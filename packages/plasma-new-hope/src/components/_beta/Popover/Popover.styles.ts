@@ -47,9 +47,10 @@ export const Tail = styled.div<{ side: 'top' | 'right' | 'bottom' | 'left' }>`
     height: ${({ side }) =>
         side === 'left' || side === 'right' ? `var(${tokens.tailWidth})` : `var(${tokens.tailHeight})`};
 
-    ${({ side }) => ({
-        [side]: '100%',
-    })}
+    top: ${({ side }) => (side === 'top' ? '100%' : 'auto')};
+    right: ${({ side }) => (side === 'right' ? '100%' : 'auto')};
+    bottom: ${({ side }) => (side === 'bottom' ? '100%' : 'auto')};
+    left: ${({ side }) => (side === 'left' ? '100%' : 'auto')};
 
     &::before {
         content: '';
