@@ -182,7 +182,6 @@ const generateSize = async (size, outputRoot) => {
         '',
         "export { DynamicIcon, DynamicIcon as default, iconNames, isIconName } from './DynamicIcon.js';",
         "export type { DynamicIconProps, IconName } from './DynamicIcon.js';",
-        "export { default as dynamicIconImports } from './dynamicIconImports.js';",
         '',
     ].join('\n');
 
