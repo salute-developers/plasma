@@ -13,10 +13,6 @@ export const base = css`
 
     &.${classes.stretched} {
         width: 100%;
-
-        .${popoverClasses.root} {
-            width: 100%;
-        }
     }
 `;
 

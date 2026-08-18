@@ -79,6 +79,7 @@ export const tokens = {
     inputColorReadOnly: '--plasma-textarea-input-color-read-only',
     backgroundColorReadOnly: '--plasma-textarea-background-color-read-only',
     borderColorReadOnly: '--plasma-textarea-border-color-readonly',
+    containerBorderColorReadOnly: '--plasma-textarea-container-border-color-readonly',
     readOnlyOpacity: '--plasma-textarea-read-only-opacity',
 
     borderColor: '--plasma-textarea-border-color',

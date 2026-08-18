@@ -4,18 +4,16 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    outlineSolidPrimary,
     surfaceAccent,
     surfaceNegative,
     surfaceSolidCardBrightness,
+    surfaceSolidDefault,
     surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentNegativeHover,
     surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
-    surfaceTransparentPositiveHover,
     surfaceTransparentPrimary,
-    surfaceTransparentPrimaryHover,
-    surfaceTransparentSecondary,
+    outlineTransparentNegative,
+    outlineTransparentPositive,
     textAccent,
     textNegative,
     textPositive,
@@ -26,6 +24,13 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    outlineTransparentNegativeHover,
+    outlineTransparentNegativeActive,
+    outlineTransparentPositiveHover,
+    outlineTransparentPositiveActive,
+    surfaceTransparentPrimaryHover,
+    surfaceTransparentNegativeHover,
+    surfaceTransparentPositiveHover,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
@@ -41,7 +46,9 @@ export const config = {
                 ${tokens.background}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundError}: ${surfaceTransparentNegative};
                 ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
-
+                ${tokens.borderColor}: ${outlineSolidPrimary};
+                ${tokens.borderColorError}: ${outlineTransparentNegative};
+                ${tokens.borderColorSuccess}: ${outlineTransparentPositive};
                 ${tokens.dividerColor}: ${textPrimary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
@@ -69,16 +76,22 @@ export const config = {
 
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
-                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
 
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
                 ${tokens.textFieldBackgroundErrorColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
-                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
                 ${tokens.textFieldBackgroundSuccessColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
+
+                ${tokens.textFieldBorderColorHover}: ${surfaceSolidDefault};
+                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldBorderColorError}: ${outlineTransparentNegative};
+                ${tokens.textFieldBorderColorErrorHover}: ${outlineTransparentNegativeHover};
+                ${tokens.textFieldBorderColorErrorFocus}: ${outlineTransparentNegativeActive};
+                ${tokens.textFieldBorderColorSuccess}: ${outlineTransparentPositive};
+                ${tokens.textFieldBorderColorSuccessHover}: ${outlineTransparentPositiveHover};
+                ${tokens.textFieldBorderColorSuccessFocus}: ${outlineTransparentPositiveActive};
 
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
@@ -92,6 +105,7 @@ export const config = {
         size: {
             xl: css`
                 ${tokens.borderRadius}: 1rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: ${bodyL.fontFamily};
@@ -105,6 +119,7 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 4rem;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
                 ${tokens.textFieldBorderRadius}: 1rem;
                 ${tokens.textFieldPadding}: 1.3125rem 1.125rem;
                 ${tokens.textFieldFontFamily}: ${bodyL.fontFamily};
@@ -168,6 +183,7 @@ export const config = {
             `,
             l: css`
                 ${tokens.borderRadius}: 0.875rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: ${bodyL.fontFamily};
@@ -181,6 +197,7 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 3.5rem;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.textFieldFontFamily}: ${bodyL.fontFamily};
@@ -244,6 +261,7 @@ export const config = {
             `,
             m: css`
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: ${bodyM.fontFamily};
@@ -257,6 +275,7 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 3rem;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldFontFamily}: ${bodyM.fontFamily};
@@ -320,6 +339,7 @@ export const config = {
             `,
             s: css`
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: ${bodyS.fontFamily};
@@ -333,6 +353,7 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 2.5rem;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldFontFamily}: ${bodyS.fontFamily};
@@ -396,6 +417,7 @@ export const config = {
             `,
             xs: css`
                 ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.063rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: ${bodyXS.fontFamily};
@@ -409,6 +431,7 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 2rem;
+                ${tokens.textFieldBorderWidth}: 0.063rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldFontFamily}: ${bodyXS.fontFamily};
@@ -546,6 +569,7 @@ export const config = {
                 ${tokens.textFieldColorReadOnly}: ${textPrimary};
                 ${tokens.textFieldBackgroundColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
+                ${tokens.borderColorReadOnly}: ${outlineSolidPrimary};
             `,
         },
     },

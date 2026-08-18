@@ -80,8 +80,8 @@ export const createMeta = ({
             lang: 'ru',
             dateFormat: 'DD.MM.YYYY',
             timeFormat: 'HH:mm:ss',
-            calendarContainerWidth: 0,
-            calendarContainerHeight: 0,
+            calendarContainerWidth: '0',
+            calendarContainerHeight: '0',
             stretched: false,
             hasHint: false,
             hintText: 'Текст подсказки',
@@ -218,11 +218,11 @@ export const createMeta = ({
                 table: { category: 'date-related' },
             },
             calendarContainerWidth: {
-                control: { type: 'number' },
+                control: { type: 'text' },
                 table: { category: 'calendar' },
             },
             calendarContainerHeight: {
-                control: { type: 'number' },
+                control: { type: 'text' },
                 table: { category: 'calendar' },
             },
             hasShortcuts: {

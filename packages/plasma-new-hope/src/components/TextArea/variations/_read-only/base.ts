@@ -61,6 +61,11 @@ export const base = css`
                 background: transparent;
                 position: relative;
 
+                :after {
+                    box-shadow: inset 0 0 0 var(${tokens.borderSize}, 1px)
+                        var(${tokens.containerBorderColorReadOnly}, var(${tokens.borderColor}));
+                }
+
                 :before {
                     position: absolute;
                     content: '';

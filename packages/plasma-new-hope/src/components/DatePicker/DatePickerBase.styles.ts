@@ -16,7 +16,10 @@ export const FloatingWrapper = styled.div`
 
 export const FloatingTarget = styled.div``;
 
-export const FloatingContent = styled.div``;
+export const FloatingContent = styled.div<{ innerWidth?: string; innerHeight?: string }>`
+    width: ${({ innerWidth }) => innerWidth || 'fit-content'};
+    height: ${({ innerHeight }) => innerHeight || 'fit-content'};
+`;
 
 export const StyledCalendarContent = styled.div<{ innerWidth?: string; innerHeight?: string }>`
     box-sizing: border-box;

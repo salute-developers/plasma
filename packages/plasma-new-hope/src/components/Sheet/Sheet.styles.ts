@@ -4,7 +4,7 @@ import { tokens, classes } from './Sheet.tokens';
 import { CommonProps } from './Sheet.types';
 import { handleTransition } from './utils/handleTransition';
 
-export const StyledContentWrapper = styled.div<CommonProps>`
+export const StyledContentWrapper = styled.div<CommonProps & { hasSnapPoints?: boolean }>`
     position: fixed;
     left: 0;
     bottom: 0;
@@ -15,7 +15,7 @@ export const StyledContentWrapper = styled.div<CommonProps>`
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: ${({ hasSnapPoints }) => (hasSnapPoints ? 'stretch' : 'flex-end')};
 
     transition: ${handleTransition('all 0.5s 0.1s')};
 
@@ -45,7 +45,7 @@ export const StyledSheetHandle = styled.div`
     }
 `;
 
-export const StyledSheetContent = styled.div<{ hasHeader?: boolean; hasFooter?: boolean }>`
+export const StyledSheetContent = styled.div<{ hasHeader?: boolean; hasFooter?: boolean; hasSnapPoints?: boolean }>`
     border-radius: 1.25rem 1.25rem 0 0;
     background-color: var(${tokens.contentBackgroundColor});
     padding-left: 1rem;
@@ -56,6 +56,9 @@ export const StyledSheetContent = styled.div<{ hasHeader?: boolean; hasFooter?: 
     max-height: 100%;
     overflow: auto;
     overscroll-behavior: contain;
+
+    flex: ${({ hasSnapPoints }) => (hasSnapPoints ? 1 : 'unset')};
+    min-height: ${({ hasSnapPoints }) => (hasSnapPoints ? 0 : 'unset')};
 
     &::-webkit-scrollbar {
         display: none;

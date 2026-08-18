@@ -6,11 +6,12 @@ import {
     bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
+    outlineTransparentTertiary,
+    surfaceSolidDefault,
     textAccent,
     textNegative,
     textParagraph,
     textPositive,
-    textPrimary,
     textSecondary,
     textTertiary,
     textWarning,
@@ -18,7 +19,7 @@ import {
 
 export const config = {
     defaults: {
-        view: 'accent',
+        view: 'default',
         size: 'm',
         focused: 'true',
     },
@@ -101,17 +102,17 @@ export const config = {
          * Вид контрола.
          */
         view: {
-            accent: css`
-                ${radioboxTokens.fillColor}: ${textAccent};
+            default: css`
+                ${radioboxTokens.fillColor}: ${surfaceSolidDefault};
                 ${radioboxTokens.ellipseColor}: ${inverseTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;
-                ${radioboxTokens.triggerBorderColor}: ${textSecondary};
+                ${radioboxTokens.triggerBorderColor}: ${outlineTransparentTertiary};
                 ${radioboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
-            default: css`
-                ${radioboxTokens.fillColor}: ${textPrimary};
+            accent: css`
+                ${radioboxTokens.fillColor}: ${textAccent};
                 ${radioboxTokens.ellipseColor}: ${inverseTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;

@@ -13,7 +13,7 @@ type BottomSheetProps = ComponentProps<typeof BottomSheet>;
 
 const H3 = (props: ComponentProps<typeof Heading>) => <Heading size="h3" {...props} />;
 
-const { meta: META, Default } = getBottomSheetStories({
+const { meta: META, Default, WithSnapPoints } = getBottomSheetStories({
     component: BottomSheet,
     componentConfig: config,
     additionalComponents: {
@@ -30,4 +30,4 @@ const meta: Meta<BottomSheetProps> = {
 
 export default meta;
 
-export { Default };
+export { Default, WithSnapPoints };

@@ -8,7 +8,6 @@ type UseWebOTPProps = {
     disabled: boolean;
     codeLength: number;
     codeSetter: (newCode: Array<string>) => void;
-    onFullCodeEnter?: (code: string) => void;
 };
 
 type OTPTransport = 'sms';
@@ -30,15 +29,15 @@ const isOTPCredential = (credential: Credential | null): credential is OTPCreden
     return credential !== null && 'code' in credential;
 };
 
-export const useWebOTP = ({
-    codeString,
-    enableSMSAutoRead,
-    disabled,
-    codeLength,
-    codeSetter,
-    onFullCodeEnter,
-}: UseWebOTPProps) => {
+export const useWebOTP = ({ codeString, enableSMSAutoRead, disabled, codeLength, codeSetter }: UseWebOTPProps) => {
     const abortControllerRef = useRef<AbortController | null>(null);
+    const codeSetterRef = useRef(codeSetter);
+
+    /**
+     * Храним актуальный setter в ref, чтобы новая ссылка на пользовательский колбэк
+     * не прерывала уже запущенный запрос navigator.credentials.get.
+     */
+    codeSetterRef.current = codeSetter;
 
     const startWebOTPListener = useCallback(async () => {
         if (!enableSMSAutoRead || disabled || !isWebOTPSupported()) {
@@ -62,11 +61,7 @@ export const useWebOTP = ({
 
                 if (otpCode.length === codeLength) {
                     const newCode = getCodeValue(codeLength, otpCode);
-                    codeSetter(newCode);
-
-                    if (onFullCodeEnter) {
-                        onFullCodeEnter(otpCode);
-                    }
+                    codeSetterRef.current(newCode);
                 }
             }
         } catch (err) {
@@ -80,7 +75,7 @@ export const useWebOTP = ({
                 console.warn('Unknown Web OTP API error:', err);
             }
         }
-    }, [enableSMSAutoRead, disabled, codeLength, onFullCodeEnter]);
+    }, [enableSMSAutoRead, disabled, codeLength]);
 
     const stopWebOTPListener = useCallback(() => {
         if (abortControllerRef.current) {
@@ -89,6 +84,10 @@ export const useWebOTP = ({
         }
     }, []);
 
+    /**
+     * Запускаем WebOTP только для пустого активного поля и отменяем запрос,
+     * когда поле заполняется, отключается или компонент размонтируется.
+     */
     useEffect(() => {
         if (isWebOTPSupported() && codeString === '' && enableSMSAutoRead && !disabled) {
             startWebOTPListener();

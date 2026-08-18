@@ -3,7 +3,7 @@ import React from 'react';
 import { getConfigVariations } from '../../helpers';
 
 import { createMeta } from './meta';
-import { createDefaultStory } from './stories';
+import { createDefaultStory, createWithSnapPointsStory } from './stories';
 
 type CreateBottomSheetStoriesProps = {
     component: any;
@@ -34,13 +34,19 @@ export const getBottomSheetStories = (config: CreateBottomSheetStoriesProps) => 
     });
 
     const DefaultStoryComponent = createDefaultStory(component, additionalComponents);
+    const WithSnapPointsStoryComponent = createWithSnapPointsStory(component, additionalComponents);
 
     const Default = {
         render: (args: any) => <DefaultStoryComponent {...args} />,
     };
 
+    const WithSnapPoints = {
+        render: (args: any) => <WithSnapPointsStoryComponent {...args} />,
+    };
+
     return {
         meta,
         Default,
+        WithSnapPoints,
     };
 };

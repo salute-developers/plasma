@@ -1,24 +1,26 @@
-import React, { forwardRef, Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import React, { forwardRef, Fragment, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cls from 'classnames';
-import type { ChangeEvent, KeyboardEvent, ClipboardEvent } from 'react';
+import type { ChangeEvent, ClipboardEvent, KeyboardEvent, MouseEvent } from 'react';
 import type { RootProps } from 'src/engines';
-import { useDidMountEffect } from 'src/hooks';
+import { useDidMountEffect, useForkRef } from 'src/hooks';
 import { getSizeValueFromProp } from 'src/utils';
 
-import { useCodeHook } from '../../hooks';
-
 import type { CodeFieldProps } from './CodeField.types';
-import { BACKSPACE_KEY, FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from './utils/constants';
-import {
-    getCodeValue,
-    getFieldPattern,
-    getPlaceholderValue,
-    handleCodeError,
-    handleItemError,
-    isWebOTPSupported,
-} from './utils';
+import { FORBIDDEN_KEYS, ONLY_DIGITS_PATTERN } from './utils/constants';
+import { getCodeValue, getFieldPattern, getPlaceholderValue, handleCodeError, handleItemError } from './utils';
 import { classes } from './CodeField.tokens';
-import { base, CaptionWrapper, CodeGroup, CodeWrapper, HiddenInput, ItemInput, Separator } from './CodeField.styles';
+import {
+    base,
+    CaptionWrapper,
+    CodeGroup,
+    CodeWrapper,
+    ItemCaret,
+    ItemInput,
+    ItemPlaceholder,
+    ItemValue,
+    NativeInput,
+    Separator,
+} from './CodeField.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as shapeCSS } from './variations/_shape/base';
@@ -29,7 +31,9 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
     forwardRef<HTMLInputElement, CodeFieldProps>(
         (
             {
+                id,
                 className,
+                style,
                 value: outerValue,
                 placeholder,
                 autoFocus,
@@ -46,10 +50,21 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 itemErrorBehavior = 'remove-symbol',
                 codeErrorBehavior = 'remove-code',
                 autoComplete = 'one-time-code',
-                inputMode,
+                autoCapitalize,
+                autoCorrect,
+                spellCheck,
+                inputMode = 'numeric',
+                name,
+                form,
+                required,
+                'aria-label': ariaLabel,
+                'aria-describedby': ariaDescribedBy,
+                'aria-labelledby': ariaLabelledBy,
                 setIsError,
                 onChange,
                 onFullCodeEnter,
+                onKeyDown,
+                onClick: onRootClick,
                 ...rest
             },
             ref,
@@ -57,181 +72,165 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             const [innerValue, setInnerValue] = useState<Array<string>>(getCodeValue(codeLength, ''));
             const code = typeof outerValue === 'string' ? getCodeValue(codeLength, outerValue) : innerValue;
 
-            const [originalValue, setOriginalValue] = useState<string>(code.join(''));
+            const [innerOriginalValue, setInnerOriginalValue] = useState<string>(code.join(''));
+            const [activeIndex, setActiveIndex] = useState<number | null>(null);
+            const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-            const inputRefs = useRef<Array<HTMLInputElement>>([]);
+            const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
+            const nativeInputRef = useRef<HTMLInputElement | null>(null);
             const inputContainerRef = useRef<HTMLDivElement | null>(null);
             const captionRef = useRef<HTMLDivElement | null>(null);
-            const autocompleteRef = useRef<HTMLInputElement | null>(null);
+            const onFullCodeEnterRef = useRef(onFullCodeEnter);
+            const inputForkRef = useForkRef(nativeInputRef, ref);
 
-            const fieldPattern = getFieldPattern(allowedSymbols);
+            /**
+             * Храним актуальный пользовательский колбэк в ref, чтобы изменение ссылки на него
+             * не запускало эффект завершения ввода повторно с тем же кодом.
+             */
+            onFullCodeEnterRef.current = onFullCodeEnter;
+
+            const fieldPattern = useMemo(() => getFieldPattern(allowedSymbols), [allowedSymbols]);
             const placeholderValue = getPlaceholderValue(codeLength, placeholder);
             const parts = codeLength === 6 ? 2 : 1;
+            const codeValue = code.join('');
 
             const widthValue = width ? getSizeValueFromProp(width, 'rem') : undefined;
-            const isWebOTPEnabled = autoComplete === 'one-time-code' && !disabled && isWebOTPSupported();
-
-            const getLastActiveIndex = () => {
-                if (code.length && code.length < codeLength) {
-                    return code.length;
-                }
-
-                const lastEmptyIndex = code.findIndex((digit) => digit === '');
-                return lastEmptyIndex >= 0 ? lastEmptyIndex : codeLength - 1;
-            };
 
             const codeSetter = (newCode: Array<string>) => {
-                const originalCode = newCode.join('');
+                const originalCode = newCode.join('').slice(0, codeLength);
 
                 setInnerValue(getCodeValue(codeLength, originalCode));
-                setOriginalValue(originalCode);
+                setInnerOriginalValue(originalCode);
 
                 if (onChange) {
                     onChange(originalCode);
                 }
             };
 
+            const isSymbolAllowed = (symbol: string) => {
+                if (!fieldPattern) {
+                    return true;
+                }
+
+                /**
+                 * NOTE:
+                 * RegExp с флагами g или y хранит позицию следующего поиска в lastIndex.
+                 * Сбрасываем ее, чтобы каждый символ проверялся с начала строки,
+                 * а результат test() не зависел от предыдущего вызова.
+                 */
+                fieldPattern.lastIndex = 0;
+
+                return fieldPattern.test(symbol);
+            };
+
+            const controlledOriginalValue = codeValue.split('').every(isSymbolAllowed) ? codeValue : '';
+            const originalValue = typeof outerValue === 'string' ? controlledOriginalValue : innerOriginalValue;
+
+            const clearErrorState = () => {
+                itemRefs.current.forEach((item) => {
+                    item?.classList.remove(classes.itemError, classes.itemErrorFade, classes.itemErrorAnimation);
+                });
+
+                if (!isError) {
+                    return;
+                }
+
+                captionRef.current?.classList.remove(classes.captionError);
+                inputContainerRef.current?.classList.remove(
+                    classes.codeError,
+                    classes.codeErrorFade,
+                    classes.codeErrorAnimation,
+                );
+
+                if (setIsError) {
+                    setIsError(false);
+                }
+            };
+
+            /**
+             * useCallback предотвращает повторный фокус input, если задан autoFocus.
+             */
+            const selectLastActiveItem = useCallback(() => {
+                const input = nativeInputRef.current;
+
+                if (!input) {
+                    return;
+                }
+
+                const selectionPosition = Math.min(input.value.length, codeLength);
+                const nextActiveIndex = Math.min(selectionPosition, codeLength - 1);
+
+                input.setSelectionRange(selectionPosition, selectionPosition);
+                setActiveIndex(nextActiveIndex);
+                setSelectedIndex(null);
+            }, [codeLength]);
+
             useWebOTP({
-                codeString: originalValue,
+                codeString: codeValue,
                 enableSMSAutoRead: autoComplete === 'one-time-code',
                 disabled: Boolean(disabled),
                 codeLength,
                 codeSetter,
-                onFullCodeEnter,
             });
 
-            const handleClick = () => {
-                if (disabled) {
+            const handleClick = (event: MouseEvent<HTMLDivElement>) => {
+                if (onRootClick) {
+                    onRootClick(event);
+                }
+
+                if (event.defaultPrevented || disabled) {
                     return;
                 }
 
-                const lastActiveIndex = getLastActiveIndex();
-
-                if (inputRefs.current[lastActiveIndex]) {
-                    inputRefs.current[lastActiveIndex].focus();
-                }
+                nativeInputRef.current?.focus();
+                selectLastActiveItem();
             };
 
-            const handleOnKeyDown = (event: KeyboardEvent<HTMLInputElement>, index: number) => {
+            const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
                 if (disabled) {
                     return;
                 }
 
-                const { key } = event;
-                if (FORBIDDEN_KEYS.includes(key)) {
+                const rawValue = event.currentTarget.value.slice(0, codeLength);
+                const newCode = rawValue.split('');
+                const invalidIndex = newCode.findIndex((symbol) => !isSymbolAllowed(symbol));
+                const selectionStart = event.currentTarget.selectionStart ?? rawValue.length;
+
+                clearErrorState();
+                setActiveIndex(Math.min(selectionStart, codeLength - 1));
+                setSelectedIndex(null);
+
+                if (invalidIndex < 0) {
+                    codeSetter(newCode);
+
+                    return;
+                }
+
+                handleItemError({
+                    itemErrorBehavior,
+                    index: invalidIndex,
+                    newCode,
+                    itemRefs,
+                    inputRef: nativeInputRef,
+                    setInnerValue,
+                    setActiveIndex,
+                    setSelectedIndex,
+                    codeSetter,
+                    onChange,
+                });
+            };
+
+            const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+                if (!disabled && FORBIDDEN_KEYS.includes(event.key)) {
                     event.preventDefault();
-
-                    return;
                 }
 
-                if (key === BACKSPACE_KEY) {
-                    if (index > 0) {
-                        const newCode = [...code];
-
-                        newCode[index] = '';
-
-                        if (index >= codeLength - 1 && code[index]) {
-                            codeSetter(newCode);
-                            return;
-                        }
-
-                        if (!code[index]) {
-                            newCode[index - 1] = '';
-                            inputRefs.current[index - 1]?.focus();
-                        }
-
-                        inputRefs.current[index]?.classList.remove(classes.itemError);
-                        codeSetter(newCode);
-                    }
-                }
-            };
-
-            const handleChange = (event: ChangeEvent<HTMLInputElement>, index: number) => {
-                if (disabled) {
-                    return;
-                }
-
-                const rawSymbol = event.currentTarget.value;
-
-                // На мобильных устройствах вставка вызывает onChange по 1 символу
-                if (rawSymbol.length > 1) {
-                    const newCode = [...code];
-                    const pastedData = (fieldPattern
-                        ? rawSymbol
-                              .split('')
-                              .map((symb) => symb.match(fieldPattern)?.[0] || '')
-                              .filter(Boolean)
-                        : rawSymbol.split('')
-                    ).slice(0, codeLength - index);
-
-                    pastedData.forEach((element, i) => {
-                        newCode[index + i] = element;
-                    });
-
-                    const activeIndex = Math.min(index + pastedData.length, codeLength - 1);
-                    inputRefs.current[activeIndex]?.focus();
-                    codeSetter(newCode);
-
-                    return;
-                }
-
-                const symbol = rawSymbol.charAt(rawSymbol.length - 1);
-                const newCode = [...code];
-
-                inputRefs.current[index]?.classList.remove(classes.itemError);
-                if (isError) {
-                    captionRef.current?.classList.remove(classes.captionError);
-
-                    if (codeErrorBehavior === 'keep') {
-                        inputContainerRef.current?.classList.remove(classes.codeError, classes.codeErrorAnimation);
-                    }
-
-                    if (setIsError) {
-                        setIsError(false);
-                    }
-                }
-
-                if (!symbol) {
-                    return;
-                }
-
-                if (!fieldPattern) {
-                    newCode[index] = symbol;
-                    codeSetter(newCode);
-
-                    if (symbol && index < codeLength - 1) {
-                        inputRefs.current[index + 1]?.focus();
-                    }
-
-                    return;
-                }
-
-                if (fieldPattern.test(symbol)) {
-                    newCode[index] = symbol.charAt(symbol.length - 1);
-                    codeSetter(newCode);
-
-                    if (index < codeLength - 1) {
-                        inputRefs.current[index + 1]?.focus();
-                    }
-                } else {
-                    newCode[index] = symbol.charAt(symbol.length - 1);
-
-                    handleItemError({
-                        currentSymbol: symbol,
-                        itemErrorBehavior,
-                        index,
-                        newCode,
-                        inputRefs,
-                        setInnerValue,
-                        codeSetter,
-                        onChange,
-                    });
+                if (onKeyDown) {
+                    onKeyDown(event);
                 }
             };
 
             const handlePaste = (event: ClipboardEvent<HTMLInputElement>) => {
-                const newCode = [...code];
-
                 if (disabled) {
                     return;
                 }
@@ -239,132 +238,194 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 event.preventDefault();
 
                 const rawData = event.clipboardData.getData('text/plain');
+                const pastedData = rawData.split('').filter(isSymbolAllowed).slice(0, codeLength);
+                const selectionStart = event.currentTarget.selectionStart ?? 0;
+                const selectionEnd = event.currentTarget.selectionEnd ?? selectionStart;
+                const newValue =
+                    pastedData.length === codeLength
+                        ? pastedData.join('')
+                        : `${codeValue.slice(0, selectionStart)}${pastedData.join('')}${codeValue.slice(selectionEnd)}`;
+                const nextValue = newValue.slice(0, codeLength);
+                const nextSelection = Math.min(
+                    pastedData.length === codeLength ? codeLength : selectionStart + pastedData.length,
+                    nextValue.length,
+                );
 
-                const pastedData = (fieldPattern
-                    ? rawData
-                          .split('')
-                          .map((symb) => symb.match(fieldPattern)?.[0] || '')
-                          .filter(Boolean) || []
-                    : rawData.split('')
-                ).slice(0, codeLength);
+                clearErrorState();
+                codeSetter(nextValue.split(''));
+                setActiveIndex(Math.min(nextSelection, codeLength - 1));
+                setSelectedIndex(null);
 
-                pastedData.forEach((element, index) => {
-                    newCode[index] = element;
-                });
-
-                const activeIndex = Math.min(pastedData.length, codeLength - 1);
-                inputRefs.current[activeIndex]?.focus();
-
-                codeSetter(newCode);
+                setTimeout(() => {
+                    nativeInputRef.current?.setSelectionRange(nextSelection, nextSelection);
+                }, 0);
             };
 
-            const handleFullCodeEnter = useCallback((fullCode: string) => {
-                if (onFullCodeEnter) {
-                    onFullCodeEnter(fullCode);
+            /**
+             * Нормализуем внутреннее значение и refs, если количество ячеек динамически изменилось.
+             */
+            useEffect(() => {
+                itemRefs.current = itemRefs.current.slice(0, codeLength);
+                setInnerValue((currentCode) => getCodeValue(codeLength, currentCode.join('')));
+                setInnerOriginalValue((currentCode) => currentCode.slice(0, codeLength));
+            }, [codeLength]);
+
+            /**
+             * Переносим фокус на нативный input, при переданном autoFocus.
+             */
+            useEffect(() => {
+                if (autoFocus && !disabled) {
+                    nativeInputRef.current?.focus();
+                    selectLastActiveItem();
                 }
-            }, []);
+            }, [autoFocus, disabled, selectLastActiveItem]);
 
-            useCodeHook({
-                inputRefs,
-                codeLength,
-                disabled,
-                autoFocus,
-                originalValue,
-                getLastActiveIndex,
-                handleFullCodeEnter,
-            });
+            /**
+             * Выполняем onFullCodeEnter после пользовательского ввода, вставки,
+             * нативной вставки или WebOTP.
+             */
+            useDidMountEffect(() => {
+                if (originalValue.length === codeLength) {
+                    onFullCodeEnterRef.current?.(originalValue);
+                }
+            }, [codeLength, originalValue]);
 
+            /**
+             * Запускаем анимацию и очистку значения, при внешней установке error-state.
+             */
             useDidMountEffect(() => {
                 if (isError) {
                     handleCodeError({
                         codeLength,
                         codeErrorBehavior,
                         currentCode: code,
-                        inputRefs,
+                        inputRef: nativeInputRef,
                         inputContainerRef,
                         captionRef,
                         setInnerValue,
+                        setActiveIndex,
+                        setSelectedIndex,
                         codeSetter,
                     });
                 }
             }, [isError]);
 
-            useEffect(() => {
-                if (disabled || !autocompleteRef.current) {
-                    return;
-                }
-
-                const autocompleteCode = autocompleteRef.current.value.split('');
-                codeSetter(autocompleteCode);
-            }, [autocompleteRef.current?.value, disabled]);
-
             return (
-                <>
-                    <Root
-                        ref={ref}
-                        view={view}
-                        size={size}
-                        shape={shape}
-                        disabled={disabled}
-                        onClick={handleClick}
-                        className={cls(className, {
-                            [classes.captionAlignLeft]: captionAlign === 'left',
-                        })}
-                        {...(!isWebOTPEnabled && { ...rest })}
-                    >
-                        <CodeWrapper ref={inputContainerRef}>
-                            {[...Array(parts)].map((_, partIndex) => (
-                                <Fragment key={partIndex}>
-                                    <CodeGroup role="group">
-                                        {[...Array(codeLength / parts)].map((_item, i) => {
-                                            const inputCorrectIndex = i + (codeLength / parts) * partIndex;
+                <Root
+                    {...rest}
+                    view={view}
+                    size={size}
+                    shape={shape}
+                    disabled={disabled}
+                    onClick={handleClick}
+                    className={cls(className, {
+                        [classes.captionAlignLeft]: captionAlign === 'left',
+                    })}
+                    style={{ ...style }}
+                >
+                    <CodeWrapper ref={inputContainerRef}>
+                        {[...Array(parts)].map((_, partIndex) => (
+                            <Fragment key={partIndex}>
+                                <CodeGroup aria-hidden="true">
+                                    {[...Array(codeLength / parts)].map((_item, i) => {
+                                        const inputCorrectIndex = i + (codeLength / parts) * partIndex;
+                                        const itemValue = code[inputCorrectIndex] || '';
 
-                                            return (
-                                                <ItemInput
-                                                    key={partIndex + i + partIndex * i}
-                                                    ref={(element: HTMLInputElement) => {
-                                                        inputRefs.current[inputCorrectIndex] = element;
-                                                    }}
-                                                    className={cls({
-                                                        [classes.segmented]: shape === 'segmented',
-                                                        [classes.hoverEnabled]:
-                                                            !disabled && inputCorrectIndex >= originalValue.length,
-                                                    })}
-                                                    inputMode={inputMode}
-                                                    value={code[inputCorrectIndex] || ''}
-                                                    onChange={(e: ChangeEvent<HTMLInputElement>) => {
-                                                        handleChange(e, inputCorrectIndex);
-                                                    }}
-                                                    onKeyDown={(e: KeyboardEvent<HTMLInputElement>) => {
-                                                        handleOnKeyDown(e, inputCorrectIndex);
-                                                    }}
-                                                    onPaste={handlePaste}
-                                                    tabIndex={
-                                                        !disabled && originalValue.length === inputCorrectIndex ? 0 : -1
-                                                    }
-                                                    {...(placeholderValue && {
-                                                        placeholder: placeholderValue[inputCorrectIndex],
-                                                    })}
-                                                />
-                                            );
-                                        })}
-                                    </CodeGroup>
-                                    {partIndex !== parts - 1 && <Separator />}
-                                </Fragment>
-                            ))}
-                        </CodeWrapper>
+                                        return (
+                                            <ItemInput
+                                                key={inputCorrectIndex}
+                                                ref={(element: HTMLDivElement) => {
+                                                    itemRefs.current[inputCorrectIndex] = element;
+                                                }}
+                                                className={cls({
+                                                    [classes.segmented]: shape === 'segmented',
+                                                    [classes.itemFocused]: activeIndex === inputCorrectIndex,
+                                                    [classes.itemError]:
+                                                        itemErrorBehavior === 'keep' &&
+                                                        Boolean(itemValue) &&
+                                                        !isSymbolAllowed(itemValue),
+                                                    [classes.hoverEnabled]:
+                                                        !disabled && inputCorrectIndex >= originalValue.length,
+                                                })}
+                                                data-code-field-item=""
+                                            >
+                                                {itemValue ? (
+                                                    <ItemValue
+                                                        className={cls({
+                                                            [classes.itemSelected]: selectedIndex === inputCorrectIndex,
+                                                        })}
+                                                        data-code-field-item-value=""
+                                                    >
+                                                        {itemValue}
+                                                        {activeIndex === inputCorrectIndex &&
+                                                            selectedIndex === null && (
+                                                                <ItemCaret data-code-field-caret="" />
+                                                            )}
+                                                    </ItemValue>
+                                                ) : (
+                                                    placeholderValue && (
+                                                        <ItemPlaceholder>
+                                                            {placeholderValue[inputCorrectIndex]}
+                                                        </ItemPlaceholder>
+                                                    )
+                                                )}
+                                                {activeIndex === inputCorrectIndex &&
+                                                    !itemValue &&
+                                                    selectedIndex === null && <ItemCaret data-code-field-caret="" />}
+                                            </ItemInput>
+                                        );
+                                    })}
+                                </CodeGroup>
+                                {partIndex !== parts - 1 && <Separator aria-hidden="true" />}
+                            </Fragment>
+                        ))}
 
-                        {caption && (
-                            <CaptionWrapper ref={captionRef} captionAlign={captionAlign} widthValue={widthValue}>
-                                {caption}
-                            </CaptionWrapper>
-                        )}
+                        <NativeInput
+                            id={id}
+                            ref={inputForkRef}
+                            data-code-field-input=""
+                            type="text"
+                            value={codeValue}
+                            minLength={codeLength}
+                            maxLength={codeLength}
+                            autoComplete={autoComplete}
+                            inputMode={inputMode}
+                            autoFocus={autoFocus}
+                            autoCapitalize={autoCapitalize}
+                            autoCorrect={autoCorrect}
+                            spellCheck={spellCheck ?? false}
+                            name={name}
+                            form={form}
+                            required={required}
+                            disabled={disabled}
+                            aria-label={ariaLabel}
+                            aria-describedby={ariaDescribedBy}
+                            aria-labelledby={ariaLabelledBy}
+                            onChange={handleChange}
+                            onKeyDown={handleKeyDown}
+                            onPaste={handlePaste}
+                            onFocus={() => setTimeout(selectLastActiveItem, 0)}
+                            onBlur={() => {
+                                setActiveIndex(null);
+                                setSelectedIndex(null);
+                            }}
+                            onSelect={(event) => {
+                                const selectionStart = event.currentTarget.selectionStart ?? codeValue.length;
+                                const selectionEnd = event.currentTarget.selectionEnd ?? selectionStart;
+                                const nextActiveIndex = Math.min(selectionStart, codeLength - 1);
 
-                        {isWebOTPEnabled && (
-                            <HiddenInput ref={autocompleteRef} autoComplete={autoComplete} tabIndex={-1} {...rest} />
-                        )}
-                    </Root>
-                </>
+                                setActiveIndex(nextActiveIndex);
+                                setSelectedIndex(selectionStart < selectionEnd ? nextActiveIndex : null);
+                            }}
+                        />
+                    </CodeWrapper>
+
+                    {caption && (
+                        <CaptionWrapper ref={captionRef} captionAlign={captionAlign} widthValue={widthValue}>
+                            {caption}
+                        </CaptionWrapper>
+                    )}
+                </Root>
             );
         },
     );

@@ -1,3 +1,3 @@
 export { sheetConfig, sheetRoot } from './Sheet';
 export { classes as sheetClasses, tokens as sheetTokens } from './Sheet.tokens';
-export type { SheetProps } from './Sheet.types';
+export type { SheetProps, SheetSnapPoint, SheetSnapPoints } from './Sheet.types';

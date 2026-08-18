@@ -86,4 +86,15 @@ describeFn('BottomSheet', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('with snap points', () => {
+        mount(
+            renderBottomSheet({
+                snapPoints: ['40%', '70%'],
+                initialSnapPoint: '40%',
+            }),
+        );
+
+        cy.matchImageSnapshot();
+    });
 });

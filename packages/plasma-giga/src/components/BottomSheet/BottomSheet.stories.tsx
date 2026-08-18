@@ -14,7 +14,7 @@ type BodyProps = ComponentProps<typeof BodyM> & { size?: 's' | 'm' };
 
 const Body = ({ size, ...rest }: BodyProps) => (size === 's' ? <BodyS {...rest} /> : <BodyM {...rest} />);
 
-const { meta: META, Default } = getBottomSheetStories({
+const { meta: META, Default, WithSnapPoints } = getBottomSheetStories({
     component: BottomSheet,
     componentConfig: config,
     additionalComponents: {
@@ -31,4 +31,4 @@ const meta: Meta<BottomSheetProps> = {
 
 export default meta;
 
-export { Default };
+export { Default, WithSnapPoints };

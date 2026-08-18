@@ -10,6 +10,8 @@ export const classes = {
     captionAlignLeft: 'codefield-caption-align-left',
 
     hoverEnabled: 'codefield-item-hover-enabled',
+    itemFocused: 'codefield-item-focused',
+    itemSelected: 'codefield-item-selected',
 
     segmented: 'codefield-shape-segmented',
     default: 'codefield-shape-default',
