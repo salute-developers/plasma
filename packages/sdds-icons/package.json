@@ -23,6 +23,7 @@
       "types": "./dist/16/dynamic.d.ts",
       "import": "./dist/16/dynamic.js"
     },
+    "./16/dynamicIconImports": null,
     "./16/*": {
       "types": "./dist/16/*.d.ts",
       "import": "./dist/16/*.js"
@@ -35,6 +36,7 @@
       "types": "./dist/24/dynamic.d.ts",
       "import": "./dist/24/dynamic.js"
     },
+    "./24/dynamicIconImports": null,
     "./24/*": {
       "types": "./dist/24/*.d.ts",
       "import": "./dist/24/*.js"
@@ -47,6 +49,7 @@
       "types": "./dist/36/dynamic.d.ts",
       "import": "./dist/36/dynamic.js"
     },
+    "./36/dynamicIconImports": null,
     "./36/*": {
       "types": "./dist/36/*.d.ts",
       "import": "./dist/36/*.js"
@@ -60,9 +63,7 @@
     "@svgr/core": "8.1.0",
     "@svgr/plugin-jsx": "8.1.0",
     "@svgr/plugin-svgo": "8.1.0",
-    "@types/react": "18.0.28",
     "prettier": "2.0.5",
-    "react": "18.2.0",
     "sharp": "0.35.3",
     "svg2vectordrawable": "2.9.1"
   },
