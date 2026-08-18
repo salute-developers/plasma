@@ -13,6 +13,10 @@ import {
     onDarkSurfaceSolidDefaultActive,
     onDarkSurfaceSolidDefaultHover,
     onDarkTextPrimary,
+    onLightDataPink,
+    onLightDataPinkMinor,
+    onLightDataPinkMinorActive,
+    onLightDataPinkMinorHover,
     onLightSurfaceSolidCard,
     onLightSurfaceSolidDefault,
     onLightSurfaceTransparentDeep,
@@ -137,14 +141,10 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: ${onLightTextPrimary};
                 ${iconButtonTokens.iconButtonColorHover}: ${onLightTextPrimary};
                 ${iconButtonTokens.iconButtonColorActive}: ${onLightTextPrimary};
-
-
                 ${iconButtonTokens.iconButtonBackgroundColor}: ${onDarkSurfaceSolidDefault};
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: ${onDarkSurfaceSolidDefaultHover};
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
-
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-            
             `,
             green: css`
                 ${iconButtonTokens.iconButtonColor}: ${onLightTextAccent};
@@ -154,6 +154,17 @@ export const config = {
                 ${iconButtonTokens.iconButtonBackgroundColor}: ${onLightSurfaceSolidCard};
                 ${iconButtonTokens.iconButtonBackgroundColorHover}: ${onLightSurfaceSolidCard};
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: ${onLightSurfaceSolidCard};
+
+                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
+            `,
+            pink: css`
+                ${iconButtonTokens.iconButtonColor}: ${onLightDataPink};
+                ${iconButtonTokens.iconButtonColorHover}: ${onLightDataPink};
+                ${iconButtonTokens.iconButtonColorActive}: ${onLightDataPink};
+
+                ${iconButtonTokens.iconButtonBackgroundColor}: ${onLightDataPinkMinor};
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${onLightDataPinkMinorHover};
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: ${onLightDataPinkMinorActive};
 
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
             `,
