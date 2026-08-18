@@ -254,6 +254,12 @@ export const verticalsMap = [
             },
         ],
     },
+    {
+        key: 'SDDSInsolNext',
+        title: 'SDDS Insol Next',
+        package: '@salutejs/sdds-insol-next',
+        group: 'ДЗО 1',
+    },
 ];
 
 export const products = [
@@ -304,9 +310,10 @@ export const packageNameMap = {
     'sdds-scan': 'SDDS Scan',
     'sdds-netology': 'SDDS Netology',
     'sdds-insol': 'SDDS Insol',
+    'sdds-insol-next': 'SDDS Insol Next',
     'sdds-bizcom': 'SDDS Bizcom',
     'sdds-platform-ai': 'SDDS Platform-AI',
-    'sddssber-os': 'SDDS OS',
+    'sdds-os': 'SDDS OS',
     plasmaStarDS: 'Plasma StarDS',
     'plasma-homeds': 'Plasma HomeDS',
 };
@@ -324,6 +331,7 @@ export const verticalToNpmPackageMap = {
     SDDSScan: 'sdds-scan',
     SDDSNetology: 'sdds-netology',
     SDDSInsol: 'sdds-insol',
+    SDDSInsolNext: 'sdds-insol-next',
     SDDSBizcom: 'sdds-bizcom',
     SDDSPlatformAI: 'sdds-platform-ai',
     SDDSOS: 'sdds-os',

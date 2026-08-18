@@ -188,6 +188,19 @@ const verticals: Record<
             },
         },
     },
+    SDDSInsolNext: {
+        title: 'React',
+        package: '@salutejs/sdds-insol-next',
+        version: PACKAGES_INFO['@salutejs/sdds-insol-next'][0],
+        links: {
+            storybook: {
+                href: '/sdds-insol-next-storybook/',
+            },
+            documentation: {
+                href: '/sdds-insol-next/',
+            },
+        },
+    },
     SDDSOS: {
         title: 'React',
         package: '@salutejs/sdds-os',
