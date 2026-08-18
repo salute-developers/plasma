@@ -42,11 +42,13 @@ import { AddFillIcon as AddFillIcon36 } from '@salutejs/sdds-icons/36';
 <AddFillIcon width={32} height={32} color="tomato" />
 ```
 
-В `color` также можно передать CSS-градиент. В этом случае контур иконки используется как маска, а градиент заполняет всю область иконки:
+Через свойство `gradient` можно передать CSS-градиент. В этом случае оптимизированный SVG используется как CSS-маска, а градиент заполняет всю область иконки:
 
 ```tsx
-<AddFillIcon color="linear-gradient(135deg, #00d6ff 0%, #9b51e0 100%)" />
+<AddFillIcon gradient="linear-gradient(135deg, #00d6ff 0%, #9b51e0 100%)" />
 ```
+
+Для отображения градиентов Content Security Policy приложения должна разрешать `data:` в директиве `img-src`.
 
 ## Динамические иконки
 
