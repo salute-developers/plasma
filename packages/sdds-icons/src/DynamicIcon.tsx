@@ -6,13 +6,17 @@ import type { ComponentPropsWithoutRef, ComponentType, ReactNode } from 'react';
 import dynamicIconImports from './dynamicIconImports.js';
 
 export type IconName = keyof typeof dynamicIconImports;
+type IconProps = ComponentPropsWithoutRef<'svg'> & {
+    gradient?: string;
+};
 
 export interface DynamicIconProps extends ComponentPropsWithoutRef<'svg'> {
     name: IconName;
     fallback?: ReactNode;
+    gradient?: string;
 }
 
-type IconComponent = ComponentType<ComponentPropsWithoutRef<'svg'> & React.RefAttributes<SVGSVGElement>>;
+type IconComponent = ComponentType<IconProps & React.RefAttributes<SVGSVGElement>>;
 type LoadedIcon = {
     name: IconName;
     component: IconComponent;
