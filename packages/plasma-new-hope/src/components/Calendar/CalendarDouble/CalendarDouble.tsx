@@ -96,7 +96,7 @@ export const calendarDoubleRoot = (
                 min.setHours(0, 0, 0, 0);
             }
             if (max) {
-                max.setHours(23, 59, 59, 999);
+                max.setHours(0, 0, 0, 0);
             }
 
             const [state, dispatch] = useReducer(reducer, getInitialState(value, min, renderFromDate, type, true));

@@ -115,7 +115,7 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
         }
     }
 
-    &.${classes.dayInCurrentMonth}:not(.${classes.disabled}) {
+    &.${classes.dayInCurrentMonth}:not(.${classes.disabled}):not(.${classes.disabledCurrent}) {
         ${addActive({
             activeBackground: `var(${tokens.calendarActiveItemBackground})`,
             activeColor: `var(${tokens.calendarActiveItemColor})`,
