@@ -169,6 +169,7 @@ describeFn('Calendar', () => {
             stretched = false,
             uncontrolled = false,
             renderFromDate,
+            onChangeVisibleDate,
         } = args;
         const [value, setValue] = useState(baseValue);
 
@@ -194,6 +195,7 @@ describeFn('Calendar', () => {
                     locale={locale}
                     stretched={stretched}
                     onChangeValue={handleOnChange}
+                    onChangeVisibleDate={onChangeVisibleDate}
                 />
             ) : (
                 <CalendarBase
@@ -207,6 +209,7 @@ describeFn('Calendar', () => {
                     locale={locale}
                     stretched={stretched}
                     onChangeValue={handleOnChange}
+                    onChangeVisibleDate={onChangeVisibleDate}
                 />
             );
         };
@@ -372,6 +375,108 @@ describeFn('Calendar', () => {
         cy.matchImageSnapshot({
             failureThreshold: 0.01,
             failureThresholdType: 'percent',
+        });
+    });
+
+    describe('onChangeVisibleDate', () => {
+        const ExternalValueDemo = ({ type, nextValue, onChangeVisibleDate }) => {
+            const [value, setValue] = useState(baseDate);
+
+            const calendarProps: any = {
+                size: 's',
+                locale: 'ru',
+                type,
+                value,
+                onChangeValue: setValue,
+                onChangeVisibleDate,
+            };
+
+            return (
+                <>
+                    <button type="button" id="set-external-value" onClick={() => setValue(nextValue)}>
+                        set value
+                    </button>
+                    <CalendarBase {...calendarProps} />
+                </>
+            );
+        };
+
+        const mountWithStub = (props) => {
+            const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+            mount(<Demo baseValue={baseDate} onChangeVisibleDate={onChangeVisibleDate} {...props} />);
+        };
+
+        const assertCalledWith = (date: Date) =>
+            cy.get('@onChangeVisibleDate').should('have.been.calledOnceWith', date);
+
+        const clickNext = (unit: string) => cy.get(`button[aria-label="Следующий ${unit}"]`).first().click();
+
+        it('days: next month', () => {
+            mountWithStub({ type: 'Days', baseValue: new Date(1999, 11, 7) });
+
+            clickNext('месяц');
+
+            assertCalledWith(new Date(2000, 0));
+        });
+
+        it('months: next year', () => {
+            mountWithStub({ type: 'Months' });
+
+            clickNext('год');
+
+            assertCalledWith(new Date(2000, 0));
+        });
+
+        it('days: month selected through the header', () => {
+            mountWithStub({ type: 'Days' });
+
+            cy.get('#id-grid-label').click();
+            cy.get('[data-month-index="8"][data-year="1999"]').click();
+
+            assertCalledWith(new Date(1999, 8));
+        });
+
+        it('days: year selected through the header', () => {
+            mountWithStub({ type: 'Days' });
+
+            cy.get('#id-grid-label').click();
+            cy.get('#id-grid-label').click();
+            cy.get('[data-year="2001"]').click();
+
+            assertCalledWith(new Date(2001, 0));
+        });
+
+        it('days: value changed from outside to another month', () => {
+            const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+            mount(
+                <ExternalValueDemo
+                    type="Days"
+                    nextValue={new Date(1999, 9, 3)}
+                    onChangeVisibleDate={onChangeVisibleDate}
+                />,
+            );
+
+            cy.get('#set-external-value').click();
+
+            assertCalledWith(new Date(1999, 9));
+        });
+
+        it('months: not called when value stays within the visible year', () => {
+            const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+            mount(
+                <ExternalValueDemo
+                    type="Months"
+                    nextValue={new Date(1999, 2, 3)}
+                    onChangeVisibleDate={onChangeVisibleDate}
+                />,
+            );
+
+            cy.get('#set-external-value').click();
+
+            cy.get('@onChangeVisibleDate').should('not.have.been.called');
         });
     });
 

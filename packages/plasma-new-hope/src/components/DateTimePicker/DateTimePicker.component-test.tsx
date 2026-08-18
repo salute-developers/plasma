@@ -704,6 +704,23 @@ describeFn('DateTimePicker', () => {
         cy.get('body').click(0, 0);
     });
 
+    it('prop: onChangeVisibleDate', () => {
+        cy.viewport(750, 700);
+
+        const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+        mount(<Demo defaultDate={new Date(2023, 5, 14, 0, 0, 0)} onChangeVisibleDate={onChangeVisibleDate} />);
+
+        cy.get('input').first().click();
+
+        // NOTE: cy.click внутри поповера DateTimePicker до кнопки не доходит, поэтому кликаем узел напрямую.
+        cy.get('button[aria-label="Следующий месяц"]')
+            .first()
+            .then(($next) => $next[0].click());
+
+        cy.get('@onChangeVisibleDate').should('have.been.calledWith', new Date(2023, 6));
+    });
+
     it('prop: onChange', () => {
         cy.viewport(750, 700);
 

@@ -408,6 +408,18 @@ describeFn('DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: onChangeVisibleDate', () => {
+        const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+        mount(<Demo defaultDate={new Date(2023, 5, 14)} onChangeVisibleDate={onChangeVisibleDate} />);
+
+        cy.get('input').first().click();
+        assertDatePickerPopoverOpen();
+
+        cy.get('button[aria-label="Следующий месяц"]').click();
+        cy.get('@onChangeVisibleDate').should('have.been.calledWith', new Date(2023, 6));
+    });
+
     it('case: very future date', () => {
         mount(<Demo defaultDate={new Date(9999, 5, 14)} />);
 
@@ -904,6 +916,18 @@ describeFnRange('DatePickerRange', () => {
         cy.get('input').last().should('have.value', '17.06.2023');
         cy.get('input').first().should('have.value', '');
         cy.get('input').first().should('be.focused');
+    });
+
+    it('prop: onChangeVisibleDate', () => {
+        const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} onChangeVisibleDate={onChangeVisibleDate} />);
+
+        cy.get('.input-wrapper input').first().click();
+
+        cy.get('button[aria-label="Следующий месяц"]').first().click();
+
+        cy.get('@onChangeVisibleDate').should('have.been.calledWith', new Date(2023, 6));
     });
 
     it('DatePickerRange: complete range by selecting first date after second', () => {
