@@ -11,7 +11,7 @@ import { tokens } from '../../Button.tokens';
 export const base = css`
     &[disabled] {
         opacity: var(${tokens.buttonDisabledOpacity});
-        cursor: not-allowed;
+        cursor: var(${tokens.buttonCursor}, not-allowed);
 
         :hover,
         :active {

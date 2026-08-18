@@ -8,13 +8,13 @@ const meta: Meta<typeof Indicator> = {
     component: Indicator,
     argTypes: {
         view: {
-            options: ['default', 'accent', 'inactive', 'positive', 'warning', 'negative', 'black', 'white'],
+            options: ['accent', 'global', 'mute', 'danger', 'warning'],
             control: {
                 type: 'select',
             },
         },
         size: {
-            options: ['l', 'm', 's'],
+            options: ['14', '12', '10', '8', '6'],
             control: {
                 type: 'select',
             },
@@ -28,7 +28,7 @@ type Story = StoryObj<ComponentProps<typeof Indicator>>;
 
 export const Default: Story = {
     args: {
-        size: 's',
-        view: 'default',
+        size: '8',
+        view: 'global',
     },
 };

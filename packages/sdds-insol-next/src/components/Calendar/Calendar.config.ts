@@ -113,6 +113,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarEventItemBottom}: 0.5rem;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -185,6 +186,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarEventItemBottom}: 0.5rem;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -257,6 +259,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarEventItemBottom}: 0.375rem;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1.5rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -329,6 +332,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarEventItemBottom}: 0.25rem;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;
@@ -401,6 +405,7 @@ export const config = {
 
                 ${calendarBaseTokens.calendarEventItemBottom}: 0.25rem;
                 ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1rem;
+                ${calendarBaseTokens.calendarHeaderArrowSize}: 1rem;
 
                 ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
                 ${calendarBaseTokens.calendarHeaderWrapperPadding}: 0 0 0.375rem 0;

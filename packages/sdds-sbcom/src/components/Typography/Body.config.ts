@@ -9,13 +9,17 @@ import {
     bodyS,
     bodySBold,
     bodySMedium,
+    bodyXS,
+    bodyXSBold,
+    bodyXSMedium,
+    bodyXXS,
+    bodyXXSBold,
+    bodyXXSMedium,
+    bodyXXXS,
+    bodyXXXSBold,
+    bodyXXXSMedium,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
-/*
- * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs, bodyXsBold, bodyXsMedium, bodyXxs, bodyXxsBold
- * bodyXxsMedium
- */
 export const configL = {
     defaults: {
         size: 'l',
@@ -86,15 +90,15 @@ export const configXS = {
     variations: {
         size: {
             xs: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-body-xs-bold-font-weight);
-                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-body-xs-medium-font-weight);
+                ${typographyTokens.typoFontFamily}: ${bodyXS.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyXS.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyXS.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyXS.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodyXSMedium.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodyXSBold.fontWeight};
                 ${typographyTokens.typoFontWeightExtraBold}: 700;
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyXS.lineHeight};
             `,
         },
     },
@@ -107,15 +111,36 @@ export const configXXS = {
     variations: {
         size: {
             xxs: css`
-                ${typographyTokens.typoFontFamily}: var(--plasma-typo-body-xxs-font-family);
-                ${typographyTokens.typoFontSize}: var(--plasma-typo-body-xxs-font-size);
-                ${typographyTokens.typoFontStyle}: var(--plasma-typo-body-xxs-font-style);
-                ${typographyTokens.typoFontWeight}: var(--plasma-typo-body-xxs-font-weight);
-                ${typographyTokens.typoFontWeightBold}: var(--plasma-typo-body-xxs-bold-font-weight);
-                ${typographyTokens.typoFontWeightMedium}: var(--plasma-typo-body-xxs-medium-font-weight);
+                ${typographyTokens.typoFontFamily}: ${bodyXXS.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyXXS.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyXXS.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyXXS.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodyXXSMedium.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodyXXSBold.fontWeight};
                 ${typographyTokens.typoFontWeightExtraBold}: 700;
-                ${typographyTokens.typoFontLetterSpacing}: var(--plasma-typo-body-xxs-letter-spacing);
-                ${typographyTokens.typoFontLineHeight}: var(--plasma-typo-body-xxs-line-height);
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyXXS.lineHeight};
+            `,
+        },
+    },
+};
+
+export const configXXXS = {
+    defaults: {
+        size: 'xxxs',
+    },
+    variations: {
+        size: {
+            xxxs: css`
+                ${typographyTokens.typoFontFamily}: ${bodyXXXS.fontFamily};
+                ${typographyTokens.typoFontSize}: ${bodyXXXS.fontSize};
+                ${typographyTokens.typoFontStyle}: ${bodyXXXS.fontStyle};
+                ${typographyTokens.typoFontWeight}: ${bodyXXXS.fontWeight};
+                ${typographyTokens.typoFontWeightMedium}: ${bodyXXXSMedium.fontWeight};
+                ${typographyTokens.typoFontWeightBold}: ${bodyXXXSBold.fontWeight};
+                ${typographyTokens.typoFontWeightExtraBold}: 700;
+                ${typographyTokens.typoFontLetterSpacing}: ${bodyXXXS.letterSpacing};
+                ${typographyTokens.typoFontLineHeight}: ${bodyXXXS.lineHeight};
             `,
         },
     },

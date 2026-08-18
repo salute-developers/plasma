@@ -252,7 +252,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.125rem;
+                ${tokens.textFieldLeftHelperPadding}: 0.125rem;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -328,7 +328,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
-                ${tokens.textFieldLeftHelperOffset}: 0.125rem;
+                ${tokens.textFieldLeftHelperPadding}: 0.125rem;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};

@@ -36,7 +36,6 @@ const { meta: META, Default } = getTextAreaStories({
             </IconButton>
         );
     },
-    disablePropsList: ['appearance'],
 });
 
 const meta: Meta<TextAreaProps> = {

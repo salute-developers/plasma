@@ -46,6 +46,14 @@ module.exports = {
         'func-call-spacing': 'off',
         'no-spaced-func': 'off',
     },
+    overrides: [
+        {
+            files: ['*.config.ts'],
+            rules: {
+                'quote-props': 'off',
+            },
+        },
+    ],
     settings: {
         react: {
             version: 'detect',

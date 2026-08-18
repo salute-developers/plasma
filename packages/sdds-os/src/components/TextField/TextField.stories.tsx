@@ -10,7 +10,7 @@ type TextFieldProps = ComponentProps<typeof TextField>;
 const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
-    disablePropsList: ['appearance', 'clear', 'hasDivider'],
+    disablePropsList: ['appearance', 'clear', 'hasDivider', 'rightHelper'],
 });
 
 const meta: Meta<TextFieldProps> = {

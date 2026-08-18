@@ -8,21 +8,20 @@ title: Typography
 Они заменяют обычные HTML-теги, такие, как `h1`, `h2`, `h3`, `h4`, `p`, etc.
 
 ## Установка шрифта
-Компоненты типографики используют фирменный шрифт **SB Sans Text**.
+Компоненты типографики используют фирменный шрифт **Roboto**.
 
 ```html
-<html>
+<html lang="ru">
     <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
         <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
             rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
         />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
-        />
+        <title>...</title>
     </head>
+    <body>
+        ...
+    </body>
 </html>
 ```
 
@@ -177,6 +176,10 @@ export function App() {
             <BodyXXS>BodyXXS</BodyXXS>
             <BodyXXS bold>BodyXXS Bold</BodyXXS>
             <BodyXXS medium>BodyXXS Medium</BodyXXS>
+
+            <BodyXXXS>BodyXXS</BodyXXXS>
+            <BodyXXXS bold>BodyXXS Bold</BodyXXXS>
+            <BodyXXXS medium>BodyXXS Medium</BodyXXXS>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import type { CustomCounterProps } from '../Counter/Counter.types';
 import type { CustomBadgeProps } from '../Badge/Badge.types';
@@ -61,7 +61,7 @@ type CustomAvatarProps = {
     /**
      * Кастомный текст вместо фотографии
      */
-    customText?: string;
+    customText?: ReactNode;
     /**
      * Статус профиля
      */

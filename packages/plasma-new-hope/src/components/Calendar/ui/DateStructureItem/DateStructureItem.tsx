@@ -81,6 +81,8 @@ export const DateStructureItem = memo(
                         currentClass,
                         hoveredClass,
                         dayInCurrentMonthClass,
+                        sideInRangeLeft,
+                        sideInRangeRight,
                     )}
                     tabIndex={isFocused ? 0 : -1}
                     dayOfWeek={dayOfWeek}

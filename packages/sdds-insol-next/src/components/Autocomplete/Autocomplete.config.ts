@@ -272,7 +272,7 @@ export const config = {
                 ${tokens.textFieldLabelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.textFieldLabelInnerLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -351,7 +351,7 @@ export const config = {
                 ${tokens.textFieldLabelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.textFieldLabelInnerLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -430,7 +430,7 @@ export const config = {
                 ${tokens.textFieldLabelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
                 ${tokens.textFieldLabelInnerLineHeight}: ${bodyXXS.lineHeight};
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -510,7 +510,7 @@ export const config = {
                 ${tokens.textFieldLabelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
                 ${tokens.textFieldLabelInnerLineHeight}: ${bodyXXS.lineHeight};
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -585,7 +585,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};

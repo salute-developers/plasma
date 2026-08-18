@@ -37,7 +37,7 @@ export const config = {
                 ${tokens.labelLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};

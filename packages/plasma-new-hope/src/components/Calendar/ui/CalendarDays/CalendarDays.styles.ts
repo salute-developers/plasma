@@ -10,6 +10,7 @@ export const StyledCalendarDays = styled.div`
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: repeat(7, 1fr);
+    row-gap: var(${tokens.calendarDaysRowGap}, 0);
 
     width: 100%;
     height: 100%;

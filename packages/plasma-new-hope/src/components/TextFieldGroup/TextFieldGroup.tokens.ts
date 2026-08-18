@@ -68,7 +68,7 @@ export const tokens = {
     labelInnerPadding: '--plasma-text-field-group-item-placement_inner__label-padding',
     contentLabelInnerPadding: '--plasma-text-field-group-item-placement_inner__content-padding',
 
-    leftHelperOffset: '--plasma-text-field-group-item__left-helper-offset',
+    leftHelperPadding: '--plasma-text-field-group-item__left-helper-padding',
 
     leftHelperFontFamily: '--plasma-text-field-group-item__left-helper-font-family',
     leftHelperFontStyle: '--plasma-text-field-group-item__left-helper-font-style',

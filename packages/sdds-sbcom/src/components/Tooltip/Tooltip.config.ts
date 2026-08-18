@@ -1,10 +1,6 @@
 import { css, tooltipTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyS, surfaceSolidCardBrightness, textPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
+import { bodyS, surfaceSolidCardBrightness, textPrimary, bodyXS } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
-/*
- * NOTE: Mixed DS tokens + raw vars. Prefer @salutejs-ds/sdds_sbcom/theme/tokens where possible.
- * Missing tokens in @salutejs/sdds-themes/tokens: bodyXs
- */
 export const config = {
     defaults: {
         view: 'default',
@@ -13,20 +9,19 @@ export const config = {
     variations: {
         size: {
             s: css`
-                ${tooltipTokens.paddingTop}: 0.5rem;
-                ${tooltipTokens.paddingRight}: 0.75rem;
-                ${tooltipTokens.paddingBottom}: 0.5rem;
-                ${tooltipTokens.paddingLeft}: 0.75rem;
+                ${tooltipTokens.paddingTop}: 0,5rem;
+                ${tooltipTokens.paddingRight}: 0,6667rem;
+                ${tooltipTokens.paddingBottom}: 0,5rem;
+                ${tooltipTokens.paddingLeft}: 0,6667rem;
 
-                ${tooltipTokens.minHeight}: 2rem;
                 ${tooltipTokens.borderRadius}: 0.5rem;
 
-                ${tooltipTokens.textFontFamily}: var(--plasma-typo-body-xs-font-family);
-                ${tooltipTokens.textFontSize}: var(--plasma-typo-body-xs-font-size);
-                ${tooltipTokens.textFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${tooltipTokens.textFontWeight}: var(--plasma-typo-body-xs-font-weight);
-                ${tooltipTokens.textFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
-                ${tooltipTokens.textFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tooltipTokens.textFontFamily}: ${bodyXS.fontFamily};
+                ${tooltipTokens.textFontSize}: ${bodyXS.fontSize};
+                ${tooltipTokens.textFontStyle}: ${bodyXS.fontStyle};
+                ${tooltipTokens.textFontWeight}: ${bodyXS.fontWeight};
+                ${tooltipTokens.textFontLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tooltipTokens.textFontLineHeight}: ${bodyXS.lineHeight};
 
                 ${tooltipTokens.contentLeftMargin}: 0.25rem;
 
@@ -38,12 +33,11 @@ export const config = {
                 ${tooltipTokens.arrowBackground}: ${surfaceSolidCardBrightness};
             `,
             m: css`
-                ${tooltipTokens.paddingTop}: 0.6875rem;
-                ${tooltipTokens.paddingRight}: 0.875rem;
-                ${tooltipTokens.paddingBottom}: 0.6875rem;
-                ${tooltipTokens.paddingLeft}: 0.875rem;
+                ${tooltipTokens.paddingTop}: 0,4615rem;
+                ${tooltipTokens.paddingRight}: 0,6154rem;
+                ${tooltipTokens.paddingBottom}: 0,4615rem;
+                ${tooltipTokens.paddingLeft}: 0,6154rem;
 
-                ${tooltipTokens.minHeight}: 2.5rem;
                 ${tooltipTokens.borderRadius}: 0.625rem;
 
                 ${tooltipTokens.textFontFamily}: ${bodyS.fontFamily};
@@ -65,9 +59,10 @@ export const config = {
         },
         view: {
             // TODO заменить тень на токен https://github.com/salute-developers/plasma/issues/1131
+            // INFO: Договоренность с дизайн-продуктом о использование ShadowsCenterHardS
             default: css`
                 ${tooltipTokens.backgroundColor}: ${surfaceSolidCardBrightness};
-                ${tooltipTokens.boxShadow}: 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08);
+                ${tooltipTokens.boxShadow}: 0 0 4px 0 rgba(0, 0, 0, 0.03), 0 0 12px -2px rgba(8, 8, 8, 0.20);
                 ${tooltipTokens.color}: ${textPrimary};
             `,
         },

@@ -96,7 +96,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.titleCaptionLetterSpacing}: var(${tokens.textFieldTitleCaptionLetterSpacing});
     ${textFieldTokens.titleCaptionLineHeight}: var(${tokens.textFieldTitleCaptionLineHeight});
 
-    ${textFieldTokens.leftHelperOffset}: var(${tokens.textFieldLeftHelperOffset});
+    ${textFieldTokens.leftHelperPadding}: var(${tokens.textFieldLeftHelperPadding});
 
     ${textFieldTokens.leftHelperFontFamily}: var(${tokens.textFieldLeftHelperFontFamily});
     ${textFieldTokens.leftHelperFontStyle}: var(${tokens.textFieldLeftHelperFontStyle});

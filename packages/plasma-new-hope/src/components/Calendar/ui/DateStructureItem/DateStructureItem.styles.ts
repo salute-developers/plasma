@@ -43,12 +43,22 @@ export const StyledItem = styled.div<{ offset: number }>`
     }
 
     &.${String(classes.sideLeft)} {
+        border-radius: var(
+            ${tokens.calendarSelectedItemEndBorderRadius},
+            calc(var(${innerTokens.dateStructureBorderRadius}) - 0.125rem)
+        );
+
         &:before {
             left: ${({ offset }) => `${offset}px`};
         }
     }
 
     &.${String(classes.sideRight)} {
+        border-radius: var(
+            ${tokens.calendarSelectedItemStartBorderRadius},
+            calc(var(${innerTokens.dateStructureBorderRadius}) - 0.125rem)
+        );
+
         &:before {
             right: ${({ offset }) => `${offset}px`};
         }
@@ -77,6 +87,20 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
 
     border-radius: var(${innerTokens.dateStructureBorderRadius});
 
+    &.${String(classes.sideLeft)} {
+        border-radius: var(
+            ${tokens.calendarSelectedItemEndBorderRadius},
+            var(${innerTokens.dateStructureBorderRadius})
+        );
+    }
+
+    &.${String(classes.sideRight)} {
+        border-radius: var(
+            ${tokens.calendarSelectedItemStartBorderRadius},
+            var(${innerTokens.dateStructureBorderRadius})
+        );
+    }
+
     ${String(flexCenter)};
 
     color: ${({ isDayInCurrentMonth }) =>
@@ -90,19 +114,21 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
             minHeight: 'calc(100% - 0.125rem)',
             selectedFontWeight: `var(${innerTokens.dateStructureSelectedFontWeight})`,
             selectedBackground: `var(${tokens.calendarSelectedItemBackground})`,
+            selectedBackgroundHover: `var(${tokens.calendarSelectedItemBackgroundHover}, var(${tokens.calendarSelectedItemBackground}))`,
             selectedColor: `var(${tokens.calendarSelectedItemColor})`,
             selectableBackgroundHover: `var(${tokens.calendarSelectableItemBackgroundHover})`,
             currentBorderColor: `var(${tokens.calendarCurrentItemBorderColor})`,
             currentBorderWidth: `var(${tokens.calendarCurrentItemBorderWidth})`,
             activeBackground: `var(${tokens.calendarActiveItemBackground})`,
             activeColor: `var(${tokens.calendarActiveItemColor})`,
+            selectedCursorOnHover: `var(${tokens.calendarSelectedItemHoverCursor}, default)`,
         })};
 
         ${addFocus({
             outlineSize: '0.063rem',
             outlineOffset: '0.125rem',
             outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-            outlineRadius: `var(${innerTokens.dateStructureBorderRadius})`,
+            outlineRadius: 'inherit',
         })};
 
         &.${classes.currentItem} {
@@ -110,7 +136,7 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
                 outlineSize: '0.063rem',
                 outlineOffset: '0.1875rem',
                 outlineColor: `var(${tokens.calendarOutlineFocusColor})`,
-                outlineRadius: `var(${innerTokens.dateStructureBorderRadius})`,
+                outlineRadius: 'inherit',
             })};
         }
     }

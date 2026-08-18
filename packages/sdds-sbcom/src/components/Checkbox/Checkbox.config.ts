@@ -64,6 +64,7 @@ export const config = {
         disabled: {
             true: css`
                 ${checkboxTokens.disabledOpacity}: 0.4;
+                ${checkboxTokens.checkboxCursor}: default;
             `,
         },
         focused: {

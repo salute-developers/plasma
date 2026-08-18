@@ -166,7 +166,7 @@ export const tokens = {
     textFieldLeftHelperColor: '--plasma-select-textfield-left-helper-color',
     textFieldLeftHelperColorFocus: '--plasma-select-textfield-left-helper-color-focus',
     textFieldLeftHelperColorReadOnly: '--plasma-select-textfield__left-helper-color-readonly',
-    textFieldLeftHelperOffset: '--plasma-select-textfield-left-helper-offset',
+    textFieldLeftHelperPadding: '--plasma-select-textfield-left-helper-padding',
 
     textFieldLeftHelperFontFamily: '--plasma-select-textfield-left-helper-font-family',
     textFieldLeftHelperFontStyle: '--plasma-select-textfield-left-helper-font-style',

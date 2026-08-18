@@ -29,6 +29,7 @@ const { meta: META, Default } = getTextFieldStories({
         'hintPlacement',
         'hintWidth',
         'hintHasArrow',
+        'rightHelper',
         'enableContentLeft',
     ],
 });

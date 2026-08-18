@@ -40,7 +40,7 @@ const { meta: META, Default, Chips } = getTextFieldStories({
             },
         },
     },
-    disablePropsList: ['leftHelper'],
+    disablePropsList: ['leftHelper', 'rightHelper'],
 });
 
 const meta: Meta<TextFieldProps> = {

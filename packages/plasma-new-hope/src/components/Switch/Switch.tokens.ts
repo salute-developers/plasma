@@ -61,6 +61,9 @@ export const tokens = {
     thumbBoxShadowOn: '--plasma-switch-thumb-box-shadow-on',
 
     labelOffsetPrivate: '--plasma_private-switch__label-offset',
+
+    /** Токены для управления UI cursor */
+    switchCursor: '--plasma-switch__cursor',
 };
 
 export const classes = {

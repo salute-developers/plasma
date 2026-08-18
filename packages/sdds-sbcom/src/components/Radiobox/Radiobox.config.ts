@@ -110,6 +110,7 @@ export const config = {
         disabled: {
             true: css`
                 ${radioboxTokens.disabledOpacity}: 0.4;
+                ${radioboxTokens.radioboxCursor}: default;
             `,
         },
         focused: {

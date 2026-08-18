@@ -1,10 +1,5 @@
 import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    inverseTextTertiary,
-    onDarkSurfaceTransparentTertiary,
-    onLightSurfaceTransparentTertiary,
-    surfaceTransparentTertiary,
-} from '@salutejs-ds/sdds_sbcom/theme/tokens';
+import { inverseTextTertiary, outlineTransparentPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -15,13 +10,13 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${dividerTokens.background}: ${surfaceTransparentTertiary};
+                ${dividerTokens.background}: ${outlineTransparentPrimary};
             `,
             dark: css`
-                ${dividerTokens.background}: ${onDarkSurfaceTransparentTertiary};
+                ${dividerTokens.background}: ${outlineTransparentPrimary};
             `,
             light: css`
-                ${dividerTokens.background}: ${onLightSurfaceTransparentTertiary};
+                ${dividerTokens.background}: ${outlineTransparentPrimary};
             `,
             // TODO поменять на корректный токен --inverse-surface-transparent-tertiary когда он появится
             inverse: css`
@@ -35,10 +30,10 @@ export const config = {
         },
         orientation: {
             horizontal: css`
-                ${dividerTokens.baseSideSize}: 0.0625rem;
+                ${dividerTokens.baseSideSize}: 0.021rem;
             `,
             vertical: css`
-                ${dividerTokens.baseSideSize}: 0.0625rem;
+                ${dividerTokens.baseSideSize}: 0.021rem;
             `,
         },
     },

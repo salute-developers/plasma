@@ -239,7 +239,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.125rem;
+                ${tokens.leftHelperPadding}: 0.125rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -325,7 +325,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.125rem;
+                ${tokens.leftHelperPadding}: 0.125rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
