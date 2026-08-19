@@ -1,5 +1,5 @@
 import type { DateType } from '../Calendar.types';
-import { getDateFromValue, getNextDate, getPrevDate, getStartYear } from '../utils';
+import { getDateFromValue, getNextDate, getPrevDate, getPrevYear, getStartYear } from '../utils';
 
 import { CalendarStateType, Action, ActionType, InitialState, SizeMap } from './types';
 
@@ -72,7 +72,7 @@ export const reducer = (state: InitialState, action: Action): InitialState => {
         }
         case ActionType.PREVIOUS_YEAR: {
             const { step } = action.payload;
-            const startYear = state.date.year - step <= 0 ? 0 : state.date.year - step;
+            const startYear = getPrevYear(state.date.year, step);
 
             return {
                 ...state,
@@ -99,7 +99,7 @@ export const reducer = (state: InitialState, action: Action): InitialState => {
         }
         case ActionType.PREVIOUS_START_YEAR: {
             const { yearsCount } = action.payload;
-            const startYear = state.startYear - yearsCount < 0 ? 0 : state.startYear - yearsCount;
+            const startYear = getPrevYear(state.startYear, yearsCount);
 
             return {
                 ...state,

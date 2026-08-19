@@ -12,15 +12,8 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: var(--inverse-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-default);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--inverse-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--inverse-text-primary-active);
-            `,
-            accent: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
-                ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-accent-hover);
-                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-accent-active);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--surface-solid-default-active);
             `,
             secondary: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-primary);
@@ -61,15 +54,15 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-light-surface-solid-default);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-dark-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-dark-text-primary-active);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-light-surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
             `,
             white: css`
                 ${iconButtonTokens.iconButtonColor}: var(--on-light-text-primary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--on-dark-surface-solid-default);
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonColorHover}: var(--on-light-text-primary-hover);
-                ${iconButtonTokens.iconButtonColorActive}: var(--on-light-text-primary-active);
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: var(--on-dark-surface-solid-default-hover);
+                ${iconButtonTokens.iconButtonBackgroundColorActive}: var(--on-dark-surface-solid-default-active);
             `,
         },
         size: {
@@ -152,14 +145,6 @@ export const config = {
             style: css`
                 ${iconButtonTokens.iconButtonColor}: var(--text-tertiary);
                 ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-solid-tertiary);
-            `,
-        },
-        {
-            view: 'accent',
-            disabled: true,
-            style: css`
-                ${iconButtonTokens.iconButtonColor}: var(--on-dark-text-accent-minor);
-                ${iconButtonTokens.iconButtonBackgroundColor}: var(--surface-accent);
             `,
         },
         {

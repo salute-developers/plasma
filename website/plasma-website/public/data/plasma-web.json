@@ -1,4 +1,126 @@
 {
+    "1.632.0": {
+        "date": "2026-08-19",
+        "core": [
+            {
+                "component": "DatePicker, DateTimePicker",
+                "children": [
+                    {
+                        "text": "добавлен `titleCaption`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3029",
+                        "id": 3029
+                    },
+                    {
+                        "text": "изменен приоритет свойств для управления размерами выпадающего календаря: пользовательские размеры -> `stretched` -> токен конфига\n\nприменение `stretched` растягивает выпадающий календарь на всю доступную ширину и высоту",
+                        "link": "https://github.com/salute-developers/plasma/pull/3050",
+                        "id": 3050
+                    }
+                ]
+            },
+            {
+                "component": "Skeleton",
+                "children": [
+                    {
+                        "text": "добавлено свойство `animationDuration` для управления скоростью анимации",
+                        "link": "https://github.com/salute-developers/plasma/pull/3024",
+                        "id": 3024
+                    }
+                ]
+            },
+            {
+                "component": "Note",
+                "children": [
+                    {
+                        "text": "добавлен токен для вертикального выравнивания ContentBefore",
+                        "link": "https://github.com/salute-developers/plasma/pull/3012",
+                        "id": 3012
+                    }
+                ]
+            },
+            {
+                "component": "BottomSheet, Sheet",
+                "children": [
+                    {
+                        "text": "добавлен колбек onOverlayClick\n\nдобавлен колбек onEscClick\n\nвызов onClose по нажатию Esc по-умолчанию",
+                        "link": "https://github.com/salute-developers/plasma/pull/3021",
+                        "id": 3021
+                    }
+                ]
+            },
+            {
+                "component": "NumberFormat",
+                "children": [
+                    {
+                        "text": "добавлена возможность передавать `prefix` и `suffix`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3035",
+                        "id": 3035
+                    }
+                ]
+            },
+            {
+                "component": "TextField-like",
+                "children": [
+                    {
+                        "text": "конфиги приведены в соответствие с макетами",
+                        "link": "https://github.com/salute-developers/plasma/pull/3032",
+                        "id": 3032
+                    }
+                ]
+            },
+            {
+                "component": "NumberInput",
+                "children": [
+                    {
+                        "text": "добавлена возможность указать форматирование для значения",
+                        "link": "https://github.com/salute-developers/plasma/pull/3040",
+                        "id": 3040
+                    }
+                ]
+            },
+            {
+                "component": "CodeField",
+                "children": [
+                    {
+                        "text": "проведен архитектурный рефакторинг: `input` один для управления значением, ячейки отвечают только за визуальное отображение",
+                        "link": "https://github.com/salute-developers/plasma/pull/3031",
+                        "id": 3031
+                    }
+                ]
+            },
+            {
+                "component": "Calendar, DatePicker, DateTimePicker",
+                "children": [
+                    {
+                        "text": "добавлено свойство `onChangeVisibleDate` для отслеживания текущего месяца и года",
+                        "link": "https://github.com/salute-developers/plasma/pull/3049",
+                        "id": 3049
+                    }
+                ]
+            },
+            {
+                "component": "Sheet, BottomSheet",
+                "children": [
+                    {
+                        "text": "добавил функционал Точек остановки (Snap Points)",
+                        "link": "https://github.com/salute-developers/plasma/pull/3027",
+                        "id": 3027
+                    }
+                ]
+            }
+        ],
+        "lib": [
+            {
+                "component": "DatePicker, DateTimePicker",
+                "children": [
+                    {
+                        "text": "исправлен цвет `border`  в hover/active состояниях",
+                        "link": "https://github.com/salute-developers/plasma/pull/3029",
+                        "id": 3029
+                    }
+                ]
+            }
+        ]
+    },
     "1.630.0": {
         "date": "2026-08-05",
         "core": [

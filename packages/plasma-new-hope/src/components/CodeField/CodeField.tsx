@@ -75,12 +75,14 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             const [innerOriginalValue, setInnerOriginalValue] = useState<string>(code.join(''));
             const [activeIndex, setActiveIndex] = useState<number | null>(null);
             const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+            const [animatedItemErrorIndex, setAnimatedItemErrorIndex] = useState<number | null>(null);
+            const [activeErrorAnimations, setActiveErrorAnimations] = useState(0);
 
-            const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
             const nativeInputRef = useRef<HTMLInputElement | null>(null);
             const inputContainerRef = useRef<HTMLDivElement | null>(null);
             const captionRef = useRef<HTMLDivElement | null>(null);
             const onFullCodeEnterRef = useRef(onFullCodeEnter);
+            const activeErrorAnimationsRef = useRef(0);
             const inputForkRef = useForkRef(nativeInputRef, ref);
 
             /**
@@ -95,6 +97,17 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             const codeValue = code.join('');
 
             const widthValue = width ? getSizeValueFromProp(width, 'rem') : undefined;
+            const isErrorAnimationPlaying = activeErrorAnimations > 0;
+
+            const startErrorAnimation = () => {
+                activeErrorAnimationsRef.current += 1;
+                setActiveErrorAnimations(activeErrorAnimationsRef.current);
+            };
+
+            const finishErrorAnimation = () => {
+                activeErrorAnimationsRef.current = Math.max(0, activeErrorAnimationsRef.current - 1);
+                setActiveErrorAnimations(activeErrorAnimationsRef.current);
+            };
 
             const codeSetter = (newCode: Array<string>) => {
                 const originalCode = newCode.join('').slice(0, codeLength);
@@ -127,10 +140,6 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             const originalValue = typeof outerValue === 'string' ? controlledOriginalValue : innerOriginalValue;
 
             const clearErrorState = () => {
-                itemRefs.current.forEach((item) => {
-                    item?.classList.remove(classes.itemError, classes.itemErrorFade, classes.itemErrorAnimation);
-                });
-
                 if (!isError) {
                     return;
                 }
@@ -187,7 +196,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             };
 
             const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-                if (disabled) {
+                if (disabled || activeErrorAnimationsRef.current > 0) {
                     return;
                 }
 
@@ -210,18 +219,25 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                     itemErrorBehavior,
                     index: invalidIndex,
                     newCode,
-                    itemRefs,
                     inputRef: nativeInputRef,
                     setInnerValue,
                     setActiveIndex,
                     setSelectedIndex,
                     codeSetter,
                     onChange,
+                    onAnimationStart: (index) => {
+                        startErrorAnimation();
+                        setAnimatedItemErrorIndex(index);
+                    },
+                    onAnimationEnd: () => {
+                        finishErrorAnimation();
+                        setAnimatedItemErrorIndex(null);
+                    },
                 });
             };
 
             const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
-                if (!disabled && FORBIDDEN_KEYS.includes(event.key)) {
+                if (activeErrorAnimationsRef.current > 0 || (!disabled && FORBIDDEN_KEYS.includes(event.key))) {
                     event.preventDefault();
                 }
 
@@ -236,6 +252,10 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 }
 
                 event.preventDefault();
+
+                if (activeErrorAnimationsRef.current > 0) {
+                    return;
+                }
 
                 const rawData = event.clipboardData.getData('text/plain');
                 const pastedData = rawData.split('').filter(isSymbolAllowed).slice(0, codeLength);
@@ -262,10 +282,9 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
             };
 
             /**
-             * Нормализуем внутреннее значение и refs, если количество ячеек динамически изменилось.
+             * Нормализуем внутреннее значение, если количество ячеек динамически изменилось.
              */
             useEffect(() => {
-                itemRefs.current = itemRefs.current.slice(0, codeLength);
                 setInnerValue((currentCode) => getCodeValue(codeLength, currentCode.join('')));
                 setInnerOriginalValue((currentCode) => currentCode.slice(0, codeLength));
             }, [codeLength]);
@@ -306,6 +325,8 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                         setActiveIndex,
                         setSelectedIndex,
                         codeSetter,
+                        onAnimationStart: startErrorAnimation,
+                        onAnimationEnd: finishErrorAnimation,
                     });
                 }
             }, [isError]);
@@ -330,20 +351,22 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                                     {[...Array(codeLength / parts)].map((_item, i) => {
                                         const inputCorrectIndex = i + (codeLength / parts) * partIndex;
                                         const itemValue = code[inputCorrectIndex] || '';
+                                        const isAnimatedItemError = animatedItemErrorIndex === inputCorrectIndex;
 
                                         return (
                                             <ItemInput
                                                 key={inputCorrectIndex}
-                                                ref={(element: HTMLDivElement) => {
-                                                    itemRefs.current[inputCorrectIndex] = element;
-                                                }}
                                                 className={cls({
                                                     [classes.segmented]: shape === 'segmented',
                                                     [classes.itemFocused]: activeIndex === inputCorrectIndex,
                                                     [classes.itemError]:
-                                                        itemErrorBehavior === 'keep' &&
-                                                        Boolean(itemValue) &&
-                                                        !isSymbolAllowed(itemValue),
+                                                        isAnimatedItemError ||
+                                                        (itemErrorBehavior === 'keep' &&
+                                                            Boolean(itemValue) &&
+                                                            !isSymbolAllowed(itemValue)),
+                                                    [classes.itemErrorAnimation]: isAnimatedItemError,
+                                                    [classes.itemErrorFade]:
+                                                        isAnimatedItemError && itemErrorBehavior === 'remove-symbol',
                                                     [classes.hoverEnabled]:
                                                         !disabled && inputCorrectIndex >= originalValue.length,
                                                 })}
@@ -398,6 +421,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                             form={form}
                             required={required}
                             disabled={disabled}
+                            readOnly={isErrorAnimationPlaying}
                             aria-label={ariaLabel}
                             aria-describedby={ariaDescribedBy}
                             aria-labelledby={ariaLabelledBy}

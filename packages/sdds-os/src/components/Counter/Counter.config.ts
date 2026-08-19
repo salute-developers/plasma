@@ -11,10 +11,6 @@ export const config = {
                 ${counterTokens.color}: var(--inverse-text-primary);
                 ${counterTokens.background}: var(--surface-solid-default);
             `,
-            accent: css`
-                ${counterTokens.color}: var(--on-dark-text-primary);
-                ${counterTokens.background}: var(--surface-accent);
-            `,
             positive: css`
                 ${counterTokens.color}: var(--on-dark-text-primary);
                 ${counterTokens.background}: var(--surface-positive);

@@ -123,6 +123,8 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 dateShortcutsPlacement = 'left',
                 dateShortcutsWidth,
 
+                // callbacks
+                onChangeVisibleDate,
                 onChangeValue,
                 onCommitDate,
                 onToggle,
@@ -436,6 +438,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                                     isRange={false}
                                     locale={lang}
                                     onChangeValue={handleCalendarPick}
+                                    onChangeVisibleDate={onChangeVisibleDate}
                                 />
                             </StyledCalendarContent>
                         </Root>

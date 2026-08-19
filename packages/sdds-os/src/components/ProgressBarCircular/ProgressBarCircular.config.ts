@@ -17,11 +17,6 @@ export const config = {
                 ${progressBarCircularTokens.progressStroke}: var(--surface-solid-secondary);
                 ${progressBarCircularTokens.contentColor}: var(--text-primary);
             `,
-            accent: css`
-                ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
-                ${progressBarCircularTokens.progressStroke}: var(--surface-accent);
-                ${progressBarCircularTokens.contentColor}: var(--text-primary);
-            `,
             positive: css`
                 ${progressBarCircularTokens.backgroundStroke}: var(--surface-solid-tertiary);
                 ${progressBarCircularTokens.progressStroke}: var(--surface-positive);

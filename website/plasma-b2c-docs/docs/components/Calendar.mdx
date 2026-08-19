@@ -319,6 +319,48 @@ export function App() {
 }
 ```
 
+## Отслеживание отображаемого месяца и года
+
+Свойство `onChangeVisibleDate` сообщает, какой период сейчас показан в календаре.
+Обработчик получает `Date` — первое число видимого периода: месяца в режиме `Days`,
+года в режимах `Months` и `Quarters`, первого года страницы в режиме `Years`.
+
+Вызывается, когда период меняется:
+
+- при листании стрелками вперёд и назад;
+- при выборе месяца или года через заголовок календаря;
+- когда новое значение выводит календарь на другой период.
+
+В режиме двойного календаря возвращается левый, первый из отображаемых месяцев.
+
+Обработчик не вызывается при переключении уровня через заголовок (дни → месяцы → годы):
+меняется масштаб, а не период.
+
+```tsx live
+import React, { useState } from 'react';
+import { CalendarBase } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [value, setValue] = useState(new Date());
+    const [currentDate, setCurrentDate] = useState<Date>();
+
+    return (
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+            <CalendarBase
+                value={value}
+                onChangeValue={setValue}
+                onChangeVisibleDate={setCurrentDate}
+            />
+            <div>
+                Отображаемый период: {currentDate
+                    ? currentDate.toLocaleDateString('ru', { month: 'long', year: 'numeric' })
+                    : 'изначальный месяц'}
+            </div>
+        </div>
+    );
+}
+```
+
 ## Всплывающая подсказка для событий календаря
 
 С помощью `eventList`, `eventMonthList`, `eventQuarterList` и `eventYearList`

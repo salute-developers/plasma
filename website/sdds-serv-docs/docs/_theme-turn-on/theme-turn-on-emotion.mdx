@@ -1,0 +1,20 @@
+```jsx
+import React from 'react';
+import { Global, css } from '@emotion/react';
+import { Button, BodyL } from '@salutejs/sdds-serv/emotion';
+import { sdds_serv__light } from '@salutejs/sdds-themes';
+
+const themeStyle = css(sdds_serv__light);
+
+const App = () => {
+    return (
+        <>
+            <Global styles={themeStyle} />
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```

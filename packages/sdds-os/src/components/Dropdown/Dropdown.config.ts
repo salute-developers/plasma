@@ -121,7 +121,8 @@ export const config = {
         },
         view: {
             default: css`
-                ${tokens.itemBackgroundHover}: var(--surface-solid-secondary);
+                ${tokens.background}: var(--surface-solid-primary);
+                ${tokens.itemBackgroundHover}: var(--surface-solid-card);
                 ${tokens.dividerColor}: var(--surface-solid-tertiary);
             `,
         },

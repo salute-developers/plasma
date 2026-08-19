@@ -11,8 +11,12 @@ export const config = {
         view: {
             default: css`
                 ${tokens.background}: var(--surface-solid-primary);
-                ${tokens.backgroundError}: var(--surface-solid-negative);
-                ${tokens.backgroundSuccess}: var(--surface-solid-positive);
+                ${tokens.backgroundError}: var(--surface-solid-primary);
+                ${tokens.backgroundSuccess}: var(--surface-solid-primary);
+
+                ${tokens.borderColor}: var(--outline-clear);
+                ${tokens.borderColorError}: var(--outline-negative);
+                ${tokens.borderColorSuccess}: var(--outline-positive);
 
                 ${tokens.dividerColor}: var(--text-primary);
                 ${tokens.labelColor}: var(--text-primary);
@@ -43,14 +47,24 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldCaretColor}: var(--text-accent);
 
-                ${tokens.textFieldBackgroundColorHover}: var(--surface-solid-primary-hover);
-                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-secondary);
-                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-negative);
-                ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-solid-negative-hover);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-solid-negative-active);
-                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-positive);
-                ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-solid-positive-hover);
-                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-solid-positive-active);
+                ${tokens.textFieldBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-solid-primary);
+
+                ${tokens.textFieldBorderColor}: var(--outline-clear);
+                ${tokens.textFieldBorderColorHover}: var(--on-light-outline-solid-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-primary);
+                ${tokens.textFieldBorderColorError}: var(--outline-negative);
+                ${tokens.textFieldBorderColorErrorHover}: var(--outline-negative-hover);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative-active);
+                ${tokens.textFieldBorderColorSuccess}: var(--outline-positive);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-positive-hover);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-positive-active);
 
                 ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
@@ -64,6 +78,7 @@ export const config = {
         size: {
             m: css`
                 ${tokens.borderRadius}: 0.75rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -77,6 +92,7 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 3rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -140,6 +156,7 @@ export const config = {
             `,
             s: css`
                 ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
                 ${tokens.dividerFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -153,6 +170,7 @@ export const config = {
                 ${tokens.rightContentMargin}: 0;
 
                 ${tokens.textFieldHeight}: 2.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -275,21 +293,55 @@ export const config = {
         },
         disabled: {
             true: css`
-                ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 1;
+
+                ${tokens.background}: var(--surface-solid-tertiary);
+                ${tokens.backgroundError}: var(--surface-solid-tertiary);
+                ${tokens.backgroundSuccess}: var(--surface-solid-tertiary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderColorError}: transparent;
+                ${tokens.borderColorSuccess}: transparent;
+
+                ${tokens.labelColor}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-tertiary);
+                ${tokens.leftHelperColor}: var(--text-tertiary);
+                ${tokens.contentSlotColor}: var(--text-tertiary);
+                ${tokens.contentSlotRightColor}: var(--text-tertiary);
+
+                ${tokens.textFieldColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColor}: var(--text-tertiary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-tertiary);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-tertiary);
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderColorError}: transparent;
+                ${tokens.textFieldBorderColorSuccess}: transparent;
+                ${tokens.textFieldContentSlotColor}: var(--text-tertiary);
+                ${tokens.textFieldContentSlotRightColor}: var(--text-tertiary);
             `,
         },
         readOnly: {
             true: css`
-                ${tokens.backgroundReadOnly}: var(--surface-solid-primary);
+                ${tokens.backgroundReadOnly}: var(--surface-solid-secondary);
+                ${tokens.borderColorReadOnly}: transparent;
 
-                ${tokens.dividerColorReadOnly}: var(--text-secondary);
-                ${tokens.readOnlyOpacity}: 0.1;
-                ${tokens.dividerOpacityReadOnly}: 0.4;
-                ${tokens.rightContentOpacityReadOnly}: 0.4;
+                ${tokens.labelColorReadOnly}: var(--text-primary);
+                ${tokens.titleCaptionColorReadOnly}: var(--text-secondary);
+                ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+                ${tokens.rightHelperColorReadOnly}: var(--text-secondary);
+
+                ${tokens.dividerColorReadOnly}: var(--text-tertiary);
+                ${tokens.readOnlyOpacity}: 1;
+                ${tokens.dividerOpacityReadOnly}: 1;
+                ${tokens.rightContentOpacityReadOnly}: 1;
 
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: transparent;
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldContentSlotRightColor}: var(--text-tertiary);
             `,
         },
     },

@@ -15,7 +15,7 @@ export const config = {
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: var(--surface-solid-primary);
-                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
@@ -38,6 +38,8 @@ export const config = {
                 ${tokens.indicatorColor}: var(--surface-negative);
                 ${tokens.optionalColor}: var(--text-tertiary);
 
+                ${tokens.borderColor}: var(--outline-clear);
+                ${tokens.borderColorHover}: var(--on-light-outline-solid-primary-hover);
                 ${tokens.borderColorFocus}: var(--outline-primary);
             `,
             positive: css`
@@ -47,7 +49,7 @@ export const config = {
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: var(--surface-solid-primary);
-                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
@@ -71,6 +73,8 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
 
                 ${tokens.borderColor}: var(--outline-positive);
+                ${tokens.borderColorHover}: var(--outline-positive-hover);
+                ${tokens.borderColorFocus}: var(--outline-positive-active);
             `,
             warning: css`
                 ${tokens.color}: var(--text-primary);
@@ -79,7 +83,7 @@ export const config = {
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: var(--surface-solid-primary);
-                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
@@ -103,6 +107,8 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
 
                 ${tokens.borderColor}: var(--outline-warning);
+                ${tokens.borderColorHover}: var(--outline-warning-hover);
+                ${tokens.borderColorFocus}: var(--outline-warning-active);
             `,
             negative: css`
                 ${tokens.color}: var(--text-primary);
@@ -111,7 +117,7 @@ export const config = {
                 ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: var(--surface-solid-primary);
-                ${tokens.backgroundColorHover}: var(--surface-solid-primary-hover);
+                ${tokens.backgroundColorHover}: var(--surface-solid-primary);
                 ${tokens.backgroundColorFocus}: var(--surface-solid-primary);
                 ${tokens.caretColor}: var(--text-accent);
                 ${tokens.textBeforeColor}: var(--text-tertiary);
@@ -135,6 +141,8 @@ export const config = {
                 ${tokens.optionalColor}: var(--text-tertiary);
 
                 ${tokens.borderColor}: var(--outline-negative);
+                ${tokens.borderColorHover}: var(--outline-negative-hover);
+                ${tokens.borderColorFocus}: var(--outline-negative-active);
             `,
         },
         size: {
@@ -488,7 +496,7 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 1;
-                ${tokens.color}: var(--text-tertiary);
+                ${tokens.color}: var(--text-secondary);
                 ${tokens.placeholderColor}: var(--text-tertiary);
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-tertiary);

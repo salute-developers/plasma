@@ -24,14 +24,6 @@ export const config = {
                 ${progressTokens.valueColor}: var(--text-secondary);
                 ${progressTokens.captionColor}: var(--text-secondary);
             `,
-            accent: css`
-                ${progressTokens.trackBackgroundColor}: var(--surface-solid-secondary);
-                ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent);
-                ${progressTokens.labelColor}: var(--text-primary);
-                ${progressTokens.labelIconColor}: var(--text-primary);
-                ${progressTokens.valueColor}: var(--text-secondary);
-                ${progressTokens.captionColor}: var(--text-secondary);
-            `,
             accentGradient: css`
                 ${progressTokens.trackBackgroundColor}: var(--surface-solid-secondary);
                 ${progressTokens.progressFilledBackgroundColor}: var(--surface-accent-gradient);

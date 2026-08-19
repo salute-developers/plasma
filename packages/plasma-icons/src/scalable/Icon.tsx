@@ -186,6 +186,11 @@ export const iconSectionsSet = {
         screenShareUnpinFill: 'ScreenShareUnpinFill',
         translateOutline: 'TranslateOutline',
         translateFill: 'TranslateFill',
+        textAlignLeftOutline: 'TextAlignLeftOutline',
+        textAlignCenterOutline: 'TextAlignCenterOutline',
+        textAlignRightOutline: 'TextAlignRightOutline',
+        searchAIFill: 'SearchAIFill',
+        searchAIOutline: 'SearchAIOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',

@@ -1,6 +1,7 @@
 ---
 id: autocomplete
 title: Autocomplete
+description: "Автодополнение пользовательского ввода по списку вариантов."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -13,7 +14,6 @@ import CleaningLogicExample from '../_examples/_autocomplete/_cleaning-logic.mdx
 Поле ввода с подсказками в выпадающем списке.
 
 <Description name="Autocomplete" />
-<PropsTable name="Autocomplete" />
 
 ## Использование
 Расширенная версия компонента `TextField`. Добавилась возможность использования выпадающего списка с подсказками.\
@@ -343,7 +343,6 @@ type SuggestionItem = {
             const [value, setValue] = useState('')
             const [suggestions, setSuggestions] = useState(mockData)
 
-
             const getData = async (value) => {
                 return new Promise((resolve) => {
                     setTimeout(() => {
@@ -613,3 +612,7 @@ type SuggestionItem = {
 - `End` - перемещает фокус на последний элемент;
 - `ArrowUp` - перемещает фокус на один элемент выше;
 - `ArrowDown` - перемещает фокус на один элемент ниже;
+
+## API
+
+<PropsTable name="Autocomplete" />
