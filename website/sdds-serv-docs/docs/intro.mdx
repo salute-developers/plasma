@@ -1,314 +1,121 @@
 ---
 id: intro
 title: Введение
+description: "Библиотека компонентов SDDS SERV: установка, варианты поставки, подключение шрифтов и темы, использование компонентов и токенов."
 sidebar_position: 1
 slug: /
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-# Библиотека компонентов "SDDS-SERV"
+import ThemeSwitch from './_theme-switch/theme-switch.mdx';
+import ThemeTurnOn from './_theme-turn-on/theme-turn-on.mdx';
+
+import NextAppExample from './_examples/_init_next_app.mdx';
+import WepAppExample from './_examples/_init_web_app.mdx';
+
+# Библиотека компонентов для вертикали SDDS SERV
 
 Реализация компонентов для создания веб-приложений.
 
-## Использование
+Компоненты реализованы с помощью [React](https://react.dev/) и поставляются в трёх вариантах:
 
-Компоненты реализованы на [typescript](https://www.typescriptlang.org/) с помощью [react](https://reactjs.org/) , [styled-components](https://styled-components.com/) и [emotion](https://emotion.sh/);
+-   на предсобранном CSS,
+-   на [styled-components](https://styled-components.com/)
+-   на [emotion](https://emotion.sh/).
 
-Использование данного пакета предполагает установку зависимостей: `react` & `react-dom`;
+## Установка
 
-Использование `styled-components` и `emotion` на проект необязательно, так же как и использование `typescript`.
-
-**Но** для того чтобы компоненты работали корректно необходимо установить `styled-components` или `emotion`.
-
-### Установка зависимостей
+:::info
+Требуются `react` и `react-dom` версии `16.13.1` или выше.
+:::
 
 ```bash
 $ npm install --save react react-dom
 $ npm install --save @salutejs/sdds-serv @salutejs/sdds-themes
 ```
 
-Так же надо установить пакет styled-components. Примечание: Важно использовать версию пакета 5.3.1
+Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
+
+Для варианта на styled-components:
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-Или, если вы используете пакет @emotion, то
+Для варианта на emotion:
 
 ```bash
 $ npm install --save @emotion/styled @emotion/react @emotion/css
 ```
 
-### Подключение тем
+CSS-вариант дополнительных зависимостей не требует.
+
+## Варианты поставки
 
 :::info
-Для вертикали доступно несколько тем в dark или light режиме:
-
-### Базовая
-`import { sdds_serv__light } from '@salutejs/sdds-themes';`
-
-### Акцентный цвет малахит
-`import { sdds_serv_malachite__light } from '@salutejs/sdds-themes';`
+CSS-вариант является поставкой по умолчанию.
 :::
 
-Типографическая система основана на фирменных шрифтах. Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
+Один и тот же набор компонентов доступен из трёх точек входа:
 
-Для использования типографической системы необходимо загрузить три `css` файла в зависимости от [используемых шрифтов](##Конфигурация-пакета) в теме.
-Их необходимо добавить внутрь тега `head`. Если в качестве основы web-приложения вы используете [create-react-app](https://create-react-app.dev), вам необходимо изменить файл `./public/index.html`.
-
-```html
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
-        />
-    </head>
-    <body>
-        ...
-    </body>
-</html>
-```
-
-#### С помощью `styled-component`
+| Точка входа                             | Реализация        | Дополнительные зависимости                          |
+| --------------------------------------- | ----------------- | --------------------------------------------------- |
+| `@salutejs/sdds-serv`                   | предсобранный CSS | нет                                                 |
+| `@salutejs/sdds-serv/styled-components` | styled-components | `styled-components@5.3.1`                           |
+| `@salutejs/sdds-serv/emotion`           | emotion           | `@emotion/styled`, `@emotion/react`, `@emotion/css` |
 
 ```jsx
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/sdds-serv';
-import { sdds_serv__light } from '@salutejs/sdds-themes';
-
-const Theme = createGlobalStyle(sdds_serv__light);
-
-const App = () => {
-    return (
-        <>
-            <Theme />
-            <BodyL>Hello world</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
+import { Button } from '@salutejs/sdds-serv';
+// или
+import { Button } from '@salutejs/sdds-serv/styled-components';
+// или
+import { Button } from '@salutejs/sdds-serv/emotion';
 ```
 
-#### С помощью `emotion`
+Компоненты для построения AI-интерфейсов доступны из отдельных точек входа с теми же тремя вариантами поставки — `@salutejs/sdds-serv/ai`, `@salutejs/sdds-serv/ai/styled-components`, `@salutejs/sdds-serv/ai/emotion`. Подробнее — в разделе [AI Kit](./ai/answer).
 
-```jsx
-import React from 'react';
-import { Global, css } from '@emotion/react';
-import { Button, BodyL } from '@salutejs/sdds-serv';
-import { sdds_serv__light } from '@salutejs/sdds-themes';
+## Подключение шрифтов
 
-const themeStyle = css(sdds_serv__light);
-
-const App = () => {
-    return (
-        <>
-            <Global styles={themeStyle} />
-            <BodyL>Hello world</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
-```
-
-#### С помощью импорта `css` файла
-
-```jsx
-import React from 'react';
-import { Button, BodyL } from '@salutejs/sdds-serv';
-
-import '@salutejs/sdds-themes/css/sdds_serv__dark.css';
-
-const App = () => {
-    return (
-        <>
-            <BodyL>Hello world</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
-```
-
-#### С помощью импорта модульного `css` файла
-
-:::caution
-Потребуется дополнительно настроить TypeScript
+:::info
+Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на CDN.
 :::
 
+Типографическая система основана на фирменных шрифтах.
+
+Для её использования, необходимо загрузить три `css` файла в зависимости от используемых шрифтов в теме.
+
+<Tabs>
+    <TabItem value="cra" label="html" default>
+        <WepAppExample />
+    </TabItem>
+    <TabItem value="next" label="NextJS">
+        <NextAppExample />
+    </TabItem>
+</Tabs>
+
+<ThemeTurnOn/>
+
+<ThemeSwitch/>
+
+## Использование компонентов
+
+Все компоненты доступны напрямую из пакета:
+
 ```jsx
-import React from 'react';
 import { Button, BodyL } from '@salutejs/sdds-serv';
 
-import styles from '@salutejs/sdds-themes/css/sdds_serv.module.css';
-
-const App = () => {
-    return (
-        <div className={styles.dark}>
-            <BodyL>Hello world</BodyL>
-            <Button text="This is themed button" />
-        </div>
-    );
-};
-
-export default App;
-```
-
-## Смена тем
-
-Пример на `styled-components`:
-
-```jsx
-import React, { useState } from 'react';
-import { createGlobalStyle } from 'styled-components';
-
-import { Switch } from '@salutejs/sdds-serv';
-import { sdds_serv__light, sdds_serv__dark } from '@salutejs/sdds-themes';
-
-import './style.css';
-
-const LightTheme = createGlobalStyle(sdds_serv__light);
-const DarkTheme = createGlobalStyle(sdds_serv__dark);
-
-const App = () => {
-    const [theme, setTheme] = useState('light');
-
+export const App = () => {
     return (
         <>
-            {theme === 'light' ? <LightTheme /> : <DarkTheme />}
-
-            <div className="wrapper">
-                <Switch
-                    label="dark theme: "
-                    onChange={() => {
-                        setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
-                    }}
-                />
-            </div>
+            <BodyL>Hello, Master Brand</BodyL>
+            <Button>Кнопка</Button>
         </>
     );
 };
-
-export default App;
 ```
 
-Пример на `emotion`:
-
-```jsx
-import React, { useState } from 'react';
-
-import { Global, css } from '@emotion/react';
-import { Switch } from '@salutejs/sdds-serv';
-import { sdds_serv__light, sdds_serv__dark } from '@salutejs/sdds-themes';
-
-import './style.css';
-
-const lightThemeStyle = css(sdds_serv__light);
-const darkThemeStyle = css(sdds_serv__dark);
-
-const App = () => {
-    const [theme, setTheme] = useState('light');
-
-    return (
-        <>
-            <Global styles={theme === 'light' ? lightThemeStyle : darkThemeStyle} />
-
-            <div className="wrapper">
-                <Switch
-                    label="dark theme: "
-                    onChange={() => setTheme((theme) => (theme === 'light' ? 'dark' : 'light'))}
-                />
-            </div>
-        </>
-    );
-};
-
-export default App;
-```
-
-Пример на `css-modules`:
-
-```jsx
-import React, { useLayoutEffect, useState } from 'react';
-
-import { Switch } from '@salutejs/sdds-serv';
-import webThemes from '@salutejs/sdds-themes/css/sdds_serv.module.css';
-
-import './style.css';
-
-const App = () => {
-    const [theme, setTheme] = useState('light');
-
-    useLayoutEffect(() => {
-        document.documentElement.className = webThemes[theme];
-    }, [theme]);
-
-    return (
-        <div className="wrapper">
-            <Switch
-                label="dark theme: "
-                onChange={() => {
-                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
-                }}
-            />
-        </div>
-    );
-};
-
-export default App;
-```
-
-Пример на `css`:
-
-```jsx
-import React, { useLayoutEffect, useState } from 'react';
-
-import { Switch } from '@salutejs/sdds-serv';
-
-// добавьте импорт в css файл
-// @import '@salutejs/sdds-themes/css/sdds_serv.module.css';
-import './style.css';
-
-const App = () => {
-    const [theme, setTheme] = useState('light');
-
-    useLayoutEffect(() => {
-        document.documentElement.className = theme;
-    }, [theme]);
-
-    return (
-        <div className="wrapper">
-            <Switch
-                label="dark theme: "
-                onChange={() => {
-                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
-                }}
-            />
-        </div>
-    );
-};
-
-export default App;
-```
-
-### Корень приложения
-
-В корне приложения вызовите компонент глобальных стилей `GlobalStyle`:
-
--   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
--   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
-
-### Использование токенов
+## Использование токенов
 
 Все `css` токены завернуты в `js` переменные для более удобного доступа:
 
@@ -335,8 +142,12 @@ export const dsplL = ({
 
 Есть два пути импорта токенов:
 
-* Из вертикали `@salutejs/sdds-themes/tokens` - подходит в большинстве случаев, т.к. там лежит весь базовый набор токенов.
-* Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds_serv` - следует использовать, когда необходимо импортировать уникальные токены, которые лежат только в этой теме.
+:::tip
+Путь `@salutejs/sdds-themes/tokens/sdds_serv` следует использовать, когда нужны токены, которые есть только в этой теме.
+:::
+
+-   базовый набор — из `@salutejs/sdds-themes/tokens`
+-   уникальные токены темы — из `@salutejs/sdds-themes/tokens/sdds_serv`
 
 Пример использования:
 
@@ -369,28 +180,12 @@ const App = () => {
 export default App;
 ```
 
-### Использование компонентов
+## Что дальше
 
-Все компоненты доступны из папки `components` или напрямую из пакета:
+Подробные руководства собраны в разделе «Руководства»:
 
-```jsx
-import styled from 'styled-components';
-import { Button } from '@salutejs/sdds-serv';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
-
-export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
-    return (
-        <>
-            <Button>Hello, Plasma!</Button>
-
-            <StyledP>
-                Token usage example
-            </StyledP>
-        </>
-    );
-};
-```
+-   [Работа с Next](./guides/next.mdx) — RSC, `'use client'`, `transpilePackages`
+-   [Как работать с MCP](./guides/how-to-mcp.mdx) — актуальная документация для AI-агентов
+-   [Как работать с иконками](./guides/how-to-icons.mdx)
+-   [Поддержка React 16, 17](./guides/react_17.mdx) — `SSRProvider`
+-   [FAQ](./guides/FAQ.mdx)

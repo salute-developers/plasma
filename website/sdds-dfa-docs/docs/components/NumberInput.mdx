@@ -144,7 +144,8 @@ export function App() {
 
 ## Точность вычислений
 
-С помощью свойства `precision` можно задать количество знаков после запятой:
+С помощью свойства `precision` можно задать количество знаков после запятой,
+до которого округляется значение при вычислении шага и после завершения ручного ввода. По умолчанию — `2`:
 
 ```tsx live
 import React, { useState } from 'react';
@@ -168,6 +169,44 @@ export function App() {
     );
 }
 ```
+
+## Форматирование значения
+
+Для форматирования отображаемого значения доступны те же основные параметры, что и у `NumberFormat`:
+
+- `thousandSeparator` и `decimalSeparator` задают разделители;
+- `thousandsGroupStyle` задает стиль группировки (`thousand`, `lakh`, `wan` или `none`);
+- `decimalScale` ограничивает количество знаков после десятичного разделителя;
+- `fixedDecimalScale` дополняет дробную часть нулями;
+- `allowNegative` и `allowLeadingZeros` управляют допустимым вводом;
+- `isAllowed` валидирует значения при ручном вводе и изменении кнопками.
+
+`precision` не заменяет `decimalScale`: первый параметр отвечает за точность вычислений,
+а второй — за количество знаков после десятичного разделителя при вводе и отображении.
+
+```tsx live
+import React, { useState } from 'react';
+import { NumberInput } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState<number | string | undefined>(123456.5);
+
+    return (
+        <NumberInput
+            value={value}
+            width={240}
+            thousandSeparator=" "
+            decimalSeparator=","
+            decimalScale={2}
+            fixedDecimalScale
+            isManualInput
+            onChange={(_, newValue) => setValue(newValue)}
+        />
+    );
+}
+```
+
+Форматирование применяется только к отображению. `value` и второй аргумент `onChange` не содержат разделителя тысяч; при ручном вводе дробная часть в raw-значении отделяется точкой независимо от `decimalSeparator`.
 
 ## Вспомогательный текст
 

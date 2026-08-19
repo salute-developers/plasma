@@ -6,6 +6,7 @@ import type {
     ReactElement,
     MutableRefObject,
     HTMLAttributes,
+    Ref,
 } from 'react';
 
 import type { PopoverPlacement, PopoverPlacementBasic } from '../Popover';
@@ -253,6 +254,10 @@ export type RangeInnerProps = {
      * @default false
      */
     hasRequiredIndicator?: boolean;
+    /**
+     * Ссылка на обертку полей ввода
+     */
+    inputWrapperRef?: Ref<HTMLDivElement>;
     /**
      * Коллбэк, вызываемый при изменении первого поля ввода
      */

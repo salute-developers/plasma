@@ -22,6 +22,7 @@ export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonPro
                 customGradientColor,
                 roundness = '16',
                 animationType = 'shimmer',
+                animationDuration,
                 customFadeInColor,
                 customFadeOutColor,
                 view,
@@ -43,6 +44,7 @@ export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonPro
                         gradientColor={skeletonGradientColor}
                         customFadeInColor={customFadeInColor}
                         customFadeOutColor={customFadeOutColor}
+                        animationDuration={animationDuration}
                     />
                 </Root>
             );

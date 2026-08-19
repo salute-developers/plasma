@@ -50,6 +50,7 @@ export const createMeta = ({
             appearance: 'default',
             hasClearDivider: false,
             label: 'Лейбл',
+            titleCaption: 'Подсказка к полю сверху справа',
             leftHelper: 'Подсказка к полю',
             placeholder: '30.05.2024 00:00:00',
             size: 'l',
@@ -79,8 +80,8 @@ export const createMeta = ({
             lang: 'ru',
             dateFormat: 'DD.MM.YYYY',
             timeFormat: 'HH:mm:ss',
-            calendarContainerWidth: 0,
-            calendarContainerHeight: 0,
+            calendarContainerWidth: '0',
+            calendarContainerHeight: '0',
             stretched: false,
             hasHint: false,
             hintText: 'Текст подсказки',
@@ -133,6 +134,10 @@ export const createMeta = ({
                 table: { category: 'layout' },
             },
             label: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
+            },
+            titleCaption: {
                 control: { type: 'text' },
                 table: { category: 'layout' },
             },
@@ -213,11 +218,11 @@ export const createMeta = ({
                 table: { category: 'date-related' },
             },
             calendarContainerWidth: {
-                control: { type: 'number' },
+                control: { type: 'text' },
                 table: { category: 'calendar' },
             },
             calendarContainerHeight: {
-                control: { type: 'number' },
+                control: { type: 'text' },
                 table: { category: 'calendar' },
             },
             hasShortcuts: {

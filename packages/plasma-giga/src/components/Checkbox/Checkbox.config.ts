@@ -6,8 +6,12 @@ import {
     bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
+    outlineNegative,
+    outlinePositive,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
     textAccent,
-    textNegative,
     textParagraph,
     textPositive,
     textPrimary,
@@ -18,7 +22,7 @@ import {
 
 export const config = {
     defaults: {
-        view: 'accent',
+        view: 'default',
         size: 'm',
         focused: 'true',
     },
@@ -53,7 +57,7 @@ export const config = {
                 ${checkboxTokens.triggerBorderRadius}: 0.375rem;
                 ${checkboxTokens.triggerBorderWidth}: 0.125rem;
                 ${checkboxTokens.contentTopOffset}: 0.125rem;
-                ${checkboxTokens.contentLeftOffset}: 0.75rem;
+                ${checkboxTokens.contentLeftOffset}: 0.5rem;
                 ${checkboxTokens.descriptionMarginTop}: 0.125rem;
                 ${checkboxTokens.labelFontFamily}: ${bodyM.fontFamily};
                 ${checkboxTokens.labelFontSize}: ${bodyM.fontSize};
@@ -92,8 +96,8 @@ export const config = {
             `,
         },
         view: {
-            accent: css`
-                ${checkboxTokens.fillColor}: ${textAccent};
+            default: css`
+                ${checkboxTokens.fillColor}: ${surfaceSolidDefault};
                 ${checkboxTokens.iconColor}: ${inverseTextPrimary};
                 ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
@@ -101,13 +105,32 @@ export const config = {
                 ${checkboxTokens.triggerBorderColor}: ${textSecondary};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
-            // deprecated
-            default: css`
-                ${checkboxTokens.fillColor}: ${textPrimary};
-                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
+            positive: css`
+                ${checkboxTokens.fillColor}: ${textPositive};
+                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: ${textSecondary};
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
+            `,
+            negative: css`
+                ${checkboxTokens.fillColor}: ${surfaceNegative};
+                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.labelColor}: ${textPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
+                ${checkboxTokens.triggerBackgroundColor}: transparent;
+                ${checkboxTokens.triggerBorderColor}: ${outlineNegative};
+                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
+            `,
+            // deprecated
+            accent: css`
+                ${checkboxTokens.fillColor}: ${surfacePositive};
+                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
+                ${checkboxTokens.labelColor}: ${textPrimary};
+                ${checkboxTokens.descriptionColor}: ${textSecondary};
+                ${checkboxTokens.triggerBackgroundColor}: transparent;
+                ${checkboxTokens.triggerBorderColor}: ${outlinePositive};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
@@ -138,29 +161,12 @@ export const config = {
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             // deprecated
-            positive: css`
-                ${checkboxTokens.fillColor}: ${textPositive};
-                ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
-                ${checkboxTokens.descriptionColor}: ${textSecondary};
-                ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
-                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
-            `,
-            // deprecated
             warning: css`
                 ${checkboxTokens.fillColor}: ${textWarning};
                 ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
                 ${checkboxTokens.triggerBorderColor}: ${textSecondary};
-                ${checkboxTokens.triggerBorderCheckedColor}: transparent;
-            `,
-            negative: css`
-                ${checkboxTokens.fillColor}: ${textNegative};
-                ${checkboxTokens.iconColor}: ${inverseTextPrimary};
-                ${checkboxTokens.descriptionColor}: ${textSecondary};
-                ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: ${textNegative};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },

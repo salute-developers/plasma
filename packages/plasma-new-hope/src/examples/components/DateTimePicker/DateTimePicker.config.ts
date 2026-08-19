@@ -24,6 +24,7 @@ export const config = {
                 ${tokens.textFieldBackgroundSuccessColor}: var(--surface-transparent-positive);
                 ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-transparent-positive-active);
 
+                ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-secondary);
                 ${tokens.leftHelperColorError}: var(--text-negative);
@@ -131,6 +132,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -291,6 +300,14 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
+                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -449,6 +466,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -609,6 +634,14 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
+                ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
+
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -767,6 +800,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.titleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.titleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.titleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;

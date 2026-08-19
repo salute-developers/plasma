@@ -6,6 +6,7 @@ import { IconPlasma } from 'override/_Icon';
 import type { ButtonProps } from '../Button/Button.types';
 import type { IconButtonProps } from '../IconButton/IconButton.types';
 
+import { getCalendarContainerSize, hasCustomCalendarContainerSize } from './utils/getCalendarContainerSize';
 import type { DatePickerProps } from './SingleDate/SingleDate.types';
 import type { DatePickerRangeProps } from './SingleDate/RangeDate.types';
 
@@ -24,6 +25,13 @@ const matchImageSnapshotWithTreshold = () =>
 
 const openDatePicker = () => cy.get('input').first().click();
 const assertDatePickerPopoverOpen = () => cy.get('[data-floating-ui-portal] .date-picker-root').should('be.visible');
+const assertPopoverFillsAvailableHeight = () =>
+    cy.get('[data-floating-ui-portal] > div').should(($popover) => {
+        const floatingWindow = $popover[0].ownerDocument.defaultView;
+        const popoverRect = $popover[0].getBoundingClientRect();
+
+        expect(popoverRect.bottom).to.be.closeTo(floatingWindow?.innerHeight ?? 0, 1);
+    });
 
 getBaseVisualTests({
     component: 'DatePicker',
@@ -66,6 +74,20 @@ describeFn('DatePicker', () => {
             />
         );
     };
+
+    it('calendar size priority', () => {
+        expect(getCalendarContainerSize()).to.equal(undefined);
+        expect(getCalendarContainerSize(0)).to.equal(undefined);
+        expect(getCalendarContainerSize('0')).to.equal(undefined);
+        expect(getCalendarContainerSize('0rem')).to.equal(undefined);
+        expect(getCalendarContainerSize(0, true)).to.equal('100%');
+        expect(getCalendarContainerSize(undefined, true)).to.equal('100%');
+        expect(getCalendarContainerSize(20, true)).to.equal('20rem');
+        expect(getCalendarContainerSize('20px', true)).to.equal('20px');
+        expect(hasCustomCalendarContainerSize(0)).to.equal(false);
+        expect(hasCustomCalendarContainerSize('0rem')).to.equal(false);
+        expect(hasCustomCalendarContainerSize('20px')).to.equal(true);
+    });
 
     const ControlledDemo = () => {
         const [date, setDate] = useState<string | Date | null | undefined>();
@@ -111,7 +133,11 @@ describeFn('DatePicker', () => {
         mount(<Demo defaultDate={new Date(2023, 5, 14)} stretched />);
 
         cy.get('input').first().click();
+        assertPopoverFillsAvailableHeight();
         cy.matchImageSnapshot();
+
+        cy.viewport(500, 600);
+        assertPopoverFillsAvailableHeight();
     });
 
     it('calendarContainerWidth, calendarContainerHeight', () => {
@@ -151,7 +177,7 @@ describeFn('DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('label, leftHelper, placeholder', () => {
+    it('label, leftHelper, placeholder, titleCaption', () => {
         mount(
             <>
                 <Demo label="Лейбл" leftHelper="Подсказка к полю" placeholder="Выберите дату" />
@@ -162,6 +188,7 @@ describeFn('DatePicker', () => {
                     leftHelper="Подсказка к полю"
                     placeholder="Выберите дату"
                     defaultDate={new Date(2023, 5, 14)}
+                    titleCaption="Подсказка к полю сверху справа"
                 />
             </>,
         );
@@ -379,6 +406,18 @@ describeFn('DatePicker', () => {
         cy.get('#id-grid-label').should('have.text', '2023');
 
         cy.matchImageSnapshot();
+    });
+
+    it('prop: onChangeVisibleDate', () => {
+        const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+        mount(<Demo defaultDate={new Date(2023, 5, 14)} onChangeVisibleDate={onChangeVisibleDate} />);
+
+        cy.get('input').first().click();
+        assertDatePickerPopoverOpen();
+
+        cy.get('button[aria-label="Следующий месяц"]').click();
+        cy.get('@onChangeVisibleDate').should('have.been.calledWith', new Date(2023, 6));
     });
 
     it('case: very future date', () => {
@@ -645,6 +684,7 @@ describeFnRange('DatePickerRange', () => {
         mount(<Demo defaultFirstDate={new Date(2023, 5, 14)} defaultSecondDate={new Date(2023, 5, 17)} stretched />);
 
         cy.get('input').first().click();
+        assertPopoverFillsAvailableHeight();
         cy.matchImageSnapshot();
     });
 
@@ -717,7 +757,7 @@ describeFnRange('DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
-    it('label, leftHelper, placeholder', () => {
+    it('label, leftHelper, placeholder, titleCaption', () => {
         mount(
             <>
                 <Demo label="Лейбл" leftHelper="Подсказка к полю" placeholder="Выберите дату" />
@@ -725,6 +765,7 @@ describeFnRange('DatePickerRange', () => {
                 <Demo
                     id="demo"
                     label="Лейбл"
+                    titleCaption="Подсказка к полю сверху справа"
                     leftHelper="Подсказка к полю"
                     placeholder="Выберите дату"
                     defaultFirstDate={new Date(2023, 5, 14)}
@@ -735,6 +776,34 @@ describeFnRange('DatePickerRange', () => {
 
         cy.get('#demo input').first().click();
         cy.matchImageSnapshot();
+    });
+
+    it('popover is positioned at the input bottom when leftHelper is set', () => {
+        mount(
+            <Demo
+                id="demo"
+                leftHelper="Подсказка к полю"
+                defaultFirstDate={new Date(2023, 5, 14)}
+                defaultSecondDate={new Date(2023, 5, 17)}
+                placement="bottom"
+                disableFlip
+            />,
+        );
+
+        cy.get('#demo input').first().click();
+        cy.get('#demo')
+            .contains('Подсказка к полю')
+            .then(($helper) => {
+                const inputWrapper = $helper[0].parentElement?.previousElementSibling as HTMLElement | null;
+
+                expect(inputWrapper).not.to.equal(null);
+
+                const inputBottom = inputWrapper?.getBoundingClientRect().bottom ?? 0;
+
+                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
+                    expect($popover[0].getBoundingClientRect().top).to.be.closeTo(inputBottom, 1);
+                });
+            });
     });
 
     it('format', () => {
@@ -847,6 +916,18 @@ describeFnRange('DatePickerRange', () => {
         cy.get('input').last().should('have.value', '17.06.2023');
         cy.get('input').first().should('have.value', '');
         cy.get('input').first().should('be.focused');
+    });
+
+    it('prop: onChangeVisibleDate', () => {
+        const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
+
+        mount(<Demo renderFromDate={new Date(2023, 5, 1)} onChangeVisibleDate={onChangeVisibleDate} />);
+
+        cy.get('.input-wrapper input').first().click();
+
+        cy.get('button[aria-label="Следующий месяц"]').first().click();
+
+        cy.get('@onChangeVisibleDate').should('have.been.calledWith', new Date(2023, 6));
     });
 
     it('DatePickerRange: complete range by selecting first date after second', () => {

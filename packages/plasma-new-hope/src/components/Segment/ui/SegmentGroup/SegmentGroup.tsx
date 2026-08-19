@@ -1,4 +1,13 @@
-import React, { forwardRef, useCallback, useMemo, useState, useEffect, useRef, KeyboardEvent } from 'react';
+import React, {
+    forwardRef,
+    useCallback,
+    useMemo,
+    useState,
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    KeyboardEvent,
+} from 'react';
 import type { RefObject, MutableRefObject } from 'react';
 import { safeUseId, cx } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
@@ -9,7 +18,7 @@ import {
     IconDisclosureDownWithOffset,
     IconDisclosureUpWithOffset,
 } from '../../../_Icon';
-import { classes, tokens } from '../../tokens';
+import { classes, privateTokens, tokens } from '../../tokens';
 import { useSegmentInner } from '../../SegmentProvider/SegmentProvider';
 
 import { base as sizeCSS } from './variations/_size/base';
@@ -23,6 +32,7 @@ import type { SegmentGroupProps } from './SegmentGroup.types';
 import {
     StyledContent,
     StyledContentWrapper,
+    StyledThumb,
     base,
     StyledLeftArrow,
     StyledRightArrow,
@@ -39,7 +49,18 @@ enum Keys {
 
 export const getChildNodes = (wrapper: HTMLElement | null) => {
     const container = wrapper?.firstChild;
-    return container ? (Array.from(container?.childNodes) as HTMLElement[]) : [];
+
+    if (!container) {
+        return [];
+    }
+
+    /*
+     * Скользящий фон выбранного сегмента (StyledThumb) — декоративный оверлей внутри трека,
+     * а не сегмент, поэтому не должен участвовать в навигации стрелками/клавиатурой
+     */
+    return (Array.from(container.childNodes) as HTMLElement[]).filter(
+        (node) => !node?.hasAttribute?.('data-segment-thumb'),
+    );
 };
 
 export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupProps>) =>
@@ -64,8 +85,19 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
         const scrollRef = useRef<HTMLElement | null>(null);
         const trackRef = useRef<HTMLElement | null>(null);
         const leftArrowRef = useRef<HTMLButtonElement | null>(null);
+        const thumbRef = useRef<HTMLDivElement | null>(null);
+        const hasPositionedThumb = useRef(false);
 
-        const { setSelectionMode, setDisabledGroup, setHasDivider, setOrientation } = useSegmentInner();
+        const {
+            setSelectionMode,
+            setDisabledGroup,
+            setHasDivider,
+            setOrientation,
+            selectedSegmentItems,
+            getItemRef,
+        } = useSegmentInner();
+
+        const isMultipleSelection = (selectionMode ?? 'single') === 'multiple';
 
         const [firstItemVisible, setFirstItemVisible] = useState(true);
         const [lastItemVisible, setLastItemVisible] = useState(true);
@@ -168,6 +200,73 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
                 });
             }
         }, []);
+
+        const updateThumbPosition = useCallback(() => {
+            const thumb = thumbRef.current;
+
+            if (!thumb) {
+                return;
+            }
+
+            const selectedValue = selectedSegmentItems[0];
+            const selectedItem = selectedValue ? getItemRef(selectedValue) : undefined;
+
+            if (!selectedItem) {
+                thumb.style.setProperty(privateTokens.thumbOpacity, '0');
+                return;
+            }
+
+            /**
+             * Первое позиционирование (будь то при монтировании с defaultSelected, или при первом клике,
+             * если изначально ничего не было выбрано) не должно ехать из угла 0,0
+             * с нулевыми шириной/высотой — отключаем transition на этот кадр
+             */
+            const isFirstPositioning = !hasPositionedThumb.current;
+
+            if (isFirstPositioning) {
+                thumb.style.transitionDuration = '0s';
+            }
+
+            const itemComputedStyle = getComputedStyle(selectedItem);
+            const selectedBackground = itemComputedStyle.getPropertyValue(tokens.itemSelectedBackgroundColor).trim();
+
+            thumb.style.setProperty(privateTokens.thumbOpacity, '1');
+            thumb.style.setProperty(privateTokens.thumbX, `${selectedItem.offsetLeft}px`);
+            thumb.style.setProperty(privateTokens.thumbY, `${selectedItem.offsetTop}px`);
+            thumb.style.setProperty(privateTokens.thumbWidth, `${selectedItem.offsetWidth}px`);
+            thumb.style.setProperty(privateTokens.thumbHeight, `${selectedItem.offsetHeight}px`);
+            thumb.style.setProperty(privateTokens.thumbBackground, selectedBackground || 'transparent');
+
+            thumb.style.borderRadius = itemComputedStyle.borderRadius;
+
+            if (isFirstPositioning) {
+                hasPositionedThumb.current = true;
+                requestAnimationFrame(() => {
+                    if (thumbRef.current) {
+                        thumbRef.current.style.transitionDuration = '';
+                    }
+                });
+            }
+        }, [selectedSegmentItems, getItemRef]);
+
+        useLayoutEffect(() => {
+            if (isMultipleSelection) {
+                return;
+            }
+
+            updateThumbPosition();
+        }, [isMultipleSelection, updateThumbPosition, children]);
+
+        useEffect(() => {
+            if (isMultipleSelection || !trackRef.current || typeof ResizeObserver === 'undefined') {
+                return undefined;
+            }
+
+            const observer = new ResizeObserver(() => updateThumbPosition());
+            observer.observe(trackRef.current);
+
+            return () => observer.disconnect();
+        }, [isMultipleSelection, updateThumbPosition]);
 
         const handleScroll = useCallback(
             (event: React.UIEvent<HTMLElement>): void => {
@@ -297,7 +396,10 @@ export const segmentGroupRoot = (Root: RootProps<HTMLDivElement, SegmentGroupPro
                     ref={scrollRef as RefObject<HTMLDivElement>}
                     onScroll={handleScroll}
                 >
-                    <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>{children}</StyledContent>
+                    <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>
+                        {children}
+                        {!isMultipleSelection && <StyledThumb ref={thumbRef} aria-hidden data-segment-thumb />}
+                    </StyledContent>
                 </StyledContentWrapper>
                 {!lastItemVisible && NextButton}
             </Root>

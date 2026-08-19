@@ -1,83 +1,84 @@
 import { Dispatch, MutableRefObject, SetStateAction } from 'react';
 
 import type { ItemErrorBehavior } from '../CodeField.types';
-import { classes } from '../CodeField.tokens';
 
 import { ANIMATION_TIMEOUT } from './constants';
 
 type ValidateSymbolsArgs = {
-    currentSymbol: string;
     itemErrorBehavior: ItemErrorBehavior;
     index: number;
     newCode: Array<string>;
-    inputRefs: MutableRefObject<Array<HTMLInputElement | null>>;
+    inputRef: MutableRefObject<HTMLInputElement | null>;
     setInnerValue: Dispatch<SetStateAction<Array<string>>>;
+    setActiveIndex: Dispatch<SetStateAction<number | null>>;
+    setSelectedIndex: Dispatch<SetStateAction<number | null>>;
     codeSetter: (newCode: Array<string>) => void;
     onChange?: (value: string) => void;
+    onAnimationStart: (index: number) => void;
+    onAnimationEnd: () => void;
 };
 
 export const handleItemError = ({
-    currentSymbol,
     itemErrorBehavior,
     index,
     newCode,
-    inputRefs,
+    inputRef,
     setInnerValue,
+    setActiveIndex,
+    setSelectedIndex,
     codeSetter,
     onChange,
+    onAnimationStart,
+    onAnimationEnd,
 }: ValidateSymbolsArgs) => {
-    if (!inputRefs.current[index] || currentSymbol === ' ') {
-        return;
-    }
+    const selectItem = (selectionEnd: number) => {
+        const input = inputRef.current;
+
+        if (!input) {
+            return;
+        }
+
+        input.focus();
+        input.setSelectionRange(index, selectionEnd);
+        setActiveIndex(index);
+        setSelectedIndex(index < selectionEnd ? index : null);
+    };
 
     switch (itemErrorBehavior) {
         case 'keep':
+            onAnimationStart(index);
             setInnerValue(newCode);
             if (onChange) {
                 onChange(newCode.join(''));
             }
 
-            inputRefs.current[index]?.classList.add(classes.itemError, classes.itemErrorAnimation);
-
             setTimeout(() => {
-                inputRefs.current[index]?.classList.remove(classes.itemErrorAnimation);
-
-                setTimeout(() => inputRefs.current[index]?.setSelectionRange(0, 1), 0);
+                onAnimationEnd();
+                setTimeout(() => selectItem(index + 1), 0);
             }, ANIMATION_TIMEOUT);
 
             break;
         case 'forbid-enter':
-            newCode[index] = '';
+            newCode.splice(index, 1);
             codeSetter(newCode);
-            if (onChange) {
-                onChange(newCode.join(''));
-            }
+            setTimeout(() => selectItem(index), 0);
 
             break;
         case 'remove-symbol':
         default:
+            onAnimationStart(index);
             setInnerValue(newCode);
             if (onChange) {
                 onChange(newCode.join(''));
             }
 
-            inputRefs.current[index]?.classList.add(
-                classes.itemError,
-                classes.itemErrorFade,
-                classes.itemErrorAnimation,
-            );
-
             setTimeout(() => {
                 const updatedCode = [...newCode];
-                updatedCode[index] = '';
+                updatedCode.splice(index, 1);
 
                 codeSetter(updatedCode);
-
-                inputRefs.current[index]?.classList.remove(
-                    classes.itemError,
-                    classes.itemErrorFade,
-                    classes.itemErrorAnimation,
-                );
+                onAnimationEnd();
+                setTimeout(() => selectItem(index), 0);
             }, ANIMATION_TIMEOUT);
     }
 };

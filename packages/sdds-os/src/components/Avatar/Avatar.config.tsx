@@ -110,7 +110,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-positive);
 
                 ${tokens.badgeColorTransparent}: var(--text-positive);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-positive);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-positive);
 
                 ${tokens.badgeColorClear}: var(--text-positive);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);
@@ -120,7 +120,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-warning);
 
                 ${tokens.badgeColorTransparent}: var(--text-warning);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-warning);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-warning);
 
                 ${tokens.badgeColorClear}: var(--text-warning);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);
@@ -130,7 +130,7 @@ export const config = {
                 ${tokens.badgeBackground}: var(--surface-negative);
 
                 ${tokens.badgeColorTransparent}: var(--text-negative);
-                ${tokens.badgeBackgroundTransparent}: var(--surface-solid-negative);
+                ${tokens.badgeBackgroundTransparent}: var(--surface-transparent-negative);
 
                 ${tokens.badgeColorClear}: var(--text-negative);
                 ${tokens.badgeBackgroundClear}: var(--surface-clear);

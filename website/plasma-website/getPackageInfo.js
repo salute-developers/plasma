@@ -37,6 +37,7 @@ module.exports = {
     '@salutejs/sdds-dfa': getLatestReleaseVersion('sdds-dfa'),
     '@salutejs/sdds-finai': getLatestReleaseVersion('sdds-finai'),
     '@salutejs/sdds-insol': getLatestReleaseVersion('sdds-insol'),
+    '@salutejs/sdds-insol-next': getLatestReleaseVersion('sdds-insol-next'),
     '@salutejs/sdds-serv': getLatestReleaseVersion('sdds-serv'),
     '@salutejs/sdds-scan': getLatestReleaseVersion('sdds-scan'),
     '@salutejs/sdds-bizcom': getLatestReleaseVersion('sdds-bizcom'),

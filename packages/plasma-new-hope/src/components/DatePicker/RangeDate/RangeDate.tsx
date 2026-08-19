@@ -5,6 +5,7 @@ import type {
     FocusEvent,
     FocusEventHandler,
     MutableRefObject,
+    Ref,
     SyntheticEvent,
     SetStateAction,
 } from 'react';
@@ -72,6 +73,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 requiredPlacement = 'right',
                 hasRequiredIndicator = false,
                 label,
+                titleCaption,
                 leftHelper,
                 contentLeft,
                 contentRight,
@@ -143,6 +145,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 onChange,
                 onChangeFirstValue,
                 onChangeSecondValue,
+                onChangeVisibleDate,
 
                 onCommitFirstDate,
                 onCommitSecondDate,
@@ -539,7 +542,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             const handleBlurSecondTextfield = (event: FocusEvent<HTMLInputElement>) =>
                 handleBlur(event, onBlurSecondTextfield);
 
-            const RangeComponent = (
+            const renderRange = (inputWrapperRef: Ref<HTMLElement>) => (
                 <>
                     {/* TODO https://github.com/salute-developers/plasma/issues/1227
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -547,10 +550,12 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     <StyledRange
                         size={size}
                         ref={rangeRef}
+                        inputWrapperRef={inputWrapperRef as Ref<HTMLDivElement>}
                         autoComplete={autoComplete}
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
                         label={label}
+                        titleCaption={titleCaption}
                         leftHelper={leftHelper}
                         required={required}
                         requiredIndicatorPlacement={requiredPlacement}
@@ -671,7 +676,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     <RangeDatePopover
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         calendarFocusedDate={calendarFocusedDate}
-                        target={RangeComponent}
+                        target={renderRange}
                         opened={openedValue}
                         includeEdgeDates={includeEdgeDates}
                         eventTooltipOptions={eventTooltipOptions}
@@ -697,6 +702,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         calendarContainerWidth={calendarContainerWidth}
                         calendarContainerHeight={calendarContainerHeight}
                         type={type}
+                        onChangeVisibleDate={onChangeVisibleDate}
                         onToggle={handleToggle}
                         lang={lang}
                         isDoubleCalendar={isDoubleCalendar}

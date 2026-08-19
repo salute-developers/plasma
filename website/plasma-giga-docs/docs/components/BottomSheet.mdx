@@ -237,6 +237,50 @@ export function App() {
 }
 ```
 
+### Точки остановки (snap-points)
+
+С помощью свойства `snapPoints` можно задать несколько высот, на которых шторка останавливается при свайпе.
+Значения — CSS-размеры ('320px', '50%', '40dvh').
+
+По умолчанию функционал выключен. Без `snapPoints` поведение шторки не меняется.
+
+Начальную точку можно задать через `initialSnapPoint` (по умолчанию — первая из `snapPoints`).
+Смену активной точки можно отслеживать через `onSnapPointChange`.
+
+```tsx live
+import React, { useState } from 'react';
+import { BottomSheet, Button, BodyM, H3 } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+    const snapPoints = ['30%', '60%', '95%'];
+
+    return (
+        <>
+            <Button onClick={() => setOpened(true)}>Открыть</Button>
+
+            <BottomSheet
+                opened={opened}
+                onClose={() => setOpened(false)}
+                snapPoints={snapPoints}
+                initialSnapPoint={snapPoints[0]}
+                contentHeader={
+                    <div style={{ padding: '1.875rem 1.5rem 0.875rem' }}>
+                        <H3>Точки остановки</H3>
+                    </div>
+                }
+            >
+                <div style={{ padding: '0 1.5rem 2.5rem' }}>
+                    <BodyM>
+                        Потяните шторку за ручку вверх или вниз между точками остановки.
+                    </BodyM>
+                </div>
+            </BottomSheet>
+        </>
+    );
+}
+```
+
 ## API
 
 <PropsTable name="BottomSheet" />

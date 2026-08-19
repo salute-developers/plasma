@@ -125,6 +125,56 @@ describeFn('NumberInput', () => {
         cy.matchImageSnapshot();
     });
 
+    it('defaultValue initializes the uncontrolled value', () => {
+        mount(<NumberInput defaultValue={5} />);
+
+        cy.get('input').should('have.value', '5');
+        cy.get('button').last().click();
+        cy.get('input').should('have.value', '6');
+    });
+
+    it('isAllowed prevents increment values', () => {
+        const onChange = cy.stub().as('incrementOnChange');
+        const onIncrement = cy.stub().as('onIncrement');
+
+        mount(
+            <NumberInput
+                min={0}
+                displayWithoutValue="increment"
+                isAllowed={({ floatValue }) => floatValue !== 1}
+                onChange={onChange}
+                onIncrement={onIncrement}
+            />,
+        );
+
+        cy.get('input').should('not.exist');
+        cy.get('button').click();
+        cy.get('input').should('not.exist');
+        cy.get('@incrementOnChange').should('not.have.been.called');
+        cy.get('@onIncrement').should('not.have.been.called');
+    });
+
+    it('isAllowed prevents decrement values', () => {
+        const onChange = cy.stub().as('decrementOnChange');
+        const onDecrement = cy.stub().as('onDecrement');
+
+        mount(
+            <NumberInput
+                max={10}
+                displayWithoutValue="decrement"
+                isAllowed={({ floatValue }) => floatValue !== 9}
+                onChange={onChange}
+                onDecrement={onDecrement}
+            />,
+        );
+
+        cy.get('input').should('not.exist');
+        cy.get('button').click();
+        cy.get('input').should('not.exist');
+        cy.get('@decrementOnChange').should('not.have.been.called');
+        cy.get('@onDecrement').should('not.have.been.called');
+    });
+
     it('invalidValue, more than max', () => {
         mount(<InteractiveNumberInput value={5} max={10} min={0} isManualInput />);
 
@@ -211,7 +261,7 @@ describeFn('NumberInput', () => {
         cy.get('input').type('0').blur();
         cy.get('input').should('have.value', '0');
 
-        cy.get('input').type('1.005').blur();
+        cy.get('input').type('1.005').should('have.value', '1.005').blur();
         cy.get('input').should('have.value', '1.01');
 
         cy.get('input').type('-1.005').blur();
@@ -229,6 +279,16 @@ describeFn('NumberInput', () => {
         cy.get('button').last().click();
         cy.get('button').last().click();
         cy.get('input').should('have.value', '5.22');
+    });
+
+    it('precision preserves leading zeros when they are allowed', () => {
+        mount(<InteractiveNumberInput value="" precision={2} allowLeadingZeros isManualInput />);
+
+        cy.get('input').type('1.234').blur();
+        cy.get('input').should('have.value', '1.23');
+
+        cy.get('input').type('001.235').blur();
+        cy.get('input').should('have.value', '001.24');
     });
 
     it('displayWithoutValue', () => {
@@ -355,6 +415,73 @@ describeFn('NumberInput', () => {
     it('displayWithoutValue=decrement button is keyboard-focusable', () => {
         mount(<InteractiveNumberInput min={0} max={10} displayWithoutValue="decrement" />);
         cy.get('button').first().should('have.attr', 'tabindex', '0');
+    });
+
+    it('formatting parameters', () => {
+        mount(
+            <>
+                <NumberInput
+                    value={123456.5}
+                    thousandSeparator=" "
+                    decimalSeparator=","
+                    decimalScale={2}
+                    fixedDecimalScale
+                />
+                <PadMe />
+                <NumberInput value={123456789} thousandSeparator=" " thousandsGroupStyle="lakh" />
+                <PadMe />
+                <NumberInput value="00123" allowLeadingZeros />
+            </>,
+        );
+
+        cy.get('input').eq(0).should('have.value', '123 456,50');
+        cy.get('input').eq(1).should('have.value', '12 34 56 789');
+        cy.get('input').eq(2).should('have.value', '00123');
+    });
+
+    it('manual input is formatted and onChange receives a raw value', () => {
+        const onChange = cy.stub().as('onChange');
+
+        const Component = () => {
+            const [value, setValue] = useState<number | string | undefined>('');
+
+            const handleChange = (event: any, newValue: number | string | undefined) => {
+                setValue(newValue);
+                onChange(event, newValue);
+            };
+
+            return (
+                <NumberInput
+                    value={value}
+                    thousandSeparator=" "
+                    decimalSeparator=","
+                    decimalScale={2}
+                    isManualInput
+                    onChange={handleChange}
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('input').type('123456,78').should('have.value', '123 456,78');
+        cy.get('@onChange').its('lastCall.args.1').should('eq', '123456.78');
+    });
+
+    it('allowNegative, allowLeadingZeros and isAllowed', () => {
+        mount(<InteractiveNumberInput value="" allowNegative={false} allowLeadingZeros isManualInput />);
+
+        cy.get('input').type('-001').blur().should('have.value', '001');
+
+        mount(
+            <InteractiveNumberInput
+                value=""
+                isManualInput
+                isAllowed={({ floatValue }) => floatValue === undefined || floatValue <= 10}
+            />,
+        );
+
+        cy.get('input').type('101').should('have.value', '10');
     });
 
     it('prop: onChange', () => {

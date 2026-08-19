@@ -1,216 +1,63 @@
-import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { action } from 'storybook/actions';
-import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getNumberFormatStories } from '@salutejs/plasma-sb-utils';
 
 import { config } from '../TextField/TextField.config';
 import { TextFieldView } from '../TextField';
 
 import { NumberFormat } from './NumberFormat';
 
-const onChange = action('onChange');
-const onFocus = action('onFocus');
-const onBlur = action('onBlur');
-const onSearch = action('onSearch');
+type NumberFormatProps = ComponentProps<typeof NumberFormat>;
 
-const { sizes } = getConfigVariations(config);
-
-const statuses = ['', 'success', 'warning', 'error'];
 const labelPlacements = ['outer', 'inner'];
-const thousandsGroupStyles = ['thousand', 'lakh', 'wan', 'none'];
+const statuses = ['', 'success', 'warning', 'error'];
 
-const meta: Meta = {
-    title: 'Data Entry/NumberFormat',
+const { meta: META, Default } = getNumberFormatStories({
     component: NumberFormat,
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        thousandsGroupStyle: {
-            options: thousandsGroupStyles,
-            control: {
-                type: 'select',
-            },
-        },
-        requiredPlacement: {
-            options: ['left', 'right'],
-            control: {
-                type: 'select',
-            },
-        },
-        required: {
-            control: {
-                type: 'boolean',
-            },
-            if: {
-                arg: 'optional',
-                truthy: false,
-            },
-        },
-        optional: {
-            control: {
-                type: 'boolean',
-            },
-            if: {
-                arg: 'required',
-                truthy: false,
-            },
-        },
-        optionalText: {
-            control: {
-                type: 'text',
-            },
-            if: {
-                arg: 'required',
-                truthy: false,
-            },
-        },
-        hasDivider: {
-            control: {
-                type: 'boolean',
-            },
-            if: {
-                arg: 'clear',
-                truthy: true,
-            },
-        },
+    componentConfig: config,
+    defaultArgs: {
+        animatedHint: undefined,
+        leftHelper: undefined,
+        helperText: 'Подсказка к полю',
+        status: '',
+    },
+    additionalArgTypes: {
         view: {
-            options: { ...TextFieldView, ...{ empty: '' } },
-            control: {
-                type: 'select',
-            },
+            options: { ...TextFieldView, empty: '' },
+            control: { type: 'select' },
+            table: { category: 'variation' },
         },
         status: {
             options: statuses,
-            control: {
-                type: 'select',
-            },
-        },
-        labelPlacement: {
-            options: labelPlacements,
-            control: {
-                type: 'inline-radio',
-            },
+            control: { type: 'select' },
+            table: { category: 'variation' },
         },
         keepPlaceholder: {
-            control: {
-                type: 'boolean',
-            },
+            control: { type: 'boolean' },
             if: {
                 arg: 'animatedHint',
                 eq: 'label',
             },
+            table: { category: 'layout' },
         },
         animatedHint: {
             options: labelPlacements,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        label: {
-            control: 'text',
-        },
-        size: {
-            options: sizes,
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        titleCaption: {
-            control: { type: 'text' },
+            control: { type: 'inline-radio' },
+            table: { category: 'layout' },
         },
         helperText: {
             control: { type: 'text' },
+            table: { category: 'layout' },
         },
     },
+    disablePropsList: ['leftHelper'],
+});
+
+const meta: Meta<NumberFormatProps> = {
+    ...META,
+    title: 'Data Entry/NumberFormat',
 };
 
 export default meta;
 
-type StoryPropsDefault = Omit<
-    ComponentProps<typeof NumberFormat>,
-    | 'helperBlock'
-    | 'contentLeft'
-    | 'htmlSize'
-    | 'contentRight'
-    | 'type'
-    | 'name'
-    | 'onFocus'
-    | 'onBlur'
-    | 'onChange'
-    | 'checked'
-    | 'maxLength'
-    | 'minLength'
-    | 'required'
-    | 'enumerationType'
-    | 'chips'
-    | 'chipView'
-    | 'chipValidator'
-    | 'onChangeChips'
-    | 'hintText'
-    | 'hintView'
-    | 'hintSize'
-    | 'hintTargetIcon'
-    | 'hintPlacement'
-    | 'hintTargetPlacement'
-    | 'hintHasArrow'
-    | 'hintOffset'
-    | 'hintWidth'
-    | 'hintContentLeft'
-    | 'hintTrigger'
->;
-
-const StoryDemo = ({ ...rest }: StoryPropsDefault) => {
-    return (
-        <div
-            style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '2rem',
-                width: '70%',
-                margin: '0 auto',
-            }}
-        >
-            <NumberFormat
-                {...rest}
-                enumerationType="plain"
-                onChange={onChange}
-                onFocus={onFocus}
-                onBlur={onBlur}
-                onSearch={onSearch}
-            />
-        </div>
-    );
-};
-
-export const Default: StoryObj<StoryPropsDefault> = {
-    args: {
-        defaultValue: '',
-        thousandSeparator: ' ',
-        decimalScale: 3,
-        decimalSeparator: '.',
-        thousandsGroupStyle: 'thousand',
-        animatedHint: undefined,
-        fixedDecimalScale: false,
-        allowNegative: true,
-        allowLeadingZeros: false,
-        size: 'l',
-        view: 'default',
-        status: '',
-        label: 'Лейбл',
-        labelPlacement: 'outer',
-        keepPlaceholder: false,
-        titleCaption: 'Подпись к полю',
-        textBefore: '',
-        textAfter: '₽',
-        placeholder: 'Заполните поле',
-        helperText: 'Подсказка к полю',
-        disabled: false,
-        readOnly: false,
-        optional: false,
-        optionalText: 'опционально',
-        required: false,
-        requiredPlacement: 'right',
-        clear: false,
-        hasDivider: false,
-    },
-    render: (args) => <StoryDemo {...args} />,
-};
+export { Default };

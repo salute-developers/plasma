@@ -1,5 +1,8 @@
 import type { ReactNode, HTMLAttributes, CSSProperties } from 'react';
 
+export type BottomSheetSnapPoint = string;
+export type BottomSheetSnapPoints = string[];
+
 export interface BottomSheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Состояние шторки, открыта или скрыта.
@@ -64,9 +67,42 @@ export interface BottomSheetProps extends HTMLAttributes<HTMLDivElement> {
      */
     zIndex?: CSSProperties['zIndex'];
     /**
-     * Обработчик закрытия шторки. Вызывается при клике по оверлею, по кнопке закрытия или свайпом вниз.
+     * Обработчик закрытия шторки. Вызывается по кнопке закрытия или свайпом вниз,
+     * при клике по оверлею (если не передан onOverlayClick)
+     * и при нажатии ESC (если не передан onEscKeyDown).
      */
     onClose?: () => void;
+    /**
+     * Точки остановки шторки.
+     * CSS-размеры: '320px', '50%', '40dvh'.
+     * Если не передано или массив пуст — snap-points отключены.
+     */
+    snapPoints?: BottomSheetSnapPoints;
+    /**
+     * Начальная точка остановки.
+     * По умолчанию — первая из `snapPoints`.
+     */
+    initialSnapPoint?: BottomSheetSnapPoint;
+    /**
+     * Обработчик смены активной точки остановки.
+     */
+    onSnapPointChange?: (snapPoint: BottomSheetSnapPoint) => void;
+
+    /**
+     * Обработчик клика по оверлею (если не передан, используется onClose).
+     */
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Закрывать шторку при нажатии на ESC.
+     * @default true
+     */
+    closeOnEsc?: boolean;
+
+    /**
+     * Обработчик нажатия ESC (если не передан, используется onClose).
+     */
+    onEscKeyDown?: (event: KeyboardEvent) => void;
 
     /**
      * Вид компонента.

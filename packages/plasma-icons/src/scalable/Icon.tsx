@@ -186,6 +186,11 @@ export const iconSectionsSet = {
         screenShareUnpinFill: 'ScreenShareUnpinFill',
         translateOutline: 'TranslateOutline',
         translateFill: 'TranslateFill',
+        textAlignLeftOutline: 'TextAlignLeftOutline',
+        textAlignCenterOutline: 'TextAlignCenterOutline',
+        textAlignRightOutline: 'TextAlignRightOutline',
+        searchAIFill: 'SearchAIFill',
+        searchAIOutline: 'SearchAIOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -943,6 +948,10 @@ export const iconSectionsSet = {
         blankXmlOutline: 'BlankXmlOutline',
         blankXmlFill: 'BlankXmlFill',
         bookOpenFill: 'BookOpenFill',
+        blankGenerateOutline: 'BlankGenerateOutline',
+        blankGenerateFill: 'BlankGenerateFill',
+        blankGenerateAltOutline: 'BlankGenerateAltOutline',
+        blankGenerateAltFill: 'BlankGenerateAltFill',
     },
     Instruments: {
         boxFill: 'BoxFill',
@@ -1088,6 +1097,8 @@ export const iconSectionsSet = {
         messageDraftOutline: 'MessageDraftOutline',
         messageNewFill: 'MessageNewFill',
         messageNewOutline: 'MessageNewOutline',
+        messageAddOutline: 'MessageAddOutline',
+        messageAddFill: 'MessageAddFill',
     },
     Media: {
         cameraDashFill: 'CameraDashFill',

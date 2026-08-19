@@ -1,16 +1,8 @@
-import type {
-    Dispatch,
-    FC,
-    PropsWithChildren,
-    ReactNode,
-    SetStateAction,
-    MouseEventHandler,
-    CSSProperties,
-} from 'react';
+import type { Dispatch, FC, PropsWithChildren, SetStateAction, MouseEventHandler, CSSProperties } from 'react';
 
 import type { DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
 import type { DateInfo, DateType } from '../../../Calendar/Calendar.types';
-import type { DatePickerCalendarProps } from '../../DatePickerBase.types';
+import type { DatePickerCalendarProps, DatePickerFloatingPopoverProps } from '../../DatePickerBase.types';
 import type { DateShortcutItem } from '../RangeDate.types';
 
 export type RootWrapperProps = FC<
@@ -29,7 +21,7 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         calendarValue: [DateType, DateType];
         calendarFocusedDate?: DateType;
         isDoubleCalendar?: boolean;
-        target?: ReactNode;
+        target?: DatePickerFloatingPopoverProps['target'];
         onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
         onChangeSingleValue?: (value: Date, dateInfo?: DateInfo) => void;
         size?: string;

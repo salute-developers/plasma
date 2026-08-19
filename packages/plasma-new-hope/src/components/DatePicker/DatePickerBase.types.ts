@@ -7,7 +7,7 @@ import type { Langs } from './utils/dateHelper';
 import { DatePickerPlacement, DatePickerPlacementBasic } from './SingleDate/SingleDate.types';
 
 export type DatePickerFloatingPopoverProps = {
-    target: React.ReactNode | ((ref: React.MutableRefObject<HTMLElement | null>) => React.ReactNode);
+    target: React.ReactNode | ((ref: React.Ref<HTMLElement>) => React.ReactNode);
     children: React.ReactNode;
     opened: boolean;
     onToggle: (opened: boolean, event?: SyntheticEvent | Event) => void;
@@ -18,6 +18,9 @@ export type DatePickerFloatingPopoverProps = {
     disableFlip?: boolean;
     closeOnOverlayClick?: boolean;
     closeOnEsc?: boolean;
+    innerWidth?: string;
+    innerHeight?: string;
+    stretchHeight?: boolean;
 };
 
 export type FormattedDateValues = {
@@ -144,7 +147,7 @@ export type DatePickerCalendarProps = {
      */
     calendarContainerHeight?: number | string;
     /**
-     * Растянуть поле ввода на всю доступную ширину
+     * Растянуть поле ввода на всю доступную ширину, а календарь — на всю доступную ширину и высоту
      */
     stretched?: boolean;
 
@@ -157,6 +160,10 @@ export type DatePickerCalendarProps = {
      * @default 'left'
      */
     dateShortcutsPlacement?: 'right' | 'left';
+    /**
+     * Обработчик изменения отображаемых месяца или года при навигации по календарю.
+     */
+    onChangeVisibleDate?: (date: Date) => void;
 };
 
 export type DatePickerVariationProps = {

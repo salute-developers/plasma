@@ -27,6 +27,7 @@ export const tokens = {
 
     dropdownBorderColor: '--plasma-select-dropdown-border-color',
     dropdownBorderWidth: '--plasma-select-dropdown-border-width',
+    dropdownBackgroundColor: '--plasma-select-dropdown-background-color',
 
     itemHeight: '--plasma-select-item-height',
     itemBorderRadius: '--plasma-select-item-border-radius',

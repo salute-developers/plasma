@@ -1,6 +1,7 @@
 import React, { forwardRef, useRef } from 'react';
 
 import { RootProps } from '../../engines';
+import { useEscKeyDown } from '../../hooks';
 import { Overlay } from '../Overlay';
 import { cx } from '../../utils';
 
@@ -30,6 +31,9 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 opened,
                 children,
                 onClose,
+                onOverlayClick,
+                onEscKeyDown,
+                closeOnEsc = true,
                 hasHandle = true,
                 handlePlacement,
                 contentHeader,
@@ -41,6 +45,9 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 withTransition = true,
                 hasScrollEvents = true,
                 throttleMs,
+                snapPoints,
+                initialSnapPoint,
+                onSnapPointChange,
                 className,
                 view,
                 ...restProps
@@ -51,8 +58,22 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             const contentRef = useRef<HTMLDivElement>(null);
             const handleRef = useRef<HTMLDivElement>(null);
 
+            const hasSnapPoints = Boolean(snapPoints && snapPoints.length > 0);
+
             useOverflow({ opened });
-            useSheetSwipe({ contentWrapperRef, contentRef, handleRef, throttleMs, hasScrollEvents, onClose });
+            useSheetSwipe({
+                contentWrapperRef,
+                contentRef,
+                handleRef,
+                throttleMs,
+                hasScrollEvents,
+                onClose,
+                opened,
+                snapPoints,
+                initialSnapPoint,
+                onSnapPointChange,
+            });
+            useEscKeyDown({ opened, closeOnEsc, onEscKeyDown, onClose });
 
             const hasHeader = Boolean(contentHeader);
             const hasFooter = Boolean(contentFooter);
@@ -63,17 +84,32 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 ? `var(${tokens.sheetOverlayWithBlurColor})`
                 : `var(${tokens.sheetOverlayColor})`;
 
+            const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+                if (onOverlayClick) {
+                    onOverlayClick(event);
+                    return;
+                }
+
+                onClose();
+            };
+
             return (
                 <Root opened={opened} onClose={onClose} view={view} handlePlacement={handlePlacement} ref={rootRef}>
                     <StyledContentWrapper
                         opened={opened}
                         withTransition={withTransition}
+                        hasSnapPoints={hasSnapPoints}
                         className={cx(closedClass, className)}
                         ref={contentWrapperRef}
                         {...restProps}
                     >
                         {hasHandle && <StyledSheetHandle ref={handleRef} />}
-                        <StyledSheetContent hasHeader={hasHeader} hasFooter={hasFooter} ref={contentRef}>
+                        <StyledSheetContent
+                            hasHeader={hasHeader}
+                            hasFooter={hasFooter}
+                            hasSnapPoints={hasSnapPoints}
+                            ref={contentRef}
+                        >
                             {hasHeader && (
                                 <StyledSheetHeader isHeaderFixed={isHeaderFixed}>{contentHeader}</StyledSheetHeader>
                             )}
@@ -89,7 +125,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                             backgroundColorProperty={overlayBackgroundToken}
                             withBlur={withBlur}
                             isClickable
-                            onOverlayClick={onClose}
+                            onOverlayClick={handleOverlayClick}
                         />
                     )}
                 </Root>

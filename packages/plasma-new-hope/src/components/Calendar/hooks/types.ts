@@ -15,6 +15,8 @@ export type UseCalendarNavigationArgs = {
     calendarState: CalendarStateType;
     dispatch: Dispatch<Action>;
     date: DateObject;
+    startYear: number;
+    onChangeVisibleDate?: (date: Date) => void;
 };
 
 export type UseCalendarDateChangeArgs = {
@@ -22,6 +24,7 @@ export type UseCalendarDateChangeArgs = {
     onChangeValue: (value: Date, dateInfo?: DateInfo) => void;
     onSelectIndexes: Dispatch<SetStateAction<number[]>>;
     dispatch: Dispatch<Action>;
+    onChangeVisibleDate?: (date: Date) => void;
 };
 
 export type UseDateStructureArgs = {

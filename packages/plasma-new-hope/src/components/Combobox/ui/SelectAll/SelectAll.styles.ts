@@ -9,7 +9,7 @@ export const Wrapper = styled.div<{ variant: ComboboxProps['variant']; sticky?: 
     top: 0;
     display: flex;
     flex-direction: column;
-    background: var(${constants.background});
+    background: var(${tokens.dropdownBackgroundColor}, var(${constants.background}));
     margin-bottom: ${({ variant }) =>
         `var(${variant === 'tight' ? tokens.dividerMarginBottomTight : tokens.dividerMarginBottom})`};
     border-top-left-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
@@ -17,7 +17,7 @@ export const Wrapper = styled.div<{ variant: ComboboxProps['variant']; sticky?: 
 `;
 
 export const DividerWrapper = styled.div`
-    background: var(${constants.background});
+    background: var(${tokens.dropdownBackgroundColor}, var(${constants.background}));
 `;
 
 export const Divider = styled.div<{ variant: ComboboxProps['variant'] }>`

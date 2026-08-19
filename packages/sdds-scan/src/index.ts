@@ -13,6 +13,8 @@ export * from './components/ProgressBarCircular';
 // Navigation
 export * from './components/Breadcrumbs';
 export * from './components/Dropdown';
+export * from './components/Link';
+export * from './components/LinkButton';
 export * from './components/Pagination';
 export * from './components/Tabs';
 
@@ -21,7 +23,6 @@ export * from './components/ButtonBase';
 export * from './components/Button';
 export * from './components/ButtonGroup';
 export * from './components/IconButton';
-export * from './components/LinkButton';
 export * from './components/EmbedIconButton';
 export * from './components/Calendar';
 export * from './components/Radiobox';
@@ -82,11 +83,10 @@ export * from './components/EmptyState';
 export * from './components/ViewContainer';
 export * from './components/Loader';
 export * from './components/Skeleton';
+export * from './components/Flow';
 
 // INFO: Disabled components
-// export * from './components/Flow';
 // export * from './components/Grid';
-// export * from './components/Link';
 // export * from './components/Portal';
 // export * from './components/Price';
 // export * from './components/Sheet';

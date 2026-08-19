@@ -7,6 +7,13 @@ import {
     inverseTextPrimary,
     inverseTextSecondary,
     onDarkTextPrimary,
+    outlineSolidPrimary,
+    outlineTransparentNegative,
+    outlineTransparentNegativeHover,
+    outlineTransparentPositive,
+    outlineTransparentPositiveHover,
+    outlineTransparentWarning,
+    outlineTransparentWarningHover,
     surfaceAccent,
     surfaceAccentHover,
     surfaceNegative,
@@ -15,16 +22,17 @@ import {
     surfaceSolidDefault,
     surfaceSolidDefaultHover,
     surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
+    surfaceTransparentNegativeHover,
     surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
+    surfaceTransparentPositiveHover,
     surfaceTransparentPrimary,
+    surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
     surfaceTransparentTertiary,
     surfaceTransparentWarning,
-    surfaceTransparentWarningActive,
+    surfaceTransparentWarningHover,
     textAccent,
     textNegative,
     textPositive,
@@ -57,8 +65,12 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentPrimary};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
+                ${tokens.textFieldBorderColor}: ${outlineSolidPrimary};
+                ${tokens.textFieldBorderColorHover}: ${surfaceSolidDefault};
+                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
@@ -111,8 +123,12 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textPositive};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentPositiveActive};
-                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentPositive};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPositiveHover};
+                ${tokens.textFieldBorderColor}: ${outlineTransparentPositive};
+                ${tokens.textFieldBorderColorHover}: ${outlineTransparentPositiveHover};
+                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
@@ -165,8 +181,12 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textWarning};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
-                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentWarningHover};
+                ${tokens.textFieldBorderColor}: ${outlineTransparentWarning};
+                ${tokens.textFieldBorderColorHover}: ${outlineTransparentWarningHover};
+                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
@@ -219,9 +239,13 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textNegative};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentNegativeHover};
+                ${tokens.textFieldBorderColor}: ${outlineTransparentNegative};
+                ${tokens.textFieldBorderColorHover}: ${outlineTransparentNegativeHover};
+                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
 
-                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
@@ -271,6 +295,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
@@ -392,6 +417,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
@@ -513,6 +539,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
@@ -634,6 +661,7 @@ export const config = {
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
@@ -875,13 +903,16 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.textFieldColorReadOnly}: ${textPrimary};
-                ${tokens.textFieldReadOnlyOpacity}: 0.1;
-                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
-                ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceTransparentPrimary};
-                ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
-                ${tokens.textFieldLeftHelperColorReadOnly}: ${textSecondary};
                 ${tokens.textFieldLabelColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldLeftHelperColorReadOnly}: ${textSecondary};
+
+                ${tokens.textFieldColorReadOnly}: ${textPrimary};
+                ${tokens.textFieldBackgroundColorReadOnly}: transparent;
+                ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
+                ${tokens.textFieldBorderColorReadOnly}: ${outlineSolidPrimary};
+
+                ${tokens.textFieldReadOnlyOpacity}: 1;
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
             `,
         },
     },

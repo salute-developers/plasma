@@ -11,28 +11,50 @@ type ValidateSymbolsArgs = {
     codeErrorBehavior: CodeErrorBehavior;
     currentCode: Array<string>;
     inputContainerRef: MutableRefObject<HTMLDivElement | null>;
-    inputRefs: MutableRefObject<Array<HTMLInputElement | null>>;
+    inputRef: MutableRefObject<HTMLInputElement | null>;
     captionRef: MutableRefObject<HTMLDivElement | null>;
     setInnerValue: Dispatch<SetStateAction<Array<string>>>;
+    setActiveIndex: Dispatch<SetStateAction<number | null>>;
+    setSelectedIndex: Dispatch<SetStateAction<number | null>>;
     codeSetter: (newCode: Array<string>) => void;
+    onAnimationStart: () => void;
+    onAnimationEnd: () => void;
 };
 
 export const handleCodeError = ({
     codeLength,
     codeErrorBehavior,
     currentCode,
-    inputRefs,
+    inputRef,
     inputContainerRef,
     captionRef,
     setInnerValue,
+    setActiveIndex,
+    setSelectedIndex,
     codeSetter,
+    onAnimationStart,
+    onAnimationEnd,
 }: ValidateSymbolsArgs) => {
     if (!inputContainerRef.current) {
         return;
     }
 
+    const selectItem = (start: number, end: number) => {
+        const input = inputRef.current;
+
+        if (!input) {
+            return;
+        }
+
+        input.focus();
+        input.setSelectionRange(start, end);
+        setActiveIndex(start);
+        setSelectedIndex(start < end ? start : null);
+    };
+
     switch (codeErrorBehavior) {
         case 'keep':
+            onAnimationStart();
             inputContainerRef.current.classList.add(classes.codeError, classes.codeErrorAnimation);
             captionRef.current?.classList.add(classes.captionError);
 
@@ -44,16 +66,17 @@ export const handleCodeError = ({
                 setInnerValue(currentCode);
 
                 inputContainerRef.current?.classList.remove(classes.codeErrorAnimation);
+                onAnimationEnd();
 
                 setTimeout(() => {
-                    inputRefs.current[inputRefs.current.length - 1]?.setSelectionRange(0, 1);
-                    inputRefs.current[inputRefs.current.length - 1]?.focus();
+                    selectItem(codeLength - 1, codeLength);
                 }, 0);
             }, ANIMATION_TIMEOUT);
 
             break;
         case 'remove-code':
         default:
+            onAnimationStart();
             inputContainerRef.current.classList.add(
                 classes.codeError,
                 classes.codeErrorAnimation,
@@ -64,12 +87,16 @@ export const handleCodeError = ({
             setTimeout(() => {
                 codeSetter(getCodeValue(codeLength, ''));
 
-                inputRefs.current[0]?.focus();
                 inputContainerRef.current?.classList.remove(
                     classes.codeError,
                     classes.codeErrorAnimation,
                     classes.codeErrorFade,
                 );
+                onAnimationEnd();
+
+                setTimeout(() => {
+                    selectItem(0, 0);
+                }, 0);
             }, ANIMATION_TIMEOUT);
     }
 };

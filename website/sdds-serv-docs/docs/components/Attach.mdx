@@ -1,6 +1,7 @@
 ---
 id: attach
 title: Attach
+description: "Открытие выбора файла по нажатию кнопки — прикрепление локального файла."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -181,7 +182,7 @@ export function App() {
                     />
                     <span>Выбранные файлы: {files.map((f) => f.name).join(', ') || 'нет'}</span>
                 </div>
-            );
+            )
         }
         ```
     </TabItem>
@@ -366,5 +367,6 @@ export function App() {
     </TabItem>
 </Tabs>
 
-## Таблица свойств
+## API
+
 <PropsTable name="Attach" />

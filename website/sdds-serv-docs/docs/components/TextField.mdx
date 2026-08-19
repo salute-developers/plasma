@@ -1,6 +1,7 @@
 ---
 id: TextField
 title: TextField
+description: "Однострочное текстовое поле"
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -140,9 +141,6 @@ export function App() {
     </TabItem>
 </Tabs>
 
-### Таблица свойств
-<PropsTable name="TextField" exclude={['css']} />
-
 ### Режим ввода (DEPRECATED)
 С помощью свойства `enumerationType` можно вводить элементы как теги. Свойство `chipType` изменяет внешний вид чипа.
 С помощью `chipView` можно задать общий вид Chip. Валидация Chip происходит с помощью функции chipValidator.
@@ -181,3 +179,7 @@ export function App() {
     );
 }
 ```
+
+## API
+
+<PropsTable name="TextField" exclude={['css']} />

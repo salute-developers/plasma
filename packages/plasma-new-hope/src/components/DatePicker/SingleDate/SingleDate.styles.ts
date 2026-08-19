@@ -198,6 +198,10 @@ export const base = css`
             width: 100%;
         }
     }
+
+    &.${classes.datePickerCalendarstretched} {
+        height: 100%;
+    }
 `;
 
 export const LeftHelper = styled.div`

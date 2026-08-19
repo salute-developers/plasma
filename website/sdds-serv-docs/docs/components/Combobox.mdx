@@ -1,6 +1,7 @@
 ---
 id: combobox
 title: Combobox
+description: "Поле с выпадающим списком: поиск по элементам, одиночный и множественный выбор."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -10,7 +11,6 @@ import TabItem from '@theme/TabItem';
 # Combobox
 
 <Description name="Combobox" />
-<PropsTable name="Combobox" />
 
 ## Использование
 Обязательным параметром является только `items`. Внутри items может быть такой же вложенный массив items. Формат следующий:
@@ -152,6 +152,43 @@ type Items = Array<{
                             helperText="Helper text"
                         />
                     </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="chipsPlaceholder" label="Placeholder with chips">
+        В режиме множественного выбора placeholder можно скрыть, когда выбран хотя бы один чип.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const [value, setValue] = useState<string[]>(['north_america']);
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                },
+            ];
+
+            return (
+                <div style={{ width: "300px", height: "300px" }}>
+                    <Combobox
+                        multiple
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        placeholder={value.length > 0 ? '' : 'Placeholder'}
+                        label="Label"
+                        helperText="Helper text"
+                    />
                 </div>
             );
         }
@@ -1051,3 +1088,7 @@ type Items = Array<{
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
+
+## API
+
+<PropsTable name="Combobox" />

@@ -19,6 +19,7 @@ export const RectSkeleton = forwardRef<HTMLDivElement, RectSkeletonProps>(
             customGradientColor,
             roundness = '16',
             animationType = 'shimmer',
+            animationDuration,
             customFadeInColor,
             customFadeOutColor,
             className,
@@ -39,6 +40,7 @@ export const RectSkeleton = forwardRef<HTMLDivElement, RectSkeletonProps>(
                 gradientColor={skeletonGradientColor}
                 customFadeInColor={customFadeInColor}
                 customFadeOutColor={customFadeOutColor}
+                animationDuration={animationDuration}
                 width={Number.isNaN(Number(width)) ? String(width) : `${width}px`}
                 height={Number.isNaN(Number(height)) ? String(height) : `${height}px`}
                 {...rest}

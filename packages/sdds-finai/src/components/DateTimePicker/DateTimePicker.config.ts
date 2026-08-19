@@ -91,6 +91,7 @@ export const config = {
                 ${tokens.textFieldBorderColorEditedHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorEditedFocus}: ${outlineTransparentInfoActive};
 
+                ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.labelColor}: ${textSecondary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
@@ -168,7 +169,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.25rem -0.1875rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.1875rem -0.1875rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.375rem;
                 ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
@@ -200,6 +201,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -328,7 +337,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.25rem -0.0625rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
                 ${tokens.textFieldContentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
@@ -360,6 +369,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;

@@ -1,17 +1,17 @@
 ---
 id: popup
 title: Popup
+description: "Отображение содержимого в заданной позиции экрана через портал."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
 
 # Popup
 <Description name="Popup" />
-<PropsTable name="Popup" />
 
 ### Провайдер контекста
 
-Поместите `PopupProvider` в [корень приложения](../../#корень-приложения) или там, где будете применять Popup:
+Поместите `PopupProvider` в [корень приложения](../../#подключение-темы) или там, где будете применять Popup:
 
 ```tsx title="index.ts"
 import ReactDOM from 'react-dom';
@@ -346,3 +346,7 @@ export function App() {
     );
 }
 ```
+
+## API
+
+<PropsTable name="Popup" />

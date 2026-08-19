@@ -1,0 +1,60 @@
+'use client';
+
+import React, { forwardRef, useEffect, useState } from 'react';
+import type { ComponentPropsWithoutRef, ComponentType, ReactNode } from 'react';
+
+import dynamicIconImports from './dynamicIconImports.js';
+
+export type IconName = keyof typeof dynamicIconImports;
+
+export interface DynamicIconProps extends ComponentPropsWithoutRef<'svg'> {
+    name: IconName;
+    fallback?: ReactNode;
+}
+
+type IconComponent = ComponentType<ComponentPropsWithoutRef<'svg'> & React.RefAttributes<SVGSVGElement>>;
+type LoadedIcon = {
+    name: IconName;
+    component: IconComponent;
+};
+
+export const iconNames = Object.keys(dynamicIconImports) as IconName[];
+
+export const isIconName = (name: string): name is IconName =>
+    Object.prototype.hasOwnProperty.call(dynamicIconImports, name);
+
+const loadIcon = async (name: IconName): Promise<IconComponent> => {
+    if (!isIconName(name)) {
+        throw new Error(`[sdds-icons]: Icon "${name}" was not found`);
+    }
+
+    const iconModule = await dynamicIconImports[name]();
+
+    return iconModule.default;
+};
+
+export const DynamicIcon = /* @__PURE__ */ forwardRef<SVGSVGElement, DynamicIconProps>(
+    ({ name, fallback = null, ...props }, ref) => {
+        const [loadedIcon, setLoadedIcon] = useState<LoadedIcon>();
+
+        useEffect(() => {
+            loadIcon(name)
+                .then((component) => {
+                    setLoadedIcon({ name, component });
+                })
+                .catch((error: unknown) => {
+                    console.error(error);
+                });
+        }, [name]);
+
+        if (loadedIcon?.name !== name) {
+            return <>{fallback}</>;
+        }
+
+        const Icon = loadedIcon.component;
+
+        return <Icon ref={ref} {...props} />;
+    },
+);
+
+export default DynamicIcon;

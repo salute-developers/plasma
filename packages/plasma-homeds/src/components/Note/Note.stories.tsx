@@ -15,6 +15,12 @@ const { meta: META, Default } = getNoteStories({
     additionalComponents: {
         LinkButton,
     },
+    defaultArgs: {
+        size: 'm',
+    },
+    disablePropsList: ['size'],
+    getIconSize: (_size, isScalable) => (isScalable ? 's' : 'xs'),
+    linkButtonSize: 's',
 });
 
 const meta: Meta<NoteProps> = {

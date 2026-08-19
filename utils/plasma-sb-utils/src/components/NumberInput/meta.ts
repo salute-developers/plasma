@@ -6,6 +6,9 @@ import {
     inputBackgroundTypes,
     displayWithoutValueOptions,
     limitBehaviorOptions,
+    decimalSeparators,
+    thousandSeparators,
+    thousandsGroupStyles,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -26,6 +29,11 @@ export const createMeta = ({
     return {
         decorators: [InSpacingDecorator],
         component,
+        parameters: {
+            controls: {
+                disableSaveFromUI: true,
+            },
+        },
         args: {
             view: 'default',
             size: 'l',
@@ -36,7 +44,15 @@ export const createMeta = ({
             max: 9,
             step: 1,
             precision: 2,
-            width: 188,
+            value: 5,
+            thousandSeparator: '',
+            decimalSeparator: '.',
+            thousandsGroupStyle: 'thousand',
+            decimalScale: 2,
+            fixedDecimalScale: false,
+            allowNegative: true,
+            allowLeadingZeros: false,
+            width: 288,
             isManualInput: false,
             textBefore: '',
             textAfter: '',
@@ -88,7 +104,38 @@ export const createMeta = ({
                 table: { category: 'value-related' },
             },
             precision: {
-                control: { type: 'number' },
+                control: { type: 'number', min: 0 },
+                table: { category: 'value-related' },
+            },
+            thousandSeparator: {
+                options: thousandSeparators,
+                control: { type: 'select' },
+                table: { category: 'value-related' },
+            },
+            decimalSeparator: {
+                options: decimalSeparators,
+                control: { type: 'select' },
+                table: { category: 'value-related' },
+            },
+            thousandsGroupStyle: {
+                options: thousandsGroupStyles,
+                control: { type: 'select' },
+                table: { category: 'value-related' },
+            },
+            decimalScale: {
+                control: { type: 'number', min: 0 },
+                table: { category: 'value-related' },
+            },
+            fixedDecimalScale: {
+                control: { type: 'boolean' },
+                table: { category: 'value-related' },
+            },
+            allowNegative: {
+                control: { type: 'boolean' },
+                table: { category: 'value-related' },
+            },
+            allowLeadingZeros: {
+                control: { type: 'boolean' },
                 table: { category: 'value-related' },
             },
             limitBehavior: {

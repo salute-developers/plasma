@@ -65,6 +65,8 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
+                ${tokens.titleCaptionColor}: ${textSecondary};
+
                 ${tokens.indicatorColor}: ${surfaceNegative};
 
                 ${tokens.textFieldBorderColor}: ${outlineSolidPrimary};
@@ -187,6 +189,14 @@ export const config = {
                 ${tokens.textFieldFontWeight}: ${bodyM.fontWeight};
                 ${tokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionFontFamily}: ${bodyS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyS.fontFamily};

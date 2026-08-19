@@ -365,7 +365,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.25rem;
                 ${tokens.textFieldRightContentMargin}: -0.1875rem -0.375rem -0.1875rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.1875rem -0.1875rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
                 ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
@@ -489,7 +489,7 @@ export const config = {
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.1875rem;
                 ${tokens.textFieldRightContentMargin}: -0.0625rem -0.25rem -0.0625rem 0.75rem;
-                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
                 ${tokens.textFieldContentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;

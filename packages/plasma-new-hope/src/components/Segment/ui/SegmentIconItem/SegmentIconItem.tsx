@@ -1,6 +1,7 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 import type { MouseEvent } from 'react';
 import type { RootProps } from 'src/engines/types';
+import { useForkRef } from 'src/hooks';
 import { cx, safeUseId } from 'src/utils';
 
 import { classes } from '../../tokens';
@@ -29,15 +30,32 @@ export const segmentIconItemRoot = (Root: RootProps<HTMLButtonElement, SegmentIc
             'aria-label': ariaLabelExternal,
             ...rest
         } = props;
-        const { disabledGroup, handleSelect, selectedSegmentItems, hasDivider, orientation } = useSegmentInner();
+        const {
+            disabledGroup,
+            handleSelect,
+            selectedSegmentItems,
+            hasDivider,
+            orientation,
+            selectionMode,
+            registerItemRef,
+        } = useSegmentInner();
 
         const uniqId = safeUseId();
         const segmentId = id || `label-${uniqId}`;
 
         const pilledClass = pilled ? classes.segmentPilled : undefined;
+        const multipleSelectionClass = selectionMode === 'multiple' ? classes.segmentMultipleSelection : undefined;
 
         const isSelected = selectedSegmentItems?.includes(value);
         const selectedClass = isSelected ? classes.selectedSegmentItem : undefined;
+
+        const setItemRef = useCallback(
+            (node: HTMLButtonElement | null) => {
+                registerItemRef(value, node);
+            },
+            [value, registerItemRef],
+        );
+        const ref = useForkRef(outerRef, setItemRef);
 
         const handleSelectSegment = (event: MouseEvent<HTMLButtonElement>) => {
             if (disabledGroup) {
@@ -50,17 +68,17 @@ export const segmentIconItemRoot = (Root: RootProps<HTMLButtonElement, SegmentIc
 
         return (
             <>
-                {hasDivider && <StyledDivider orientation={dividerOrientationMap[orientation]} />}
+                {hasDivider && <StyledDivider orientation={dividerOrientationMap[orientation]} data-segment-divider />}
 
                 <Root
                     view={view}
                     size={size}
                     id={segmentId}
-                    ref={outerRef}
+                    ref={ref}
                     aria-label={ariaLabelExternal || value}
                     value={value}
                     pilled={pilled}
-                    className={cx(classes.segmentItem, selectedClass, pilledClass, className)}
+                    className={cx(classes.segmentItem, selectedClass, pilledClass, multipleSelectionClass, className)}
                     onClick={handleSelectSegment}
                     tabIndex={disabledGroup ? -1 : 0}
                     disabled={disabledGroup}

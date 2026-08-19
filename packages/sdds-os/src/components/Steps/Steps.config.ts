@@ -27,18 +27,6 @@ const baseItemView = `
     ${tokens.disabledOpacity}: 0.4;
 `;
 
-const accentConfig = `
-    ${tokens.completedTitleColor}: var(--text-primary);
-    ${tokens.completedTitleColorHover}: var(--text-primary-hover);
-    
-    ${tokens.completedIndicatorBackground}: var(--surface-accent);
-    ${tokens.completedIndicatorBackgroundHover}: var(--surface-accent-hover);
-    
-    // Цвет контента внутри элемента Step
-    ${tokens.completedIndicatorColor}: var(--on-dark-text-primary);
-    ${tokens.completedIndicatorColorHover}: var(--on-dark-text-primary-hover);
-`;
-
 export const config = {
     defaults: {
         size: 'm',
@@ -48,9 +36,6 @@ export const config = {
         view: {
             default: css`
                 ${tokens.dividerColor}: var(--surface-solid-default);
-            `,
-            accent: css`
-                ${tokens.dividerColor}: var(--surface-accent);
             `,
         },
         itemView: {
@@ -169,37 +154,4 @@ export const config = {
             `,
         },
     },
-    intersections: [
-        {
-            view: 'accent',
-            itemView: 'default',
-            style: css`
-                ${tokens.activeIndicatorBorder}: solid var(--text-accent);
-                ${tokens.activeIndicatorColor}: var(--text-accent);
-
-                ${accentConfig};
-            `,
-        },
-        {
-            view: 'accent',
-            itemView: 'negative',
-            style: css`
-                ${accentConfig};
-            `,
-        },
-        {
-            view: 'accent',
-            itemView: 'warning',
-            style: css`
-                ${accentConfig};
-            `,
-        },
-        {
-            view: 'accent',
-            itemView: 'positive',
-            style: css`
-                ${accentConfig};
-            `,
-        },
-    ],
 };

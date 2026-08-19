@@ -17,9 +17,10 @@ export const tokens = {
     background: '--plasma-note-background',
     color: '--plasma-note-color',
     contentBeforeColor: '--plasma-note-content-before-color',
+    contentBeforeAlignSelf: '--plasma-note-content-before-align-self',
 
     padding: '--plasma-note-padding',
-    paddingBottomWithActionContent: '--plasma-note-padding-with-action-content',
+    paddingBottomWithActionContent: '--plasma-note-padding-bottom-with-action-content',
     paddingScalable: '--plasma-note-padding-scalable',
     borderRadius: '--plasma-note-border-radius',
     gap: '--plasma-note-gap',

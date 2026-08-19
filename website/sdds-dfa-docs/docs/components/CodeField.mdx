@@ -8,25 +8,37 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # CodeField
-Компонент `CodeField` используется для ввода OTP-кодов.
+Компонент `CodeField` используется для ввода одноразовых OTP-кодов.
+
+> [!NOTE]
+> Визуально код разделен на ячейки, но ввод выполняется через один нативный `input`.
+> Благодаря этому компонент поддерживает вставку полного кода, системное автозаполнение из СМС, WebOTP и стандартную работу с HTML-формами.
 
 <Description name="CodeField" />
 
 ## Быстрый старт
 
 ```tsx live
-import React from 'react';
+import React, { useState } from 'react';
 import { CodeField } from '@salutejs/sdds-dfa';
 
 export function App() {
+    const [code, setCode] = useState('');
+
     return (
         <CodeField
+            value={code}
+            onChange={setCode}
+            autoComplete="one-time-code"
             caption="Введите код из СМС"
             captionAlign="center"
+            onFullCodeEnter={(value) => console.log('Код заполнен:', value)}
         />
     );
 }
 ```
+
+Без свойства `value` компонент работает в uncontrolled-режиме и самостоятельно хранит введенный код.
 
 ## Размер
 
@@ -40,7 +52,7 @@ export function App() {
 
         export function App() {
             return (
-                <div style={{ flexDirection: 'column', gap: '2rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                     <CodeField
                         size="xl"
                         caption="Введите код из СМС"
@@ -91,7 +103,7 @@ import { CodeField } from '@salutejs/sdds-dfa';
 
 export function App() {
     return (
-        <div style={{ flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <div style={{ display: 'flex', gap: '2rem' }}>
                 <CodeField shape="default" codeLength={4} />
                 <CodeField shape="segmented" codeLength={4} />
@@ -118,7 +130,7 @@ export function App() {
 ## Поведение при вводе
 
 Поведение ячейки при вводе некорректного символа регулируется свойством `itemErrorBehavior`.
-При заполнении всех полей ввода срабатывает колбэк `onFullCodeEnter`. При неверном вводе кода поведение компонента управляется свойством `codeErrorBehavior`. Индикация ошибки — с помощью флага `isError` и колбэка `setIsError`:
+Когда введено `codeLength` символов, срабатывает колбэк `onFullCodeEnter`. Он вызывается как после ручного ввода, так и после вставки, системного автозаполнения или WebOTP. При неверном вводе кода поведение компонента управляется свойством `codeErrorBehavior`. Индикация ошибки задается с помощью флага `isError` и колбэка `setIsError`:
 
 <Tabs>
     <TabItem value="itemErrorBehavior" label="itemErrorBehavior" default>
@@ -128,10 +140,10 @@ export function App() {
 
         export function App() {
             return (
-                <div style={{ flexDirection: 'column', gap: '2rem' }}>
-                    <CodeField value="123" itemErrorBehavior="remove-symbol" />
-                    <CodeField value="123" itemErrorBehavior="keep" />
-                    <CodeField value="123" itemErrorBehavior="forbid-enter" />
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <CodeField itemErrorBehavior="remove-symbol" caption="remove-symbol" />
+                    <CodeField itemErrorBehavior="keep" caption="keep" />
+                    <CodeField itemErrorBehavior="forbid-enter" caption="forbid-enter" />
                 </div>
             );
         }
@@ -167,7 +179,7 @@ export function App() {
             }
 
             return (
-                <div style={{ flexDirection: 'column', gap: '2rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                     <CodeField
                         itemErrorBehavior="remove-symbol"
                         codeErrorBehavior="remove-code"
@@ -202,7 +214,7 @@ import { CodeField } from '@salutejs/sdds-dfa';
 
 export function App() {
     return (
-        <div style={{ flexDirection: 'column', gap: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <CodeField
                 inputMode="numeric"
                 caption="Числовая клавиатура (по умолчанию)"
@@ -218,20 +230,69 @@ export function App() {
 }
 ```
 
+Стрелки и клавиша `Delete` не изменяют позицию ввода: активная ячейка управляется самим компонентом. Для удаления последнего символа используется `Backspace`.
+
+## Нативный input и HTML-формы
+
+Внутри `CodeField` находится один нативный `input`, который хранит полное значение кода. Декоративные ячейки не участвуют в таб-навигации. Переданный `ref` указывает на этот `HTMLInputElement`.
+
+Свойства `name`, `form`, `required`, `autoComplete`, `inputMode` и ARIA-атрибуты применяются к нативному полю. Поэтому значение можно получить через `FormData`, а компонент можно связать с подписью для скринридеров:
+
+```tsx live
+import React from 'react';
+import { CodeField } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        const data = new FormData(event.currentTarget);
+        console.log('OTP:', data.get('otp'));
+    };
+
+    return (
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <CodeField
+                name="otp"
+                required
+                autoComplete="one-time-code"
+                aria-label="Код подтверждения из СМС"
+            />
+            <button type="submit">Продолжить</button>
+        </form>
+    );
+}
+```
+
 ## Работа с OTP-кодом из СМС
 
-Функционал [Web OTP API](https://developer.mozilla.org/en-US/docs/Web/API/WebOTP_API) актуален только в мобильных браузерах.
-Для корректного автозаполнения кода СМС должна быть отправлена в следующем формате:
+По умолчанию `CodeField` использует `autoComplete="one-time-code"` и поддерживает два механизма автозаполнения.
+
+### Системное автозаполнение
+
+Браузер или операционная система могут распознать код в СМС и показать его над клавиатурой либо в меню автозаполнения.
+Этот сценарий работает через нативный `input` и не требует поддержки WebOTP. Формат распознаваемого сообщения зависит от браузера и операционной системы.
+
+### Web OTP API
+
+[Web OTP API](https://developer.mozilla.org/en-US/docs/Web/API/WebOTP_API) используется как дополнительный механизм в поддерживающих его мобильных браузерах.
+Для WebOTP страница должна работать в безопасном контексте, а последняя строка СМС должна содержать домен страницы и код:
+
 ```
 Ваш код подтверждения: 123456.
 
-@plasma.sberdevices.ru #123456
+@example.com #123456
 ```
 
 Первая и вторая (пустая) строки являются необязательными и предназначены для удобства чтения пользователем.
 Последняя строка обязательна и должна состоять из:
-- доменной части URL-адреса веб-сайта, который вызвал API; обязательно начинается с символа `@`
-- затем следует OTP, перед которым стоит знак `#`
+
+- доменной части URL-адреса сайта, который вызвал API; она начинается с символа `@`;
+- OTP-кода, перед которым стоит символ `#`.
+
+После успешной автоподстановки компонент вызывает `onChange`, а при заполнении всех ячеек — `onFullCodeEnter`.
+
+Чтобы компонент не запускал WebOTP и не запрашивал у браузера режим `one-time-code`, передайте `autoComplete="off"`.
 
 ## Таблица свойств
 <PropsTable name="CodeField" />

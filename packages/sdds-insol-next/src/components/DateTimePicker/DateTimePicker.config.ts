@@ -90,6 +90,7 @@ export const config = {
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceSolidCard};
 
+                ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
@@ -190,6 +191,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -352,6 +361,14 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
+                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -512,6 +529,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXXS.lineHeight};
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -674,6 +699,14 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
 
+                ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXXS.lineHeight};
+
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
@@ -833,6 +866,14 @@ export const config = {
                 ${tokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
+
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionFontFamily}: ${bodyXXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXXS.lineHeight};
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;

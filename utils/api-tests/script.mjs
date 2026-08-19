@@ -13,50 +13,50 @@ const config = {
     libs: [
         {
             name: '@salutejs/plasma-b2c',
-            excludeComponents: ['TextField', 'CodeArea'],
+            excludeComponents: ['TextField', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/plasma-web',
-            excludeComponents: ['TextField', 'CodeArea'],
+            excludeComponents: ['TextField', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/plasma-giga',
         },
         {
             name: '@salutejs/sdds-bizcom',
-            excludeComponents: ['CodeArea'],
+            excludeComponents: ['CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-cs',
-            excludeComponents: ['Select', 'InformationWrapper', 'CodeArea'],
+            excludeComponents: ['Select', 'InformationWrapper', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-dfa',
-            excludeComponents: ['InformationWrapper', 'CodeArea'],
+            excludeComponents: ['InformationWrapper', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-finai',
-            excludeComponents: ['CodeArea'],
+            excludeComponents: ['CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-insol',
-            excludeComponents: ['CodeArea'],
+            excludeComponents: ['CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-netology',
-            excludeComponents: ['CodeArea'],
+            excludeComponents: ['CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-platform-ai',
-            excludeComponents: ['CodeArea'],
+            excludeComponents: ['CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-scan',
-            excludeComponents: ['CodeArea'],
+            excludeComponents: ['CodeArea', 'Sheet', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-serv',
-            excludeComponents: ['CodeArea'],
+            excludeComponents: ['CodeArea', 'BottomSheet'],
         },
     ],
     includeComponents: [],

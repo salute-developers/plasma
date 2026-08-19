@@ -10,6 +10,7 @@ import {
     onDarkTextPrimary,
     onDarkTextSecondary,
     onDarkTextSecondaryHover,
+    outlineSolidPrimary,
     surfaceAccent,
     surfaceAccentActive,
     surfaceAccentHover,
@@ -24,20 +25,16 @@ import {
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
     surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentNegativeHover,
     surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
-    surfaceTransparentPositiveHover,
     surfaceTransparentPrimary,
-    surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
     surfaceTransparentTertiary,
     surfaceTransparentWarning,
-    surfaceTransparentWarningActive,
     surfaceTransparentWarningHover,
+    surfaceTransparentPrimaryHover,
     surfaceWarning,
     surfaceWarningActive,
     surfaceWarningHover,
@@ -50,6 +47,13 @@ import {
     textSecondaryHover,
     textTertiary,
     textWarning,
+    surfaceTransparentPositiveHover,
+    outlineTransparentNegative,
+    outlineTransparentNegativeHover,
+    outlineTransparentWarning,
+    outlineTransparentWarningHover,
+    outlineTransparentPositive,
+    outlineTransparentPositiveHover,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
@@ -68,8 +72,10 @@ export const config = {
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPrimaryHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.caretColor}: ${textAccent};
+                ${tokens.borderColor}: ${outlineSolidPrimary};
+                ${tokens.borderColorHover}: ${surfaceSolidDefault};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.caretColor}: ${surfaceSolidDefault};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -98,8 +104,10 @@ export const config = {
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPositive};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentPositiveActive};
-                ${tokens.caretColor}: ${textAccent};
+                ${tokens.borderColor}: ${outlineTransparentPositive};
+                ${tokens.borderColorHover}: ${outlineTransparentPositiveHover};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.caretColor}: ${surfaceSolidDefault};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -128,8 +136,10 @@ export const config = {
 
                 ${tokens.backgroundColor}: ${surfaceTransparentWarning};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentWarningHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentWarningActive};
-                ${tokens.caretColor}: ${textAccent};
+                ${tokens.borderColor}: ${outlineTransparentWarning};
+                ${tokens.borderColorHover}: ${outlineTransparentWarningHover};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.caretColor}: ${surfaceSolidDefault};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -158,8 +168,10 @@ export const config = {
 
                 ${tokens.backgroundColor}: ${surfaceTransparentNegative};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentNegativeActive};
-                ${tokens.caretColor}: ${textAccent};
+                ${tokens.borderColor}: ${outlineTransparentNegative};
+                ${tokens.borderColorHover}: ${outlineTransparentNegativeHover};
+                ${tokens.borderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.caretColor}: ${surfaceSolidDefault};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
@@ -187,6 +199,7 @@ export const config = {
                 ${tokens.padding}: 1.3125rem 1.125rem;
                 ${tokens.paddingWithChips}: 0.375rem;
                 ${tokens.borderRadius}: 1rem;
+                ${tokens.borderWidth}: 0.0625rem;
 
                 ${tokens.leftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
                 ${tokens.rightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
@@ -211,6 +224,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -304,6 +318,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -390,6 +405,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0.3125rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -476,6 +492,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -562,6 +579,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -795,9 +813,11 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
+                ${tokens.readOnlyOpacity}: 1;
+                ${tokens.backgroundColorReadOnly}: transparent;
                 ${tokens.colorReadOnly}: ${textPrimary};
-                ${tokens.backgroundColorReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.borderColor}: ${outlineSolidPrimary};
+                ${tokens.borderColorReadOnly}: ${outlineSolidPrimary};
                 ${tokens.placeholderColorReadOnly}: ${textSecondary};
                 ${tokens.leftHelperColorReadOnly}: ${textSecondary};
                 ${tokens.rightHelperColorReadOnly}: ${textSecondary};

@@ -1,6 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
 
 import { RootProps } from '../../engines';
+import { useEscKeyDown } from '../../hooks';
 import { Overlay } from '../Overlay';
 import { IconClose } from '../_Icon';
 import { cx } from '../../utils';
@@ -39,9 +40,15 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                 withOverlay = true,
                 withBlur = true,
                 withTransition = true,
+                closeOnEsc = true,
                 maxHeight = '66dvh',
                 zIndex = 1000,
                 onClose = noop,
+                onOverlayClick,
+                onEscKeyDown,
+                snapPoints,
+                initialSnapPoint,
+                onSnapPointChange,
                 className,
                 view,
                 size,
@@ -61,9 +68,24 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                 content,
                 onClose,
                 hasHandle,
+                snapPoints,
+                initialSnapPoint,
+                onSnapPointChange,
             });
 
+            useEscKeyDown({ opened, closeOnEsc, onEscKeyDown, onClose });
+
+            const hasSnapPoints = Boolean(snapPoints && snapPoints.length > 0);
             const panelClassName = cx(classes.panel, withTransition && classes.animated, !opened && classes.closed);
+
+            const handleOverlayClick = (event: React.MouseEvent<HTMLDivElement>) => {
+                if (onOverlayClick) {
+                    onOverlayClick(event);
+                    return;
+                }
+
+                onClose();
+            };
 
             return (
                 <Root ref={ref} className={className} view={view} size={size} {...rest}>
@@ -75,14 +97,14 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                             }
                             withBlur={withBlur}
                             isClickable
-                            onOverlayClick={onClose}
+                            onOverlayClick={handleOverlayClick}
                         />
                     )}
 
                     <Panel
                         ref={panelRef}
                         className={panelClassName}
-                        style={{ maxHeight, zIndex: getPanelZIndex(zIndex) }}
+                        style={{ maxHeight: hasSnapPoints ? '100%' : maxHeight, zIndex: getPanelZIndex(zIndex) }}
                     >
                         {hasHandle && (
                             <Handler ref={handleRef} $placement={handlePlacement} className={classes.hasHandle} />

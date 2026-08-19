@@ -153,6 +153,10 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      */
     onChangeValue: (value: Date, dateInfo?: DateInfo) => void;
     /**
+     * Обработчик изменения отображаемых месяца или года при навигации по календарю.
+     */
+    onChangeVisibleDate?: (date: Date) => void;
+    /**
      * Дата, определяющая отображаемый период календаря.
      */
     focusedDate?: DateType;

@@ -38,6 +38,7 @@ export const base = css`
         width: var(${tokens.fixedContentBeforeWidth});
         height: var(${tokens.fixedContentBeforeHeight});
         padding: var(${tokens.fixedContentBeforePadding});
+        align-self: var(${tokens.contentBeforeAlignSelf}, auto);
         box-sizing: border-box;
     }
 

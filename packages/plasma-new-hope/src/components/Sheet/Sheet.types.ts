@@ -1,5 +1,8 @@
 import type { ReactNode, HTMLAttributes } from 'react';
 
+export type SheetSnapPoint = string;
+export type SheetSnapPoints = string[];
+
 export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     /**
      * Состояние шторки, открыта или скрыта
@@ -7,9 +10,27 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
     opened?: boolean;
 
     /**
-     * Обработчик закрытия шторки. Вызывается при клике по оверлею или смахиванию шторки вниз
+     * Обработчик закрытия шторки. Вызывается при смахивании шторки вниз,
+     * при клике по оверлею (если не передан onOverlayClick)
+     * и при нажатии ESC (если не передан onEscKeyDown).
      */
     onClose: () => void;
+
+    /**
+     * Обработчик клика по оверлею (если не передан, используется onClose).
+     */
+    onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Закрывать шторку при нажатии на ESC.
+     * @default true
+     */
+    closeOnEsc?: boolean;
+
+    /**
+     * Обработчик нажатия ESC (если не передан, используется onClose).
+     */
+    onEscKeyDown?: (event: KeyboardEvent) => void;
 
     /**
      * Слот для контента в заголовке
@@ -81,6 +102,25 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
      * true
      */
     hasScrollEvents?: boolean;
+
+    /**
+     * Точки остановки шторки.
+     * CSS-размеры: '320px', '50%', '40dvh'.
+     * Если не передано или массив пуст — snap-points отключены.
+     */
+    snapPoints?: SheetSnapPoints;
+
+    /**
+     * Начальная точка остановки.
+     * По умолчанию — первая из `snapPoints`.
+     */
+    initialSnapPoint?: SheetSnapPoint;
+
+    /**
+     * Обработчик смены активной точки остановки.
+     */
+    onSnapPointChange?: (snapPoint: SheetSnapPoint) => void;
+
     view?: string;
 }
 

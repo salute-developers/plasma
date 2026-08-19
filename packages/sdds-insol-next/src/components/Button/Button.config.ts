@@ -15,6 +15,11 @@ import {
     onDarkSurfaceSolidDefaultHover,
     onDarkTextPrimary,
     onDarkTextSecondary,
+    onLightDataPink,
+    onLightDataPinkMinor,
+    onLightDataPinkMinorActive,
+    onLightDataPinkMinorHover,
+    onLightDataPinkTransparent,
     onLightSurfaceSolidCard,
     onLightSurfaceSolidCardActive,
     onLightSurfaceSolidCardHover,
@@ -200,6 +205,18 @@ export const config = {
 
                 ${buttonTokens.buttonBackgroundColorHover}: ${onLightSurfaceSolidCardHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidCardActive};
+            `,
+            pink: css`
+                ${buttonTokens.buttonColor}: ${onLightDataPink};
+                ${buttonTokens.buttonColorHover}: ${onLightDataPink};
+                ${buttonTokens.buttonColorActive}: ${onLightDataPink};
+                ${buttonTokens.buttonTextColor}: ${onLightDataPink};
+                ${buttonTokens.buttonIconColor}: ${onLightDataPink};
+                ${buttonTokens.buttonValueColor}: ${onLightDataPinkTransparent};
+                ${buttonTokens.buttonBackgroundColor}: ${onLightDataPinkMinor};
+                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonBackgroundColorHover}: ${onLightDataPinkMinorHover};
+                ${buttonTokens.buttonBackgroundColorActive}: ${onLightDataPinkMinorActive};
             `,
         },
         size: {

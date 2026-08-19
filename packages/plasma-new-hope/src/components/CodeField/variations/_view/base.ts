@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { CaptionWrapper, ItemInput } from '../../CodeField.styles';
+import { CaptionWrapper, ItemInput, ItemValue } from '../../CodeField.styles';
 import { classes, tokens } from '../../CodeField.tokens';
 
 export const base = css`
@@ -19,6 +19,11 @@ export const base = css`
         box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColor});
     }
 
+    ${ItemValue}.${classes.itemSelected} {
+        color: HighlightText;
+        background-color: Highlight;
+    }
+
     &:hover {
         .${classes.hoverEnabled} {
             background-color: var(${tokens.backgroundColorHover});
@@ -27,7 +32,7 @@ export const base = css`
     }
 
     &:focus-within {
-        ${ItemInput}:focus-within {
+        .${classes.itemFocused}:not(.${classes.itemError}) {
             background-color: var(${tokens.backgroundColorFocus});
             box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorFocus});
         }
@@ -67,8 +72,8 @@ export const base = css`
         background-color: var(${tokens.backgroundErrorColor});
         box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderErrorColor});
 
-        &.${classes.codeErrorFade} {
-            animation: shakingError 0.3s forwards fadeError 0.3s forwards;
+        &.${classes.itemErrorFade} {
+            animation: shakingError 0.3s forwards, fadeError 0.3s forwards;
         }
     }
 

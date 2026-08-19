@@ -1,6 +1,7 @@
 ---
 id: rating
 title: Rating
+description: "Выбор и отображение рейтинга."
 ---
 
 import { PropsTable, Description } from '@site/src/components';
@@ -299,7 +300,6 @@ export function App() {
 
 Для корректного применения размеров к иконкам, необходимо передавать класс `ratingClasses.customIconSizing` ("custom-icon-sizing")
 
-
 ```tsx live
 import React from 'react';
 import { IconKeyFill, IconKeyOutline, IconLockFill } from '@salutejs/plasma-icons';
@@ -322,6 +322,6 @@ export function App() {
 }
 ```
 
-## Props
+## API
 
 <PropsTable name="Rating" exclude={['css']} />

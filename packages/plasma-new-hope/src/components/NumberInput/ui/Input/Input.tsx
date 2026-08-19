@@ -1,16 +1,12 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react';
-import type { KeyboardEvent, ChangeEvent, FocusEvent } from 'react';
+import type { KeyboardEvent, FocusEvent, SyntheticEvent } from 'react';
+import { NumericFormat, numericFormatter } from 'react-number-format';
+import type { NumberFormatValues, SourceInfo } from 'react-number-format';
 import { cx, isNumber } from 'src/utils';
 import { useDidMountEffect, useForkRef } from 'src/hooks';
 import { keyCodes } from 'src/utils/constants';
 
-import {
-    caretWidthOffset,
-    defaultCharacterWidth,
-    excludingNumberSchema,
-    getPreciseValue,
-    numberSchema,
-} from '../../utils';
+import { caretWidthOffset, defaultCharacterWidth, getPreciseValue } from '../../utils';
 import { classes } from '../../NumberInput.tokens';
 
 import type { InputProps } from './Input.types';
@@ -25,16 +21,40 @@ import {
     Loader,
 } from './Input.styles';
 
+const getPreciseValueWithLeadingZeros = (value: number | string, precision: number) => {
+    const stringValue = String(value);
+    const isNegative = stringValue.startsWith('-');
+    const unsignedValue = isNegative ? stringValue.slice(1) : stringValue;
+    const [integerPart] = unsignedValue.split('.');
+
+    const preciseValue = getPreciseValue(value, precision);
+    const unsignedPreciseValue = preciseValue.startsWith('-') ? preciseValue.slice(1) : preciseValue;
+    const [preciseIntegerPart, preciseFractionPart] = unsignedPreciseValue.split('.');
+    const normalizedIntegerPart = preciseIntegerPart.padStart(integerPart.length, '0');
+    const normalizedFractionPart = preciseFractionPart === undefined ? '' : `.${preciseFractionPart}`;
+
+    return (isNegative ? '-' : '') + normalizedIntegerPart + normalizedFractionPart;
+};
+
 export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
     (
         {
             value,
             precision,
+            thousandSeparator,
+            decimalSeparator,
+            thousandsGroupStyle,
+            decimalScale,
+            fixedDecimalScale,
+            allowNegative,
+            allowLeadingZeros,
+            isAllowed,
             min,
             max,
             isLoading,
             loader,
             disabled,
+            readOnly,
             segmentation,
             textBefore,
             textAfter,
@@ -54,7 +74,21 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
         },
         ref,
     ) => {
-        const [dynamicWidth, setDynamicWidth] = useState(value ? `${String(value).length}ch` : defaultCharacterWidth);
+        const formatProps = {
+            thousandSeparator,
+            decimalSeparator,
+            thousandsGroupStyle,
+            decimalScale,
+            fixedDecimalScale,
+            allowNegative,
+            allowLeadingZeros,
+            isAllowed,
+        };
+        const formattedValue = numericFormatter(String(value ?? ''), formatProps);
+
+        const [dynamicWidth, setDynamicWidth] = useState(
+            formattedValue ? `${formattedValue.length}ch` : defaultCharacterWidth,
+        );
         const [lastValidValue, setLastValidValue] = useState<number | string | undefined>(value);
         const [errorClass, setErrorClass] = useState<string | undefined>(undefined);
         const [errorValue, setErrorValue] = useState<number>();
@@ -73,14 +107,14 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                 return `${inputHelperRef.current?.clientWidth + caretWidthOffset}px`;
             }
 
-            if (value) {
-                return `calc(${String(value).length}ch + ${caretWidthOffset}px)`;
+            if (formattedValue) {
+                return `calc(${formattedValue.length}ch + ${caretWidthOffset}px)`;
             }
 
             return defaultCharacterWidth;
         };
 
-        const setValues = (event: ChangeEvent<HTMLInputElement> | null, newValue: number | string | undefined) => {
+        const setValues = (event: SyntheticEvent<HTMLInputElement> | null, newValue: number | string | undefined) => {
             setLastValidValue(newValue);
             setInnerValue(newValue);
 
@@ -112,27 +146,31 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
             }
 
             if (String(newValue).endsWith('.')) {
-                setValues(null, Number(newValue));
+                setValues(null, allowLeadingZeros ? String(newValue).slice(0, -1) : Number(newValue));
                 setIsAnimationRun(false);
                 return;
             }
 
             if (precision !== undefined) {
-                const preciseNewValue = Number(getPreciseValue(newValue, precision));
+                const preciseValue = getPreciseValue(newValue, precision);
+                const preciseNewValue = allowLeadingZeros
+                    ? getPreciseValueWithLeadingZeros(newValue, precision)
+                    : Number(preciseValue);
                 setValues(null, preciseNewValue);
             }
 
             setIsAnimationRun(false);
         };
 
-        const handleManualInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-            if (!isManualInput || disabled) {
+        const handleManualInputChange = (values: NumberFormatValues, sourceInfo: SourceInfo) => {
+            const { event } = sourceInfo;
+            if (!event || !isManualInput || disabled || readOnly) {
                 return;
             }
 
             setIsAnimationRun(true);
 
-            const { value: newValue } = event.target;
+            const { value: newValue } = values;
 
             if (!isNumber(lastValidValue) && lastValidValue !== '' && !newValue) {
                 return;
@@ -147,20 +185,12 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                 return;
             }
 
-            const cleanValue = newValue.replace(excludingNumberSchema, '');
-            if (cleanValue.endsWith('.') || cleanValue === '-') {
-                setInnerValue(cleanValue);
+            if (newValue.endsWith('.') || newValue === '-') {
+                setInnerValue(newValue);
 
                 if (onChange) {
-                    onChange(event, cleanValue);
+                    onChange(event, newValue);
                 }
-                return;
-            }
-
-            const isValid = numberSchema.test(cleanValue);
-
-            if (!isValid) {
-                setValues(event, lastValidValue);
                 return;
             }
 
@@ -173,7 +203,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                     textWrapperRef.current.offsetWidth - textWrapperRef.current.offsetLeft || 0;
             }
 
-            setValues(event, cleanValue);
+            setValues(event, newValue);
         };
 
         const handleClickInputWrapper = () => {
@@ -246,7 +276,7 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
 
         useDidMountEffect(() => {
             setDynamicWidth(getInputWidth(false));
-        }, [value]);
+        }, [formattedValue]);
 
         useEffect(() => {
             if (shouldFocusInput && inputRef.current) {
@@ -270,20 +300,23 @@ export const NumberInput = forwardRef<HTMLInputElement, InputProps>(
                         <Loader>{loader || <StyledSpinner />}</Loader>
                     ) : (
                         <DynamicInput>
-                            <Input
-                                ref={inputForkRef}
+                            <NumericFormat
+                                customInput={Input}
+                                getInputRef={inputForkRef}
                                 dynamicWidth={dynamicWidth}
-                                value={value}
+                                value={formattedValue}
+                                {...formatProps}
                                 isManualInput={Boolean(isManualInput)}
                                 tabIndex={disabled ? -1 : 0}
-                                onChange={handleManualInputChange}
+                                onValueChange={handleManualInputChange}
                                 onFocus={handleFocus}
                                 onBlur={handleBlur}
                                 onKeyDown={handleKeyDown}
                                 onAnimationEnd={() => handleEndErrorAnimation(Number(errorValue))}
                                 {...rest}
+                                readOnly={!isManualInput || readOnly}
                             />
-                            <InputWidthHelper ref={inputHelperRef}>{value}</InputWidthHelper>
+                            <InputWidthHelper ref={inputHelperRef}>{formattedValue}</InputWidthHelper>
                         </DynamicInput>
                     )}
                     {!isLoading && textAfter && (

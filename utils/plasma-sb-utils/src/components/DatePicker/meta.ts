@@ -31,6 +31,7 @@ const commonArgs = {
     hasClearDivider: false,
     size: 'l',
     view: 'default',
+    titleCaption: 'Подсказка к полю сверху справа',
     label: 'Лейбл',
     leftHelper: 'Подсказка к полю',
     preserveInvalidOnBlur: false,
@@ -46,8 +47,8 @@ const commonArgs = {
     disabled: false,
     readOnly: false,
     lang: 'ru',
-    calendarContainerWidth: 0,
-    calendarContainerHeight: 0,
+    calendarContainerWidth: '0',
+    calendarContainerHeight: '0',
     stretched: false,
     enableContentLeft: true,
     enableContentRight: true,
@@ -111,6 +112,16 @@ const getCommonArgTypes = (componentConfig: any) => ({
     renderFromDate: {
         control: {
             type: 'date',
+        },
+    },
+    calendarContainerWidth: {
+        control: {
+            type: 'text',
+        },
+    },
+    calendarContainerHeight: {
+        control: {
+            type: 'text',
         },
     },
     lang: {
@@ -274,6 +285,11 @@ export const createMeta = ({
     return {
         title,
         decorators: [InSpacingDecorator],
+        parameters: {
+            controls: {
+                disableSaveFromUI: true,
+            },
+        },
         component,
         args: {
             ...commonArgs,
@@ -324,6 +340,11 @@ export const createRangeMeta = ({
     return {
         title,
         decorators: [InSpacingDecorator],
+        parameters: {
+            controls: {
+                disableSaveFromUI: true,
+            },
+        },
         component,
         args: {
             ...commonArgs,
