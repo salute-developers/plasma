@@ -17,6 +17,8 @@ type ValidateSymbolsArgs = {
     setActiveIndex: Dispatch<SetStateAction<number | null>>;
     setSelectedIndex: Dispatch<SetStateAction<number | null>>;
     codeSetter: (newCode: Array<string>) => void;
+    onAnimationStart: () => void;
+    onAnimationEnd: () => void;
 };
 
 export const handleCodeError = ({
@@ -30,6 +32,8 @@ export const handleCodeError = ({
     setActiveIndex,
     setSelectedIndex,
     codeSetter,
+    onAnimationStart,
+    onAnimationEnd,
 }: ValidateSymbolsArgs) => {
     if (!inputContainerRef.current) {
         return;
@@ -50,6 +54,7 @@ export const handleCodeError = ({
 
     switch (codeErrorBehavior) {
         case 'keep':
+            onAnimationStart();
             inputContainerRef.current.classList.add(classes.codeError, classes.codeErrorAnimation);
             captionRef.current?.classList.add(classes.captionError);
 
@@ -61,6 +66,7 @@ export const handleCodeError = ({
                 setInnerValue(currentCode);
 
                 inputContainerRef.current?.classList.remove(classes.codeErrorAnimation);
+                onAnimationEnd();
 
                 setTimeout(() => {
                     selectItem(codeLength - 1, codeLength);
@@ -70,6 +76,7 @@ export const handleCodeError = ({
             break;
         case 'remove-code':
         default:
+            onAnimationStart();
             inputContainerRef.current.classList.add(
                 classes.codeError,
                 classes.codeErrorAnimation,
@@ -80,12 +87,16 @@ export const handleCodeError = ({
             setTimeout(() => {
                 codeSetter(getCodeValue(codeLength, ''));
 
-                selectItem(0, 0);
                 inputContainerRef.current?.classList.remove(
                     classes.codeError,
                     classes.codeErrorAnimation,
                     classes.codeErrorFade,
                 );
+                onAnimationEnd();
+
+                setTimeout(() => {
+                    selectItem(0, 0);
+                }, 0);
             }, ANIMATION_TIMEOUT);
     }
 };

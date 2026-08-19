@@ -104,6 +104,92 @@ describeFn('CodeField', () => {
             cy.matchImageSnapshot();
         });
 
+        it('remove-symbol blocks input while the first invalid symbol is animated', () => {
+            const onChange = cy.stub().as('onChange');
+
+            mount(<CodeField itemErrorBehavior="remove-symbol" autoFocus onChange={onChange} />);
+
+            cy.focused().then(($input) => {
+                const input = $input[0] as HTMLInputElement;
+                const inputWindow = input.ownerDocument.defaultView;
+                const valueSetter = inputWindow
+                    ? Object.getOwnPropertyDescriptor(inputWindow.HTMLInputElement.prototype, 'value')?.set
+                    : undefined;
+
+                if (!inputWindow || !valueSetter) {
+                    throw new Error('Native input APIs are not available');
+                }
+
+                valueSetter.call(input, 'q');
+                input.dispatchEvent(new inputWindow.Event('input', { bubbles: true }));
+
+                valueSetter.call(input, 'qw');
+                input.dispatchEvent(new inputWindow.Event('input', { bubbles: true }));
+            });
+            cy.get('[data-code-field-item]')
+                .eq(0)
+                .should(($item) => {
+                    expect($item).to.have.class('codefield-item-error');
+                    expect($item).to.have.class('codefield-item-error-fade');
+                    expect($item).to.have.class('codefield-item-error-animation');
+
+                    const input = $item[0].ownerDocument.querySelector<HTMLInputElement>('[data-code-field-input]');
+
+                    expect(input).to.have.property('readOnly', true);
+                });
+
+            // eslint-disable-next-line cypress/no-unnecessary-waiting
+            cy.wait(350);
+
+            cy.then(() => {
+                expect(onChange.args).to.deep.equal([['q'], ['']]);
+            });
+            cy.focused().should('have.value', '').and('not.have.attr', 'readonly');
+        });
+
+        it('keep blocks input while the first invalid symbol is animated', () => {
+            const onChange = cy.stub().as('onChange');
+
+            mount(<CodeField itemErrorBehavior="keep" autoFocus onChange={onChange} />);
+
+            cy.focused().then(($input) => {
+                const input = $input[0] as HTMLInputElement;
+                const inputWindow = input.ownerDocument.defaultView;
+                const valueSetter = inputWindow
+                    ? Object.getOwnPropertyDescriptor(inputWindow.HTMLInputElement.prototype, 'value')?.set
+                    : undefined;
+
+                if (!inputWindow || !valueSetter) {
+                    throw new Error('Native input APIs are not available');
+                }
+
+                valueSetter.call(input, 'q');
+                input.dispatchEvent(new inputWindow.Event('input', { bubbles: true }));
+
+                valueSetter.call(input, 'qw');
+                input.dispatchEvent(new inputWindow.Event('input', { bubbles: true }));
+            });
+            cy.get('[data-code-field-item]')
+                .eq(0)
+                .should(($item) => {
+                    expect($item).to.have.class('codefield-item-error');
+                    expect($item).to.have.class('codefield-item-error-animation');
+                    expect($item).not.to.have.class('codefield-item-error-fade');
+
+                    const input = $item[0].ownerDocument.querySelector<HTMLInputElement>('[data-code-field-input]');
+
+                    expect(input).to.have.property('readOnly', true);
+                });
+
+            // eslint-disable-next-line cypress/no-unnecessary-waiting
+            cy.wait(350);
+
+            cy.then(() => {
+                expect(onChange.args).to.deep.equal([['q']]);
+            });
+            cy.focused().should('have.value', 'q').and('not.have.attr', 'readonly');
+        });
+
         it('forbid-enter', () => {
             mount(<Demo itemErrorBehavior="forbid-enter" />);
 
@@ -149,9 +235,20 @@ describeFn('CodeField', () => {
             mount(<Demo codeErrorBehavior="remove-code" />);
 
             cy.focused().type('123456');
+            cy.focused().should('have.attr', 'readonly');
             // eslint-disable-next-line cypress/no-unnecessary-waiting
             cy.wait(350);
 
+            cy.focused().should(($input) => {
+                const input = $input[0] as HTMLInputElement;
+
+                expect(input).not.to.have.attr('readonly');
+                expect(input.value).to.equal('');
+                expect(input.selectionStart).to.equal(0);
+                expect(input.selectionEnd).to.equal(0);
+            });
+            cy.get('[data-code-field-item]').eq(0).find('[data-code-field-caret]').should('exist');
+            cy.get('[data-code-field-item]').eq(5).find('[data-code-field-caret]').should('not.exist');
             cy.matchImageSnapshot();
         });
 
@@ -159,9 +256,11 @@ describeFn('CodeField', () => {
             mount(<Demo codeErrorBehavior="keep" />);
 
             cy.focused().type('123456');
+            cy.focused().should('have.attr', 'readonly');
             // eslint-disable-next-line cypress/no-unnecessary-waiting
             cy.wait(350);
 
+            cy.focused().should('not.have.attr', 'readonly');
             cy.matchImageSnapshot();
         });
     });

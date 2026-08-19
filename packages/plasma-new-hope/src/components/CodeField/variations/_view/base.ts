@@ -72,8 +72,8 @@ export const base = css`
         background-color: var(${tokens.backgroundErrorColor});
         box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderErrorColor});
 
-        &.${classes.codeErrorFade} {
-            animation: shakingError 0.3s forwards fadeError 0.3s forwards;
+        &.${classes.itemErrorFade} {
+            animation: shakingError 0.3s forwards, fadeError 0.3s forwards;
         }
     }
 
