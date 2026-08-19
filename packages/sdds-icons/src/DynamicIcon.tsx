@@ -45,13 +45,23 @@ export const DynamicIcon = /* @__PURE__ */ forwardRef<SVGSVGElement, DynamicIcon
         const [loadedIcon, setLoadedIcon] = useState<LoadedIcon>();
 
         useEffect(() => {
+            let active = true;
+
             loadIcon(name)
                 .then((component) => {
-                    setLoadedIcon({ name, component });
+                    if (active) {
+                        setLoadedIcon({ name, component });
+                    }
                 })
                 .catch((error: unknown) => {
-                    console.error(error);
+                    if (active) {
+                        console.error(error);
+                    }
                 });
+
+            return () => {
+                active = false;
+            };
         }, [name]);
 
         if (loadedIcon?.name !== name) {

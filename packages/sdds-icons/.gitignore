@@ -1,4 +1,5 @@
 /dist
 /node_modules
 /build-temp
+/.build-temp-*
 /native-build
