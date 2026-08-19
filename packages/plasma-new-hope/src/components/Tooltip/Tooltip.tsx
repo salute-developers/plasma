@@ -1,7 +1,7 @@
-import React, { useEffect, forwardRef, useState } from 'react';
+import React, { useEffect, forwardRef, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { RootProps, component } from 'src/engines';
-import { cx } from 'src/utils';
+import { canUseDOM, cx } from 'src/utils';
 
 import { popoverConfig, popoverTokens } from '../Popover';
 
@@ -71,10 +71,11 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
 
             mouseLeaveDelay = mouseLeaveDelay ?? hoverTimeout ?? 300;
 
-            const { opened: openedState, showTooltip, hideTooltip, setOpened } = useDelayedTooltip(
+            const { opened: openedState, showTooltip, hideTooltip, resetTooltip, setOpened } = useDelayedTooltip(
                 mouseEnterDelay,
                 mouseLeaveDelay,
             );
+            const ignoreNextFocusRef = useRef(false);
 
             const isTooltipOpened = Boolean(text) && (isVisible || isOpen || opened || openedState);
 
@@ -92,7 +93,48 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 };
             }, []);
 
-            const onToggle = (isOpen: boolean) => {
+            useEffect(() => {
+                if (trigger !== 'hover') {
+                    ignoreNextFocusRef.current = false;
+                    return undefined;
+                }
+
+                const onVisibilityChange = () => {
+                    if (canUseDOM && document.visibilityState === 'hidden') {
+                        ignoreNextFocusRef.current = true;
+                        resetTooltip();
+                    }
+                };
+
+                const onUserInteraction = () => {
+                    ignoreNextFocusRef.current = false;
+                };
+
+                document.addEventListener('visibilitychange', onVisibilityChange);
+                document.addEventListener('pointerdown', onUserInteraction, true);
+                document.addEventListener('keydown', onUserInteraction, true);
+
+                return () => {
+                    document.removeEventListener('visibilitychange', onVisibilityChange);
+                    document.removeEventListener('pointerdown', onUserInteraction, true);
+                    document.removeEventListener('keydown', onUserInteraction, true);
+                };
+            }, [resetTooltip, trigger]);
+
+            const onToggle = (isOpen: boolean, event: React.SyntheticEvent | Event) => {
+                if (canUseDOM && isOpen && document.visibilityState === 'hidden') {
+                    return;
+                }
+
+                if (isOpen && event.type === 'focus' && ignoreNextFocusRef.current) {
+                    // Возврат на вкладку восстанавливает фокус последнего активного target,
+                    // но не является новым пользовательским действием для открытия Tooltip.
+                    ignoreNextFocusRef.current = false;
+                    return;
+                }
+
+                ignoreNextFocusRef.current = false;
+
                 if (trigger === 'hover') {
                     if (isOpen) {
                         showTooltip();
