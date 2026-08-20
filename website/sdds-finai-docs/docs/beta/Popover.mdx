@@ -124,6 +124,7 @@ export function App() {
         ```
 
         ```tsx live
+        import { Button } from '@salutejs/sdds-finai';
         import * as Beta from '@salutejs/sdds-finai/beta';
 
         export function App() {
@@ -135,7 +136,7 @@ export function App() {
             ];
 
             return (
-                <Beta.Popover resizable={{ defaultSize: {width: '300px', height: '300px'}, minWidth: '200px', minHeight: '200px', maxWidth: '500px', maxHeight: '500px' }} target={<Button text="Target" />}>
+                <Beta.Popover resizable={{ defaultSize: { width: 300, height: 300 }, minWidth: 200, minHeight: 200, maxWidth: 500, maxHeight: 500 }} target={<Button text="Target" />}>
                     <div
                         style={{
                             width: '100%',
@@ -171,6 +172,7 @@ export function App() {
         По-умолчанию блок с выпадающим контентом рендерится на самом верхнем уровне перед тегом `</body>`.
 
         ```tsx live
+        import { useRef } from 'react';
         import * as Beta from '@salutejs/sdds-finai/beta';
         import { Button } from '@salutejs/sdds-finai';
 
@@ -180,7 +182,7 @@ export function App() {
             return (
                 <div style={{ margin: '100px 0', height: '200px', overflow: 'auto', background: 'lightgreen' }}>
                     <div ref={ref} style={{ position: 'relative', height: '1000px' }}>
-                        <Beta.Popover portal={ref} target={<Button text="Target" />}>Content</Popover>
+                        <Beta.Popover portal={ref} target={<Button text="Target" />}>Content</Beta.Popover>
                     </div>
                 </div>
             );

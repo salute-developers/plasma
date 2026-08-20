@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { Cell, CellTextbox, CellTextboxTitle, CellTextboxSubtitle } from '../../Cell';
 import { Button } from '../../Button';
@@ -9,11 +8,21 @@ import { ButtonGroup } from '../../ButtonGroup';
 import { ViewContainer } from '../../ViewContainer';
 
 import { Popover } from './Popover';
-import { config } from './Popover.config';
 
-type StoryProps = ComponentProps<typeof Popover>;
+type ResizableOptions = Exclude<ComponentProps<typeof Popover>['resizable'], boolean | undefined>;
+type StoryProps = ComponentProps<typeof Popover> & {
+    resizableDirections?: ResizableOptions['directions'];
+    resizableHiddenIcons?: ResizableOptions['hiddenIcons'];
+    resizableDefaultSize?: ResizableOptions['defaultSize'];
+    resizableMinWidth?: ResizableOptions['minWidth'];
+    resizableMinHeight?: ResizableOptions['minHeight'];
+    resizableMaxWidth?: ResizableOptions['maxWidth'];
+    resizableMaxHeight?: ResizableOptions['maxHeight'];
+    resizableIconSize?: ResizableOptions['iconSize'];
+};
 
-const { views, sizes } = getConfigVariations(config);
+const views = ['default'];
+const sizes = ['m'];
 const placements = [
     'top',
     'top-start',
@@ -154,7 +163,7 @@ const StoryDefault = (args: StoryProps) => {
 };
 
 export const Default: StoryObj<StoryProps> = {
-    render: (args) => <StoryDefault {...args} />,
+    render: (args: StoryProps) => <StoryDefault {...args} />,
 };
 
 const StoryResizable = (args: StoryProps) => {
@@ -167,6 +176,7 @@ const StoryResizable = (args: StoryProps) => {
         resizableMaxWidth,
         resizableMaxHeight,
         resizableIconSize,
+        ...popoverProps
     } = args;
 
     React.useEffect(() => {
@@ -194,6 +204,7 @@ const StoryResizable = (args: StoryProps) => {
             }}
         >
             <Popover
+                {...popoverProps}
                 resizable={{
                     directions: resizableDirections,
                     hiddenIcons: resizableHiddenIcons,
@@ -204,7 +215,6 @@ const StoryResizable = (args: StoryProps) => {
                     maxHeight: resizableMaxHeight,
                     iconSize: resizableIconSize,
                 }}
-                {...args}
                 target={<Button>Target</Button>}
             >
                 <div
@@ -277,5 +287,5 @@ export const Resizable: StoryObj<StoryProps> = {
         resizableMinWidth: 300,
         resizableMinHeight: 300,
     },
-    render: (args) => <StoryResizable {...args} />,
+    render: (args: StoryProps) => <StoryResizable {...args} />,
 };

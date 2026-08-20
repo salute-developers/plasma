@@ -10,9 +10,6 @@ for component in $components; do
     grep -E "\<$component\>" src/index.ts >> src-css/index.ts
 done
 
-cp -R src/components/_beta src-css/components/_beta
-echo "export * from './components/_beta';" > src-css/beta.ts
-
 # remove unused tests and stories
 find src-css/components \( -name '*.component-test.tsx' -o -name '*.stories.tsx' \) -delete
 
