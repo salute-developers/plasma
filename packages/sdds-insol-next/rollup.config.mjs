@@ -8,9 +8,8 @@ import styles from '@ironkinoko/rollup-plugin-styles';
 
 const inputDir = 'src-css';
 const require = createRequire(import.meta.url);
-const isBeta = process.env.BETA === 'true';
-const input = isBeta ? path.join(inputDir, 'components/_beta/index.ts') : path.join(inputDir, 'index.ts');
-const outputDir = isBeta ? 'dist/beta' : 'dist/css';
+const input = path.join(inputDir, 'index.ts');
+const outputDir = 'dist/css';
 
 export default {
     input,

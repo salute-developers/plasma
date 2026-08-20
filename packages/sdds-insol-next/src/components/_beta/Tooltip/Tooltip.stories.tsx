@@ -7,7 +7,9 @@ import { Button } from '../../Button';
 
 import { Tooltip } from './Tooltip';
 
-type StoryProps = ComponentProps<typeof Tooltip>;
+type StoryProps = ComponentProps<typeof Tooltip> & {
+    hasIcon?: boolean;
+};
 
 const placements = [
     'top',
@@ -25,7 +27,7 @@ const placements = [
 ];
 const trigger = ['click', 'hover', 'focus'];
 const view = ['default'];
-const size = ['m', 's'];
+const size = ['m'];
 
 const meta: Meta<StoryProps> = {
     title: '_Beta/Overlay/Tooltip',
@@ -108,7 +110,7 @@ const meta: Meta<StoryProps> = {
 
 export default meta;
 
-const StoryDefault = (args: StoryProps) => {
+const StoryDefault = ({ hasIcon, ...tooltipProps }: StoryProps) => {
     React.useEffect(() => {
         window.scrollTo(
             (document.documentElement.scrollWidth - window.innerWidth) / 2,
@@ -127,9 +129,9 @@ const StoryDefault = (args: StoryProps) => {
             }}
         >
             <Tooltip
-                iconSlot={args.hasIcon ? <IconPlasma size="xs" color="inherit" /> : undefined}
+                {...tooltipProps}
+                iconSlot={hasIcon ? <IconPlasma size="xs" color="inherit" /> : undefined}
                 target={<Button>Target</Button>}
-                {...args}
             >
                 Контент выпадающего окна
             </Tooltip>
@@ -138,5 +140,5 @@ const StoryDefault = (args: StoryProps) => {
 };
 
 export const Default: StoryObj<StoryProps> = {
-    render: (args) => <StoryDefault {...args} />,
+    render: (args: StoryProps) => <StoryDefault {...args} />,
 };

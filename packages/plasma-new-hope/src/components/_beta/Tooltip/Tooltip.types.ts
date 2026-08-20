@@ -68,15 +68,6 @@ export type BasicTooltipProps = {
      * @default Без использования portal всплывающее окно рендерится перед </body>.
      */
     portal?: string | React.RefObject<HTMLElement | null>;
-
-    /**
-     * Вид компонента.
-     */
-    view?: string;
-    /**
-     * Размер компонента.
-     */
-    size?: string;
 };
 
 export type TooltipProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & BasicTooltipProps;

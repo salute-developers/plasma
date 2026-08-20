@@ -1,15 +1,15 @@
 import * as React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { getConfigVariations } from '@salutejs/plasma-sb-utils';
 import { IconPlasma } from '@salutejs/plasma-icons';
 
 import { Button } from '../../Button';
 
 import { Tooltip } from './Tooltip';
-import { config } from './Tooltip.config';
 
-type StoryProps = ComponentProps<typeof Tooltip>;
+type StoryProps = ComponentProps<typeof Tooltip> & {
+    hasIcon?: boolean;
+};
 
 const placements = [
     'top',
@@ -27,7 +27,8 @@ const placements = [
 ];
 const trigger = ['click', 'hover', 'focus'];
 
-const { views } = getConfigVariations(config);
+const views = ['default', 'secondary'];
+const sizes = ['m', 's'];
 
 const meta: Meta<StoryProps> = {
     title: '_Beta/Overlay/Tooltip',
@@ -81,6 +82,12 @@ const meta: Meta<StoryProps> = {
                 type: 'select',
             },
         },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
         hasIcon: {
             control: {
                 type: 'boolean',
@@ -97,13 +104,14 @@ const meta: Meta<StoryProps> = {
         delayOpen: 0,
         delayClose: 0,
         view: 'default',
+        size: 's',
         hasIcon: false,
     },
 };
 
 export default meta;
 
-const StoryDefault = (args: StoryProps) => {
+const StoryDefault = ({ hasIcon, ...tooltipProps }: StoryProps) => {
     React.useEffect(() => {
         window.scrollTo(
             (document.documentElement.scrollWidth - window.innerWidth) / 2,
@@ -122,9 +130,9 @@ const StoryDefault = (args: StoryProps) => {
             }}
         >
             <Tooltip
-                iconSlot={args.hasIcon ? <IconPlasma size="xs" color="inherit" /> : undefined}
+                {...tooltipProps}
+                iconSlot={hasIcon ? <IconPlasma size="xs" color="inherit" /> : undefined}
                 target={<Button>Target</Button>}
-                {...args}
             >
                 Контент выпадающего окна
             </Tooltip>
@@ -133,5 +141,5 @@ const StoryDefault = (args: StoryProps) => {
 };
 
 export const Default: StoryObj<StoryProps> = {
-    render: (args) => <StoryDefault {...args} />,
+    render: (args: StoryProps) => <StoryDefault {...args} />,
 };
