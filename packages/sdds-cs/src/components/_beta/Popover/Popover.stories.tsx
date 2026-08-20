@@ -9,9 +9,19 @@ import { ViewContainer } from '../../ViewContainer';
 
 import { Popover } from './Popover';
 
-type StoryProps = ComponentProps<typeof Popover>;
+type ResizableOptions = Exclude<ComponentProps<typeof Popover>['resizable'], boolean | undefined>;
+type StoryProps = ComponentProps<typeof Popover> & {
+    resizableDirections?: ResizableOptions['directions'];
+    resizableHiddenIcons?: ResizableOptions['hiddenIcons'];
+    resizableDefaultSize?: ResizableOptions['defaultSize'];
+    resizableMinWidth?: ResizableOptions['minWidth'];
+    resizableMinHeight?: ResizableOptions['minHeight'];
+    resizableMaxWidth?: ResizableOptions['maxWidth'];
+    resizableMaxHeight?: ResizableOptions['maxHeight'];
+    resizableIconSize?: ResizableOptions['iconSize'];
+};
 
-const appearance = ['closeNone', 'closeInner'];
+const appearance = ['default', 'closeInner'];
 const placements = [
     'top',
     'top-start',
@@ -106,7 +116,7 @@ const meta: Meta<StoryProps> = {
         },
     },
     args: {
-        appearance: 'closeNone',
+        appearance: 'default',
         placement: 'bottom',
         trigger: 'click',
         defaultOpened: false,
@@ -142,9 +152,9 @@ const StoryDefault = (args: StoryProps) => {
                 height: '400vh',
             }}
         >
-            <Popover target={<Button>Target</Button>} {...args}>
+            <Popover {...args} target={<Button>Target</Button>}>
                 <ViewContainer view={args.view === 'default' ? undefined : 'onDark'}>
-                    <Cell size="m">
+                    <Cell size="s">
                         <CellTextbox>
                             <CellTextboxTitle>Title</CellTextboxTitle>
                             <CellTextboxSubtitle>Description</CellTextboxSubtitle>
@@ -161,7 +171,7 @@ const StoryDefault = (args: StoryProps) => {
 };
 
 export const Default: StoryObj<StoryProps> = {
-    render: (args) => <StoryDefault {...args} />,
+    render: (args: StoryProps) => <StoryDefault {...args} />,
 };
 
 const StoryResizable = (args: StoryProps) => {
@@ -174,6 +184,7 @@ const StoryResizable = (args: StoryProps) => {
         resizableMaxWidth,
         resizableMaxHeight,
         resizableIconSize,
+        ...popoverProps
     } = args;
 
     React.useEffect(() => {
@@ -201,7 +212,7 @@ const StoryResizable = (args: StoryProps) => {
             }}
         >
             <Popover
-                target={<Button>Target</Button>}
+                {...popoverProps}
                 resizable={{
                     directions: resizableDirections,
                     hiddenIcons: resizableHiddenIcons,
@@ -212,7 +223,7 @@ const StoryResizable = (args: StoryProps) => {
                     maxHeight: resizableMaxHeight,
                     iconSize: resizableIconSize,
                 }}
-                {...args}
+                target={<Button>Target</Button>}
             >
                 <div
                     style={{
@@ -284,5 +295,5 @@ export const Resizable: StoryObj<StoryProps> = {
         resizableMinWidth: 300,
         resizableMinHeight: 300,
     },
-    render: (args) => <StoryResizable {...args} />,
+    render: (args: StoryProps) => <StoryResizable {...args} />,
 };

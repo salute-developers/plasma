@@ -1,20 +1,43 @@
-import {
-    _beta_popoverConfig,
-    component,
-    createConditionalComponent,
-    mergeConfig,
-} from '@salutejs/plasma-new-hope/emotion';
+import React, { forwardRef } from 'react';
+import cls from 'classnames';
+import { Popover as CorePopover } from '@salutejs/plasma-new-hope/beta';
+import type { PopoverProps as CorePopoverProps } from '@salutejs/plasma-new-hope/beta';
 
-import { config as closeNoneConfig } from './Popover.closeNone.config';
-import { config as closeInnerConfig } from './Popover.closeInner.config';
+import closeInnerSizeStyles from './config/CloseInnerSize.module.css';
+import closeInnerViewStyles from './config/CloseInnerView.module.css';
+import closeNoneSizeStyles from './config/CloseNoneSize.module.css';
+import closeNoneViewStyles from './config/CloseNoneView.module.css';
 
-const mergedCloseNoneConfig = mergeConfig(_beta_popoverConfig, closeNoneConfig);
-export const PopoverCloseNone = component(mergedCloseNoneConfig);
+type BasePopoverProps = Omit<CorePopoverProps, 'appearance'>;
 
-const mergedCloseInnerConfig = mergeConfig(_beta_popoverConfig, closeInnerConfig);
-export const PopoverCloseInner = component(mergedCloseInnerConfig);
+type DefaultAppearanceProps = {
+    appearance?: 'default';
+    view?: 'default' | 'info';
+    size?: 'm' | 's';
+};
 
-export const Popover = createConditionalComponent({
-    default: PopoverCloseNone,
-    closeInner: PopoverCloseInner,
-});
+type CloseInnerAppearanceProps = {
+    appearance: 'closeInner';
+    view?: 'default' | 'info';
+    size?: 'm' | 's';
+};
+
+export type PopoverProps = BasePopoverProps & (DefaultAppearanceProps | CloseInnerAppearanceProps);
+
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
+    ({ appearance = 'default', view = 'default', size = 'm', ...rest }, ref) => {
+        const viewStyles = appearance === 'default' ? closeNoneViewStyles : closeInnerViewStyles;
+        const sizeStyles = appearance === 'default' ? closeNoneSizeStyles : closeInnerSizeStyles;
+        const configClassName = cls(viewStyles[view], sizeStyles[size]);
+
+        return (
+            <CorePopover
+                ref={ref}
+                appearance={appearance}
+                // @ts-expect-error _configClassName is an internal runtime property.
+                _configClassName={configClassName}
+                {...rest}
+            />
+        );
+    },
+);

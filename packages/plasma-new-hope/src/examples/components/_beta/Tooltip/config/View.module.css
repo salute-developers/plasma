@@ -1,0 +1,11 @@
+.default {
+    --plasma-tooltip-background-color: var(--surface-solid-card);
+    --plasma-tooltip-box-shadow: var(--shadow-down-soft-m);
+    --plasma-tooltip-color: var(--text-primary);
+}
+
+.accent {
+    --plasma-tooltip-background-color: var(--surface-accent);
+    --plasma-tooltip-box-shadow: var(--shadow-down-soft-m);
+    --plasma-tooltip-color: var(--on-dark-text-primary);
+}
