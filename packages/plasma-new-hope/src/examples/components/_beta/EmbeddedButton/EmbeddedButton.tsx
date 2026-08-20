@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
 import cls from 'classnames';
 
-import { _beta_embeddedButtonRoot } from '../../../../components/_beta/EmbeddedButton';
-import type { _beta_EmbeddedButtonProps } from '../../../../components/_beta/EmbeddedButton';
+import { EmbeddedButton as CoreEmbeddedButton } from '../../../../components/_beta/EmbeddedButton';
+import type { EmbeddedButtonProps as CoreEmbeddedButtonProps } from '../../../../components/_beta/EmbeddedButton';
 
 // @ts-expect-error CSS Modules are processed by Storybook.
 import disabledStyles from './config/Disabled.module.css';
@@ -14,30 +14,16 @@ import viewStyles from './config/View.module.css';
 type EmbeddedButtonView = 'default' | 'secondary' | 'accent' | 'positive' | 'warning' | 'negative' | 'info';
 type EmbeddedButtonSize = 'l' | 'm' | 's' | 'xs';
 
-type EmbeddedButtonProps = Omit<_beta_EmbeddedButtonProps, 'view' | 'size'> & {
+type EmbeddedButtonProps = CoreEmbeddedButtonProps & {
     view?: EmbeddedButtonView;
     size?: EmbeddedButtonSize;
 };
 
-const Root = forwardRef<HTMLButtonElement, _beta_EmbeddedButtonProps>(({ view, size, ...rest }, ref) => (
-    <button ref={ref} type="button" {...rest} />
-));
-
-const CoreEmbeddedButton = _beta_embeddedButtonRoot(Root);
-
 export const EmbeddedButton = forwardRef<HTMLButtonElement, EmbeddedButtonProps>(
-    ({ view = 'default', size = 'm', disabled = false, className, ...rest }, ref) => {
-        const rootClassName = cls(viewStyles[view], sizeStyles[size], disabled && disabledStyles.disabled, className);
+    ({ view = 'default', size = 'm', ...rest }, ref) => {
+        const configClassName = cls(viewStyles[view], sizeStyles[size], rest.disabled && disabledStyles.disabled);
 
-        return (
-            <CoreEmbeddedButton
-                ref={ref}
-                view={view}
-                size={size}
-                disabled={disabled}
-                className={rootClassName}
-                {...rest}
-            />
-        );
+        // @ts-expect-error _configClassName is an internal runtime property.
+        return <CoreEmbeddedButton ref={ref} _configClassName={configClassName} {...rest} />;
     },
 );

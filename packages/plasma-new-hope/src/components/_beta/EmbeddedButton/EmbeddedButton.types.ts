@@ -5,7 +5,7 @@ type AsProps<T = unknown> = {
     forwardedAs?: keyof JSX.IntrinsicElements | ComponentType<T>;
 };
 
-export type IconPosition =
+type IconPosition =
     | 'center'
     | 'center-left'
     | 'center-right'
@@ -22,14 +22,6 @@ export type EmbeddedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
          * Иконка кнопки
          */
         children?: ReactNode;
-        /**
-         * Вид кнопки
-         */
-        view?: string;
-        /**
-         * Размер контейнера иконки
-         */
-        size?: string;
         /**
          * Кнопка неактивна
          */
