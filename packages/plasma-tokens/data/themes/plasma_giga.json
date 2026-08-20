@@ -8454,7 +8454,7 @@
         "outline": {
             "default": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#ADADADFF",
                     "comment": "Основной непрозрачный цвет обводки"
                 },
                 "outlineSolidPrimaryActive": {
@@ -8462,7 +8462,7 @@
                     "comment": "Основной непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F0F0F0FF",
                     "comment": "Вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryActive": {
@@ -8470,7 +8470,7 @@
                     "comment": "Вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#A3A3A3FF",
                     "comment": "Третичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryActive": {
@@ -8478,7 +8478,7 @@
                     "comment": "Третичный непрозрачный цвет обводки"
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#595959FF",
+                    "value": "#969696FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "outlineSolidDefaultActive": {
@@ -8486,7 +8486,7 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080840",
                     "comment": "Основной прозрачный цвет обводки"
                 },
                 "outlineTransparentPrimaryActive": {
@@ -8494,7 +8494,7 @@
                     "comment": "Основной прозрачный цвет обводки"
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#080808FF",
+                    "value": "#0808081F",
                     "comment": "Вторичный прозрачный цвет обводки"
                 },
                 "outlineTransparentSecondaryActive": {
@@ -8502,7 +8502,7 @@
                     "comment": "Вторичный прозрачный цвет обводки"
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080847",
                     "comment": "Третичный прозрачный цвет обводки"
                 },
                 "outlineTransparentTertiaryActive": {
@@ -8510,7 +8510,7 @@
                     "comment": "Третичный прозрачный цвет обводки"
                 },
                 "outlineClearHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка",
                     "enabled": true
                 },
@@ -8520,7 +8520,7 @@
                     "enabled": true
                 },
                 "outlineAccentHover": {
-                    "value": "#33E1B5FF",
+                    "value": "#68E8C8FF",
                     "comment": "Акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
@@ -8533,7 +8533,7 @@
                     "enabled": false
                 },
                 "outlineAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Акцентный цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -8543,7 +8543,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#93EBD7FF",
+                    "value": "#B6F2E4FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
@@ -8556,7 +8556,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Акцентный минорный цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -8566,7 +8566,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#1ECCA1FF",
+                    "value": "#1ECCA12B",
                     "comment": "Прозрачный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
@@ -8579,7 +8579,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Прозрачный акцентный цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -8594,7 +8594,7 @@
                     "enabled": false
                 },
                 "outlinePromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Промо цвет обводки",
                     "enabled": false
                 },
@@ -8609,7 +8609,7 @@
                     "enabled": false
                 },
                 "outlinePromoGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Промо цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -8624,7 +8624,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки",
                     "enabled": false
                 },
@@ -8639,7 +8639,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -8649,7 +8649,7 @@
                     "enabled": false
                 },
                 "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
+                    "value": "#24DB45FF",
                     "comment": "Цвет обводки успех"
                 },
                 "outlinePositiveActive": {
@@ -8657,7 +8657,7 @@
                     "comment": "Цвет обводки успех"
                 },
                 "outlineWarningHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FC9F69FF",
                     "comment": "Цвет обводки предупреждение"
                 },
                 "outlineWarningActive": {
@@ -8669,7 +8669,7 @@
                     "comment": "Цвет обводки ошибка"
                 },
                 "outlineNegativeHover": {
-                    "value": "#F54254FF",
+                    "value": "#F87C89FF",
                     "comment": "Цвет обводки ошибка"
                 },
                 "outlineNegativeActive": {
@@ -8677,7 +8677,7 @@
                     "comment": "Цвет обводки ошибка"
                 },
                 "outlineInfoHover": {
-                    "value": "#528DFAFF",
+                    "value": "#79A7FBFF",
                     "comment": "Цвет обводки информация"
                 },
                 "outlineInfoActive": {
@@ -8689,7 +8689,7 @@
                     "comment": "Минорный цвет обводки успех"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
+                    "value": "#7AE68EFF",
                     "comment": "Минорный цвет обводки успех"
                 },
                 "outlinePositiveMinorActive": {
@@ -8729,7 +8729,7 @@
                     "comment": "Минорный цвет обводки информация"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E321F",
                     "comment": "Прозрачный цвет обводки успех"
                 },
                 "outlineTransparentPositiveActive": {
@@ -8737,7 +8737,7 @@
                     "comment": "Прозрачный цвет обводки успех"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FA5F05FF",
+                    "value": "#FA5F051F",
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentWarningActive": {
@@ -8745,7 +8745,7 @@
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B311F",
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeActive": {
@@ -8753,7 +8753,7 @@
                     "comment": "Прозрачный цвет обводки предупреждение"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F81F",
                     "comment": "Прозрачный цвет обводки информация"
                 },
                 "outlineTransparentInfoActive": {
@@ -8836,11 +8836,139 @@
                 "outlineTransparentAccent": {
                     "value": "rgba(31,204,160,0.28)",
                     "comment": "Прозрачный акцентный цвет обводки"
+                },
+                "outlineSolidPrimaryActiveHover": {
+                    "value": "#DBDBDBFF",
+                    "comment": "Основной непрозрачный цвет обводки"
+                },
+                "outlineSolidSecondaryActiveHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": "Вторичный непрозрачный цвет обводки"
+                },
+                "outlineSolidTertiaryActiveHover": {
+                    "value": "#ABABABFF",
+                    "comment": "Третичный непрозрачный цвет обводки"
+                },
+                "outlineSolidDefaultActiveHover": {
+                    "value": "#ABABABFF",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "outlineTransparentPrimaryActiveHover": {
+                    "value": "#08080842",
+                    "comment": "Основной прозрачный цвет обводки"
+                },
+                "outlineTransparentSecondaryActiveHover": {
+                    "value": "#08080825",
+                    "comment": "Вторичный прозрачный цвет обводки"
+                },
+                "outlineTransparentTertiaryActiveHover": {
+                    "value": "#08080855",
+                    "comment": "Третичный прозрачный цвет обводки"
+                },
+                "outlineClearActiveHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Бесцветная обводка",
+                    "enabled": true
+                },
+                "outlineAccentActiveHover": {
+                    "value": "#2ADFB2FF",
+                    "comment": "Акцентный цвет обводки"
+                },
+                "outlineAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Акцентный цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlineAccentMinorActiveHover": {
+                    "value": "#93EBD7FF",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки"
+                },
+                "outlineAccentMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Акцентный минорный цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlineTransparentAccentActiveHover": {
+                    "value": "#1ECCA134",
+                    "comment": "Прозрачный акцентный цвет обводки"
+                },
+                "outlineTransparentAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Прозрачный акцентный цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlinePromoActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Промо цвет обводки",
+                    "enabled": false
+                },
+                "outlinePromoGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Промо цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlinePromoMinorActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Минорный промо цвет обводки",
+                    "enabled": false
+                },
+                "outlinePromoMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Минорный промо цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlinePositiveActiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет обводки успех"
+                },
+                "outlineWarningActiveHover": {
+                    "value": "#FB8541FF",
+                    "comment": "Цвет обводки предупреждение"
+                },
+                "outlineNegativeActiveHover": {
+                    "value": "#F65565FF",
+                    "comment": "Цвет обводки ошибка"
+                },
+                "outlineInfoActiveHover": {
+                    "value": "#669AFAFF",
+                    "comment": "Цвет обводки информация"
+                },
+                "outlinePositiveMinorActiveHover": {
+                    "value": "#58DF71FF",
+                    "comment": "Минорный цвет обводки успех"
+                },
+                "outlineWarningMinorActiveHover": {
+                    "value": "#FDB790FF",
+                    "comment": "Минорный цвет обводки предупреждение"
+                },
+                "outlineNegativeMinorActiveHover": {
+                    "value": "#FF8F9AFF",
+                    "comment": "Минорный цвет обводки ошибка"
+                },
+                "outlineInfoMinorActiveHover": {
+                    "value": "#B4CEFDFF",
+                    "comment": "Минорный цвет обводки информация"
+                },
+                "outlineTransparentPositiveActiveHover": {
+                    "value": "#1A9E3225",
+                    "comment": "Прозрачный цвет обводки успех"
+                },
+                "outlineTransparentWarningActiveHover": {
+                    "value": "#FA5F0525",
+                    "comment": "Прозрачный цвет обводки предупреждение"
+                },
+                "outlineTransparentNegativeActiveHover": {
+                    "value": "#F31B3125",
+                    "comment": "Прозрачный цвет обводки предупреждение"
+                },
+                "outlineTransparentInfoActiveHover": {
+                    "value": "#2A72F825",
+                    "comment": "Прозрачный цвет обводки информация"
                 }
             },
             "onDark": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#6E6E6EFF",
+                    "value": "#969696FF",
                     "comment": "Основной непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidPrimaryActive": {
@@ -8848,7 +8976,7 @@
                     "comment": "Основной непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#8A8A8AFF",
+                    "value": "#B3B3B3FF",
                     "comment": "Вторичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidSecondaryActive": {
@@ -8856,7 +8984,7 @@
                     "comment": "Вторичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#A3A3A3FF",
                     "comment": "Третичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidTertiaryActive": {
@@ -8864,7 +8992,7 @@
                     "comment": "Третичный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#C7C7C7FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
                 "outlineSolidDefaultActive": {
@@ -8872,7 +9000,7 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF40",
                     "comment": "Основной прозрачный цвет обводки на темном фоне"
                 },
                 "outlineTransparentPrimaryActive": {
@@ -8880,7 +9008,7 @@
                     "comment": "Основной прозрачный цвет обводки на темном фоне"
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF1F",
                     "comment": "Вторичный прозрачный цвет обводки на темном фоне"
                 },
                 "outlineTransparentSecondaryActive": {
@@ -8888,7 +9016,7 @@
                     "comment": "Вторичный прозрачный цвет обводки на темном фоне"
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF3D",
                     "comment": "Третичный прозрачный цвет обводки на темном фоне"
                 },
                 "outlineTransparentTertiaryActive": {
@@ -8901,7 +9029,7 @@
                     "enabled": false
                 },
                 "outlineClearHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на темном фоне",
                     "enabled": false
                 },
@@ -8911,7 +9039,7 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#4DF5CBFF",
+                    "value": "#73F7D6FF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
                 "outlineAccentActive": {
@@ -8924,7 +9052,7 @@
                     "enabled": false
                 },
                 "outlineAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Акцентный цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
@@ -8934,7 +9062,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#4ABFA2FF",
+                    "value": "#77CFB9FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
                 },
                 "outlineAccentMinorActive": {
@@ -8947,7 +9075,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Акцентный минорный цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
@@ -8957,7 +9085,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#26F2BFFF",
+                    "value": "#26F2BF2B",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
                 },
                 "outlineTransparentAccentActive": {
@@ -8970,7 +9098,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Прозрачный акцентный цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
@@ -8985,7 +9113,7 @@
                     "enabled": false
                 },
                 "outlinePromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Промо цвет обводки на темном фоне",
                     "enabled": false
                 },
@@ -9000,7 +9128,7 @@
                     "enabled": false
                 },
                 "outlinePromoGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Промо цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
@@ -9015,7 +9143,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки на темном фоне",
                     "enabled": false
                 },
@@ -9030,7 +9158,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки с градиентом на темном фоне",
                     "enabled": false
                 },
@@ -9044,7 +9172,7 @@
                     "comment": "Цвет обводки успех на темном фоне"
                 },
                 "outlinePositiveHover": {
-                    "value": "#2BD44AFF",
+                    "value": "#5EDE76FF",
                     "comment": "Цвет обводки успех на темном фоне"
                 },
                 "outlinePositiveActive": {
@@ -9056,7 +9184,7 @@
                     "comment": "Цвет обводки предупреждение на темном фоне"
                 },
                 "outlineWarningHover": {
-                    "value": "#FF8B4DFF",
+                    "value": "#FFA575FF",
                     "comment": "Цвет обводки предупреждение на темном фоне"
                 },
                 "outlineWarningActive": {
@@ -9068,7 +9196,7 @@
                     "comment": "Цвет обводки ошибка на темном фоне"
                 },
                 "outlineNegativeHover": {
-                    "value": "#FF6675FF",
+                    "value": "#FF8F9AFF",
                     "comment": "Цвет обводки ошибка на темном фоне"
                 },
                 "outlineNegativeActive": {
@@ -9076,7 +9204,7 @@
                     "comment": "Цвет обводки ошибка на темном фоне"
                 },
                 "outlineInfoHover": {
-                    "value": "#689CFDFF",
+                    "value": "#90B6FEFF",
                     "comment": "Цвет обводки информация на темном фоне"
                 },
                 "outlineInfoActive": {
@@ -9088,7 +9216,7 @@
                     "comment": "Минорный цвет обводки успех на темном фоне"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#11A72CFF",
+                    "value": "#0F9527FF",
                     "comment": "Минорный цвет обводки успех на темном фоне"
                 },
                 "outlinePositiveMinorActive": {
@@ -9100,7 +9228,7 @@
                     "comment": "Минорный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#CD5713FF",
+                    "value": "#B14B10FF",
                     "comment": "Минорный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineWarningMinorActive": {
@@ -9112,7 +9240,7 @@
                     "comment": "Минорный цвет обводки ошибка на темном фоне"
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#C2192AFF",
+                    "value": "#DD1D30FF",
                     "comment": "Минорный цвет обводки ошибка на темном фоне"
                 },
                 "outlineNegativeMinorActive": {
@@ -9120,7 +9248,7 @@
                     "comment": "Минорный цвет обводки ошибка на темном фоне"
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2568E4FF",
                     "comment": "Минорный цвет обводки информация на темном фоне"
                 },
                 "outlineInfoMinorActive": {
@@ -9132,7 +9260,7 @@
                     "comment": "Прозрачный цвет обводки успех на темном фоне"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#24B23EFF",
+                    "value": "#24B23E2B",
                     "comment": "Прозрачный цвет обводки успех на темном фоне"
                 },
                 "outlineTransparentPositiveActive": {
@@ -9144,7 +9272,7 @@
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FF7024FF",
+                    "value": "#FF70242B",
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentWarningActive": {
@@ -9156,7 +9284,7 @@
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#FF3D51FF",
+                    "value": "#FF3D512B",
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentNegativeActive": {
@@ -9164,7 +9292,7 @@
                     "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD2B",
                     "comment": "Прозрачный цвет обводки информация на темном фоне"
                 },
                 "outlineTransparentInfoActive": {
@@ -9222,11 +9350,139 @@
                 "outlineTransparentAccent": {
                     "value": "rgba(36,242,191,0.28)",
                     "comment": "Прозрачный акцентный цвет обводки на темном фоне"
+                },
+                "outlineSolidPrimaryActiveHover": {
+                    "value": "#969696FF",
+                    "comment": "Основной непрозрачный цвет обводки на темном фоне"
+                },
+                "outlineSolidSecondaryActiveHover": {
+                    "value": "#B3B3B3FF",
+                    "comment": "Вторичный непрозрачный цвет обводки на темном фоне"
+                },
+                "outlineSolidTertiaryActiveHover": {
+                    "value": "#ABABABFF",
+                    "comment": "Третичный непрозрачный цвет обводки на темном фоне"
+                },
+                "outlineSolidDefaultActiveHover": {
+                    "value": "#F0F0F0FF",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне"
+                },
+                "outlineTransparentPrimaryActiveHover": {
+                    "value": "#FFFFFF42",
+                    "comment": "Основной прозрачный цвет обводки на темном фоне"
+                },
+                "outlineTransparentSecondaryActiveHover": {
+                    "value": "#FFFFFF25",
+                    "comment": "Вторичный прозрачный цвет обводки на темном фоне"
+                },
+                "outlineTransparentTertiaryActiveHover": {
+                    "value": "#FFFFFF49",
+                    "comment": "Третичный прозрачный цвет обводки на темном фоне"
+                },
+                "outlineClearActiveHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Бесцветная обводка на темном фоне",
+                    "enabled": false
+                },
+                "outlineAccentActiveHover": {
+                    "value": "#60F6D0FF",
+                    "comment": "Акцентный цвет обводки на темном фоне"
+                },
+                "outlineAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
+                    "enabled": false
+                },
+                "outlineAccentMinorActiveHover": {
+                    "value": "#42BD9EFF",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки на темном фоне"
+                },
+                "outlineAccentMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Акцентный минорный цвет обводки с градиентом на темном фоне",
+                    "enabled": false
+                },
+                "outlineTransparentAccentActiveHover": {
+                    "value": "#26F2BF34",
+                    "comment": "Прозрачный акцентный цвет обводки на темном фоне"
+                },
+                "outlineTransparentAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Прозрачный акцентный цвет обводки с градиентом на темном фоне",
+                    "enabled": false
+                },
+                "outlinePromoActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Промо цвет обводки на темном фоне",
+                    "enabled": false
+                },
+                "outlinePromoGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Промо цвет обводки с градиентом на темном фоне",
+                    "enabled": false
+                },
+                "outlinePromoMinorActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Минорный промо цвет обводки на темном фоне",
+                    "enabled": false
+                },
+                "outlinePromoMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Минорный промо цвет обводки с градиентом на темном фоне",
+                    "enabled": false
+                },
+                "outlinePositiveActiveHover": {
+                    "value": "#2ACB47FF",
+                    "comment": "Цвет обводки успех на темном фоне"
+                },
+                "outlineWarningActiveHover": {
+                    "value": "#FF9861FF",
+                    "comment": "Цвет обводки предупреждение на темном фоне"
+                },
+                "outlineNegativeActiveHover": {
+                    "value": "#FF7A88FF",
+                    "comment": "Цвет обводки ошибка на темном фоне"
+                },
+                "outlineInfoActiveHover": {
+                    "value": "#7CA9FEFF",
+                    "comment": "Цвет обводки информация на темном фоне"
+                },
+                "outlinePositiveMinorActiveHover": {
+                    "value": "#11B02FFF",
+                    "comment": "Минорный цвет обводки успех на темном фоне"
+                },
+                "outlineWarningMinorActiveHover": {
+                    "value": "#D75B14FF",
+                    "comment": "Минорный цвет обводки предупреждение на темном фоне"
+                },
+                "outlineNegativeMinorActiveHover": {
+                    "value": "#B91828FF",
+                    "comment": "Минорный цвет обводки ошибка на темном фоне"
+                },
+                "outlineInfoMinorActiveHover": {
+                    "value": "#1956C8FF",
+                    "comment": "Минорный цвет обводки информация на темном фоне"
+                },
+                "outlineTransparentPositiveActiveHover": {
+                    "value": "#24B23E34",
+                    "comment": "Прозрачный цвет обводки успех на темном фоне"
+                },
+                "outlineTransparentWarningActiveHover": {
+                    "value": "#FF702434",
+                    "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
+                },
+                "outlineTransparentNegativeActiveHover": {
+                    "value": "#FF3D5134",
+                    "comment": "Прозрачный цвет обводки предупреждение на темном фоне"
+                },
+                "outlineTransparentInfoActiveHover": {
+                    "value": "#3F82FD34",
+                    "comment": "Прозрачный цвет обводки информация на темном фоне"
                 }
             },
             "onLight": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#ADADADFF",
                     "comment": "Основной непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidPrimaryActive": {
@@ -9234,7 +9490,7 @@
                     "comment": "Основной непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#F0F0F0FF",
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidSecondaryActive": {
@@ -9242,7 +9498,7 @@
                     "comment": "Вторичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#A3A3A3FF",
                     "comment": "Третичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidTertiaryActive": {
@@ -9250,7 +9506,7 @@
                     "comment": "Третичный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#595959FF",
+                    "value": "#969696FF",
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "outlineSolidDefaultActive": {
@@ -9258,7 +9514,7 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080840",
                     "comment": "Основной прозрачный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentPrimaryActive": {
@@ -9266,7 +9522,7 @@
                     "comment": "Основной прозрачный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#080808FF",
+                    "value": "#0808081F",
                     "comment": "Вторичный прозрачный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentSecondaryActive": {
@@ -9274,7 +9530,7 @@
                     "comment": "Вторичный прозрачный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#080808FF",
+                    "value": "#08080847",
                     "comment": "Третичный прозрачный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentTertiaryActive": {
@@ -9287,7 +9543,7 @@
                     "enabled": false
                 },
                 "outlineClearHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF00",
                     "comment": "Бесцветная обводка на светлом фоне",
                     "enabled": false
                 },
@@ -9297,7 +9553,7 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#33E1B5FF",
+                    "value": "#68E8C8FF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
                 "outlineAccentActive": {
@@ -9310,7 +9566,7 @@
                     "enabled": false
                 },
                 "outlineAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
@@ -9320,7 +9576,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#93EBD7FF",
+                    "value": "#B6F2E4FF",
                     "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
                 },
                 "outlineAccentMinorActive": {
@@ -9333,7 +9589,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Акцентный минорный цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
@@ -9343,7 +9599,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#1ECCA1FF",
+                    "value": "#1ECCA12B",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
                 },
                 "outlineTransparentAccentActive": {
@@ -9356,7 +9612,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Прозрачный акцентный цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
@@ -9371,7 +9627,7 @@
                     "enabled": false
                 },
                 "outlinePromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Промо цвет обводки на светлом фоне",
                     "enabled": false
                 },
@@ -9386,7 +9642,7 @@
                     "enabled": false
                 },
                 "outlinePromoGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Промо цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
@@ -9401,7 +9657,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки на светлом фоне",
                     "enabled": false
                 },
@@ -9416,7 +9672,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Минорный промо цвет обводки с градиентом на светлом фоне",
                     "enabled": false
                 },
@@ -9426,7 +9682,7 @@
                     "enabled": false
                 },
                 "outlinePositiveHover": {
-                    "value": "#1FC13DFF",
+                    "value": "#24DB45FF",
                     "comment": "Цвет обводки успех на светлом фоне"
                 },
                 "outlinePositiveActive": {
@@ -9434,7 +9690,7 @@
                     "comment": "Цвет обводки успех на светлом фоне"
                 },
                 "outlineWarningHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FC9F69FF",
                     "comment": "Цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineWarningActive": {
@@ -9446,7 +9702,7 @@
                     "comment": "Цвет обводки ошибка на светлом фоне"
                 },
                 "outlineNegativeHover": {
-                    "value": "#F54254FF",
+                    "value": "#F87C89FF",
                     "comment": "Цвет обводки ошибка на светлом фоне"
                 },
                 "outlineNegativeActive": {
@@ -9454,7 +9710,7 @@
                     "comment": "Цвет обводки ошибка на светлом фоне"
                 },
                 "outlineInfoHover": {
-                    "value": "#528DFAFF",
+                    "value": "#79A7FBFF",
                     "comment": "Цвет обводки информация на светлом фоне"
                 },
                 "outlineInfoActive": {
@@ -9466,7 +9722,7 @@
                     "comment": "Минорный цвет обводки успех на светлом фоне"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#47DC62FF",
+                    "value": "#7AE68EFF",
                     "comment": "Минорный цвет обводки успех на светлом фоне"
                 },
                 "outlinePositiveMinorActive": {
@@ -9506,7 +9762,7 @@
                     "comment": "Минорный цвет обводки информация на светлом фоне"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#1A9E32FF",
+                    "value": "#1A9E321F",
                     "comment": "Прозрачный цвет обводки успех на светлом фоне"
                 },
                 "outlineTransparentPositiveActive": {
@@ -9514,7 +9770,7 @@
                     "comment": "Прозрачный цвет обводки успех на светлом фоне"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FA5F05FF",
+                    "value": "#FA5F051F",
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentWarningActive": {
@@ -9526,7 +9782,7 @@
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#F31B31FF",
+                    "value": "#F31B311F",
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentNegativeActive": {
@@ -9534,7 +9790,7 @@
                     "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#2A72F8FF",
+                    "value": "#2A72F81F",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне"
                 },
                 "outlineTransparentInfoActive": {
@@ -9608,11 +9864,139 @@
                 "outlineTransparentAccent": {
                     "value": "rgba(31,204,160,0.28)",
                     "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
+                },
+                "outlineSolidPrimaryActiveHover": {
+                    "value": "#DBDBDBFF",
+                    "comment": "Основной непрозрачный цвет обводки на светлом фоне"
+                },
+                "outlineSolidSecondaryActiveHover": {
+                    "value": "#C7C7C7FF",
+                    "comment": "Вторичный непрозрачный цвет обводки на светлом фоне"
+                },
+                "outlineSolidTertiaryActiveHover": {
+                    "value": "#ABABABFF",
+                    "comment": "Третичный непрозрачный цвет обводки на светлом фоне"
+                },
+                "outlineSolidDefaultActiveHover": {
+                    "value": "#ABABABFF",
+                    "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне"
+                },
+                "outlineTransparentPrimaryActiveHover": {
+                    "value": "#08080842",
+                    "comment": "Основной прозрачный цвет обводки на светлом фоне"
+                },
+                "outlineTransparentSecondaryActiveHover": {
+                    "value": "#08080825",
+                    "comment": "Вторичный прозрачный цвет обводки на светлом фоне"
+                },
+                "outlineTransparentTertiaryActiveHover": {
+                    "value": "#08080855",
+                    "comment": "Третичный прозрачный цвет обводки на светлом фоне"
+                },
+                "outlineClearActiveHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Бесцветная обводка на светлом фоне",
+                    "enabled": false
+                },
+                "outlineAccentActiveHover": {
+                    "value": "#2ADFB2FF",
+                    "comment": "Акцентный цвет обводки на светлом фоне"
+                },
+                "outlineAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
+                    "enabled": false
+                },
+                "outlineAccentMinorActiveHover": {
+                    "value": "#93EBD7FF",
+                    "comment": "Акцентный минорный непрозрачный цвет обводки на светлом фоне"
+                },
+                "outlineAccentMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Акцентный минорный цвет обводки с градиентом на светлом фоне",
+                    "enabled": false
+                },
+                "outlineTransparentAccentActiveHover": {
+                    "value": "#1ECCA134",
+                    "comment": "Прозрачный акцентный цвет обводки на светлом фоне"
+                },
+                "outlineTransparentAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Прозрачный акцентный цвет обводки с градиентом на светлом фоне",
+                    "enabled": false
+                },
+                "outlinePromoActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Промо цвет обводки на светлом фоне",
+                    "enabled": false
+                },
+                "outlinePromoGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Промо цвет обводки с градиентом на светлом фоне",
+                    "enabled": false
+                },
+                "outlinePromoMinorActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Минорный промо цвет обводки на светлом фоне",
+                    "enabled": false
+                },
+                "outlinePromoMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Минорный промо цвет обводки с градиентом на светлом фоне",
+                    "enabled": false
+                },
+                "outlinePositiveActiveHover": {
+                    "value": "#1EB83AFF",
+                    "comment": "Цвет обводки успех на светлом фоне"
+                },
+                "outlineWarningActiveHover": {
+                    "value": "#FB8541FF",
+                    "comment": "Цвет обводки предупреждение на светлом фоне"
+                },
+                "outlineNegativeActiveHover": {
+                    "value": "#F65565FF",
+                    "comment": "Цвет обводки ошибка на светлом фоне"
+                },
+                "outlineInfoActiveHover": {
+                    "value": "#669AFAFF",
+                    "comment": "Цвет обводки информация на светлом фоне"
+                },
+                "outlinePositiveMinorActiveHover": {
+                    "value": "#58DF71FF",
+                    "comment": "Минорный цвет обводки успех на светлом фоне"
+                },
+                "outlineWarningMinorActiveHover": {
+                    "value": "#FDB790FF",
+                    "comment": "Минорный цвет обводки предупреждение на светлом фоне"
+                },
+                "outlineNegativeMinorActiveHover": {
+                    "value": "#FF8F9AFF",
+                    "comment": "Минорный цвет обводки ошибка на светлом фоне"
+                },
+                "outlineInfoMinorActiveHover": {
+                    "value": "#B4CEFDFF",
+                    "comment": "Минорный цвет обводки информация на светлом фоне"
+                },
+                "outlineTransparentPositiveActiveHover": {
+                    "value": "#1A9E3225",
+                    "comment": "Прозрачный цвет обводки успех на светлом фоне"
+                },
+                "outlineTransparentWarningActiveHover": {
+                    "value": "#FA5F0525",
+                    "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
+                },
+                "outlineTransparentNegativeActiveHover": {
+                    "value": "#F31B3125",
+                    "comment": "Прозрачный цвет обводки предупреждение на светлом фоне"
+                },
+                "outlineTransparentInfoActiveHover": {
+                    "value": "#2A72F825",
+                    "comment": "Прозрачный цвет обводки информация на светлом фоне"
                 }
             },
             "inverse": {
                 "outlineSolidPrimaryHover": {
-                    "value": "#6E6E6EFF",
+                    "value": "#969696FF",
                     "comment": "Инвертированный основной непрозрачный цвет обводки"
                 },
                 "outlineSolidPrimaryActive": {
@@ -9620,7 +10004,7 @@
                     "comment": "Инвертированный основной непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryHover": {
-                    "value": "#8A8A8AFF",
+                    "value": "#B3B3B3FF",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidSecondaryActive": {
@@ -9628,7 +10012,7 @@
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#A3A3A3FF",
                     "comment": "Инвертированный третичный непрозрачный цвет обводки"
                 },
                 "outlineSolidTertiaryActive": {
@@ -9636,7 +10020,7 @@
                     "comment": "Инвертированный третичный непрозрачный цвет обводки"
                 },
                 "outlineSolidDefaultHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#C7C7C7FF",
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "outlineSolidDefaultActive": {
@@ -9644,7 +10028,7 @@
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
                 },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF40",
                     "comment": "Инвертированный основной прозрачный цвет обводки"
                 },
                 "outlineTransparentPrimaryActive": {
@@ -9652,7 +10036,7 @@
                     "comment": "Инвертированный основной прозрачный цвет обводки"
                 },
                 "outlineTransparentSecondaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF1F",
                     "comment": "Инвертированный вторичный прозрачный цвет обводки"
                 },
                 "outlineTransparentSecondaryActive": {
@@ -9660,7 +10044,7 @@
                     "comment": "Инвертированный вторичный прозрачный цвет обводки"
                 },
                 "outlineTransparentTertiaryHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF3D",
                     "comment": "Инвертированный третичный прозрачный цвет обводки"
                 },
                 "outlineTransparentTertiaryActive": {
@@ -9673,7 +10057,7 @@
                     "enabled": false
                 },
                 "outlineClearHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#FFFFFF00",
                     "comment": "Инвертированная бесцветная обводка",
                     "enabled": false
                 },
@@ -9683,7 +10067,7 @@
                     "enabled": false
                 },
                 "outlineAccentHover": {
-                    "value": "#4DF5CBFF",
+                    "value": "#73F7D6FF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
                 "outlineAccentActive": {
@@ -9696,7 +10080,7 @@
                     "enabled": false
                 },
                 "outlineAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Инвертированный акцентный цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -9706,7 +10090,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorHover": {
-                    "value": "#4ABFA2FF",
+                    "value": "#77CFB9FF",
                     "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
                 },
                 "outlineAccentMinorActive": {
@@ -9719,7 +10103,7 @@
                     "enabled": false
                 },
                 "outlineAccentMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Инвертированный акцентный минорный цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -9729,7 +10113,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentHover": {
-                    "value": "#26F2BFFF",
+                    "value": "#26F2BF2B",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
                 },
                 "outlineTransparentAccentActive": {
@@ -9742,7 +10126,7 @@
                     "enabled": false
                 },
                 "outlineTransparentAccentGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -9757,7 +10141,7 @@
                     "enabled": false
                 },
                 "outlinePromoHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Инвертированный промо цвет обводки",
                     "enabled": false
                 },
@@ -9772,7 +10156,7 @@
                     "enabled": false
                 },
                 "outlinePromoGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Инвертированный промо цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -9787,7 +10171,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Инвертированный минорный промо цвет обводки",
                     "enabled": false
                 },
@@ -9802,7 +10186,7 @@
                     "enabled": false
                 },
                 "outlinePromoMinorGradientHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#CCCCCCFF",
                     "comment": "Инвертированный минорный промо цвет обводки с градиентом",
                     "enabled": false
                 },
@@ -9816,7 +10200,7 @@
                     "comment": "Инвертированный цвет обводки успех"
                 },
                 "outlinePositiveHover": {
-                    "value": "#2BD44AFF",
+                    "value": "#5EDE76FF",
                     "comment": "Инвертированный цвет обводки успех"
                 },
                 "outlinePositiveActive": {
@@ -9828,7 +10212,7 @@
                     "comment": "Инвертированный цвет обводки предупреждение"
                 },
                 "outlineWarningHover": {
-                    "value": "#FF8B4DFF",
+                    "value": "#FFA575FF",
                     "comment": "Инвертированный цвет обводки предупреждение"
                 },
                 "outlineWarningActive": {
@@ -9840,7 +10224,7 @@
                     "comment": "Инвертированный цвет обводки ошибка"
                 },
                 "outlineNegativeHover": {
-                    "value": "#FF6675FF",
+                    "value": "#FF8F9AFF",
                     "comment": "Инвертированный цвет обводки ошибка"
                 },
                 "outlineNegativeActive": {
@@ -9848,7 +10232,7 @@
                     "comment": "Инвертированный цвет обводки ошибка"
                 },
                 "outlineInfoHover": {
-                    "value": "#7AA9FFFF",
+                    "value": "#A3C3FFFF",
                     "comment": "Инвертированный цвет обводки информация"
                 },
                 "outlineInfoActive": {
@@ -9860,7 +10244,7 @@
                     "comment": "Инвертированный минорный цвет обводки успех"
                 },
                 "outlinePositiveMinorHover": {
-                    "value": "#11A72CFF",
+                    "value": "#0F9527FF",
                     "comment": "Инвертированный минорный цвет обводки успех"
                 },
                 "outlinePositiveMinorActive": {
@@ -9872,7 +10256,7 @@
                     "comment": "Инвертированный минорный цвет обводки предупреждение"
                 },
                 "outlineWarningMinorHover": {
-                    "value": "#CD5713FF",
+                    "value": "#B14B10FF",
                     "comment": "Инвертированный минорный цвет обводки предупреждение"
                 },
                 "outlineWarningMinorActive": {
@@ -9884,7 +10268,7 @@
                     "comment": "Инвертированный минорный цвет обводки ошибка"
                 },
                 "outlineNegativeMinorHover": {
-                    "value": "#C2192AFF",
+                    "value": "#DD1D30FF",
                     "comment": "Инвертированный минорный цвет обводки ошибка"
                 },
                 "outlineNegativeMinorActive": {
@@ -9892,7 +10276,7 @@
                     "comment": "Инвертированный минорный цвет обводки ошибка"
                 },
                 "outlineInfoMinorHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#2568E4FF",
                     "comment": "Инвертированный минорный цвет обводки информация"
                 },
                 "outlineInfoMinorActive": {
@@ -9904,7 +10288,7 @@
                     "comment": "Прозрачный инвертированный цвет обводки успех"
                 },
                 "outlineTransparentPositiveHover": {
-                    "value": "#24B23EFF",
+                    "value": "#24B23E2B",
                     "comment": "Прозрачный инвертированный цвет обводки успех"
                 },
                 "outlineTransparentPositiveActive": {
@@ -9916,7 +10300,7 @@
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentWarningHover": {
-                    "value": "#FF7024FF",
+                    "value": "#FF70242B",
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentWarningActive": {
@@ -9928,7 +10312,7 @@
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeHover": {
-                    "value": "#FF3D51FF",
+                    "value": "#FF3D512B",
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentNegativeActive": {
@@ -9936,7 +10320,7 @@
                     "comment": "Прозрачный инвертированный цвет обводки предупреждение"
                 },
                 "outlineTransparentInfoHover": {
-                    "value": "#3F82FDFF",
+                    "value": "#3F82FD2B",
                     "comment": "Прозрачный инвертированный цвет обводки информация"
                 },
                 "outlineTransparentInfoActive": {
@@ -9994,6 +10378,134 @@
                 "outlineTransparentAccent": {
                     "value": "rgba(36,242,191,0.28)",
                     "comment": "Прозрачный инвертированный акцентный цвет обводки"
+                },
+                "outlineSolidPrimaryActiveHover": {
+                    "value": "#969696FF",
+                    "comment": "Инвертированный основной непрозрачный цвет обводки"
+                },
+                "outlineSolidSecondaryActiveHover": {
+                    "value": "#B3B3B3FF",
+                    "comment": "Инвертированный вторичный непрозрачный цвет обводки"
+                },
+                "outlineSolidTertiaryActiveHover": {
+                    "value": "#ABABABFF",
+                    "comment": "Инвертированный третичный непрозрачный цвет обводки"
+                },
+                "outlineSolidDefaultActiveHover": {
+                    "value": "#F0F0F0FF",
+                    "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию"
+                },
+                "outlineTransparentPrimaryActiveHover": {
+                    "value": "#FFFFFF42",
+                    "comment": "Инвертированный основной прозрачный цвет обводки"
+                },
+                "outlineTransparentSecondaryActiveHover": {
+                    "value": "#FFFFFF25",
+                    "comment": "Инвертированный вторичный прозрачный цвет обводки"
+                },
+                "outlineTransparentTertiaryActiveHover": {
+                    "value": "#FFFFFF49",
+                    "comment": "Инвертированный третичный прозрачный цвет обводки"
+                },
+                "outlineClearActiveHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": "Инвертированная бесцветная обводка",
+                    "enabled": false
+                },
+                "outlineAccentActiveHover": {
+                    "value": "#60F6D0FF",
+                    "comment": "Инвертированный акцентный цвет обводки"
+                },
+                "outlineAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Инвертированный акцентный цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlineAccentMinorActiveHover": {
+                    "value": "#42BD9EFF",
+                    "comment": "Инвертированный акцентный минорный непрозрачный цвет обводки"
+                },
+                "outlineAccentMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Инвертированный акцентный минорный цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlineTransparentAccentActiveHover": {
+                    "value": "#26F2BF34",
+                    "comment": "Прозрачный инвертированный акцентный цвет обводки"
+                },
+                "outlineTransparentAccentGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Прозрачный инвертированный акцентный цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlinePromoActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Инвертированный промо цвет обводки",
+                    "enabled": false
+                },
+                "outlinePromoGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Инвертированный промо цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlinePromoMinorActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Инвертированный минорный промо цвет обводки",
+                    "enabled": false
+                },
+                "outlinePromoMinorGradientActiveHover": {
+                    "value": "#F5F5F5FF",
+                    "comment": "Инвертированный минорный промо цвет обводки с градиентом",
+                    "enabled": false
+                },
+                "outlinePositiveActiveHover": {
+                    "value": "#2ACB47FF",
+                    "comment": "Инвертированный цвет обводки успех"
+                },
+                "outlineWarningActiveHover": {
+                    "value": "#FF9861FF",
+                    "comment": "Инвертированный цвет обводки предупреждение"
+                },
+                "outlineNegativeActiveHover": {
+                    "value": "#FF7A88FF",
+                    "comment": "Инвертированный цвет обводки ошибка"
+                },
+                "outlineInfoActiveHover": {
+                    "value": "#7AA9FFFF",
+                    "comment": "Инвертированный цвет обводки информация"
+                },
+                "outlinePositiveMinorActiveHover": {
+                    "value": "#11B02FFF",
+                    "comment": "Инвертированный минорный цвет обводки успех"
+                },
+                "outlineWarningMinorActiveHover": {
+                    "value": "#D75B14FF",
+                    "comment": "Инвертированный минорный цвет обводки предупреждение"
+                },
+                "outlineNegativeMinorActiveHover": {
+                    "value": "#B91828FF",
+                    "comment": "Инвертированный минорный цвет обводки ошибка"
+                },
+                "outlineInfoMinorActiveHover": {
+                    "value": "#1956C8FF",
+                    "comment": "Инвертированный минорный цвет обводки информация"
+                },
+                "outlineTransparentPositiveActiveHover": {
+                    "value": "#24B23E34",
+                    "comment": "Прозрачный инвертированный цвет обводки успех"
+                },
+                "outlineTransparentWarningActiveHover": {
+                    "value": "#FF702434",
+                    "comment": "Прозрачный инвертированный цвет обводки предупреждение"
+                },
+                "outlineTransparentNegativeActiveHover": {
+                    "value": "#FF3D5134",
+                    "comment": "Прозрачный инвертированный цвет обводки предупреждение"
+                },
+                "outlineTransparentInfoActiveHover": {
+                    "value": "#3F82FD34",
+                    "comment": "Прозрачный инвертированный цвет обводки информация"
                 }
             }
         },
