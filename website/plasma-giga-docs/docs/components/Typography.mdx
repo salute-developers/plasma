@@ -37,6 +37,76 @@ title: Typography
 По умолчанию в типографике если текст превышает ширину элемента, то слова будут переноситься по пробелам.
 Чтобы запретить перенос по пробелам, необходимо установить свойство `noWrap` в значении `true`.
 
+## Типографская обработка текста
+Компоненты типографики сами текст не обрабатывают. Чтобы включить правила, оберните нужный компонент в `withTypograph`:
+
+- прямые кавычки заменяются на «ёлочки» и вложенные „лапки“;
+- после коротких слов (1–2 буквы) ставится неразрывный пробел, чтобы предлоги не висели в конце строки;
+- длинное и среднее тире прижимается к предыдущему слову и не переносится на новую строку.
+
+Обрабатывается только строка. Смешанные дети (`текст <Link /> ещё`) не меняются. URL на время обработки прячутся, чтобы не портить кавычки в query-параметрах.
+
+```tsx live
+import React from 'react';
+import { TextM, withTypograph } from '@salutejs/plasma-giga';
+
+export function App() {
+    const TextWithTypograph = withTypograph(TextM);
+
+    return (
+        <TextWithTypograph style={{ maxWidth: 240 }}>
+            {'он сказал "привет" в лесу — и ушёл'}
+        </TextWithTypograph>
+    );
+}
+```
+
+По умолчанию обёрнутый компонент берёт правила из модульного реестра: базовый набор плюс то, что добавили через `addTypographRule`. `typograph={false}` отключает обработку у конкретного инстанса. Массив на пропе — полный пайплайн только этого инстанса, реестр не читается.
+
+Менять реестр нужно один раз на старте приложения — уже смонтированные инстансы сами не пересчитаются.
+
+`addTypographRule` дописывает правило в конец текущего набора:
+
+```tsx
+import { addTypographRule } from '@salutejs/plasma-giga';
+
+// bootstrap приложения, не внутри компонента
+addTypographRule((text) => text.replace(/\(c\)/gi, '©'));
+```
+
+После этого любой компонент с `withTypograph` подхватит новое правило:
+
+```tsx
+const Text = withTypograph(TextM);
+
+<Text>в лесу — "цитата" (c)</Text>
+```
+
+`setTypographRules` полностью заменяет базовый набор и сбрасывает правила из `addTypographRule`. Например, оставить только кавычки и тире:
+
+```tsx
+import { setTypographRules, quotes, dash, defaultTypographRules } from '@salutejs/plasma-giga';
+
+// bootstrap приложения, не внутри компонента
+setTypographRules([quotes, dash]);
+
+// вернуть дефолт
+setTypographRules(defaultTypographRules);
+```
+
+Локальные правила для отдельного инстанса:
+
+```tsx
+import { TextM, withTypograph, createTypograph, quotes, dash } from '@salutejs/plasma-giga';
+
+const Text = withTypograph(TextM);
+const compact = createTypograph([quotes, dash]);
+
+<Text typograph={[compact]}>без предлогов</Text>
+```
+
+Та же функция `typograph()` доступна отдельно — например, для markdown-рендерера.
+
 ## Смена тега
 Если при использовании компонентов необходимо сменить тег, то можно использовать свойство `as`:
 
