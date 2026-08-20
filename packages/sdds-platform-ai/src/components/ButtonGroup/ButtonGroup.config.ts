@@ -242,6 +242,20 @@ export const config = {
                 ${buttonGroupTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
                 ${buttonGroupTokens.buttonLineHeight}: ${bodyXS.lineHeight};
             `,
+            xxs: css`
+                ${buttonGroupTokens.buttonSegmentedRadius}: 0.25rem;
+                ${buttonGroupTokens.buttonSideRadius}: 0.75rem;
+                ${buttonGroupTokens.buttonDefaultRadius}: 0.75rem;
+
+                ${buttonGroupTokens.buttonHeight}: 1.5rem;
+                ${buttonGroupTokens.buttonPadding}: 0.625rem;
+                ${buttonGroupTokens.buttonFontFamily}: ${bodyXS.fontFamily};
+                ${buttonGroupTokens.buttonFontSize}: ${bodyXS.fontSize};
+                ${buttonGroupTokens.buttonFontStyle}: ${bodyXS.fontStyle};
+                ${buttonGroupTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
+                ${buttonGroupTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
+                ${buttonGroupTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+            `,
         },
         orientation: {
             horizontal: css`
