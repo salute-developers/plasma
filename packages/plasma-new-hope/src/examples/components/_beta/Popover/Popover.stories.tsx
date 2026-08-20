@@ -11,7 +11,7 @@ import { Popover } from './Popover';
 
 type StoryProps = ComponentProps<typeof Popover>;
 
-const appearance = ['closeNone', 'closeInner'];
+const appearance = ['default', 'closeNone'];
 const placements = [
     'top',
     'top-start',
@@ -106,7 +106,7 @@ const meta: Meta<StoryProps> = {
         },
     },
     args: {
-        appearance: 'closeNone',
+        appearance: 'default',
         placement: 'bottom',
         trigger: 'click',
         defaultOpened: false,
