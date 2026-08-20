@@ -1,11 +1,4 @@
-import {
-    bodyS,
-    bodySBold,
-    surfaceAccent,
-    textAccent,
-    textPrimary,
-    textSecondary,
-} from '@salutejs/sdds-themes/tokens/sdds_cs';
+import { bodyS, surfaceAccent, textAccent, textPrimary, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, breadcrumbsTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -30,7 +23,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyS.fontFamily};
                 ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyS.fontSize};
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyS.fontStyle};
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodySBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyS.fontWeight};
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyS.letterSpacing};
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyS.lineHeight};
             `,
