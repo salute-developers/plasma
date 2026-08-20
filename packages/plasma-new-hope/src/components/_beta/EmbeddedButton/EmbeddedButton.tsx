@@ -3,7 +3,6 @@ import cls from 'classnames';
 
 import type { EmbeddedButtonProps } from './EmbeddedButton.types';
 import { classes } from './EmbeddedButton.tokens';
-// @ts-expect-error CSS Modules are processed during the beta build.
 import styles from './EmbeddedButton.module.css';
 
 const Spinner = () => (

@@ -6,7 +6,8 @@
     --plasma-popover-tail-side-curvature: -10%;
 }
 
-.m {
+.m,
+.default {
     --plasma-popover-border-radius: 0.875rem;
     --plasma-popover-padding: 0.625rem;
     --plasma-popover-tail-width: 20px;

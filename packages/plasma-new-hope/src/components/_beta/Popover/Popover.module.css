@@ -37,15 +37,9 @@
 
 .closeIcon {
     display: inline-flex;
-    width: 1.5rem;
-    height: 1.5rem;
-    flex: 0 0 1.5rem;
-}
-
-.closeIcon[data-size='xs'] {
-    width: 1rem;
-    height: 1rem;
-    flex-basis: 1rem;
+    width: var(--plasma-popover-close-icon-size, 1.5rem);
+    height: var(--plasma-popover-close-icon-size, 1.5rem);
+    flex: 0 0 var(--plasma-popover-close-icon-size, 1.5rem);
 }
 
 .tail {

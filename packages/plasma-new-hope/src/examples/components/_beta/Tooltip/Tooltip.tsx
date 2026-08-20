@@ -4,9 +4,7 @@ import cls from 'classnames';
 import { Tooltip as CoreTooltip } from '../../../../components/_beta/Tooltip';
 import type { TooltipProps as CoreTooltipProps } from '../../../../components/_beta/Tooltip';
 
-// @ts-expect-error
 import sizeStyles from './config/Size.module.css';
-// @ts-expect-error
 import viewStyles from './config/View.module.css';
 
 type TooltipView = 'default' | 'accent';

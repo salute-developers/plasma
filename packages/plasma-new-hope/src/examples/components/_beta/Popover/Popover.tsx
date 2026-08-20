@@ -1,71 +1,36 @@
 import React, { forwardRef } from 'react';
 import cls from 'classnames';
 
-import { _beta_popoverRoot } from '../../../../components/_beta/Popover';
-import type { _beta_PopoverProps } from '../../../../components/_beta/Popover';
+import { Popover as CorePopover } from '../../../../components/_beta';
+import type { PopoverProps as CorePopoverProps } from '../../../../components/_beta';
 
-import { appearanceConfig, DEFAULT_APPEARANCE } from './Popover.config';
-import type { Appearance, AppearanceSize, AppearanceView } from './Popover.config';
+import closeInnerSizeStyles from './config/CloseInnerSize.module.css';
+import closeInnerViewStyles from './config/CloseInnerView.module.css';
+import closeNoneSizeStyles from './config/CloseNoneSize.module.css';
+import closeNoneViewStyles from './config/CloseNoneView.module.css';
 
-type CorePopoverProps = Omit<_beta_PopoverProps, 'appearance' | 'view' | 'size'>;
-type DefaultAppearance = typeof DEFAULT_APPEARANCE;
+type BasePopoverProps = Omit<CorePopoverProps, 'appearance'>;
 
-type AppearanceProps<A extends Appearance> = {
-    appearance: A;
-    view?: AppearanceView<A>;
-    size?: AppearanceSize<A>;
+type DefaultAppearanceProps = {
+    appearance?: 'default';
+    view?: 'default' | 'accent';
+    size?: 'l' | 'm' | 's';
 };
 
-type DefaultAppearanceProps = Omit<AppearanceProps<DefaultAppearance>, 'appearance'> & {
-    appearance?: DefaultAppearance;
+type CloseNoneAppearanceProps = {
+    appearance: 'closeNone';
+    view?: 'default' | 'accent';
+    size?: 'l' | 'm' | 's';
 };
 
-type ExplicitAppearanceProps = {
-    [A in Exclude<Appearance, DefaultAppearance>]: AppearanceProps<A>;
-}[Exclude<Appearance, DefaultAppearance>];
-
-export type PopoverProps = CorePopoverProps & (DefaultAppearanceProps | ExplicitAppearanceProps);
-
-type RuntimeAppearanceConfig = {
-    defaults: {
-        view: string;
-        size: string;
-    };
-    variations: {
-        view: Record<string, string>;
-        size: Record<string, string>;
-    };
-    componentProps: {
-        appearance: NonNullable<_beta_PopoverProps['appearance']>;
-    };
-};
-
-const Root = forwardRef<HTMLDivElement, Omit<_beta_PopoverProps, 'target'>>(({ view, size, ...rest }, ref) => (
-    <div ref={ref} {...rest} />
-));
-
-const CorePopover = _beta_popoverRoot(Root);
+export type PopoverProps = BasePopoverProps & (DefaultAppearanceProps | CloseNoneAppearanceProps);
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
-    ({ appearance = DEFAULT_APPEARANCE, view, size, className, ...rest }, ref) => {
-        const config = appearanceConfig[appearance] as RuntimeAppearanceConfig;
-        const resolvedView = view ?? config.defaults.view;
-        const resolvedSize = size ?? config.defaults.size;
-        const rootClassName = cls(
-            config.variations.view[resolvedView],
-            config.variations.size[resolvedSize],
-            className,
-        );
+    ({ appearance = 'default', view = 'default', size = 'm', ...rest }, ref) => {
+        const viewStyles = appearance === 'default' ? closeInnerViewStyles : closeNoneViewStyles;
+        const sizeStyles = appearance === 'default' ? closeInnerSizeStyles : closeNoneSizeStyles;
 
-        return (
-            <CorePopover
-                ref={ref}
-                appearance={config.componentProps.appearance}
-                view={resolvedView}
-                size={resolvedSize}
-                className={rootClassName}
-                {...rest}
-            />
-        );
+        // @ts-expect-error _configClassName is an internal runtime property.
+        return <CorePopover ref={ref} _configClassName={cls(viewStyles[view], sizeStyles[size])} {...rest} />;
     },
 );

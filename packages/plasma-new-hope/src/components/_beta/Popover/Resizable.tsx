@@ -5,7 +5,6 @@ import { Resizable as ReResizable } from 're-resizable';
 import type { Resizable as ResizableInstance } from 're-resizable';
 
 import type { ResizableOptions, ResizablePlacement, ResizableProps, ResizeDirections } from './Resizable.types';
-// @ts-expect-error CSS Modules are processed during the beta build.
 import styles from './Resizable.module.css';
 
 const publicClasses = {

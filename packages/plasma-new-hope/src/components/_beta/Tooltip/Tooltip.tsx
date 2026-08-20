@@ -24,7 +24,6 @@ import { Slot } from '../utils/Slot';
 
 import { classes } from './Tooltip.tokens';
 import type { TooltipProps } from './Tooltip.types';
-// @ts-expect-error
 import styles from './Tooltip.module.css';
 
 export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>((props, ref) => {

@@ -4,11 +4,8 @@ import cls from 'classnames';
 import { EmbeddedButton as CoreEmbeddedButton } from '../../../../components/_beta/EmbeddedButton';
 import type { EmbeddedButtonProps as CoreEmbeddedButtonProps } from '../../../../components/_beta/EmbeddedButton';
 
-// @ts-expect-error CSS Modules are processed by Storybook.
 import disabledStyles from './config/Disabled.module.css';
-// @ts-expect-error CSS Modules are processed by Storybook.
 import sizeStyles from './config/Size.module.css';
-// @ts-expect-error CSS Modules are processed by Storybook.
 import viewStyles from './config/View.module.css';
 
 type EmbeddedButtonView = 'default' | 'secondary' | 'accent' | 'positive' | 'warning' | 'negative' | 'info';
