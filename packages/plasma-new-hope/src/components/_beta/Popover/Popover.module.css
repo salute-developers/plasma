@@ -1,0 +1,104 @@
+.root {
+    border-radius: var(--plasma-popover-border-radius);
+}
+
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: var(--plasma-popover-padding);
+    border-radius: var(--plasma-popover-border-radius);
+    background: var(--plasma-popover-background-color);
+    box-shadow: var(--plasma-popover-box-shadow);
+    filter: var(--plasma-popover-drop-shadow, none);
+}
+
+.closeButton {
+    position: absolute;
+    top: var(--plasma-popover-icon-offset);
+    right: var(--plasma-popover-icon-offset);
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    line-height: 0;
+    color: var(--plasma-popover-icon-color);
+}
+
+.closeButton:hover {
+    color: var(--plasma-popover-icon-color-hover);
+}
+
+.closeButton:active {
+    color: var(--plasma-popover-icon-color-active);
+}
+
+.tail {
+    position: absolute;
+    pointer-events: none;
+}
+
+.tail[data-side='top'],
+.tail[data-side='bottom'] {
+    width: var(--plasma-popover-tail-width);
+    height: var(--plasma-popover-tail-height);
+}
+
+.tail[data-side='left'],
+.tail[data-side='right'] {
+    width: var(--plasma-popover-tail-height);
+    height: var(--plasma-popover-tail-width);
+}
+
+.tail[data-side='top'] {
+    top: 100%;
+}
+
+.tail[data-side='right'] {
+    right: 100%;
+}
+
+.tail[data-side='bottom'] {
+    bottom: 100%;
+}
+
+.tail[data-side='left'] {
+    left: 100%;
+}
+
+.tail::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--plasma-popover-tail-width);
+    height: var(--plasma-popover-tail-height);
+    background: var(--plasma-popover-background-color);
+    clip-path: shape(
+        from 100% 100%,
+        line to 0% 100%,
+        curve to 50% 0% with calc(25% - var(--plasma-popover-tail-side-curvature) * 1.24939)
+            calc(50% - var(--plasma-popover-tail-side-curvature) * 3.90435),
+        curve to 100% 100% with calc(75% + var(--plasma-popover-tail-side-curvature) * 1.24939)
+            calc(50% - var(--plasma-popover-tail-side-curvature) * 3.90435),
+        close
+    );
+}
+
+.tail[data-side='top']::before {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.tail[data-side='right']::before {
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.tail[data-side='bottom']::before {
+    transform: translate(-50%, -50%);
+}
+
+.tail[data-side='left']::before {
+    transform: translate(-50%, -50%) rotate(90deg);
+}

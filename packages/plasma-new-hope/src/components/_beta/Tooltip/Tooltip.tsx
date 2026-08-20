@@ -1,5 +1,4 @@
 import React, { forwardRef, useState, useRef } from 'react';
-import type { RootProps } from 'src/engines/types';
 import cls from 'classnames';
 import {
     useFloating,
@@ -20,6 +19,7 @@ import {
 } from '@floating-ui/react';
 import { css } from 'styled-components';
 
+import type { RootProps } from '../../../engines/types';
 import { Slot } from '../../_Slot/Slot';
 import { ARROW_PADDING } from '../Popover/Popover';
 import { getFloatingPortalProps, useTailStyle } from '../Popover/utils';

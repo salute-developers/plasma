@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
-import { addFocus } from 'src/mixins';
-import { component, mergeConfig } from 'src/engines';
 
+import { addFocus } from '../../../mixins';
+import { component, mergeConfig } from '../../../engines';
 import { spinnerConfig, spinnerTokens } from '../../Spinner';
 
 import type { IconPosition } from './EmbeddedButton.types';

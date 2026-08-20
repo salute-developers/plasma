@@ -1,5 +1,4 @@
 import React, { forwardRef, useState, useRef } from 'react';
-import type { RootProps } from 'src/engines/types';
 import cls from 'classnames';
 import {
     useFloating,
@@ -19,25 +18,20 @@ import {
     autoUpdate,
     limitShift,
 } from '@floating-ui/react';
-import { css } from 'styled-components';
 
+import type { RootProps } from '../../../engines/types';
 import { IconClose } from '../../_Icon';
 import { Resizable } from '../../_Resizable';
 import { Slot } from '../../_Slot/Slot';
+import { ARROW_PADDING } from '../../Tour/utils';
 
 import { sizeToIconSize, matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
 import { classes } from './Popover.tokens';
-import { base, CloseButton, Wrapper, Tail } from './Popover.styles';
 import type { PopoverProps } from './Popover.types';
+// @ts-expect-error CSS Modules are processed during the beta build.
+import styles from './Popover.module.css';
 
-/* Ширина хвостика */
-export const ARROW_WIDTH = 20;
-/* Высота хвостика */
-export const ARROW_HEIGHT = 8;
-/* SVG хвостика */
-export const ARROW_POLYGON = 'M20 20L0 20C8.88889 20.0001 10 12.5714 10 12C10 12.5714 11.3273 20.006 20 20Z';
-/* Отступ хвостика по краям (чтобы избежать коллизии со скругленными углами) */
-export const ARROW_PADDING = 16;
+export { ARROW_WIDTH, ARROW_HEIGHT, ARROW_POLYGON, ARROW_PADDING } from '../../Tour/utils';
 
 export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, 'target'>>) =>
     forwardRef<HTMLDivElement, PopoverProps>(
@@ -159,6 +153,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                                     ref={refs.setFloating}
                                     size={size}
                                     view={view}
+                                    className={styles.root}
                                     style={{
                                         ...floatingStyles,
                                         zIndex,
@@ -172,28 +167,35 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                                         onResizeStart={onResizeStart}
                                         onResizeEnd={onResizeEnd}
                                     >
-                                        <Wrapper
+                                        <div
                                             ref={outerRootRef}
-                                            className={cls(className, classes.popoverRoot)}
+                                            className={cls(styles.wrapper, className, classes.popoverRoot)}
                                             style={style}
                                             data-popover-open={opened}
                                             {...rest}
                                         >
                                             {hasTail && (
-                                                <Tail ref={arrowRef} side={side} style={tailStyle} aria-hidden="true" />
+                                                <div
+                                                    ref={arrowRef}
+                                                    className={styles.tail}
+                                                    data-side={side}
+                                                    style={tailStyle}
+                                                    aria-hidden="true"
+                                                />
                                             )}
 
                                             {children}
 
                                             {appearance === 'closeInner' && (
-                                                <CloseButton
-                                                    className={classes.popoverCloseIconButton}
+                                                <button
+                                                    type="button"
+                                                    className={cls(styles.closeButton, classes.popoverCloseIconButton)}
                                                     onClick={() => handleToggle(false)}
                                                 >
                                                     <IconClose size={sizeToIconSize(size)} color="inherit" />
-                                                </CloseButton>
+                                                </button>
                                             )}
-                                        </Wrapper>
+                                        </div>
                                     </Resizable>
                                 </Root>
                             </FloatingFocusManager>
@@ -208,13 +210,13 @@ export const popoverConfig = {
     name: 'Popover',
     tag: 'div',
     layout: popoverRoot,
-    base,
+    base: '',
     variations: {
         view: {
-            css: css``,
+            css: '',
         },
         size: {
-            css: css``,
+            css: '',
         },
     },
     defaults: {
