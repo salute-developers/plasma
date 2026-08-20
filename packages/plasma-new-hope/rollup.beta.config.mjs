@@ -1,4 +1,3 @@
-import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
@@ -43,13 +42,9 @@ export default {
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
         }
-        if (id === 'src' || id.startsWith('src/')) {
-            return false;
-        }
         return !id.startsWith('.') && !path.isAbsolute(id);
     },
     plugins: [
-        sourceAliasPlugin(),
         nodeResolve({
             extensions: ['.tsx', '.ts'],
         }),
@@ -65,53 +60,6 @@ export default {
     ],
 };
 
-function sourceAliasPlugin() {
-    return {
-        name: 'sourceAliasPlugin',
-        resolveId(source) {
-            if (source === 'src') {
-                return resolveSourceAlias(sourceDir);
-            }
-
-            if (source.startsWith('src/')) {
-                return resolveSourceAlias(path.resolve(dirname, source));
-            }
-
-            return null;
-        },
-    };
-}
-
-function resolveSourceAlias(resolvedPath) {
-    const extensions = ['', '.ts', '.tsx', '.js', '.jsx'];
-
-    for (const extension of extensions) {
-        const filePath = `${resolvedPath}${extension}`;
-
-        if (isFile(filePath)) {
-            return filePath;
-        }
-    }
-
-    for (const extension of ['.ts', '.tsx', '.js', '.jsx']) {
-        const indexPath = path.join(resolvedPath, `index${extension}`);
-
-        if (isFile(indexPath)) {
-            return indexPath;
-        }
-    }
-
-    return resolvedPath;
-}
-
-function isFile(filePath) {
-    try {
-        return fs.statSync(filePath).isFile();
-    } catch {
-        return false;
-    }
-}
-
 function importCssModulesPlugin() {
     return {
         name: 'importCssModulesPlugin',
@@ -125,6 +73,12 @@ function importCssModulesPlugin() {
                 const statement = options.format === 'cjs' ? `require('./index.css');\n` : `import './index.css';\n`;
 
                 bundle['index.js'].code = statement + bundle['index.js'].code;
+
+                Object.keys(bundle)
+                    .filter((file) => file.endsWith('.css') && file !== 'index.css')
+                    .forEach((file) => {
+                        delete bundle[file];
+                    });
             },
         },
     };

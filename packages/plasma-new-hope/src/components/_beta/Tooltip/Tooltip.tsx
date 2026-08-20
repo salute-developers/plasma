@@ -17,16 +17,16 @@ import {
     autoUpdate,
     limitShift,
 } from '@floating-ui/react';
-import { css } from 'styled-components';
 
 import type { RootProps } from '../../../engines/types';
-import { Slot } from '../../_Slot/Slot';
 import { ARROW_PADDING } from '../Popover/Popover';
 import { getFloatingPortalProps, useTailStyle } from '../Popover/utils';
+import { Slot } from '../utils/Slot';
 
 import { classes } from './Tooltip.tokens';
-import { base, Wrapper, IconWrapper, Tail } from './Tooltip.styles';
 import type { TooltipProps } from './Tooltip.types';
+// @ts-expect-error CSS Modules are processed during the beta build.
+import styles from './Tooltip.module.css';
 
 export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, 'target' | 'children' | 'iconSlot'>>) =>
     forwardRef<HTMLDivElement, TooltipProps>(
@@ -134,24 +134,31 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                                 ref={refs.setFloating}
                                 size={size}
                                 view={view}
+                                className={styles.root}
                                 style={{ ...floatingStyles, zIndex, visibility: isPositioned ? 'visible' : 'hidden' }}
                                 {...getFloatingProps()}
                             >
-                                <Wrapper
+                                <div
                                     ref={outerRootRef}
-                                    className={cls(className, classes.tooltipRoot)}
+                                    className={cls(styles.wrapper, className, classes.tooltipRoot)}
                                     style={style}
                                     data-tooltip-open={opened}
                                     {...rest}
                                 >
-                                    {iconSlot && <IconWrapper>{iconSlot}</IconWrapper>}
+                                    {iconSlot && <div className={styles.iconWrapper}>{iconSlot}</div>}
 
                                     {children}
 
                                     {hasTail && (
-                                        <Tail ref={arrowRef} side={side} style={tailStyle} aria-hidden="true" />
+                                        <div
+                                            ref={arrowRef}
+                                            className={styles.tail}
+                                            data-side={side}
+                                            style={tailStyle}
+                                            aria-hidden="true"
+                                        />
                                     )}
-                                </Wrapper>
+                                </div>
                             </Root>
                         </FloatingPortal>
                     )}
@@ -164,13 +171,13 @@ export const tooltipConfig = {
     name: 'Tooltip',
     tag: 'div',
     layout: tooltipRoot,
-    base,
+    base: '',
     variations: {
         view: {
-            css: css``,
+            css: '',
         },
         size: {
-            css: css``,
+            css: '',
         },
     },
     defaults: {

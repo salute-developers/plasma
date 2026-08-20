@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode, ReactElement } from 'react';
 
-import { ResizableProps } from '../../_Resizable';
+import type { ResizableProps } from './Resizable.types';
 
 export type Placement =
     | 'top'

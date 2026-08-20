@@ -20,16 +20,21 @@ import {
 } from '@floating-ui/react';
 
 import type { RootProps } from '../../../engines/types';
-import { IconClose } from '../../_Icon';
-import { Resizable } from '../../_Resizable';
-import { Slot } from '../../_Slot/Slot';
 import { ARROW_PADDING } from '../../Tour/utils';
+import { Slot } from '../utils/Slot';
 
+import { Resizable } from './Resizable';
 import { sizeToIconSize, matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
 import { classes } from './Popover.tokens';
 import type { PopoverProps } from './Popover.types';
 // @ts-expect-error CSS Modules are processed during the beta build.
 import styles from './Popover.module.css';
+
+const CloseIcon = ({ size }: { size: 'xs' | 's' }) => (
+    <svg className={styles.closeIcon} data-size={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 19L19 5M5 5l14 14" stroke="currentColor" strokeWidth={2} strokeLinecap="round" />
+    </svg>
+);
 
 export { ARROW_WIDTH, ARROW_HEIGHT, ARROW_POLYGON, ARROW_PADDING } from '../../Tour/utils';
 
@@ -192,7 +197,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, '
                                                     className={cls(styles.closeButton, classes.popoverCloseIconButton)}
                                                     onClick={() => handleToggle(false)}
                                                 >
-                                                    <IconClose size={sizeToIconSize(size)} color="inherit" />
+                                                    <CloseIcon size={sizeToIconSize(size)} />
                                                 </button>
                                             )}
                                         </div>

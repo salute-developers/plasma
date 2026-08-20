@@ -1,6 +1,9 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ComponentType, ReactNode } from 'react';
 
-import type { AsProps } from '../../../types';
+type AsProps<T = unknown> = {
+    as?: keyof JSX.IntrinsicElements | ComponentType<T>;
+    forwardedAs?: keyof JSX.IntrinsicElements | ComponentType<T>;
+};
 
 export type IconPosition =
     | 'center'

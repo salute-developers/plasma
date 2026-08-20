@@ -1,4 +1,4 @@
-import { canUseDOM } from 'src/utils';
+import { canUseDOM } from '../../../utils/canUseDOM';
 
 /* Ширина хвостика */
 export const ARROW_WIDTH = 20;

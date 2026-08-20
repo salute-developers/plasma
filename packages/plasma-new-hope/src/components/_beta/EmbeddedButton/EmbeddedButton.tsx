@@ -1,14 +1,21 @@
 import React, { forwardRef } from 'react';
+import cls from 'classnames';
 
-import type { RootProps } from '../../../engines';
-import { cx } from '../../../utils';
+import type { RootProps } from '../../../engines/types';
 
-import { base as viewCSS } from './variations/_view/base';
-import { base as sizeCSS } from './variations/_size/base';
-import { base as disabledCSS } from './variations/_disabled/base';
 import type { EmbeddedButtonProps } from './EmbeddedButton.types';
-import { base, IconContainer, Loader, LoadWrap, StyledSpinner } from './EmbeddedButton.styles';
 import { classes } from './EmbeddedButton.tokens';
+// @ts-expect-error CSS Modules are processed during the beta build.
+import styles from './EmbeddedButton.module.css';
+
+const Spinner = () => (
+    <span className={styles.spinner} aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" opacity="0.2" />
+            <path d="M12 3a9 9 0 0 1 9 9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        </svg>
+    </span>
+);
 
 export const embeddedButtonRoot = (Root: RootProps<HTMLButtonElement, EmbeddedButtonProps>) =>
     forwardRef<HTMLButtonElement, EmbeddedButtonProps>((props, ref) => {
@@ -23,13 +30,13 @@ export const embeddedButtonRoot = (Root: RootProps<HTMLButtonElement, EmbeddedBu
                 view={view}
                 size={size}
                 disabled={disabled}
-                className={cx(isLoadingClass, className)}
+                className={cls(styles.root, isLoadingClass, className)}
                 {...rest}
             >
-                <LoadWrap position={position} isLoading={isLoading}>
-                    <IconContainer>{children}</IconContainer>
-                </LoadWrap>
-                {isLoading && <Loader>{loader || <StyledSpinner />}</Loader>}
+                <div className={styles.loadWrap} data-position={position} data-loading={isLoading}>
+                    <div className={styles.iconContainer}>{children}</div>
+                </div>
+                {isLoading && <div className={styles.loader}>{loader || <Spinner />}</div>}
             </Root>
         );
     });
@@ -38,16 +45,16 @@ export const embeddedButtonConfig = {
     name: 'EmbeddedButton',
     tag: 'button',
     layout: embeddedButtonRoot,
-    base,
+    base: '',
     variations: {
         view: {
-            css: viewCSS,
+            css: '',
         },
         size: {
-            css: sizeCSS,
+            css: '',
         },
         disabled: {
-            css: disabledCSS,
+            css: '',
             attrs: true,
         },
     },
