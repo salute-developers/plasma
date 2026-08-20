@@ -61,23 +61,19 @@ const meta: Meta<StoryButtonProps> = {
 export default meta;
 
 const getSizeForIcon = (size) => {
-    const map = {
-        mr: 's',
-        lr: 's',
-        xlr: 's',
-        m: 's',
-        l: 's',
-        xl: 's',
-        sr: 's',
-        xsr: 'xs',
-    };
-    if (map[size]) {
-        return map[size];
+    if (size === 'xxs') {
+        return {
+            style: {
+                width: '0.75rem',
+                height: '0.75rem',
+            },
+        };
     }
-
-    return size;
+    if (size === 'xs') {
+        return { size };
+    }
+    return { size: 's' };
 };
-
 export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     args: {
         children: <IconClose />,
@@ -90,7 +86,7 @@ export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
     argTypes: { ...disableProps(['children']) },
     render: (args) => (
         <IconButton {...args}>
-            <IconClose color="inherit" size={getSizeForIcon(args.size)} />
+            <IconClose color="inherit" {...getSizeForIcon(args.size)} />
         </IconButton>
     ),
 };
