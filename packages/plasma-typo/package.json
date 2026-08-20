@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-typo",
-  "version": "0.51.0",
+  "version": "0.52.0-next-sbcom.0",
   "description": "Plasma Typography System's tokens",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -12,7 +12,9 @@
     "url": "git+https://github.com/salute-developers/plasma.git",
     "directory": "packages/plasma-typo"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "types": "lib/cjs/index.d.ts",
@@ -38,6 +40,8 @@
     "build:esm": "tsc -p ./tsconfig.es.json",
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts,.tsx --quiet"
   },
-  "contributors": ["salute.developers@gmail.com"],
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
   "sideEffects": false
 }

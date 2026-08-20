@@ -1,11 +1,15 @@
 {
   "name": "@salutejs/sdds-icons",
-  "version": "0.4.0",
+  "version": "0.5.0-next-sbcom.0",
   "description": "SDDS icons",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "files": ["dist", "README.md", "LICENSE.txt"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.txt"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/salute-developers/plasma.git",
@@ -75,5 +79,7 @@
     "build:ios": "node ./scripts/build-ios.mjs"
   },
   "sideEffects": false,
-  "contributors": ["salute.developers@gmail.com"]
+  "contributors": [
+    "salute.developers@gmail.com"
+  ]
 }
