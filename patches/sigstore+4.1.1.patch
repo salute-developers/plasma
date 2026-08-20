@@ -1,0 +1,13 @@
+diff --git a/node_modules/sigstore/dist/config.js b/node_modules/sigstore/dist/config.js
+index 373149f..3e3173d 100644
+--- a/node_modules/sigstore/dist/config.js
++++ b/node_modules/sigstore/dist/config.js
+@@ -102,7 +102,7 @@ function initWitnesses(options) {
+         witnesses.push(new sign_1.RekorWitness({
+             rekorBaseURL: options.rekorURL,
+             entryType: options.legacyCompatibility ? 'intoto' : 'dsse',
+-            fetchOnConflict: false,
++            fetchOnConflict: true,
+             retry: options.retry ?? exports.DEFAULT_RETRY,
+             timeout: options.timeout ?? exports.DEFAULT_TIMEOUT,
+         }));
