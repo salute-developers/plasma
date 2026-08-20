@@ -48,7 +48,8 @@ export function App() {
 ### Вид числового badge
 Вид задается с помощью свойства `view`. Возможные значения свойства `view`:
 
-+ `"primary"` – основной бейдж;
++ `"default"` – основной бейдж;
++ `"secondary"` – вторичный;
 + `"accent"` – бейдж акцентного цвета;
 + `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
@@ -63,7 +64,8 @@ import { Counter } from '@salutejs/sdds-finai';
 export function App() {
     return (
         <div>
-            <Counter count={10} view="primary" />
+            <Counter count={10} view="default" />
+            <Counter count={10} view="secondary" />
             <Counter count={10} view="accent" />
             <Counter count={10} view="positive" />
             <Counter count={10} view="warning" />
