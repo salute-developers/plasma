@@ -27,7 +27,6 @@ type Props = {
     nativeMode: boolean;
     valueToItemMap: ValueToItemMapType;
     renderValue: ComboboxProps['renderValue'];
-    onChangeValue: ComboboxProps['onChangeValue'];
 };
 
 export const useValue = ({
@@ -38,7 +37,6 @@ export const useValue = ({
     nativeMode,
     valueToItemMap,
     renderValue,
-    onChangeValue,
 }: Props) => {
     // Внутреннее состояние для корректной работы в uncontrolled-режиме.
     const [internalValue, setInternalValue] = useState<Value>(getInitialValue({ defaultValue, multiple }));
@@ -55,7 +53,6 @@ export const useValue = ({
         }
 
         setTextValueState(newTextValue);
-        onChangeValue?.(newTextValue);
     };
 
     const handleChange = (newValue: Value, item: ItemOption | null) => {
