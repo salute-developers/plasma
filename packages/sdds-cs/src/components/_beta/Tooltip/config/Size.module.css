@@ -1,0 +1,29 @@
+.m {
+    --plasma-tooltip-border-radius: 0.5rem;
+    --plasma-tooltip-padding: 0.5rem 0.75rem;
+    --plasma-tooltip-gap: 0.25rem;
+    --plasma-tooltip-font-family: var(--plasma-typo-body-s-font-family);
+    --plasma-tooltip-font-size: var(--plasma-typo-body-s-font-size);
+    --plasma-tooltip-font-style: var(--plasma-typo-body-s-font-style);
+    --plasma-tooltip-font-weight: var(--plasma-typo-body-s-font-weight);
+    --plasma-tooltip-letter-spacing: var(--plasma-typo-body-s-letter-spacing);
+    --plasma-tooltip-lineheight: var(--plasma-typo-body-s-line-height);
+    --plasma-tooltip-tail-width: 20px;
+    --plasma-tooltip-tail-height: 8px;
+    --plasma-tooltip-tail-side-curvature: -10%;
+}
+
+.s {
+    --plasma-tooltip-border-radius: 0.5rem;
+    --plasma-tooltip-padding: 0.5rem 0.75rem;
+    --plasma-tooltip-gap: 0.25rem;
+    --plasma-tooltip-font-family: var(--plasma-typo-body-xs-font-family);
+    --plasma-tooltip-font-size: var(--plasma-typo-body-xs-font-size);
+    --plasma-tooltip-font-style: var(--plasma-typo-body-xs-font-style);
+    --plasma-tooltip-font-weight: var(--plasma-typo-body-xs-font-weight);
+    --plasma-tooltip-letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+    --plasma-tooltip-lineheight: var(--plasma-typo-body-xs-line-height);
+    --plasma-tooltip-tail-width: 14px;
+    --plasma-tooltip-tail-height: 6px;
+    --plasma-tooltip-tail-side-curvature: -10%;
+}

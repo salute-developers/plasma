@@ -1,0 +1,15 @@
+.default {
+    --plasma-popover-background-color: var(--surface-solid-card);
+    --plasma-popover-box-shadow: var(--shadow-down-hard-m);
+    --plasma-popover-icon-color: var(--text-secondary);
+    --plasma-popover-icon-color-hover: var(--text-secondary-hover);
+    --plasma-popover-icon-color-active: var(--text-secondary-active);
+}
+
+.info {
+    --plasma-popover-background-color: var(--surface-accent);
+    --plasma-popover-box-shadow: var(--shadow-down-hard-m);
+    --plasma-popover-icon-color: var(--on-dark-text-secondary);
+    --plasma-popover-icon-color-hover: var(--on-dark-text-secondary-hover);
+    --plasma-popover-icon-color-active: var(--on-dark-text-secondary-active);
+}
