@@ -19,11 +19,10 @@ import {
     limitShift,
 } from '@floating-ui/react';
 
-import { ARROW_PADDING } from '../../Tour/utils';
 import { Slot } from '../utils/Slot';
 
 import { Resizable } from './Resizable';
-import { matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
+import { ARROW_PADDING, matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
 import { classes } from './Popover.tokens';
 import type { PopoverProps } from './Popover.types';
 import styles from './Popover.module.css';
@@ -33,8 +32,6 @@ const CloseIcon = () => (
         <path d="M5 19L19 5M5 5l14 14" stroke="currentColor" strokeWidth={2} strokeLinecap="round" />
     </svg>
 );
-
-export { ARROW_WIDTH, ARROW_HEIGHT, ARROW_POLYGON, ARROW_PADDING } from '../../Tour/utils';
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => {
     const {

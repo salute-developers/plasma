@@ -7,10 +7,12 @@ import styles from '@ironkinoko/rollup-plugin-styles';
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
 const sourceDir = path.resolve(dirname, 'src');
+const betaSourceDir = path.join(sourceDir, 'components/_beta');
+const extractedCssModules = new Map();
 
 export default {
     input: {
-        index: path.join(sourceDir, 'components/_beta/index.ts'),
+        index: path.join(betaSourceDir, 'index.ts'),
     },
     treeshake: {
         propertyReadSideEffects: false,
@@ -24,7 +26,6 @@ export default {
             esModule: true,
             sourcemap: false,
             exports: 'named',
-            assetFileNames: '[name][extname]',
         },
         {
             preserveModules: true,
@@ -34,7 +35,6 @@ export default {
             esModule: true,
             sourcemap: false,
             exports: 'named',
-            assetFileNames: '[name][extname]',
             interop: 'auto',
         },
     ],
@@ -51,8 +51,15 @@ export default {
         styles({
             mode: 'extract',
             modules: true,
+            onExtract({ name, css }) {
+                if (name.endsWith('.module.css.css')) {
+                    extractedCssModules.set(name, css);
+                }
+
+                return false;
+            },
         }),
-        importCssModulesPlugin(),
+        emitCssModulesPlugin(),
         babel({
             babelHelpers: 'bundled',
             extensions: ['.ts', '.tsx'],
@@ -60,25 +67,39 @@ export default {
     ],
 };
 
-function importCssModulesPlugin() {
+function emitCssModulesPlugin() {
     return {
-        name: 'importCssModulesPlugin',
+        name: 'emitCssModulesPlugin',
         generateBundle: {
             order: 'post',
             handler(options, bundle) {
-                if (!bundle['index.css'] || !bundle['index.js']) {
-                    return;
-                }
+                Object.values(bundle).forEach((file) => {
+                    if (file.type !== 'chunk' || !file.fileName.endsWith('.module.css.js')) {
+                        return;
+                    }
 
-                const statement = options.format === 'cjs' ? `require('./index.css');\n` : `import './index.css';\n`;
+                    const extractedName = file.fileName.replace(/\.js$/, '.css');
+                    const css = extractedCssModules.get(extractedName);
 
-                bundle['index.js'].code = statement + bundle['index.js'].code;
+                    if (css === undefined) {
+                        this.error(`Processed CSS Module was not found for ${file.fileName}`);
+                    }
 
-                Object.keys(bundle)
-                    .filter((file) => file.endsWith('.css') && file !== 'index.css')
-                    .forEach((file) => {
-                        delete bundle[file];
+                    const cssFileName = file.fileName.replace(/\.module\.css\.js$/, '.css');
+                    const relativeCssPath = `./${path.posix.relative(path.posix.dirname(file.fileName), cssFileName)}`;
+                    const importCss =
+                        options.format === 'cjs'
+                            ? `require('${relativeCssPath}');\n`
+                            : `import '${relativeCssPath}';\n`;
+
+                    file.code = importCss + file.code;
+
+                    this.emitFile({
+                        type: 'asset',
+                        fileName: cssFileName,
+                        source: css,
                     });
+                });
             },
         },
     };

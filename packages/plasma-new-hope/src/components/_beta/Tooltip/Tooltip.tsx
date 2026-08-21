@@ -18,8 +18,7 @@ import {
     limitShift,
 } from '@floating-ui/react';
 
-import { ARROW_PADDING } from '../Popover/Popover';
-import { getFloatingPortalProps, useTailStyle } from '../Popover/utils';
+import { ARROW_PADDING, getFloatingPortalProps, useTailStyle } from '../Popover/utils';
 import { Slot } from '../utils/Slot';
 
 import { classes } from './Tooltip.tokens';
