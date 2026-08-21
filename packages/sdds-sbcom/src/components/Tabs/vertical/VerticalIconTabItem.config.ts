@@ -1,11 +1,5 @@
 import { css, tabsTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    surfaceAccent,
-    textPrimary,
-    textSecondary,
-    textSecondaryActive,
-    textSecondaryHover,
-} from '@salutejs-ds/sdds_sbcom/theme/tokens';
+import { surfaceAccent, textAccent, textAccentHover, textParagraph } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
@@ -15,22 +9,23 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.itemColor}: ${textSecondary};
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
+                ${tabsTokens.itemColor}: ${textParagraph};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
+                ${tabsTokens.itemColorHover}: ${textAccentHover};
+                ${tabsTokens.itemColorActive}: ${textAccent};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedColor}: ${textAccent};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedColorHover}: ${textAccent};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
-                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColor}: ${surfaceAccent};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${surfaceAccent};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,

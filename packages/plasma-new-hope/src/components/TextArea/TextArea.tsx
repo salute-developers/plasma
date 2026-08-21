@@ -179,8 +179,8 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const [helperWidth, setHelperWidth] = useState<string>('100%');
         const innerWidth = getDimensionValue(width) || helperWidth;
         const [focused, setFocused] = useState(false);
-        // TODO: перенести в общую переменную для value снаружи и внутри
         const [uncontrolledValue, setUncontrolledValue] = useState<string | undefined>();
+        const currentValue = value !== undefined ? value : uncontrolledValue;
 
         const outerRef = createRef<HTMLTextAreaElement>();
         const hiddenRef = useRef<HTMLTextAreaElement | null>(null);
@@ -255,7 +255,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
         });
 
-        useAutoResize(applyAutoResize, outerRef, value || uncontrolledValue, minAuto, maxAuto, resize, hiddenRef, size);
+        useAutoResize(applyAutoResize, outerRef, currentValue, minAuto, maxAuto, resize, hiddenRef, size);
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
@@ -291,7 +291,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 readOnly,
                 label,
                 labelPlacement,
-                value: value || uncontrolledValue || defaultValue,
+                value: currentValue ?? defaultValue,
                 rows,
                 labelAriaHidden,
             },
@@ -453,7 +453,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                 aria-hidden
                                 ref={hiddenRef}
                                 hasContentRight={Boolean(contentRight)}
-                                value={value || uncontrolledValue || ' '}
+                                value={currentValue || ' '}
                                 onChange={() => {}}
                                 defaultValue={defaultValue}
                                 cols={cols}

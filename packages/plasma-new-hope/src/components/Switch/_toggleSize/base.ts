@@ -17,14 +17,15 @@ export const base = css`
         box-sizing: border-box;
 
         &::after {
-            margin: auto var(${tokens.thumbOffsetOff});
+            left: var(${tokens.thumbOffsetOff}, 0rem);
+            margin: auto 0;
 
             width: var(${tokens.thumbSize});
             height: var(${tokens.thumbSize});
 
             border-radius: var(${tokens.thumbBorderRadius});
-            border: var(${tokens.thumbBorderWidth}, 0) solid var(${tokens.thumbBorderColorOff}, var(${tokens.thumbBackgroundColorOn}));
-
+            border: var(${tokens.thumbBorderWidth}, 0) solid
+                var(${tokens.thumbBorderColorOff}, var(${tokens.thumbBackgroundColorOn}));
         }
     }
 
@@ -32,7 +33,15 @@ export const base = css`
         border-width: var(${tokens.trackBorderWidthOn}, var(${tokens.trackBorderWidthOff}));
 
         &::after {
-            margin: auto var(${tokens.thumbOffsetOn});
+            right: auto;
+            left: var(${tokens.thumbOffsetOff}, 0rem);
+            margin: auto 0;
+            transform: translateX(
+                calc(
+                    var(${tokens.trackWidth}) - var(${tokens.thumbSize}) - var(${tokens.thumbOffsetOff}, 0rem) -
+                        var(${tokens.thumbOffsetOn}, 0rem)
+                )
+            );
 
             border-color: var(${tokens.thumbBorderColorOn}, var(${tokens.thumbBackgroundColorOn}));
         }
@@ -40,5 +49,14 @@ export const base = css`
 
     :active:not([disabled]) ${StyledTrigger}::after {
         width: calc(var(${tokens.thumbSize}) * var(${tokens.thumbPressScale}, 1));
+    }
+
+    :active:not([disabled]) ${StyledInput}:checked ~ ${StyledTrigger}::after {
+        transform: translateX(
+            calc(
+                var(${tokens.trackWidth}) - var(${tokens.thumbSize}) * var(${tokens.thumbPressScale}, 1) -
+                    var(${tokens.thumbOffsetOff}, 0rem) - var(${tokens.thumbOffsetOn}, 0rem)
+            )
+        );
     }
 `;

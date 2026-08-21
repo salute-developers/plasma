@@ -7,11 +7,10 @@ import {
     bodyS,
     bodySBold,
     surfaceAccent,
-    textPrimary,
+    textAccent,
+    textAccentHover,
+    textParagraph,
     textSecondary,
-    textSecondaryActive,
-    textSecondaryHover,
-    textTertiary,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 /*
@@ -26,18 +25,19 @@ export const config = {
     variations: {
         view: {
             divider: css`
-                ${tabsTokens.itemColor}: ${textSecondary};
-                ${tabsTokens.itemValueColor}: ${textTertiary};
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
+                ${tabsTokens.itemColor}: ${textParagraph};
+                ${tabsTokens.itemValueColor}: ${textParagraph};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemValueColorHover}: ${textSecondary};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
-                ${tabsTokens.itemValueColorActive}: ${textSecondary};
+                ${tabsTokens.itemColorHover}: ${textAccentHover};
+                ${tabsTokens.itemValueColorHover}: ${textAccentHover};
+                ${tabsTokens.itemColorActive}: ${textAccent};
+                ${tabsTokens.itemValueColorActive}: ${textAccent};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedColor}: ${textAccent};
                 ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedColorHover}: ${textAccent};
                 ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
@@ -49,8 +49,8 @@ export const config = {
 
                 ${tabsTokens.itemSelectedDividerWidth}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
-                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColor}: ${surfaceAccent};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${surfaceAccent};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,

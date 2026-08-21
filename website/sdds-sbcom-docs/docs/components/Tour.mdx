@@ -37,10 +37,10 @@ export function App() {
             {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
-                    {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                    {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
                     {last
-                        ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button>
-                        : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>
+                        ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button>
+                        : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>
                     }
                 </div>
                 <small>{cur + 1} / {length}</small>
@@ -121,8 +121,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -164,8 +164,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -212,8 +212,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -249,7 +249,7 @@ export function App() {
                 <div style={{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
-                    <Button size="s" view="accentFiled" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
+                    <Button size="24" view="accentFiled" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
                 </div>
             );
 
@@ -301,8 +301,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -353,8 +353,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -399,8 +399,8 @@ export function App() {
             {step.title && <strong>{step.title}</strong>}
             {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
             <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
             </div>
         </div>
     );
@@ -448,7 +448,7 @@ export function App() {
                 <div style={{ padding: '1rem', background: 'var(--surface-solid-card)', borderRadius: '0.75rem', boxShadow: '0 4px 16px rgba(0,0,0,0.12)', maxWidth: '16rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
-                    <Button size="s" view="accentFiled" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
+                    <Button size="24" view="accentFiled" onClick={onClose} style={{ marginTop: '0.25rem' }}>Закрыть</Button>
                 </div>
             );
 
@@ -490,8 +490,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -544,8 +544,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -587,8 +587,8 @@ export function App() {
                     {step.title && <strong>{step.title}</strong>}
                     {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
                     <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                        {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                        {last ? <Button size="s" view="accentFiled">Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                        {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                        {last ? <Button size="24" view="accentFiled">Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
                     </div>
                 </div>
             );
@@ -665,8 +665,8 @@ export function App() {
             {step.title && <strong>{step.title}</strong>}
             {step.description && <small style={{ opacity: 0.7 }}>{step.description}</small>}
             <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.25rem' }}>
-                {cur > 0 && <Button size="s" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
-                {last ? <Button size="s" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="s" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
+                {cur > 0 && <Button size="24" view="accentFiled" onClick={() => goToStep(cur - 1)}>Назад</Button>}
+                {last ? <Button size="24" view="accentFiled" onClick={onClose}>Закрыть</Button> : <Button size="24" view="accentFiled" onClick={() => goToStep(cur + 1)}>Далее</Button>}
             </div>
         </div>
     );

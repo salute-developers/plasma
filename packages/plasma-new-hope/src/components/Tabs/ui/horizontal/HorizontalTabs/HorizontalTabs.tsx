@@ -8,6 +8,8 @@ import { classes } from '../../../tokens';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { HorizontalTabsProps } from '../../../Tabs.types';
 import { getFirstOverflowingTab, getLastOverflowingTab } from '../../../utils';
+import { TabsSelection } from '../../TabsSelection';
+import { useTabsSelection } from '../../hooks/useTabsSelection';
 
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
@@ -69,6 +71,8 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
         const scrollRef = useRef<HTMLElement | null>(null);
         const trackRef = useRef<HTMLElement | null>(null);
         const leftArrowRef = useRef<HTMLButtonElement | null>(null);
+        const selectionRef = useRef<HTMLSpanElement | null>(null);
+        useTabsSelection({ refs, trackRef, selectionRef });
 
         const onPrev = useCallback(() => {
             if (disabled || !scrollRef.current) {
@@ -258,6 +262,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     >
                         <StyledContent ref={trackRef as MutableRefObject<HTMLDivElement | null>}>
                             {children}
+                            <TabsSelection ref={selectionRef} orientation="horizontal" />
                         </StyledContent>
                     </StyledContentWrapper>
                     {!lastItemVisible && clip === 'scroll' && NextButton}

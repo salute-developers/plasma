@@ -54,13 +54,15 @@ import { Loader } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="spinner" size="s" />
-            <Loader type="spinner" size="m" />
-            <Loader type="spinner" size="l" />
+            <Loader type="spinner" size="16" />
+            <Loader type="spinner" size="24" />
+            <Loader type="spinner" size="32" />
+            <Loader type="spinner" size="40" />
 
-            <Loader type="progress" size="s" value={25} />
-            <Loader type="progress" size="m" value={50} />
-            <Loader type="progress" size="l" value={75} />
+            <Loader type="progress" size="16" value={25} />
+            <Loader type="progress" size="24" value={50} />
+            <Loader type="progress" size="32" value={75} />
+            <Loader type="progress" size="40" value={100} />
         </div>
     );
 }
@@ -76,13 +78,15 @@ import { Loader } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="spinner" view="default" />
+            <Loader type="spinner" view="white" />
             <Loader type="spinner" view="accent" />
-            <Loader type="spinner" view="positive" />
+            <Loader type="spinner" view="danger" />
+            <Loader type="spinner" view="primary" />
 
-            <Loader type="progress" view="default" value={25} />
+            <Loader type="progress" view="white" value={25} />
             <Loader type="progress" view="accent" value={50} />
-            <Loader type="progress" view="positive" value={75} />
+            <Loader type="progress" view="danger" value={75} />
+            <Loader type="progress" view="primary" value={100} />
         </div>
     );
 }
@@ -137,8 +141,8 @@ import { IconClose } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="progress" value={25} size="xl">25%</Loader>
-            <Loader type="progress" value={75} size="l">
+            <Loader type="progress" value={25} size="40">25%</Loader>
+            <Loader type="progress" value={75} size="32">
                 <IconClose color="var(--text-primary)" size="s" />
             </Loader>
         </div>
@@ -191,10 +195,29 @@ import { Loader } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="progress" value={25} maxValue={50} size="xl">25/50</Loader>
-            <Loader type="progress" value={75} maxValue={150} size="xl">75/150</Loader>
+            <Loader type="progress" value={25} maxValue={50} size="40">25/50</Loader>
+            <Loader type="progress" value={75} maxValue={150} size="40">75/150</Loader>
         </div>
     );
 }
 ```
 
+### Настройка анимации
+
+Скорость вращения Spinner настраивается через `animation-duration` класса `.spinner-wrapper`.
+
+```tsx live
+import React from 'react';
+import styled from 'styled-components';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedLoader = styled(Loader)`
+        .spinner-wrapper {
+            animation-duration: 1000ms;
+        }
+    `;
+
+    return <AnimatedLoader type="spinner" size="40" view="accent" />;
+}
+```
