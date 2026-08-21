@@ -1,5 +1,5 @@
 {
-  "name": "@salutejs/sdds-insol-next-next-docs",
+  "name": "@salutejs/sdds-insol-next-docs",
   "version": "0.352.0",
   "description": "SDDS INSOL documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
@@ -7,7 +7,7 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:salute-developers/plasma.git",
-    "directory": "website/sdds-insol-next-next-docs"
+    "directory": "website/sdds-insol-next-docs"
   },
   "private": true,
   "publishConfig": {
