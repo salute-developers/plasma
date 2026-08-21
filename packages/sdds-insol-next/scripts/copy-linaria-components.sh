@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Example: Calendar
-components=$(grep -R plasma-new-hope src/components | cut -d / -f 3 | sort -u)
+components=$(grep -R plasma-new-hope src/components | cut -d / -f 3 | grep -v '^_beta$' | sort -u)
 
 mkdir -p src-css/components/
 touch src-css/index.ts
@@ -9,7 +9,7 @@ touch src-css/index.d.ts
 for component in $components; do
         cp -R src/components/$component src-css/components/;
         grep -E "\<$component\>" src/index.ts >> src-css/index.ts
-        echo "export * from '../components/$component';" >> css/index.d.ts;
+        echo "export * from '../components/$component';" >> src-css/index.d.ts;
 
 done;
 

@@ -38,7 +38,8 @@
   },
   "dependencies": {
     "@salutejs/plasma-new-hope": "0.376.0",
-    "@salutejs/sdds-themes": "0.77.0"
+    "@salutejs/sdds-themes": "0.77.0",
+    "classnames": "2.5.1"
   },
   "devDependencies": {
     "@babel/cli": "7.24.1",
@@ -82,12 +83,10 @@
     "build:css": "rm -rf dist/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
     "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
-    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
-    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
-    "prebuild:beta": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
-    "build:beta": "rm -rf dist/beta/es dist/beta/cjs && BETA=true rollup -c",
-    "postbuild:beta": "rm -rf src-css",
-    "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
+    "build:styled-components:cjs": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src --ignore \"src/components/_beta/**\" -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "build:beta": "rm -rf dist/beta && rollup -c rollup.beta.config.mjs",
+    "generate:typings": "tsc && tsc -p src/components/_beta/tsconfig.json",
     "storybook": "npm run storybook:sc",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
