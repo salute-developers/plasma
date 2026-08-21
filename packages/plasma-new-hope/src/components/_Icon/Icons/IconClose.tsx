@@ -9,6 +9,7 @@ export const IconClose: React.FC<IconProps> = ({
     className,
     sizeCustomProperty,
     sizeCustomValue,
+    ...rest
 }) => {
     return (
         <IconRoot
@@ -18,6 +19,7 @@ export const IconClose: React.FC<IconProps> = ({
             sizeCustomProperty={sizeCustomProperty}
             sizeCustomValue={sizeCustomValue}
             icon={Close}
+            {...rest}
         />
     );
 };
