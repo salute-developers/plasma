@@ -1,3 +1,3 @@
 export { Popover } from './Popover';
 
-export type { PopoverProps } from './Popover.types';
+export type { BasicPopoverProps, Placement, PopoverProps } from './Popover.types';
