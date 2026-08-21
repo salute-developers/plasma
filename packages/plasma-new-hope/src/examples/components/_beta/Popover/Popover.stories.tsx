@@ -11,7 +11,7 @@ import { Popover } from './Popover';
 
 type StoryProps = ComponentProps<typeof Popover>;
 
-const appearance = ['default', 'closeNone'];
+const appearance = ['default', 'closeInner'];
 const placements = [
     'top',
     'top-start',

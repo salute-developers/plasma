@@ -38,7 +38,7 @@ export { ARROW_WIDTH, ARROW_HEIGHT, ARROW_POLYGON, ARROW_PADDING } from '../../T
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => {
     const {
-        appearance = 'closeNone',
+        appearance = 'default',
         children,
         target,
         opened: outerOpened,

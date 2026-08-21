@@ -20,9 +20,9 @@ export type BasicPopoverProps = {
     /**
      * Стиль для UI конфигурации
      * Влияет на выбор предустановленного набора токенов
-     * @default closeNone
+     * @default default
      */
-    appearance?: 'closeNone' | 'closeInner';
+    appearance?: 'default' | 'closeInner';
     /**
      * Контент всплывающего окна.
      */

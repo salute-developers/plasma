@@ -8,8 +8,7 @@
     --plasma-popover-tail-side-curvature: -10%;
 }
 
-.m,
-.default {
+.m {
     --plasma-popover-close-icon-size: 1.5rem;
     --plasma-popover-border-radius: 0.875rem;
     --plasma-popover-padding: 0.625rem;

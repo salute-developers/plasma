@@ -17,20 +17,27 @@ type DefaultAppearanceProps = {
     size?: 'l' | 'm' | 's';
 };
 
-type CloseNoneAppearanceProps = {
-    appearance: 'closeNone';
+type CloseInnerAppearanceProps = {
+    appearance: 'closeInner';
     view?: 'default' | 'accent';
     size?: 'l' | 'm' | 's';
 };
 
-export type PopoverProps = BasePopoverProps & (DefaultAppearanceProps | CloseNoneAppearanceProps);
+export type PopoverProps = BasePopoverProps & (DefaultAppearanceProps | CloseInnerAppearanceProps);
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
     ({ appearance = 'default', view = 'default', size = 'm', ...rest }, ref) => {
-        const viewStyles = appearance === 'default' ? closeInnerViewStyles : closeNoneViewStyles;
-        const sizeStyles = appearance === 'default' ? closeInnerSizeStyles : closeNoneSizeStyles;
+        const viewStyles = appearance === 'default' ? closeNoneViewStyles : closeInnerViewStyles;
+        const sizeStyles = appearance === 'default' ? closeNoneSizeStyles : closeInnerSizeStyles;
 
-        // @ts-expect-error _configClassName is an internal runtime property.
-        return <CorePopover ref={ref} _configClassName={cls(viewStyles[view], sizeStyles[size])} {...rest} />;
+        return (
+            <CorePopover
+                ref={ref}
+                appearance={appearance}
+                // @ts-expect-error _configClassName is an internal runtime property.
+                _configClassName={cls(viewStyles[view], sizeStyles[size])}
+                {...rest}
+            />
+        );
     },
 );
