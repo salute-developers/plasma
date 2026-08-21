@@ -705,5 +705,225 @@ export function App() {
 }
 ```
 
+## Кастомный TourCard
+
+Библиотека поставляет компонент `TourCard`, из которого можно собрать карточку шага с изображением, пагинацией и собственными элементами управления.
+
+```tsx live
+import React, { useState } from 'react';
+import { Avatar, Button, ButtonGroup, Range, Switch, TextField, Tour, TourCard } from '@salutejs/sdds-cs';
+
+export function App() {
+    const [open, setOpen] = useState(false);
+    const [current, setCurrent] = useState(0);
+    const [name, setName] = useState('');
+    const [checked, setChecked] = useState(false);
+    const [firstValue, setFirstValue] = useState('18');
+    const [secondValue, setSecondValue] = useState('65');
+
+    const onClose = () => {
+        setOpen(false);
+        setCurrent(0);
+    };
+
+    const goToStep = (index) => {
+        setCurrent(index);
+    };
+
+    const getImage = () => {
+        const svgString = `
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMinYMin slice"
+              viewBox="1 0.5 8 8"
+              style="background: lightblue"
+            >
+              <path stroke="#fff" stroke-dasharray="1" d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
+            </svg>
+        `;
+
+        const cleanedSvg = svgString.replace(/\s+/g, ' ').trim();
+        return `data:image/svg+xml,${encodeURIComponent(cleanedSvg)}`;
+    };
+
+    const steps = [
+        {
+            target: '#tour-card-avatar',
+            title: 'Аватар профиля',
+            description: 'Здесь отображается ваш аватар. Кликните по нему, чтобы загрузить фотографию.',
+            placement: 'right',
+            highlightBorderRadius: '50%',
+        },
+        {
+            target: '#tour-card-textfield',
+            title: 'Имя пользователя',
+            description: 'Введите ваше имя — оно будет отображаться в профиле и переписке.',
+        },
+        {
+            target: '#tour-card-switch',
+            title: 'Push-уведомления',
+            description: 'Включите уведомления, чтобы не пропускать важные события.',
+        },
+        {
+            target: '#tour-card-range',
+            title: 'Возрастной диапазон',
+            description: 'Укажите диапазон возраста аудитории для персонализации контента.',
+        },
+        {
+            target: '#tour-card-save',
+            title: 'Сохранить настройки',
+            description: 'Нажмите кнопку, чтобы применить все внесённые изменения.',
+            placement: 'top',
+        },
+    ];
+
+    const renderTourCard = (stepCurrent, stepLength, last, step) => {
+        const actionButtons = (
+            <ButtonGroup stretching="auto" gap="wide" isCommonButtonStyles={false}>
+                {stepCurrent > 0 && (
+                    <Button size="s" view="secondary" onClick={() => setCurrent((value) => value - 1)}>
+                        Назад
+                    </Button>
+                )}
+
+                {last ? (
+                    <Button size="s" view="secondary" onClick={onClose}>
+                        Закрыть
+                    </Button>
+                ) : (
+                    <Button size="s" view="accent" onClick={() => setCurrent((value) => value + 1)}>
+                        Далее
+                    </Button>
+                )}
+            </ButtonGroup>
+        );
+
+        const skipButton = (
+            <Button view="clear" size="s" onClick={onClose}>
+                Пропустить
+            </Button>
+        );
+
+        return (
+            <TourCard
+                title={step.title}
+                description={step.description}
+                actionButtons={actionButtons}
+                skipButton={skipButton}
+                orientation="horizontal"
+                contentDirection="row-reverse"
+                showPagination
+                paginationVisibleItems={3}
+                paginationType="dot"
+                stepCurrent={stepCurrent}
+                stepLength={stepLength}
+                goToStep={goToStep}
+                showClose
+                onClose={onClose}
+                image={{ src: getImage(), alt: '' }}
+            />
+        );
+    };
+
+    return (
+        <div
+            style={{
+                maxWidth: '26rem',
+                margin: '0 auto',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.5rem',
+                padding: '2rem',
+            }}
+        >
+            <Avatar id="tour-card-avatar" size="m" name="Иван Иванов" style={{ alignSelf: 'flex-start' }} />
+
+            <div id="tour-card-textfield">
+                <TextField label="Имя пользователя" value={name} onChange={(event) => setName(event.target.value)} />
+            </div>
+
+            <Switch
+                id="tour-card-switch"
+                label="Push-уведомления"
+                checked={checked}
+                onChange={(event) => setChecked(event.target.checked)}
+            />
+
+            <Range
+                id="tour-card-range"
+                label="Возрастной диапазон"
+                firstValue={firstValue}
+                secondValue={secondValue}
+                onChangeFirstValue={(event) => setFirstValue(event.target.value)}
+                onChangeSecondValue={(event) => setSecondValue(event.target.value)}
+            />
+
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <Button view="secondary" onClick={() => setOpen(true)}>
+                    Запустить тур
+                </Button>
+                <Button id="tour-card-save" view="accent">
+                    Сохранить
+                </Button>
+            </div>
+
+            <Tour
+                open={open}
+                current={current}
+                hasTail
+                onChange={setCurrent}
+                onClose={onClose}
+                renderStep={renderTourCard}
+                steps={steps}
+                highlightBorderRadius="1rem"
+            />
+        </div>
+    );
+}
+```
+
+В горизонтальной ориентации `contentDirection` меняет взаимное расположение изображения и контента, а `paginationType` позволяет выбрать пагинацию точками (`dot`) или счётчиком (`compact`). Для вертикальной карточки всегда используется пагинация точками.
+
+### Тип компонента TourCard
+
+```tsx
+type TourCardProps = {
+    /** Ориентация карточки. @default 'horizontal' */
+    orientation?: 'horizontal' | 'vertical';
+    /** Расположение контента в горизонтальной карточке. @default 'row-reverse' */
+    contentDirection?: 'row-reverse' | 'row';
+    /** Заголовок карточки. */
+    title?: string;
+    /** Описание карточки. */
+    description?: string;
+    /** Свойства изображения: src, alt, ratio, customRatio и другие. */
+    image?: ImageProps;
+    /** Показывать пагинацию. @default true */
+    showPagination?: boolean;
+    /** Максимальное количество отображаемых точек пагинации. @default 3 */
+    paginationVisibleItems?: number;
+    /** Вид пагинации; compact применяется только в горизонтальной карточке. @default 'dot' */
+    paginationType?: 'dot' | 'compact';
+    /** Индекс текущего шага. */
+    stepCurrent?: number;
+    /** Общее количество шагов. */
+    stepLength?: number;
+    /** Функция перехода к шагу по индексу. */
+    goToStep?: (index: number) => void;
+    /** Кнопки навигации по шагам. */
+    actionButtons?: ReactNode;
+    /** Кнопка пропуска тура. */
+    skipButton?: ReactNode;
+    /** Показывать кнопку закрытия. @default true */
+    showClose?: boolean;
+    /** Обработчик закрытия тура. */
+    onClose?: () => void;
+    /** Вид карточки. */
+    view?: string;
+    /** Размер карточки. */
+    size?: string;
+} & HTMLAttributes<HTMLDivElement>;
+```
+
 ## Таблица свойств
 <PropsTable name="Tour" exclude={['css']} />
