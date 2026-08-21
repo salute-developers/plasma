@@ -82,7 +82,7 @@ const FontController: FC<FontControllerProps> = ({ controlledParams, setCurrentP
                     key={`label_${param}`}
                     value={param}
                     label={upperFirstLetter(param)}
-                    view="default"
+                    view="primary"
                     pilled
                 />
             ))}
