@@ -22,6 +22,11 @@ export const createMeta = ({
     return {
         title,
         decorators: [InSpacingDecorator],
+        parameters: {
+            controls: {
+                disableSaveFromUI: true,
+            },
+        },
         component,
         args: {
             size: 's',
