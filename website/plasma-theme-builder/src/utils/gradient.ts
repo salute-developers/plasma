@@ -1,5 +1,8 @@
 import { zeroPoint } from '../types';
 import type { MultiplatformValue } from '../types';
+import { isValidBackground } from './other';
+
+export const isValidGradient = (value: string) => isValidBackground(value) && value.includes('gradient');
 
 const getLinearVectorPoints = (angle: string) => {
     const degree = Number(angle);
@@ -29,14 +32,40 @@ const getLinearVectorPoints = (angle: string) => {
     };
 };
 
-export const getGradientParts = (value: string) => {
+const getGradientParts = (value: string) => {
     const gradient = value.substring(value.indexOf('(') + 1, value.lastIndexOf(')'));
     return gradient.split(/,\s(?![^(]*\))(?![^"']*["'](?:[^"']*["'][^"']*["'])*[^"']*$)/gm);
 };
 
-export const parseGradientsByLayer = (value: string) => {
-    const regex = /((rgba?|hsla?)\([\d.%\s,()#\w]*\))|(#\w{6,8})|(linear|radial)-gradient\([\d.%\s,()#\w]+?\)(?=,*\s*(linear|radial|$|rgb|hsl|#))/g;
-    return value.match(regex);
+const parseGradientsByLayer = (value: string) => {
+    const layers: string[] = [];
+    let depth = 0;
+    let start = 0;
+
+    for (let i = 0; i < value.length; i += 1) {
+        const char = value[i];
+
+        if (char === '(') {
+            depth += 1;
+        } else if (char === ')') {
+            depth -= 1;
+
+            if (depth < 0) {
+                return null;
+            }
+        } else if (char === ',' && depth === 0) {
+            layers.push(value.slice(start, i).trim());
+            start = i + 1;
+        }
+    }
+
+    const lastLayer = value.slice(start).trim();
+
+    if (lastLayer) {
+        layers.push(lastLayer);
+    }
+
+    return depth === 0 && layers.length ? layers : null;
 };
 
 const getColors = (restParams: string[]) =>

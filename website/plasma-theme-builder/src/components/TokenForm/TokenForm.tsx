@@ -15,8 +15,7 @@ import {
     sectionToFormulaMap,
     getStateToken,
     getBrightnessTokens,
-    getGradientParts,
-    parseGradientsByLayer,
+    isValidGradient,
     isCamelCaseNotation,
     isHEXFormat,
 } from '../../utils';
@@ -287,17 +286,13 @@ export const TokenForm = ({
             return;
         }
 
-        if (selectColorType === 'Gradient') {
-            const layers = parseGradientsByLayer(gradientValueRef.current?.value || '');
-
-            if (!layers) {
-                return;
-            }
-
-            // TODO: улучшить валидацию
-            if (layers.some((layer) => getGradientParts(layer).length <= 2)) {
-                return;
-            }
+        if (selectColorType === 'Gradient' && !isValidGradient(gradientValueRef.current?.value || '')) {
+            setValue({
+                value: cleanedValue,
+                status: 'error',
+                helpText: 'Невалидное значение градиента',
+            });
+            return;
         }
 
         if (comment?.value && comment.value?.length >= 120) {

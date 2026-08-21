@@ -82,7 +82,8 @@ export const GradientTokenValue = forwardRef<HTMLTextAreaElement, GradientTokenV
                         ref={ref}
                         size="s"
                         resize="none"
-                        helperText=""
+                        status={value.status}
+                        helperText={value.helpText || ''}
                         value={gradientValue}
                         onChange={onChangeGradientValue}
                     />
