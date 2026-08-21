@@ -174,6 +174,7 @@ const StoryResizable = (args: StoryProps) => {
         resizableMaxWidth,
         resizableMaxHeight,
         resizableIconSize,
+        ...popoverProps
     } = args;
 
     React.useEffect(() => {
@@ -201,6 +202,7 @@ const StoryResizable = (args: StoryProps) => {
             }}
         >
             <Popover
+                {...popoverProps}
                 target={<Button>Target</Button>}
                 resizable={{
                     directions: resizableDirections,
@@ -212,7 +214,6 @@ const StoryResizable = (args: StoryProps) => {
                     maxHeight: resizableMaxHeight,
                     iconSize: resizableIconSize,
                 }}
-                {...args}
             >
                 <div
                     style={{
