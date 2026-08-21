@@ -1,4 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<metadata>{"aliases":["operation","status","toggle","time","action","feedback","warning","success","действие","статус","Operation"],"sourceCategory":"Operation","source":"24 / Operation / FlipHorizontalOutline","size":24}</metadata>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.6247 4.39314C10.1244 3.48942 11.4993 3.84394 11.4997 4.87654V18.4996C11.4997 19.328 10.8281 19.9996 9.9997 19.9996H2.69501L2.55537 19.9898C1.87662 19.8973 1.47485 19.1409 1.82001 18.5162L9.6247 4.39314ZM3.54267 18.4996H9.9997V6.81502L3.54267 18.4996Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4997 4.87654C12.5001 3.84402 13.8749 3.48968 14.3747 4.39314L22.1794 18.5162C22.5246 19.141 22.123 19.8975 21.444 19.9898L21.3044 19.9996H13.9997C13.1714 19.9995 12.4997 19.3279 12.4997 18.4996V4.87654ZM13.9997 18.4996H20.4567L13.9997 6.81502V18.4996Z" fill="black"/>
 </svg>
