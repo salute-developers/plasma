@@ -48,7 +48,12 @@ const getConfig = (component: string): any => {
         // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
         return require(`src/examples/components/${component}/${component}.config.ts`).config;
     } catch {
-        return null;
+        try {
+            // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
+            return require(`src/examples/components/${component}/${component}.config.tsx`).config;
+        } catch {
+            return null;
+        }
     }
 };
 
