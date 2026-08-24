@@ -14,10 +14,17 @@ const iconSizeMap = {
 };
 
 export const createDefaultStory = (EmbeddedButton: any) => {
-    return ({ buttonContainerWidth, buttonContainerHeight, size, ...rest }: any) => (
+    return ({ view, buttonContainerWidth, buttonContainerHeight, size, ...rest }: any) => (
         <div style={{ width: buttonContainerWidth, height: buttonContainerHeight }}>
-            <EmbeddedButton size={size} onClick={onClick} onFocus={onFocus} onBlur={onBlur} {...rest}>
-                <IconPlasma color="inherit" style={{ width: iconSizeMap[size], height: iconSizeMap[size] }} />
+            <EmbeddedButton view={view} size={size} onClick={onClick} onFocus={onFocus} onBlur={onBlur} {...rest}>
+                <IconPlasma
+                    color={
+                        view === 'gradient'
+                            ? 'linear-gradient(100.49deg,#199AF0FF 0%,#12C2F3FF 41.912%,#528EFFFF 106.22%)'
+                            : 'inherit'
+                    }
+                    style={{ width: iconSizeMap[size], height: iconSizeMap[size] }}
+                />
             </EmbeddedButton>
         </div>
     );

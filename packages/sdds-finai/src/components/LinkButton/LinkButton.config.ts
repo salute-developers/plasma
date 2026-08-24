@@ -10,6 +10,7 @@ import {
     surfaceClear,
     textAccent,
     textAccentActive,
+    textAccentGradient,
     textAccentHover,
     textInfo,
     textInfoActive,
@@ -107,6 +108,16 @@ export const config = {
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textInfoHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textInfoActive};
+            `,
+            gradient: css`
+                ${linkButtonTokens.linkButtonIconColor}: ${textAccentGradient};
+                ${linkButtonTokens.linkButtonTextColor}: ${textAccentGradient};
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${textAccentGradient};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${textAccentGradient};
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${textAccentGradient};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${textAccentGradient};
             `,
         },
         size: {
