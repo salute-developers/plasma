@@ -4,7 +4,7 @@ import cls from 'classnames';
 import { safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
 
-import { classes } from '../../../tokens';
+import { classes, tokens } from '../../../tokens';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { VerticalTabsProps } from '../../../Tabs.types';
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
@@ -14,6 +14,7 @@ import { base, StyledArrow, StyledContent, StyledContentWrapper } from './Vertic
 import { base as sizeCSS } from './variations/_size/base';
 import { base as viewCSS } from './variations/_view/base';
 import { base as disabledCSS } from './variations/_disabled/base';
+import { base as pilledCSS } from './variations/_pilled/base';
 
 enum Keys {
     end = 35,
@@ -37,6 +38,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
             className,
             orientation,
             hasDivider = true,
+            pilled = false,
             ...rest
         } = props;
 
@@ -50,6 +52,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
 
         const uniqId = safeUseId();
         const tabsId = id || uniqId;
+        const pilledAttr = view !== 'clear' && pilled;
 
         const scrollRef = useRef<HTMLElement | null>(null);
         const trackRef = useRef<HTMLElement | null>(null);
@@ -109,7 +112,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                 disabled={disabled}
                 ref={upArrowRef}
             >
-                <IconDisclosureLeft color="inherit" />
+                <IconDisclosureLeft sizeCustomProperty={tokens.arrowSize} color="inherit" />
             </StyledArrow>
         );
 
@@ -121,7 +124,7 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                 tabIndex={disabled ? -1 : 0}
                 disabled={disabled}
             >
-                <IconDisclosureRight color="inherit" />
+                <IconDisclosureRight sizeCustomProperty={tokens.arrowSize} color="inherit" />
             </StyledArrow>
         );
 
@@ -210,7 +213,9 @@ export const verticalTabsRoot = (Root: RootProps<HTMLDivElement, VerticalTabsPro
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
+                    pilled={pilled}
                     className={cls(className, {
+                        [classes.tabsPilled]: pilledAttr,
                         [classes.tabsNoDivider]: !hasDivider,
                         [classes.tabsHasTopArrow]: !firstItemVisible,
                         [classes.tabsHasBottomArrow]: !lastItemVisible,
@@ -254,6 +259,9 @@ export const verticalTabsConfig = {
         disabled: {
             css: disabledCSS,
             attrs: true,
+        },
+        pilled: {
+            css: pilledCSS,
         },
     },
     defaults: {

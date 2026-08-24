@@ -8,6 +8,7 @@ export const base = css`
     gap: 0.125rem;
     align-items: center;
     position: relative;
+    padding: var(${tokens.tabsPadding}, 0);
 `;
 
 export const StyledContent = styled.div`
@@ -30,6 +31,7 @@ export const StyledContentWrapper = styled.div`
         overflow: scroll;
 
         scrollbar-width: none;
+
         ::-webkit-scrollbar {
             display: none;
         }

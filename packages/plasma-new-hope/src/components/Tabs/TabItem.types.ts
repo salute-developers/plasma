@@ -91,7 +91,7 @@ export type CustomHorizontalTabItemProps = {
     /**
      * Размер TabItem
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`
@@ -193,6 +193,11 @@ export type CustomVerticalTabItemProps = {
      * Размер TabItem
      */
     size?: string;
+    /**
+     * TabItem c округлым border-radius
+     * @default false
+     */
+    pilled?: boolean;
 } & RightContent;
 
 export type HorizontalTabItemProps = BaseTabItemProps & (CustomHorizontalTabItemProps | CustomHeaderTabItemProps);

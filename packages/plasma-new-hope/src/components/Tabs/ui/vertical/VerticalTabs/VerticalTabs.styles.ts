@@ -9,6 +9,7 @@ export const base = css`
     flex-direction: column;
     gap: 0.125rem;
     align-items: center;
+    padding: var(${tokens.tabsPadding}, 0);
 `;
 
 export const StyledContent = styled.div<{ hasDivider?: boolean }>`
