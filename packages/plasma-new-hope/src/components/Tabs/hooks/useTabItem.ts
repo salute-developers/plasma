@@ -7,6 +7,7 @@ export type UseTabItemProps = {
     innerRef: RefObject<HTMLButtonElement>;
     orientation?: 'horizontal' | ' vertical';
     selected?: boolean;
+    disableScroll?: boolean;
     disabled?: boolean;
     itemIndex?: number;
     onIndexChange?: (index: number) => void;
@@ -18,6 +19,7 @@ export const useTabItem = ({
     innerRef,
     itemIndex,
     selected,
+    disableScroll,
     orientation,
     disabled,
     onIndexChange,
@@ -86,7 +88,7 @@ export const useTabItem = ({
     }, [refs]);
 
     useLayoutEffect(() => {
-        if (!selected || !innerRef.current) {
+        if (!selected || disableScroll || !innerRef.current) {
             return;
         }
 
@@ -108,7 +110,7 @@ export const useTabItem = ({
         scrollEl.scrollTo({
             left: innerRef.current.offsetLeft - parseInt(scrollElStyle.paddingLeft, 10),
         });
-    }, [selected, orientation]);
+    }, [selected, disableScroll, orientation]);
 
     return { hasKeyNavigation, navigationTabIndex, onItemFocus, handleClick };
 };

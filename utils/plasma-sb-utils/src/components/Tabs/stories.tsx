@@ -69,6 +69,7 @@ export const createDefaultStory = ({
         const {
             orientation,
             disabled,
+            disableScroll,
             itemQuantity,
             dividerAlign,
             size,
@@ -115,6 +116,7 @@ export const createDefaultStory = ({
         const commonTabsItemProps = {
             orientation,
             disabled,
+            disableScroll,
             view: 'divider',
             tabIndex: !disabled ? 0 : -1,
             size,
