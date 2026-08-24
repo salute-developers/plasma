@@ -27,6 +27,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 zIndex,
                 popupInfo,
                 withBlur,
+                overlayProps,
                 children,
                 view,
                 size,
@@ -70,6 +71,8 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 : `var(${tokens.drawerOverlayColor})`;
             const innerWidth = width ? getSizeValueFromProp(width) : '100%';
             const innerHeight = height ? getSizeValueFromProp(height) : '100%';
+            const overlayPosition =
+                overlayProps?.position ?? (frame === undefined || frame === 'document' ? 'fixed' : 'absolute');
 
             const placementClass = placement ? classes[`${placement}Placement` as keyof typeof classes] : undefined;
 
@@ -128,6 +131,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                                     transparent={transparent}
                                     isClickable={closeOnOverlayClick}
                                     onOverlayClick={onDrawerOverlayKeyDown}
+                                    style={{ ...overlayProps, position: overlayPosition }}
                                 />
                             </Root>
                         )
