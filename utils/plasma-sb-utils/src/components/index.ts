@@ -34,6 +34,7 @@ export * from './Select';
 export * from './Combobox';
 export * from './Dropdown';
 export * from './BottomSheet';
+export * from './Drawer';
 export * from './Popover';
 export * from './Dropzone';
 export * from './Progress';
