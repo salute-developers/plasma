@@ -49,6 +49,14 @@ export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boo
     background-color: transparent;
     padding: 0;
     outline: none;
+    color: var(${tokens.arrowColor});
+    margin-right: ${({ isLeftArrow }) =>
+        isLeftArrow ? `var(${tokens.arrowInnerPadding})` : 'var(--plasma_private-outer-padding)'};
+    margin-left: ${({ isLeftArrow }) =>
+        isLeftArrow ? 'var(--plasma_private-outer-padding)' : `var(${tokens.arrowInnerPadding})`};
+
+    --plasma_private-outline-radius: var(${tokens.arrowBorderRadius}, inherit);
+    --plasma_private-outer-padding: ${({ isFilled }) => (isFilled ? `var(${tokens.arrowOuterPadding})` : '')};
 
     ${addFocus({
         outlineSize: '0.063rem',
@@ -60,15 +68,6 @@ export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boo
     &[disabled] {
         cursor: not-allowed;
     }
-
-    --plasma_private-outer-padding: ${({ isFilled }) => (isFilled ? `var(${tokens.arrowOuterPadding})` : '')};
-
-    padding-right: ${({ isLeftArrow }) =>
-        isLeftArrow ? `var(${tokens.arrowInnerPadding})` : 'var(--plasma_private-outer-padding)'};
-    padding-left: ${({ isLeftArrow }) =>
-        isLeftArrow ? 'var(--plasma_private-outer-padding)' : `var(${tokens.arrowInnerPadding})`};
-
-    color: var(${tokens.arrowColor});
 
     &:hover {
         color: var(${tokens.arrowColorHover});

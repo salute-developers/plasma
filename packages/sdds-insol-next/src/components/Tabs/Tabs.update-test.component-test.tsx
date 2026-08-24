@@ -237,4 +237,73 @@ describe('sdds-insol: Tabs', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('appearance=segment: horizontal and vertical, selected without divider', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs appearance="segment" size="m" hasDivider={false}>
+                    {items.map((item, i) => (
+                        <TabItem appearance="segment" size="m" key={i} selected={i === 1}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+
+                <PadMe />
+
+                <Tabs appearance="segment" size="m" orientation="vertical" hasDivider={false}>
+                    {items.map((item, i) => (
+                        <TabItem appearance="segment" size="m" orientation="vertical" key={i} selected={i === 1}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('appearance=segment: pilled horizontal and vertical', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs appearance="segment" size="m" pilled hasDivider={false}>
+                    {items.map((item, i) => (
+                        <TabItem appearance="segment" size="m" pilled key={i} selected={i === 1}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+
+                <PadMe />
+
+                <Tabs appearance="segment" size="m" orientation="vertical" pilled hasDivider={false}>
+                    {items.map((item, i) => (
+                        <TabItem appearance="segment" size="m" orientation="vertical" pilled key={i} selected={i === 1}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('appearance=segment: clip=scroll shows arrows', () => {
+        mount(
+            <CypressTestDecorator>
+                <Tabs appearance="segment" size="l" clip="scroll" hasDivider={false} style={{ width: '11rem' }}>
+                    {items.map((item, i) => (
+                        <TabItem appearance="segment" size="l" key={i} selected={i === 1}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('[aria-label="Следующий таб"]').should('be.visible');
+        cy.matchImageSnapshot();
+    });
 });

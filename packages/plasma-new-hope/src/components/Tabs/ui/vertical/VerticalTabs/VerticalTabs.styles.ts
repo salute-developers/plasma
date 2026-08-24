@@ -54,6 +54,9 @@ export const StyledArrow = styled.button`
     padding: 0;
     outline: none;
     transform: rotate(90deg);
+    color: var(${tokens.arrowColor});
+
+    --plasma_private-outline-radius: var(${tokens.arrowBorderRadius}, inherit);
 
     ${addFocus({
         outlineSize: '0.063rem',
@@ -65,8 +68,6 @@ export const StyledArrow = styled.button`
     &[disabled] {
         cursor: not-allowed;
     }
-
-    color: var(${tokens.arrowColor});
 
     &:hover {
         color: var(${tokens.arrowColorHover});
