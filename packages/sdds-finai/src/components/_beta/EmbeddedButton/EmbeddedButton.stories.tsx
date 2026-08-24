@@ -2,6 +2,7 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { IconPlasma } from '@salutejs/plasma-icons';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
 import { EmbeddedButton } from './EmbeddedButton';
 
@@ -33,6 +34,7 @@ const iconSizeMap = {
 const meta: Meta<StoryProps> = {
     title: '_Beta/Data Entry/EmbeddedButton',
     component: EmbeddedButton,
+    decorators: [InSpacingDecorator],
     argTypes: {
         view: { options: views, control: 'select' },
         size: { options: sizes, control: 'select' },
