@@ -67,7 +67,14 @@ export const Default: StoryObj<ComponentProps<typeof EmbedIconButton>> = {
     argTypes: { ...disableProps(['children']) },
     render: (args) => (
         <EmbedIconButton {...args}>
-            <IconPlayCircleFill color="inherit" size={getSizeForIcon(args.size)} />
+            <IconPlayCircleFill
+                color={
+                    args.view === 'gradient'
+                        ? 'linear-gradient(100.49deg,#199AF0FF 0%,#12C2F3FF 41.912%,#528EFFFF 106.22%)'
+                        : 'inherit'
+                }
+                size={getSizeForIcon(args.size)}
+            />
         </EmbedIconButton>
     ),
 };
