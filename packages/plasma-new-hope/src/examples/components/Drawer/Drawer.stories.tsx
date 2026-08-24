@@ -170,6 +170,7 @@ const StoryDrawerDemo = ({
                             offset={[offsetX, offsetY]}
                             onClose={() => setIsOpen(false)}
                             {...rest}
+                            overlayProps={{ background: 'red', left: '20%', right: '20%' }}
                         >
                             <DrawerHeader
                                 hasClose={hasClose}

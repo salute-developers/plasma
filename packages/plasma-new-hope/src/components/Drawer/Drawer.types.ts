@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+
 import type { PopupProps } from '../Popup';
 import type { PanelProps } from '../Panel';
 import type { PopupHookArgs } from '../Popup/Popup.types';
@@ -15,6 +17,21 @@ export type DrawerAnimationInfo = {
     enter?: string;
     exit?: string;
 };
+
+export type DrawerOverlayProps = Pick<
+    CSSProperties,
+    | 'width'
+    | 'height'
+    | 'position'
+    | 'inset'
+    | 'top'
+    | 'bottom'
+    | 'left'
+    | 'right'
+    | 'background'
+    | 'backdropFilter'
+    | 'cursor'
+>;
 
 export type DrawerProps = Omit<PopupProps, 'draggable' | 'resizable'> &
     PanelProps & {
@@ -57,6 +74,11 @@ export type DrawerProps = Omit<PopupProps, 'draggable' | 'resizable'> &
          * Нужно ли применять blur для подложки.
          */
         withBlur?: boolean;
+        /**
+         * Настройки подложки.
+         * По умолчанию `position` равен `fixed` для document и `absolute` для остальных frame.
+         */
+        overlayProps?: DrawerOverlayProps;
         /**
          * Закрывать модальное окно при нажатии на ESC(по умолчанию true).
          */
