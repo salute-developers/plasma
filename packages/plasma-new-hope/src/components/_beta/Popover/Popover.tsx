@@ -19,6 +19,7 @@ import {
     limitShift,
 } from '@floating-ui/react';
 
+import addFocusMixin from '../mixins/addFocus.module.css';
 import { Slot } from '../utils/Slot';
 
 import { Resizable } from './Resizable';
@@ -141,7 +142,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                     <FloatingFocusManager context={context}>
                         <div
                             ref={refs.setFloating}
-                            className={styles.root}
+                            className={cls(styles.root, _configClassName, addFocusMixin.focus)}
                             style={{
                                 ...floatingStyles,
                                 zIndex,
@@ -158,12 +159,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                                 <div
                                     ref={ref}
                                     {...rest}
-                                    className={cls(
-                                        styles.wrapper,
-                                        _configClassName,
-                                        rest.className,
-                                        classes.popoverRoot,
-                                    )}
+                                    className={cls(styles.wrapper, rest.className, classes.popoverRoot)}
                                     data-popover-open={opened}
                                 >
                                     {hasTail && (
@@ -181,7 +177,11 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                                     {appearance === 'closeInner' && (
                                         <button
                                             type="button"
-                                            className={cls(styles.closeButton, classes.popoverCloseIconButton)}
+                                            className={cls(
+                                                styles.closeButton,
+                                                classes.popoverCloseIconButton,
+                                                addFocusMixin.focus,
+                                            )}
                                             onClick={() => handleToggle(false)}
                                         >
                                             <CloseIcon />

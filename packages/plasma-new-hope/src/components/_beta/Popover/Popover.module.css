@@ -1,5 +1,7 @@
 .root {
     border-radius: var(--plasma-popover-border-radius);
+    --plasma_private-focus-border-radius: var(--plasma-popover-border-radius);
+    --plasma_private-focus-outline-offset: -0.125rem;
 }
 
 .wrapper {
@@ -25,6 +27,8 @@
     cursor: pointer;
     line-height: 0;
     color: var(--plasma-popover-icon-color);
+
+    --plasma_private-focus-outline-offset: 0.125rem;
 }
 
 .closeButton:hover {

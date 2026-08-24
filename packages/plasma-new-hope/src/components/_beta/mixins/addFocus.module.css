@@ -1,0 +1,22 @@
+.focus:focus-visible {
+    outline: none;
+}
+
+.focus::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: var(--plasma_private-focus-border-radius, 16px);
+    outline: var(--plasma_private-focus-outline-size, 0.0625rem) solid transparent;
+    outline-offset: var(--plasma_private-focus-outline-offset, 0.125rem);
+    transition: outline-color 0.2s ease-in-out;
+    pointer-events: none;
+}
+
+.focus:focus-visible::before {
+    outline-color: var(
+        --plasma_private-focus-outline-color,
+        var(--plasma-colors-button-focused, var(--text-accent))
+    );
+}

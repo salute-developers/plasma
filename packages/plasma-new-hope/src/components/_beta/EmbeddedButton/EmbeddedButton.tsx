@@ -1,6 +1,8 @@
 import React, { forwardRef } from 'react';
 import cls from 'classnames';
 
+import addFocusMixin from '../mixins/addFocus.module.css';
+
 import type { EmbeddedButtonProps } from './EmbeddedButton.types';
 import { classes } from './EmbeddedButton.tokens';
 import styles from './EmbeddedButton.module.css';
@@ -35,7 +37,7 @@ export const EmbeddedButton = forwardRef<HTMLButtonElement, EmbeddedButtonProps>
             ref={ref}
             type="button"
             {...rest}
-            className={cls(styles.root, _configClassName, isLoadingClass, rest.className)}
+            className={cls(styles.root, addFocusMixin.focus, _configClassName, isLoadingClass, rest.className)}
         >
             <div className={styles.loadWrap} data-position={position} data-loading={isLoading}>
                 <div className={styles.iconContainer}>{children}</div>
