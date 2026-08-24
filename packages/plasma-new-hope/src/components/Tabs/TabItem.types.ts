@@ -30,6 +30,11 @@ export interface BaseTabItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
      */
     selected?: boolean;
     /**
+     * Отключает скролл к TabItem при его выборе
+     * @default false
+     */
+    disableScroll?: boolean;
+    /**
      * TabItem неактивен
      * @default false
      */
