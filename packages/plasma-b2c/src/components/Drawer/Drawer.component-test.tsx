@@ -6,6 +6,11 @@ import { IconDone } from '@salutejs/plasma-icons';
 type DrawerDemoProps = {
     width?: string;
     height?: string;
+    overlayProps?: {
+        width?: string;
+        height?: string;
+        position?: 'absolute' | 'fixed';
+    };
     placement?: string;
     closeOnEsc?: boolean;
     closeOnOverlayClick?: boolean;
@@ -17,6 +22,7 @@ type DrawerDemoProps = {
     asModal?: boolean;
     customBackgroundColor?: string;
     customContentBackgroundColor?: string;
+    frame?: 'element' | 'document';
     'data-testid'?: string;
 };
 
@@ -41,9 +47,11 @@ describe('plasma-b2c: Drawer', () => {
 
     function Demo(props: DrawerDemoProps) {
         const [isOpen, setIsOpen] = React.useState(false);
+        const frameRef = React.useRef<HTMLDivElement>(null);
         const {
             width = '50vw',
             height,
+            overlayProps,
             placement = 'right',
             closePlacement = 'right',
             hasClose = true,
@@ -55,11 +63,12 @@ describe('plasma-b2c: Drawer', () => {
             closeOnOverlayClick = false,
             customBackgroundColor,
             customContentBackgroundColor,
+            frame,
             'data-testid': testId,
         } = props;
 
         return (
-            <div style={{ height: '480px', width: '500px' }}>
+            <div ref={frameRef} style={{ height: '480px', width: '500px', position: 'relative' }}>
                 <Button text="Open drawer" onClick={() => setIsOpen(true)} />
                 <Drawer
                     className="plasma-drawer"
@@ -71,6 +80,8 @@ describe('plasma-b2c: Drawer', () => {
                     closeOnOverlayClick={closeOnOverlayClick}
                     width={width}
                     height={height}
+                    overlayProps={overlayProps}
+                    frame={frame === 'element' ? frameRef : frame}
                     data-testid={testId}
                     customBackgroundColor={customBackgroundColor}
                     customContentBackgroundColor={customContentBackgroundColor}
@@ -214,6 +225,59 @@ describe('plasma-b2c: Drawer', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(300);
         cy.get('.popup-base-root').should('not.exist');
+    });
+
+    it('props: overlayProps and default position in frame', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+
+                <PopupBaseProvider>
+                    <Demo frame="element" overlayProps={{ width: '280px', height: '320px' }} />
+                </PopupBaseProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('.drawer-overlay')
+            .should('have.css', 'width', '280px')
+            .and('have.css', 'height', '320px')
+            .and('have.css', 'position', 'absolute');
+    });
+
+    ([undefined, 'document'] as const).forEach((frame) => {
+        it(`default overlay position: fixed for ${frame ?? 'undefined'} frame`, () => {
+            mount(
+                <CypressTestDecorator>
+                    <NoAnimationStyle />
+
+                    <PopupBaseProvider>
+                        <Demo frame={frame} />
+                    </PopupBaseProvider>
+                </CypressTestDecorator>,
+            );
+
+            cy.get('button').click();
+
+            cy.get('.drawer-overlay').should('have.css', 'position', 'fixed');
+        });
+    });
+
+    it('props: overlayProps.position overrides default position', () => {
+        mount(
+            <CypressTestDecorator>
+                <NoAnimationStyle />
+
+                <PopupBaseProvider>
+                    <Demo frame="element" overlayProps={{ position: 'fixed' }} />
+                </PopupBaseProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('button').click();
+
+        cy.get('.drawer-overlay').should('have.css', 'position', 'fixed');
     });
 
     it('close X', () => {

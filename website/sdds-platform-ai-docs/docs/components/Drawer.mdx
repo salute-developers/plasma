@@ -147,10 +147,15 @@ export function App() {
                         opened={isOpenB}
                         onClose={() => setIsOpenB(false)}
                         placement="right"
-                        asModal={false}
+                        asModal={true}
                         frame={ref}
                         width="250px"
                         height="100%"
+                        overlayProps={{
+                            width: "100%",
+                            height: "100%",
+                            position: "absolute"
+                        }}
                     >
                             <DrawerHeader
                                 hasClose={true}
