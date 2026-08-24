@@ -149,6 +149,7 @@ const meta: Meta<StoryTabsProps> = {
             'forwardedAs',
             'outsideScroll',
             'index',
+            'appearance',
         ]),
     },
 };
@@ -459,7 +460,7 @@ export const HeaderTabs: StoryObj<HorizontalStoryTabsProps> = {
             },
         },
     },
-    render: (args) => {
+    render: (args: HorizontalStoryTabsProps) => {
         switch (args.clip) {
             case 'scroll':
                 return <StoryHeaderScroll {...args} />;
@@ -467,4 +468,161 @@ export const HeaderTabs: StoryObj<HorizontalStoryTabsProps> = {
                 return <StoryHeaderDefault {...args} />;
         }
     },
+};
+
+const segmentSizes = ['xs', 's', 'm', 'l', 'xl'] as const;
+
+type SegmentStoryProps = StoryTabsProps & {
+    itemQuantity: number;
+    width: string;
+    height: string;
+    stretch: boolean;
+    maxItemWidth: string;
+};
+
+const StorySegment = (props: SegmentStoryProps) => {
+    const { orientation, disabled, itemQuantity, size, stretch, maxItemWidth, width, height, clip, pilled } = props;
+    const [index, setIndex] = useState(0);
+
+    const items = Array(itemQuantity).fill(0);
+    const maxShowAllItemQuantity = 3;
+    const visibleCount = clip === 'showAll' ? maxShowAllItemQuantity : items.length;
+    const visibleItems = items.slice(0, visibleCount);
+    const otherItems = items.slice(visibleItems.length);
+
+    const dropdownItems = otherItems.map((_, i) => ({
+        label: `Label${maxShowAllItemQuantity + i + 1}`,
+        value: maxShowAllItemQuantity + i,
+    }));
+
+    const commonTabsProps = {
+        appearance: 'segment' as const,
+        clip,
+        hasDivider: false,
+        disabled,
+        size,
+        pilled,
+        ...(orientation === 'horizontal'
+            ? { orientation: 'horizontal' as const, stretch }
+            : { orientation: 'vertical' as const }),
+        ...(clip === 'scroll' && { style: orientation === 'horizontal' ? { width } : { height } }),
+    };
+
+    const showAllTabItemProps = {
+        appearance: 'segment' as const,
+        selected: index >= visibleItems.length,
+        tabIndex: !disabled ? 0 : -1,
+        disabled,
+        size,
+        pilled,
+        maxItemWidth: 'auto',
+        style: { fontWeight: 600 },
+    };
+
+    return (
+        <Tabs {...commonTabsProps}>
+            {visibleItems.map((_, i) => {
+                const tabItemProps = {
+                    key: `item:${i}`,
+                    appearance: 'segment' as const,
+                    selected: i === index,
+                    onClick: () => !disabled && setIndex(i),
+                    maxItemWidth,
+                    tabIndex: !disabled ? 0 : -1,
+                    size,
+                    pilled,
+                    disabled: labels[i % labels.length] === 'Disabled' || disabled,
+                };
+
+                return orientation === 'vertical' ? (
+                    <TabItem {...tabItemProps} orientation="vertical">
+                        {`${labels[i % labels.length]} ${i + 1}`}
+                    </TabItem>
+                ) : (
+                    <TabItem {...tabItemProps} orientation="horizontal">
+                        {`${labels[i % labels.length]} ${i + 1}`}
+                    </TabItem>
+                );
+            })}
+
+            {dropdownItems.length > 0 && (
+                <Dropdown
+                    size={size === 'xl' ? 'l' : size}
+                    items={dropdownItems}
+                    onItemSelect={(item) => setIndex(item.value as number)}
+                >
+                    {orientation === 'vertical' ? (
+                        <TabItem {...showAllTabItemProps} orientation="vertical">
+                            ShowAll
+                        </TabItem>
+                    ) : (
+                        <TabItem {...showAllTabItemProps} orientation="horizontal">
+                            ShowAll
+                        </TabItem>
+                    )}
+                </Dropdown>
+            )}
+        </Tabs>
+    );
+};
+
+export const Segment: StoryObj<SegmentStoryProps> = {
+    args: {
+        appearance: 'segment',
+        size: 'm',
+        orientation: 'horizontal',
+        disabled: false,
+        itemQuantity: 8,
+        stretch: false,
+        clip: 'scroll',
+        pilled: false,
+        width: '22rem',
+        height: '12rem',
+        maxItemWidth: '',
+    },
+    argTypes: {
+        clip: {
+            options: ['scroll', 'showAll'],
+            control: {
+                type: 'select',
+            },
+        },
+        width: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'clip', eq: 'scroll' },
+        },
+        height: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'clip', eq: 'scroll' },
+        },
+        size: {
+            options: [...segmentSizes],
+            control: {
+                type: 'select',
+            },
+        },
+        hasDivider: {
+            table: {
+                disable: true,
+            },
+        },
+        appearance: {
+            table: {
+                disable: true,
+            },
+        },
+        pilled: {
+            control: {
+                type: 'boolean',
+            },
+            table: {
+                disable: false,
+            },
+        },
+    },
+    render: (args: SegmentStoryProps) => <StorySegment {...args} />,
 };

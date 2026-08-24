@@ -227,10 +227,19 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             if (firstItemVisible || !shouldTriggerAdditionalScroll || !scrollRef.current || !leftArrowRef.current) {
                 return;
             }
-            const style = getComputedStyle(scrollRef.current);
+            const scrollStyle = getComputedStyle(scrollRef.current);
+            const arrowStyle = getComputedStyle(leftArrowRef.current);
+            const root = scrollRef.current.parentElement;
+            const rootGap = root ? parseInt(getComputedStyle(root).columnGap, 10) : 0;
+            const arrowOccupiedWidth =
+                leftArrowRef.current.offsetWidth +
+                parseInt(arrowStyle.marginLeft, 10) +
+                parseInt(arrowStyle.marginRight, 10) +
+                rootGap;
+
             scrollRef.current.scrollTo({
                 left: Math.round(
-                    scrollRef.current.scrollLeft + leftArrowRef.current.clientWidth + parseInt(style.paddingLeft, 10),
+                    scrollRef.current.scrollLeft + arrowOccupiedWidth + parseInt(scrollStyle.paddingLeft, 10),
                 ),
             });
             setShouldTriggerAdditionalScroll(false);
