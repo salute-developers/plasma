@@ -70,6 +70,8 @@ export function App() {
 + `"warning"` – предупреждение;
 + `"negative"` – ошибка;
 
+Для применения градиентного цвета к иконке необходимо передать ей нужный градиент в свойтсво `color`
+
 ```tsx live
 import React from 'react';
 import { EmbedIconButton } from '@salutejs/sdds-finai';
@@ -98,6 +100,9 @@ export function App() {
             </EmbedIconButton>
             <EmbedIconButton size="s" view="negative">
                 <IconClose color="inherit" />
+            </EmbedIconButton>
+            <EmbedIconButton size="s" view="negative">
+                <IconClose color="linear-gradient(100.49deg, #199AF0 0%, #12C2F3 41.912%, #528EFF 106.22%)" />
             </EmbedIconButton>
         </div>
     );

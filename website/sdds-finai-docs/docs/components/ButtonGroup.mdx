@@ -33,6 +33,7 @@ export function App() {
 
 ### Размер и вид группы кнопок
 Размер и вид группы кнопок задается с помощью свойств `size` и `view` соответственно.
+Значение `view="gradient"` задаёт кнопкам группы градиентный фон.
 С помощью свойства `isCommonButtonStyles` можно отключить переопределение стилей для всех кнопок внутри группы.
 Тогда каждая кнопка будет иметь настраиваемый размер и вид.
 
@@ -44,6 +45,14 @@ export function App() {
     return (
         <div>
             <ButtonGroup size="s" view="secondary">
+                {Array(5)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </ButtonGroup>
+
+            <ButtonGroup size="s" view="gradient">
                 {Array(5)
                     .fill(true)
                     .map((_, i) => (
