@@ -68,6 +68,7 @@ export const tokens = {
     arrowInnerPadding: '--plasma-tab-arrow-inner-padding',
     arrowOuterPadding: '--plasma-tab-arrow-outer-padding',
     arrowViewOuterPadding: '--plasma-tab-arrow-view-outer-padding',
+    arrowSize: '--plasma-tab-arrow-size',
 
     itemColor: '--plasma-tab-item-color',
     itemValueColor: '--plasma-tab-item-value-color',

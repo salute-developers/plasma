@@ -50,7 +50,7 @@ export type CustomHorizontalTabsProps = {
     /**
      * Размер табов
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
     /**
      * Уберет скругление с выбранной стороны и подвинет контейнер
      * @deprecated
@@ -119,6 +119,11 @@ export type CustomVerticalTabsProps = {
      * Размер табов
      */
     size?: string;
+    /**
+     * Табы c округлым border-radius
+     * @default false
+     */
+    pilled?: boolean;
 };
 
 export type HorizontalTabsProps = BaseTabsProps & (CustomHorizontalTabsProps | CustomHeaderTabsProps);

@@ -4,7 +4,7 @@ import { cx, safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
 
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
-import { classes } from '../../../tokens';
+import { classes, tokens } from '../../../tokens';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { HorizontalTabsProps } from '../../../Tabs.types';
 import { getFirstOverflowingTab, getLastOverflowingTab } from '../../../utils';
@@ -131,7 +131,11 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     ref={leftArrowRef}
                     isLeftArrow
                 >
-                    <IconDisclosureLeft size={getIconSize(size)} color="inherit" />
+                    <IconDisclosureLeft
+                        size={getIconSize(size)}
+                        sizeCustomProperty={tokens.arrowSize}
+                        color="inherit"
+                    />
                 </StyledArrow>
             ),
             [onPrev, size, disabled, isFilled],
@@ -147,7 +151,11 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     disabled={disabled}
                     isFilled={isFilled}
                 >
-                    <IconDisclosureRight size={getIconSize(size)} color="inherit" />
+                    <IconDisclosureRight
+                        size={getIconSize(size)}
+                        sizeCustomProperty={tokens.arrowSize}
+                        color="inherit"
+                    />
                 </StyledArrow>
             ),
             [onNext, size, disabled, isFilled],
