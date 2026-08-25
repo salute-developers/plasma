@@ -177,6 +177,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                                     {appearance === 'closeInner' && (
                                         <button
                                             type="button"
+                                            aria-label="Закрыть"
                                             className={cls(
                                                 styles.closeButton,
                                                 classes.popoverCloseIconButton,

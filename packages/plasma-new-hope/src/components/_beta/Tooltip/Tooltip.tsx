@@ -85,7 +85,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>((props, ref) => 
     );
 
     const click = useClick(context, {
-        enabled: trigger === 'click' || matchMedia('(hover: none)').matches,
+        enabled: trigger === 'click' || trigger === 'hover',
+        ignoreMouse: trigger === 'hover',
     });
     const focus = useFocus(context, { enabled: trigger === 'focus' });
     const dismiss = useDismiss(context, {

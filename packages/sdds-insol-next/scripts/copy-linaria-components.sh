@@ -4,8 +4,8 @@
 components=$(grep -R plasma-new-hope src/components | cut -d / -f 3 | grep -v '^_beta$' | sort -u)
 
 mkdir -p src-css/components/
-touch src-css/index.ts
-touch src-css/index.d.ts
+: > src-css/index.ts
+: > src-css/index.d.ts
 for component in $components; do
         cp -R src/components/$component src-css/components/;
         grep -E "\<$component\>" src/index.ts >> src-css/index.ts
