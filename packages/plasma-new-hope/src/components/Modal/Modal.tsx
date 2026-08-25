@@ -37,6 +37,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 isFocusTrapped = true,
                 initialFocusRef,
                 focusAfterRef,
+                focusTrapSelectors,
                 zIndex,
                 popupInfo,
                 children,
@@ -54,7 +55,14 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
         ) => {
             const innerIsOpen = Boolean(isOpen || opened);
             const innerHasClose = (hasClose === undefined && hasBody) || hasClose;
-            const trapRef = useFocusTrap(isFocusTrapped, initialFocusRef, focusAfterRef, true, !isFocusTrapped);
+            const trapRef = useFocusTrap(
+                isFocusTrapped,
+                initialFocusRef,
+                focusAfterRef,
+                true,
+                !isFocusTrapped,
+                focusTrapSelectors,
+            );
             const popupController = usePopupContext();
 
             const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRootRef);
