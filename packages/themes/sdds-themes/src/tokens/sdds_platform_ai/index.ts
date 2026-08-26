@@ -114,15 +114,6 @@ export const textAccentMinorHover = 'var(--text-accent-minor-hover, #0F9527FF)';
 /** Акцентный минорный цвет */
 export const textAccentMinorActive = 'var(--text-accent-minor-active, #0C7920FF)';
 
-/** Промо цвет */
-export const textPromoHover = 'var(--text-promo-hover, #CCCCCCFF)';
-
-/** Промо цвет */
-export const textPromoActive = 'var(--text-promo-active, #E6E6E6FF)';
-
-/** Промо цвет */
-export const textPromo = 'var(--text-promo, #FFFFFFFF)';
-
 /** Цвет успеха */
 export const textPositiveHover = 'var(--text-positive-hover, #2ACB47FF)';
 
@@ -693,15 +684,6 @@ export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-h
 /** Прозрачный акцентный фон поверхности/контрола */
 export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #1A9E3224)';
 
-/** Промо фон поверхности/контрола */
-export const surfacePromoHover = 'var(--surface-promo-hover, #FFFFFFFF)';
-
-/** Промо фон поверхности/контрола */
-export const surfacePromoActive = 'var(--surface-promo-active, #FFFFFFFF)';
-
-/** Промо фон поверхности/контрола */
-export const surfacePromo = 'var(--surface-promo, #FFFFFFFF)';
-
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositiveHover = 'var(--surface-positive-hover, #1DAF37FF)';
 
@@ -1243,9 +1225,6 @@ export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-tran
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #1A9E3233)';
-
-/** Промо фон поверхности/контрола на светлом фоне */
-export const onLightSurfacePromo = 'var(--on-light-surface-promo, #FFFFFFFF)';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hover, #1EB83AFF)';
@@ -3659,9 +3638,6 @@ export const viewContainer = {
         --text-accent: var(--on-dark-text-accent);
         --text-accent-minor-hover: var(--on-dark-text-accent-minor-hover);
         --text-accent-minor-active: var(--on-dark-text-accent-minor-active);
-        --text-promo-hover: var(--on-dark-text-promo-hover);
-        --text-promo-active: var(--on-dark-text-promo-active);
-        --text-promo: var(--on-dark-text-promo);
         --text-positive-hover: var(--on-dark-text-positive-hover);
         --text-positive-active: var(--on-dark-text-positive-active);
         --text-positive: var(--on-dark-text-positive);
@@ -3774,9 +3750,6 @@ export const viewContainer = {
         --surface-accent-minor-active: var(--on-dark-surface-accent-minor-active);
         --surface-transparent-accent-hover: var(--on-dark-surface-transparent-accent-hover);
         --surface-transparent-accent-active: var(--on-dark-surface-transparent-accent-active);
-        --surface-promo-hover: var(--on-dark-surface-promo-hover);
-        --surface-promo-active: var(--on-dark-surface-promo-active);
-        --surface-promo: var(--on-dark-surface-promo);
         --surface-positive-hover: var(--on-dark-surface-positive-hover);
         --surface-positive-active: var(--on-dark-surface-positive-active);
         --surface-positive: var(--on-dark-surface-positive);
@@ -4156,8 +4129,6 @@ export const viewContainer = {
         --text-accent-active: var(--on-light-text-accent-active);
         --text-accent-minor-hover: var(--on-light-text-accent-minor-hover);
         --text-accent-minor-active: var(--on-light-text-accent-minor-active);
-        --text-promo-hover: var(--on-light-text-promo-hover);
-        --text-promo-active: var(--on-light-text-promo-active);
         --text-positive-hover: var(--on-light-text-positive-hover);
         --text-positive-active: var(--on-light-text-positive-active);
         --text-warning-hover: var(--on-light-text-warning-hover);
@@ -4182,7 +4153,6 @@ export const viewContainer = {
         --text-warning-minor: var(--on-light-text-warning-minor);
         --text-negative-minor: var(--on-light-text-negative-minor);
         --text-info-minor: var(--on-light-text-info-minor);
-        --text-promo: var(--on-light-text-promo);
         --text-accent: var(--on-light-text-accent);
         --text-primary: var(--on-light-text-primary);
         --text-secondary: var(--on-light-text-secondary);
@@ -4270,8 +4240,6 @@ export const viewContainer = {
         --surface-accent-minor-active: var(--on-light-surface-accent-minor-active);
         --surface-transparent-accent-hover: var(--on-light-surface-transparent-accent-hover);
         --surface-transparent-accent-active: var(--on-light-surface-transparent-accent-active);
-        --surface-promo-hover: var(--on-light-surface-promo-hover);
-        --surface-promo-active: var(--on-light-surface-promo-active);
         --surface-positive-hover: var(--on-light-surface-positive-hover);
         --surface-positive-active: var(--on-light-surface-positive-active);
         --surface-positive: var(--on-light-surface-positive);
@@ -4315,7 +4283,6 @@ export const viewContainer = {
         --surface-transparent-negative-minor-hover: var(--on-light-surface-transparent-negative-minor-hover);
         --surface-transparent-negative-minor-active: var(--on-light-surface-transparent-negative-minor-active);
         --surface-solid-default: var(--on-light-surface-solid-default);
-        --surface-promo: var(--on-light-surface-promo);
         --surface-negative: var(--on-light-surface-negative);
         --surface-transparent-negative: var(--on-light-surface-transparent-negative);
         --surface-transparent-positive: var(--on-light-surface-transparent-positive);
