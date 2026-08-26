@@ -1,4 +1,4 @@
-import { accordionConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import { accordionConfig, component, mergeConfig, AccordionItem } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './Accordion.config';
 
@@ -9,3 +9,5 @@ const AccordionComponent = component(mergedConfig);
  * Accordion
  */
 export const Accordion = AccordionComponent;
+
+export { AccordionItem };
