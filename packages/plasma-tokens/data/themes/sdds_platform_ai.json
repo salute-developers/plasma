@@ -222,17 +222,17 @@
                 "textPromoHover": {
                     "value": "#CCCCCCFF",
                     "comment": "Промо цвет",
-                    "enabled": true
+                    "enabled": false
                 },
                 "textPromoActive": {
                     "value": "#E6E6E6FF",
                     "comment": "Промо цвет",
-                    "enabled": true
+                    "enabled": false
                 },
                 "textPromo": {
                     "value": "#FFFFFF",
                     "comment": "Промо цвет",
-                    "enabled": true
+                    "enabled": false
                 },
                 "textPromoGradientHover": {
                     "value": "#CCCCCCFF",
@@ -1676,17 +1676,17 @@
                 "surfacePromoHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Промо фон поверхности/контрола",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromoActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Промо фон поверхности/контрола",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromo": {
                     "value": "#FFFFFF",
                     "comment": "Промо фон поверхности/контрола",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromoGradientHover": {
                     "value": "#FFFFFFFF",
@@ -2921,7 +2921,7 @@
                 "surfacePromo": {
                     "value": "#FFFFFF",
                     "comment": "Промо фон поверхности/контрола на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromoGradientHover": {
                     "value": "#FFFFFFFF",
@@ -6555,12 +6555,12 @@
                 "textPromoHover": {
                     "value": "#A0F8DFFF",
                     "comment": "Промо цвет",
-                    "enabled": true
+                    "enabled": false
                 },
                 "textPromoActive": {
                     "value": "#2EEFB9FF",
                     "comment": "Промо цвет",
-                    "enabled": true
+                    "enabled": false
                 },
                 "textPromoGradientHover": {
                     "value": "#000000FF",
@@ -6722,7 +6722,7 @@
                 "textPromo": {
                     "value": "[general.arctic.200]",
                     "comment": "Промо цвет",
-                    "enabled": true
+                    "enabled": false
                 },
                 "textAccent": {
                     "value": "[general.spring.150]",
@@ -8001,12 +8001,12 @@
                 "surfacePromoHover": {
                     "value": "#58E4BAFF",
                     "comment": "Промо фон поверхности/контрола",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromoActive": {
                     "value": "#2CDDA8FF",
                     "comment": "Промо фон поверхности/контрола",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromoGradientHover": {
                     "value": "#FFFFFFFF",
@@ -8342,7 +8342,7 @@
                 "surfacePromo": {
                     "value": "[general.arctic.250]",
                     "comment": "Промо фон поверхности/контрола",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceNegative": {
                     "value": "[general.red.600]",
@@ -9251,12 +9251,12 @@
                 "surfacePromoHover": {
                     "value": "#58E4BAFF",
                     "comment": "Промо фон поверхности/контрола на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromoActive": {
                     "value": "#2CDDA8FF",
                     "comment": "Промо фон поверхности/контрола на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfacePromoGradientHover": {
                     "value": "#FFFFFFFF",
@@ -9587,7 +9587,7 @@
                 "surfacePromo": {
                     "value": "[general.arctic.250]",
                     "comment": "Промо фон поверхности/контрола на светлом фоне",
-                    "enabled": true
+                    "enabled": false
                 },
                 "surfaceNegative": {
                     "value": "[general.red.600]",
