@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { addFocus } from 'src/mixins';
 
-import { IconChevronDownFill, IconMinus } from '../../../_Icon';
+import { IconChevronDown, IconChevronDownFill, IconMinus } from '../../../_Icon';
 import { classes, privateTokens, tokens } from '../../Accordion.tokens';
 
 export const StyledAccordionHeader = styled.div<{ borderRadius?: string }>`
@@ -35,26 +35,29 @@ export const StyledAccordionHeaderLeft = styled.div`
     align-items: center;
 `;
 
-export const StyledAccordionContentRight = styled.div`
-    transition: 0.2s;
-    transform: rotate(90deg);
-
-    &.${classes.accordionItemShowBody} {
-        transition: 0.2s;
-        transform: rotate(0deg);
-    }
-`;
-
-export const StyledAccordionContentLeft = styled.div`
+const StyledAccordionContent = styled.div`
     transition: 0.2s;
     display: flex;
     align-items: center;
 
-    &.${classes.accordionItemShowBody} {
+    &.${classes.accordionArrowAnimation}.${classes.accordionItemShowBody} {
         transition: 0.2s;
         transform: rotate(180deg);
     }
+
+    &.${classes.accordionSignAnimation} {
+        transform: rotate(90deg);
+
+        &.${classes.accordionItemShowBody} {
+            transition: 0.2s;
+            transform: rotate(0deg);
+        }
+    }
 `;
+
+export const StyledAccordionContentRight = styled(StyledAccordionContent)``;
+
+export const StyledAccordionContentLeft = styled(StyledAccordionContent)``;
 
 export const StyledAccordionTitle = styled.div`
     color: var(${tokens.accordionItemTitleColor});
@@ -99,6 +102,12 @@ export const StyledAccordionBody = styled.div`
 `;
 
 export const StyledArrow = styled(IconChevronDownFill)`
+    pointer-events: none;
+    user-select: none;
+    color: var(${tokens.accordionItemIconColor});
+`;
+
+export const StyledChevron = styled(IconChevronDown)`
     pointer-events: none;
     user-select: none;
     color: var(${tokens.accordionItemIconColor});
@@ -158,6 +167,10 @@ export const StyledAccordionItem = styled.div`
         background: var(${tokens.accordionItemOpenedBackground}, var(${tokens.accordionItemBackground}));
 
         ${StyledArrow} {
+            color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemIconColor}));
+        }
+
+        ${StyledChevron} {
             color: var(${tokens.accordionItemOpenedTitleColor}, var(${tokens.accordionItemIconColor}));
         }
 

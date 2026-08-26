@@ -6,6 +6,7 @@ import { disableProps } from '@salutejs/plasma-sb-utils';
 import { mergeConfig } from '../../../engines';
 import { WithTheme, argTypesFromConfig } from '../../_helpers';
 import { accordionConfig } from '../../../components/Accordion';
+import type { AccordionItemDefaultIconContent, AccordionItemDefaultIconPlacement } from '../../../components/Accordion';
 import { Pin } from '../../../utils/roundness';
 import { IconButton } from '../IconButton/IconButton';
 import { IconPlus } from '../../../components/_Icon';
@@ -14,7 +15,8 @@ import { config } from './Accordion.config';
 import { Accordion, AccordionItem } from './Accordion';
 
 type AccordionItemCustomProps = {
-    type: 'arrow' | 'sign' | 'clear';
+    defaultIconContent: AccordionItemDefaultIconContent;
+    defaultIconPlacement: AccordionItemDefaultIconPlacement;
     title: string;
     body: ReactNode;
     pin?: Pin;
@@ -33,7 +35,8 @@ const meta: Meta<AccordionProps> = {
         size: 'm',
         stretching: 'filled',
         disabled: false,
-        type: 'arrow',
+        defaultIconContent: 'arrow',
+        defaultIconPlacement: 'left',
         pin: undefined,
         title: 'Как оплатить заправку бонусами СберСпасибо?',
         alignWithTitle: true,
@@ -49,8 +52,14 @@ const meta: Meta<AccordionProps> = {
                 type: 'select',
             },
         },
-        type: {
-            options: ['arrow', 'sign', 'clear'],
+        defaultIconContent: {
+            options: ['arrow', 'chevron', 'sign', 'clear'],
+            control: {
+                type: 'select',
+            },
+        },
+        defaultIconPlacement: {
+            options: ['left', 'right'],
             control: {
                 type: 'select',
             },
@@ -80,13 +89,31 @@ export const Default: StoryObj<AccordionProps> = {
 
         return (
             <Accordion {...args}>
-                <AccordionItem alignWithTitle={args.alignWithTitle} type={args.type} pin={args.pin} title={args.title}>
+                <AccordionItem
+                    alignWithTitle={args.alignWithTitle}
+                    defaultIconContent={args.defaultIconContent}
+                    defaultIconPlacement={args.defaultIconPlacement}
+                    pin={args.pin}
+                    title={args.title}
+                >
                     {args.body}
                 </AccordionItem>
-                <AccordionItem alignWithTitle={args.alignWithTitle} type={args.type} pin={args.pin} title={args.title}>
+                <AccordionItem
+                    alignWithTitle={args.alignWithTitle}
+                    defaultIconContent={args.defaultIconContent}
+                    defaultIconPlacement={args.defaultIconPlacement}
+                    pin={args.pin}
+                    title={args.title}
+                >
                     {args.body}
                 </AccordionItem>
-                <AccordionItem alignWithTitle={args.alignWithTitle} type={args.type} pin={args.pin} title={args.title}>
+                <AccordionItem
+                    alignWithTitle={args.alignWithTitle}
+                    defaultIconContent={args.defaultIconContent}
+                    defaultIconPlacement={args.defaultIconPlacement}
+                    pin={args.pin}
+                    title={args.title}
+                >
                     {args.body}
                 </AccordionItem>
             </Accordion>
@@ -134,7 +161,8 @@ const ControlledAccordion = (props: AccordionProps) => {
                     </IconButton>
                 }
                 alignWithTitle={args.alignWithTitle}
-                type={args.type}
+                defaultIconContent={args.defaultIconContent}
+                defaultIconPlacement={args.defaultIconPlacement}
                 pin={args.pin}
                 title={args.title}
                 opened={activeFirst}
@@ -152,7 +180,8 @@ const ControlledAccordion = (props: AccordionProps) => {
                     </IconButton>
                 }
                 alignWithTitle={args.alignWithTitle}
-                type={args.type}
+                defaultIconContent={args.defaultIconContent}
+                defaultIconPlacement={args.defaultIconPlacement}
                 pin={args.pin}
                 title={args.title}
                 opened={activeSecond}
@@ -170,7 +199,8 @@ const ControlledAccordion = (props: AccordionProps) => {
                     </IconButton>
                 }
                 alignWithTitle={args.alignWithTitle}
-                type={args.type}
+                defaultIconContent={args.defaultIconContent}
+                defaultIconPlacement={args.defaultIconPlacement}
                 pin={args.pin}
                 title={args.title}
                 opened={activeThree}
