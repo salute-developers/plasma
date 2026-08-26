@@ -2,6 +2,10 @@ import type { ReactNode, HTMLAttributes } from 'react';
 
 import type { Pin } from '../../../../utils/roundness';
 
+export type AccordionItemDefaultIconContent = 'clear' | 'arrow' | 'sign' | 'chevron';
+
+export type AccordionItemDefaultIconPlacement = 'left' | 'right';
+
 type Props = {
     /**
      * Значение раскрытия элемента accordion
@@ -9,12 +13,25 @@ type Props = {
     value?: boolean;
 
     /**
-     * Тип анимации раскрытия
+     * @deprecated Используйте `defaultIconContent` и `defaultIconPlacement`
      */
     type?: 'clear' | 'arrow' | 'sign';
 
     /**
-     * Контент слева
+     * Встроенная иконка раскрытия
+     *
+     * `arrow` — залитая стрелка, `chevron` — контурный шеврон,
+     * `sign` — анимированный знак плюс/минус, `clear` — без иконки. По умолчанию `sign`
+     */
+    defaultIconContent?: AccordionItemDefaultIconContent;
+
+    /**
+     * Расположение встроенной иконки раскрытия. По умолчанию `right`
+     */
+    defaultIconPlacement?: AccordionItemDefaultIconPlacement;
+
+    /**
+     * Контент слева. Заменяет встроенную иконку, расположенную слева
      */
     contentLeft?: ReactNode;
 
@@ -24,7 +41,7 @@ type Props = {
     alignWithTitle?: boolean;
 
     /**
-     * Контент справа
+     * Контент справа. Заменяет встроенную иконку, расположенную справа
      */
     contentRight?: ReactNode;
 
