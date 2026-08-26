@@ -6,7 +6,8 @@ import { cx } from 'src/utils';
 
 import { PopupProvider, popupConfig, popupClasses } from '../Popup';
 
-import { NotificationsState, NotificationsEvents, closeNotification } from './NotificationsStore';
+import { useNotifications } from './NotificationsContext';
+import { NotificationsState, NotificationsEvents } from './NotificationsStore';
 import { NotificationPortalProps, NotificationProps } from './Notification.types';
 import { StyledItemWrapper, StyledRoot } from './Notification.styles';
 import { classes } from './Notification.tokens';
@@ -31,6 +32,7 @@ export const NotificationsPortal: FC<NotificationPortalProps> = ({
     className,
 }) => {
     const { notifications } = useStoreon<NotificationsState, NotificationsEvents>('notifications');
+    const { closeNotification } = useNotifications();
 
     const Notification = useMemo(
         () => component(config) as ForwardRefExoticComponent<NotificationProps & RefAttributes<HTMLDivElement>>,
