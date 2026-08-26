@@ -565,7 +565,7 @@ import React, { useState } from 'react';
 import { Steps, Accordion, AccordionItem } from '@salutejs/sdds-finai';
 
 export function App() {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const [innerSteps, setInnerSteps] = useState([{
         indicator: 1,
@@ -584,8 +584,8 @@ export function App() {
     }]);
 
     const [outerStatuses, setOuterStatuses] = useState([
-        { status: 'completed' },
         { status: 'active' },
+        { status: 'inactive' },
         { status: 'inactive' },
     ]);
 
@@ -609,6 +609,10 @@ export function App() {
             next[idx] = { ...next[idx], status: 'active' };
             return next;
         });
+
+        if (idx === 1) {
+            setOpen(v => !v);
+        }
     };
 
     const outerItems = [{
@@ -618,15 +622,15 @@ export function App() {
         ...outerStatuses[0],
     }, {
         indicator: 2,
-        title: 'Установка',
         height: open ? '16rem' : '7rem',
         content: (
-            <Accordion stretching="filled">
+            <Accordion size="h4" view="clear" stretching="filled">
                 <AccordionItem
                     title="Шаги установки"
                     type="arrow"
                     opened={open}
                     onClick={() => setOpen(v => !v)}
+                    style={{ marginTop: '-10px' }}
                 >
                     <Steps
                         orientation="vertical"
