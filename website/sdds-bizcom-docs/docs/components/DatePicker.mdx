@@ -848,7 +848,29 @@ import { DatePicker } from '@salutejs/sdds-bizcom';
 );
 }
 ```
-</TabItem>
+    </TabItem>
+    <TabItem value="calendar-position" label="isCalendarPositionedByInput">
+        Свойство `isCalendarPositionedByInput` привязывает одиночный календарь к активному полю ввода.
+        При переключении между полями открытый календарь перемещается под выбранное поле.
+
+        ```tsx live
+        import React from 'react';
+        import { DatePickerRange } from '@salutejs/sdds-bizcom';
+
+        export function App() {
+            return (
+                <DatePickerRange
+                    size="l"
+                    label="Период"
+                    firstPlaceholder="Дата начала"
+                    secondPlaceholder="Дата окончания"
+                    isCalendarPositionedByInput
+                    usePortal
+                />
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ### Независимый выбор дат
@@ -860,10 +882,10 @@ import { DatePicker } from '@salutejs/sdds-bizcom';
 При заполнении только второго поля фокус автоматически переходит к первому для завершения диапазона.
 
 ```tsx live
-import React from 'react';
-import { DatePickerRange } from '@salutejs/sdds-bizcom';
+        import React from 'react';
+        import { DatePickerRange } from '@salutejs/sdds-bizcom';
 
-export function App() {
+        export function App() {
     return (
         <DatePickerRange
             label="Независимый выбор"
