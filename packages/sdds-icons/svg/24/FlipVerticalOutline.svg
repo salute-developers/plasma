@@ -1,4 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<metadata>{"aliases":["flip","vertical","mirror","up-down","reflect","reverse"],"category":"FlipVertical","source":"24/FlipVertical/FlipVerticalOutline","size":"24"}</metadata>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.6069 9.62476C20.5107 10.1245 20.1561 11.4993 19.1235 11.4998H5.50049C4.67206 11.4998 4.00049 10.8282 4.00049 9.99976V2.69508L4.01025 2.55543C4.10277 1.87668 4.85921 1.47491 5.48389 1.82008L19.6069 9.62476ZM5.50049 3.54273V9.99976H17.1851L5.50049 3.54273Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.1235 12.4998C20.1561 12.5002 20.5104 13.875 19.6069 14.3748L5.48389 22.1795C4.85912 22.5247 4.10259 22.123 4.01025 21.4441L4.00049 21.3045V13.9998C4.00062 13.1715 4.67215 12.4998 5.50049 12.4998H19.1235ZM5.50049 13.9998V20.4568L17.1851 13.9998H5.50049Z" fill="black"/>
 </svg>
