@@ -16,7 +16,6 @@ type CustomSegmentGroupProps = {
     stretch?: boolean;
     /**
      * При ограничении ширины разрешает скролл и отображает дополнительные элементы со стрелками
-     * @deprecated
      * @default true
      */
     clip?: boolean;
