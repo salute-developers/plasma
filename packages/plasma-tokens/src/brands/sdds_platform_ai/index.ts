@@ -96,15 +96,6 @@ export const textAccentMinorHover = 'var(--text-accent-minor-hover, #0F9527FF)';
 /** Акцентный минорный цвет */
 export const textAccentMinorActive = 'var(--text-accent-minor-active, #0C7920FF)';
 
-/** Промо цвет */
-export const textPromoHover = 'var(--text-promo-hover, #CCCCCCFF)';
-
-/** Промо цвет */
-export const textPromoActive = 'var(--text-promo-active, #E6E6E6FF)';
-
-/** Промо цвет */
-export const textPromo = 'var(--text-promo, #FFFFFF)';
-
 /** Цвет успеха */
 export const textPositiveHover = 'var(--text-positive-hover, #2ACB47FF)';
 
@@ -714,15 +705,6 @@ export const surfaceTransparentAccentHover = 'var(--surface-transparent-accent-h
 /** Прозрачный акцентный фон поверхности/контрола */
 export const surfaceTransparentAccentActive = 'var(--surface-transparent-accent-active, #1A9E3224)';
 
-/** Промо фон поверхности/контрола */
-export const surfacePromoHover = 'var(--surface-promo-hover, #FFFFFFFF)';
-
-/** Промо фон поверхности/контрола */
-export const surfacePromoActive = 'var(--surface-promo-active, #FFFFFFFF)';
-
-/** Промо фон поверхности/контрола */
-export const surfacePromo = 'var(--surface-promo, #FFFFFF)';
-
 /** Цвет фона поверхности/контрола успех */
 export const surfacePositiveHover = 'var(--surface-positive-hover, #1DAF37FF)';
 
@@ -1266,9 +1248,6 @@ export const onLightSurfaceTransparentAccentHover = 'var(--on-light-surface-tran
 
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccentActive = 'var(--on-light-surface-transparent-accent-active, #1A9E3233)';
-
-/** Промо фон поверхности/контрола на светлом фоне */
-export const onLightSurfacePromo = 'var(--on-light-surface-promo, #FFFFFF)';
 
 /** Цвет фона поверхности/контрола успех на светлом фоне */
 export const onLightSurfacePositiveHover = 'var(--on-light-surface-positive-hover, #1EB83AFF)';
