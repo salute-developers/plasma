@@ -4,6 +4,8 @@ import { IconChevronRight, IconPlasma } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
 import { disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
+import { Counter } from '../Counter';
+
 import { config } from './List.config';
 
 import { List, ListItem } from '.';
@@ -23,6 +25,12 @@ const meta: Meta<StoryProps> = {
     title: 'Data Display/List',
     component: List,
     argTypes: {
+        appearance: {
+            options: ['default', 'numbered'],
+            control: {
+                type: 'select',
+            },
+        },
         size: {
             options: sizes,
             control: {
@@ -40,27 +48,32 @@ const meta: Meta<StoryProps> = {
             control: {
                 type: 'select',
             },
+            if: { arg: 'appearance', eq: 'default' },
         },
         hasBackground: {
             control: {
                 type: 'boolean',
             },
+            if: { arg: 'appearance', eq: 'default' },
         },
         hasItemBackground: {
             control: {
                 type: 'boolean',
             },
+            if: { arg: 'appearance', eq: 'default' },
         },
         hasDivider: {
             control: {
                 type: 'boolean',
             },
+            if: { arg: 'appearance', eq: 'default' },
         },
         hasContentLeft: {
             control: {
                 type: 'boolean',
             },
         },
+
         ...disableProps(['view']),
     },
 };
@@ -69,6 +82,7 @@ export default meta;
 
 export const Default: Story = {
     args: {
+        appearance: 'default',
         view: 'default',
         size: 'm',
         variant: 'normal',
@@ -76,17 +90,39 @@ export const Default: Story = {
         hasBackground: false,
         hasItemBackground: false,
         hasDivider: false,
-        hasContentLeft: false,
+        hasContentLeft: true,
     },
-    render: ({ view, size, hasContentLeft, ...rest }: StoryProps) => {
+    render: ({ view, size, hasContentLeft, appearance, ...rest }: StoryProps) => {
+        const isNumbered = appearance === 'numbered';
+
+        const getContentLeft = (index: number) => {
+            if (!hasContentLeft) {
+                return undefined;
+            }
+
+            return isNumbered ? (
+                <Counter size="s" view="secondary" count={index + 1} />
+            ) : (
+                <IconPlasma color="inherit" size="s" />
+            );
+        };
+
         return (
             <div style={{ padding: '1rem' }}>
-                <List view={view} size={size} {...rest}>
+                <List
+                    {...rest}
+                    appearance={appearance}
+                    view={view}
+                    size={size}
+                    hasBackground={!isNumbered && rest.hasBackground}
+                    hasItemBackground={!isNumbered && rest.hasItemBackground}
+                    hasDivider={!isNumbered && rest.hasDivider}
+                >
                     {[...Array(4)].map((_, index) => (
                         <ListItem
                             key={index}
-                            contentLeft={hasContentLeft ? <IconPlasma color="inherit" size="s" /> : undefined}
-                            contentRight={<ChevronRight color="inherit" size="xs" />}
+                            contentLeft={getContentLeft(index)}
+                            contentRight={isNumbered ? undefined : <ChevronRight color="inherit" size="xs" />}
                         >
                             Test Item {index + 1}
                         </ListItem>
