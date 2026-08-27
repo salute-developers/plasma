@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-web",
-  "version": "1.634.0",
+  "version": "1.635.0",
   "description": "Salute Design System / React UI kit for web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -33,14 +33,14 @@
     "styled-components": "^5.1.1"
   },
   "dependencies": {
-    "@salutejs/plasma-core": "1.239.0",
-    "@salutejs/plasma-hope": "1.386.0",
-    "@salutejs/plasma-new-hope": "0.376.0",
-    "@salutejs/plasma-themes": "0.61.0",
-    "@salutejs/plasma-tokens-b2b": "1.63.0",
-    "@salutejs/plasma-tokens-b2c": "0.74.0",
-    "@salutejs/plasma-tokens-web": "1.78.0",
-    "@salutejs/plasma-typo": "0.51.0"
+    "@salutejs/plasma-core": "1.240.0",
+    "@salutejs/plasma-hope": "1.387.0",
+    "@salutejs/plasma-new-hope": "0.377.0",
+    "@salutejs/plasma-themes": "0.62.0",
+    "@salutejs/plasma-tokens-b2b": "1.64.0",
+    "@salutejs/plasma-tokens-b2c": "0.75.0",
+    "@salutejs/plasma-tokens-web": "1.79.0",
+    "@salutejs/plasma-typo": "0.52.0"
   },
   "devDependencies": {
     "@babel/cli": "7.24.1",
@@ -55,10 +55,10 @@
     "@rollup/plugin-babel": "6.0.4",
     "@rollup/plugin-commonjs": "25.0.7",
     "@rollup/plugin-node-resolve": "15.2.3",
-    "@salutejs/plasma-colors": "0.20.0",
-    "@salutejs/plasma-cy-utils": "0.169.0",
-    "@salutejs/plasma-icons": "1.247.0",
-    "@salutejs/plasma-sb-utils": "0.240.0",
+    "@salutejs/plasma-colors": "0.21.0",
+    "@salutejs/plasma-cy-utils": "0.170.0",
+    "@salutejs/plasma-icons": "1.248.0",
+    "@salutejs/plasma-sb-utils": "0.241.0",
     "@types/node": "16.7.13",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
