@@ -12,7 +12,9 @@ import {
     surfaceNegative,
     surfacePositive,
     surfaceSolidDefault,
+    surfaceTransparentSecondary,
     surfaceWarning,
+    textPrimary,
 } from '@salutejs/plasma-themes/tokens/plasma_homeds';
 
 export const config = {
@@ -25,6 +27,10 @@ export const config = {
             default: css`
                 ${counterTokens.color}: ${inverseTextPrimary};
                 ${counterTokens.background}: ${surfaceSolidDefault};
+            `,
+            secondary: css`
+                ${counterTokens.color}: ${textPrimary};
+                ${counterTokens.background}: ${surfaceTransparentSecondary};
             `,
             accent: css`
                 ${counterTokens.color}: ${onDarkTextPrimary};
