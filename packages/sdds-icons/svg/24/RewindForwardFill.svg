@@ -1,4 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<metadata>{"aliases":["rewind","forward","seek","next","skip","media"],"category":"RewindForward","source":"24/RewindForward/RewindForwardFill","size":"24"}</metadata>
 <path d="M21.0297 10.2524C21.991 10.8366 21.991 12.2318 21.0297 12.816L13.3054 17.5104C12.3058 18.1179 11.0264 17.3983 11.0264 16.2285V6.83988C11.0264 5.67013 12.3058 4.95053 13.3054 5.55804L21.0297 10.2524Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.63887 14.8393V8.15416L5.30539 5.52055C4.30577 4.91304 3.02637 5.63265 3.02637 6.80239L3.02637 16.191C3.02637 17.3608 4.30577 18.0804 5.30539 17.4729L9.63887 14.8393Z" fill="black"/>
 </svg>
