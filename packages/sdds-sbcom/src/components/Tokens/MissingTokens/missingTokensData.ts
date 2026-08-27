@@ -34,7 +34,7 @@ export const missingTokensByConfig: MissingTokenEntry[] = [
         ],
     },
     {
-        configPath: 'Avatar/Avatar.config.tsx',
+        configPath: 'Avatar/Avatar.config.ts',
         tokens: ['bodyXxs', 'surfaceTransparentPositive', 'surfaceTransparentWarning', 'text', 'textAccentGradient'],
     },
     {
@@ -480,7 +480,7 @@ export const missingTokensByToken: Record<string, string[]> = {
     ],
     bodyXsMedium: ['Typography/Body.config.ts'],
     bodyXxs: [
-        'Avatar/Avatar.config.tsx',
+        'Avatar/Avatar.config.ts',
         'Badge/Badge.config.ts',
         'Chip/Chip.config.tsx',
         'Counter/Counter.config.ts',
@@ -567,7 +567,7 @@ export const missingTokensByToken: Record<string, string[]> = {
     ],
     surfaceTransparentPositive: [
         'Autocomplete/Autocomplete.config.ts',
-        'Avatar/Avatar.config.tsx',
+        'Avatar/Avatar.config.ts',
         'Badge/Badge.config.ts',
         'Combobox/Combobox.config.ts',
         'DatePicker/DatePicker.config.ts',
@@ -599,7 +599,7 @@ export const missingTokensByToken: Record<string, string[]> = {
     ],
     surfaceTransparentWarning: [
         'Autocomplete/Autocomplete.config.ts',
-        'Avatar/Avatar.config.tsx',
+        'Avatar/Avatar.config.ts',
         'Badge/Badge.config.ts',
         'Combobox/Combobox.config.ts',
         'Note/Note.config.ts',
@@ -617,8 +617,8 @@ export const missingTokensByToken: Record<string, string[]> = {
         'TextFieldSlider/TextFieldSlider.config.ts',
     ],
     surfaceTransparentWarningHover: ['TextArea/TextArea.config.ts', 'TextField/TextField.config.ts'],
-    text: ['Avatar/Avatar.config.tsx'],
-    textAccentGradient: ['Avatar/Avatar.config.tsx'],
+    text: ['Avatar/Avatar.config.ts'],
+    textAccentGradient: ['Avatar/Avatar.config.ts'],
     TextSecondaryActive: ['Tabs/horizontal/HorizontalTabs.config.ts', 'Tabs/vertical/VerticalTabs.config.ts'],
     textXs: ['Note/Note.config.ts', 'Skeleton/LineSkeleton.config.ts'],
     textXsBold: ['Note/Note.config.ts'],
