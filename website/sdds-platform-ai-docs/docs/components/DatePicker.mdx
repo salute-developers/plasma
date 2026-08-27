@@ -851,6 +851,28 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
         }
         ```
     </TabItem>
+    <TabItem value="calendar-position" label="isCalendarPositionedByInput">
+        Свойство `isCalendarPositionedByInput` привязывает одиночный календарь к активному полю ввода.
+        При переключении между полями открытый календарь перемещается под выбранное поле.
+
+        ```tsx live
+        import React from 'react';
+        import { DatePickerRange } from '@salutejs/sdds-platform-ai';
+
+        export function App() {
+            return (
+                <DatePickerRange
+                    size="l"
+                    label="Период"
+                    firstPlaceholder="Дата начала"
+                    secondPlaceholder="Дата окончания"
+                    isCalendarPositionedByInput
+                    usePortal
+                />
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ### Независимый выбор дат
