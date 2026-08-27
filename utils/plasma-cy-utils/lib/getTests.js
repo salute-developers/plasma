@@ -25,13 +25,7 @@ var getConfig = function (component) {
         return require("src/examples/components/".concat(component, "/").concat(component, ".config.ts")).config;
     }
     catch (_a) {
-        try {
-            // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
-            return require("src/examples/components/".concat(component, "/").concat(component, ".config.tsx")).config;
-        }
-        catch (_b) {
-            return null;
-        }
+        return null;
     }
 };
 /**

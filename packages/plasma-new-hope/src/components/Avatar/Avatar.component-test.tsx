@@ -16,7 +16,7 @@ import type { AvatarProps } from './Avatar.types';
 const componentExists = hasComponent('Avatar');
 const describeFn = getDescribeFN('Avatar');
 const itSkipCs = skipForPackages(['sdds-cs']);
-const itScalable = skipForPackages([
+const itSkipScalable = skipForPackages([
     'plasma-b2c',
     'plasma-web',
     'plasma-giga',
@@ -81,7 +81,7 @@ describeFn('Avatar', () => {
         cy.matchImageSnapshot();
     });
 
-    itScalable('size=scalable', () => {
+    itSkipScalable('size=scalable', () => {
         mount(
             <div style={{ width: 100, height: 100, border: '1px solid blue' }}>
                 <Avatar size="scalable" url={AvatarImage} />
@@ -104,7 +104,7 @@ describeFn('Avatar', () => {
         cy.matchImageSnapshot();
     });
 
-    it('_hasExtra,type=counter,extraPlacement', () => {
+    it('hasExtra,type=counter,extraPlacement', () => {
         mount(
             <>
                 {extraPlacements.map((placement) => (
@@ -127,7 +127,7 @@ describeFn('Avatar', () => {
         cy.matchImageSnapshot();
     });
 
-    it('_hasExtra,type=counter,counterView', () => {
+    it('hasExtra,type=counter,counterView', () => {
         mount(
             <>
                 {counterViews.map((counterView) => (
@@ -149,7 +149,7 @@ describeFn('Avatar', () => {
         cy.matchImageSnapshot();
     });
 
-    itSkipCs('_hasExtra,type=badge,badgeView', () => {
+    itSkipCs('hasExtra,type=badge,badgeView', () => {
         mount(
             <>
                 {badgeViews.map((badgeView) => (
