@@ -191,6 +191,8 @@ export const iconSectionsSet = {
         textAlignRightOutline: 'TextAlignRightOutline',
         searchAIFill: 'SearchAIFill',
         searchAIOutline: 'SearchAIOutline',
+        screenShareErrorOutline: 'ScreenShareErrorOutline',
+        screenShareErrorFill: 'ScreenShareErrorFill',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -444,6 +446,8 @@ export const iconSectionsSet = {
         kidsLockOutline: 'KidsLockOutline',
         profilePinOutline: 'ProfilePinOutline',
         profilePinFill: 'ProfilePinFill',
+        profileUnpinOutline: 'ProfileUnpinOutline',
+        profileUnpinFill: 'ProfileUnpinFill',
     },
     Commerce: {
         appleFill: 'AppleFill',
