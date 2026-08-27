@@ -13,7 +13,7 @@
     "scaffold:bootstrap": "node scaffold/update-package-json.js && npm run scaffold:install --dir=$(echo 'website/'$npm_config_package'-docs/')",
     "postscaffold:docs": "npm run scaffold:components && npm run scaffold:bootstrap",
     "git:diff": "git diff -- ':!packages/themes/sdds-themes' ':!packages/themes/plasma-themes'",
-    "release": "npm run git:diff && auto shipit -v",
+    "release": "npm run git:diff && auto shipit -vv",
     "precy:run": "rm -rf {.nyc_output}",
     "cy:clean": "rm -rf cypress/{results,reports,screenshots,videos}",
     "cy:run": "node scripts/cy-run.js",

@@ -104,6 +104,7 @@ export const getGroupedTokens = (themes: string): GroupedTokens => {
         const category = getTokenCategory(name);
         const { clearName, subcategory, stateSuffix } = getTokenNameInfo(name);
         const tokenColorInfo = getTokenColorInfo(value);
+        const baseTokenValue = processedTokens[name.replace(stateSuffixPattern(true), '')];
 
         if (!acc[category]) {
             acc[category] = {};
@@ -125,7 +126,7 @@ export const getGroupedTokens = (themes: string): GroupedTokens => {
                     ...currentTokenData?.states,
                 },
             };
-        } else if (!currentTokenData?.value?.includes('gradient')) {
+        } else if (!baseTokenValue?.includes('gradient')) {
             acc[category][subcategory][camelize(clearName)] = {
                 ...acc[category][subcategory][camelize(clearName)],
                 value: String(currentTokenData?.value),
