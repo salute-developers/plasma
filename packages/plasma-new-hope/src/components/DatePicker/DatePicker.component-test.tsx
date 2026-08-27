@@ -806,6 +806,34 @@ describeFnRange('DatePickerRange', () => {
             });
     });
 
+    it('popover is positioned at the active input when isCalendarPositionedByInput is set', () => {
+        cy.viewport(900, 500);
+
+        mount(<Demo isCalendarPositionedByInput calendarContainerWidth="20rem" placement="bottom-start" disableFlip />);
+
+        cy.get('.text-field-group-item')
+            .first()
+            .then(($firstTextField) => {
+                const firstTextFieldLeft = $firstTextField[0].getBoundingClientRect().left;
+
+                cy.wrap($firstTextField).find('input').click();
+                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
+                    expect($popover[0].getBoundingClientRect().left).to.be.closeTo(firstTextFieldLeft, 1);
+                });
+            });
+
+        cy.get('.text-field-group-item')
+            .eq(1)
+            .then(($secondTextField) => {
+                const secondTextFieldLeft = $secondTextField[0].getBoundingClientRect().left;
+
+                cy.wrap($secondTextField).find('input').click();
+                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
+                    expect($popover[0].getBoundingClientRect().left).to.be.closeTo(secondTextFieldLeft, 1);
+                });
+            });
+    });
+
     it('format', () => {
         mount(
             <>

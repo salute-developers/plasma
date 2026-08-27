@@ -99,7 +99,12 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
             },
             ref,
         ) => {
-            const { inputWrapperRef, ...rootProps } = rest;
+            const {
+                inputWrapperRef,
+                firstTextfieldInputWrapperRef,
+                secondTextfieldInputWrapperRef,
+                ...rootProps
+            } = rest;
 
             const rangeRef = useRef<HTMLDivElement>(null);
             const firstTextFieldRef = useRef<HTMLInputElement>(null);
@@ -250,6 +255,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                             {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
                             <StyledInput
                                 ref={firstTextFieldRef}
+                                inputWrapperRef={firstTextfieldInputWrapperRef}
                                 className={cx(firstValueErrorClass, firstValueSuccessClass, firstValueEditedClass)}
                                 value={firstValue}
                                 readOnly={readOnly}
@@ -271,6 +277,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                             {Divider}
                             <StyledInput
                                 ref={secondTextFieldRef}
+                                inputWrapperRef={secondTextfieldInputWrapperRef}
                                 className={cx(secondValueErrorClass, secondValueSuccessClass, secondValueEditedClass)}
                                 value={secondValue}
                                 readOnly={readOnly}

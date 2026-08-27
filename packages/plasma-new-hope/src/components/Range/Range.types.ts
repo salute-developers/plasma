@@ -259,6 +259,16 @@ export type RangeInnerProps = {
      */
     inputWrapperRef?: Ref<HTMLDivElement>;
     /**
+     * Ссылка на обертку первого поля ввода
+     * @internal
+     */
+    firstTextfieldInputWrapperRef?: Ref<HTMLDivElement>;
+    /**
+     * Ссылка на обертку второго поля ввода
+     * @internal
+     */
+    secondTextfieldInputWrapperRef?: Ref<HTMLDivElement>;
+    /**
      * Коллбэк, вызываемый при изменении первого поля ввода
      */
     onChangeFirstValue?: BaseCallbackChangeInstance;
