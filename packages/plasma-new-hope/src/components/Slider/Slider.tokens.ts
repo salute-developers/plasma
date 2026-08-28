@@ -61,9 +61,8 @@ export const tokens = {
     doubleWrapperGap: '--plasma-slider-double-wrapper-gap',
     doubleBoxShadow: '--plasma-slider-double-box-shadow',
 
-    thumbSize: '--plasma-slider-thumb-size',
+    thumbWidth: '--plasma-slider-thumb-width',
     thumbHeight: '--plasma-slider-thumb-height',
-    thumbBorderStyle: '--plasma-slider-thumb-border-style',
     thumbBorderWidth: '--plasma-slider-thumb-border-width',
     thumbBorderRadius: '--plasma-slider-thumb-border-radius',
     thumbBorderColor: '--plasma-slider-thumb-border-color',

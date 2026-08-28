@@ -377,10 +377,10 @@ export const StyledRange = styled(BaseStyledRange)`
 
     .${classes.verticalOrientation} & {
         position: absolute;
-        width: calc(100cqh + var(${tokens.thumbSize}, 0rem));
+        width: calc(100cqh + var(${tokens.thumbWidth}, 0rem));
         height: var(${tokens.size});
         top: calc(50% - var(${tokens.size}) / 2);
-        left: calc(50% - (100cqh + var(${tokens.thumbSize}, 0rem)) / 2);
+        left: calc(50% - (100cqh + var(${tokens.thumbWidth}, 0rem)) / 2);
         margin-left: 0;
         transform: rotate(-90deg);
     }
