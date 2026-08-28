@@ -95,13 +95,13 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             positive: css`
-                ${tokens.textFieldColor}: ${textPositive};
-                ${tokens.textFieldClearColor}: ${textPositive};
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldClearColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldClearPlaceholderColor}: ${textPositive};
-                ${tokens.textFieldClearPlaceholderColorFocus}: ${textPositive};
+                ${tokens.textFieldClearPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
@@ -142,13 +142,13 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             warning: css`
-                ${tokens.textFieldColor}: ${textWarning};
-                ${tokens.textFieldClearColor}: ${textWarning};
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldClearColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
-                ${tokens.textFieldClearPlaceholderColorFocus}: ${textWarning};
+                ${tokens.textFieldClearPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
@@ -189,13 +189,13 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             negative: css`
-                ${tokens.textFieldColor}: ${textNegative};
-                ${tokens.textFieldClearColor}: ${textNegative};
+                ${tokens.textFieldColor}: ${textPrimary};
+                ${tokens.textFieldClearColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
-                ${tokens.textFieldClearPlaceholderColorFocus}: ${textNegative};
+                ${tokens.textFieldClearPlaceholderColor}: ${textSecondary};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};

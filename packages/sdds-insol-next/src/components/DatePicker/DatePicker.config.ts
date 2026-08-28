@@ -12,12 +12,12 @@ import {
     h5,
     h5Bold,
     inverseTextPrimary,
-    outlineNegativeMinor,
-    outlineNegativeMinorActive,
-    outlineNegativeMinorHover,
-    outlinePositiveMinor,
-    outlinePositiveMinorActive,
-    outlinePositiveMinorHover,
+    outlineNegative,
+    outlineNegativeActive,
+    outlineNegativeHover,
+    outlinePositive,
+    outlinePositiveActive,
+    outlinePositiveHover,
     outlineSolidSecondary,
     outlineTransparentPrimary,
     outlineTransparentPrimaryHover,
@@ -110,22 +110,22 @@ export const config = {
                 ${tokens.textFieldBorderColorFocus}: ${outlineSolidSecondary};
                 ${tokens.textFieldBorderColorHover}: ${outlineTransparentPrimaryHover};
 
-                ${tokens.borderColorSuccess}: ${outlinePositiveMinor};
-                ${tokens.textFieldBorderColorSuccess}: ${outlinePositiveMinor};
-                ${tokens.textFieldBorderColorSuccessFocus}: ${outlinePositiveMinorActive};
-                ${tokens.textFieldBorderColorSuccessHover}: ${outlinePositiveMinorHover};
+                ${tokens.borderColorSuccess}: ${outlinePositive};
+                ${tokens.textFieldBorderColorSuccess}: ${outlinePositive};
+                ${tokens.textFieldBorderColorSuccessFocus}: ${outlinePositiveActive};
+                ${tokens.textFieldBorderColorSuccessHover}: ${outlinePositiveHover};
 
-                ${tokens.borderColorError}: ${outlineNegativeMinor};
-                ${tokens.textFieldBorderColorError}: ${outlineNegativeMinor};
-                ${tokens.textFieldBorderColorErrorFocus}: ${outlineNegativeMinorActive};
-                ${tokens.textFieldBorderColorErrorHover}: ${outlineNegativeMinorHover};
+                ${tokens.borderColorError}: ${outlineNegative};
+                ${tokens.textFieldBorderColorError}: ${outlineNegative};
+                ${tokens.textFieldBorderColorErrorFocus}: ${outlineNegativeActive};
+                ${tokens.textFieldBorderColorErrorHover}: ${outlineNegativeHover};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
-                ${tokens.textFieldColorError}: ${textNegative};
+                ${tokens.textFieldColorError}: ${textPrimary};
                 ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceSolidCard};
-                ${tokens.textFieldColorSuccess}: ${textPositive};
+                ${tokens.textFieldColorSuccess}: ${textPrimary};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceSolidCard};
 
