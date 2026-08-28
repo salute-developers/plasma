@@ -1,6 +1,22 @@
 import styled from 'styled-components';
 
+import { applySliderThumb, applySliderThumbFocus } from '../../../../mixins';
+import type { SliderThumbTokens } from '../../../../mixins';
 import { tokens } from '../../Slider.tokens';
+
+const thumbTokens: SliderThumbTokens = {
+    width: tokens.thumbWidth,
+    height: tokens.thumbHeight,
+    borderRadius: tokens.thumbBorderRadius,
+    borderWidth: tokens.thumbBorderWidth,
+    borderColor: tokens.thumbBorderColor,
+    focusBorderColor: tokens.thumbFocusBorderColor,
+    background: tokens.thumbBackgroundColor,
+    innerContent: tokens.thumbInnerContent,
+};
+
+const thumb = applySliderThumb(thumbTokens);
+const thumbFocused = applySliderThumbFocus(thumbTokens);
 
 /**
  * Подпись слайдера
@@ -57,10 +73,10 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     outline: none;
     background: transparent;
     border: none;
-    width: calc(100% + var(${tokens.thumbSize}, 0rem));
+    width: calc(100% + var(${tokens.thumbWidth}, 0rem));
     height: var(${tokens.size});
     margin: 0;
-    margin-left: calc(var(${tokens.thumbSize}, 0rem) / -2);
+    margin-left: calc(var(${tokens.thumbWidth}, 0rem) / -2);
     cursor: pointer;
 
     &:disabled {
@@ -74,26 +90,14 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         outline: none;
-        width: var(${tokens.thumbSize});
-        height: var(${tokens.thumbHeight}, var(${tokens.thumbSize}));
-        border-radius: var(${tokens.thumbBorderRadius}, 50%);
-        cursor: grab;
-        border-style: var(${tokens.thumbBorderStyle}, solid);
-        border-color: transparent;
-        border-width: var(${tokens.thumbBorderWidth}, 0.0625rem);
-        background: none no-repeat center,
-            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
-            var(${tokens.thumbBorderColor}) border-box;
-        transition: background-color 0.1s ease-in-out, background-image 0.1s ease-in-out;
+        ${thumb}
         opacity: ${({ showPointer }) => (showPointer === false ? '0' : '1')};
     }
 
     &:not(:disabled)::-webkit-slider-thumb:hover,
     &:not(:disabled)::-webkit-slider-thumb:active,
     &:focus-visible::-webkit-slider-thumb {
-        background: var(${tokens.thumbInnerContent}, none) no-repeat center,
-            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
-            var(${tokens.thumbFocusBorderColor}) border-box;
+        ${thumbFocused}
     }
 
     &::-webkit-slider-thumb:active {
@@ -110,25 +114,13 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     }
 
     &::-moz-range-thumb {
-        width: var(${tokens.thumbSize});
-        height: var(${tokens.thumbHeight}, var(${tokens.thumbSize}));
-        border-radius: var(${tokens.thumbBorderRadius}, 50%);
-        cursor: grab;
-        border-style: var(${tokens.thumbBorderStyle}, solid);
-        border-color: transparent;
-        border-width: var(${tokens.thumbBorderWidth}, 0.0625rem);
-        background: none no-repeat center,
-            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
-            var(${tokens.thumbBorderColor}) border-box;
-        transition: background-color 0.1s ease-in-out, background-image 0.1s ease-in-out;
+        ${thumb}
         opacity: ${({ showPointer }) => (showPointer === false ? '0' : '1')};
     }
 
     &:not(:disabled)::-moz-range-thumb:hover,
     &:not(:disabled)::-moz-range-thumb:active {
-        background: var(${tokens.thumbInnerContent}, none) no-repeat center,
-            linear-gradient(var(${tokens.thumbBackgroundColor}), var(${tokens.thumbBackgroundColor})) padding-box,
-            var(${tokens.thumbFocusBorderColor}) border-box;
+        ${thumbFocused}
     }
 
     &::-moz-range-thumb:active {
