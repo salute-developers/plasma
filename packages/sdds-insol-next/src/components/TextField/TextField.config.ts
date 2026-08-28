@@ -98,9 +98,9 @@ export const config = {
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.focusColor}: ${textAccent};
 
-                ${tokens.color}: ${textPositive};
-                ${tokens.placeholderColor}: ${textPositive};
-                ${tokens.placeholderColorFocus}: ${textPositive};
+                ${tokens.color}: ${textPrimary};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: ${surfaceSolidCard};
                 ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
@@ -130,9 +130,9 @@ export const config = {
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.focusColor}: ${textAccent};
 
-                ${tokens.color}: ${textWarning};
-                ${tokens.placeholderColor}: ${textWarning};
-                ${tokens.placeholderColorFocus}: ${textWarning};
+                ${tokens.color}: ${textPrimary};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: ${surfaceSolidCard};
                 ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
@@ -162,9 +162,9 @@ export const config = {
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.focusColor}: ${textAccent};
 
-                ${tokens.color}: ${textNegative};
-                ${tokens.placeholderColor}: ${textNegative};
-                ${tokens.placeholderColorFocus}: ${textNegative};
+                ${tokens.color}: ${textPrimary};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: ${surfaceSolidCard};
                 ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
