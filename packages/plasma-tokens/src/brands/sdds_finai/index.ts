@@ -142,10 +142,10 @@ export const textAccentGradientMinorHover = 'var(--text-accent-gradient-minor-ho
 export const textAccentGradientMinorActive = 'var(--text-accent-gradient-minor-active, #1F1F1FFF)';
 
 export const textAccentGradient =
-    'var(--text-accent-gradient, linear-gradient(101.02deg, rgba(63, 129, 253, 1) 0%, rgba(0, 164, 209, 1) 45.322%, rgba(82, 142, 255, 1) 100%))';
+    'var(--text-accent-gradient, linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%))';
 
 export const textAccentGradientMinor =
-    'var(--text-accent-gradient-minor, linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)), var(--text-accent-gradient-minor, linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)), var(--text-accent-gradient-minor, #FFFFFF00)';
+    'var(--text-accent-gradient-minor, linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)), var(--text-accent-gradient-minor, linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)), var(--text-accent-gradient-minor, #FFFFFF00)';
 
 /** Основной цвет текста на темном фоне */
 export const onDarkTextPrimaryHover = 'var(--on-dark-text-primary-hover, #F2F5F893)';
@@ -289,10 +289,10 @@ export const onDarkTextAccentGradientMinorHover = 'var(--on-dark-text-accent-gra
 export const onDarkTextAccentGradientMinorActive = 'var(--on-dark-text-accent-gradient-minor-active, #1F1F1FFF)';
 
 export const onDarkTextAccentGradient =
-    'var(--on-dark-text-accent-gradient, linear-gradient(101.02deg, rgba(63, 129, 253, 1) 0%, rgba(0, 164, 209, 1) 45.322%, rgba(82, 142, 255, 1) 100%))';
+    'var(--on-dark-text-accent-gradient, linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%))';
 
 export const onDarkTextAccentGradientMinor =
-    'var(--on-dark-text-accent-gradient-minor, linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)), var(--on-dark-text-accent-gradient-minor, linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)), var(--on-dark-text-accent-gradient-minor, #FFFFFF00)';
+    'var(--on-dark-text-accent-gradient-minor, linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)), var(--on-dark-text-accent-gradient-minor, linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)), var(--on-dark-text-accent-gradient-minor, #FFFFFF00)';
 
 /** Основной цвет текста на светлом фоне */
 export const onLightTextPrimaryHover = 'var(--on-light-text-primary-hover, #13181B93)';
@@ -436,10 +436,10 @@ export const onLightTextAccentGradientMinorHover = 'var(--on-light-text-accent-g
 export const onLightTextAccentGradientMinorActive = 'var(--on-light-text-accent-gradient-minor-active, #000000FF)';
 
 export const onLightTextAccentGradient =
-    'var(--on-light-text-accent-gradient, linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%))';
+    'var(--on-light-text-accent-gradient, linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%))';
 
 export const onLightTextAccentGradientMinor =
-    'var(--on-light-text-accent-gradient-minor, linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%)), var(--on-light-text-accent-gradient-minor, linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)), var(--on-light-text-accent-gradient-minor, #FFFFFF00)';
+    'var(--on-light-text-accent-gradient-minor, linear-gradient(0deg, #501A7433 0%, #501A7433 100%)), var(--on-light-text-accent-gradient-minor, linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)), var(--on-light-text-accent-gradient-minor, #FFFFFF00)';
 
 /** Инвертированный основной цвет текста */
 export const inverseTextPrimaryHover = 'var(--inverse-text-primary-hover, #13181B93)';
@@ -583,10 +583,10 @@ export const inverseTextAccentGradientMinorHover = 'var(--inverse-text-accent-gr
 export const inverseTextAccentGradientMinorActive = 'var(--inverse-text-accent-gradient-minor-active, #000000FF)';
 
 export const inverseTextAccentGradient =
-    'var(--inverse-text-accent-gradient, linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%))';
+    'var(--inverse-text-accent-gradient, linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%))';
 
 export const inverseTextAccentGradientMinor =
-    'var(--inverse-text-accent-gradient-minor, linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%)), var(--inverse-text-accent-gradient-minor, linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)), var(--inverse-text-accent-gradient-minor, #FFFFFF00)';
+    'var(--inverse-text-accent-gradient-minor, linear-gradient(0deg, #501A7433 0%, #501A7433 100%)), var(--inverse-text-accent-gradient-minor, linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)), var(--inverse-text-accent-gradient-minor, #FFFFFF00)';
 
 /** Основной непрозрачный фон поверхности/контрола */
 export const surfaceSolidPrimaryHover = 'var(--surface-solid-primary-hover, #171D21FF)';
@@ -839,7 +839,7 @@ export const surfaceInfo = 'var(--surface-info, #199AF0)';
 
 /** Акцентный фон поверхности/контрола с градиентом */
 export const surfaceAccentGradient =
-    'var(--surface-accent-gradient, linear-gradient(128.65deg, rgba(4, 198, 201, 0.6) 0%, rgba(25, 154, 240, 0.6) 52.311%, rgba(82, 142, 255, 0.6) 100%))';
+    'var(--surface-accent-gradient, linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%))';
 
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #171D21FF)';
@@ -1092,7 +1092,7 @@ export const onDarkSurfaceAccent = 'var(--on-dark-surface-accent, #199AF0)';
 
 /** Акцентный фон поверхности/контрола с градиентом на темном фоне */
 export const onDarkSurfaceAccentGradient =
-    'var(--on-dark-surface-accent-gradient, linear-gradient(128.65deg, rgba(4, 198, 201, 0.6) 0%, rgba(25, 154, 240, 0.6) 52.311%, rgba(82, 142, 255, 0.6) 100%))';
+    'var(--on-dark-surface-accent-gradient, linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%))';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F8FAFBFF)';
@@ -1346,7 +1346,7 @@ export const onLightSurfaceInfo = 'var(--on-light-surface-info, #199AF0)';
 
 /** Акцентный фон поверхности/контрола с градиентом на светлом фоне */
 export const onLightSurfaceAccentGradient =
-    'var(--on-light-surface-accent-gradient, linear-gradient(128.65deg, rgba(24, 239, 242, 0.4) 0%, rgba(82, 186, 255, 0.4) 52.311%, rgba(139, 178, 252, 0.4) 100%))';
+    'var(--on-light-surface-accent-gradient, linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%))';
 
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F8FAFBFF)';
@@ -1600,7 +1600,7 @@ export const inverseSurfaceInfo = 'var(--inverse-surface-info, #199AF0)';
 
 /** Инвертированный акцентный фон поверхности/контрола с градиентом */
 export const inverseSurfaceAccentGradient =
-    'var(--inverse-surface-accent-gradient, linear-gradient(128.65deg, rgba(24, 239, 242, 0.4) 0%, rgba(82, 186, 255, 0.4) 52.311%, rgba(139, 178, 252, 0.4) 100%))';
+    'var(--inverse-surface-accent-gradient, linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%))';
 
 /** Основной фон */
 export const backgroundPrimaryBrightness = 'var(--background-primary-brightness, #15191B)';
@@ -1832,7 +1832,7 @@ export const outlineSolidDefault = 'var(--outline-solid-default, #F7F9FB)';
 
 /** Акцентный цвет обводки с градиентом */
 export const outlineAccentGradient =
-    'var(--outline-accent-gradient, linear-gradient(136.09deg, rgba(17, 140, 223, 1) 0%, rgba(13, 83, 130, 1) 47.461%, rgba(21, 73, 171, 1) 94.287%))';
+    'var(--outline-accent-gradient, linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%))';
 
 /** Основной непрозрачный цвет обводки на темном фоне */
 export const onDarkOutlineSolidPrimaryHover = 'var(--on-dark-outline-solid-primary-hover, #FFFFFFFF)';
@@ -2010,7 +2010,7 @@ export const onDarkOutlineSolidDefaultActive = 'var(--on-dark-outline-solid-defa
 
 /** Акцентный цвет обводки с градиентом на темном фоне */
 export const onDarkOutlineAccentGradient =
-    'var(--on-dark-outline-accent-gradient, linear-gradient(136.09deg, rgba(17, 140, 223, 1) 0%, rgba(13, 83, 130, 1) 47.461%, rgba(21, 73, 171, 1) 94.287%))';
+    'var(--on-dark-outline-accent-gradient, linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%))';
 
 /** Основной непрозрачный цвет обводки на светлом фоне */
 export const onLightOutlineSolidPrimaryHover = 'var(--on-light-outline-solid-primary-hover, #AFC2CFFF)';
@@ -2188,7 +2188,7 @@ export const onLightOutlineNegative = 'var(--on-light-outline-negative, #E31227)
 
 /** Акцентный цвет обводки с градиентом на светлом фоне */
 export const onLightOutlineAccentGradient =
-    'var(--on-light-outline-accent-gradient, linear-gradient(136.09deg, rgba(138, 230, 255, 1) 0%, rgba(207, 236, 255, 1) 44.605%, rgba(169, 199, 254, 1) 92.953%))';
+    'var(--on-light-outline-accent-gradient, linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%))';
 
 /** Инвертированный основной непрозрачный цвет обводки */
 export const inverseOutlineSolidPrimaryHover = 'var(--inverse-outline-solid-primary-hover, #AFC2CFFF)';
@@ -2366,7 +2366,7 @@ export const inverseOutlineSolidTertiary = 'var(--inverse-outline-solid-tertiary
 
 /** Инвертированный акцентный цвет обводки с градиентом */
 export const inverseOutlineAccentGradient =
-    'var(--inverse-outline-accent-gradient, linear-gradient(136.09deg, rgba(138, 230, 255, 1) 0%, rgba(207, 236, 255, 1) 44.605%, rgba(169, 199, 254, 1) 92.953%))';
+    'var(--inverse-outline-accent-gradient, linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%))';
 
 /** Цвет успеха с градиентом */
 export const dataDefaultDataPositiveGradient =
