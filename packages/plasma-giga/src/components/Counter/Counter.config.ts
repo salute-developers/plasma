@@ -27,7 +27,7 @@ export const config = {
                 ${counterTokens.background}: ${surfaceSolidDefault};
             `,
             accent: css`
-                ${counterTokens.color}: ${onDarkTextPrimary};
+                ${counterTokens.color}: ${inverseTextPrimary};
                 ${counterTokens.background}: ${surfaceAccent};
             `,
             positive: css`
