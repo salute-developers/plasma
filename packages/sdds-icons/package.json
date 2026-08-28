@@ -72,7 +72,9 @@
     "prepare": "npm run build",
     "build": "node ./scripts/build.mjs",
     "build:android": "node ./scripts/build-android.mjs",
-    "build:ios": "node ./scripts/build-ios.mjs"
+    "build:ios": "node ./scripts/build-ios.mjs",
+    "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
+    "storybook:build": "storybook build -c .storybook -o build-sb"
   },
   "sideEffects": false,
   "contributors": ["salute.developers@gmail.com"]

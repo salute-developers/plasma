@@ -3,3 +3,4 @@
 /build-temp
 /.build-temp-*
 /native-build
+/build-sb
