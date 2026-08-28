@@ -286,20 +286,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(63, 129, 253, 1) 0%,\n  rgba(0, 164, 209, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -312,16 +304,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -337,18 +321,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -361,14 +339,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -380,20 +352,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -406,16 +370,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -708,20 +664,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(63, 129, 253, 1) 0%,\n  rgba(0, 164, 209, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -734,16 +682,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -759,18 +699,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -783,14 +717,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -802,20 +730,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -828,16 +748,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -1130,20 +1042,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(25, 154, 240, 1) 0%,\n  rgba(18, 194, 243, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -1156,16 +1060,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -1181,18 +1077,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -1205,14 +1095,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -1224,20 +1108,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -1250,16 +1126,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -1552,20 +1420,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(25, 154, 240, 1) 0%,\n  rgba(18, 194, 243, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -1578,16 +1438,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -1603,18 +1455,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -1627,14 +1473,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -1646,20 +1486,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -1672,16 +1504,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -2159,20 +1983,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(4, 198, 201, 0.6) 0%,\n  rgba(25, 154, 240, 0.6) 52.311%,\n  rgba(82, 142, 255, 0.6) 100%)",
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -2185,16 +2001,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -2666,20 +2474,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(4, 198, 201, 0.6) 0%,\n  rgba(25, 154, 240, 0.6) 52.311%,\n  rgba(82, 142, 255, 0.6) 100%)",
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -2692,16 +2492,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -3173,20 +2965,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(24, 239, 242, 0.4) 0%,\n  rgba(82, 186, 255, 0.4) 52.311%,\n  rgba(139, 178, 252, 0.4) 100%)",
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -3199,16 +2983,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -3680,20 +3456,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(24, 239, 242, 0.4) 0%,\n  rgba(82, 186, 255, 0.4) 52.311%,\n  rgba(139, 178, 252, 0.4) 100%)",
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -3706,16 +3474,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -4270,20 +4030,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(17, 140, 223, 1) 0%,\n  rgba(13, 83, 130, 1) 47.461%,\n  rgba(21, 73, 171, 1) 94.287%)",
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -4296,16 +4048,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -4726,20 +4470,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(17, 140, 223, 1) 0%,\n  rgba(13, 83, 130, 1) 47.461%,\n  rgba(21, 73, 171, 1) 94.287%)",
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -4752,16 +4488,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -5182,20 +4910,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(138, 230, 255, 1) 0%,\n  rgba(207, 236, 255, 1) 44.605%,\n  rgba(169, 199, 254, 1) 92.953%)",
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -5208,16 +4928,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -5638,20 +5350,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(138, 230, 255, 1) 0%,\n  rgba(207, 236, 255, 1) 44.605%,\n  rgba(169, 199, 254, 1) 92.953%)",
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -5664,16 +5368,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -8120,20 +7816,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(25, 154, 240, 1) 0%,\n  rgba(18, 194, 243, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -8146,16 +7834,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -8171,18 +7851,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -8195,14 +7869,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -8214,20 +7882,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -8240,16 +7900,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -8542,20 +8194,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(63, 129, 253, 1) 0%,\n  rgba(0, 164, 209, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -8568,16 +8212,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -8593,18 +8229,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -8617,14 +8247,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -8636,20 +8260,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -8662,16 +8278,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -8964,20 +8572,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(25, 154, 240, 1) 0%,\n  rgba(18, 194, 243, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -8990,16 +8590,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(25, 154, 240, 1)",
-                                "  rgba(18, 194, 243, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -9015,18 +8607,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -9039,14 +8625,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(80, 26, 116, 0.2)",
-                                    "rgba(80, 26, 116, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -9058,20 +8638,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -9084,16 +8656,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.01,
                                     "y": 0.41
@@ -9386,20 +8950,12 @@
                 },
                 "textAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(101.02deg,\n  rgba(63, 129, 253, 1) 0%,\n  rgba(0, 164, 209, 1) 45.322%,\n  rgba(82, 142, 255, 1) 100%)",
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -9412,16 +8968,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(63, 129, 253, 1)",
-                                "  rgba(0, 164, 209, 1)",
-                                "  rgba(82, 142, 255, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                1
-                            ],
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
                             "startPoint": {
                                 "x": 0.01,
                                 "y": 0.41
@@ -9437,18 +8985,12 @@
                 "textAccentGradientMinor": {
                     "value": [
                         {
-                            "origin": "linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%)",
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -9461,14 +9003,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(255, 255, 255, 0.2)",
-                                    "rgba(255, 255, 255, 0.2)"
-                                ],
-                                "locations": [
-                                    0,
-                                    1
-                                ],
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
                                 "startPoint": {
                                     "x": 0.5,
                                     "y": 1
@@ -9480,20 +9016,12 @@
                             }
                         },
                         {
-                            "origin": "linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)",
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
                             "swift": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -9506,16 +9034,8 @@
                             "xml": {
                                 "kind": "gradient",
                                 "type": ".linear",
-                                "colors": [
-                                    "rgba(25, 154, 240, 1)",
-                                    "rgba(18, 194, 243, 1)",
-                                    "rgba(82, 142, 255, 1)"
-                                ],
-                                "locations": [
-                                    0,
-                                    0.45,
-                                    1
-                                ],
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
                                 "startPoint": {
                                     "x": 0.03,
                                     "y": 0.33
@@ -9993,20 +9513,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(24, 239, 242, 0.4) 0%,\n  rgba(82, 186, 255, 0.4) 52.311%,\n  rgba(139, 178, 252, 0.4) 100%)",
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -10019,16 +9531,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -10500,20 +10004,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(4, 198, 201, 0.6) 0%,\n  rgba(25, 154, 240, 0.6) 52.311%,\n  rgba(82, 142, 255, 0.6) 100%)",
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -10526,16 +10022,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -11007,20 +10495,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(24, 239, 242, 0.4) 0%,\n  rgba(82, 186, 255, 0.4) 52.311%,\n  rgba(139, 178, 252, 0.4) 100%)",
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -11033,16 +10513,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(24, 239, 242, 0.4)",
-                                "  rgba(82, 186, 255, 0.4)",
-                                "  rgba(139, 178, 252, 0.4)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -11514,20 +10986,12 @@
                 },
                 "surfaceAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(128.65deg,\n  rgba(4, 198, 201, 0.6) 0%,\n  rgba(25, 154, 240, 0.6) 52.311%,\n  rgba(82, 142, 255, 0.6) 100%)",
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -11540,16 +11004,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(4, 198, 201, 0.6)",
-                                "  rgba(25, 154, 240, 0.6)",
-                                "  rgba(82, 142, 255, 0.6)"
-                            ],
-                            "locations": [
-                                0,
-                                0.52,
-                                1
-                            ],
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
                             "startPoint": {
                                 "x": 0.11,
                                 "y": 0.19
@@ -12104,20 +11560,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(138, 230, 255, 1) 0%,\n  rgba(207, 236, 255, 1) 44.605%,\n  rgba(169, 199, 254, 1) 92.953%)",
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -12130,16 +11578,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -12560,20 +12000,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(17, 140, 223, 1) 0%,\n  rgba(13, 83, 130, 1) 47.461%,\n  rgba(21, 73, 171, 1) 94.287%)",
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -12586,16 +12018,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -13016,20 +12440,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(138, 230, 255, 1) 0%,\n  rgba(207, 236, 255, 1) 44.605%,\n  rgba(169, 199, 254, 1) 92.953%)",
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -13042,16 +12458,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(138, 230, 255, 1)",
-                                "  rgba(207, 236, 255, 1)",
-                                "  rgba(169, 199, 254, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.45,
-                                0.93
-                            ],
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -13472,20 +12880,12 @@
                 },
                 "outlineAccentGradient": {
                     "value": {
-                        "origin": "linear-gradient(136.09deg,\n  rgba(17, 140, 223, 1) 0%,\n  rgba(13, 83, 130, 1) 47.461%,\n  rgba(21, 73, 171, 1) 94.287%)",
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
                         "swift": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14
@@ -13498,16 +12898,8 @@
                         "xml": {
                             "kind": "gradient",
                             "type": ".linear",
-                            "colors": [
-                                "  rgba(17, 140, 223, 1)",
-                                "  rgba(13, 83, 130, 1)",
-                                "  rgba(21, 73, 171, 1)"
-                            ],
-                            "locations": [
-                                0,
-                                0.47,
-                                0.94
-                            ],
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
                             "startPoint": {
                                 "x": 0.16,
                                 "y": 0.14

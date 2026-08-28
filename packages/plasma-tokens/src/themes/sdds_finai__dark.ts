@@ -51,10 +51,9 @@ export const sdds_finai__dark = {
         '--text-gradient-primary-active': '#666666FF',
         '--text-accent-gradient-minor-hover': '#3D3D3DFF',
         '--text-accent-gradient-minor-active': '#1F1F1FFF',
-        '--text-accent-gradient':
-            'linear-gradient(101.02deg, rgba(63, 129, 253, 1) 0%, rgba(0, 164, 209, 1) 45.322%, rgba(82, 142, 255, 1) 100%)',
+        '--text-accent-gradient': 'linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)',
         '--text-accent-gradient-minor':
-            'linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%), linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%), #FFFFFF00',
+            'linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%), linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%), #FFFFFF00',
         '--on-dark-text-primary-hover': '#F2F5F893',
         '--on-dark-text-primary-active': '#F2F5F8C4',
         '--on-dark-text-secondary-hover': '#D6DFE6FF',
@@ -104,10 +103,9 @@ export const sdds_finai__dark = {
         '--on-dark-text-gradient-primary-active': '#666666FF',
         '--on-dark-text-accent-gradient-minor-hover': '#3D3D3DFF',
         '--on-dark-text-accent-gradient-minor-active': '#1F1F1FFF',
-        '--on-dark-text-accent-gradient':
-            'linear-gradient(101.02deg, rgba(63, 129, 253, 1) 0%, rgba(0, 164, 209, 1) 45.322%, rgba(82, 142, 255, 1) 100%)',
+        '--on-dark-text-accent-gradient': 'linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)',
         '--on-dark-text-accent-gradient-minor':
-            'linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%), linear-gradient(109.38deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%), #FFFFFF00',
+            'linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%), linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%), #FFFFFF00',
         '--on-light-text-primary-hover': '#13181B93',
         '--on-light-text-primary-active': '#13181BC4',
         '--on-light-text-secondary-hover': '#485056FF',
@@ -157,10 +155,9 @@ export const sdds_finai__dark = {
         '--on-light-text-gradient-primary-active': '#E6E6E6FF',
         '--on-light-text-accent-gradient-minor-hover': '#8F8F8FFF',
         '--on-light-text-accent-gradient-minor-active': '#000000FF',
-        '--on-light-text-accent-gradient':
-            'linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)',
+        '--on-light-text-accent-gradient': 'linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)',
         '--on-light-text-accent-gradient-minor':
-            'linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%), linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%), #FFFFFF00',
+            'linear-gradient(0deg, #501A7433 0%, #501A7433 100%), linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%), #FFFFFF00',
         '--inverse-text-primary-hover': '#13181B93',
         '--inverse-text-primary-active': '#13181BC4',
         '--inverse-text-secondary-hover': '#485056FF',
@@ -210,10 +207,9 @@ export const sdds_finai__dark = {
         '--inverse-text-gradient-primary-active': '#E6E6E6FF',
         '--inverse-text-accent-gradient-minor-hover': '#8F8F8FFF',
         '--inverse-text-accent-gradient-minor-active': '#000000FF',
-        '--inverse-text-accent-gradient':
-            'linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%)',
+        '--inverse-text-accent-gradient': 'linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)',
         '--inverse-text-accent-gradient-minor':
-            'linear-gradient(0deg, rgba(80, 26, 116, 0.2) 0%, rgba(80, 26, 116, 0.2) 100%), linear-gradient(101.02deg, rgba(25, 154, 240, 1) 0%, rgba(18, 194, 243, 1) 45.322%, rgba(82, 142, 255, 1) 100%), #FFFFFF00',
+            'linear-gradient(0deg, #501A7433 0%, #501A7433 100%), linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%), #FFFFFF00',
         '--surface-solid-primary-hover': '#171D21FF',
         '--surface-solid-primary-active': '#0F1315FF',
         '--surface-solid-secondary-hover': '#2C343AFF',
@@ -297,8 +293,7 @@ export const sdds_finai__dark = {
         '--surface-accent-minor': '#071A26',
         '--surface-accent': '#199AF0',
         '--surface-info': '#199AF0',
-        '--surface-accent-gradient':
-            'linear-gradient(128.65deg, rgba(4, 198, 201, 0.6) 0%, rgba(25, 154, 240, 0.6) 52.311%, rgba(82, 142, 255, 0.6) 100%)',
+        '--surface-accent-gradient': 'linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)',
         '--on-dark-surface-solid-primary-hover': '#171D21FF',
         '--on-dark-surface-solid-primary-active': '#0F1315FF',
         '--on-dark-surface-solid-secondary-hover': '#2C343AFF',
@@ -383,7 +378,7 @@ export const sdds_finai__dark = {
         '--on-dark-surface-info': '#199AF0',
         '--on-dark-surface-accent': '#199AF0',
         '--on-dark-surface-accent-gradient':
-            'linear-gradient(128.65deg, rgba(4, 198, 201, 0.6) 0%, rgba(25, 154, 240, 0.6) 52.311%, rgba(82, 142, 255, 0.6) 100%)',
+            'linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)',
         '--on-light-surface-solid-primary-hover': '#F8FAFBFF',
         '--on-light-surface-solid-primary-active': '#EBF0F4FF',
         '--on-light-surface-solid-secondary-hover': '#F5F8F9FF',
@@ -468,7 +463,7 @@ export const sdds_finai__dark = {
         '--on-light-surface-accent': '#199AF0',
         '--on-light-surface-info': '#199AF0',
         '--on-light-surface-accent-gradient':
-            'linear-gradient(128.65deg, rgba(24, 239, 242, 0.4) 0%, rgba(82, 186, 255, 0.4) 52.311%, rgba(139, 178, 252, 0.4) 100%)',
+            'linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)',
         '--inverse-surface-solid-primary-hover': '#F8FAFBFF',
         '--inverse-surface-solid-primary-active': '#EBF0F4FF',
         '--inverse-surface-solid-secondary-hover': '#F5F8F9FF',
@@ -553,7 +548,7 @@ export const sdds_finai__dark = {
         '--inverse-surface-accent': '#199AF0',
         '--inverse-surface-info': '#199AF0',
         '--inverse-surface-accent-gradient':
-            'linear-gradient(128.65deg, rgba(24, 239, 242, 0.4) 0%, rgba(82, 186, 255, 0.4) 52.311%, rgba(139, 178, 252, 0.4) 100%)',
+            'linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)',
         '--background-primary-brightness': '#15191B',
         '--background-primary': '#060A0C',
         '--dark-background-primary': '#060A0C',
@@ -631,8 +626,7 @@ export const sdds_finai__dark = {
         '--outline-solid-default-hover': '#D0DBE7FF',
         '--outline-solid-default-active': '#E4EBF1FF',
         '--outline-solid-default': '#F7F9FB',
-        '--outline-accent-gradient':
-            'linear-gradient(136.09deg, rgba(17, 140, 223, 1) 0%, rgba(13, 83, 130, 1) 47.461%, rgba(21, 73, 171, 1) 94.287%)',
+        '--outline-accent-gradient': 'linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)',
         '--on-dark-outline-solid-primary-hover': '#FFFFFFFF',
         '--on-dark-outline-solid-primary-active': '#A0ADB6FF',
         '--on-dark-outline-solid-secondary-hover': '#FFFFFFFF',
@@ -692,8 +686,7 @@ export const sdds_finai__dark = {
         '--on-dark-outline-solid-default': '#F7F9FB',
         '--on-dark-outline-solid-default-hover': '#D0DBE7FF',
         '--on-dark-outline-solid-default-active': '#E4EBF1FF',
-        '--on-dark-outline-accent-gradient':
-            'linear-gradient(136.09deg, rgba(17, 140, 223, 1) 0%, rgba(13, 83, 130, 1) 47.461%, rgba(21, 73, 171, 1) 94.287%)',
+        '--on-dark-outline-accent-gradient': 'linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)',
         '--on-light-outline-solid-primary-hover': '#AFC2CFFF',
         '--on-light-outline-solid-primary-active': '#C2D1DBFF',
         '--on-light-outline-solid-secondary-hover': '#FFFFFFFF',
@@ -754,7 +747,7 @@ export const sdds_finai__dark = {
         '--on-light-outline-warning': '#FA5F05',
         '--on-light-outline-negative': '#E31227',
         '--on-light-outline-accent-gradient':
-            'linear-gradient(136.09deg, rgba(138, 230, 255, 1) 0%, rgba(207, 236, 255, 1) 44.605%, rgba(169, 199, 254, 1) 92.953%)',
+            'linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)',
         '--inverse-outline-solid-primary-hover': '#AFC2CFFF',
         '--inverse-outline-solid-primary-active': '#C2D1DBFF',
         '--inverse-outline-solid-secondary-hover': '#FFFFFFFF',
@@ -814,8 +807,7 @@ export const sdds_finai__dark = {
         '--inverse-outline-warning': '#FA5F05',
         '--inverse-outline-negative': '#E31227',
         '--inverse-outline-solid-tertiary': '#657179',
-        '--inverse-outline-accent-gradient':
-            'linear-gradient(136.09deg, rgba(138, 230, 255, 1) 0%, rgba(207, 236, 255, 1) 44.605%, rgba(169, 199, 254, 1) 92.953%)',
+        '--inverse-outline-accent-gradient': 'linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)',
         '--data-default-data-positive-gradient':
             'radial-gradient(74.00% 74.00% at 50% 50%, rgb(26, 158, 50) 0.302%, rgba(0, 172, 123, 0.68) 30.285%, rgba(0, 125, 128, 0.32) 54.577%, rgba(6, 10, 12, 0) 74.407%)',
         '--data-default-data-positive-gradient-hover': '#FFFFFFFF',
