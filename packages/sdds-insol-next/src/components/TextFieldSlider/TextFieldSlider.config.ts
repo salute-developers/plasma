@@ -4,30 +4,26 @@ import {
     bodyM,
     bodyS,
     bodyXS,
-    onLightSurfaceSolidCard,
-    onLightSurfaceTransparentTertiary,
     outlineNegative,
-    outlineSolidPrimary,
-    outlineTransparentNegative,
-    outlineTransparentNegativeHover,
-    outlineTransparentPositive,
-    outlineTransparentPositiveHover,
-    outlineTransparentWarning,
-    outlineTransparentWarningHover,
-    shadowDownHardM,
+    outlineNegativeActive,
+    outlineNegativeHover,
+    outlinePositive,
+    outlinePositiveActive,
+    outlinePositiveHover,
+    outlineSolidSecondary,
+    outlineTransparentPrimary,
+    outlineTransparentPrimaryHover,
+    outlineWarning,
+    outlineWarningActive,
+    outlineWarningHover,
     surfaceAccent,
     surfaceAccentGradient,
     surfaceNegative,
+    surfaceSolidCard,
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
+    surfaceSolidSecondary,
     surfaceSolidTertiary,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeHover,
-    surfaceTransparentPositive,
-    surfaceTransparentPositiveHover,
-    surfaceTransparentPrimary,
-    surfaceTransparentPrimaryHover,
-    surfaceTransparentWarning,
     textAccent,
     textNegative,
     textPrimary,
@@ -35,12 +31,12 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
-} from '@salutejs/plasma-themes/tokens/plasma_giga';
+} from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 'l',
         sliderView: 'default',
     },
     variations: {
@@ -49,25 +45,27 @@ export const config = {
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBorderErrorColor}: ${outlineNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
-                ${tokens.textFieldBorderColor}: ${outlineSolidPrimary};
-                ${tokens.textFieldBorderColorHover}: ${surfaceSolidDefault};
-                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
+
+                ${tokens.textFieldBorderColor}: ${outlineTransparentPrimary};
+                ${tokens.textFieldBorderColorHover}: ${outlineTransparentPrimaryHover};
+                ${tokens.textFieldBorderColorFocus}: ${outlineSolidSecondary};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.optionalColor}: ${textTertiary};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
@@ -78,8 +76,6 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
-
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
                 ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
@@ -89,9 +85,10 @@ export const config = {
                 ${tokens.textFieldContentRightSlotColorActive}: ${textSecondaryActive};
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
-                ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
+
+                ${tokens.sliderThumbBackground}: ${surfaceAccent};
+                ${tokens.sliderThumbBorderColor}: ${surfaceSolidCard};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidCard};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -100,25 +97,27 @@ export const config = {
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBorderErrorColor}: ${outlineNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPositiveHover};
-                ${tokens.textFieldBorderColor}: ${outlineTransparentPositive};
-                ${tokens.textFieldBorderColorHover}: ${outlineTransparentPositiveHover};
-                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
+
+                ${tokens.textFieldBorderColor}: ${outlinePositive};
+                ${tokens.textFieldBorderColorHover}: ${outlinePositiveHover};
+                ${tokens.textFieldBorderColorFocus}: ${outlinePositiveActive};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.optionalColor}: ${textTertiary};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
@@ -129,8 +128,6 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
-
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
                 ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
@@ -140,9 +137,10 @@ export const config = {
                 ${tokens.textFieldContentRightSlotColorActive}: ${textSecondaryActive};
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
-                ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
+
+                ${tokens.sliderThumbBackground}: ${surfaceAccent};
+                ${tokens.sliderThumbBorderColor}: ${surfaceSolidCard};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidCard};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -151,25 +149,27 @@ export const config = {
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.textFieldBorderErrorColor}: ${outlineNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
-                ${tokens.textFieldBorderColor}: ${outlineTransparentWarning};
-                ${tokens.textFieldBorderColorHover}: ${outlineTransparentWarningHover};
-                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
+
+                ${tokens.textFieldBorderColor}: ${outlineWarning};
+                ${tokens.textFieldBorderColorHover}: ${outlineWarningHover};
+                ${tokens.textFieldBorderColorFocus}: ${outlineWarningActive};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.optionalColor}: ${textTertiary};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
@@ -180,8 +180,6 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
-
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
                 ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
@@ -191,9 +189,10 @@ export const config = {
                 ${tokens.textFieldContentRightSlotColorActive}: ${textSecondaryActive};
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
-                ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
+
+                ${tokens.sliderThumbBackground}: ${surfaceAccent};
+                ${tokens.sliderThumbBorderColor}: ${surfaceSolidCard};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidCard};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -202,25 +201,27 @@ export const config = {
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldCaretColor}: ${surfaceSolidDefault};
+                ${tokens.textFieldCaretColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBorderErrorColor}: ${outlineNegative};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.textFieldBorderColor}: ${outlineTransparentNegative};
-                ${tokens.textFieldBorderColorHover}: ${outlineTransparentNegativeHover};
-                ${tokens.textFieldBorderColorFocus}: ${surfaceSolidDefault};
+                ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
+
+                ${tokens.textFieldBorderColor}: ${outlineNegative};
+                ${tokens.textFieldBorderColorHover}: ${outlineNegativeHover};
+                ${tokens.textFieldBorderColorFocus}: ${outlineNegativeActive};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.optionalColor}: ${textTertiary};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
@@ -231,8 +232,6 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
-
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
                 ${tokens.textFieldContentSlotColorActive}: ${textSecondaryActive};
@@ -242,9 +241,10 @@ export const config = {
                 ${tokens.textFieldContentRightSlotColorActive}: ${textSecondaryActive};
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
-                ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
+
+                ${tokens.sliderThumbBackground}: ${surfaceAccent};
+                ${tokens.sliderThumbBorderColor}: ${surfaceSolidCard};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidCard};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -269,10 +269,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 4rem;
                 ${tokens.textFieldBorderRadius}: 1rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 1.3125rem 1.125rem;
+                ${tokens.textFieldPadding}: 1.25rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.625rem -0.125rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -285,7 +285,7 @@ export const config = {
 
                 ${tokens.labelOffset}: 0.75rem;
                 ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
-                ${tokens.contentLabelInnerPadding}: 1.813rem 0 0.813rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.8125rem 0 0.8125rem 0;
 
                 ${tokens.labelFontFamily}: ${bodyL.fontFamily};
                 ${tokens.labelFontStyle}: ${bodyL.fontStyle};
@@ -295,16 +295,16 @@ export const config = {
                 ${tokens.labelLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
@@ -323,16 +323,20 @@ export const config = {
                 ${tokens.sliderContainerOffset}: 0.25rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 0.5rem;
-                ${tokens.sliderThumbWidth}: 1rem;
-                ${tokens.sliderThumbBorderWidth}: 0.063rem;
+                ${tokens.sliderTrackBorderRadius}: 0.125rem;
+
+                ${tokens.sliderThumbWidth}: 1.5rem;
+                ${tokens.sliderThumbHeight}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.09375rem 0.1875rem;
+                ${tokens.sliderThumbBorderRadius}: 0.6875rem / 0.59375rem;
+                ${tokens.sliderThumbInnerContent}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='3'%3E%3Crect width='12' height='3' rx='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E");
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
 
-                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.scaleValueFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.scaleValueLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.scaleValueLineHeight}: ${bodyXS.lineHeight};
@@ -342,10 +346,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldBorderRadius}: 0.875rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
+                ${tokens.textFieldPadding}: 1rem 1.125rem 1rem 1.125rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.5rem -0.0625rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -368,16 +372,16 @@ export const config = {
                 ${tokens.labelLineHeight}: ${bodyL.lineHeight};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
@@ -385,7 +389,7 @@ export const config = {
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.5rem auto auto -0.75rem;
+                ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
                 ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
 
@@ -396,16 +400,20 @@ export const config = {
                 ${tokens.sliderContainerOffset}: 0.25rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 0.5rem;
-                ${tokens.sliderThumbWidth}: 1rem;
-                ${tokens.sliderThumbBorderWidth}: 0.063rem;
+                ${tokens.sliderTrackBorderRadius}: 0.125rem;
+
+                ${tokens.sliderThumbWidth}: 1.5rem;
+                ${tokens.sliderThumbHeight}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.09375rem 0.1875rem;
+                ${tokens.sliderThumbBorderRadius}: 0.6875rem / 0.59375rem;
+                ${tokens.sliderThumbInnerContent}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='3'%3E%3Crect width='12' height='3' rx='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E");
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
 
-                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.scaleValueFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.scaleValueLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.scaleValueLineHeight}: ${bodyXS.lineHeight};
@@ -415,10 +423,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.875rem 1rem;
+                ${tokens.textFieldPadding}: 0.75rem 0.875rem 0.75rem 0.875rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem 0rem -0.125rem 0.625rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -441,16 +449,16 @@ export const config = {
                 ${tokens.labelLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
@@ -458,9 +466,9 @@ export const config = {
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.75rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -469,16 +477,20 @@ export const config = {
                 ${tokens.sliderContainerOffset}: 0.25rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 0.5rem;
-                ${tokens.sliderThumbWidth}: 1rem;
-                ${tokens.sliderThumbBorderWidth}: 0.063rem;
+                ${tokens.sliderTrackBorderRadius}: 0.125rem;
+
+                ${tokens.sliderThumbWidth}: 1.5rem;
+                ${tokens.sliderThumbHeight}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.09375rem 0.1875rem;
+                ${tokens.sliderThumbBorderRadius}: 0.6875rem / 0.59375rem;
+                ${tokens.sliderThumbInnerContent}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='3'%3E%3Crect width='12' height='3' rx='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E");
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
 
-                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.scaleValueFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.scaleValueLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.scaleValueLineHeight}: ${bodyXS.lineHeight};
@@ -488,10 +500,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.6875rem 0.875rem;
+                ${tokens.textFieldPadding}: 0.5rem 0.75rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem 0rem -0.1875rem 0.5rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -514,16 +526,16 @@ export const config = {
                 ${tokens.labelLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
@@ -531,27 +543,31 @@ export const config = {
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
                 ${tokens.indicatorPlacement}: 0 0 0 0;
-                ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.6875rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
 
                 ${tokens.hintMargin}: -0.688rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
-                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.1875rem auto auto;
 
                 ${tokens.sliderContainerOffset}: 0.25rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 0.5rem;
-                ${tokens.sliderThumbWidth}: 1rem;
-                ${tokens.sliderThumbBorderWidth}: 0.063rem;
+                ${tokens.sliderTrackBorderRadius}: 0.125rem;
+
+                ${tokens.sliderThumbWidth}: 1.5rem;
+                ${tokens.sliderThumbHeight}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.09375rem 0.1875rem;
+                ${tokens.sliderThumbBorderRadius}: 0.6875rem / 0.59375rem;
+                ${tokens.sliderThumbInnerContent}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='3'%3E%3Crect width='12' height='3' rx='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E");
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
 
-                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.scaleValueFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.scaleValueLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.scaleValueLineHeight}: ${bodyXS.lineHeight};
@@ -561,10 +577,10 @@ export const config = {
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
-                ${tokens.textFieldPadding}: 0.5625rem 0.625rem;
+                ${tokens.textFieldPadding}: 0.5rem 0.625rem 0.5rem 0.625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.375rem -0.0625rem 0rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem 0rem -0.0625rem 0.625rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -587,16 +603,16 @@ export const config = {
                 ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
@@ -606,7 +622,7 @@ export const config = {
                 ${tokens.indicatorPlacement}: 0 0 0 0;
                 ${tokens.indicatorOuterPlacement}: 0.25rem auto auto -0.625rem;
                 ${tokens.indicatorPlacementRight}: 0 0 auto auto;
-                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.6875rem auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.125rem -0.625rem auto auto;
 
                 ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.hintTargetSize}: 2.375rem;
@@ -615,16 +631,20 @@ export const config = {
                 ${tokens.sliderContainerOffset}: 0.25rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 0.5rem;
-                ${tokens.sliderThumbWidth}: 1rem;
-                ${tokens.sliderThumbBorderWidth}: 0.063rem;
+                ${tokens.sliderTrackBorderRadius}: 0.125rem;
+
+                ${tokens.sliderThumbWidth}: 1.5rem;
+                ${tokens.sliderThumbHeight}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.09375rem 0.1875rem;
+                ${tokens.sliderThumbBorderRadius}: 0.6875rem / 0.59375rem;
+                ${tokens.sliderThumbInnerContent}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='3'%3E%3Crect width='12' height='3' rx='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E");
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
 
-                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.scaleValueFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.scaleValueFontSize}: ${bodyXS.fontSize};
                 ${tokens.scaleValueFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.scaleValueLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.scaleValueLineHeight}: ${bodyXS.lineHeight};
@@ -634,7 +654,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.hintTooltipBackgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.hintTooltipBoxShadow}: ${shadowDownHardM};
+                ${tokens.hintTooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
                 ${tokens.hintTooltipColor}: ${textPrimary};
                 ${tokens.hintTooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
@@ -650,8 +670,8 @@ export const config = {
                 ${tokens.hintTooltipBorderRadius}: 0.625rem;
 
                 ${tokens.hintTooltipTextFontFamily}: ${bodyS.fontFamily};
-                ${tokens.hintTooltipTextFontSize}: ${bodyS.fontSize};
                 ${tokens.hintTooltipTextFontStyle}: ${bodyS.fontStyle};
+                ${tokens.hintTooltipTextFontSize}: ${bodyS.fontSize};
                 ${tokens.hintTooltipTextFontWeight}: ${bodyS.fontWeight};
                 ${tokens.hintTooltipTextFontLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.hintTooltipTextFontLineHeight}: ${bodyS.lineHeight};
@@ -674,8 +694,8 @@ export const config = {
                 ${tokens.hintTooltipBorderRadius}: 0.5rem;
 
                 ${tokens.hintTooltipTextFontFamily}: ${bodyXS.fontFamily};
-                ${tokens.hintTooltipTextFontSize}: ${bodyXS.fontSize};
                 ${tokens.hintTooltipTextFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.hintTooltipTextFontSize}: ${bodyXS.fontSize};
                 ${tokens.hintTooltipTextFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.hintTooltipTextFontLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.hintTooltipTextFontLineHeight}: ${bodyXS.lineHeight};
@@ -692,15 +712,18 @@ export const config = {
         disabled: {
             true: css`
                 ${tokens.disabledOpacity}: 0.4;
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 0.4;
             `,
         },
         readOnly: {
             true: css`
                 ${tokens.labelColorReadOnly}: ${textPrimary};
+                ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
 
                 ${tokens.textFieldColorReadOnly}: ${textPrimary};
-                ${tokens.textFieldBackgroundColorReadOnly}: transparent;
-                ${tokens.textFieldBorderColorReadOnly}: ${outlineSolidPrimary};
+                ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceSolidSecondary};
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
 
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 0.4;
