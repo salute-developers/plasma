@@ -1,5 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<metadata>{"aliases":["clock","circle","time","schedule","shape","round"],"category":"ClockCircle","source":"24/ClockCircle/ClockCircleOutlineBold","size":"24"}</metadata>
+<metadata>{"aliases":["clock","circle","time","schedule","shape","round"],"category":"Actions &amp; Feedback","source":"24/ClockCircle/ClockCircleOutlineBold","size":"24"}</metadata>
 <path d="M12 6.4502C12.5799 6.4502 13.0498 6.9201 13.0498 7.5V11.9375L15.582 13.626C16.0644 13.9475 16.1953 14.5996 15.874 15.082C15.5525 15.5644 14.9004 15.6953 14.418 15.374L11.418 13.374C11.1259 13.1793 10.9502 12.8511 10.9502 12.5V7.5C10.9502 6.9201 11.4201 6.4502 12 6.4502Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.7002C17.6885 1.7002 22.2998 6.31147 22.2998 12C22.2998 17.6885 17.6885 22.2998 12 22.2998C6.31147 22.2998 1.7002 17.6885 1.7002 12C1.7002 6.31147 6.31147 1.7002 12 1.7002ZM12 3.7998C7.47127 3.7998 3.7998 7.47127 3.7998 12C3.7998 16.5287 7.47127 20.2002 12 20.2002C16.5287 20.2002 20.2002 16.5287 20.2002 12C20.2002 7.47127 16.5287 3.7998 12 3.7998Z" fill="black"/>
 </svg>
