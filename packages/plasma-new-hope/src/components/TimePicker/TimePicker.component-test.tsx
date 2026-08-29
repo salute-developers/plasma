@@ -32,6 +32,7 @@ const itSkipClear = skipForPackages([
     'sdds-dfa',
     'sdds-insol',
     'sdds-netology',
+    'sdds-os',
     'sdds-platform-ai',
     'sdds-sbcom',
     'sdds-scan',
