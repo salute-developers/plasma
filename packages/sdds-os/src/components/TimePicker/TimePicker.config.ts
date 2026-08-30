@@ -1,0 +1,351 @@
+import { timePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
+
+export const config = {
+    defaults: {
+        view: 'default',
+        size: 'm',
+        hintView: 'default',
+        hintSize: 'm',
+    },
+    variations: {
+        view: {
+            default: css`
+                ${tokens.background}: var(--surface-solid-primary);
+                ${tokens.backgroundError}: var(--surface-solid-primary);
+                ${tokens.backgroundSuccess}: var(--surface-solid-primary);
+
+                ${tokens.borderColor}: var(--outline-clear);
+                ${tokens.borderColorHover}: var(--on-light-outline-solid-primary-hover);
+                ${tokens.borderColorFocus}: var(--outline-primary);
+                ${tokens.borderColorError}: var(--outline-negative);
+                ${tokens.borderColorSuccess}: var(--outline-positive);
+
+                ${tokens.labelColor}: var(--text-primary);
+
+                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
+                ${tokens.textFieldCaretColor}: var(--text-accent);
+
+                ${tokens.indicatorColor}: var(--surface-negative);
+
+                ${tokens.timePickerShadow}: var(--shadow-down-soft-s);
+
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundColorHover}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundColorFocus}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundErrorColorHover}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundErrorColorFocus}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundSuccessColorHover}: var(--surface-solid-primary);
+                ${tokens.textFieldBackgroundSuccessColorFocus}: var(--surface-solid-primary);
+
+                ${tokens.textFieldBorderColor}: var(--outline-clear);
+                ${tokens.textFieldBorderColorHover}: var(--on-light-outline-solid-primary-hover);
+                ${tokens.textFieldBorderColorFocus}: var(--outline-primary);
+                ${tokens.textFieldBorderColorError}: var(--outline-negative);
+                ${tokens.textFieldBorderColorErrorHover}: var(--outline-negative-hover);
+                ${tokens.textFieldBorderColorErrorFocus}: var(--outline-negative-active);
+                ${tokens.textFieldBorderColorSuccess}: var(--outline-positive);
+                ${tokens.textFieldBorderColorSuccessHover}: var(--outline-positive-hover);
+                ${tokens.textFieldBorderColorSuccessFocus}: var(--outline-positive-active);
+
+                ${tokens.textFieldTextBeforeColor}: var(--text-tertiary);
+                ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
+
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentSlotColorHover}: var(--text-secondary-hover);
+                ${tokens.textFieldContentSlotColorActive}: var(--text-secondary-active);
+
+                ${tokens.textFieldContentRightSlotColor}: var(--text-secondary);
+                ${tokens.textFieldContentRightSlotColorHover}: var(--text-secondary-hover);
+
+                ${tokens.timePickerBackground}: var(--surface-solid-primary);
+                ${tokens.itemBackgroundHover}: var(--surface-solid-card);
+                ${tokens.itemBackgroundActive}: var(--surface-solid-card);
+                ${tokens.itemFocusColor}: var(--surface-accent);
+
+                ${tokens.scrollbarColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
+
+                ${tokens.leftHelperColor}: var(--text-secondary);
+                ${tokens.leftHelperColorError}: var(--text-negative);
+                ${tokens.leftHelperColorSuccess}: var(--text-positive);
+
+                ${tokens.hintIconColor}: var(--text-secondary);
+            `,
+        },
+        size: {
+            m: css`
+                ${tokens.width}: 20rem;
+                ${tokens.borderRadius}: 0.75rem;
+                ${tokens.dropdownMarginTop}: 0.375rem;
+
+                ${tokens.leftContentMargin}: 0 0 0 0.875rem;
+                ${tokens.rightContentMargin}: 0;
+
+                ${tokens.labelOffset}: 0.625rem;
+                ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
+                ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
+
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.indicatorSize}: 0.5rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.375rem auto auto -0.75rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.6875rem auto auto;
+
+                ${tokens.textFieldHeight}: 3rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+                ${tokens.textFieldBorderRadius}: 0.75rem;
+                ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.textFieldLeftContentMargin}: -0.125rem 0.375rem -0.125rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.125rem -0.125rem -0.125rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.125rem -0.438rem -0.125rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.375rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.timePickerBorderRadius}: 0.75rem;
+                ${tokens.timePickerWidth}: 13.75rem;
+                ${tokens.timePickerPadding}: 0.125rem;
+
+                ${tokens.columnHeight}: 31.25rem;
+
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-m-font-family);
+                ${tokens.itemFontSize}: var(--plasma-typo-body-m-font-size);
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-m-font-style);
+                ${tokens.itemFontWeight}: var(--plasma-typo-body-m-font-weight);
+                ${tokens.itemLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
+                ${tokens.itemLineHeight}: var(--plasma-typo-body-m-line-height);
+
+                ${tokens.itemHeight}: 3rem;
+                ${tokens.itemBorderRadius}: 0.625rem;
+                ${tokens.itemPadding}: 0rem;
+
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.938rem auto auto;
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.scrollbarWidth}: 0.125rem;
+                ${tokens.scrollbarMargin}: 0.375rem;
+            `,
+            s: css`
+                ${tokens.width}: 20rem;
+                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.dropdownMarginTop}: 0.375rem;
+
+                ${tokens.leftContentMargin}: 0 0 0 0.75rem;
+                ${tokens.rightContentMargin}: 0;
+
+                ${tokens.labelOffset}: 0.5rem;
+                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.labelFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.labelFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.labelFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.indicatorSize}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorPlacement}: 0 0 0 0;
+                ${tokens.indicatorOuterPlacement}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorPlacementRight}: 0 0 auto auto;
+                ${tokens.indicatorOuterPlacementRight}: 0.25rem -0.625rem auto auto;
+
+                ${tokens.textFieldHeight}: 2.5rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+                ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
+                ${tokens.textFieldFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.textFieldFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.textFieldFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.textFieldFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.textFieldLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.375rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.timePickerBorderRadius}: 0.625rem;
+                ${tokens.timePickerWidth}: 12rem;
+                ${tokens.timePickerPadding}: 0.125rem;
+
+                ${tokens.columnHeight}: 26.25rem;
+
+                ${tokens.itemFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.itemFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.itemFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.itemFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.itemLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.itemLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.itemHeight}: 2.5rem;
+                ${tokens.itemBorderRadius}: 0.5rem;
+                ${tokens.itemPadding}: 0rem;
+
+                ${tokens.labelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.labelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.labelInnerFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.labelInnerFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.813rem auto auto;
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.leftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.leftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.leftHelperFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.leftHelperLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.leftHelperLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.scrollbarWidth}: 0.125rem;
+                ${tokens.scrollbarMargin}: 0.25rem;
+            `,
+        },
+        hintView: {
+            default: css`
+                ${tokens.hintTooltipBackgroundColor}: var(--surface-solid-card-brightness);
+                ${tokens.hintTooltipBoxShadow}: var(--shadow-down-hard-m);
+                ${tokens.hintTooltipColor}: var(--text-primary);
+                ${tokens.hintTooltipArrowBackground}: var(--surface-solid-card-brightness);
+            `,
+        },
+        hintSize: {
+            m: css`
+                ${tokens.hintTooltipPaddingTop}: 0.6875rem;
+                ${tokens.hintTooltipPaddingRight}: 0.875rem;
+                ${tokens.hintTooltipPaddingBottom}: 0.6875rem;
+                ${tokens.hintTooltipPaddingLeft}: 0.875rem;
+
+                ${tokens.hintTooltipMinHeight}: 2.5rem;
+                ${tokens.hintTooltipBorderRadius}: 0.625rem;
+
+                ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-s-font-family);
+                ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-s-font-size);
+                ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-s-font-style);
+                ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-s-font-weight);
+                ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
+                ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-s-line-height);
+
+                ${tokens.hintTooltipContentLeftMargin}: 0.375rem;
+
+                ${tokens.hintTooltipArrowMaskWidth}: 1.25rem;
+                ${tokens.hintTooltipArrowMaskHeight}: 1.25rem;
+                ${tokens.hintTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMC4xNywxMS44M2wyMCwwYy01LjUyLDAgLTEwLDMuNTkgLTEwLDhjMCwtNC40MSAtNC40OCwtOCAtMTAsLTh6IiBmaWxsPSIjMTcxNzE3IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGlkPSJUYWlsIi8+Cjwvc3ZnPg==");
+                ${tokens.hintTooltipArrowHeight}: 0.5rem;
+                ${tokens.hintTooltipArrowEdgeMargin}: 0.625rem;
+            `,
+            s: css`
+                ${tokens.hintTooltipPaddingTop}: 0.5rem;
+                ${tokens.hintTooltipPaddingRight}: 0.75rem;
+                ${tokens.hintTooltipPaddingBottom}: 0.5rem;
+                ${tokens.hintTooltipPaddingLeft}: 0.75rem;
+
+                ${tokens.hintTooltipMinHeight}: 2rem;
+                ${tokens.hintTooltipBorderRadius}: 0.5rem;
+
+                ${tokens.hintTooltipTextFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.hintTooltipTextFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.hintTooltipTextFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.hintTooltipTextFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.hintTooltipTextFontLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.hintTooltipTextFontLineHeight}: var(--plasma-typo-body-xs-line-height);
+
+                ${tokens.hintTooltipContentLeftMargin}: 0.25rem;
+
+                ${tokens.hintTooltipArrowMaskWidth}: 1rem;
+                ${tokens.hintTooltipArrowMaskHeight}: 1rem;
+                ${tokens.hintTooltipArrowMaskImage}: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBkPSJtMCw5Ljg1bDE2LDBjLTQuNDEsMCAtOCwyLjY5IC04LDZjMCwtMy4zMSAtMy41OSwtNiAtOCwtNnoiIGZpbGw9IiMxNzE3MTciIGZpbGwtcnVsZT0iZXZlbm9kZCIgaWQ9IlRhaWwiLz4KPC9zdmc+");
+                ${tokens.hintTooltipArrowHeight}: 0.375rem;
+                ${tokens.hintTooltipArrowEdgeMargin}: 0.5625rem;
+            `,
+        },
+        disabled: {
+            true: css`
+                ${tokens.disabledOpacity}: 1;
+                ${tokens.disabledBackgroundOpacity}: 1;
+                ${tokens.disabledInnerContentOpacity}: 1;
+
+                ${tokens.background}: var(--surface-solid-tertiary);
+                ${tokens.backgroundError}: var(--surface-solid-tertiary);
+                ${tokens.backgroundSuccess}: var(--surface-solid-tertiary);
+                ${tokens.borderColor}: transparent;
+                ${tokens.borderColorError}: transparent;
+                ${tokens.borderColorSuccess}: transparent;
+
+                ${tokens.labelColor}: var(--text-secondary);
+                ${tokens.leftHelperColor}: var(--text-tertiary);
+
+                ${tokens.textFieldColor}: var(--text-secondary);
+                ${tokens.textFieldPlaceholderColor}: var(--text-tertiary);
+                ${tokens.textFieldBackgroundColor}: var(--surface-solid-tertiary);
+                ${tokens.textFieldBackgroundErrorColor}: var(--surface-solid-tertiary);
+                ${tokens.textFieldBackgroundSuccessColor}: var(--surface-solid-tertiary);
+                ${tokens.textFieldBorderColor}: transparent;
+                ${tokens.textFieldBorderColorError}: transparent;
+                ${tokens.textFieldBorderColorSuccess}: transparent;
+                ${tokens.textFieldContentSlotColor}: var(--text-tertiary);
+                ${tokens.textFieldContentRightSlotColor}: var(--text-tertiary);
+            `,
+        },
+        readonly: {
+            true: css`
+                ${tokens.backgroundReadOnly}: var(--surface-solid-secondary);
+                ${tokens.labelColorReadOnly}: var(--text-primary);
+                ${tokens.leftHelperColorReadOnly}: var(--text-secondary);
+
+                ${tokens.textFieldColorReadOnly}: var(--text-primary);
+                ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
+                ${tokens.textFieldBorderColorReadOnly}: transparent;
+                ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
+                ${tokens.textFieldContentSlotRightOpacityReadOnly}: 1;
+            `,
+        },
+    },
+};
