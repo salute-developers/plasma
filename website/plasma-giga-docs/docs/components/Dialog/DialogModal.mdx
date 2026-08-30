@@ -1,0 +1,256 @@
+---
+id: dialog-modal
+title: DialogModal
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# DialogModal
+<Description name="DialogModal" />
+<PropsTable name="DialogModal" />
+
+## Использование
+
+Перед использованием убедитесь, что `PopupProvider` подключён.
+
+`DialogModal` — готовое модальное окно с изображением, заголовком, произвольным содержимым и слотом для действий.
+Управление показом через свойство `opened` и колбэк `onClose`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, ButtonGroup, DialogModal, PopupProvider } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <PopupProvider>
+            <Button text="Открыть диалог" onClick={() => setIsOpen(true)} />
+            <DialogModal
+                
+                opened={isOpen}
+                onClose={() => setIsOpen(false)}
+                title="Встречайте — Ультра"
+                actions={(
+                    <ButtonGroup isCommonButtonStyles>
+                        <Button view="critical" text="Удалить" onClick={() => setIsOpen(false)} />
+                        <Button stretching="filled" view="default" text="Отменить" onClick={() => setIsOpen(false)} />
+                    </ButtonGroup>
+                )}
+            >
+                Мы улучшили модель — теперь она точнее понимает задачи, быстрее отвечает и лучше работает со сложными запросами.
+            </DialogModal>
+        </PopupProvider>
+    );
+}
+```
+
+## С изображением
+
+Свойство `imageUrl` добавляет изображение в верхнюю часть модального окна.
+`imageAlt` задаёт alt-текст для него.
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, ButtonGroup, DialogModal, PopupProvider } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <PopupProvider>
+            <Button text="Открыть с картинкой" onClick={() => setIsOpen(true)} />
+            <DialogModal
+                
+                opened={isOpen}
+                onClose={() => setIsOpen(false)}
+                title="Встречайте — Ультра"
+                imageUrl="https://picsum.photos/seed/plasma/800/400"
+                imageAlt="Иллюстрация"
+                actions={(
+                    <ButtonGroup isCommonButtonStyles>
+                        <Button view="critical" text="Удалить" onClick={() => setIsOpen(false)} />
+                        <Button stretching="filled" view="default" text="Отменить" onClick={() => setIsOpen(false)} />
+                    </ButtonGroup>
+                )}
+            >
+                Мы улучшили модель — теперь она точнее понимает задачи, быстрее отвечает и лучше работает со сложными запросами.
+            </DialogModal>
+        </PopupProvider>
+    );
+}
+```
+
+## Размеры
+
+Доступные размеры: `m` (по умолчанию) и `s`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, ButtonGroup, DialogModal, PopupProvider } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [size, setSize] = useState('m');
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <PopupProvider>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <Button text="Размер m" onClick={() => { setSize('m'); setIsOpen(true); }} />
+                <Button text="Размер s" onClick={() => { setSize('s'); setIsOpen(true); }} />
+            </div>
+            <DialogModal
+                
+                opened={isOpen}
+                onClose={() => setIsOpen(false)}
+                size={size}
+                title="Встречайте — Ультра"
+                actions={(
+                    <ButtonGroup isCommonButtonStyles>
+                        <Button stretching="filled" view="default" text="Закрыть" onClick={() => setIsOpen(false)} />
+                    </ButtonGroup>
+                )}
+            >
+                Мы улучшили модель — теперь она точнее понимает задачи, быстрее отвечает и лучше работает со сложными запросами.
+            </DialogModal>
+        </PopupProvider>
+    );
+}
+```
+
+## Кнопка закрытия
+
+По умолчанию `hasClose={true}` — в правом верхнем углу отображается крестик.
+Установите `hasClose={false}`, чтобы убрать его.
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, ButtonGroup, DialogModal, PopupProvider } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <PopupProvider>
+            <Button text="Открыть без крестика" onClick={() => setIsOpen(true)} />
+            <DialogModal
+                
+                opened={isOpen}
+                onClose={() => setIsOpen(false)}
+                hasClose={false}
+                title="Подтвердите действие"
+                actions={(
+                    <ButtonGroup isCommonButtonStyles>
+                        <Button view="critical" text="Удалить" onClick={() => setIsOpen(false)} />
+                        <Button stretching="filled" view="default" text="Отменить" onClick={() => setIsOpen(false)} />
+                    </ButtonGroup>
+                )}
+            >
+                Это действие нельзя будет отменить.
+            </DialogModal>
+        </PopupProvider>
+    );
+}
+```
+
+## Поведение при закрытии
+
+- `closeOnEsc` — закрывает по нажатию `Escape` (по умолчанию `true`).
+- `closeOnOverlayClick` — закрывает по клику на подложку (по умолчанию `true`).
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, ButtonGroup, DialogModal, PopupProvider } from '@salutejs/plasma-giga';
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <PopupProvider>
+            <Button text="Открыть" onClick={() => setIsOpen(true)} />
+            <DialogModal
+                
+                opened={isOpen}
+                onClose={() => setIsOpen(false)}
+                closeOnEsc={false}
+                closeOnOverlayClick={false}
+                title="Закрыть можно только кнопкой"
+                actions={(
+                    <ButtonGroup isCommonButtonStyles>
+                        <Button stretching="filled" view="default" text="Закрыть" onClick={() => setIsOpen(false)} />
+                    </ButtonGroup>
+                )}
+            >
+                ESC и клик по подложке не работают.
+            </DialogModal>
+        </PopupProvider>
+    );
+}
+```
+
+## Анимация
+
+Для подключения анимации передайте `withAnimation` и оберните компонент в styled-component с keyframes.
+При закрытии система ждёт окончания CSS-анимации на элементе `.popup-base-root`, после чего удаляет модалку из DOM.
+
+```tsx
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Button, ButtonGroup, DialogModal, PopupProvider, popupClasses, dialogModalClasses } from '@salutejs/plasma-giga';
+
+const StyledDialogModal = styled(DialogModal)`
+    && > .${popupClasses.root}, .${dialogModalClasses.overlay} {
+        animation: dialogFadeIn 0.2s forwards;
+    }
+
+    &&.${popupClasses.endAnimation} .${popupClasses.root} {
+        animation: dialogFadeOut 0.2s forwards;
+    }
+
+    &&.${popupClasses.endAnimation} .${dialogModalClasses.overlay} {
+        animation: dialogFadeOut 0.2s forwards;
+    }
+
+    @keyframes dialogFadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to   { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes dialogFadeOut {
+        from { opacity: 1; transform: scale(1); }
+        to   { opacity: 0; transform: scale(0.95); }
+    }
+`;
+
+export function App() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <PopupProvider>
+            <Button text="Открыть с анимацией" onClick={() => setIsOpen(true)} />
+            <StyledDialogModal
+                opened={isOpen}
+                onClose={() => setIsOpen(false)}
+                withAnimation
+                title="Встречайте — Ультра"
+                actions={(
+                    <ButtonGroup isCommonButtonStyles>
+                        <Button stretching="filled" view="default" text="Закрыть" onClick={() => setIsOpen(false)} />
+                    </ButtonGroup>
+                )}
+            >
+                Мы улучшили модель — теперь она точнее понимает задачи, быстрее отвечает и лучше работает со сложными запросами.
+            </StyledDialogModal>
+        </PopupProvider>
+    );
+}
+```
+
+## FocusTrapped
+
+Свойство `isFocusTrapped` захватывает фокус внутри модального окна.
+
+При значении `true` нажатие `Tab` / `Shift+Tab` перемещает фокус только по элементам внутри диалога.
+Если поверх текущего диалога открывается ещё один — фокус захватывает последний.
+
+При `isFocusTrapped={false}` фокус после открытия перемещается на первый интерактивный элемент, но при Tab-навигации может покинуть окно.
