@@ -14,3 +14,5 @@ export { plasma_homeds__dark } from './plasma_homeds__dark';
 export { plasma_homeds__light } from './plasma_homeds__light';
 export { plasma_web_ACTUAL_TYPOGRAPHY__dark } from './plasma_web_ACTUAL_TYPOGRAPHY__dark';
 export { plasma_web_ACTUAL_TYPOGRAPHY__light } from './plasma_web_ACTUAL_TYPOGRAPHY__light';
+export { plasma_infra__dark } from './plasma_infra__dark';
+export { plasma_infra__light } from './plasma_infra__light';
