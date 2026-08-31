@@ -42,5 +42,8 @@ jobs:
             - name: Check disk usage after install
               run: df -h
 
+            - name: Check generated api props
+              run: node utils/plasma-sb-utils/scripts/generate-api-props.js --check
+
             - name: Lint
               run: npm run lint

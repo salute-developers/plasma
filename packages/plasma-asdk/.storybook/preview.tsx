@@ -3,7 +3,8 @@ import type { Preview } from '@storybook/react';
 import storybookTheme from './theme';
 import { docsPage } from './docsPage';
 import { withTheme, ASDK_LIGHT_THEME, ASDK_DARK_THEME } from './decoratorThemes';
-import { disabledToolsParameters } from '@salutejs/plasma-sb-utils';
+import { disabledToolsParameters, createStorybookOnlyArgTypesEnhancer } from '@salutejs/plasma-sb-utils';
+import * as packageApiProps from './apiProps.generated';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -12,6 +13,7 @@ if (typeof document !== 'undefined') {
 
 const preview: Preview = {
     decorators: [withTheme],
+    argTypesEnhancers: [createStorybookOnlyArgTypesEnhancer(packageApiProps)],
     globalTypes: {
         theme: {
             description: 'Global theme for components',
