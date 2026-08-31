@@ -6,8 +6,9 @@ import { useForkRef, useOutsideClick } from 'src/hooks';
 import { getSizeValueFromProp } from 'src/utils';
 
 import type { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
+import { getMeridiemTextAfter } from '../TimePickerGrid/utils';
 
-import { processTimeInput, delimiter } from './utils';
+import { processTimeInput, processTimeInput12, formatTo12Hour, getMeridiemFromTimeString, delimiter } from './utils';
 import { TimePickerProps } from './TimePicker.types';
 import { base, LeftHelper, StyledInput, StyledTimePickerGrid } from './TimePicker.styles';
 import { classes } from './TimePicker.tokens';
@@ -97,6 +98,7 @@ export const timePickerRoot = (
                 dropdownWidth,
                 dropdownHeight,
                 columnsQuantity = 2,
+                hasTimeFormat = false,
                 min,
                 max,
                 multiplicityMinutes,
@@ -122,6 +124,10 @@ export const timePickerRoot = (
 
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
             const [innerTime, setInnerTime] = useState(outerValue || '');
+            /**
+             * Текст поля ввода в 12-часовом режиме. Значение остается в 24-часовом формате.
+             */
+            const [inputValue, setInputValue] = useState(formatTo12Hour(outerValue || ''));
             const [rootWidth, setRootWidth] = useState<number | null>(null);
             const [, setActiveTime] = useState<ActiveTime>({
                 hours: null,
@@ -133,6 +139,19 @@ export const timePickerRoot = (
             const viewValue = outerValue ?? innerTime;
 
             const format = columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm';
+
+            const getDisplayValue = () => {
+                if (!hasTimeFormat) {
+                    return viewValue;
+                }
+
+                return outerValue === undefined || outerValue === innerTime ? inputValue : formatTo12Hour(outerValue);
+            };
+
+            const displayValue = getDisplayValue();
+            const meridiem = getMeridiemFromTimeString(viewValue);
+
+            const innerTextAfter = getMeridiemTextAfter(hasTimeFormat && displayValue ? meridiem : null, textAfter);
 
             const dropdownWidthValue = dropdownWidth ? getSizeValueFromProp(dropdownWidth, 'rem') : undefined;
             const dropdownHeightValue = dropdownHeight ? getSizeValueFromProp(dropdownHeight, 'rem') : undefined;
@@ -157,6 +176,9 @@ export const timePickerRoot = (
                     timeString = viewValue.substring(0, 5);
                 }
                 setInnerTime(viewValue);
+                if (outerValue !== innerTime) {
+                    setInputValue(formatTo12Hour(viewValue));
+                }
                 const [hh, mm, ss] = timeString.split(delimiter).map(Number);
                 setActiveTime({
                     hours: !Number.isNaN(hh) ? hh : null,
@@ -208,11 +230,9 @@ export const timePickerRoot = (
                     return;
                 }
 
-                let timeString = formattedValues.value;
-                if (format === 'HH:mm' && viewValue.length > 5) {
-                    timeString = viewValue.substring(0, 5);
-                }
+                const timeString = formattedValues.value;
                 setInnerTime(timeString ?? '');
+                setInputValue(formatTo12Hour(timeString ?? ''));
 
                 setActiveTime({
                     hours: !Number.isNaN(formattedValues.timeValues.hour) ? formattedValues.timeValues.hour : null,
@@ -235,10 +255,18 @@ export const timePickerRoot = (
                 const input = event.target.value;
                 const cursorPos = event.target.selectionStart;
 
-                const { innerString, values, newCursorPosition } = processTimeInput(input, format, cursorPos);
+                const parsed = hasTimeFormat
+                    ? processTimeInput12(input, format, cursorPos, meridiem)
+                    : { ...processTimeInput(input, format, cursorPos), displayString: null };
+
+                const { innerString, values, newCursorPosition, displayString } = parsed;
+
+                event.currentTarget.value = outerValue === undefined ? displayString ?? innerString : displayValue;
 
                 const { hh: hours, mm: minutes, ss: seconds } = values;
                 setInnerTime(innerString);
+
+                setInputValue(displayString ?? formatTo12Hour(innerString));
                 setActiveTime((prev) => ({
                     ...prev,
                     hours,
@@ -368,7 +396,7 @@ export const timePickerRoot = (
                                     [classes.timePickerSuccess]: valueSuccess,
                                     [classes.timePickerEdited]: valueEdited,
                                 })}
-                                value={viewValue}
+                                value={displayValue}
                                 size={size}
                                 disabled={disabled}
                                 readOnly={readonly}
@@ -378,7 +406,7 @@ export const timePickerRoot = (
                                 contentLeft={contentLeft}
                                 contentRight={contentRight}
                                 textBefore={textBefore}
-                                textAfter={textAfter}
+                                textAfter={innerTextAfter}
                                 autoComplete={autoComplete}
                                 onChange={handleInputChange}
                                 onFocus={onFocus}
@@ -425,7 +453,7 @@ export const timePickerRoot = (
                                 view={view}
                                 size={size}
                                 format={format}
-                                columns={columnsQuantity}
+                                hasTimeFormat={hasTimeFormat}
                                 innerWidth={getActualWidth()}
                                 innerHeight={dropdownHeightValue}
                                 dropdownHeight="100%"

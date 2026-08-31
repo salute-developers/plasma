@@ -80,6 +80,7 @@ export const createMeta = ({
             lang: 'ru',
             dateFormat: 'DD.MM.YYYY',
             timeFormat: 'HH:mm:ss',
+            hasTimeFormat: false,
             calendarContainerWidth: '0',
             calendarContainerHeight: '0',
             stretched: false,
@@ -207,6 +208,10 @@ export const createMeta = ({
             timeFormat: {
                 options: timeFormats,
                 control: { type: 'select' },
+                table: { category: 'date-related' },
+            },
+            hasTimeFormat: {
+                control: { type: 'boolean' },
                 table: { category: 'date-related' },
             },
             maskWithFormat: {
