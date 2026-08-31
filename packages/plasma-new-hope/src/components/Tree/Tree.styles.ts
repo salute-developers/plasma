@@ -466,6 +466,6 @@ export const base = css`
 `;
 
 export const SpinnerStyled = styled(Spinner)`
-    ${spinnerTokens.size}: 100%;
+    ${spinnerTokens.size}: var(${treeTokens.switcherSize});
     ${spinnerTokens.color}: var(${treeTokens.arrowColor});
 `;
