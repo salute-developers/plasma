@@ -241,6 +241,49 @@ export function App() {
 }
 ```
 
+### 12-часовой формат (AM/PM)
+
+Свойство `use12Hours` включает 12-часовой формат: колонка часов показывает значения `12`, `01`–`11`,
+а справа добавляется колонка выбора `AM`/`PM`.
+
+`AM`/`PM` в поле ввода — не часть текста, а слот `textAfter`. Если задать свой `textAfter`,
+значения склеиваются: например, `PM TA`.
+
+С клавиатуры `AM`/`PM` не вводится — переключается только колонкой в выпадающем списке.
+
+:::note Значение всегда остаётся 24-часовым
+`use12Hours` влияет только на отображение. `timeFormat` по-прежнему задаётся с `HH`, а `value`, `defaultDate`,
+`min`, `max` и значение в `onChangeValue` и `onCommitDate` используют 24-часовой формат.
+Это позволяет не менять логику приложения при переключении формата.
+:::
+
+Полночь и полдень отображаются как `12:00 AM` и `12:00 PM` соответственно.
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    const handleCommitDate = (value) => {
+        console.log('Выбрано:', value);
+    };
+
+    return (
+        <div>
+            <DateTimePicker
+                label="Лейбл"
+                placeholder="Введите дату"
+                use12Hours
+                defaultDate={new Date(2024, 5, 15, 13, 30)}
+                maskWithFormat
+                onCommitDate={handleCommitDate}
+                usePortal
+            />
+        </div>
+    );
+}
+```
+
 ### Язык даты
 Язык даты задается с помощью свойства `lang`.
 
