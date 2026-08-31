@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { addFocus } from 'src/mixins';
 
-import { classes, tokens } from '../../../tokens';
+import { classes, privateTokens, tokens } from '../../../tokens';
 
 export const base = css`
     display: flex;
@@ -51,18 +51,18 @@ export const StyledArrow = styled.button<{ isLeftArrow?: boolean; isFilled?: boo
     outline: none;
     color: var(${tokens.arrowColor});
     margin-right: ${({ isLeftArrow }) =>
-        isLeftArrow ? `var(${tokens.arrowInnerPadding})` : 'var(--plasma_private-outer-padding)'};
+        isLeftArrow ? `var(${tokens.arrowInnerPadding})` : `var(${privateTokens.outerPadding})`};
     margin-left: ${({ isLeftArrow }) =>
-        isLeftArrow ? 'var(--plasma_private-outer-padding)' : `var(${tokens.arrowInnerPadding})`};
+        isLeftArrow ? `var(${privateTokens.outerPadding})` : `var(${tokens.arrowInnerPadding})`};
 
-    --plasma_private-outline-radius: var(${tokens.arrowBorderRadius}, inherit);
-    --plasma_private-outer-padding: ${({ isFilled }) => (isFilled ? `var(${tokens.arrowOuterPadding})` : '')};
+    ${privateTokens.outlineRadius}: var(${tokens.arrowBorderRadius}, inherit);
+    ${privateTokens.outerPadding}: ${({ isFilled }) => (isFilled ? `var(${tokens.arrowOuterPadding})` : '')};
 
     ${addFocus({
         outlineSize: '0.063rem',
         outlineOffset: '0',
         outlineColor: `var(${tokens.outlineFocusColor})`,
-        outlineRadius: 'calc(var(--plasma_private-outline-radius) - 0.063rem)',
+        outlineRadius: `calc(var(${privateTokens.outlineRadius}) - 0.063rem)`,
     })};
 
     &[disabled] {
