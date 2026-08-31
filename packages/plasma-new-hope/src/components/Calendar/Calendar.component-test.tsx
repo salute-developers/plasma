@@ -955,11 +955,11 @@ describeFn('Calendar keyboard navigation', () => {
             cy.get('body').find('[data-day="1"][data-month-index="1"]').type(shiftLeftArrow);
             checkFocusedDay('1');
 
-            cy.get('body').find('[data-day="28"][data-month-index="1"]').type('rightArrow');
-            checkFocusedDay('28');
+            cy.get('body').find('[data-day="27"][data-month-index="1"]').type('rightArrow');
+            checkFocusedDay('27');
 
-            cy.get('body').find('[data-day="28"][data-month-index="1"]').type(shiftRightArrow);
-            checkFocusedDay('28');
+            cy.get('body').find('[data-day="27"][data-month-index="1"]').type(shiftRightArrow);
+            checkFocusedDay('27');
 
             cy.get('body').find('[data-day="5"][data-month-index="1"]').type('upArrow');
             checkFocusedDay('5');
@@ -977,11 +977,11 @@ describeFn('Calendar keyboard navigation', () => {
         it("Can't jump to dates outside of min max dates in current month", () => {
             mount(<Demo baseValue={new Date(1970, 1, 14)} min={new Date(1970, 1, 10)} max={new Date(1970, 1, 14)} />);
 
-            cy.get('body').find('[data-day="14"][data-month-index="1"]').type('rightArrow');
-            checkFocusedDay('14');
+            cy.get('body').find('[data-day="13"][data-month-index="1"]').type('rightArrow');
+            checkFocusedDay('13');
 
-            cy.get('body').find('[data-day="14"][data-month-index="1"]').type(shiftRightArrow);
-            checkFocusedDay('14');
+            cy.get('body').find('[data-day="13"][data-month-index="1"]').type(shiftRightArrow);
+            checkFocusedDay('13');
 
             cy.get('body').find('[data-day="11"][data-month-index="1"]').type('leftArrow');
             checkFocusedDay('11');
