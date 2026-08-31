@@ -1,4 +1,4 @@
-import { css } from '@salutejs/plasma-new-hope/styled-components';
+import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -8,25 +8,25 @@ export const config = {
     variations: {
         view: {
             default: css`
-                --plasma-spinner-color: var(--text-primary);
+                ${tokens.color}: var(--text-primary);
             `,
             secondary: css`
-                --plasma-spinner-color: var(--text-secondary);
+                ${tokens.color}: var(--text-secondary);
             `,
             accent: css`
-                --plasma-spinner-color: var(--text-accent);
+                ${tokens.color}: var(--text-accent);
             `,
             positive: css`
-                --plasma-spinner-color: var(--text-positive);
+                ${tokens.color}: var(--text-positive);
             `,
             warning: css`
-                --plasma-spinner-color: var(--text-warning);
+                ${tokens.color}: var(--text-warning);
             `,
             negative: css`
-                --plasma-spinner-color: var(--text-negative);
+                ${tokens.color}: var(--text-negative);
             `,
             info: css`
-                --plasma-spinner-color: var(--text-info);
+                ${tokens.color}: var(--text-info);
             `,
         },
     },

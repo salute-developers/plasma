@@ -7,7 +7,7 @@ import {
     textTertiary,
     textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_cs';
-import { css } from '@salutejs/plasma-new-hope/emotion';
+import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {
@@ -17,28 +17,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                --plasma-spinner-color: ${textPrimary};
+                ${tokens.color}: ${textPrimary};
             `,
             secondary: css`
-                --plasma-spinner-color: ${textSecondary};
+                ${tokens.color}: ${textSecondary};
             `,
             tertiary: css`
-                --plasma-spinner-color: ${textTertiary};
+                ${tokens.color}: ${textTertiary};
             `,
             paragraph: css`
-                --plasma-spinner-color: var(--text-paragraph);
+                ${tokens.color}: var(--text-paragraph);
             `,
             accent: css`
-                --plasma-spinner-color: ${textAccent};
+                ${tokens.color}: ${textAccent};
             `,
             positive: css`
-                --plasma-spinner-color: ${textPositive};
+                ${tokens.color}: ${textPositive};
             `,
             warning: css`
-                --plasma-spinner-color: ${textWarning};
+                ${tokens.color}: ${textWarning};
             `,
             negative: css`
-                --plasma-spinner-color: ${textNegative};
+                ${tokens.color}: ${textNegative};
             `,
         },
     },

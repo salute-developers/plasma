@@ -1,4 +1,4 @@
-import { css } from '@salutejs/plasma-new-hope/styled-components';
+import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -8,46 +8,49 @@ export const config = {
     variations: {
         size: {
             s: css`
-                --plasma-spinner-size: 16px;
+                ${tokens.size}: 1rem;
+                ${tokens.padding}: 0.0625rem;
             `,
             m: css`
-                --plasma-spinner-size: 24px;
+                ${tokens.size}: 1.5rem;
+                ${tokens.padding}: 0.125rem;
             `,
             l: css`
-                --plasma-spinner-size: 36px;
+                ${tokens.size}: 2.25rem;
+                ${tokens.padding}: 0.1875rem;
             `,
         },
         view: {
             default: css`
-                --plasma-spinner-color: var(--text-primary);
+                ${tokens.color}: var(--text-primary);
             `,
             /**
              * @deprecated
              * использовать `default`
              */
             primary: css`
-                --plasma-spinner-color: var(--text-primary);
+                ${tokens.color}: var(--text-primary);
             `,
             secondary: css`
-                --plasma-spinner-color: var(--text-secondary);
+                ${tokens.color}: var(--text-secondary);
             `,
             tertiary: css`
-                --plasma-spinner-color: var(--text-tertiary);
+                ${tokens.color}: var(--text-tertiary);
             `,
             paragraph: css`
-                --plasma-spinner-color: var(--text-paragraph);
+                ${tokens.color}: var(--text-paragraph);
             `,
             accent: css`
-                --plasma-spinner-color: var(--text-accent);
+                ${tokens.color}: var(--text-accent);
             `,
             positive: css`
-                --plasma-spinner-color: var(--text-positive);
+                ${tokens.color}: var(--text-positive);
             `,
             warning: css`
-                --plasma-spinner-color: var(--text-warning);
+                ${tokens.color}: var(--text-warning);
             `,
             negative: css`
-                --plasma-spinner-color: var(--text-negative);
+                ${tokens.color}: var(--text-negative);
             `,
         },
     },

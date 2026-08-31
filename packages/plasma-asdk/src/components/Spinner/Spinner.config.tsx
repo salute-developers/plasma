@@ -1,4 +1,4 @@
-import { css } from '@salutejs/plasma-new-hope/styled-components';
+import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
 export const config = {
     defaults: {
@@ -7,7 +7,7 @@ export const config = {
     variations: {
         view: {
             accent: css`
-                --plasma-spinner-color: var(--text-accent-main);
+                ${tokens.color}: var(--text-accent-main);
             `,
         },
     },
