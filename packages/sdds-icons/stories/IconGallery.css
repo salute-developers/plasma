@@ -44,9 +44,10 @@ body {
     background: #fafafa;
 }
 
-.icon-gallery__table img {
+.icon-gallery__icon {
     display: block;
     margin: 0 auto 8px;
+    color: #000000;
 }
 
 .icon-gallery__name {
