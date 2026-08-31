@@ -83,6 +83,8 @@ export const config = {
                 ${tokens.scrollbarColor}: ${surfaceTransparentTertiary};
                 ${tokens.scrollbarTrackColor}: ${surfaceTransparentPrimary};
 
+                ${tokens.disabledOpacity}: 0.4;
+
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
