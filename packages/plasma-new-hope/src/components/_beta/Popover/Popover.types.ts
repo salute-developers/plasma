@@ -1,6 +1,6 @@
 import type { HTMLAttributes, ReactNode, ReactElement } from 'react';
 
-import { ResizableProps } from '../../_Resizable';
+import type { ResizableProps } from './Resizable.types';
 
 export type Placement =
     | 'top'
@@ -20,9 +20,9 @@ export type BasicPopoverProps = {
     /**
      * Стиль для UI конфигурации
      * Влияет на выбор предустановленного набора токенов
-     * @default closeNone
+     * @default default
      */
-    appearance?: 'closeNone' | 'closeInner';
+    appearance?: 'default' | 'closeInner';
     /**
      * Контент всплывающего окна.
      */
@@ -115,15 +115,6 @@ export type BasicPopoverProps = {
      * @default Без использования portal всплывающее окно рендерится перед </body>.
      */
     portal?: string | React.RefObject<HTMLElement | null>;
-
-    /**
-     * Вид компонента.
-     */
-    view?: string;
-    /**
-     * Размер компонента.
-     */
-    size?: string;
 };
 
 export type PopoverProps = HTMLAttributes<HTMLDivElement> & BasicPopoverProps;

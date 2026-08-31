@@ -1,5 +1,4 @@
 import React, { forwardRef, useState, useRef } from 'react';
-import type { RootProps } from 'src/engines/types';
 import cls from 'classnames';
 import {
     useFloating,
@@ -19,206 +18,182 @@ import {
     autoUpdate,
     limitShift,
 } from '@floating-ui/react';
-import { css } from 'styled-components';
 
-import { IconClose } from '../../_Icon';
-import { Resizable } from '../../_Resizable';
-import { Slot } from '../../_Slot/Slot';
+import addFocusMixin from '../mixins/addFocus.module.css';
+import { Slot } from '../utils/Slot';
 
-import { sizeToIconSize, matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
+import { Resizable } from './Resizable';
+import { ARROW_PADDING, matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
 import { classes } from './Popover.tokens';
-import { base, CloseButton, Wrapper, Tail } from './Popover.styles';
 import type { PopoverProps } from './Popover.types';
+import styles from './Popover.module.css';
 
-/* Ширина хвостика */
-export const ARROW_WIDTH = 20;
-/* Высота хвостика */
-export const ARROW_HEIGHT = 8;
-/* SVG хвостика */
-export const ARROW_POLYGON = 'M20 20L0 20C8.88889 20.0001 10 12.5714 10 12C10 12.5714 11.3273 20.006 20 20Z';
-/* Отступ хвостика по краям (чтобы избежать коллизии со скругленными углами) */
-export const ARROW_PADDING = 16;
+const CloseIcon = () => (
+    <svg className={styles.closeIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 19L19 5M5 5l14 14" stroke="currentColor" strokeWidth={2} strokeLinecap="round" />
+    </svg>
+);
 
-export const popoverRoot = (Root: RootProps<HTMLDivElement, Omit<PopoverProps, 'target'>>) =>
-    forwardRef<HTMLDivElement, PopoverProps>(
-        (
-            {
-                appearance = 'closeNone',
-                children,
-                target,
-                opened: outerOpened,
-                defaultOpened = false,
-                trigger = 'click',
-                placement = 'bottom',
-                hasTail = true,
-                flip: outsideFlip = false,
-                shift: outsideShift = false,
-                offset: outerOffset = 0,
-                outsideClick = true,
-                resizable = false,
-                onResizeStart,
-                onResizeEnd,
-                onToggle,
-                delayOpen = 0,
-                delayClose = 0,
-                zIndex = 1000,
-                className,
-                style,
-                size,
-                view,
-                portal,
-                ...rest
-            },
-            outerRootRef,
-        ) => {
-            const [innerOpened, setInnerOpened] = useState(defaultOpened);
+export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => {
+    const {
+        appearance = 'default',
+        children,
+        target,
+        opened: outerOpened,
+        defaultOpened = false,
+        trigger = 'click',
+        placement = 'bottom',
+        hasTail = true,
+        flip: outsideFlip = false,
+        shift: outsideShift = false,
+        offset: outerOffset = 0,
+        outsideClick = true,
+        resizable = false,
+        onResizeStart,
+        onResizeEnd,
+        onToggle,
+        delayOpen = 0,
+        delayClose = 0,
+        zIndex = 1000,
+        portal,
+        // @ts-ignore
+        _configClassName,
+        ...rest
+    } = props;
 
-            const opened = outerOpened ?? innerOpened;
+    const [innerOpened, setInnerOpened] = useState(defaultOpened);
 
-            const arrowRef = useRef<HTMLDivElement | null>(null);
+    const opened = outerOpened ?? innerOpened;
 
-            const handleToggle = (opened: boolean) => {
-                setInnerOpened(opened);
+    const arrowRef = useRef<HTMLDivElement | null>(null);
 
-                if (onToggle) {
-                    onToggle(opened);
-                }
-            };
+    const handleToggle = (nextOpened: boolean) => {
+        setInnerOpened(nextOpened);
 
-            const {
-                refs,
-                floatingStyles,
-                context,
-                middlewareData,
-                placement: calculatedPlacement,
-                isPositioned,
-            } = useFloating({
-                whileElementsMounted: autoUpdate,
-                placement,
-                open: opened,
-                onOpenChange: handleToggle,
-                middleware: [
-                    outsideShift &&
-                        shift({
-                            limiter: limitShift(),
-                        }),
-                    outsideFlip && flip(),
-                    hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
-                    offset(
-                        ({ placement: currentPlacement }) => {
-                            if (!hasTail) {
-                                return outerOffset;
-                            }
+        if (onToggle) {
+            onToggle(nextOpened);
+        }
+    };
 
-                            const side = currentPlacement.split('-')[0];
-                            const { width = 0, height = 0 } = arrowRef.current?.getBoundingClientRect() ?? {};
-                            const tailOffset = side === 'top' || side === 'bottom' ? height : width;
+    const { refs, floatingStyles, context, middlewareData, placement: calculatedPlacement, isPositioned } = useFloating(
+        {
+            whileElementsMounted: autoUpdate,
+            placement,
+            open: opened,
+            onOpenChange: handleToggle,
+            middleware: [
+                outsideShift &&
+                    shift({
+                        limiter: limitShift(),
+                    }),
+                outsideFlip && flip(),
+                hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
+                offset(
+                    ({ placement: currentPlacement }) => {
+                        if (!hasTail) {
+                            return outerOffset;
+                        }
 
-                            return tailOffset + outerOffset;
-                        },
-                        [outerOffset, hasTail],
-                    ),
-                ],
-            });
+                        const side = currentPlacement.split('-')[0];
+                        const { width = 0, height = 0 } = arrowRef.current?.getBoundingClientRect() ?? {};
+                        const tailOffset = side === 'top' || side === 'bottom' ? height : width;
 
-            const click = useClick(context, {
-                enabled: trigger === 'click' || matchMedia('(hover: none)').matches,
-            });
-            const focus = useFocus(context, { enabled: trigger === 'focus' });
-            const dismiss = useDismiss(context, {
-                enabled: true,
-                outsidePress: outsideClick,
-            });
-            const role = useRole(context);
-            const hover = useHover(context, {
-                mouseOnly: true,
-                enabled: trigger === 'hover',
-                handleClose: safePolygon({
-                    requireIntent: false,
-                }),
-                delay: {
-                    open: delayOpen,
-                    close: delayClose,
-                },
-            });
-
-            const { getReferenceProps, getFloatingProps } = useInteractions([dismiss, role, click, hover, focus]);
-
-            const { side, tailStyle } = useTailStyle(calculatedPlacement, middlewareData, ARROW_PADDING);
-
-            return (
-                <>
-                    <Slot ref={refs.setReference} {...getReferenceProps()}>
-                        {target}
-                    </Slot>
-
-                    {opened && (
-                        <FloatingPortal {...getFloatingPortalProps(portal)}>
-                            <FloatingFocusManager context={context}>
-                                <Root
-                                    ref={refs.setFloating}
-                                    size={size}
-                                    view={view}
-                                    style={{
-                                        ...floatingStyles,
-                                        zIndex,
-                                        visibility: isPositioned ? 'visible' : 'hidden',
-                                    }}
-                                    {...getFloatingProps()}
-                                >
-                                    <Resizable
-                                        placement={matchPlacements(placement)}
-                                        resizable={resizable}
-                                        onResizeStart={onResizeStart}
-                                        onResizeEnd={onResizeEnd}
-                                    >
-                                        <Wrapper
-                                            ref={outerRootRef}
-                                            className={cls(className, classes.popoverRoot)}
-                                            style={style}
-                                            data-popover-open={opened}
-                                            {...rest}
-                                        >
-                                            {hasTail && (
-                                                <Tail ref={arrowRef} side={side} style={tailStyle} aria-hidden="true" />
-                                            )}
-
-                                            {children}
-
-                                            {appearance === 'closeInner' && (
-                                                <CloseButton
-                                                    className={classes.popoverCloseIconButton}
-                                                    onClick={() => handleToggle(false)}
-                                                >
-                                                    <IconClose size={sizeToIconSize(size)} color="inherit" />
-                                                </CloseButton>
-                                            )}
-                                        </Wrapper>
-                                    </Resizable>
-                                </Root>
-                            </FloatingFocusManager>
-                        </FloatingPortal>
-                    )}
-                </>
-            );
+                        return tailOffset + outerOffset;
+                    },
+                    [outerOffset, hasTail],
+                ),
+            ],
         },
     );
 
-export const popoverConfig = {
-    name: 'Popover',
-    tag: 'div',
-    layout: popoverRoot,
-    base,
-    variations: {
-        view: {
-            css: css``,
+    const click = useClick(context, {
+        enabled: trigger === 'click' || matchMedia('(hover: none)').matches,
+    });
+    const focus = useFocus(context, { enabled: trigger === 'focus' });
+    const dismiss = useDismiss(context, {
+        enabled: true,
+        outsidePress: outsideClick,
+    });
+    const role = useRole(context);
+    const hover = useHover(context, {
+        mouseOnly: true,
+        enabled: trigger === 'hover',
+        handleClose: safePolygon({
+            requireIntent: false,
+        }),
+        delay: {
+            open: delayOpen,
+            close: delayClose,
         },
-        size: {
-            css: css``,
-        },
-    },
-    defaults: {
-        view: 'default',
-        size: 'm',
-    },
-};
+    });
+
+    const { getReferenceProps, getFloatingProps } = useInteractions([dismiss, role, click, hover, focus]);
+
+    const { side, tailStyle } = useTailStyle(calculatedPlacement, middlewareData, ARROW_PADDING);
+
+    return (
+        <>
+            <Slot ref={refs.setReference} {...getReferenceProps()}>
+                {target}
+            </Slot>
+
+            {opened && (
+                <FloatingPortal {...getFloatingPortalProps(portal)}>
+                    <FloatingFocusManager context={context}>
+                        <div
+                            ref={refs.setFloating}
+                            className={cls(styles.root, _configClassName, addFocusMixin.focus)}
+                            style={{
+                                ...floatingStyles,
+                                zIndex,
+                                visibility: isPositioned ? 'visible' : 'hidden',
+                            }}
+                            {...getFloatingProps()}
+                        >
+                            <Resizable
+                                placement={matchPlacements(placement)}
+                                resizable={resizable}
+                                onResizeStart={onResizeStart}
+                                onResizeEnd={onResizeEnd}
+                            >
+                                <div
+                                    ref={ref}
+                                    {...rest}
+                                    className={cls(styles.wrapper, rest.className, classes.popoverRoot)}
+                                    data-popover-open={opened}
+                                >
+                                    {hasTail && (
+                                        <div
+                                            ref={arrowRef}
+                                            className={styles.tail}
+                                            data-side={side}
+                                            style={tailStyle}
+                                            aria-hidden="true"
+                                        />
+                                    )}
+
+                                    {children}
+
+                                    {appearance === 'closeInner' && (
+                                        <button
+                                            type="button"
+                                            aria-label="Закрыть"
+                                            className={cls(
+                                                styles.closeButton,
+                                                classes.popoverCloseIconButton,
+                                                addFocusMixin.focus,
+                                            )}
+                                            onClick={() => handleToggle(false)}
+                                        >
+                                            <CloseIcon />
+                                        </button>
+                                    )}
+                                </div>
+                            </Resizable>
+                        </div>
+                    </FloatingFocusManager>
+                </FloatingPortal>
+            )}
+        </>
+    );
+});

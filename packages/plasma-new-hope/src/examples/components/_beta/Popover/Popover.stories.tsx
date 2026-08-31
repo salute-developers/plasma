@@ -11,7 +11,7 @@ import { Popover } from './Popover';
 
 type StoryProps = ComponentProps<typeof Popover>;
 
-const appearance = ['closeNone', 'closeInner'];
+const appearance = ['default', 'closeInner'];
 const placements = [
     'top',
     'top-start',
@@ -106,7 +106,7 @@ const meta: Meta<StoryProps> = {
         },
     },
     args: {
-        appearance: 'closeNone',
+        appearance: 'default',
         placement: 'bottom',
         trigger: 'click',
         defaultOpened: false,
@@ -174,6 +174,7 @@ const StoryResizable = (args: StoryProps) => {
         resizableMaxWidth,
         resizableMaxHeight,
         resizableIconSize,
+        ...popoverProps
     } = args;
 
     React.useEffect(() => {
@@ -201,6 +202,7 @@ const StoryResizable = (args: StoryProps) => {
             }}
         >
             <Popover
+                {...popoverProps}
                 target={<Button>Target</Button>}
                 resizable={{
                     directions: resizableDirections,
@@ -212,7 +214,6 @@ const StoryResizable = (args: StoryProps) => {
                     maxHeight: resizableMaxHeight,
                     iconSize: resizableIconSize,
                 }}
-                {...args}
             >
                 <div
                     style={{

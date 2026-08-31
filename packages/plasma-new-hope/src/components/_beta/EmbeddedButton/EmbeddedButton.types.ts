@@ -1,8 +1,11 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ComponentType, ReactNode } from 'react';
 
-import type { AsProps } from '../../../types';
+type AsProps<T = unknown> = {
+    as?: keyof JSX.IntrinsicElements | ComponentType<T>;
+    forwardedAs?: keyof JSX.IntrinsicElements | ComponentType<T>;
+};
 
-export type IconPosition =
+type IconPosition =
     | 'center'
     | 'center-left'
     | 'center-right'
@@ -19,14 +22,6 @@ export type EmbeddedButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
          * Иконка кнопки
          */
         children?: ReactNode;
-        /**
-         * Вид кнопки
-         */
-        view?: string;
-        /**
-         * Размер контейнера иконки
-         */
-        size?: string;
         /**
          * Кнопка неактивна
          */

@@ -7,7 +7,9 @@ import { Button } from '../../Button';
 
 import { Tooltip } from './Tooltip';
 
-type StoryProps = ComponentProps<typeof Tooltip>;
+type StoryProps = ComponentProps<typeof Tooltip> & {
+    hasIcon?: boolean;
+};
 
 const placements = [
     'top',
@@ -108,7 +110,7 @@ const meta: Meta<StoryProps> = {
 
 export default meta;
 
-const StoryDefault = (args: StoryProps) => {
+const StoryDefault = ({ hasIcon, ...tooltipProps }: StoryProps) => {
     React.useEffect(() => {
         window.scrollTo(
             (document.documentElement.scrollWidth - window.innerWidth) / 2,
@@ -127,9 +129,9 @@ const StoryDefault = (args: StoryProps) => {
             }}
         >
             <Tooltip
-                iconSlot={args.hasIcon ? <IconPlasma size="xs" color="inherit" /> : undefined}
+                {...tooltipProps}
+                iconSlot={hasIcon ? <IconPlasma size="xs" color="inherit" /> : undefined}
                 target={<Button>Target</Button>}
-                {...args}
             >
                 Контент выпадающего окна
             </Tooltip>
