@@ -12,7 +12,14 @@ import {
     toTotalSeconds,
     clampTimeToMin,
     clampTimeToMax,
+    to12Hour,
+    to24Hour,
+    hours12Range,
+    meridiemValues,
+    range,
+    isValueInDisabledList,
 } from './utils';
+import type { Meridiem } from './utils';
 import { TimePickerGridChangeEvent, TimePickerGridProps } from './TimePickerGrid.types';
 import { base, StyledTimePicker } from './TimePickerGrid.styles';
 import { base as sizeCSS } from './variations/_size/base';
@@ -27,9 +34,10 @@ interface ActiveTime {
     hours: number | null;
     minutes: number | null;
     seconds: number | null;
+    meridiem: Meridiem | null;
 }
 
-type CurrentColumn = 'hours' | 'minutes' | 'seconds' | null;
+type CurrentColumn = TimeColumnType | null;
 interface ScrollbarState {
     isVisible: boolean;
     thumbHeight: number;
@@ -53,6 +61,7 @@ export const timePickerGridRoot = (
                 min,
                 max,
                 columnsQuantity,
+                use12Hours = false,
                 disabledValues,
                 multiplicityMinutes,
                 multiplicitySeconds,
@@ -63,13 +72,14 @@ export const timePickerGridRoot = (
         ) => {
             const actualFormat = format || (columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm');
             const columnsConfig = useMemo(
-                () => getColumnsFromFormat(actualFormat, multiplicityMinutes, multiplicitySeconds),
-                [actualFormat, multiplicityMinutes, multiplicitySeconds],
+                () => getColumnsFromFormat(actualFormat, multiplicityMinutes, multiplicitySeconds, use12Hours),
+                [actualFormat, multiplicityMinutes, multiplicitySeconds, use12Hours],
             );
 
             const hoursColumnRef = useRef<HTMLDivElement>(null);
             const minutesColumnRef = useRef<HTMLDivElement>(null);
             const secondsColumnRef = useRef<HTMLDivElement>(null);
+            const meridiemColumnRef = useRef<HTMLDivElement>(null);
             const timeItemRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
             const itemHeight = Object.values(timeItemRefs.current)[0]?.offsetHeight || 0;
@@ -118,6 +128,7 @@ export const timePickerGridRoot = (
                             timeValues.mm !== null ? roundToMultiplicity(timeValues.mm, multiplicityMinutes) : null,
                         seconds:
                             timeValues.ss !== null ? roundToMultiplicity(timeValues.ss, multiplicitySeconds) : null,
+                        meridiem: timeValues.hh !== null ? to12Hour(timeValues.hh).meridiem : null,
                     };
                 }
 
@@ -125,10 +136,16 @@ export const timePickerGridRoot = (
                     hours: null,
                     minutes: null,
                     seconds: null,
+                    meridiem: null,
                 };
             };
 
             const activeTime: ActiveTime = getActiveTime();
+
+            const displayTime: ActiveTime =
+                use12Hours && activeTime.hours !== null
+                    ? { ...activeTime, hours: to12Hour(activeTime.hours).hour12 }
+                    : activeTime;
 
             const [currentColumn, setCurrentColumn] = useState<CurrentColumn>(null);
 
@@ -223,6 +240,32 @@ export const timePickerGridRoot = (
                 return completeValues;
             }, []);
 
+            const getDisabledValuesForDisplayColumn = useCallback(
+                (columnType: TimeColumnType): (string | number)[] => {
+                    if (columnType === 'meridiem') {
+                        const disabledHours = getDisabledValuesForColumn('hours');
+                        const isHalfDayDisabled = (offset: number) =>
+                            Array.from({ length: 12 }, (_, i) => i + offset).every((hour) =>
+                                disabledHours.includes(hour),
+                            );
+
+                        return [...(isHalfDayDisabled(0) ? ['AM'] : []), ...(isHalfDayDisabled(12) ? ['PM'] : [])];
+                    }
+
+                    if (columnType === 'hours' && use12Hours) {
+                        const disabledHours = getDisabledValuesForColumn('hours');
+                        const meridiem = activeTime.meridiem ?? 'AM';
+
+                        return hours12Range
+                            .map((value) => parseInt(value, 10))
+                            .filter((hour12) => disabledHours.includes(to24Hour(hour12, meridiem)));
+                    }
+
+                    return getDisabledValuesForColumn(columnType);
+                },
+                [getDisabledValuesForColumn, use12Hours, activeTime.meridiem],
+            );
+
             const getNextAvailableValue = useCallback(
                 (
                     currentIndex: number,
@@ -242,12 +285,12 @@ export const timePickerGridRoot = (
                         iterations++;
                     } while (
                         iterations < maxIterations &&
-                        disabledValuesForColumn.includes(parseInt(values[newIndex], 10)) &&
+                        isValueInDisabledList(values[newIndex], disabledValuesForColumn) &&
                         newIndex !== currentIndex
                     );
 
                     return iterations < maxIterations &&
-                        !disabledValuesForColumn.includes(parseInt(values[newIndex], 10))
+                        !isValueInDisabledList(values[newIndex], disabledValuesForColumn)
                         ? newIndex
                         : currentIndex;
                 },
@@ -398,7 +441,11 @@ export const timePickerGridRoot = (
             const getFirstAvailableValue = useCallback(
                 (columnType: 'hours' | 'minutes' | 'seconds'): number => {
                     const disabledForColumn = getDisabledValuesForColumn(columnType);
-                    const columnValues = columnsConfig.find((c) => c.type === columnType)?.values ?? [];
+
+                    const columnValues =
+                        columnType === 'hours' && use12Hours
+                            ? range(24)
+                            : columnsConfig.find((c) => c.type === columnType)?.values ?? [];
 
                     for (const val of columnValues) {
                         const num = parseInt(val, 10);
@@ -409,18 +456,21 @@ export const timePickerGridRoot = (
 
                     return 0;
                 },
-                [getDisabledValuesForColumn, columnsConfig],
+                [getDisabledValuesForColumn, columnsConfig, use12Hours],
             );
 
-            const handleTimeItemClick = (value: string, column: 'hours' | 'minutes' | 'seconds') => {
+            const handleTimeItemClick = (value: string, column: TimeColumnType) => {
                 /**
                  * Применяем выбранное значение к соответствующей колонке
                  */
                 const newTimeValues = { ...parseTimeString(viewValue, actualFormat) };
+                const currentMeridiem: Meridiem = activeTime.meridiem ?? 'AM';
 
                 switch (column) {
                     case 'hours':
-                        newTimeValues.hh = parseInt(value, 10);
+                        newTimeValues.hh = use12Hours
+                            ? to24Hour(parseInt(value, 10), currentMeridiem)
+                            : parseInt(value, 10);
                         break;
                     case 'minutes':
                         newTimeValues.mm = parseInt(value, 10);
@@ -428,6 +478,15 @@ export const timePickerGridRoot = (
                     case 'seconds':
                         newTimeValues.ss = parseInt(value, 10);
                         break;
+                    case 'meridiem': {
+                        /**
+                         * Смена AM/PM сохраняет выбранный час и сдвигает его на половину суток.
+                         * Если час ещё не выбран — берём первый доступный.
+                         */
+                        const baseHours = newTimeValues.hh ?? getFirstAvailableValue('hours');
+                        newTimeValues.hh = to24Hour(to12Hour(baseHours).hour12, value as Meridiem);
+                        break;
+                    }
                     default:
                 }
 
@@ -452,6 +511,10 @@ export const timePickerGridRoot = (
                     const minParsed = parseTimeBoundary(min, format || 'HH:mm:ss');
                     const maxParsed = parseTimeBoundary(max, format || 'HH:mm:ss');
                     const total = toTotalSeconds(newTimeValues);
+                    /**
+                     * Выбор AM/PM меняет час, поэтому клампится так же, как выбор часа.
+                     */
+                    const clampColumn = column === 'minutes' ? 'minutes' : 'hours';
 
                     if (minParsed && total < toTotalSeconds(minParsed)) {
                         Object.assign(
@@ -459,7 +522,7 @@ export const timePickerGridRoot = (
                             clampTimeToMin(
                                 newTimeValues,
                                 minParsed,
-                                column as 'hours' | 'minutes',
+                                clampColumn,
                                 actualFormat,
                                 multiplicityMinutes ?? 1,
                                 multiplicitySeconds ?? 1,
@@ -471,7 +534,7 @@ export const timePickerGridRoot = (
                             clampTimeToMax(
                                 newTimeValues,
                                 maxParsed,
-                                column as 'hours' | 'minutes',
+                                clampColumn,
                                 actualFormat,
                                 multiplicityMinutes ?? 1,
                                 multiplicitySeconds ?? 1,
@@ -503,156 +566,122 @@ export const timePickerGridRoot = (
                 } as TimePickerGridChangeEvent);
             };
 
+            const getActiveRefValue = (columnType: TimeColumnType): string => {
+                if (columnType === 'meridiem') {
+                    return displayTime.meridiem ?? 'AM';
+                }
+
+                return (displayTime[columnType] ?? 0).toString().padStart(2, '0');
+            };
+
+            const focusTimeItem = (columnType: TimeColumnType, value: string) => {
+                const element = timeItemRefs.current[`${columnType}-${value}`];
+
+                setTimeout(() => {
+                    if (element) {
+                        element.focus();
+                    }
+                }, 0);
+            };
+
+            const getNavigationValues = (columnType: TimeColumnType): string[] => {
+                if (columnType === 'meridiem') {
+                    return meridiemValues;
+                }
+
+                if (columnType === 'hours') {
+                    return use12Hours ? hours12Range : range(24);
+                }
+
+                return range(60);
+            };
+
             const handleTimeItemKeyDown: TimeItemKeyDownHandler = (
                 event: KeyboardEvent<HTMLDivElement>,
                 column: TimeColumnType,
                 value: string,
             ) => {
-                const disabledValuesForColumn = getDisabledValuesForColumn(column);
-                const currentIndex = parseInt(value, 10);
-                let newIndex: number | null = null;
-                let newColumn = column;
+                const disabledValuesForColumn = getDisabledValuesForDisplayColumn(column);
+                const columnValues = getNavigationValues(column);
+                const currentIndex = Math.max(columnValues.indexOf(value), 0);
+                const columnIndex = columnsConfig.findIndex((columnConfig) => columnConfig.type === column);
+
+                const focusIndex = (index: number) => {
+                    const nextValue = columnValues[index];
+
+                    if (nextValue !== undefined) {
+                        focusTimeItem(column, nextValue);
+                    }
+                };
+
+                const focusSiblingColumn = (offset: number) => {
+                    const nextColumn = columnsConfig[columnIndex + offset]?.type;
+
+                    if (!nextColumn || nextColumn === column) {
+                        return;
+                    }
+
+                    setCurrentColumn(nextColumn);
+                    focusTimeItem(nextColumn, getActiveRefValue(nextColumn));
+                };
 
                 switch (event.key) {
                     case 'ArrowUp':
                         event.preventDefault();
-                        newIndex = getNextAvailableValue(
-                            currentIndex,
-                            column === 'hours'
-                                ? Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0'))
-                                : Array.from({ length: 60 }, (_, i) => i.toString().padStart(2, '0')),
-                            disabledValuesForColumn,
-                            'up',
-                        );
-                        if (newIndex !== null) {
-                            const newValue = newIndex.toString().padStart(2, '0');
-                            const element = timeItemRefs.current[`${column}-${newValue}`];
-
-                            setTimeout(() => {
-                                if (element) {
-                                    element.focus();
-                                }
-                            }, 0);
-                        }
+                        focusIndex(getNextAvailableValue(currentIndex, columnValues, disabledValuesForColumn, 'up'));
                         break;
                     case 'ArrowDown':
                         event.preventDefault();
-                        newIndex = getNextAvailableValue(
-                            currentIndex,
-                            column === 'hours'
-                                ? Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0'))
-                                : Array.from({ length: 60 }, (_, i) => i.toString().padStart(2, '0')),
-                            disabledValuesForColumn,
-                            'down',
-                        );
-                        if (newIndex !== null) {
-                            const newValue = newIndex.toString().padStart(2, '0');
-                            const element = timeItemRefs.current[`${column}-${newValue}`];
-
-                            setTimeout(() => {
-                                if (element) {
-                                    element.focus();
-                                }
-                            }, 0);
-                        }
+                        focusIndex(getNextAvailableValue(currentIndex, columnValues, disabledValuesForColumn, 'down'));
                         break;
                     case 'ArrowRight':
                         event.preventDefault();
-                        if (column === 'hours') {
-                            newColumn = 'minutes';
-                        } else if (column === 'minutes' && actualFormat.includes('ss')) {
-                            newColumn = 'seconds';
-                        }
-                        if (newColumn !== column) {
-                            setCurrentColumn(newColumn);
-
-                            const newValue = (activeTime[column]?.toString() || '0').padStart(2, '0');
-                            const element = timeItemRefs.current[`${newColumn}-${newValue}`];
-
-                            setTimeout(() => {
-                                if (element) {
-                                    element.focus();
-                                }
-                            }, 0);
-                        }
+                        focusSiblingColumn(1);
                         break;
                     case 'ArrowLeft':
                         event.preventDefault();
-                        if (column === 'minutes') {
-                            newColumn = 'hours';
-                        } else if (column === 'seconds') {
-                            newColumn = 'minutes';
-                        }
-                        if (newColumn !== column) {
-                            setCurrentColumn(newColumn);
-                            const newValue = (activeTime[column]?.toString() || '0').padStart(2, '0');
-                            const element = timeItemRefs.current[`${newColumn}-${newValue}`];
-
-                            setTimeout(() => {
-                                if (element) {
-                                    element.focus();
-                                }
-                            }, 0);
-                        }
+                        focusSiblingColumn(-1);
                         break;
                     case 'Enter':
                     case ' ':
                         event.preventDefault();
                         handleTimeItemClick(value, column);
                         break;
-                    case 'Home':
+                    case 'Home': {
                         event.preventDefault();
-                        newIndex = 0;
-                        while (
-                            disabledValuesForColumn.includes(newIndex) &&
-                            newIndex < (column === 'hours' ? 24 : 60)
-                        ) {
-                            newIndex++;
-                        }
-                        if (newIndex < (column === 'hours' ? 24 : 60)) {
-                            const newValue = newIndex.toString().padStart(2, '0');
-                            const element = timeItemRefs.current[`${column}-${newValue}`];
+                        const firstIndex = columnValues.findIndex(
+                            (item) => !isValueInDisabledList(item, disabledValuesForColumn),
+                        );
 
-                            setTimeout(() => {
-                                if (element) {
-                                    element.focus();
-                                }
-                            }, 0);
+                        if (firstIndex !== -1) {
+                            focusIndex(firstIndex);
                         }
                         break;
-                    case 'End':
+                    }
+                    case 'End': {
                         event.preventDefault();
-                        newIndex = column === 'hours' ? 23 : 59;
-                        while (disabledValuesForColumn.includes(newIndex) && newIndex >= 0) {
-                            newIndex--;
-                        }
-                        if (newIndex >= 0) {
-                            const newValue = newIndex.toString().padStart(2, '0');
-                            const element = timeItemRefs.current[`${column}-${newValue}`];
-
-                            setTimeout(() => {
-                                if (element) {
-                                    element.focus();
-                                }
-                            }, 0);
+                        for (let index = columnValues.length - 1; index >= 0; index--) {
+                            if (!isValueInDisabledList(columnValues[index], disabledValuesForColumn)) {
+                                focusIndex(index);
+                                break;
+                            }
                         }
                         break;
+                    }
                     default:
                         break;
                 }
             };
 
             useEffect(() => {
-                if (currentColumn && currentColumn !== null) {
-                    const column = currentColumn;
-                    const value = activeTime[currentColumn]?.toString().padStart(2, '0');
-                    const element = timeItemRefs.current[`${column}-${value}`];
+                if (!currentColumn) {
+                    return;
+                }
 
-                    setTimeout(() => {
-                        if (element) {
-                            element.focus();
-                        }
-                    }, 0);
+                const activeValue = currentColumn === 'meridiem' ? displayTime.meridiem : displayTime[currentColumn];
+
+                if (activeValue !== null && activeValue !== undefined) {
+                    focusTimeItem(currentColumn, getActiveRefValue(currentColumn));
                 }
             }, [currentColumn]);
 
@@ -702,7 +731,15 @@ export const timePickerGridRoot = (
                 const secondsIndex =
                     activeTime.seconds !== null ? activeTime.seconds / (multiplicitySeconds ?? 1) : null;
 
-                scrollToActiveItem(hoursColumnRef, activeTime.hours);
+                const getHoursIndex = () => {
+                    if (activeTime.hours === null) {
+                        return null;
+                    }
+
+                    return use12Hours ? to12Hour(activeTime.hours).hour12 : activeTime.hours;
+                };
+
+                scrollToActiveItem(hoursColumnRef, getHoursIndex());
                 scrollToActiveItem(minutesColumnRef, minutesIndex);
                 scrollToActiveItem(secondsColumnRef, secondsIndex);
             }, [
@@ -713,6 +750,7 @@ export const timePickerGridRoot = (
                 gap,
                 multiplicityMinutes,
                 multiplicitySeconds,
+                use12Hours,
             ]);
 
             useEffect(() => {
@@ -787,7 +825,11 @@ export const timePickerGridRoot = (
 
             return (
                 <Root ref={ref} view={view} size={size} disabled={disabled} onFocus={handleContainerFocus} {...rest}>
-                    <StyledTimePicker width={dropdownWidth} tabIndex={-1}>
+                    <StyledTimePicker
+                        width={dropdownWidth}
+                        columns={use12Hours ? columnsConfig.length : undefined}
+                        tabIndex={-1}
+                    >
                         {columnsConfig.map((columnConfig) => {
                             const { type, values } = columnConfig;
 
@@ -823,16 +865,19 @@ export const timePickerGridRoot = (
                                     thumbRef = secondsThumbRef;
                                     timeoutRef = secondsHideTimeoutRef;
                                     break;
+                                case 'meridiem':
+                                    columnRef = meridiemColumnRef;
+                                    break;
                                 default:
                                     return null;
                             }
 
                             return renderTimeColumn({
                                 values,
-                                disabledValues: getDisabledValuesForColumn(type),
+                                disabledValues: getDisabledValuesForDisplayColumn(type),
                                 dropdownHeight,
                                 column: type,
-                                activeTime,
+                                activeTime: displayTime,
                                 currentColumn,
                                 handleTimeItemClick,
                                 handleTimeItemKeyDown,

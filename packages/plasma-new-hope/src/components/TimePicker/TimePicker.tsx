@@ -7,7 +7,14 @@ import { getSizeValueFromProp } from 'src/utils';
 
 import type { TimePickerGridChangeEvent } from '../TimePickerGrid/TimePickerGrid.types';
 
-import { processTimeInput, delimiter } from './utils';
+import {
+    processTimeInput,
+    processTimeInput12,
+    formatTo12Hour,
+    getMeridiemFromTimeString,
+    isTimeComplete,
+    delimiter,
+} from './utils';
 import { TimePickerProps } from './TimePicker.types';
 import { base, LeftHelper, StyledInput, StyledTimePickerGrid } from './TimePicker.styles';
 import { classes } from './TimePicker.tokens';
@@ -97,6 +104,7 @@ export const timePickerRoot = (
                 dropdownWidth,
                 dropdownHeight,
                 columnsQuantity = 2,
+                use12Hours = false,
                 min,
                 max,
                 multiplicityMinutes,
@@ -122,6 +130,11 @@ export const timePickerRoot = (
 
             const [isInnerOpen, setIsInnerOpen] = useState(opened);
             const [innerTime, setInnerTime] = useState(outerValue || '');
+            /**
+             * Текст поля ввода в 12-часовом режиме. Значение остается в 24-часовом формате.
+             */
+            const [inputValue, setInputValue] = useState(formatTo12Hour(outerValue || ''));
+            const [isMeridiemSet, setIsMeridiemSet] = useState(Boolean(outerValue));
             const [rootWidth, setRootWidth] = useState<number | null>(null);
             const [, setActiveTime] = useState<ActiveTime>({
                 hours: null,
@@ -133,6 +146,17 @@ export const timePickerRoot = (
             const viewValue = outerValue ?? innerTime;
 
             const format = columnsQuantity === 3 ? 'HH:mm:ss' : 'HH:mm';
+
+            const getDisplayValue = () => {
+                if (!use12Hours) {
+                    return viewValue;
+                }
+
+                return outerValue === undefined ? inputValue : formatTo12Hour(outerValue);
+            };
+
+            const displayValue = getDisplayValue();
+            const meridiem = getMeridiemFromTimeString(viewValue);
 
             const dropdownWidthValue = dropdownWidth ? getSizeValueFromProp(dropdownWidth, 'rem') : undefined;
             const dropdownHeightValue = dropdownHeight ? getSizeValueFromProp(dropdownHeight, 'rem') : undefined;
@@ -157,6 +181,8 @@ export const timePickerRoot = (
                     timeString = viewValue.substring(0, 5);
                 }
                 setInnerTime(viewValue);
+                setInputValue(formatTo12Hour(viewValue));
+                setIsMeridiemSet(Boolean(viewValue));
                 const [hh, mm, ss] = timeString.split(delimiter).map(Number);
                 setActiveTime({
                     hours: !Number.isNaN(hh) ? hh : null,
@@ -213,6 +239,8 @@ export const timePickerRoot = (
                     timeString = viewValue.substring(0, 5);
                 }
                 setInnerTime(timeString ?? '');
+                setInputValue(formatTo12Hour(timeString ?? ''));
+                setIsMeridiemSet(Boolean(timeString));
 
                 setActiveTime({
                     hours: !Number.isNaN(formattedValues.timeValues.hour) ? formattedValues.timeValues.hour : null,
@@ -235,10 +263,19 @@ export const timePickerRoot = (
                 const input = event.target.value;
                 const cursorPos = event.target.selectionStart;
 
-                const { innerString, values, newCursorPosition } = processTimeInput(input, format, cursorPos);
+                const parsed = use12Hours
+                    ? processTimeInput12(input, format, cursorPos, meridiem, isMeridiemSet)
+                    : { ...processTimeInput(input, format, cursorPos), displayString: null, isMeridiemSet: false };
+
+                const { innerString, values, newCursorPosition, displayString } = parsed;
 
                 const { hh: hours, mm: minutes, ss: seconds } = values;
                 setInnerTime(innerString);
+
+                if (displayString !== null) {
+                    setInputValue(displayString);
+                    setIsMeridiemSet(parsed.isMeridiemSet);
+                }
                 setActiveTime((prev) => ({
                     ...prev,
                     hours,
@@ -273,6 +310,15 @@ export const timePickerRoot = (
                         inputRef.current.setSelectionRange(newCursorPosition, newCursorPosition);
                     }
                 });
+            };
+
+            const handleBlur = () => {
+                if (!use12Hours || isMeridiemSet || !isTimeComplete(viewValue, format)) {
+                    return;
+                }
+
+                setIsMeridiemSet(true);
+                setInputValue(formatTo12Hour(viewValue));
             };
 
             const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -368,7 +414,7 @@ export const timePickerRoot = (
                                     [classes.timePickerSuccess]: valueSuccess,
                                     [classes.timePickerEdited]: valueEdited,
                                 })}
-                                value={viewValue}
+                                value={displayValue}
                                 size={size}
                                 disabled={disabled}
                                 readOnly={readonly}
@@ -382,6 +428,7 @@ export const timePickerRoot = (
                                 autoComplete={autoComplete}
                                 onChange={handleInputChange}
                                 onFocus={onFocus}
+                                onBlur={handleBlur}
                                 onKeyDown={handleOnKeyDown}
                                 required={required}
                                 requiredPlacement={requiredPlacement}
@@ -425,7 +472,9 @@ export const timePickerRoot = (
                                 view={view}
                                 size={size}
                                 format={format}
-                                columns={columnsQuantity}
+                                use12Hours={use12Hours}
+                                columns={columnsQuantity + (use12Hours ? 1 : 0)}
+                                hasMeridiem={use12Hours}
                                 innerWidth={getActualWidth()}
                                 innerHeight={dropdownHeightValue}
                                 dropdownHeight="100%"

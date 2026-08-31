@@ -10,17 +10,41 @@ export interface NormalizedSegment {
     carryover: string;
 }
 
+export type Meridiem = 'AM' | 'PM';
+
 export interface ColumnConfig {
-    type: 'hours' | 'minutes' | 'seconds';
+    type: 'hours' | 'minutes' | 'seconds' | 'meridiem';
     values: string[];
     format: string;
     disabledValues?: (number | string)[];
 }
 
+export const meridiemValues: Meridiem[] = ['AM', 'PM'];
+
+/**
+ * Значения колонки часов в 12-часовом формате: 00, 01, ..., 11.
+ * Полдень и полночь показываются как `00 PM` и `00 AM`.
+ */
+export const hours12Range: string[] = Array.from({ length: 12 }, (_, i) => i.toString().padStart(2, '0'));
+
+/**
+ * Переводит час из 24-часового формата в 12-часовой (0–11) + AM/PM.
+ */
+export const to12Hour = (hours24: number): { hour12: number; meridiem: Meridiem } => ({
+    hour12: hours24 % 12,
+    meridiem: hours24 < 12 ? 'AM' : 'PM',
+});
+
+/**
+ * Переводит час 12-часового формата и AM/PM обратно в 24-часовой формат.
+ */
+export const to24Hour = (hour12: number, meridiem: Meridiem): number => (hour12 % 12) + (meridiem === 'PM' ? 12 : 0);
+
 export const getColumnsFromFormat = (
     format: string,
     multiplicityMinutes?: number,
     multiplicitySeconds?: number,
+    use12Hours?: boolean,
 ): ColumnConfig[] => {
     const parts = format.split(':');
     const columns: ColumnConfig[] = [];
@@ -30,8 +54,8 @@ export const getColumnsFromFormat = (
             case 'HH':
                 columns.push({
                     type: 'hours',
-                    values: range(24),
-                    format: 'HH',
+                    values: use12Hours ? hours12Range : range(24),
+                    format: use12Hours ? 'hh' : 'HH',
                 });
                 break;
             case 'mm':
@@ -51,6 +75,14 @@ export const getColumnsFromFormat = (
             default:
         }
     });
+
+    if (use12Hours && columns.some((column) => column.type === 'hours')) {
+        columns.push({
+            type: 'meridiem',
+            values: meridiemValues,
+            format: 'A',
+        });
+    }
 
     return columns;
 };
@@ -134,6 +166,9 @@ export const isTimeDisabled = (
 
     return totalSeconds < minSeconds || totalSeconds > maxSeconds;
 };
+
+export const isValueInDisabledList = (value: string, disabledValues: (string | number)[]): boolean =>
+    disabledValues.some((item) => String(item) === value || parseInt(String(item), 10) === parseInt(value, 10));
 
 export const delimiter = ':';
 
