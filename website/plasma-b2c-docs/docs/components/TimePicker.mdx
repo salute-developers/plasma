@@ -93,6 +93,42 @@ export function App() {
 }
 ```
 
+### 12-часовой формат (AM/PM)
+
+Свойство `use12Hours` включает 12-часовой формат: колонка часов показывает значения `00`–`11`,
+а справа добавляется колонка выбора `AM`/`PM`.
+
+:::note Значение всегда остаётся 24-часовым
+`use12Hours` влияет только на отображение. Свойства `value`, `defaultValue`, `min`, `max`,
+`disabledValues` и значение в `onChange` по-прежнему используют 24-часовой формат `HH:mm:ss`.
+Это позволяет не менять логику приложения при переключении формата.
+:::
+
+Полночь и полдень отображаются как `00:00 AM` и `00:00 PM` соответственно.
+
+```tsx live
+import React from 'react';
+import { TimePicker } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const handleTimeChange = (event, formattedValues) => {
+        console.log('Выбрано время:', formattedValues.value);
+    };
+
+    return (
+        <div style={{height: '500px'}}>
+            <TimePicker
+                size="m"
+                use12Hours
+                value="13:30"
+                onChange={handleTimeChange}
+                placeholder="00:00 AM"
+            />
+        </div>
+    );
+}
+```
+
 ### Расположение выпадающего списка
 
 Свойство `dropdownAlign` позволяет выравнивать выпадающий список относительно поля ввода.
