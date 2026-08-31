@@ -12,7 +12,13 @@ type CreateTimePickerStoriesProps = {
     disablePropsList?: string[];
     defaultArgs?: {};
     additionalArgTypes?: {};
-    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element;
+    customIcon?: (
+        size: string,
+        type?: 'left' | 'right',
+        disabled?: boolean,
+        readOnly?: boolean,
+        opened?: boolean,
+    ) => JSX.Element;
 };
 
 export const getTimePickerStories = (config: CreateTimePickerStoriesProps) => {
