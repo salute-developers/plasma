@@ -15,7 +15,13 @@ const getIcon = (IconComponent: React.FC<IconProps>, size: string) => {
 
 export const createDefaultStory = (
     TimePicker: any,
-    customIcon?: (size: string, type?: 'left' | 'right', disabled?: boolean, readOnly?: boolean) => JSX.Element,
+    customIcon?: (
+        size: string,
+        type?: 'left' | 'right',
+        disabled?: boolean,
+        readOnly?: boolean,
+        opened?: boolean,
+    ) => JSX.Element,
 ) => {
     return ({ enableContentLeft, enableContentRight, size, min, max, ...rest }: any) => {
         const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +30,7 @@ export const createDefaultStory = (
 
         const innerGetIcon = (type: 'left' | 'right') => {
             return customIcon
-                ? customIcon(size, type, rest.disabled, rest.readOnly)
+                ? customIcon(size, type, rest.disabled, rest.readOnly, isOpen)
                 : getIcon(defaultIconsByType[type], size);
         };
 
