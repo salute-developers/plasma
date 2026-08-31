@@ -19,6 +19,11 @@ export const classes = {
     dividerAlignRight: 'divider-align-right',
 };
 
+export const privateTokens = {
+    outlineRadius: '--plasma_private-outline-radius',
+    outerPadding: '--plasma_private-outer-padding',
+};
+
 export const tokens = {
     disabledOpacity: '--plasma-tabs-disabled-opacity',
     containerWidth: '--plasma-tabs-container-width',

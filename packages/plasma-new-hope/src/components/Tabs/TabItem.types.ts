@@ -91,7 +91,7 @@ export type CustomHorizontalTabItemProps = {
     /**
      * Размер TabItem
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: string;
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`
@@ -117,7 +117,7 @@ export type CustomHorizontalIconTabItemProps = {
     /**
      * Размер TabItem
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    size?: string;
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`

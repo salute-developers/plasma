@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { classes, tokens } from '../../../../../tokens';
+import { classes, privateTokens, tokens } from '../../../../../tokens';
 
 export const base = css`
     font-family: var(${tokens.fontFamily});
@@ -10,7 +10,7 @@ export const base = css`
     letter-spacing: var(${tokens.letterSpacing});
     line-height: var(${tokens.lineHeight});
 
-    --plasma_private-outline-radius: var(${tokens.itemBorderRadius});
+    ${privateTokens.outlineRadius}: var(${tokens.itemBorderRadius});
     border-radius: var(${tokens.itemBorderRadius});
 
     width: 100%;

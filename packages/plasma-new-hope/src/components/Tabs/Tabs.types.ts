@@ -50,7 +50,7 @@ export type CustomHorizontalTabsProps = {
     /**
      * Размер табов
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'xl';
+    size?: string;
     /**
      * Уберет скругление с выбранной стороны и подвинет контейнер
      * @deprecated

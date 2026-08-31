@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { addFocus } from 'src/mixins';
 
-import { classes, tokens } from '../../../tokens';
+import { classes, privateTokens, tokens } from '../../../tokens';
 
 export const base = css`
     position: relative;
@@ -56,13 +56,13 @@ export const StyledArrow = styled.button`
     transform: rotate(90deg);
     color: var(${tokens.arrowColor});
 
-    --plasma_private-outline-radius: var(${tokens.arrowBorderRadius}, inherit);
+    ${privateTokens.outlineRadius}: var(${tokens.arrowBorderRadius}, inherit);
 
     ${addFocus({
         outlineSize: '0.063rem',
         outlineOffset: '0',
         outlineColor: `var(${tokens.outlineFocusColor})`,
-        outlineRadius: 'calc(var(--plasma_private-outline-radius) - 0.063rem)',
+        outlineRadius: `calc(var(${privateTokens.outlineRadius}) - 0.063rem)`,
     })};
 
     &[disabled] {

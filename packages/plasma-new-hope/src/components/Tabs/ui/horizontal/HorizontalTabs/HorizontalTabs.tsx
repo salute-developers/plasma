@@ -1,6 +1,7 @@
 import React, { forwardRef, useCallback, useMemo, useState, useRef, KeyboardEvent, useLayoutEffect } from 'react';
 import type { MutableRefObject } from 'react';
-import { cx, safeUseId } from 'src/utils';
+import cls from 'classnames';
+import { safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
 
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
@@ -256,7 +257,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
-                    className={cx(
+                    className={cls(
                         pilledClass,
                         stretchClass,
                         hasLeftArrowClass,
@@ -269,7 +270,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                 >
                     {!firstItemVisible && clip === 'scroll' && PreviousButton}
                     <StyledContentWrapper
-                        className={cx(clipScrollClass, clipShowAllClass)}
+                        className={cls(clipScrollClass, clipShowAllClass)}
                         ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
                         onScroll={handleScroll}
                     >

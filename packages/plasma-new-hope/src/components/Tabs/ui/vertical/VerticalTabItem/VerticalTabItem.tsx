@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useContext } from 'react';
 import { useForkRef } from 'src/hooks';
 import type { RootProps } from 'src/engines';
-import { cx } from 'src/utils';
+import cls from 'classnames';
 import { TabsContext } from 'src/components/Tabs';
 
 import { useTabItem, UseTabItemProps } from '../../../hooks/useTabItem';
@@ -71,7 +71,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
                 size={size}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(pilledClass, selectedClass, truncateClass, className)}
+                className={cls(pilledClass, selectedClass, truncateClass, className)}
                 onClick={handleClick}
                 {...rest}
                 style={{
