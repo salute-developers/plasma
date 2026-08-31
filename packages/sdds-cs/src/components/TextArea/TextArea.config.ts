@@ -142,7 +142,7 @@ export const config = {
 
                 ${textAreaTokens.dividerColor}: ${outlineNegative};
                 ${textAreaTokens.dividerColorHover}: ${outlineNegativeHover};
-                ${textAreaTokens.dividerColorFocus}: var(--outline-negative-focus);
+                ${textAreaTokens.dividerColorFocus}: ${outlineNegative};
                 ${textAreaTokens.titleCaptionColor}: ${textSecondary};
                 ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,

@@ -5,6 +5,7 @@ import {
     outlineAccent,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
+    shadowDownHardM,
     surfaceClear,
     surfaceNegative,
     surfaceSolidCard,
@@ -166,13 +167,21 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem;
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyS.fontStyle};
                 ${tokens.leftHelperFontWeight}: ${bodyS.fontWeight};
                 ${tokens.leftHelperLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyS.lineHeight};
 
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
@@ -287,7 +296,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.tooltipBoxShadow}: ${shadowDownHardM};
                 ${tokens.tooltipColor}: ${textPrimary};
                 ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,
