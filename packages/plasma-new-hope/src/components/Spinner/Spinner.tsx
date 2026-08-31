@@ -1,44 +1,33 @@
 import React, { forwardRef } from 'react';
-import { safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { SpinnerSvg } from './SpinnerSvg';
-import { SpinnerWrapper, base, BodyWrapper } from './Spinner.styles';
+import { SpinnerRing, BodyWrapper, base } from './Spinner.styles';
+import { tokens } from './Spinner.tokens';
 import type { SpinnerProps } from './Spinner.types';
-import { useInnerProps } from './hooks';
+import { getCustomSize } from './utils';
 
 export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
     forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
-        const { id, width, height, style, children, ...rest } = props;
+        const { size, width, height, color, children, style, ...rest } = props;
 
-        const innerProps = useInnerProps(props, {
-            wrapperWidth: 'auto',
-            wrapperHeight: 'auto',
-            svgWidth: 'var(--plasma-spinner-size)',
-            svgHeight: 'var(--plasma-spinner-size)',
-            color: 'currentColor',
-        });
-
-        const uniqId = safeUseId;
-        const innerId = id || uniqId();
-
-        const rootStyle =
-            width && height ? { ...style, width: innerProps.wrapperWidth, height: innerProps.wrapperHeight } : style;
+        const customWidth = getCustomSize(width);
+        const customHeight = getCustomSize(height);
+        const customDimensions = customWidth && customHeight ? { width: customWidth, height: customHeight } : undefined;
+        const customSize = customDimensions
+            ? `min(${customDimensions.width}, ${customDimensions.height})`
+            : getCustomSize(size);
+        const customStyle: Record<string, string> = {
+            ...customDimensions,
+            ...(customSize ? { [tokens.size]: customSize } : {}),
+            ...(color ? { color } : {}),
+        };
 
         return (
-            <Root ref={ref} id={innerId} {...rest} style={rootStyle}>
-                <SpinnerWrapper width={innerProps.wrapperWidth} height={innerProps.wrapperHeight}>
-                    <SpinnerSvg
-                        id={innerId}
-                        width={innerProps.svgWidth}
-                        height={innerProps.svgHeight}
-                        color={innerProps.color}
-                    />
-                </SpinnerWrapper>
-
-                <BodyWrapper>{children}</BodyWrapper>
+            <Root ref={ref} size={customSize ? undefined : size} {...rest} style={{ ...style, ...customStyle }}>
+                <SpinnerRing />
+                {children && <BodyWrapper>{children}</BodyWrapper>}
             </Root>
         );
     });
