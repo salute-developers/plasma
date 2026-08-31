@@ -1,3 +1,7 @@
+import { hours12Range, meridiemValues } from './meridiem';
+
+export * from './meridiem';
+
 export interface TimeValues {
     hh: number | null;
     mm: number | null;
@@ -11,7 +15,7 @@ export interface NormalizedSegment {
 }
 
 export interface ColumnConfig {
-    type: 'hours' | 'minutes' | 'seconds';
+    type: 'hours' | 'minutes' | 'seconds' | 'meridiem';
     values: string[];
     format: string;
     disabledValues?: (number | string)[];
@@ -21,6 +25,7 @@ export const getColumnsFromFormat = (
     format: string,
     multiplicityMinutes?: number,
     multiplicitySeconds?: number,
+    use12Hours?: boolean,
 ): ColumnConfig[] => {
     const parts = format.split(':');
     const columns: ColumnConfig[] = [];
@@ -30,8 +35,8 @@ export const getColumnsFromFormat = (
             case 'HH':
                 columns.push({
                     type: 'hours',
-                    values: range(24),
-                    format: 'HH',
+                    values: use12Hours ? hours12Range : range(24),
+                    format: use12Hours ? 'hh' : 'HH',
                 });
                 break;
             case 'mm':
@@ -51,6 +56,14 @@ export const getColumnsFromFormat = (
             default:
         }
     });
+
+    if (use12Hours && columns.some((column) => column.type === 'hours')) {
+        columns.push({
+            type: 'meridiem',
+            values: meridiemValues,
+            format: 'A',
+        });
+    }
 
     return columns;
 };
@@ -134,6 +147,9 @@ export const isTimeDisabled = (
 
     return totalSeconds < minSeconds || totalSeconds > maxSeconds;
 };
+
+export const isValueInDisabledList = (value: string, disabledValues: (string | number)[]): boolean =>
+    disabledValues.some((item) => String(item) === value || parseInt(String(item), 10) === parseInt(value, 10));
 
 export const delimiter = ':';
 

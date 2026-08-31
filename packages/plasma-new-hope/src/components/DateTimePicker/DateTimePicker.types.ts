@@ -109,6 +109,12 @@ export type CalendarProps = {
      */
     maskWithFormat?: boolean;
     /**
+     * Отображать время в 12-часовом формате с колонкой AM/PM.
+     * Влияет только на отображение: `value` и `onChange` остаются в 24-часовом формате.
+     * @default false
+     */
+    use12Hours?: boolean;
+    /**
      * Режим отображения: одиночный или двойной.
      */
     isDouble?: boolean;
@@ -194,6 +200,7 @@ export type UseDateTimePickerArgs = {
     max?: Date;
     includeEdgeDates?: boolean;
     dateOnTimeSelectOnly?: Date;
+    use12Hours?: boolean;
     onChangeValue?: InputProps['onChangeValue'];
     onCommitDate?: InputProps['onCommitDate'];
     onBlur?: InputProps['onBlur'];

@@ -181,6 +181,12 @@ type BasicProps = {
      */
     columnsQuantity?: 2 | 3;
     /**
+     * Отображать время в 12-часовом формате с колонкой AM/PM.
+     * Влияет только на отображение: `value` и `onChange` остаются в 24-часовом формате.
+     * @default false
+     */
+    use12Hours?: boolean;
+    /**
      * Минимальное время (в формате HH:mm:ss или Date)
      */
     min?: string | Date;

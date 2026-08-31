@@ -10,7 +10,7 @@ import type { CalendarValueType, DateInfo, DateType } from '../../Calendar/Calen
 import { classes } from '../DateTimePicker.tokens';
 import type { UseDateTimePickerArgs } from '../DateTimePicker.types';
 import { getMaskedValue } from '../utils/getMaskedValue';
-import { getFormattedDateTime, normalizeDateTime } from '../utils';
+import { getFormattedDateTime, normalizeDateTime, toDisplayDateTime, toValueDateTime } from '../utils';
 
 type GetFormattedCorrectInputArgs = {
     formattedDate: string;
@@ -39,6 +39,7 @@ export const useDateTimePicker = ({
     includeEdgeDates,
     dateOnTimeSelectOnly,
     preserveInvalidOnBlur,
+    use12Hours = false,
     onChangeValue,
     onCommitDate,
     onBlur,
@@ -53,7 +54,9 @@ export const useDateTimePicker = ({
     const delimiters = [dateFormatDelimiter, timeFormatDelimiter, dateTimeSeparator];
 
     const format = dateFormat + dateTimeSeparator + timeFormat;
-    const timeColumnsCount = timeFormat?.split(timeFormatDelimiter).length || 2;
+
+    const meridiemColumnsCount = use12Hours && timeFormat.includes('HH') ? 1 : 0;
+    const timeColumnsCount = (timeFormat?.split(timeFormatDelimiter).length || 2) + meridiemColumnsCount;
 
     const [innerDate, setInnerDate] = useState<string | DateType>(defaultDate || '');
     const dateVisibleValue = outerValue ?? innerDate;
@@ -80,7 +83,13 @@ export const useDateTimePicker = ({
 
     customDayjs.locale(lang);
     const timeVisibleValue = timeGridValue ? customDayjs(timeGridValue).format(timeFormat) : '';
-    const inputValue = initialValues.formattedDate;
+
+    const formats = { dateFormat, timeFormat, dateTimeSeparator };
+    const { text: inputValue, meridiem } = use12Hours
+        ? toDisplayDateTime(initialValues.formattedDate, formats)
+        : { text: initialValues.formattedDate, meridiem: null };
+
+    const toInnerValue = (text: string) => (use12Hours ? toValueDateTime(text, meridiem ?? 'AM', formats) : text);
 
     const getQuarterInfo = (originalDate?: Date) => {
         if (type !== 'Quarters' || !originalDate) {
@@ -152,7 +161,7 @@ export const useDateTimePicker = ({
             : { formattedValue: value, selectionStart };
 
         const { formattedDate, isoDate, originalDate, dateValue, timeValue } = getFormattedDateTime({
-            value: formattedValue,
+            value: toInnerValue(formattedValue),
             lang,
             format,
             dateFormat,
@@ -210,7 +219,7 @@ export const useDateTimePicker = ({
         }
 
         const { formattedDate, isoDate, originalDate } = getFormattedDateTime({
-            value: date,
+            value: toInnerValue(date),
             lang,
             format,
             dateFormat,
@@ -438,6 +447,7 @@ export const useDateTimePicker = ({
         dateVisibleValue,
         calendarGridValue,
         inputValue,
+        meridiem,
         timeVisibleValue,
         timeColumnsCount,
         errorClass,
