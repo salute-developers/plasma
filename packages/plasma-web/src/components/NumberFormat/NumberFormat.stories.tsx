@@ -25,12 +25,10 @@ const { meta: META, Default } = getNumberFormatStories({
         view: {
             options: { ...TextFieldView, empty: '' },
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         status: {
             options: statuses,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         keepPlaceholder: {
             control: { type: 'boolean' },
@@ -38,16 +36,13 @@ const { meta: META, Default } = getNumberFormatStories({
                 arg: 'animatedHint',
                 eq: 'label',
             },
-            table: { category: 'layout' },
         },
         animatedHint: {
             options: labelPlacements,
             control: { type: 'inline-radio' },
-            table: { category: 'layout' },
         },
         helperText: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
     },
     disablePropsList: ['leftHelper'],

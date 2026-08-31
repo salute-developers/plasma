@@ -43,58 +43,47 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             hasValue: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             value: {
                 control: { type: 'number' },
                 if: { arg: 'hasValue', truthy: true },
-                table: { category: 'value-related' },
             },
             precision: {
                 options: scorePrecisions,
                 control: { type: 'select' },
                 if: { arg: 'hasValue', truthy: true },
-                table: { category: 'value-related' },
             },
             decimalSeparator: {
                 control: { type: 'text' },
                 if: { arg: 'hasValue', truthy: true },
-                table: { category: 'value-related' },
             },
             valuePlacement: {
                 options: valuePlacements,
                 control: { type: 'select' },
                 if: { arg: 'hasValue', truthy: true },
-                table: { category: 'value-related' },
             },
             hasIcons: {
                 control: { type: 'boolean' },
                 if: { arg: 'hasValue', truthy: true },
-                table: { category: 'layout' },
             },
             iconQuantity: {
                 options: iconsCount,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             helperText: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             helperTextStretching: {
                 options: helperTextStretchings,
                 control: { type: 'select' },
                 if: { arg: 'helperText', neq: '' },
-                table: { category: 'layout' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),

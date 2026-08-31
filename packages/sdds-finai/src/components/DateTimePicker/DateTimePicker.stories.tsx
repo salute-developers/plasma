@@ -15,7 +15,7 @@ const { meta: META, Default } = getDateTimePickerStories({
         valueEdited: false,
     },
     additionalArgTypes: {
-        valueEdited: { control: { type: 'boolean' }, table: { category: 'layout' } },
+        valueEdited: { control: { type: 'boolean' } },
         appearance: {
             options: ['default', 'clear', 'viewMode'],
             control: { type: 'select' },

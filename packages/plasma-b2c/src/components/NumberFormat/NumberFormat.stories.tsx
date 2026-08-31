@@ -24,21 +24,17 @@ const { meta: META, Default } = getNumberFormatStories({
         status: {
             options: statuses,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         view: {
             options: { ...TextFieldView, empty: '' },
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         animatedHint: {
             options: labelPlacements,
             control: { type: 'inline-radio' },
-            table: { category: 'layout' },
         },
         maxLength: {
             control: { type: 'number' },
-            table: { category: 'value-related' },
         },
         keepPlaceholder: {
             control: { type: 'boolean' },
@@ -46,11 +42,9 @@ const { meta: META, Default } = getNumberFormatStories({
                 arg: 'view',
                 eq: 'innerLabel',
             },
-            table: { category: 'layout' },
         },
         helperText: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
     },
     disablePropsList: ['leftHelper'],
