@@ -26,6 +26,9 @@ const measureStyles = {
     whiteSpace: 'pre',
 } as CSSProperties;
 
+// Запас под каретку
+export const caretReserve = 2;
+
 export function getInputWidth(element: HTMLInputElement, container: HTMLDivElement | null) {
     if (!element || !container) {
         return 0;
@@ -44,5 +47,5 @@ export function getInputWidth(element: HTMLInputElement, container: HTMLDivEleme
     container.appendChild(measure);
     const width = measure.scrollWidth;
     container.removeChild(measure);
-    return width;
+    return width + caretReserve;
 }

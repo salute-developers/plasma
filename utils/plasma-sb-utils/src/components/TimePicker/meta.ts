@@ -47,7 +47,6 @@ export const createMeta = ({
             label: 'Лейбл',
             labelPlacement: 'outer',
             leftHelper: 'Подсказка к полю',
-            placeholder: '00:00:00',
             textBefore: '',
             textAfter: '',
             enableContentLeft: true,
@@ -67,6 +66,7 @@ export const createMeta = ({
             hintHasArrow: true,
             placement: 'bottom-start',
             columnsQuantity: 3,
+            hasTimeFormat: false,
             multiplicityMinutes: 1,
             multiplicitySeconds: 1,
             dropdownWidth: 'fixed',
@@ -224,6 +224,10 @@ export const createMeta = ({
             columnsQuantity: {
                 options: columnsQuantities,
                 control: { type: 'select' },
+                table: { category: 'dropdown' },
+            },
+            hasTimeFormat: {
+                control: { type: 'boolean' },
                 table: { category: 'dropdown' },
             },
             multiplicityMinutes: {

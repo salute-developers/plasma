@@ -32,16 +32,20 @@ export const renderTimeColumn = ({
     timeoutRef,
     timeItemRefs,
 }: TimeColumnProps) => {
+    const isMeridiemColumn = column === 'meridiem';
+
+    const isSameValue = (candidate: string | number | null | undefined, value: string) =>
+        isMeridiemColumn ? String(candidate) === value : parseInt(String(candidate), 10) === parseInt(value, 10);
+
+    const isValueDisabled = (value: string) =>
+        Boolean(disabledValues?.some((disabledValue) => isSameValue(disabledValue, value)));
+
     const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>, columnType: TimeColumnType, value: string) => {
         handleTimeItemKeyDown(e, columnType, value);
     };
 
     const handleClick = (value: string, columnType: TimeColumnType) => {
-        const isDisabled = disabledValues?.some(
-            (disabledValue) => parseInt(disabledValue.toString(), 10) === parseInt(value, 10),
-        );
-
-        if (!isDisabled) {
+        if (!isValueDisabled(value)) {
             handleTimeItemClick(value, columnType);
         }
     };
@@ -51,11 +55,8 @@ export const renderTimeColumn = ({
             return 0;
         }
 
-        const disabledNumbers = disabledValues.map((val) => parseInt(val.toString(), 10));
-
         for (let i = 0; i < values.length; i++) {
-            const currentValue = parseInt(values[i], 10);
-            if (!disabledNumbers.includes(currentValue)) {
+            if (!isValueDisabled(values[i])) {
                 return i;
             }
         }
@@ -76,17 +77,13 @@ export const renderTimeColumn = ({
                 tabIndex={-1}
             >
                 {values.map((value, index) => {
-                    const isDisabled = disabledValues?.some(
-                        (disabledValue) => parseInt(disabledValue.toString(), 10) === parseInt(value, 10),
-                    );
-                    const isActive = activeTime[column] === parseInt(value, 10);
+                    const isDisabled = isValueDisabled(value);
+                    const isActive = isSameValue(activeTime[column], value);
 
                     const getTabIndex = () => {
                         if (isDisabled) return -1;
 
-                        const isValueActive = activeTime[column] === parseInt(value, 10);
-
-                        if (isColumnActive && isValueActive) {
+                        if (isColumnActive && isActive) {
                             return 0;
                         }
                         if (index === minAvailableIndex) {
@@ -123,29 +120,31 @@ export const renderTimeColumn = ({
                 <StyledEmpty />
             </StyledTimeColumn>
 
-            <CustomScrollbar
-                ref={scrollbarRef}
-                className={cls({
-                    [classes.scrollbarVisible]: scrollbarState?.isVisible,
-                })}
-                tabIndex={-1}
-            >
-                <ScrollbarTrack>
-                    <ScrollbarThumb
-                        ref={thumbRef}
-                        style={{
-                            height: `${scrollbarState?.thumbHeight}px`,
-                            top: `${scrollbarState?.thumbPosition}px`,
-                        }}
-                        onMouseDown={
-                            columnRef && setScrollbar && timeoutRef
-                                ? createScrollbarDragHandler(columnRef, setScrollbar, timeoutRef)
-                                : undefined
-                        }
-                        tabIndex={-1}
-                    />
-                </ScrollbarTrack>
-            </CustomScrollbar>
+            {!isMeridiemColumn && (
+                <CustomScrollbar
+                    ref={scrollbarRef}
+                    className={cls({
+                        [classes.scrollbarVisible]: scrollbarState?.isVisible,
+                    })}
+                    tabIndex={-1}
+                >
+                    <ScrollbarTrack>
+                        <ScrollbarThumb
+                            ref={thumbRef}
+                            style={{
+                                height: `${scrollbarState?.thumbHeight}px`,
+                                top: `${scrollbarState?.thumbPosition}px`,
+                            }}
+                            onMouseDown={
+                                columnRef && setScrollbar && timeoutRef
+                                    ? createScrollbarDragHandler(columnRef, setScrollbar, timeoutRef)
+                                    : undefined
+                            }
+                            tabIndex={-1}
+                        />
+                    </ScrollbarTrack>
+                </CustomScrollbar>
+            )}
         </StyledRoot>
     );
 };
