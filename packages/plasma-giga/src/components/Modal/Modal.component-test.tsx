@@ -9,6 +9,13 @@ const Content = styled.div`
     box-sizing: border-box;
 `;
 
+const BodyPad = styled.div`
+    box-sizing: border-box;
+    padding: 2rem;
+`;
+
+const SIZE_M_VIEWPORT = { width: 800, height: 500 } as const;
+
 describe('plasma-giga: Modal', () => {
     const PopupProvider = getComponent('PopupProvider');
     const Modal = getComponent('Modal');
@@ -74,9 +81,12 @@ describe('plasma-giga: Modal', () => {
                     placement={placement}
                     hasBody
                     hasClose={hasClose}
+                    size="s"
                 >
-                    <H3>Modal</H3>
-                    <Button text="Close" onClick={() => setIsOpen(false)} />
+                    <BodyPad>
+                        <H3>Modal</H3>
+                        <Button text="Close" onClick={() => setIsOpen(false)} />
+                    </BodyPad>
                 </Modal>
             </PopupProvider>
         );
@@ -198,8 +208,6 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('hasBody', () => {
-        cy.viewport(800, 800);
-
         mount(
             <CypressTestDecorator>
                 <DemoWithBody hasClose={false} />
@@ -214,8 +222,6 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('hasBody: hasClose', () => {
-        cy.viewport(800, 800);
-
         mount(
             <CypressTestDecorator>
                 <DemoWithBody />
@@ -230,7 +236,15 @@ describe('plasma-giga: Modal', () => {
         cy.get('[data-test="modal-close"]').should('not.exist');
     });
 
-    function DemoWithSlots({ size = 'm', absoluteHeader = false }: { size?: string; absoluteHeader?: boolean }) {
+    function DemoWithSlots({
+        size = 'm',
+        absoluteHeader = false,
+        withImage = true,
+    }: {
+        size?: string;
+        absoluteHeader?: boolean;
+        withImage?: boolean;
+    }) {
         const [isOpen, setIsOpen] = React.useState(true);
         const title = size === 's' ? <H3>Заголовок</H3> : <H2>Заголовок</H2>;
         const buttonSize = size === 's' ? 's' : 'm';
@@ -239,11 +253,20 @@ describe('plasma-giga: Modal', () => {
             <PopupProvider>
                 <Modal opened={isOpen} onClose={() => setIsOpen(false)} hasBody hasClose size={size}>
                     {!absoluteHeader && <ModalHeader>{title}</ModalHeader>}
-                    <ModalImage>
-                        <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
-                    </ModalImage>
+                    {withImage && (
+                        <ModalImage>
+                            <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
+                        </ModalImage>
+                    )}
                     {absoluteHeader && <ModalHeader absolute>{title}</ModalHeader>}
-                    <div style={{ minHeight: '4.875rem' }} />
+                    <div
+                        style={{
+                            minHeight: '4.875rem',
+                            ...(withImage ? undefined : { padding: '0.75rem 1.5rem' }),
+                        }}
+                    >
+                        {!withImage && 'Content'}
+                    </div>
                     <ModalFooter>
                         <Button size={buttonSize} text="Label" />
                         <Button size={buttonSize} view="secondary" text="Label" />
@@ -254,7 +277,7 @@ describe('plasma-giga: Modal', () => {
     }
 
     it('hasBody: slots size=m', () => {
-        cy.viewport(800, 800);
+        cy.viewport(SIZE_M_VIEWPORT.width, SIZE_M_VIEWPORT.height);
 
         mount(
             <CypressTestDecorator>
@@ -278,11 +301,21 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('hasBody: absoluteHeader and ModalImage', () => {
-        cy.viewport(800, 800);
-
         mount(
             <CypressTestDecorator>
-                <DemoWithSlots absoluteHeader />
+                <DemoWithSlots size="s" absoluteHeader />
+            </CypressTestDecorator>,
+        );
+
+        cy.contains('Заголовок').should('be.visible');
+        cy.get('[data-test="modal-close"]').should('be.visible');
+        cy.matchImageSnapshot();
+    });
+
+    it('hasBody: absoluteHeader without ModalImage', () => {
+        mount(
+            <CypressTestDecorator>
+                <DemoWithSlots size="s" absoluteHeader withImage={false} />
             </CypressTestDecorator>,
         );
 
@@ -292,8 +325,6 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('hasBody: resizable', () => {
-        cy.viewport(800, 800);
-
         function Resizable() {
             const [isOpen, setIsOpen] = React.useState(true);
 
@@ -304,13 +335,16 @@ describe('plasma-giga: Modal', () => {
                         placement="center"
                         hasBody
                         hasClose
+                        size="s"
                         resizable={{
-                            defaultSize: { width: 640, height: 150 },
+                            defaultSize: { width: 320, height: 200 },
                             directions: ['bottom-right'],
                         }}
                     >
-                        Content
-                        <Button text="Close" onClick={() => setIsOpen(false)} />
+                        <BodyPad>
+                            Content
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </BodyPad>
                     </Modal>
                 </PopupProvider>
             );
