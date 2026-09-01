@@ -1,4 +1,5 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
+import cls from 'classnames';
 import { safeUseId } from 'src/utils';
 import { RootProps, component } from 'src/engines';
 import { useFocusTrap, useForkRef } from 'src/hooks';
@@ -12,6 +13,7 @@ import { classes, tokens } from './Modal.tokens';
 import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
+import { base as sizeCSS } from './variations/_size/base';
 import { getIdLastModal } from './ModalContext';
 import { CloseButton, ModalBody, ModalContent, base } from './Modal.styles';
 
@@ -42,6 +44,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 popupInfo,
                 children,
                 view,
+                size,
                 opened,
                 isOpen,
                 hasBody,
@@ -55,6 +58,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
         ) => {
             const innerIsOpen = Boolean(isOpen || opened);
             const innerHasClose = (hasClose === undefined && hasBody) || hasClose;
+            const isResizable = Boolean(resizable && (resizable === true || !resizable.disabled));
             const trapRef = useFocusTrap(
                 isFocusTrapped,
                 initialFocusRef,
@@ -127,9 +131,9 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     {...rest}
                 >
                     {hasBody ? (
-                        <Root view={view}>
-                            <ModalBody>
-                                <ModalContent>
+                        <Root view={view} size={size} className={cls(isResizable && classes.resizable)}>
+                            <ModalBody className={cls(isResizable && classes.resizable)}>
+                                <ModalContent className={innerHasClose ? classes.hasClose : undefined}>
                                     {innerHasClose && (
                                         <CloseButton onClick={onClose} data-test="modal-close">
                                             <IconClose size="s" color="currentColor" />
@@ -156,8 +160,12 @@ export const modalConfig = {
         view: {
             css: viewCSS,
         },
+        size: {
+            css: sizeCSS,
+        },
     },
     defaults: {
         view: 'default',
+        size: 'm',
     },
 };
