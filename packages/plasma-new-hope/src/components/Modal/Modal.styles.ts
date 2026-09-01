@@ -37,6 +37,14 @@ export const ModalContent = styled.div`
     &.${classes.hasClose} .${classes.header} {
         padding-right: calc(var(${tokens.modalCloseButtonRight}, 0px) + var(${tokens.modalCloseButtonSize}, 1.5rem));
     }
+
+    .${classes.headerAbsolute} {
+        background: var(${tokens.modalBodyBackground});
+    }
+
+    &:has(.${classes.image}) .${classes.headerAbsolute} {
+        background: transparent;
+    }
 `;
 
 export const CloseButton = styled.button`
