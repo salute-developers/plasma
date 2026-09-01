@@ -23,6 +23,7 @@ export const FloatingContent = styled.div``;
 
 export const StyledTimePickerGrid = styled(TimePickerGrid)<{
     columns: number;
+    hasMeridiem?: boolean;
     innerWidth?: string | number;
     innerHeight?: string | number;
 }>`
@@ -52,7 +53,15 @@ export const StyledTimePickerGrid = styled(TimePickerGrid)<{
     padding: var(${tokens.timePickerPadding});
     box-shadow: var(${tokens.timePickerShadow});
     
-    width: ${({ innerWidth }) => innerWidth || `var(${tokens.timePickerWidth})`};
+    width: ${({ innerWidth, columns, hasMeridiem }) => {
+        if (innerWidth) {
+            return innerWidth;
+        }
+
+        return hasMeridiem
+            ? `calc(var(${tokens.itemHeight}) * ${columns} + var(${tokens.scrollbarWidth}) * ${columns - 1})`
+            : `var(${tokens.timePickerWidth})`;
+    }};
     height: ${({ innerHeight }) => innerHeight || `var(${tokens.columnHeight})`};
 `;
 

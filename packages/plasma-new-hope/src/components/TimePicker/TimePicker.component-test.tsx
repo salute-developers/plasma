@@ -528,4 +528,132 @@ describeFn('TimePicker', () => {
         cy.get('@onChange').its('lastCall.args.1').should('have.property', 'value');
         cy.get('@onChange').its('lastCall.args.1').should('have.property', 'timeValues');
     });
+    it('use12Hours: shows a 24-hour value in 12-hour format', () => {
+        cy.viewport(580, 800);
+
+        mount(
+            <>
+                <TimePicker use12Hours value="13:30" />
+                <TimePicker use12Hours value="00:00" />
+                <TimePicker use12Hours value="12:00" />
+            </>,
+        );
+
+        cy.get('input').eq(0).should('have.value', '01:30 PM');
+        cy.get('input').eq(1).should('have.value', '00:00 AM');
+        cy.get('input').eq(2).should('have.value', '00:00 PM');
+    });
+
+    it('use12Hours: turns typed digits into a 12-hour time and a 24-hour value', () => {
+        cy.viewport(580, 900);
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePicker use12Hours onChange={onChange} />);
+
+        cy.get('input').first().click().type('1230');
+
+        cy.get('input').first().should('have.value', '11:30');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '11:30');
+    });
+
+    it('use12Hours: fills in AM on blur when the meridiem was left out', () => {
+        cy.viewport(580, 900);
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePicker use12Hours onChange={onChange} />);
+
+        cy.get('input').first().click().type('0130');
+        cy.get('input').first().should('have.value', '01:30');
+
+        cy.get('body').click(0, 0);
+
+        cy.get('input').first().should('have.value', '01:30 AM');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '01:30');
+    });
+
+    it('use12Hours: does not fill in AM on blur while the time is incomplete', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours />);
+
+        cy.get('input').first().click().type('013');
+        cy.get('body').click(0, 0);
+
+        cy.get('input').first().should('have.value', '01:3');
+    });
+
+    it('use12Hours: restores the erased meridiem on blur', () => {
+        cy.viewport(580, 900);
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePicker use12Hours onChange={onChange} />);
+
+        cy.get('input').first().click().type('0130p');
+        cy.get('input').first().type('{backspace}');
+        cy.get('input').first().should('have.value', '01:30');
+
+        cy.get('body').click(0, 0);
+
+        cy.get('input').first().should('have.value', '01:30 PM');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '13:30');
+    });
+
+    it('use12Hours: switches the meridiem from the dropdown', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours />);
+
+        cy.get('input').first().click().type('0130');
+        cy.get('[data-column="meridiem"][data-value="PM"]').first().click();
+
+        cy.get('input').first().should('have.value', '01:30 PM');
+    });
+
+    it('use12Hours: renders the meridiem column and disables it outside min', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours columnsQuantity={3} value="13:00:00" min="12:00:00" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-column="meridiem"]').should('have.length', 2);
+        cy.get('[data-column="meridiem"][data-value="AM"]').should('have.attr', 'aria-disabled', 'true');
+        cy.get('[data-column="meridiem"][data-value="PM"]').should('have.attr', 'aria-disabled', 'false');
+    });
+
+    it('use12Hours: dropdown with the meridiem column', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours value="13:30" />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('use12Hours: dropdown with the meridiem column and seconds', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours columnsQuantity={3} value="13:30:45" />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('use12Hours: dropdown with min and max', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours value="13:30" min="12:01" max="13:35" />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
+    });
 });

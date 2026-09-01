@@ -45,6 +45,7 @@ export const Default: StoryObj<StoryPropsDefault> = {
         size: 'l',
         view: 'default',
         disabled: false,
+        use12Hours: false,
         min: '00:00:01',
         max: '22:22:22',
         disabledValues: '{"hour":[0,1],"minute":[3,4]}',

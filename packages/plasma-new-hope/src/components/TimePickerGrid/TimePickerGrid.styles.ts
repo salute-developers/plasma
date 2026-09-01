@@ -7,12 +7,17 @@ export const base = css`
     width: 100%;
 `;
 
-export const StyledTimePicker = styled.div<{ width?: string | number }>`
+export const StyledTimePicker = styled.div<{ width?: string | number; columns?: number }>`
     background: var(${tokens.timePickerGridBackground});
     border-radius: var(${tokens.timePickerGridBorderRadius});
-    width: ${({ width }) => {
+
+    width: ${({ width, columns }) => {
         if (width === 'fullWidth') return '100%';
-        if (width === 'fixed' || width === undefined) return `var(${tokens.timePickerGridWidth})`;
+        if (width === 'fixed' || width === undefined) {
+            return columns
+                ? `calc(var(${tokens.itemHeight}) * ${columns} + var(${tokens.scrollbarWidth}) * ${columns - 1})`
+                : `var(${tokens.timePickerGridWidth})`;
+        }
         return width;
     }};
     display: flex;
