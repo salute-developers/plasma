@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
@@ -8,6 +8,25 @@ const Content = styled.div`
     height: 100%;
     box-sizing: border-box;
 `;
+
+const BodyPad = styled.div`
+    box-sizing: border-box;
+    padding: 2rem;
+`;
+
+const WIDE_VIEWPORT = { width: 800, height: 500 } as const;
+
+function getEdgeOffset(placement?: string): [number, number] {
+    if (placement === 'left' || placement === 'right') {
+        return [1, 0];
+    }
+
+    if (placement === 'top' || placement === 'bottom') {
+        return [0, 1];
+    }
+
+    return [0, 0];
+}
 
 describe('plasma-giga: Modal', () => {
     const PopupProvider = getComponent('PopupProvider');
@@ -47,21 +66,23 @@ describe('plasma-giga: Modal', () => {
                     onClose={() => setIsOpen(false)}
                     withBlur={withBlur}
                     placement={placement}
+                    offset={getEdgeOffset(placement)}
                     hasBody
                     hasClose={hasClose}
+                    size="s"
                     closeOnEsc={closeOnEsc}
                     closeOnOverlayClick={closeOnOverlayClick}
                 >
-                    <H3>Modal</H3>
-                    <Button id="button-close" text="Close" onClick={() => setIsOpen(false)} />
+                    <BodyPad>
+                        <H3>Modal</H3>
+                        <Button id="button-close" text="Close" onClick={() => setIsOpen(false)} />
+                    </BodyPad>
                 </Modal>
             </PopupProvider>
         );
     }
 
     it('[PLASMA-T1647] ModalBase: placement=top, withBlur, closeOnEsc', () => {
-        cy.viewport(800, 800);
-
         mount(
             <CypressTestDecorator>
                 <Demo placement="top" withBlur />
@@ -80,8 +101,6 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('[PLASMA-T1648] ModalBase: placement=bottom, closeOnOverlayClick, hasClose', () => {
-        cy.viewport(800, 800);
-
         mount(
             <CypressTestDecorator>
                 <Demo placement="bottom" hasClose closeOnOverlayClick closeOnEsc={false} />
@@ -100,7 +119,7 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('[PLASMA-T1649] ModalBase: placement=right', () => {
-        cy.viewport(800, 800);
+        cy.viewport(WIDE_VIEWPORT.width, WIDE_VIEWPORT.height);
 
         mount(
             <CypressTestDecorator>
@@ -115,7 +134,7 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('[PLASMA-T1650] ModalBase: placement=left', () => {
-        cy.viewport(800, 800);
+        cy.viewport(WIDE_VIEWPORT.width, WIDE_VIEWPORT.height);
 
         mount(
             <CypressTestDecorator>
@@ -198,7 +217,7 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('ModalBase: hasBody, slots, size=m', () => {
-        cy.viewport(800, 800);
+        cy.viewport(WIDE_VIEWPORT.width, WIDE_VIEWPORT.height);
 
         function DemoWithSlots() {
             const [isOpen, setIsOpen] = React.useState(true);
@@ -300,8 +319,6 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('ModalBase: hasBody, resizable', () => {
-        cy.viewport(800, 800);
-
         function Resizable() {
             const [isOpen, setIsOpen] = React.useState(true);
 
@@ -312,13 +329,16 @@ describe('plasma-giga: Modal', () => {
                         placement="center"
                         hasBody
                         hasClose
+                        size="s"
                         resizable={{
-                            defaultSize: { width: 640, height: 150 },
+                            defaultSize: { width: 320, height: 200 },
                             directions: ['bottom-right'],
                         }}
                     >
-                        Content
-                        <Button text="Close" onClick={() => setIsOpen(false)} />
+                        <BodyPad>
+                            Content
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </BodyPad>
                     </Modal>
                 </PopupProvider>
             );

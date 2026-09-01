@@ -1,6 +1,5 @@
 import React, { forwardRef, useCallback, useMemo } from 'react';
-import cls from 'classnames';
-import { safeUseId } from 'src/utils';
+import { safeUseId, cx } from 'src/utils';
 import { RootProps, component } from 'src/engines';
 import { useFocusTrap, useForkRef } from 'src/hooks';
 import { IconClose } from 'src/components/_Icon';
@@ -131,8 +130,8 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     {...rest}
                 >
                     {hasBody ? (
-                        <Root view={view} size={size} className={cls(isResizable && classes.resizable)}>
-                            <ModalBody className={cls(isResizable && classes.resizable)}>
+                        <Root view={view} size={size} className={cx(isResizable && classes.resizable)}>
+                            <ModalBody className={cx(isResizable && classes.resizable)}>
                                 <ModalContent className={innerHasClose ? classes.hasClose : undefined}>
                                     {innerHasClose && (
                                         <CloseButton onClick={onClose} data-test="modal-close">
