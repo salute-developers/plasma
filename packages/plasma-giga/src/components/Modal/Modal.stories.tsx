@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import styled, { css } from 'styled-components';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, disableProps, getConfigVariations } from '@salutejs/plasma-sb-utils';
 
 import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
@@ -15,6 +15,8 @@ import { config } from './Modal.config';
 import { Modal, ModalFooter, ModalHeader, ModalImage, modalClasses } from '.';
 import type { ModalProps } from '.';
 
+const { sizes } = getConfigVariations(config);
+
 const meta: Meta<ModalProps> = {
     title: 'Overlay/Modal',
     decorators: [InSpacingDecorator],
@@ -24,7 +26,7 @@ const meta: Meta<ModalProps> = {
     argTypes: {
         ...disableProps(['hasBody']),
         size: {
-            options: Object.keys(config.variations.size),
+            options: sizes,
             control: {
                 type: 'select',
             },
@@ -35,6 +37,11 @@ const meta: Meta<ModalProps> = {
             },
         },
         showFooter: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        footerColumn: {
             control: {
                 type: 'boolean',
             },
@@ -151,6 +158,7 @@ type StoryModalProps = ComponentProps<typeof Modal> & {
     hasClose?: boolean;
     showHeader?: boolean;
     showFooter?: boolean;
+    footerColumn?: boolean;
     showImage?: boolean;
     absoluteHeader?: boolean;
     content?: string;
@@ -209,6 +217,13 @@ const ButtonWrapper = styled.div`
     flex-direction: column;
 `;
 
+const FooterColumn = styled(ModalFooter)`
+    && {
+        flex-direction: column;
+        align-items: stretch;
+    }
+`;
+
 const StyledModal = styled(Modal)`
     && > .${popupClasses.root}, .${modalClasses.overlay} {
         animation: fadeIn 1s forwards;
@@ -249,6 +264,7 @@ const StoryModalDemo = ({
     offsetY,
     showHeader = true,
     showFooter = true,
+    footerColumn = false,
     showImage = true,
     absoluteHeader = false,
     content = 'Content',
@@ -258,6 +274,7 @@ const StoryModalDemo = ({
 }: StoryModalProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const title = size === 's' ? <H3>Заголовок</H3> : <H2>Заголовок</H2>;
+    const Footer = footerColumn ? FooterColumn : ModalFooter;
 
     return (
         <SSRProvider>
@@ -288,10 +305,20 @@ const StoryModalDemo = ({
                         {showHeader && absoluteHeader && <ModalHeader absolute>{title}</ModalHeader>}
                         <BodyContent>{content}</BodyContent>
                         {showFooter && (
-                            <ModalFooter>
-                                <Button view="default" size="m" text="Label" />
-                                <Button view="secondary" size="m" text="Label" />
-                            </ModalFooter>
+                            <Footer>
+                                <Button
+                                    view="default"
+                                    size="m"
+                                    text="Label"
+                                    stretching={footerColumn ? 'filled' : undefined}
+                                />
+                                <Button
+                                    view="secondary"
+                                    size="m"
+                                    text="Label"
+                                    stretching={footerColumn ? 'filled' : undefined}
+                                />
+                            </Footer>
                         )}
                     </StyledModal>
                 </PopupProvider>
@@ -383,6 +410,7 @@ export const Default: StoryObj<StoryModalProps> = {
         showFooter: true,
         showImage: true,
         absoluteHeader: false,
+        footerColumn: false,
         content: 'Content',
     },
     argTypes: {
