@@ -1,29 +1,26 @@
-import React from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getSpinnerStories } from '@salutejs/plasma-sb-utils';
 
-import { Spinner, SpinnerProps } from '.';
+import { Button } from '../Button/Button';
+
+import { config } from './Spinner.config';
+
+import { Spinner } from '.';
+
+type SpinnerProps = ComponentProps<typeof Spinner>;
+
+const { meta: META, Default, Live } = getSpinnerStories({
+    component: Spinner,
+    componentConfig: config,
+    additionalComponents: { Button },
+});
 
 const meta: Meta<SpinnerProps> = {
+    ...META,
     title: 'Data Display/Spinner',
-    component: Spinner,
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        size: {
-            options: [8, 16, 32, 64, 96, 128],
-            control: {
-                type: 'select',
-            },
-        },
-        ...disableProps(['color', 'theme', 'as', 'forwardedAs']),
-    },
 };
 
 export default meta;
 
-export const Default: StoryObj<SpinnerProps> = {
-    args: {
-        size: 32,
-    },
-    render: (args) => <Spinner {...args} />,
-};
+export { Default, Live };
