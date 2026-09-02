@@ -9,14 +9,26 @@ export const config = {
     },
     variations: {
         size: {
+            xxs: css`
+                ${spinnerTokens.size}: 1rem;
+            `,
+            xs: css`
+                ${spinnerTokens.size}: 1.5rem;
+            `,
             s: css`
-                ${spinnerTokens.size}: 16px;
+                ${spinnerTokens.size}: 2.25rem;
             `,
             m: css`
-                ${spinnerTokens.size}: 24px;
+                ${spinnerTokens.size}: 3rem;
             `,
             l: css`
-                ${spinnerTokens.size}: 36px;
+                ${spinnerTokens.size}: 3.5rem;
+            `,
+            xl: css`
+                ${spinnerTokens.size}: 5.5rem;
+            `,
+            xxl: css`
+                ${spinnerTokens.size}: 8rem;
             `,
         },
         view: {

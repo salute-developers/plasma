@@ -7,7 +7,7 @@ import {
     textTertiary,
     textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_cs';
-import { css } from '@salutejs/plasma-new-hope/emotion';
+import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
     defaults: {
@@ -15,30 +15,53 @@ export const config = {
         size: 'm',
     },
     variations: {
+        size: {
+            xxs: css`
+                ${tokens.size}: 1rem;
+            `,
+            xs: css`
+                ${tokens.size}: 1.5rem;
+            `,
+            s: css`
+                ${tokens.size}: 2.25rem;
+            `,
+            m: css`
+                ${tokens.size}: 3rem;
+            `,
+            l: css`
+                ${tokens.size}: 3.5rem;
+            `,
+            xl: css`
+                ${tokens.size}: 5.5rem;
+            `,
+            xxl: css`
+                ${tokens.size}: 8rem;
+            `,
+        },
         view: {
             default: css`
-                --plasma-spinner-color: ${textPrimary};
+                ${tokens.color}: ${textPrimary};
             `,
             secondary: css`
-                --plasma-spinner-color: ${textSecondary};
+                ${tokens.color}: ${textSecondary};
             `,
             tertiary: css`
-                --plasma-spinner-color: ${textTertiary};
+                ${tokens.color}: ${textTertiary};
             `,
             paragraph: css`
-                --plasma-spinner-color: var(--text-paragraph);
+                ${tokens.color}: var(--text-paragraph);
             `,
             accent: css`
-                --plasma-spinner-color: ${textAccent};
+                ${tokens.color}: ${textAccent};
             `,
             positive: css`
-                --plasma-spinner-color: ${textPositive};
+                ${tokens.color}: ${textPositive};
             `,
             warning: css`
-                --plasma-spinner-color: ${textWarning};
+                ${tokens.color}: ${textWarning};
             `,
             negative: css`
-                --plasma-spinner-color: ${textNegative};
+                ${tokens.color}: ${textNegative};
             `,
         },
     },
