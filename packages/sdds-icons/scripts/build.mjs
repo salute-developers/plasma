@@ -6,12 +6,11 @@ import { fileURLToPath } from 'node:url';
 import { generateIcons } from './generate-icons.mjs';
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const buildRoot = path.join(packageRoot, 'build-temp');
 const distRoot = path.join(packageRoot, 'dist');
 
-const runTypeScript = () =>
+const runTypeScript = (configPath) =>
     new Promise((resolve, reject) => {
-        const typeScript = spawn('tsc', ['-p', path.join(packageRoot, 'tsconfig.build.json')], {
+        const typeScript = spawn('tsc', ['-p', configPath], {
             cwd: packageRoot,
             stdio: 'inherit',
         });
@@ -27,13 +26,66 @@ const runTypeScript = () =>
         });
     });
 
+const pathExists = async (targetPath) => {
+    try {
+        await fs.access(targetPath);
+        return true;
+    } catch (error) {
+        if (error?.code === 'ENOENT') {
+            return false;
+        }
+
+        throw error;
+    }
+};
+
+const publishDist = async ({ nextDistRoot, previousDistRoot }) => {
+    const hadPreviousDist = await pathExists(distRoot);
+
+    if (hadPreviousDist) {
+        await fs.rename(distRoot, previousDistRoot);
+    }
+
+    try {
+        await fs.rename(nextDistRoot, distRoot);
+    } catch (error) {
+        if (hadPreviousDist && !(await pathExists(distRoot))) {
+            await fs.rename(previousDistRoot, distRoot);
+        }
+
+        throw error;
+    }
+
+    if (hadPreviousDist) {
+        await fs.rm(previousDistRoot, { recursive: true, force: true });
+    }
+};
+
+const workingRoot = await fs.mkdtemp(path.join(packageRoot, '.build-temp-'));
+const sourceRoot = path.join(workingRoot, 'source');
+const nextDistRoot = path.join(workingRoot, 'dist');
+const previousDistRoot = path.join(workingRoot, 'previous-dist');
+const typeScriptConfigPath = path.join(workingRoot, 'tsconfig.json');
+
 try {
-    await fs.rm(distRoot, { recursive: true, force: true });
-    await generateIcons({ outputRoot: buildRoot });
-    await runTypeScript();
-} catch (error) {
-    await fs.rm(distRoot, { recursive: true, force: true });
-    throw error;
+    await generateIcons({ outputRoot: sourceRoot });
+    await fs.writeFile(
+        typeScriptConfigPath,
+        `${JSON.stringify(
+            {
+                extends: '../tsconfig.json',
+                compilerOptions: {
+                    rootDir: './source',
+                    outDir: './dist',
+                },
+                include: ['./source'],
+            },
+            null,
+            4,
+        )}\n`,
+    );
+    await runTypeScript(typeScriptConfigPath);
+    await publishDist({ nextDistRoot, previousDistRoot });
 } finally {
-    await fs.rm(buildRoot, { recursive: true, force: true });
+    await fs.rm(workingRoot, { recursive: true, force: true });
 }

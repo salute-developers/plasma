@@ -5,8 +5,6 @@ import {
     bodyS,
     bodyXS,
     inverseTextPrimary,
-    onDarkTextPrimary,
-    onDarkTextPrimaryHover,
     surfaceAccent,
     surfaceAccentHover,
     surfaceClear,
@@ -66,8 +64,8 @@ const accentConfig = `
     ${tokens.completedIndicatorBackgroundHover}: ${surfaceAccentHover};
 
     // Цвет контента внутри элемента Step
-    ${tokens.completedIndicatorColor}: ${onDarkTextPrimary};
-    ${tokens.completedIndicatorColorHover}: ${onDarkTextPrimaryHover};
+    ${tokens.completedIndicatorColor}: ${inverseTextPrimary};
+    ${tokens.completedIndicatorColorHover}: ${inverseTextPrimary};
 `;
 
 export const config = {

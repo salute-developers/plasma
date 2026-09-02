@@ -7,11 +7,11 @@ import {
     mergeConfig,
 } from '@salutejs/plasma-new-hope/emotion';
 
-import { config } from './Drawer.config';
+import { config, headerConfig } from './Drawer.config';
 
 const mergedConfig = mergeConfig(drawerConfig, config);
 const mergedContentConfig = mergeConfig(drawerContentConfig);
-const mergedHeaderConfig = mergeConfig(drawerHeaderConfig);
+const mergedHeaderConfig = mergeConfig(drawerHeaderConfig, headerConfig);
 const mergedFooterConfig = mergeConfig(drawerFooterConfig);
 
 /**

@@ -11,7 +11,7 @@ import { PropsTable } from '@site/src/components';
 
 ## Быстрый старт
 
-Используйте комбинацию компонента `NotificationsProvider` и метода `addNotification` для вызова компонента `Notification`.
+Используйте `NotificationsProvider` и методы из `useNotifications` для вызова компонента `Notification`.
 
 :::info
 Notifications закрываются автоматически по истечению указанного `timeout` в миллисекундах или если передан `0` или `null` то будут висеть бесконечно.
@@ -19,27 +19,35 @@ Notifications закрываются автоматически по истеч�
 
 ```tsx live
 import React, { useCallback } from 'react';
-import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-homeds';
+import { Button, ButtonGroup, NotificationsProvider, useNotifications } from '@salutejs/plasma-homeds';
 
 export function App() {
-    const handleShow = useCallback(() => {
-        addNotification({
-            id: 'incoming-call',
-            title: 'Входящий вызов',
-            children: 'Принять?',
-        }, 3000);
-    }, []);
+    function NotificationExample() {
+        const { addNotification, closeNotification } = useNotifications();
 
-    const handleHide = useCallback(() => {
-        closeNotification('incoming-call');
-    }, []);
+        const handleShow = useCallback(() => {
+            addNotification({
+                id: 'incoming-call',
+                title: 'Входящий вызов',
+                children: 'Принять?',
+            }, 3000);
+        }, [addNotification]);
 
-    return (
-        <NotificationsProvider>
+        const handleHide = useCallback(() => {
+            closeNotification('incoming-call');
+        }, [closeNotification]);
+
+        return (
             <ButtonGroup isCommonButtonStyles={false}>
                 <Button view="accent" text="Показать оповещение" onClick={handleShow} />
                 <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
             </ButtonGroup>
+        );
+    }
+
+    return (
+        <NotificationsProvider>
+            <NotificationExample />
         </NotificationsProvider>
     );
 }
@@ -77,6 +85,12 @@ closeNotification(NotificationID);
 :::
 
 `NotificationsProvider` может использоваться как в корне приложения или по месту применения в любой части приложения.
+
+:::info
+Если на странице используется несколько `NotificationsProvider`, вызывайте `addNotification` и `closeNotification`,
+полученные из `useNotifications`. В этом случае уведомление использует `placement`, `frame` и остальные свойства
+ближайшего провайдера. Глобальные функции предназначены для сценария с одним провайдером.
+:::
 
 ```tsx title="index.ts"
 import ReactDOM from 'react-dom';
@@ -148,32 +162,40 @@ addNotification({
 ```tsx live
 import React, { useCallback } from 'react';
 import { IconBell } from '@salutejs/plasma-icons';
-import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-homeds';
+import { Button, ButtonGroup, NotificationsProvider, useNotifications } from '@salutejs/plasma-homeds';
 
 export function App() {
-    const handleShow = useCallback(() => {
-        // INFO: Настраиваем содержимое и внешний вид компонента Notification
-        addNotification({
-            id: 'incoming-call',
-            title: 'Входящий вызов',
-            icon: <IconBell color="inherit" size="xs" />,
-            children: 'Принять?',
-            view: 'positive',
-            textColor: 'black',
-            titleColor: 'blue'
-        }, 3000);
-    }, []);
+    function NotificationExample() {
+        const { addNotification, closeNotification } = useNotifications();
 
-    const handleHide = useCallback(() => {
-        closeNotification('incoming-call');
-    }, []);
+        const handleShow = useCallback(() => {
+            // INFO: Настраиваем содержимое и внешний вид компонента Notification
+            addNotification({
+                id: 'incoming-call',
+                title: 'Входящий вызов',
+                icon: <IconBell color="inherit" size="xs" />,
+                children: 'Принять?',
+                view: 'positive',
+                textColor: 'black',
+                titleColor: 'blue'
+            }, 3000);
+        }, [addNotification]);
 
-    return (
-        <NotificationsProvider>
+        const handleHide = useCallback(() => {
+            closeNotification('incoming-call');
+        }, [closeNotification]);
+
+        return (
             <ButtonGroup isCommonButtonStyles={false}>
                 <Button view="accent" text="Показать оповещение" onClick={handleShow} />
                 <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
             </ButtonGroup>
+        );
+    }
+
+    return (
+        <NotificationsProvider>
+            <NotificationExample />
         </NotificationsProvider>
     );
 }
@@ -191,31 +213,39 @@ export function App() {
 ```tsx live
 import React, { useCallback } from 'react';
 import { IconBell } from '@salutejs/plasma-icons';
-import { Button, ButtonGroup, addNotification, closeNotification, NotificationsProvider } from '@salutejs/plasma-homeds';
+import { Button, ButtonGroup, NotificationsProvider, useNotifications } from '@salutejs/plasma-homeds';
 
 export function App() {
-    const handleShow = useCallback(() => {
-        addNotification({
-            id: 'incoming-call',
-            title: 'Входящий вызов',
-            icon: <IconBell color="inherit" size="xs" />,
-            children: 'Задача организации, в особенности же сплочённость команды профессионалов требует определения и уточнения глубокомысленных рассуждений.',
-            view: 'positive',
-            width: 'fit-content',
-            maxWidth: '30rem'
-        }, 3000);
-    }, []);
+    function NotificationExample() {
+        const { addNotification, closeNotification } = useNotifications();
 
-    const handleHide = useCallback(() => {
-        closeNotification('incoming-call');
-    }, []);
+        const handleShow = useCallback(() => {
+            addNotification({
+                id: 'incoming-call',
+                title: 'Входящий вызов',
+                icon: <IconBell color="inherit" size="xs" />,
+                children: 'Задача организации, в особенности же сплочённость команды профессионалов требует определения и уточнения глубокомысленных рассуждений.',
+                view: 'positive',
+                width: 'fit-content',
+                maxWidth: '30rem'
+            }, 3000);
+        }, [addNotification]);
 
-    return (
-        <NotificationsProvider>
+        const handleHide = useCallback(() => {
+            closeNotification('incoming-call');
+        }, [closeNotification]);
+
+        return (
             <ButtonGroup isCommonButtonStyles={false}>
                 <Button view="accent" text="Показать оповещение" onClick={handleShow} />
                 <Button view="secondary" text="Скрыть оповещение" onClick={handleHide} />
             </ButtonGroup>
+        );
+    }
+
+    return (
+        <NotificationsProvider>
+            <NotificationExample />
         </NotificationsProvider>
     );
 }

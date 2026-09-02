@@ -9,6 +9,12 @@ export type TourCardProps = {
      */
     orientation?: 'horizontal' | 'vertical';
     /**
+     * Позиционирование содержимого карточки.
+     * @description Применяется только при ориентации 'horizontal'
+     * @default 'row-reverse'
+     */
+    contentDirection?: 'row-reverse' | 'row';
+    /**
      * Название карточки
      */
     title?: string;
@@ -25,6 +31,17 @@ export type TourCardProps = {
      * @default true
      */
     showPagination?: boolean;
+    /**
+     * Количество отображаемых точек пагинации
+     * @default 7
+     */
+    paginationVisibleItems?: number;
+    /**
+     * Вод пагинации
+     * @default dot
+     * @description 'compact' прменяется только если orientation = 'horizontal'
+     */
+    paginationType?: 'dot' | 'compact';
     /**
      * Индекс текущего шага
      */
@@ -63,5 +80,10 @@ export type TourCardProps = {
     /**
      * Размер карточки тура
      */
+    size?: string;
+} & HTMLAttributes<HTMLDivElement>;
+
+export type RootTourCardProps = {
+    view?: string;
     size?: string;
 } & HTMLAttributes<HTMLDivElement>;

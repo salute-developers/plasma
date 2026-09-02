@@ -27,6 +27,7 @@ import {
     onLightTextSecondary,
     surfaceAccent,
     surfaceAccentActive,
+    surfaceAccentGradient,
     surfaceAccentHover,
     surfaceClear,
     surfaceNegative,
@@ -163,6 +164,16 @@ export const config = {
                 ${buttonTokens.buttonColorActive}: ${onLightTextPrimaryActive};
                 ${buttonTokens.buttonBackgroundColorHover}: ${onDarkSurfaceSolidDefaultHover};
                 ${buttonTokens.buttonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
+            `,
+            gradient: css`
+                ${buttonTokens.buttonColor}: ${onLightTextPrimary};
+                ${buttonTokens.buttonTextColor}: ${onLightTextPrimary};
+                ${buttonTokens.buttonIconColor}: ${onLightTextPrimary};
+                ${buttonTokens.buttonValueColor}: ${onLightTextSecondary};
+                ${buttonTokens.buttonBackgroundColor}: ${surfaceAccentGradient};
+                ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
+                ${buttonTokens.buttonBackgroundColorHover}: ${surfaceAccentGradient};
+                ${buttonTokens.buttonBackgroundColorActive}: ${surfaceAccentGradient};
             `,
         },
         size: {

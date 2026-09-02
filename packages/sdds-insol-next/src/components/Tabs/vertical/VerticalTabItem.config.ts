@@ -139,5 +139,10 @@ export const config = {
         truncate: {
             true: css``,
         },
+        pilled: {
+            true: css`
+                ${tabsTokens.itemPilledBorderRadius}: 1.5rem;
+            `,
+        },
     },
 };

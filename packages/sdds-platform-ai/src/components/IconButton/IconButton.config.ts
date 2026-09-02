@@ -133,7 +133,7 @@ export const config = {
         size: {
             xl: css`
                 ${iconButtonTokens.iconButtonHeight}: 4rem;
-                ${iconButtonTokens.iconButtonWidth}: 4.25rem;
+                ${iconButtonTokens.iconButtonWidth}: 4rem;
                 ${iconButtonTokens.iconButtonPadding}: 1.375rem;
                 ${iconButtonTokens.iconButtonRadius}: 1rem;
 
@@ -165,7 +165,7 @@ export const config = {
             `,
             m: css`
                 ${iconButtonTokens.iconButtonHeight}: 3rem;
-                ${iconButtonTokens.iconButtonWidth}: 3.25rem;
+                ${iconButtonTokens.iconButtonWidth}: 3rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.875rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.75rem;
 
@@ -181,7 +181,7 @@ export const config = {
             `,
             s: css`
                 ${iconButtonTokens.iconButtonHeight}: 2.5rem;
-                ${iconButtonTokens.iconButtonWidth}: 2.75rem;
+                ${iconButtonTokens.iconButtonWidth}: 2.5rem;
 
                 ${iconButtonTokens.iconButtonPadding}: 1rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.625rem;
@@ -201,6 +201,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonWidth}: 2rem;
                 ${iconButtonTokens.iconButtonPadding}: 0.75rem;
                 ${iconButtonTokens.iconButtonRadius}: 0.5rem;
+
                 ${iconButtonTokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
                 ${iconButtonTokens.iconButtonFontSize}: ${bodyXS.fontSize};
                 ${iconButtonTokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
@@ -209,6 +210,22 @@ export const config = {
                 ${iconButtonTokens.iconButtonLineHeight}: ${bodyXS.lineHeight};
 
                 ${iconButtonTokens.iconButtonSpinnerSize}: 1rem;
+                ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
+            `,
+            xxs: css`
+                ${iconButtonTokens.iconButtonHeight}: 1.5rem;
+                ${iconButtonTokens.iconButtonWidth}: 1.5rem;
+                ${iconButtonTokens.iconButtonPadding}: 0.5rem;
+                ${iconButtonTokens.iconButtonRadius}: 0.375rem;
+
+                ${iconButtonTokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
+                ${iconButtonTokens.iconButtonFontSize}: ${bodyXS.fontSize};
+                ${iconButtonTokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
+                ${iconButtonTokens.iconButtonFontWeight}: ${bodyXSBold.fontWeight};
+                ${iconButtonTokens.iconButtonLetterSpacing}: ${bodyXS.letterSpacing};
+                ${iconButtonTokens.iconButtonLineHeight}: ${bodyXS.lineHeight};
+
+                ${iconButtonTokens.iconButtonSpinnerSize}: 0.75rem;
                 ${iconButtonTokens.iconButtonSpinnerColor}: inherit;
             `,
         },

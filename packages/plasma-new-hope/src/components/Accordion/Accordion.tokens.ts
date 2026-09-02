@@ -7,6 +7,8 @@ export const classes = {
     clearAccordionItem: 'clear-accordion-item',
     accordionItemShowBody: 'accordion-item-show-body',
     accordionPlusAnimationElement: 'accordion-plus-animation-element',
+    accordionArrowAnimation: 'accordion-arrow-animation',
+    accordionSignAnimation: 'accordion-sign-animation',
     accordionDisabled: 'accordion-disabled',
     accordionItemBody: 'accordion-item-body',
 };

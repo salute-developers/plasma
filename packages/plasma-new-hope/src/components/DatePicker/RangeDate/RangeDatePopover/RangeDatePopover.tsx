@@ -14,6 +14,7 @@ import { StyledCalendar, StyledCalendarDouble } from './RangeDatePopover.styles'
 export const RangeDatePopover = ({
     rootWrapper: Root,
     target,
+    referenceRef,
 
     opened,
     isDoubleCalendar,
@@ -109,6 +110,7 @@ export const RangeDatePopover = ({
                 closeOnEsc={closeOnEsc}
                 portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
                 target={target}
+                referenceRef={referenceRef}
                 innerWidth={calendarContainerWidthValue}
                 innerHeight={calendarContainerHeightValue}
                 stretchHeight={isCalendarHeightStretched}
@@ -181,6 +183,7 @@ export const RangeDatePopover = ({
             closeOnEsc={closeOnEsc}
             portal={usePortal ? (frame as string | RefObject<HTMLElement>) : undefined}
             target={target}
+            referenceRef={referenceRef}
             innerWidth={calendarContainerWidthValue}
             innerHeight={calendarContainerHeightValue}
             stretchHeight={isCalendarHeightStretched}

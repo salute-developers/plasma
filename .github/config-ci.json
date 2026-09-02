@@ -34,7 +34,8 @@
         "sdds-bizcom",
         "sdds-platform-ai",
         "sdds-os",
-        "sdds-sbcom"
+        "sdds-sbcom",
+        "sdds-icons"
     ],
     "PACKAGES_TYPESENSE": [
         "plasma-b2c",

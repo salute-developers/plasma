@@ -1,5 +1,5 @@
 export { NotificationsProvider, Notification } from './Notification';
-export { addNotification, closeNotification } from '@salutejs/plasma-new-hope/emotion';
+export { addNotification, closeNotification, useNotifications } from '@salutejs/plasma-new-hope/emotion';
 
 export type {
     NotificationProps,

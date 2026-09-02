@@ -134,7 +134,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             nativeMode,
             valueToItemMap,
             renderValue,
-            onChangeValue,
         });
 
         const currentLabel = getTextValue(multiple, value, valueToItemMap, renderValue);
@@ -217,6 +216,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const handleTextValueChange = (e: ChangeEvent<HTMLInputElement>) => {
             if (!filterValue || filterValue(e.target.value)) {
                 setTextValue(e.target.value);
+
+                if (onChangeValue) {
+                    onChangeValue(e.target.value);
+                }
             }
             dispatchPath({ type: 'opened_first_level' });
             dispatchFocusedPath({ type: 'reset' });

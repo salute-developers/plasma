@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-colors",
-  "version": "0.21.0",
+  "version": "0.21.1-dev.0",
   "description": "All color palettes for Salute Ecosystem",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -25,6 +25,11 @@
     "generate": "npx ts-node ./lib/generate.ts",
     "lint": "../../node_modules/.bin/eslint ./src --ext .ts --quiet"
   },
-  "files": ["dist", "es"],
-  "contributors": ["salute.developers@gmail.com"]
+  "files": [
+    "dist",
+    "es"
+  ],
+  "contributors": [
+    "salute.developers@gmail.com"
+  ]
 }

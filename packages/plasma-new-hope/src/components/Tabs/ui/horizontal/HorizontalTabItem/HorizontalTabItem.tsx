@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useContext } from 'react';
 import { useForkRef } from 'src/hooks';
 import type { RootProps } from 'src/engines';
-import { cx } from 'src/utils';
+import cls from 'classnames';
 import { TabsContext, HorizontalTabItemProps } from 'src/components/Tabs';
 
 import { classes } from '../../../tokens';
@@ -27,6 +27,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLButtonElement, Horizon
             view,
             isActive,
             selected,
+            disableScroll,
             disabled = false,
             pilled = false,
             children,
@@ -62,6 +63,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLButtonElement, Horizon
             innerRef,
             itemIndex,
             selected,
+            disableScroll,
             disabled,
             onIndexChange,
             onClick,
@@ -80,7 +82,7 @@ export const horizontalTabItemRoot = (Root: RootProps<HTMLButtonElement, Horizon
                 size={size as any}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(pilledClass, selectedClass, animatedClass, truncateClass, className)}
+                className={cls(pilledClass, selectedClass, animatedClass, truncateClass, className)}
                 onClick={handleClick}
                 {...rest}
                 style={{

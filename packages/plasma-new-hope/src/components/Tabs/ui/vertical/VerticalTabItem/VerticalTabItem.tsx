@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useContext } from 'react';
 import { useForkRef } from 'src/hooks';
 import type { RootProps } from 'src/engines';
-import { cx } from 'src/utils';
+import cls from 'classnames';
 import { TabsContext } from 'src/components/Tabs';
 
 import { useTabItem, UseTabItemProps } from '../../../hooks/useTabItem';
@@ -11,6 +11,7 @@ import { VerticalTabItemProps } from '../../../TabItem.types';
 import { ActionContent, base, LeftContent, RightContent, StyledContent, TabItemValue } from './VerticalTabItem.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
+import { base as pilledCSS } from './variations/_pilled/base';
 import { base as disabledCSS } from './variations/_disabled/base';
 
 export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalTabItemProps>) =>
@@ -19,7 +20,9 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             size,
             view,
             selected,
+            disableScroll,
             disabled = false,
+            pilled = false,
             children,
             value,
             contentLeft,
@@ -40,6 +43,8 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
 
         const role = 'tab';
 
+        const pilledAttr = view !== 'clear' && pilled;
+        const pilledClass = pilledAttr ? classes.tabsPilled : undefined;
         const selectedClass = selected ? classes.selectedTabsItem : undefined;
         const truncateClass = maxWidth !== 'auto' ? classes.tabsTruncate : undefined;
 
@@ -48,6 +53,7 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             innerRef,
             itemIndex,
             selected,
+            disableScroll,
             disabled,
             onIndexChange,
             onClick,
@@ -59,12 +65,13 @@ export const verticalTabItemRoot = (Root: RootProps<HTMLButtonElement, VerticalT
             <Root
                 ref={ref}
                 disabled={disabled}
+                pilled={pilled}
                 role={role}
                 view={view}
                 size={size}
                 onFocus={onItemFocus}
                 tabIndex={hasKeyNavigation ? navigationTabIndex : tabIndex}
-                className={cx(selectedClass, truncateClass, className)}
+                className={cls(pilledClass, selectedClass, truncateClass, className)}
                 onClick={handleClick}
                 {...rest}
                 style={{
@@ -100,6 +107,9 @@ export const verticalTabItemConfig = {
         disabled: {
             css: disabledCSS,
             attrs: true,
+        },
+        pilled: {
+            css: pilledCSS,
         },
     },
     defaults: {

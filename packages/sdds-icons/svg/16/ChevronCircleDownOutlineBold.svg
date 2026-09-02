@@ -1,0 +1,12 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<metadata>{"aliases":["chevron","down","circle","arrow","bottom","navigate"],"category":"Navigation &amp; Movement","source":"16/ChevronCircleDown/ChevronCircleDownOutlineBold","size":"16"}</metadata>
+<g clip-path="url(#clip0_183_445)">
+<path d="M11.0117 6.26172C11.2812 5.99226 11.7188 5.99226 11.9883 6.26172C12.2577 6.53118 12.2577 6.96882 11.9883 7.23828L8.48828 10.7383C8.21882 11.0077 7.78118 11.0077 7.51172 10.7383L4.01172 7.23828C3.74226 6.96882 3.74226 6.53118 4.01172 6.26172C4.28118 5.99226 4.71882 5.99226 4.98828 6.26172L8 9.27344L11.0117 6.26172Z" fill="black"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 0.80957C11.9709 0.80957 15.1904 4.02907 15.1904 8C15.1904 11.9709 11.9709 15.1904 8 15.1904C4.02907 15.1904 0.80957 11.9709 0.80957 8C0.80957 4.02907 4.02907 0.80957 8 0.80957ZM8 2.19043C4.79123 2.19043 2.19043 4.79123 2.19043 8C2.19043 11.2088 4.79123 13.8096 8 13.8096C11.2088 13.8096 13.8096 11.2088 13.8096 8C13.8096 4.79123 11.2088 2.19043 8 2.19043Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0_183_445">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

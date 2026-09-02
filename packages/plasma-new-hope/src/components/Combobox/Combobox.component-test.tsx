@@ -1407,6 +1407,34 @@ describeFn('Combobox', () => {
         cy.get('@onChangeValue').should('have.been.calledThrice');
     });
 
+    it('onChangeValue: triggers only on user input', () => {
+        const handleSingleChangeValue = cy.stub().as('onSingleChangeValue');
+        const handleMultipleChangeValue = cy.stub().as('onMultipleChangeValue');
+
+        mount(
+            <div style={{ display: 'flex', gap: '1rem' }}>
+                <Combobox id="single" onChangeValue={handleSingleChangeValue} items={flatItems} />
+                <Combobox id="multiple" onChangeValue={handleMultipleChangeValue} items={flatItems} multiple />
+            </div>,
+        );
+
+        cy.get('#single').type('Па');
+        cy.get('@onSingleChangeValue').should('have.been.calledTwice');
+
+        cy.get('[id$="paris"]').click();
+        cy.get('@onSingleChangeValue').should('have.been.calledTwice');
+
+        cy.get('#single').click().type('Л').type('{esc}');
+        cy.get('@onSingleChangeValue').should('have.been.calledThrice');
+
+        cy.get('#multiple').type('Па');
+        cy.get('@onMultipleChangeValue').should('have.been.calledTwice');
+
+        cy.get('[id$="paris"]').click();
+        cy.get('#multiple').should('have.value', '');
+        cy.get('@onMultipleChangeValue').should('have.been.calledTwice');
+    });
+
     it('renderSelectionIcon', () => {
         cy.viewport(1200, 400);
 

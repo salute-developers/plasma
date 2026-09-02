@@ -4,6 +4,7 @@ import { tokens } from './Popover.tokens';
 
 export const base = css`
     border-radius: var(${tokens.borderRadius});
+    outline: none;
 `;
 
 export const Wrapper = styled.div`

@@ -6,17 +6,24 @@ import type { ComponentPropsWithoutRef, ComponentType, ReactNode } from 'react';
 import dynamicIconImports from './dynamicIconImports.js';
 
 export type IconName = keyof typeof dynamicIconImports;
+type IconProps = ComponentPropsWithoutRef<'svg'> & {
+    gradient?: string;
+};
 
 export interface DynamicIconProps extends ComponentPropsWithoutRef<'svg'> {
     name: IconName;
     fallback?: ReactNode;
+    gradient?: string;
 }
 
-type IconComponent = ComponentType<ComponentPropsWithoutRef<'svg'> & React.RefAttributes<SVGSVGElement>>;
+type IconComponent = ComponentType<IconProps & React.RefAttributes<SVGSVGElement>>;
 type LoadedIcon = {
     name: IconName;
     component: IconComponent;
 };
+type IconLoader = () => Promise<{ default: IconComponent }>;
+
+const iconLoaders = dynamicIconImports as Record<IconName, IconLoader>;
 
 export const iconNames = Object.keys(dynamicIconImports) as IconName[];
 
@@ -28,7 +35,7 @@ const loadIcon = async (name: IconName): Promise<IconComponent> => {
         throw new Error(`[sdds-icons]: Icon "${name}" was not found`);
     }
 
-    const iconModule = await dynamicIconImports[name]();
+    const iconModule = await iconLoaders[name]();
 
     return iconModule.default;
 };
@@ -38,13 +45,23 @@ export const DynamicIcon = /* @__PURE__ */ forwardRef<SVGSVGElement, DynamicIcon
         const [loadedIcon, setLoadedIcon] = useState<LoadedIcon>();
 
         useEffect(() => {
+            let active = true;
+
             loadIcon(name)
                 .then((component) => {
-                    setLoadedIcon({ name, component });
+                    if (active) {
+                        setLoadedIcon({ name, component });
+                    }
                 })
                 .catch((error: unknown) => {
-                    console.error(error);
+                    if (active) {
+                        console.error(error);
+                    }
                 });
+
+            return () => {
+                active = false;
+            };
         }, [name]);
 
         if (loadedIcon?.name !== name) {

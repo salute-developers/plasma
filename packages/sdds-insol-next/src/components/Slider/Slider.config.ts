@@ -4,12 +4,12 @@ import {
     bodyM,
     bodyS,
     bodyXS,
-    onLightSurfaceSolidCard,
     outlineClear,
     outlineSolidSecondary,
     shadowDownSoftS,
     surfaceAccent,
     surfaceAccentGradient,
+    surfaceSolidCard,
     surfaceSolidDefault,
     surfaceSolidTertiary,
     surfaceTransparentCard,
@@ -32,9 +32,9 @@ export const config = {
 
                 ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
-                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidDefault};
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidCard};
+                ${sliderTokens.thumbBackgroundColor}: ${surfaceAccent};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidCard};
 
                 ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
 
@@ -63,9 +63,9 @@ export const config = {
 
                 ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
-                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidDefault};
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidCard};
+                ${sliderTokens.thumbBackgroundColor}: ${surfaceAccent};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidCard};
 
                 ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
 
@@ -94,9 +94,9 @@ export const config = {
 
                 ${sliderTokens.rangeValueColor}: ${textSecondary};
 
-                ${sliderTokens.thumbBorderColor}: ${surfaceSolidTertiary};
-                ${sliderTokens.thumbBackgroundColor}: ${onLightSurfaceSolidCard};
-                ${sliderTokens.thumbFocusBorderColor}: ${surfaceAccentGradient};
+                ${sliderTokens.thumbBorderColor}: ${surfaceSolidCard};
+                ${sliderTokens.thumbBackgroundColor}: ${surfaceAccent};
+                ${sliderTokens.thumbFocusBorderColor}: ${surfaceSolidCard};
 
                 ${sliderTokens.railBackgroundColor}: ${surfaceSolidTertiary};
 
@@ -272,17 +272,27 @@ export const config = {
         },
         pointerSize: {
             small: css`
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+                ${sliderTokens.thumbWidth}: 1.5rem;
+                ${sliderTokens.thumbHeight}: 1rem;
+                ${sliderTokens.thumbBorderWidth}: 0.09375rem 0.1875rem;
+                ${sliderTokens.thumbBorderRadius}: 0.6875rem / 0.59375rem;
+                ${sliderTokens.thumbInnerContent}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='3'%3E%3Crect width='12' height='3' rx='1.5' fill='%23FFFFFF'/%3E%3C/svg%3E");
+
+                ${sliderTokens.currentValueTopOffset}: 1.375rem;
             `,
             large: css`
-                ${sliderTokens.thumbSize}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
-                ${sliderTokens.thumbBorderWidth}: 0.0625rem;
+                ${sliderTokens.thumbWidth}: 2rem;
+                ${sliderTokens.thumbHeight}: 1.25rem;
+                ${sliderTokens.thumbBorderWidth}: 0.125rem 0.25rem;
+                ${sliderTokens.thumbBorderRadius}: 0.875rem / 0.75rem;
+                ${sliderTokens.thumbInnerContent}: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Crect width='16' height='4' rx='2' fill='%23FFFFFF'/%3E%3C/svg%3E");
+
+                ${sliderTokens.currentValueTopOffset}: 1.625rem;
             `,
             none: css`
-                ${sliderTokens.thumbSize}: 0rem;
+                ${sliderTokens.thumbWidth}: 0rem;
+
+                ${sliderTokens.currentValueTopOffset}: 1.5rem;
             `,
         },
         disabled: {
@@ -291,4 +301,96 @@ export const config = {
             `,
         },
     },
+    intersections: [
+        {
+            size: 's',
+            pointerSize: 'small',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.25rem;
+                }
+            `,
+        },
+        {
+            size: 'm',
+            pointerSize: 'small',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1.25rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.5rem;
+                }
+            `,
+        },
+        {
+            size: 'l',
+            pointerSize: 'small',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1.25rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.5rem;
+                }
+            `,
+        },
+        {
+            size: 's',
+            pointerSize: 'large',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1.25rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.375rem;
+                }
+            `,
+        },
+        {
+            size: 'm',
+            pointerSize: 'large',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1.5rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.625rem;
+                }
+            `,
+        },
+        {
+            size: 'l',
+            pointerSize: 'large',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1.5rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.625rem;
+                }
+            `,
+        },
+        {
+            size: 's',
+            pointerSize: 'none',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1rem;
+                }
+            `,
+        },
+        {
+            size: 'm',
+            pointerSize: 'none',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1.5rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.25rem;
+                }
+            `,
+        },
+        {
+            size: 'l',
+            pointerSize: 'none',
+            style: css`
+                ${sliderTokens.currentValueTopOffset}: 1.5rem;
+                &.slider-vertical-orientation {
+                    ${sliderTokens.currentValueTopOffset}: 1.25rem;
+                }
+            `,
+        },
+    ],
 };

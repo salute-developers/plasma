@@ -19,6 +19,11 @@ export const classes = {
     dividerAlignRight: 'divider-align-right',
 };
 
+export const privateTokens = {
+    outlineRadius: '--plasma_private-outline-radius',
+    outerPadding: '--plasma_private-outer-padding',
+};
+
 export const tokens = {
     disabledOpacity: '--plasma-tabs-disabled-opacity',
     containerWidth: '--plasma-tabs-container-width',
@@ -52,6 +57,7 @@ export const tokens = {
 
     itemBorderRadius: '--plasma-tab-item-border-radius',
     itemPilledBorderRadius: '--plasma-tab-item-pilled-border-radius',
+    itemOutlineRadius: '--plasma-tab-item-outline-radius',
     itemWidth: '--plasma-tab-item-width',
     itemHeight: '--plasma-tab-item-height',
     itemPadding: '--plasma-tab-item-padding',
@@ -68,6 +74,8 @@ export const tokens = {
     arrowInnerPadding: '--plasma-tab-arrow-inner-padding',
     arrowOuterPadding: '--plasma-tab-arrow-outer-padding',
     arrowViewOuterPadding: '--plasma-tab-arrow-view-outer-padding',
+    arrowSize: '--plasma-tab-arrow-size',
+    arrowBorderRadius: '--plasma-tab-arrow-border-radius',
 
     itemColor: '--plasma-tab-item-color',
     itemValueColor: '--plasma-tab-item-value-color',

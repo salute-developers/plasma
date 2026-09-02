@@ -152,10 +152,16 @@ export const tokens = {
 
     sliderProgressBackground: '--plasma-textfield-slider__slider-progress-background',
 
-    sliderThumbSize: '--plasma-textfield-slider__slider-thumb-size',
+    sliderThumbWidth: '--plasma-textfield-slider__slider-thumb-width',
+    sliderThumbHeight: '--plasma-textfield-slider__slider-thumb-height',
     sliderThumbBackground: '--plasma-textfield-slider__slider-thumb-background',
-    sliderThumbBorderBoxShadow: '--plasma-textfield-slider__slider-thumb-border-box-shadow',
-    sliderThumbBorderBoxShadowFocus: '--plasma-textfield-slider__slider-thumb-border-box-shadow-focus',
+
+    sliderThumbInnerContent: '--plasma-textfield-slider__slider-thumb-inner-content',
+    sliderThumbBorderWidth: '--plasma-textfield-slider__slider-thumb-border-width',
+    sliderThumbBorderRadius: '--plasma-textfield-slider__slider-thumb-border-radius',
+
+    sliderThumbBorderColor: '--plasma-textfield-slider__slider-thumb-border-color',
+    sliderThumbFocusBorderColor: '--plasma-textfield-slider__slider-thumb-focus-border-color',
 
     /* токены для scale */
     scaleWrapperOffset: '--plasma-textfield-slider__scale-wrapper-offset',

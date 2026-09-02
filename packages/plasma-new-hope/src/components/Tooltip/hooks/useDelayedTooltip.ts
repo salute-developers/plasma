@@ -1,12 +1,12 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
 export const useDelayedTooltip = (openDelay: number, closeDelay: number) => {
     const [opened, setOpened] = useState(false);
 
-    const openTimeoutRef = useRef<number | null>(null);
-    const closeTimeoutRef = useRef<number | null>(null);
+    const openTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    const clearTimeouts = () => {
+    const clearTimeouts = useCallback(() => {
         if (openTimeoutRef.current) {
             clearTimeout(openTimeoutRef.current);
             openTimeoutRef.current = null;
@@ -16,32 +16,38 @@ export const useDelayedTooltip = (openDelay: number, closeDelay: number) => {
             clearTimeout(closeTimeoutRef.current);
             closeTimeoutRef.current = null;
         }
-    };
+    }, []);
 
-    const showTooltip = () => {
+    const showTooltip = useCallback(() => {
         clearTimeouts();
 
         openTimeoutRef.current = setTimeout(() => {
             setOpened(true);
         }, openDelay);
-    };
+    }, [clearTimeouts, openDelay]);
 
-    const hideTooltip = () => {
+    const hideTooltip = useCallback(() => {
         clearTimeouts();
 
         closeTimeoutRef.current = setTimeout(() => {
             setOpened(false);
         }, closeDelay);
-    };
+    }, [clearTimeouts, closeDelay]);
+
+    const resetTooltip = useCallback(() => {
+        clearTimeouts();
+        setOpened(false);
+    }, [clearTimeouts]);
 
     useEffect(() => {
         return clearTimeouts;
-    }, []);
+    }, [clearTimeouts]);
 
     return {
         opened,
         setOpened,
         showTooltip,
         hideTooltip,
+        resetTooltip,
     };
 };

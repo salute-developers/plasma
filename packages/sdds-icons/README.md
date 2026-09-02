@@ -1,6 +1,6 @@
 # SDDS Icons
 
-React-иконки для Salute Design System с поддержкой tree-shaking.
+React-иконки для Salute Design System с поддержкой tree-shaking. Пакет содержит одинаковый набор из 2126 иконок в размерах `16`, `24` и `36`.
 
 ## Установка
 
@@ -8,30 +8,45 @@ React-иконки для Salute Design System с поддержкой tree-shak
 npm install @salutejs/sdds-icons
 ```
 
+## Совместимость
+
+Пакет поставляется только в формате ES Modules. Для его использования необходимы:
+
+-   синтаксис `import`;
+-   сборщик с поддержкой поля `exports` в `package.json`;
+-   TypeScript с `moduleResolution`, равным `bundler`, `node16` или `nodenext`.
+
+CommonJS и `require()` не поддерживаются:
+
+```js
+// Не поддерживается
+const icons = require('@salutejs/sdds-icons/24');
+```
+
 ## Использование
 
 Выберите размер иконки в пути импорта. Пакет поддерживает именованный импорт из общего файла размера:
 
 ```tsx
-import { AddFillIcon } from '@salutejs/sdds-icons/24';
+import { AddFill } from '@salutejs/sdds-icons/24';
 
-export const AddButton = () => <AddFillIcon />;
+export const AddButton = () => <AddFill />;
 ```
 
 Также доступен прямой импорт конкретной иконки. Он позволяет сборщику не обрабатывать общий файл со всеми иконками выбранного размера:
 
 ```tsx
-import AddFillIcon from '@salutejs/sdds-icons/24/AddFillIcon';
+import AddFill from '@salutejs/sdds-icons/24/AddFill';
 
-export const AddButton = () => <AddFillIcon />;
+export const AddButton = () => <AddFill />;
 ```
 
 У пакета нет экспорта из корня, поэтому размер необходимо указывать всегда. Доступны размеры `16`, `24` и `36`:
 
 ```tsx
-import { AddFillIcon as AddFillIcon16 } from '@salutejs/sdds-icons/16';
-import { AddFillIcon as AddFillIcon24 } from '@salutejs/sdds-icons/24';
-import { AddFillIcon as AddFillIcon36 } from '@salutejs/sdds-icons/36';
+import { AddFill as AddFill16 } from '@salutejs/sdds-icons/16';
+import { AddFill as AddFill24 } from '@salutejs/sdds-icons/24';
+import { AddFill as AddFill36 } from '@salutejs/sdds-icons/36';
 ```
 
 Каждая точка входа содержит только SVG-иконки соответствующего размера. Компоненты создают один элемент `svg`, наследуют цвет через `currentColor`, поддерживают `ref` и принимают стандартные свойства SVG.
@@ -39,14 +54,16 @@ import { AddFillIcon as AddFillIcon36 } from '@salutejs/sdds-icons/36';
 Размер по умолчанию соответствует выбранному варианту. Отображаемые ширину и высоту можно переопределить стандартными SVG-свойствами:
 
 ```tsx
-<AddFillIcon width={32} height={32} color="tomato" />
+<AddFill width={32} height={32} color="tomato" />
 ```
 
-В `color` также можно передать CSS-градиент. В этом случае контур иконки используется как маска, а градиент заполняет всю область иконки:
+Через свойство `gradient` можно передать CSS-градиент. В этом случае оптимизированный SVG используется как CSS-маска, а градиент заполняет всю область иконки:
 
 ```tsx
-<AddFillIcon color="linear-gradient(135deg, #00d6ff 0%, #9b51e0 100%)" />
+<AddFill gradient="linear-gradient(135deg, #00d6ff 0%, #9b51e0 100%)" />
 ```
+
+Для отображения градиентов Content Security Policy приложения должна разрешать `data:` в директиве `img-src`.
 
 ## Динамические иконки
 
@@ -55,7 +72,7 @@ import { AddFillIcon as AddFillIcon36 } from '@salutejs/sdds-icons/36';
 ```tsx
 import { DynamicIcon } from '@salutejs/sdds-icons/24/dynamic';
 
-export const ServerIcon = () => <DynamicIcon name="AddFillIcon" />;
+export const ServerIcon = () => <DynamicIcon name="AddFill" />;
 ```
 
 Иконка загружается отдельным модулем только после появления компонента в браузере. Пока модуль загружается, можно показать fallback-компонент:
@@ -63,7 +80,7 @@ export const ServerIcon = () => <DynamicIcon name="AddFillIcon" />;
 ```tsx
 import { DynamicIcon } from '@salutejs/sdds-icons/24/dynamic';
 
-export const ServerIcon = () => <DynamicIcon name="AddFillIcon" fallback={<span>Загрузка…</span>} />;
+export const ServerIcon = () => <DynamicIcon name="AddFill" fallback={<span>Загрузка…</span>} />;
 ```
 
 Для произвольной строки доступна проверка, которая одновременно сужает TypeScript-тип:
@@ -75,9 +92,9 @@ export const ServerIcon = ({ iconName }: { iconName: string }) =>
     isIconName(iconName) ? <DynamicIcon name={iconName} /> : null;
 ```
 
-Также динамическая точка входа экспортирует `IconName`, `iconNames` и `dynamicIconImports`. Реестр генерируется автоматически из SVG выбранного размера.
+Также динамическая точка входа экспортирует `IconName`, `iconNames` и `isIconName`. Реестр загрузчиков остается внутренней деталью реализации `DynamicIcon`.
 
-Динамический API предназначен только для случаев, когда имя заранее неизвестно. Он заставляет сборщик обработать весь реестр и создать отдельный модуль для каждой иконки. Для обычного интерфейса статические импорты быстрее при сборке и не требуют дополнительного запроса в браузере.
+Динамический API предназначен только для случаев, когда имя заранее неизвестно. Он заставляет сборщик обработать весь реестр и создать отдельный модуль для каждой иконки — для текущего набора это 2126 модулей на размер. Для обычного интерфейса статические импорты быстрее при сборке и не требуют дополнительного запроса в браузере.
 
 ## Разработка
 
@@ -90,15 +107,35 @@ svg/
 └── 36/AddFill.svg
 ```
 
-Сейчас в пакете оставлена одна иконка в трёх размерах для разработки архитектуры. Чтобы добавить новую иконку, положите SVG с одинаковым именем во все три директории. Например, `Search.svg` должен существовать в `svg/16`, `svg/24` и `svg/36`.
+Во всех трёх директориях должен находиться одинаковый набор файлов. Чтобы добавить новую иконку, положите SVG с одинаковым именем во все три директории. Например, `Search.svg` должен существовать в `svg/16`, `svg/24` и `svg/36`. Сборка завершается ошибкой, если наборы имён различаются.
 
-Команда сборки создаёт временное дерево `build-temp`, генерирует в нём React-компоненты, динамические реестры и точки входа, компилирует его TypeScript и удаляет временные файлы:
+Команда сборки создаёт уникальное временное дерево `.build-temp-*`, генерирует в нём React-компоненты, динамические реестры и точки входа, компилирует его TypeScript и удаляет временные файлы:
 
 ```sh
 npm run build
 ```
 
-Временное дерево `build-temp` удаляется и после успешной сборки, и при ошибке. В `src` находятся общая фабрика `createIcon` и размерные фабрики `createIcon16`, `createIcon24`, `createIcon36`: они задают размер, `viewBox`, поддержку `ref`, стандартных SVG-свойств и градиентного `color`. Единственным источником геометрии иконок остаются файлы в `svg`. SVGO оптимизирует SVG-разметку, а SVGR преобразует её в JSX; заполнения и обводки становятся `currentColor`.
+Временное дерево удаляется и после успешной сборки, и при ошибке. Готовый `dist` заменяется только после успешной генерации и TypeScript-компиляции. В `src` находятся общая фабрика `createIcon` и размерные фабрики `createIcon16`, `createIcon24`, `createIcon36`: они задают размер, `viewBox`, поддержку `ref`, стандартных SVG-свойств и градиентного `gradient`.
+
+Единственным источником геометрии иконок остаются файлы в `svg`. SVGO оптимизирует SVG-разметку, а SVGR преобразует её в JSX; заполнения и обводки становятся `currentColor`. Внутренние SVG-идентификаторы получают уникальный префикс из размера и имени компонента, чтобы маски, `clipPath`, градиенты и фильтры разных иконок не конфликтовали на одной странице.
+
+### Storybook
+
+Storybook отображает сгенерированные React-компоненты через публичные статические точки входа пакета. Все иконки входят в сборку Storybook и сгруппированы по размеру и категории.
+
+Перед запуском или production-сборкой Storybook автоматически выполняется `npm run build`:
+
+```sh
+npm run storybook
+```
+
+Статическая сборка создаётся командой:
+
+```sh
+npm run storybook:build
+```
+
+Результат находится в `build-sb`.
 
 ### Android
 

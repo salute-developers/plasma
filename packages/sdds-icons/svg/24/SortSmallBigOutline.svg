@@ -1,0 +1,6 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<metadata>{"aliases":["sort","order","big","small","arrange","compact"],"category":"Actions &amp; Feedback","source":"24/Sort/SortSmallBig","size":"24"}</metadata>
+<path d="M3 17.25C3 17.6642 3.33579 18 3.75 18H20.25C20.6642 18 21 17.6642 21 17.25C21 16.8358 20.6642 16.5 20.25 16.5H3.75C3.33579 16.5 3 16.8358 3 17.25Z" fill="black"/>
+<path d="M3 12.25C3 12.6642 3.33579 13 3.75 13H14.25C14.6642 13 15 12.6642 15 12.25C15 11.8358 14.6642 11.5 14.25 11.5H3.75C3.33579 11.5 3 11.8358 3 12.25Z" fill="black"/>
+<path d="M3.75 8C3.33579 8 3 7.66421 3 7.25C3 6.83579 3.33579 6.5 3.75 6.5H8.25C8.66421 6.5 9 6.83579 9 7.25C9 7.66421 8.66421 8 8.25 8H3.75Z" fill="black"/>
+</svg>

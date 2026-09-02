@@ -37,7 +37,17 @@ const getPaintReplacements = (svg) => {
     );
 };
 
-const createTemplate = (size) => (variables) => {
+const createSvgDataUri = (svg) => {
+    const encodedSvg = encodeURIComponent(svg.replace(/"/g, "'"))
+        .replace(/%20/g, ' ')
+        .replace(/%3D/g, '=')
+        .replace(/%3A/g, ':')
+        .replace(/%2F/g, '/');
+
+    return `data:image/svg+xml,${encodedSvg}`;
+};
+
+const createTemplate = (size, maskImage) => (variables) => {
     const factoryName = babelTypes.identifier(`createIcon${size}`);
     const componentName = babelTypes.isIdentifier(variables.componentName)
         ? variables.componentName
@@ -55,7 +65,10 @@ const createTemplate = (size) => (variables) => {
         [babelTypes.importSpecifier(babelTypes.cloneNode(factoryName), babelTypes.cloneNode(factoryName))],
         babelTypes.stringLiteral(`../createIcon${size}.js`),
     );
-    const factoryCall = babelTypes.callExpression(babelTypes.cloneNode(factoryName), [content]);
+    const factoryCall = babelTypes.callExpression(babelTypes.cloneNode(factoryName), [
+        content,
+        babelTypes.stringLiteral(maskImage),
+    ]);
     const componentDeclaration = babelTypes.variableDeclaration('const', [
         babelTypes.variableDeclarator(babelTypes.cloneNode(componentName), factoryCall),
     ]);
@@ -73,13 +86,46 @@ const createTemplate = (size) => (variables) => {
 
 const generateIcon = async ({ fileName, inputDirectory, outputDirectory, size }) => {
     const iconName = path.basename(fileName, '.svg');
-    const componentName = `${iconName}Icon`;
+    const componentName = iconName;
 
     if (!/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(componentName)) {
         throw new Error(`SVG file name cannot be converted to a component name: ${fileName}`);
     }
 
     const svg = await fs.readFile(path.join(inputDirectory, fileName), 'utf8');
+    const filePath = path.join(inputDirectory, fileName);
+    const idPrefix = `sdds-${size}-${componentName}`;
+    const svgoConfig = {
+        multipass: true,
+        plugins: [
+            {
+                name: 'preset-default',
+                params: {
+                    overrides: {
+                        convertColors: false,
+                    },
+                },
+            },
+            {
+                name: 'prefixIds',
+                params: {
+                    prefix: idPrefix,
+                    delim: '__',
+                    prefixClassNames: false,
+                },
+            },
+        ],
+    };
+    const optimizedSvg = svgoPlugin(
+        svg,
+        {
+            svgo: true,
+            dimensions: false,
+            svgoConfig,
+        },
+        { componentName, filePath },
+    );
+    const maskImage = createSvgDataUri(optimizedSvg);
     const component = await transform(
         svg,
         {
@@ -89,23 +135,11 @@ const generateIcon = async ({ fileName, inputDirectory, outputDirectory, size })
             expandProps: false,
             dimensions: false,
             prettier: false,
-            template: createTemplate(size),
+            template: createTemplate(size, maskImage),
             replaceAttrValues: getPaintReplacements(svg),
-            svgoConfig: {
-                multipass: true,
-                plugins: [
-                    {
-                        name: 'preset-default',
-                        params: {
-                            overrides: {
-                                convertColors: false,
-                            },
-                        },
-                    },
-                ],
-            },
+            svgoConfig,
         },
-        { componentName, filePath: path.join(inputDirectory, fileName) },
+        { componentName, filePath },
     );
 
     const formattedComponent = prettier.format(component, {
@@ -182,7 +216,6 @@ const generateSize = async (size, outputRoot) => {
         '',
         "export { DynamicIcon, DynamicIcon as default, iconNames, isIconName } from './DynamicIcon.js';",
         "export type { DynamicIconProps, IconName } from './DynamicIcon.js';",
-        "export { default as dynamicIconImports } from './dynamicIconImports.js';",
         '',
     ].join('\n');
 

@@ -1,8 +1,0 @@
-{
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "rootDir": "./build-temp",
-        "outDir": "./dist"
-    },
-    "include": ["./build-temp"]
-}

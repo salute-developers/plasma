@@ -1,7 +1,7 @@
 import React, { forwardRef, useRef, useContext } from 'react';
 import { useForkRef } from 'src/hooks';
 import { RootProps } from 'src/engines';
-import { cx } from 'src/utils';
+import cls from 'classnames';
 import { TabsContext, HorizontalIconTabItemProps } from 'src/components/Tabs';
 
 import { classes } from '../../../tokens';
@@ -19,6 +19,7 @@ export const horizontalIconTabItemRoot = (Root: RootProps<HTMLButtonElement, Hor
             view,
             children,
             selected,
+            disableScroll,
             disabled = false,
             actionContent,
             itemIndex,
@@ -45,6 +46,7 @@ export const horizontalIconTabItemRoot = (Root: RootProps<HTMLButtonElement, Hor
             innerRef,
             itemIndex,
             selected,
+            disableScroll,
             disabled,
             onIndexChange,
             onClick,
@@ -55,7 +57,7 @@ export const horizontalIconTabItemRoot = (Root: RootProps<HTMLButtonElement, Hor
         return (
             <Root
                 ref={ref}
-                className={cx(selectedClass, animatedClass, className)}
+                className={cls(selectedClass, animatedClass, className)}
                 disabled={disabled}
                 role={role}
                 view={view}

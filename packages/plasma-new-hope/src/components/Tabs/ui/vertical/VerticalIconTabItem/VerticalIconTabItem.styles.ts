@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { addFocus } from 'src/mixins';
 
-import { tokens } from '../../../tokens';
+import { privateTokens, tokens } from '../../../tokens';
 
 export const StyledContent = styled.div`
     display: inline-block;
@@ -34,7 +34,7 @@ export const base = css`
         outlineSize: '0.063rem',
         outlineOffset: '-0.063rem',
         outlineColor: `var(${tokens.outlineFocusColor})`,
-        outlineRadius: 'var(--border-radius-m , calc(var(--plasma_private-outline-radius) + 0.063rem))',
+        outlineRadius: `var(--border-radius-m , calc(var(${privateTokens.outlineRadius}) + 0.063rem))`,
         customFocusRules: `
             &.focus-visible:focus,
             &[data-focus-visible-added] {

@@ -45,7 +45,12 @@ export interface CommonModalProps extends PopupProps {
     /**
      * Первый элемент для фокуса внутри модального окна.
      */
-    initialFocusRef?: React.RefObject<HTMLElement>;
+    initialFocusRef?: string | React.RefObject<HTMLElement>;
+    /**
+     * Селекторы дополнительных DOM-поддеревьев, которые считаются частью модального окна для focus trap.
+     * Используется для элементов, отрисованных через Portal или вне DOM-поддерева модального окна.
+     */
+    focusTrapSelectors?: string[];
     /**
      * Элемент для фокуса после закрытия модального окна
      * (по умолчанию фокус на последнем перед открытием активном элементе).

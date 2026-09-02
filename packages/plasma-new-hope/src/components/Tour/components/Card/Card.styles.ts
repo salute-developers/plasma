@@ -11,10 +11,19 @@ export const IconButton = component(mergedConfig);
 const WIDTH_VERTICAL = 302;
 const WIDTH_HORIZONTAL = 720;
 
-export const TourCard = styled.div<{ orientation: TourCardProps['orientation'] }>`
+export const TourCard = styled.div<{
+    orientation: TourCardProps['orientation'];
+    contentDirection: TourCardProps['contentDirection'];
+}>`
     position: relative;
     display: flex;
-    flex-direction: ${({ orientation }) => (orientation === 'horizontal' ? 'row-reverse' : 'column')};
+    flex-direction: ${({ orientation, contentDirection }) => {
+        if (orientation === 'vertical') {
+            return 'column';
+        }
+
+        return contentDirection;
+    }};
     padding: var(${tokens.padding});
     background: var(${tokens.background});
     border-radius: var(${tokens.borderRadius});
@@ -25,7 +34,9 @@ export const TourCard = styled.div<{ orientation: TourCardProps['orientation'] }
     gap: ${({ orientation }) => (orientation === 'horizontal' ? `var(${tokens.gap})` : '0')};
 `;
 
-export const CardBody = styled.div<{ orientation: TourCardProps['orientation'] }>`
+export const CardBody = styled.div<{
+    orientation: TourCardProps['orientation'];
+}>`
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -34,15 +45,16 @@ export const CardBody = styled.div<{ orientation: TourCardProps['orientation'] }
 export const Img = styled.img<{ orientation: TourCardProps['orientation'] }>`
     width: ${({ orientation }) => (orientation === 'horizontal' ? 'auto' : '100%')};
     height: ${({ orientation }) => (orientation === 'horizontal' ? '100%' : 'auto')};
-    border-radius: calc(var(${tokens.borderRadius}) - var(${tokens.padding}));
+    border-radius: var(${tokens.imageBorderRadius}, calc(var(${tokens.borderRadius}) - var(${tokens.padding})));
+    margin: var(${tokens.imageMargin});
 `;
 
 export const CardText = styled.div<{ onlyText: boolean }>`
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: var(${tokens.textPadding});
     padding: ${({ onlyText }) => (onlyText ? `var(${tokens.textPaddingExtra})` : `var(${tokens.textPadding})`)};
+
     gap: var(${tokens.textGap});
 `;
 
@@ -65,18 +77,41 @@ export const Description = styled.span`
     font-weight: var(${tokens.descriptionFontWeight});
 `;
 
-export const Controls = styled.div<{ orientation: TourCardProps['orientation'] }>`
+export const Controls = styled.div<{
+    orientation: TourCardProps['orientation'];
+    contentDirection: TourCardProps['contentDirection'];
+}>`
     display: flex;
-    flex-direction: ${({ orientation }) => (orientation === 'horizontal' ? 'row' : 'column')};
+
+    flex-direction: ${({ orientation, contentDirection }) => {
+        if (orientation === 'vertical') {
+            return 'column';
+        }
+
+        return contentDirection === 'row-reverse' ? 'row' : 'row-reverse';
+    }};
+
     align-items: ${({ orientation }) => (orientation === 'horizontal' ? 'center' : 'stretch')};
     justify-content: ${({ orientation }) => (orientation === 'horizontal' ? 'space-between' : 'normal')};
+`;
+
+export const NumberContainer = styled.div`
+    color: var(${tokens.paginationNumberColor});
+    font-family: var(${tokens.paginationNumberFontFamily});
+    font-size: var(${tokens.paginationNumberFontSize});
+    font-style: var(${tokens.paginationNumberFontStyle});
+    line-height: var(${tokens.paginationNumberFontLineHeight});
+    font-weight: var(${tokens.paginationNumberFontWeight});
+
+    text-align: center;
 `;
 
 export const DotsContainer = styled.ul<{ orientation: TourCardProps['orientation'] }>`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: ${({ orientation }) => (orientation === 'horizontal' ? '0 0 0 8px' : `var(${tokens.dotContainerMargin})`)};
+    margin: ${({ orientation }) =>
+        orientation === 'horizontal' ? '0 0 0 0.5rem' : `var(${tokens.dotContainerMargin})`};
     padding: 0;
     list-style: none;
 

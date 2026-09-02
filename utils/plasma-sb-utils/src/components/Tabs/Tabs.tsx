@@ -80,6 +80,9 @@ export const getTabsStories = (config: CreateTabsStoriesProps) => {
             contentRight: {
                 table: { disable: true },
             },
+            disableScroll: {
+                table: { disable: true },
+            },
             hasDivider: {
                 table: { disable: true },
             },

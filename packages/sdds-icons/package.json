@@ -1,11 +1,15 @@
 {
   "name": "@salutejs/sdds-icons",
-  "version": "0.5.0",
+  "version": "0.5.1-dev.0",
   "description": "SDDS icons",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "files": ["dist", "README.md", "LICENSE.txt"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE.txt"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/salute-developers/plasma.git",
@@ -17,39 +21,60 @@
   "exports": {
     "./16": {
       "types": "./dist/16/index.d.ts",
-      "import": "./dist/16/index.js"
+      "import": "./dist/16/index.js",
+      "require": null,
+      "default": "./dist/16/index.js"
     },
     "./16/dynamic": {
       "types": "./dist/16/dynamic.d.ts",
-      "import": "./dist/16/dynamic.js"
+      "import": "./dist/16/dynamic.js",
+      "require": null,
+      "default": "./dist/16/dynamic.js"
     },
+    "./16/dynamicIconImports": null,
     "./16/*": {
       "types": "./dist/16/*.d.ts",
-      "import": "./dist/16/*.js"
+      "import": "./dist/16/*.js",
+      "require": null,
+      "default": "./dist/16/*.js"
     },
     "./24": {
       "types": "./dist/24/index.d.ts",
-      "import": "./dist/24/index.js"
+      "import": "./dist/24/index.js",
+      "require": null,
+      "default": "./dist/24/index.js"
     },
     "./24/dynamic": {
       "types": "./dist/24/dynamic.d.ts",
-      "import": "./dist/24/dynamic.js"
+      "import": "./dist/24/dynamic.js",
+      "require": null,
+      "default": "./dist/24/dynamic.js"
     },
+    "./24/dynamicIconImports": null,
     "./24/*": {
       "types": "./dist/24/*.d.ts",
-      "import": "./dist/24/*.js"
+      "import": "./dist/24/*.js",
+      "require": null,
+      "default": "./dist/24/*.js"
     },
     "./36": {
       "types": "./dist/36/index.d.ts",
-      "import": "./dist/36/index.js"
+      "import": "./dist/36/index.js",
+      "require": null,
+      "default": "./dist/36/index.js"
     },
     "./36/dynamic": {
       "types": "./dist/36/dynamic.d.ts",
-      "import": "./dist/36/dynamic.js"
+      "import": "./dist/36/dynamic.js",
+      "require": null,
+      "default": "./dist/36/dynamic.js"
     },
+    "./36/dynamicIconImports": null,
     "./36/*": {
       "types": "./dist/36/*.d.ts",
-      "import": "./dist/36/*.js"
+      "import": "./dist/36/*.js",
+      "require": null,
+      "default": "./dist/36/*.js"
     }
   },
   "peerDependencies": {
@@ -62,16 +87,23 @@
     "@svgr/plugin-svgo": "8.1.0",
     "@types/react": "18.0.28",
     "prettier": "2.0.5",
-    "react": "18.2.0",
+    "react": "19.2.4",
     "sharp": "0.35.3",
-    "svg2vectordrawable": "2.9.1"
+    "svg2vectordrawable": "2.9.1",
+    "typescript": "5.6.3"
   },
   "scripts": {
     "prepare": "npm run build",
     "build": "node ./scripts/build.mjs",
     "build:android": "node ./scripts/build-android.mjs",
-    "build:ios": "node ./scripts/build-ios.mjs"
+    "build:ios": "node ./scripts/build-ios.mjs",
+    "prestorybook": "npm run build",
+    "storybook": "storybook dev -p ${PORT:-7007} -c .storybook",
+    "prestorybook:build": "npm run build",
+    "storybook:build": "storybook build -c .storybook -o build-sb"
   },
   "sideEffects": false,
-  "contributors": ["salute.developers@gmail.com"]
+  "contributors": [
+    "salute.developers@gmail.com"
+  ]
 }

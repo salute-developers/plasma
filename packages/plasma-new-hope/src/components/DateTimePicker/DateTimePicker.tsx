@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { forwardRef, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { MouseEvent, SyntheticEvent, KeyboardEvent } from 'react';
 import cls from 'classnames';
 import type { RootProps } from 'src/engines';
@@ -19,6 +19,7 @@ import { CalendarGrid, DateShortcutList, Input, Popover, StyledSeparator, TimeGr
 import { classes } from './DateTimePicker.tokens';
 import { useDateTimePicker } from './hooks/useDateTimePicker';
 import { useKeyNavigation } from './hooks/useKeyboardNavigation';
+import { getCalendarEdgeDates } from './utils';
 
 // changes to start tests
 export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePickerRootProps>) =>
@@ -134,6 +135,13 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
             const calendarOverlayRef = useRef<HTMLDivElement | null>(null);
             const [isInnerOpen, setIsInnerOpen] = useState(false);
             const openedValue = outerOpened ?? isInnerOpen;
+
+            const { calendarMin, calendarMax } = useMemo(() => getCalendarEdgeDates(min, max, type, includeEdgeDates), [
+                min,
+                max,
+                type,
+                includeEdgeDates,
+            ]);
 
             const {
                 format,
@@ -345,8 +353,8 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 disabledQuarterList={disabledQuarterList}
                                 eventYearList={eventYearList}
                                 disabledYearList={disabledYearList}
-                                min={min}
-                                max={max}
+                                min={calendarMin}
+                                max={calendarMax}
                                 renderFromDate={renderFromDate}
                                 includeEdgeDates={includeEdgeDates}
                                 lang={lang}

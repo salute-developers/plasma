@@ -45,6 +45,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
 
                 // controlled
                 isDoubleCalendar = false,
+                isCalendarPositionedByInput = false,
                 opened: outerOpened,
 
                 value: outerValue,
@@ -164,6 +165,8 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
 
             const innerRefFirst = useRef<HTMLInputElement>(null);
             const innerRefSecond = useRef<HTMLInputElement>(null);
+            const firstTextfieldInputWrapperRef = useRef<HTMLDivElement>(null);
+            const secondTextfieldInputWrapperRef = useRef<HTMLDivElement>(null);
 
             const [firstInputRef, setFirstInputRef] = useState<MutableRefObject<HTMLInputElement | null> | undefined>(
                 rangeRef?.current?.firstTextField(),
@@ -221,6 +224,10 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
             const fullDateEntered = Boolean(calendarFirstValue && calendarSecondValue);
 
             const [secondTextFieldClicked, setSecondTextFieldClicked] = useState(false);
+            const shouldPositionCalendarByInput = isCalendarPositionedByInput && !isDoubleCalendar;
+            const activeInputWrapperRef = secondTextFieldClicked
+                ? secondTextfieldInputWrapperRef
+                : firstTextfieldInputWrapperRef;
 
             const isSameMonth = Boolean(
                 fullDateEntered && customDayjs(calendarFirstValue).isSame(calendarSecondValue, 'month'),
@@ -550,7 +557,15 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     <StyledRange
                         size={size}
                         ref={rangeRef}
-                        inputWrapperRef={inputWrapperRef as Ref<HTMLDivElement>}
+                        inputWrapperRef={
+                            shouldPositionCalendarByInput ? undefined : (inputWrapperRef as Ref<HTMLDivElement>)
+                        }
+                        firstTextfieldInputWrapperRef={
+                            shouldPositionCalendarByInput ? firstTextfieldInputWrapperRef : undefined
+                        }
+                        secondTextfieldInputWrapperRef={
+                            shouldPositionCalendarByInput ? secondTextfieldInputWrapperRef : undefined
+                        }
                         autoComplete={autoComplete}
                         dividerIcon={dividerIcon}
                         dividerVariant={dividerVariant}
@@ -677,6 +692,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         calendarValue={[calendarFirstValue, calendarSecondValue]}
                         calendarFocusedDate={calendarFocusedDate}
                         target={renderRange}
+                        referenceRef={shouldPositionCalendarByInput ? activeInputWrapperRef : undefined}
                         opened={openedValue}
                         includeEdgeDates={includeEdgeDates}
                         eventTooltipOptions={eventTooltipOptions}

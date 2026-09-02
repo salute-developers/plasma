@@ -13,6 +13,9 @@ export const tokens = {
     borderRadius: '--sdds-core-tour-card-border-radius',
     gap: '--sdds-core-tour-card-gap',
 
+    imageBorderRadius: '--sdds-core-tour-card-image-border-radius',
+    imageMargin: '--sdds-core-tour-card-image-margin',
+
     textPadding: '--sdds-core-tour-card-text-padding',
     textPaddingExtra: '--sdds-core-tour-card-text-padding-extra',
     textGap: '--sdds-core-tour-card-text-gap',
@@ -32,6 +35,13 @@ export const tokens = {
     descriptionFontLineHeight: '--sdds-core-tour-card-description-font-line-height',
     descriptionFontWeight: '--sdds-core-tour-card-description-font-weight',
 
+    paginationNumberColor: '--sdds-core-tour-card-pagination-number-color',
+    paginationNumberFontFamily: '--sdds-core-tour-card-pagination-number-font-family',
+    paginationNumberFontSize: '--sdds-core-tour-card-pagination-number-font-size',
+    paginationNumberFontStyle: '--sdds-core-tour-card-pagination-number-font-style',
+    paginationNumberFontLineHeight: '--sdds-core-tour-card-pagination-number-font-line-height',
+    paginationNumberFontWeight: '--sdds-core-tour-card-pagination-number-font-weight',
+
     dotsGap: '--sdds-core-tour-card-pagination-dots-gap',
     dotSize: '--sdds-core-tour-card-pagination-dot-size',
     dotBackground: '--sdds-core-tour-card-pagination-dot-background',
@@ -46,6 +56,7 @@ export const tokens = {
 
     skipButtonMargin: '--sdds-core-tour-card-skip-button-margin',
 
+    closeButtonIconSize: '--sdds-core-tour-card-close-button-icon-size',
     closeButtonWidth: '--sdds-core-tour-card-close-button-width',
     closeButtonHeight: '--sdds-core-tour-card-close-button-height',
     closeButtonRadius: '--sdds-core-tour-card-close-button-radius',

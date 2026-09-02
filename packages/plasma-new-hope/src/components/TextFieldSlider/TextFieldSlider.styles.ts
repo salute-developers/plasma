@@ -11,8 +11,8 @@ export const ScaleTicksWrapper = styled.div`
     overflow: visible;
     height: var(${tokens.scaleValueLineHeight});
     margin-top: calc(var(${tokens.scaleWrapperOffset}) + var(${tokens.scaleWrapperPaddingTop}));
-    margin-left: calc(var(${tokens.sliderContainerOffset}) + var(${tokens.sliderThumbSize}) / 2);
-    margin-right: calc(var(${tokens.sliderContainerOffset}) + var(${tokens.sliderThumbSize}) / 2);
+    margin-left: calc(var(${tokens.sliderContainerOffset}) + var(${tokens.sliderThumbWidth}) / 2);
+    margin-right: calc(var(${tokens.sliderContainerOffset}) + var(${tokens.sliderThumbWidth}) / 2);
 `;
 
 export const ScaleTick = styled.div`

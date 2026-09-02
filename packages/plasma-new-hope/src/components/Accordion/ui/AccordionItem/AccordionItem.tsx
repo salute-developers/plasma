@@ -13,6 +13,7 @@ import {
     StyledAccordionHeaderLeft,
     StyledAccordionContentRight,
     StyledArrow,
+    StyledChevron,
     StyledMinus,
     StyledPlus,
     StyledAccordionBodyAnimate,
@@ -25,10 +26,12 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
             value,
             contentRight,
             contentLeft,
+            defaultIconContent,
+            defaultIconPlacement,
             title,
             pin = 'square-square',
             children,
-            type = 'sign',
+            type,
             index,
             className,
             style,
@@ -46,6 +49,11 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
         outerRef,
     ) => {
         const key = eventKey ?? index ?? 0;
+
+        const resolvedDefaultIconContent = defaultIconContent ?? type ?? 'sign';
+        const resolvedDefaultIconPlacement =
+            defaultIconPlacement ?? (defaultIconContent === undefined && type === 'arrow' ? 'left' : 'right');
+        const openedState = opened ?? value;
 
         const [leftPadding, setLeftPadding] = useState<string | number | null>();
 
@@ -70,9 +78,9 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                     ? `calc(${leftContentWidth}px + var(${tokens.accordionItemGap}))`
                     : 0;
             setLeftPadding(leftPaddingBody);
-        }, [value, type, leftContentRef, setLeftPadding]);
+        }, [alignWithTitle, contentLeft, defaultIconContent, defaultIconPlacement, type, value, view]);
 
-        const openedBodyClass = opened ?? value ? classes.accordionItemShowBody : undefined;
+        const openedBodyClass = openedState ? classes.accordionItemShowBody : undefined;
 
         const StyledAnimationPlus = () => (
             <StyledPlus>
@@ -91,18 +99,49 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
             `var(${tokens.accordionItemViewBorderRadius}, var(${tokens.accordionItemBorderRadius}))`,
             '1.5rem',
         );
-        const openedClass = opened ?? value ? classes.accordionItemOpened : '';
+        const openedClass = openedState ? classes.accordionItemOpened : '';
         const disabledClass = disabled ? classes.accordionDisabled : '';
 
-        const leftContent =
-            contentLeft ??
-            (type === 'arrow' ? (
-                <StyledArrow size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />
-            ) : undefined);
-        const leftContentRotate = type === 'arrow' && (opened ?? value) ? classes.accordionItemShowBody : undefined;
+        const getDefaultIcon = () => {
+            switch (resolvedDefaultIconContent) {
+                case 'arrow':
+                    return <StyledArrow size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />;
+                case 'chevron':
+                    return (
+                        <StyledChevron size="xs" color="inherit" sizeCustomProperty={tokens.accordionItemIconSize} />
+                    );
+                case 'sign':
+                    return <StyledAnimationPlus />;
+                default:
+                    return undefined;
+            }
+        };
 
-        const rightContent = contentRight ?? (type === 'sign' ? <StyledAnimationPlus /> : undefined);
-        const rightContentRotate = type === 'sign' && (opened ?? value) ? classes.accordionItemShowBody : undefined;
+        const defaultIcon = getDefaultIcon();
+        let defaultIconAnimationClass: string | undefined;
+
+        if (resolvedDefaultIconContent === 'sign') {
+            defaultIconAnimationClass = classes.accordionSignAnimation;
+        } else if (resolvedDefaultIconContent === 'arrow' || resolvedDefaultIconContent === 'chevron') {
+            defaultIconAnimationClass = classes.accordionArrowAnimation;
+        }
+
+        const defaultLeftContent = resolvedDefaultIconPlacement === 'left' ? defaultIcon : undefined;
+        const defaultRightContent = resolvedDefaultIconPlacement === 'right' ? defaultIcon : undefined;
+
+        const leftContent = contentLeft !== undefined ? contentLeft : defaultLeftContent;
+        const leftContentClassName =
+            contentLeft === undefined ? cx(defaultIconAnimationClass, openedBodyClass) : undefined;
+        const rightContentClassName = cx(defaultIconAnimationClass, openedBodyClass);
+        let renderedRightContent = contentRight;
+
+        if (contentRight === undefined && defaultRightContent) {
+            renderedRightContent = (
+                <StyledAccordionContentRight className={rightContentClassName}>
+                    {defaultRightContent}
+                </StyledAccordionContentRight>
+            );
+        }
 
         return (
             <StyledAccordionItem
@@ -121,7 +160,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                     }}
                     tabIndex={0}
                     onClick={handleOpen}
-                    aria-expanded={opened ?? value}
+                    aria-expanded={openedState}
                     aria-controls={`accordion-item-section${key}`}
                     id={`accordion-item-${key}`}
                     style={{
@@ -130,23 +169,18 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
                 >
                     <StyledAccordionHeaderLeft>
                         {leftContent && (
-                            <StyledAccordionContentLeft ref={leftContentRef} className={leftContentRotate}>
+                            <StyledAccordionContentLeft ref={leftContentRef} className={leftContentClassName}>
                                 {leftContent}
                             </StyledAccordionContentLeft>
                         )}
                         <StyledAccordionTitle {...titleProps}>{title}</StyledAccordionTitle>
                     </StyledAccordionHeaderLeft>
 
-                    {contentRight ||
-                        (rightContent && (
-                            <StyledAccordionContentRight className={rightContentRotate}>
-                                {rightContent && rightContent}
-                            </StyledAccordionContentRight>
-                        ))}
+                    {renderedRightContent}
                 </StyledAccordionHeader>
                 <StyledAccordionBodyAnimate
                     aria-labelledby={`accordion-item-${key}`}
-                    aria-hidden={!(opened ?? value)}
+                    aria-hidden={!openedState}
                     id={`accordion-item-section${key}`}
                     className={cx(openedBodyClass)}
                     style={{ paddingLeft: `${leftPadding}` }}

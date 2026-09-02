@@ -32,3 +32,9 @@ export const config = {
         },
     },
 };
+
+export const headerConfig = {
+    base: css`
+        padding-bottom: 1.5rem;
+    `,
+};

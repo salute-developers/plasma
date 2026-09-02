@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 import { FocusManager } from '../utils/focusManager';
+import { FocusTrapSelectors } from '../utils/focusScope';
 import { focusSelector, isFocusable, isTabble } from '../utils/tabbable';
 import { scopeTab } from '../utils/scopeTab';
 
@@ -59,8 +60,12 @@ export const useFocusTrap = (
     focusAfterNode?: React.RefObject<HTMLElement>,
     focusAfterAnimation?: boolean,
     enableOnFirstMount?: boolean,
+    focusTrapSelectors?: FocusTrapSelectors,
 ): ((instance: HTMLElement | null) => void) => {
     const ref = useRef<HTMLElement | null>();
+    const focusTrapSelectorsRef = useRef(focusTrapSelectors);
+
+    focusTrapSelectorsRef.current = focusTrapSelectors;
 
     const setRef = useCallback(
         (node: HTMLElement | null) => {
@@ -69,12 +74,12 @@ export const useFocusTrap = (
             }
 
             if (ref.current) {
-                focusManager.teardownScopedFocus();
+                focusManager.teardownScopedFocus(ref.current);
                 focusManager.returnFocus();
             }
 
             if ((active || enableOnFirstMount) && node) {
-                focusManager.setupScopedFocus(node);
+                focusManager.setupScopedFocus(node, () => focusTrapSelectorsRef.current);
                 focusManager.markForFocusAfter(focusAfterNode);
 
                 // Delay processing the HTML node by a frame. This ensures focus is assigned correctly.
@@ -103,12 +108,14 @@ export const useFocusTrap = (
         }
 
         const handleKeyDown = (event: KeyboardEvent) => {
-            if (event.key === 'Tab' && ref.current) {
-                scopeTab(ref.current, event, active);
+            if (event.key === 'Tab' && ref.current && focusManager.isTopFocusNode(ref.current)) {
+                scopeTab(ref.current, event, active, focusTrapSelectorsRef.current);
 
                 if (enableOnFirstMount) {
                     setTimeout(() => {
-                        focusManager.teardownScopedFocus();
+                        if (ref.current) {
+                            focusManager.teardownScopedFocus(ref.current);
+                        }
                     });
                 }
             }

@@ -47,20 +47,28 @@ export function App() {
 <Tabs>
     <TabItem value="view" label="View" default>
         Свойство `view` задаёт цветовой вариант кнопки. Доступные значения: `default`, `secondary`, `accent`, `positive`, `warning`, `negative`, `info`.
+        Для применения градиентного цвета к иконке необходимо передать ей нужный градиент в свойтсво `color`
 
         ```tsx live
         import * as Beta from '@salutejs/sdds-finai/beta';
         import { IconPlasma } from '@salutejs/plasma-icons';
 
         export function App() {
-            const views = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative', 'info'];
+            const views = ['default', 'secondary', 'accent', 'positive', 'warning', 'negative', 'info', 'gradient'];
 
             return (
                 <div style={{ display: 'flex', gap: '0.5rem' }}>
                     {views.map((view) => (
                         <div key={view} style={{ width: '3rem', height: '3rem' }}>
                             <Beta.EmbeddedButton view={view}>
-                                <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
+                                <IconPlasma
+                                    color={
+                                        view === 'gradient'
+                                            ? 'linear-gradient(100.49deg, #199AF0 0%, #12C2F3 41.912%, #528EFF 106.22%)'
+                                            : 'inherit'
+                                    }
+                                    style={{ width: '1.5rem', height: '1.5rem' }}
+                                />
                             </Beta.EmbeddedButton>
                         </div>
                     ))}

@@ -1,10 +1,11 @@
 import React, { forwardRef, useCallback, useMemo, useState, useRef, KeyboardEvent, useLayoutEffect } from 'react';
 import type { MutableRefObject } from 'react';
-import { cx, safeUseId } from 'src/utils';
+import cls from 'classnames';
+import { safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
 
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
-import { classes } from '../../../tokens';
+import { classes, tokens } from '../../../tokens';
 import { TabItemRefs, TabsContext } from '../../../TabsContext';
 import type { HorizontalTabsProps } from '../../../Tabs.types';
 import { getFirstOverflowingTab, getLastOverflowingTab } from '../../../utils';
@@ -131,7 +132,11 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     ref={leftArrowRef}
                     isLeftArrow
                 >
-                    <IconDisclosureLeft size={getIconSize(size)} color="inherit" />
+                    <IconDisclosureLeft
+                        size={getIconSize(size)}
+                        sizeCustomProperty={tokens.arrowSize}
+                        color="inherit"
+                    />
                 </StyledArrow>
             ),
             [onPrev, size, disabled, isFilled],
@@ -147,7 +152,11 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     disabled={disabled}
                     isFilled={isFilled}
                 >
-                    <IconDisclosureRight size={getIconSize(size)} color="inherit" />
+                    <IconDisclosureRight
+                        size={getIconSize(size)}
+                        sizeCustomProperty={tokens.arrowSize}
+                        color="inherit"
+                    />
                 </StyledArrow>
             ),
             [onNext, size, disabled, isFilled],
@@ -219,10 +228,19 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             if (firstItemVisible || !shouldTriggerAdditionalScroll || !scrollRef.current || !leftArrowRef.current) {
                 return;
             }
-            const style = getComputedStyle(scrollRef.current);
+            const scrollStyle = getComputedStyle(scrollRef.current);
+            const arrowStyle = getComputedStyle(leftArrowRef.current);
+            const root = scrollRef.current.parentElement;
+            const rootGap = root ? parseInt(getComputedStyle(root).columnGap, 10) : 0;
+            const arrowOccupiedWidth =
+                leftArrowRef.current.offsetWidth +
+                parseInt(arrowStyle.marginLeft, 10) +
+                parseInt(arrowStyle.marginRight, 10) +
+                rootGap;
+
             scrollRef.current.scrollTo({
                 left: Math.round(
-                    scrollRef.current.scrollLeft + leftArrowRef.current.clientWidth + parseInt(style.paddingLeft, 10),
+                    scrollRef.current.scrollLeft + arrowOccupiedWidth + parseInt(scrollStyle.paddingLeft, 10),
                 ),
             });
             setShouldTriggerAdditionalScroll(false);
@@ -239,7 +257,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                     id={tabsId}
                     ref={outerRef}
                     disabled={disabled}
-                    className={cx(
+                    className={cls(
                         pilledClass,
                         stretchClass,
                         hasLeftArrowClass,
@@ -252,7 +270,7 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
                 >
                     {!firstItemVisible && clip === 'scroll' && PreviousButton}
                     <StyledContentWrapper
-                        className={cx(clipScrollClass, clipShowAllClass)}
+                        className={cls(clipScrollClass, clipShowAllClass)}
                         ref={scrollRef as MutableRefObject<HTMLDivElement | null>}
                         onScroll={handleScroll}
                     >

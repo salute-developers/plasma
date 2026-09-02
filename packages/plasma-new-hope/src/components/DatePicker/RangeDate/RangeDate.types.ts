@@ -39,6 +39,8 @@ type BaseRangeProps = Omit<
     | 'onSearchSecondValue'
     | 'onChangeFirstValue'
     | 'onChangeSecondValue'
+    | 'firstTextfieldInputWrapperRef'
+    | 'secondTextfieldInputWrapperRef'
 >;
 
 export type DatePickerRangeFieldProps = {
@@ -130,6 +132,11 @@ export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placeme
      * Отобразить двойной календарь
      */
     isDoubleCalendar?: boolean;
+    /**
+     * Позиционировать одиночный календарь относительно активного поля ввода
+     * @default false
+     */
+    isCalendarPositionedByInput?: boolean;
     /**
      * Список предустановленных дат,
      * которые можно выбрать в выпадающем календаре

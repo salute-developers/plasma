@@ -97,6 +97,7 @@ export const tokens = {
     textFieldBorderColorEditedHover: '--sdds-core-time-picker-textfield-border-color-edited-hover',
     textFieldBorderColorEditedFocus: '--sdds-core-time-picker-textfield-border-color-edited-focus',
     textFieldBoxShadow: '--sdds-core-time-picker-textfield-box-shadow',
+    textFieldBoxShadowSecondary: '--sdds-core-time-picker-textfield-box-shadow-secondary',
 
     textFieldDividerColor: '--sdds-core-time-picker-textfield-divider-color',
     textFieldDividerColorHover: '--sdds-core-time-picker-textfield-divider-color-hover',

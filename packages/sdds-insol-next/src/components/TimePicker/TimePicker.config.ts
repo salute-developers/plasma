@@ -5,6 +5,12 @@ import {
     bodyS,
     bodyXS,
     outlineClear,
+    outlineNegative,
+    outlineNegativeActive,
+    outlineNegativeHover,
+    outlinePositive,
+    outlinePositiveActive,
+    outlinePositiveHover,
     outlineSolidSecondary,
     outlineTransparentPrimary,
     outlineTransparentPrimaryHover,
@@ -20,9 +26,7 @@ import {
     surfaceTransparentCardActive,
     surfaceTransparentCardHover,
     surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
-    surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
@@ -59,13 +63,25 @@ export const config = {
 
                 ${tokens.timePickerShadow}: ${shadowDownSoftS};
 
+                ${tokens.textFieldBoxShadowSecondary}: 0 0 0 0.25rem #E8EEF2;
+
+                ${tokens.textFieldBorderColor}: ${outlineTransparentPrimary};
+                ${tokens.textFieldBorderColorFocus}: ${outlineSolidSecondary};
+                ${tokens.textFieldBorderColorHover}: ${outlineTransparentPrimaryHover};
+                ${tokens.textFieldBorderColorError}: ${outlineNegative};
+                ${tokens.textFieldBorderColorErrorFocus}: ${outlineNegativeActive};
+                ${tokens.textFieldBorderColorErrorHover}: ${outlineNegativeHover};
+                ${tokens.textFieldBorderColorSuccess}: ${outlinePositive};
+                ${tokens.textFieldBorderColorSuccessFocus}: ${outlinePositiveActive};
+                ${tokens.textFieldBorderColorSuccessHover}: ${outlinePositiveHover};
+
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
-                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
-                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundSuccessColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceSolidCard};
                 ${tokens.textFieldBoxShadow}: 0 0 0 0 transparent;
                 ${tokens.borderColor}: ${outlineTransparentPrimary};
                 ${tokens.borderColorHover}: ${outlineTransparentPrimaryHover};

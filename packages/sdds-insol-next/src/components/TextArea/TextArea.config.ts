@@ -17,9 +17,9 @@ import {
     shadowDownHardM,
     surfaceAccent,
     surfaceNegative,
+    surfaceSolidCard,
     surfaceSolidCardBrightness,
     surfaceSolidSecondary,
-    surfaceTransparentCard,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
     surfaceTransparentPrimaryHover,
@@ -48,10 +48,10 @@ export const config = {
                 ${tokens.borderColorFocus}: ${outlineSolidSecondary};
                 ${tokens.borderColorHover}: ${outlineTransparentPrimaryHover};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorActive}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.backgroundColorHover}: ${surfaceSolidCard};
+                ${tokens.backgroundColorActive}: ${surfaceSolidCard};
+                ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
 
                 ${tokens.labelOuterColor}: ${textPrimary};
                 ${tokens.inputColor}: ${textPrimary};
@@ -88,18 +88,18 @@ export const config = {
                 ${tokens.borderColorFocus}: ${outlineWarningActive};
                 ${tokens.borderColorHover}: ${outlineWarningHover};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorActive}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.backgroundColorHover}: ${surfaceSolidCard};
+                ${tokens.backgroundColorActive}: ${surfaceSolidCard};
+                ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
 
                 ${tokens.labelOuterColor}: ${textPrimary};
-                ${tokens.inputColor}: ${textWarning};
-                ${tokens.inputColorFocus}: ${textWarning};
+                ${tokens.inputColor}: ${textPrimary};
+                ${tokens.inputColorFocus}: ${textPrimary};
                 ${tokens.inputCaretColor}: ${textAccent};
 
-                ${tokens.placeholderColor}: ${textWarning};
-                ${tokens.placeholderColorFocus}: ${textWarning};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textSecondary};
@@ -128,18 +128,18 @@ export const config = {
                 ${tokens.borderColorFocus}: ${outlineNegativeActive};
                 ${tokens.borderColorHover}: ${outlineNegativeHover};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorActive}: ${surfaceTransparentCard};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentCard};
+                ${tokens.backgroundColor}: ${surfaceSolidCard};
+                ${tokens.backgroundColorHover}: ${surfaceSolidCard};
+                ${tokens.backgroundColorActive}: ${surfaceSolidCard};
+                ${tokens.backgroundColorFocus}: ${surfaceSolidCard};
 
                 ${tokens.labelOuterColor}: ${textPrimary};
-                ${tokens.inputColor}: ${textNegative};
-                ${tokens.inputColorFocus}: ${textNegative};
+                ${tokens.inputColor}: ${textPrimary};
+                ${tokens.inputColorFocus}: ${textPrimary};
                 ${tokens.inputCaretColor}: ${textAccent};
 
-                ${tokens.placeholderColor}: ${textNegative};
-                ${tokens.placeholderColorFocus}: ${textNegative};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textSecondary};
