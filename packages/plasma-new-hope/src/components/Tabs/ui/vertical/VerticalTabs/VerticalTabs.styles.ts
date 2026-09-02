@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { addFocus } from 'src/mixins';
 
-import { classes, tokens } from '../../../tokens';
+import { classes, privateTokens, tokens } from '../../../tokens';
 
 export const base = css`
     position: relative;
@@ -9,6 +9,7 @@ export const base = css`
     flex-direction: column;
     gap: 0.125rem;
     align-items: center;
+    padding: var(${tokens.tabsPadding}, 0);
 `;
 
 export const StyledContent = styled.div<{ hasDivider?: boolean }>`
@@ -53,19 +54,20 @@ export const StyledArrow = styled.button`
     padding: 0;
     outline: none;
     transform: rotate(90deg);
+    color: var(${tokens.arrowColor});
+
+    ${privateTokens.outlineRadius}: var(${tokens.arrowBorderRadius}, inherit);
 
     ${addFocus({
         outlineSize: '0.063rem',
         outlineOffset: '0',
         outlineColor: `var(${tokens.outlineFocusColor})`,
-        outlineRadius: 'calc(var(--plasma_private-outline-radius) - 0.063rem)',
+        outlineRadius: `calc(var(${privateTokens.outlineRadius}) - 0.063rem)`,
     })};
 
     &[disabled] {
         cursor: not-allowed;
     }
-
-    color: var(${tokens.arrowColor});
 
     &:hover {
         color: var(${tokens.arrowColorHover});

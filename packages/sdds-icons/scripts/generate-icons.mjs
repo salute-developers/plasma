@@ -86,7 +86,7 @@ const createTemplate = (size, maskImage) => (variables) => {
 
 const generateIcon = async ({ fileName, inputDirectory, outputDirectory, size }) => {
     const iconName = path.basename(fileName, '.svg');
-    const componentName = `${iconName}Icon`;
+    const componentName = iconName;
 
     if (!/^[A-Za-z_$][A-Za-z0-9_$]*$/.test(componentName)) {
         throw new Error(`SVG file name cannot be converted to a component name: ${fileName}`);
@@ -94,6 +94,7 @@ const generateIcon = async ({ fileName, inputDirectory, outputDirectory, size })
 
     const svg = await fs.readFile(path.join(inputDirectory, fileName), 'utf8');
     const filePath = path.join(inputDirectory, fileName);
+    const idPrefix = `sdds-${size}-${componentName}`;
     const svgoConfig = {
         multipass: true,
         plugins: [
@@ -103,6 +104,14 @@ const generateIcon = async ({ fileName, inputDirectory, outputDirectory, size })
                     overrides: {
                         convertColors: false,
                     },
+                },
+            },
+            {
+                name: 'prefixIds',
+                params: {
+                    prefix: idPrefix,
+                    delim: '__',
+                    prefixClassNames: false,
                 },
             },
         ],

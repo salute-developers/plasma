@@ -1,6 +1,7 @@
 export { NotificationsProvider } from './NotificationsProvider';
 export { notificationRoot, notificationConfig } from './Notification';
 export { addNotification, closeNotification } from './NotificationsStore';
+export { useNotifications } from './NotificationsContext';
 export { classes as notificationClasses, tokens as notificationTokens } from './Notification.tokens';
 export type {
     NotificationProps,

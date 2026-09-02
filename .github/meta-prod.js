@@ -63,7 +63,7 @@ module.exports = {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-insol-docs'],
     },
     'sdds-insol-next': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-insol-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-insol-next-docs'],
     },
     'sdds-netology': {
         scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-netology-docs'],
@@ -82,5 +82,8 @@ module.exports = {
     },
     'sdds-sbcom': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-sbcom-docs', 'plasma-docs-ui'],
+    },
+    'sdds-icons': {
+        scope: [],
     },
 };

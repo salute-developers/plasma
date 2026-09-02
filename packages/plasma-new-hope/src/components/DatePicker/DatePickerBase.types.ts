@@ -12,6 +12,7 @@ export type DatePickerFloatingPopoverProps = {
     opened: boolean;
     onToggle: (opened: boolean, event?: SyntheticEvent | Event) => void;
     placement: DatePickerPlacement | Array<DatePickerPlacementBasic>;
+    referenceRef?: React.RefObject<HTMLElement>;
     portal?: string | React.RefObject<HTMLElement>;
     offset?: [number, number];
     zIndex?: React.CSSProperties['zIndex'];

@@ -49,6 +49,7 @@ export function App() {
 Вид задается с помощью свойства `view`. Возможные значения свойства `view`:
 
 + `"default"` – основной бейдж;
++ `"secondary"` – вторичный бейдж;
 + `"accent"` – бейдж акцентного цвета;
 + `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
@@ -64,6 +65,7 @@ export function App() {
     return (
         <div>
             <Counter count={10} view="default" />
+            <Counter count={10} view="secondary" />
             <Counter count={10} view="accent" />
             <Counter count={10} view="positive" />
             <Counter count={10} view="warning" />

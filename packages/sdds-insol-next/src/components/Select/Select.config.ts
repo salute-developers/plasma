@@ -150,7 +150,7 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: ${outlineTransparentSecondary};
             `,
             positive: css`
-                ${tokens.textFieldColor}: ${textPositive};
+                ${tokens.textFieldColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textSecondary};
@@ -206,7 +206,7 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: ${outlineTransparentSecondary};
             `,
             warning: css`
-                ${tokens.textFieldColor}: ${textWarning};
+                ${tokens.textFieldColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textSecondary};
@@ -262,7 +262,7 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: ${outlineTransparentSecondary};
             `,
             negative: css`
-                ${tokens.textFieldColor}: ${textNegative};
+                ${tokens.textFieldColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textSecondary};

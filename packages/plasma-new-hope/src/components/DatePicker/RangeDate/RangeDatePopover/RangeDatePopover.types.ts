@@ -1,4 +1,12 @@
-import type { Dispatch, FC, PropsWithChildren, SetStateAction, MouseEventHandler, CSSProperties } from 'react';
+import type {
+    Dispatch,
+    FC,
+    PropsWithChildren,
+    SetStateAction,
+    MouseEventHandler,
+    CSSProperties,
+    RefObject,
+} from 'react';
 
 import type { DatePickerPopoverProps } from '../../SingleDate/SingleDate.types';
 import type { DateInfo, DateType } from '../../../Calendar/Calendar.types';
@@ -22,6 +30,7 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         calendarFocusedDate?: DateType;
         isDoubleCalendar?: boolean;
         target?: DatePickerFloatingPopoverProps['target'];
+        referenceRef?: RefObject<HTMLElement>;
         onChangeStartOfRange?: (value: Date, dateInfo?: DateInfo) => void;
         onChangeSingleValue?: (value: Date, dateInfo?: DateInfo) => void;
         size?: string;

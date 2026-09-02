@@ -1,12 +1,17 @@
-import { findTabbableDescendants } from './tabbable';
+import { findTabbableInFocusScope, FocusTrapSelectors } from './focusScope';
 
 /**
  * Управлление фокусом лишь внутри ноды через tab
  * @param node
  * @param event
  */
-export const scopeTab = (node: HTMLElement, event: KeyboardEvent, activeFocusTrap?: boolean) => {
-    const tabbable = findTabbableDescendants(node);
+export const scopeTab = (
+    node: HTMLElement,
+    event: KeyboardEvent,
+    activeFocusTrap?: boolean,
+    focusTrapSelectors?: FocusTrapSelectors,
+) => {
+    const tabbable = findTabbableInFocusScope(node, focusTrapSelectors);
     if (!tabbable.length) {
         event.preventDefault();
         return;

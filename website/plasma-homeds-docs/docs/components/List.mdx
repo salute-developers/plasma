@@ -16,6 +16,8 @@ import TabItem from '@theme/TabItem';
 
 ListItem представляет собой простой компонент с текстом, левым и правым слотами.
 
+
+
 ### Типы ListItem
 <PropsTable name="ListItem" />
 
@@ -45,11 +47,56 @@ export function App() {
 
 ### Управление внешним видом
 
-Внешний вид списка зависит от свойств `size`, `variant`, `hasBackground`, `hasItemBackground`.
+Внешний вид списка зависит от свойств `appearance`, `size`, `variant`, `hasBackground`, `hasItemBackground`.
 Разделители между элементами можно включить свойством `hasDivider`.
 
 <Tabs>
-    <TabItem value="size" label="Size" default>
+    <TabItem value="appearance" label="appearance" default>
+        Свойство `appearance` переключает вид списка: `default` — обычный список, `numbered` — нумерованный.
+
+        В `numbered` меняются только отступы и типографика. 
+        Номер можно передать в `contentLeft` компонентом `Counter`.
+
+        Для нумерованного списка дизайном не предусмотрены `variant`, `hasBackground`, `hasItemBackground` и `hasDivider`.
+
+        ```tsx live
+        import React from 'react';
+        import { Counter, List, ListItem } from '@salutejs/plasma-homeds';
+        import { IconChevronRight } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const items = ['Откройте настройки устройства', 'Выберите раздел «Аккаунты»', 'Подтвердите вход кодом из СМС'];
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <div>
+                        <List appearance="default" size="m">
+                            {items.map((item, index) => (
+                                <ListItem key={index} contentRight={<IconChevronRight color="inherit" size="xs" />}>
+                                    {item}
+                                </ListItem>
+                            ))}
+                        </List>
+                    </div>
+
+                    <div>
+                        <List appearance="numbered" size="m">
+                            {items.map((item, index) => (
+                                <ListItem
+                                    key={index}
+                                    contentLeft={<Counter size="s" view="secondary" count={index + 1} />}
+                                >
+                                    {item}
+                                </ListItem>
+                            ))}
+                        </List>
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="size">
         Размер списка задается свойством `size` (s, m).
 
         ```tsx live
@@ -69,6 +116,35 @@ export function App() {
                         <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Size m</ListItem>
                         <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Size m</ListItem>
                     </List>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="variant" label="variant">
+        Свойство `variant` задает плотность списка: `normal` — обычная, `tight` — уменьшенные вертикальные отступы у элементов.
+
+        ```tsx live
+        import React from 'react';
+        import { List, ListItem } from '@salutejs/plasma-homeds';
+        import { IconChevronRight } from '@salutejs/plasma-icons';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                    <div>
+                        <List size="m" variant="normal" hasItemBackground>
+                            <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 1</ListItem>
+                            <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
+                        </List>
+                    </div>
+
+                    <div>
+                        <List size="m" variant="tight" hasItemBackground>
+                            <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 1</ListItem>
+                            <ListItem contentRight={<IconChevronRight color="inherit" size="xs" />}>Test Item 2</ListItem>
+                        </List>
+                    </div>
                 </div>
             );
         }

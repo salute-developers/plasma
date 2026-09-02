@@ -10,7 +10,7 @@ import {
     autoUpdate,
 } from '@floating-ui/react';
 import type { Placement } from '@floating-ui/react';
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useLayoutEffect } from 'react';
 import { safeUseId } from 'src/utils';
 
 import { FloatingContent, FloatingTarget, FloatingWrapper } from './DatePickerBase.styles';
@@ -51,6 +51,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
     (
         {
             target,
+            referenceRef,
             children,
             opened,
             onToggle,
@@ -68,6 +69,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
         ref,
     ) => {
         const { refs, floatingStyles, context } = useFloating({
+            elements: referenceRef?.current ? { reference: referenceRef.current } : undefined,
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
                     ancestorScroll: false,
@@ -103,6 +105,12 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
         });
 
         const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
+
+        useLayoutEffect(() => {
+            if (referenceRef?.current) {
+                refs.setReference(referenceRef.current);
+            }
+        }, [referenceRef, refs]);
 
         const wrappedId = safeUseId();
 

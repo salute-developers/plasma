@@ -1,2 +1,3 @@
 export { Tour } from './Tour';
 export type { TourProps } from '@salutejs/plasma-new-hope/emotion';
+export { TourCard } from './TourCard';

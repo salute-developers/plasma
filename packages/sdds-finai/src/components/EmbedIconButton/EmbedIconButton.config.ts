@@ -10,6 +10,7 @@ import {
     surfaceClear,
     textAccent,
     textAccentActive,
+    textAccentGradient,
     textAccentHover,
     textInfo,
     textInfoActive,
@@ -87,6 +88,13 @@ export const config = {
                 ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
                 ${embedIconButtonTokens.embedIconButtonColorHover}: ${textInfoHover};
                 ${embedIconButtonTokens.embedIconButtonColorActive}: ${textInfoActive};
+            `,
+            gradient: css`
+                ${embedIconButtonTokens.embedIconButtonColor}: ${textAccentGradient};
+                ${embedIconButtonTokens.embedIconButtonBackgroundColor}: ${surfaceClear};
+                ${embedIconButtonTokens.embedIconButtonLoadingBackgroundColor}: var(${embedIconButtonTokens.embedIconButtonBackgroundColor});
+                ${embedIconButtonTokens.embedIconButtonColorHover}: ${textAccentGradient};
+                ${embedIconButtonTokens.embedIconButtonColorActive}: ${textAccentGradient};
             `,
         },
         size: {

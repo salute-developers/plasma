@@ -1,4 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<metadata>{"aliases":["switch","off","toggle","disabled","change","control"],"category":"Actions &amp; Feedback","source":"24/SwitchToggleOff/SwitchToggleOffOutlineBold","size":"24"}</metadata>
 <path d="M8 9C9.65685 9 11 10.3431 11 12C11 13.6569 9.65685 15 8 15C6.34315 15 5 13.6569 5 12C5 10.3431 6.34315 9 8 9Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M16 5.7002C19.4794 5.7002 22.2998 8.52061 22.2998 12C22.2998 15.4794 19.4794 18.2998 16 18.2998H8C4.52061 18.2998 1.7002 15.4794 1.7002 12C1.7002 8.52061 4.52061 5.7002 8 5.7002H16ZM8 7.7998C5.6804 7.7998 3.7998 9.6804 3.7998 12C3.7998 14.3196 5.6804 16.2002 8 16.2002H16C18.3196 16.2002 20.2002 14.3196 20.2002 12C20.2002 9.6804 18.3196 7.7998 16 7.7998H8Z" fill="black"/>
 </svg>

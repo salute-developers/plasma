@@ -53,20 +53,13 @@
                     "value": "#0E8ADDFF",
                     "comment": "Акцентный цвет"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет с градиентом",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом",
-                    "enabled": false
+                    "value": "#858585FF",
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Акцентный цвет с градиентом",
-                    "enabled": false
+                    "value": "#666666FF",
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#1277BAFF",
@@ -274,6 +267,127 @@
                 "textAccent": {
                     "value": "[general.blue.400]",
                     "comment": "Акцентный цвет"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#858585FF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#666666FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#3D3D3DFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#1F1F1FFF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -317,20 +431,13 @@
                     "value": "#0E8ADDFF",
                     "comment": "Акцентный цвет на темном фоне"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет с градиентом на темном фоне",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом на темном фоне",
-                    "enabled": false
+                    "value": "#858585FF",
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
-                    "value": "#E6E6E6FF",
-                    "comment": "Акцентный цвет с градиентом на темном фоне",
-                    "enabled": false
+                    "value": "#666666FF",
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#1277BAFF",
@@ -538,6 +645,127 @@
                 "textTertiary": {
                     "value": "#d5dfe64d",
                     "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#858585FF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#666666FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#3D3D3DFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#1F1F1FFF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -581,20 +809,13 @@
                     "value": "#096CAEFF",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
                     "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне",
-                    "enabled": false
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
                     "value": "#E6E6E6FF",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне",
-                    "enabled": false
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#A3DAFFFF",
@@ -802,6 +1023,127 @@
                 "textNegative": {
                     "value": "[general.red.700]",
                     "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#8F8F8FFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -845,20 +1187,13 @@
                     "value": "#096CAEFF",
                     "comment": "Инвертированный акцентный цвет"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный цвет с градиентом",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
                     "value": "#CCCCCCFF",
-                    "comment": "Инвертированный акцентный цвет с градиентом",
-                    "enabled": false
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
                     "value": "#E6E6E6FF",
-                    "comment": "Инвертированный акцентный цвет с градиентом",
-                    "enabled": false
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#A3DAFFFF",
@@ -1066,6 +1401,127 @@
                 "textNegative": {
                     "value": "[general.red.700]",
                     "comment": "Инвертированный цвет ошибки"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#8F8F8FFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             }
         },
@@ -1167,20 +1623,15 @@
                     "value": "#0F96F0FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#09212FFF",
@@ -1529,6 +1980,41 @@
                 "surfaceInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет фона поверхности/контрола информация"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -1628,20 +2114,15 @@
                     "value": "#0F96F0FF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#09212FFF",
@@ -1990,6 +2471,41 @@
                 "surfaceAccent": {
                     "value": "[general.blue.400]",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -2093,20 +2609,15 @@
                     "value": "#0F90E6FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#F6FBFEFF",
@@ -2451,6 +2962,41 @@
                 "surfaceInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -2554,20 +3100,15 @@
                     "value": "#0F90E6FF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#09212FFF",
@@ -2912,6 +3453,41 @@
                 "surfaceInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Инвертированный цвет фона поверхности/контрола информация"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
+                    "enabled": true
                 }
             }
         },
@@ -3151,20 +3727,15 @@
                     "value": "#0E8ADDFF",
                     "comment": "Акцентный цвет обводки"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет обводки с градиентом",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#858585FF",
                     "comment": "Акцентный цвет обводки с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentGradientActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#666666FF",
                     "comment": "Акцентный цвет обводки с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#1277BAFF",
@@ -3456,6 +4027,41 @@
                 "outlineSolidDefault": {
                     "value": "[general.coolGray.50]",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -3561,20 +4167,15 @@
                     "value": "#0E8ADDFF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
-                    "value": "#CCCCCCFF",
+                    "value": "#858585FF",
                     "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentGradientActive": {
-                    "value": "#E6E6E6FF",
+                    "value": "#666666FF",
                     "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#1277BAFF",
@@ -3866,6 +4467,41 @@
                 "outlineSolidDefaultActive": {
                     "value": "#E4EBF1FF",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -3971,20 +4607,15 @@
                     "value": "#096CAEFF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
                     "value": "#CCCCCCFF",
                     "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentGradientActive": {
                     "value": "#E6E6E6FF",
                     "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#A3DAFFFF",
@@ -4276,6 +4907,41 @@
                 "outlineNegative": {
                     "value": "[general.red.700]",
                     "comment": "Цвет обводки ошибка на светлом фоне"
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -4381,20 +5047,15 @@
                     "value": "#096CAEFF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный цвет обводки с градиентом",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
                     "value": "#CCCCCCFF",
                     "comment": "Инвертированный акцентный цвет обводки с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentGradientActive": {
                     "value": "#E6E6E6FF",
                     "comment": "Инвертированный акцентный цвет обводки с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#A3DAFFFF",
@@ -4686,6 +5347,41 @@
                 "outlineSolidTertiary": {
                     "value": "[general.coolGray.700]",
                     "comment": "Инвертированный третичный непрозрачный цвет обводки"
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Инвертированный акцентный цвет обводки с градиентом",
+                    "enabled": true
                 }
             }
         },
@@ -4779,10 +5475,6 @@
                     "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных"
                 },
-                "dataGreen": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
                 "dataYellowLight": {
                     "value": "[general.amber.950]",
                     "comment": "Светлый желтый цвет для данных"
@@ -4798,10 +5490,6 @@
                 "dataYellowMinor": {
                     "value": "[general.amber.850]",
                     "comment": "Минорный желтый цвет для данных"
-                },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
                 },
                 "dataOrangeMinor": {
                     "value": "[general.orange.800]",
@@ -4831,16 +5519,8 @@
                     "value": "[general.green.700]",
                     "comment": ""
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.850]",
-                    "comment": ""
-                },
                 "dataSpring": {
                     "value": "[general.green.700]",
-                    "comment": ""
-                },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
                     "comment": ""
                 },
                 "dataBlueMild": {
@@ -4861,10 +5541,6 @@
                 },
                 "dataElectricBlue": {
                     "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.800]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -4900,11 +5576,11 @@
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1DAF37FF",
+                    "value": "#12A12AFF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#18952FFF",
+                    "value": "#0F8523FF",
                     "comment": ""
                 },
                 "dataBlueLightHover": {
@@ -4916,11 +5592,11 @@
                     "comment": "Светлый голубой цвет для данных"
                 },
                 "dataOrchidHover": {
-                    "value": "#BA5FF7FF",
+                    "value": "#A94AE8FF",
                     "comment": ""
                 },
                 "dataOrchidActive": {
-                    "value": "#A938F5FF",
+                    "value": "#9C2FE4FF",
                     "comment": ""
                 },
                 "dataOrchidMinorHover": {
@@ -4932,11 +5608,11 @@
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB7223FF",
+                    "value": "#FC5E03FF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#F05B05FF",
+                    "value": "#DE5302FF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -4996,11 +5672,11 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#0D541AFF",
+                    "value": "#0E3A16FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#093912FF",
+                    "value": "#08210CFF",
                     "comment": ""
                 },
                 "dataSpringHover": {
@@ -5012,11 +5688,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#1798EEFF",
+                    "value": "#0C8ADFFF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0A78C2FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -5060,11 +5736,11 @@
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#9C2688FF",
+                    "value": "#D52AB8FF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#832073FF",
+                    "value": "#BB25A2FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -5123,12 +5799,128 @@
                     "value": "#118CDF2E",
                     "comment": ""
                 },
-                "dataOrchid": {
-                    "value": "[general.orchid.600]",
-                    "comment": ""
-                },
                 "dataOrchidMinor": {
                     "value": "[general.orchid.800]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#1852BFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#1446A3FF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#0A2A67FF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#071F4BFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#2C343AFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#1F2528FF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.900]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.600]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.900]",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.700]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#996600FF",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.600]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.600]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.700]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#41195CFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#301344FF",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.900]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.700]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#832073FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#551149FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#3B0C33FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.900]",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.900]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#0A3D2FFF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#06231BFF",
                     "comment": ""
                 }
             },
@@ -5237,24 +6029,12 @@
                     "value": "[general.red.900]",
                     "comment": ""
                 },
-                "dataGreen": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
                 "dataGreenMinor": {
                     "value": "[general.green.700]",
                     "comment": ""
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.850]",
-                    "comment": ""
-                },
                 "dataSpring": {
                     "value": "[general.spring.700]",
-                    "comment": ""
-                },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
                     "comment": ""
                 },
                 "dataBlueMild": {
@@ -5271,10 +6051,6 @@
                 },
                 "dataElectricBlue": {
                     "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.800]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -5304,10 +6080,6 @@
                 "dataYellowMinor": {
                     "value": "[general.amber.850]",
                     "comment": "Минорный желтый цвет для данных на темном фоне"
-                },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
                 },
                 "dataOrangeMinor": {
                     "value": "[general.orange.800]",
@@ -5374,11 +6146,11 @@
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1DAF37FF",
+                    "value": "#12A12AFF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#18952FFF",
+                    "value": "#0F8523FF",
                     "comment": ""
                 },
                 "dataGreenMinorHover": {
@@ -5390,11 +6162,11 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#0D541AFF",
+                    "value": "#0E3A16FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#093912FF",
+                    "value": "#08210CFF",
                     "comment": ""
                 },
                 "dataSpringHover": {
@@ -5406,11 +6178,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#1798EEFF",
+                    "value": "#0C8ADFFF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0A78C2FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -5446,11 +6218,11 @@
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#9C2688FF",
+                    "value": "#D52AB8FF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#832073FF",
+                    "value": "#BB25A2FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -5486,19 +6258,19 @@
                     "comment": "Светлый голубой цвет для данных на темном фоне"
                 },
                 "dataOrchidHover": {
-                    "value": "#BA5FF7FF",
+                    "value": "#A94AE8FF",
                     "comment": ""
                 },
                 "dataOrchidActive": {
-                    "value": "#A938F5FF",
+                    "value": "#9C2FE4FF",
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB7223FF",
+                    "value": "#FC5E03FF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#F05B05FF",
+                    "value": "#DE5302FF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -5569,8 +6341,124 @@
                     "value": "[general.orchid.800]",
                     "comment": ""
                 },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#1852BFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#1446A3FF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#0A2A67FF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#071F4BFF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.900]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#2C343AFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#1F2528FF",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.600]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.900]",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.700]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#996600FF",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.600]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.600]",
+                    "comment": ""
+                },
                 "dataOrchid": {
-                    "value": "[general.orchid.600]",
+                    "value": "[general.orchid.700]",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.900]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#41195CFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#301344FF",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.700]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#832073FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.900]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#551149FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#3B0C33FF",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.900]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#0A3D2FFF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#06231BFF",
                     "comment": ""
                 }
             },
@@ -5684,11 +6572,7 @@
                     "comment": ""
                 },
                 "dataArctic": {
-                    "value": "[general.arctic.300]",
-                    "comment": ""
-                },
-                "dataGreen": {
-                    "value": "[general.green.500]",
+                    "value": "[general.arctic.400]",
                     "comment": ""
                 },
                 "dataGreenMinor": {
@@ -5697,10 +6581,6 @@
                 },
                 "dataSpring": {
                     "value": "[general.spring.250]",
-                    "comment": ""
-                },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
                     "comment": ""
                 },
                 "dataOrangeMinor": {
@@ -5723,10 +6603,6 @@
                     "value": "[general.red.150]",
                     "comment": ""
                 },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "dataBlueMild": {
                     "value": "[general.blue.300]",
                     "comment": ""
@@ -5741,10 +6617,6 @@
                 },
                 "dataElectricBlue": {
                     "value": "[general.blue.300]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.300]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -5779,10 +6651,6 @@
                     "value": "[general.amber.100]",
                     "comment": "Светлый желтый цвет для данных на светлом фоне"
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.150]",
-                    "comment": ""
-                },
                 "dataBlueLightHover": {
                     "value": "#E5F5FFFF",
                     "comment": "Светлый голубой цвет для данных на светлом фоне"
@@ -5816,19 +6684,19 @@
                     "comment": ""
                 },
                 "dataArcticHover": {
-                    "value": "#16DFA6FF",
+                    "value": "#00C28BFF",
                     "comment": ""
                 },
                 "dataArcticActive": {
-                    "value": "#12BA8AFF",
+                    "value": "#00996EFF",
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1EB83AFF",
+                    "value": "#28C344FF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#178C2CFF",
+                    "value": "#21A138FF",
                     "comment": ""
                 },
                 "dataGreenMinorHover": {
@@ -5848,11 +6716,11 @@
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FF8B4DFF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#E65705FF",
+                    "value": "#FF630FFF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -5896,11 +6764,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#209CEEFF",
+                    "value": "#36A7F2FF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -5936,11 +6804,11 @@
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#F288E0FF",
+                    "value": "#F471DEFF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#F17EDEFF",
+                    "value": "#F042D3FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -6000,19 +6868,135 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#94F9A7FF",
+                    "value": "#D6FFE2FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#8BF99FFF",
+                    "value": "#D1FFDEFF",
                     "comment": ""
                 },
                 "dataOrchidMinor": {
                     "value": "[general.orchid.250]",
                     "comment": ""
                 },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#83ADFCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#79A7FCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#D6E4FFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#D1E0FFFF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.150]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#E2E9EEFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#DEE7EDFF",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.400]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.100]",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.400]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#E09600FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.400]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.400]",
+                    "comment": ""
+                },
                 "dataOrchid": {
                     "value": "[general.orchid.400]",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.150]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#F3E0FFFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#F1DBFFFF",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.400]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.300]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.150]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#FCD9F5FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#FCD4F4FF",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.100]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#D1FFF2FF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#CCFFF1FF",
                     "comment": ""
                 }
             },
@@ -6117,10 +7101,6 @@
                     "value": "#DBF7FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
                 },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
-                },
                 "dataOrangeMinor": {
                     "value": "[general.orange.800]",
                     "comment": ""
@@ -6141,28 +7121,12 @@
                     "value": "[general.red.900]",
                     "comment": ""
                 },
-                "dataArctic": {
-                    "value": "[general.arctic.700]",
-                    "comment": ""
-                },
-                "dataGreen": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
                 "dataGreenMinor": {
                     "value": "[general.green.700]",
                     "comment": ""
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.850]",
-                    "comment": ""
-                },
                 "dataSpring": {
                     "value": "[general.spring.700]",
-                    "comment": ""
-                },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
                     "comment": ""
                 },
                 "dataBlueMild": {
@@ -6179,10 +7143,6 @@
                 },
                 "dataElectricBlue": {
                     "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.800]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -6242,11 +7202,11 @@
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FF8B4DFF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#E65705FF",
+                    "value": "#FF630FFF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -6290,19 +7250,19 @@
                     "comment": ""
                 },
                 "dataArcticHover": {
-                    "value": "#1C8D6DFF",
+                    "value": "#00C28BFF",
                     "comment": ""
                 },
                 "dataArcticActive": {
-                    "value": "#156A52FF",
+                    "value": "#00996EFF",
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1EB83AFF",
+                    "value": "#28C344FF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#178C2CFF",
+                    "value": "#21A138FF",
                     "comment": ""
                 },
                 "dataGreenMinorHover": {
@@ -6314,11 +7274,11 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#0E5D1DFF",
+                    "value": "#D6FFE2FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#08310FFF",
+                    "value": "#D1FFDEFF",
                     "comment": ""
                 },
                 "dataSpringHover": {
@@ -6330,11 +7290,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#209CEEFF",
+                    "value": "#36A7F2FF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -6370,11 +7330,11 @@
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#9C2688FF",
+                    "value": "#F471DEFF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#7B1E6CFF",
+                    "value": "#F042D3FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -6437,10 +7397,6 @@
                     "value": "[general.orchid.250]",
                     "comment": ""
                 },
-                "dataOrchid": {
-                    "value": "[general.orchid.400]",
-                    "comment": ""
-                },
                 "dataBlueLightHover": {
                     "value": "#E5F5FFFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
@@ -6455,6 +7411,130 @@
                 },
                 "dataBlueMinor": {
                     "value": "[general.blue.150]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#83ADFCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#79A7FCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#D6E4FFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#D1E0FFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#E2E9EEFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#DEE7EDFF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.150]",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.400]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.100]",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.400]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#E09600FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.400]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.400]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.400]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#F3E0FFFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#F1DBFFFF",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.150]",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.400]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.300]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#FCD9F5FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#FCD4F4FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.150]",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.400]",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.100]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#D1FFF2FF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#CCFFF1FF",
                     "comment": ""
                 }
             }
@@ -6503,20 +7583,13 @@
                     "value": "#0966A5FF",
                     "comment": "Акцентный цвет"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет с градиентом",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Акцентный цвет с градиентом",
-                    "enabled": false
+                    "value": "#CCCCCCFF",
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом",
-                    "enabled": false
+                    "value": "#E6E6E6FF",
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#7ACAFFFF",
@@ -6724,6 +7797,127 @@
                 "textNegative": {
                     "value": "[general.red.700]",
                     "comment": "Цвет ошибки"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#8F8F8FFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -6767,20 +7961,13 @@
                     "value": "#0D84D3FF",
                     "comment": "Акцентный цвет на темном фоне"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет с градиентом на темном фоне",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Акцентный цвет с градиентом на темном фоне",
-                    "enabled": false
+                    "value": "#858585FF",
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом на темном фоне",
-                    "enabled": false
+                    "value": "#666666FF",
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#1483CCFF",
@@ -6988,6 +8175,127 @@
                 "textTertiary": {
                     "value": "#d5dfe64d",
                     "comment": "Третичный цвет текста на темном фоне"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#858585FF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#666666FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#3D3D3DFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#1F1F1FFF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             },
             "onLight": {
@@ -7031,20 +8339,13 @@
                     "value": "#0966A5FF",
                     "comment": "Акцентный цвет на светлом фоне"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне",
-                    "enabled": false
+                    "value": "#CCCCCCFF",
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Акцентный цвет с градиентом на светлом фоне",
-                    "enabled": false
+                    "value": "#E6E6E6FF",
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#7ACAFFFF",
@@ -7252,6 +8553,127 @@
                 "textNegative": {
                     "value": "[general.red.700]",
                     "comment": "Цвет ошибки на светлом фоне"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#CCCCCCFF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#8F8F8FFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#000000FF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #501A7433 0%, #501A7433 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#501A7433", "#501A7433"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(101.02deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.01,
+                                    "y": 0.41
+                                },
+                                "endPoint": {
+                                    "x": 0.99,
+                                    "y": 0.59
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -7295,20 +8717,13 @@
                     "value": "#0D84D3FF",
                     "comment": "Инвертированный акцентный цвет"
                 },
-                "textAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный цвет с градиентом",
-                    "enabled": false
-                },
                 "textAccentGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Инвертированный акцентный цвет с градиентом",
-                    "enabled": false
+                    "value": "#858585FF",
+                    "comment": ""
                 },
                 "textAccentGradientActive": {
-                    "value": "#CCCCCCFF",
-                    "comment": "Инвертированный акцентный цвет с градиентом",
-                    "enabled": false
+                    "value": "#666666FF",
+                    "comment": ""
                 },
                 "textAccentMinorHover": {
                     "value": "#1483CCFF",
@@ -7516,6 +8931,127 @@
                 "textTertiary": {
                     "value": "#d5dfe64d",
                     "comment": "Инвертированный третичный цвет текста"
+                },
+                "textGradientPrimaryHover": {
+                    "value": "#858585FF",
+                    "comment": ""
+                },
+                "textGradientPrimaryActive": {
+                    "value": "#666666FF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorHover": {
+                    "value": "#3D3D3DFF",
+                    "comment": ""
+                },
+                "textAccentGradientMinorActive": {
+                    "value": "#1F1F1FFF",
+                    "comment": ""
+                },
+                "textAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(101.02deg, #3F81FD 0%, #00A4D1 45.322%, #528EFF 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#3F81FD", "#00A4D1", "#528EFF"],
+                            "locations": [0, 0.45, 1],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.41
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.59
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "textAccentGradientMinor": {
+                    "value": [
+                        {
+                            "origin": "linear-gradient(0deg, #FFFFFF33 0%, #FFFFFF33 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#FFFFFF33", "#FFFFFF33"],
+                                "locations": [0, 1],
+                                "startPoint": {
+                                    "x": 0.5,
+                                    "y": 1
+                                },
+                                "endPoint": {
+                                    "x": 0.5,
+                                    "y": 0
+                                }
+                            }
+                        },
+                        {
+                            "origin": "linear-gradient(109.38deg, #199AF0 0%, #12C2F3 45.322%, #528EFF 100%)",
+                            "swift": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            },
+                            "xml": {
+                                "kind": "gradient",
+                                "type": ".linear",
+                                "colors": ["#199AF0", "#12C2F3", "#528EFF"],
+                                "locations": [0, 0.45, 1],
+                                "startPoint": {
+                                    "x": 0.03,
+                                    "y": 0.33
+                                },
+                                "endPoint": {
+                                    "x": 0.97,
+                                    "y": 0.67
+                                }
+                            }
+                        },
+                        {
+                            "backgroundColor": "#FFFFFF00",
+                            "origin": "#FFFFFF00"
+                        }
+                    ],
+                    "comment": ""
                 }
             }
         },
@@ -7617,20 +9153,15 @@
                     "value": "#0F90E6FF",
                     "comment": "Акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#E9F4FCFF",
@@ -7979,6 +9510,41 @@
                 "surfaceAccentMinor": {
                     "value": "#ECF6FC",
                     "comment": "Акцентный минорный непрозрачный фон поверхности/контрола"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -8082,20 +9648,15 @@
                     "value": "#0F96F0FF",
                     "comment": "Акцентный фон поверхности/контрола на темном фоне"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#0A2638FF",
@@ -8440,6 +10001,41 @@
                 "surfaceInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет фона поверхности/контрола информация на темном фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -8543,20 +10139,15 @@
                     "value": "#0F90E6FF",
                     "comment": "Акцентный фон поверхности/контрола на светлом фоне"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#E9F4FCFF",
@@ -8901,6 +10492,41 @@
                 "surfaceInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Цвет фона поверхности/контрола информация на светлом фоне"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #18EFF266 0%, #52BAFF66 52.311%, #8BB2FC66 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#18EFF266", "#52BAFF66", "#8BB2FC66"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Акцентный фон поверхности/контрола с градиентом на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -9004,20 +10630,15 @@
                     "value": "#0F96F0FF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола"
                 },
-                "surfaceAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
-                },
                 "surfaceAccentGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceAccentMinorHover": {
                     "value": "#0A2638FF",
@@ -9362,6 +10983,41 @@
                 "surfaceInfo": {
                     "value": "[general.blue.400]",
                     "comment": "Инвертированный цвет фона поверхности/контрола информация"
+                },
+                "surfaceAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(128.65deg, #04C6C999 0%, #199AF099 52.311%, #528EFF99 100%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#04C6C999", "#199AF099", "#528EFF99"],
+                            "locations": [0, 0.52, 1],
+                            "startPoint": {
+                                "x": 0.11,
+                                "y": 0.19
+                            },
+                            "endPoint": {
+                                "x": 0.89,
+                                "y": 0.81
+                            }
+                        }
+                    },
+                    "comment": "Инвертированный акцентный фон поверхности/контрола с градиентом",
+                    "enabled": true
                 }
             }
         },
@@ -9606,20 +11262,15 @@
                     "value": "#096CAEFF",
                     "comment": "Акцентный цвет обводки"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет обводки с градиентом",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Акцентный цвет обводки с градиентом",
-                    "enabled": false
-                },
-                "outlineAccentGradientActive": {
                     "value": "#CCCCCCFF",
                     "comment": "Акцентный цвет обводки с градиентом",
-                    "enabled": false
+                    "enabled": true
+                },
+                "outlineAccentGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Акцентный цвет обводки с градиентом",
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#A3DAFFFF",
@@ -9906,6 +11557,41 @@
                 "outlineSolidDefaultActive": {
                     "value": "#1B2D36FF",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -10011,20 +11697,15 @@
                     "value": "#0E8ADDFF",
                     "comment": "Акцентный цвет обводки на темном фоне"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
-                    "value": "#000000FF",
+                    "value": "#858585FF",
                     "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentGradientActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#666666FF",
                     "comment": "Акцентный цвет обводки с градиентом на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#137DC3FF",
@@ -10316,6 +11997,41 @@
                 "outlineSolidDefaultActive": {
                     "value": "#D6E0EAFF",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -10426,20 +12142,15 @@
                     "value": "#096CAEFF",
                     "comment": "Акцентный цвет обводки на светлом фоне"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
-                    "value": "#000000FF",
-                    "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
-                    "enabled": false
-                },
-                "outlineAccentGradientActive": {
                     "value": "#CCCCCCFF",
                     "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
-                    "enabled": false
+                    "enabled": true
+                },
+                "outlineAccentGradientActive": {
+                    "value": "#E6E6E6FF",
+                    "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#A3DAFFFF",
@@ -10726,6 +12437,41 @@
                 "outlineSolidDefaultActive": {
                     "value": "#1B2D36FF",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #8AE6FF 0%, #CFECFF 44.605%, #A9C7FE 92.953%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#8AE6FF", "#CFECFF", "#A9C7FE"],
+                            "locations": [0, 0.45, 0.93],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Акцентный цвет обводки с градиентом на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -10836,20 +12582,15 @@
                     "value": "#0E8ADDFF",
                     "comment": "Инвертированный акцентный цвет обводки"
                 },
-                "outlineAccentGradient": {
-                    "value": "#FFFFFF",
-                    "comment": "Инвертированный акцентный цвет обводки с градиентом",
-                    "enabled": false
-                },
                 "outlineAccentGradientHover": {
-                    "value": "#000000FF",
+                    "value": "#858585FF",
                     "comment": "Инвертированный акцентный цвет обводки с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentGradientActive": {
-                    "value": "#CCCCCCFF",
+                    "value": "#666666FF",
                     "comment": "Инвертированный акцентный цвет обводки с градиентом",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineAccentMinorHover": {
                     "value": "#137DC3FF",
@@ -11136,6 +12877,41 @@
                 "outlineSolidDefault": {
                     "value": "[general.coolGray.50]",
                     "comment": ""
+                },
+                "outlineAccentGradient": {
+                    "value": {
+                        "origin": "linear-gradient(136.09deg, #118CDF 0%, #0D5382 47.461%, #1549AB 94.287%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": ["#118CDF", "#0D5382", "#1549AB"],
+                            "locations": [0, 0.47, 0.94],
+                            "startPoint": {
+                                "x": 0.16,
+                                "y": 0.14
+                            },
+                            "endPoint": {
+                                "x": 0.84,
+                                "y": 0.86
+                            }
+                        }
+                    },
+                    "comment": "Инвертированный акцентный цвет обводки с градиентом",
+                    "enabled": true
                 }
             }
         },
@@ -11222,16 +12998,16 @@
                     "comment": ""
                 },
                 "dataYellowLight": {
-                    "value": "[general.amber.100]",
-                    "comment": "Светлый желтый цвет для данных"
+                    "value": "[general.amber.150]",
+                    "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#FFF4E0FF",
-                    "comment": "Светлый желтый цвет для данных"
+                    "value": "#FFE0A3FF",
+                    "comment": ""
                 },
                 "dataYellowLightActive": {
-                    "value": "#FFF3DBFF",
-                    "comment": "Светлый желтый цвет для данных"
+                    "value": "#FFDD99FF",
+                    "comment": ""
                 },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
@@ -11241,10 +13017,6 @@
                     "value": "#DBF7FFFF",
                     "comment": "Светлый голубой цвет для данных"
                 },
-                "dataOrchid": {
-                    "value": "[general.orchid.400]",
-                    "comment": ""
-                },
                 "dataBlueMinor": {
                     "value": "[general.blue.150]",
                     "comment": ""
@@ -11253,28 +13025,12 @@
                     "value": "[general.blue.100]",
                     "comment": "Светлый голубой цвет для данных"
                 },
-                "dataArctic": {
-                    "value": "[general.arctic.300]",
-                    "comment": ""
-                },
-                "dataGreen": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
                 "dataGreenMinor": {
                     "value": "[general.green.300]",
                     "comment": ""
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.150]",
-                    "comment": ""
-                },
                 "dataSpring": {
                     "value": "[general.spring.250]",
-                    "comment": ""
-                },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
                     "comment": ""
                 },
                 "dataOrangeMinor": {
@@ -11297,10 +13053,6 @@
                     "value": "[general.red.150]",
                     "comment": ""
                 },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "dataBlueMild": {
                     "value": "[general.blue.300]",
                     "comment": ""
@@ -11311,14 +13063,6 @@
                 },
                 "dataMalachiteMinor": {
                     "value": "[general.malachite.250]",
-                    "comment": ""
-                },
-                "dataElectricBlue": {
-                    "value": "[general.electricBlue.300]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.300]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -11386,19 +13130,19 @@
                     "comment": "Светлый голубой цвет для данных"
                 },
                 "dataArcticHover": {
-                    "value": "#16DFA6FF",
+                    "value": "#00C28BFF",
                     "comment": ""
                 },
                 "dataArcticActive": {
-                    "value": "#12BA8AFF",
+                    "value": "#00996EFF",
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1EB83AFF",
+                    "value": "#28C344FF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#178C2CFF",
+                    "value": "#21A138FF",
                     "comment": ""
                 },
                 "dataGreenMinorHover": {
@@ -11410,11 +13154,11 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#94F9A7FF",
+                    "value": "#D6FFE2FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#8BF99FFF",
+                    "value": "#D1FFDEFF",
                     "comment": ""
                 },
                 "dataSpringHover": {
@@ -11426,11 +13170,11 @@
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FF8B4DFF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#E65705FF",
+                    "value": "#FF630FFF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -11474,11 +13218,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#209CEEFF",
+                    "value": "#36A7F2FF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -11506,19 +13250,19 @@
                     "comment": ""
                 },
                 "dataElectricBlueHover": {
-                    "value": "#83ADFCFF",
+                    "value": "#7AA9FFFF",
                     "comment": ""
                 },
                 "dataElectricBlueActive": {
-                    "value": "#79A7FCFF",
+                    "value": "#3D81FFFF",
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#F288E0FF",
+                    "value": "#F471DEFF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#F17EDEFF",
+                    "value": "#F042D3FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -11579,6 +13323,134 @@
                 },
                 "dataOrchidMinor": {
                     "value": "[general.orchid.250]",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.400]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#83ADFCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#79A7FCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#D6E4FFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#D1E0FFFF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.150]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#E2E9EEFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#DEE7EDFF",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.400]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.100]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#E09600FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.400]",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.400]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.400]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.400]",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.150]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#F3E0FFFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#F1DBFFFF",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.400]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.300]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.150]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#FCD9F5FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#FCD4F4FF",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.400]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#D1FFF2FF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#CCFFF1FF",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.100]",
                     "comment": ""
                 }
             },
@@ -11660,12 +13532,12 @@
                     "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#2A1E09FF",
-                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                    "value": "#473000FF",
+                    "comment": ""
                 },
                 "dataYellowLightActive": {
-                    "value": "#191205FF",
-                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                    "value": "#291B00FF",
+                    "comment": ""
                 },
                 "dataSkyBlueLightHover": {
                     "value": "#E0F8FFFF",
@@ -11680,15 +13552,11 @@
                     "comment": "Светлый голубой цвет для данных на темном фоне"
                 },
                 "dataYellowLight": {
-                    "value": "[general.amber.950]",
-                    "comment": "Светлый желтый цвет для данных на темном фоне"
+                    "value": "[general.amber.900]",
+                    "comment": ""
                 },
                 "dataBlueMinor": {
                     "value": "[general.blue.850]",
-                    "comment": ""
-                },
-                "dataOrchid": {
-                    "value": "[general.orchid.600]",
                     "comment": ""
                 },
                 "dataOrchidMinor": {
@@ -11702,10 +13570,6 @@
                 "dataYellowMinor": {
                     "value": "[general.amber.850]",
                     "comment": "Минорный желтый цвет для данных на темном фоне"
-                },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
                 },
                 "dataOrangeMinor": {
                     "value": "[general.orange.800]",
@@ -11727,28 +13591,12 @@
                     "value": "[general.red.900]",
                     "comment": ""
                 },
-                "dataArctic": {
-                    "value": "[general.arctic.700]",
-                    "comment": ""
-                },
-                "dataGreen": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
                 "dataGreenMinor": {
                     "value": "[general.green.700]",
                     "comment": ""
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.850]",
-                    "comment": ""
-                },
                 "dataSpring": {
                     "value": "[general.spring.700]",
-                    "comment": ""
-                },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
                     "comment": ""
                 },
                 "dataBlueMild": {
@@ -11761,14 +13609,6 @@
                 },
                 "dataMalachiteMinor": {
                     "value": "[general.malachite.800]",
-                    "comment": ""
-                },
-                "dataElectricBlue": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.800]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -11816,11 +13656,11 @@
                     "comment": ""
                 },
                 "dataOrchidHover": {
-                    "value": "#BA5FF7FF",
+                    "value": "#A94AE8FF",
                     "comment": ""
                 },
                 "dataOrchidActive": {
-                    "value": "#A938F5FF",
+                    "value": "#9C2FE4FF",
                     "comment": ""
                 },
                 "dataOrchidMinorHover": {
@@ -11832,11 +13672,11 @@
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB7223FF",
+                    "value": "#FC5E03FF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#F05B05FF",
+                    "value": "#DE5302FF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -11888,11 +13728,11 @@
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1DAF37FF",
+                    "value": "#12A12AFF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#18952FFF",
+                    "value": "#0F8523FF",
                     "comment": ""
                 },
                 "dataGreenMinorHover": {
@@ -11904,11 +13744,11 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#0D541AFF",
+                    "value": "#0E3A16FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#093912FF",
+                    "value": "#08210CFF",
                     "comment": ""
                 },
                 "dataSpringHover": {
@@ -11920,11 +13760,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#1798EEFF",
+                    "value": "#0C8ADFFF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0A78C2FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -11952,19 +13792,19 @@
                     "comment": ""
                 },
                 "dataElectricBlueHover": {
-                    "value": "#1852BFFF",
+                    "value": "#3D78E6FF",
                     "comment": ""
                 },
                 "dataElectricBlueActive": {
-                    "value": "#1446A3FF",
+                    "value": "#2265E2FF",
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#9C2688FF",
+                    "value": "#D52AB8FF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#832073FF",
+                    "value": "#BB25A2FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -12021,6 +13861,134 @@
                 },
                 "dataBlueTransparentActive": {
                     "value": "#118CDF2E",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.700]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#1852BFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#1446A3FF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#0A2A67FF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#071F4BFF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.900]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#2C343AFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#1F2528FF",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.600]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.900]",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.700]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#996600FF",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.600]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.600]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.700]",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.900]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#41195CFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#301344FF",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.700]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#832073FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.900]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#551149FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#3B0C33FF",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.700]",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.900]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#0A3D2FFF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#06231BFF",
                     "comment": ""
                 }
             },
@@ -12110,15 +14078,15 @@
                     "comment": ""
                 },
                 "dataYellowLight": {
-                    "value": "[general.amber.100]",
+                    "value": "[general.amber.150]",
                     "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#FFF4E0FF",
+                    "value": "#FFE0A3FF",
                     "comment": ""
                 },
                 "dataYellowLightActive": {
-                    "value": "#FFF3DBFF",
+                    "value": "#FFDD99FF",
                     "comment": ""
                 },
                 "dataSkyBlueLightHover": {
@@ -12149,24 +14117,12 @@
                     "value": "[general.arctic.300]",
                     "comment": ""
                 },
-                "dataGreen": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
                 "dataGreenMinor": {
                     "value": "[general.green.300]",
                     "comment": ""
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.50]",
-                    "comment": ""
-                },
                 "dataSpring": {
                     "value": "[general.spring.250]",
-                    "comment": ""
-                },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
                     "comment": ""
                 },
                 "dataOrangeMinor": {
@@ -12189,10 +14145,6 @@
                     "value": "[general.red.150]",
                     "comment": ""
                 },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
-                    "comment": ""
-                },
                 "dataBlueMild": {
                     "value": "[general.blue.300]",
                     "comment": ""
@@ -12203,14 +14155,6 @@
                 },
                 "dataMalachiteMinor": {
                     "value": "[general.malachite.250]",
-                    "comment": ""
-                },
-                "dataElectricBlue": {
-                    "value": "[general.blue.300]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.300]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -12282,11 +14226,11 @@
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1EB83AFF",
+                    "value": "#28C344FF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#178C2CFF",
+                    "value": "#21A138FF",
                     "comment": ""
                 },
                 "dataGreenMinorHover": {
@@ -12298,11 +14242,11 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#FFFFFFFF",
+                    "value": "#D6FFE2FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#FFFFFFFF",
+                    "value": "#D1FFDEFF",
                     "comment": ""
                 },
                 "dataSpringHover": {
@@ -12314,11 +14258,11 @@
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB782DFF",
+                    "value": "#FF8B4DFF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#E65705FF",
+                    "value": "#FF630FFF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -12362,11 +14306,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#209CEEFF",
+                    "value": "#36A7F2FF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#0F81CCFF",
+                    "value": "#0F90E6FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -12394,19 +14338,19 @@
                     "comment": ""
                 },
                 "dataElectricBlueHover": {
-                    "value": "#7ACAFFFF",
+                    "value": "#36A7F2FF",
                     "comment": ""
                 },
                 "dataElectricBlueActive": {
-                    "value": "#3DB1FFFF",
+                    "value": "#0F90E6FF",
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#F288E0FF",
+                    "value": "#F471DEFF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#F17EDEFF",
+                    "value": "#F042D3FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -12463,6 +14407,126 @@
                 },
                 "dataOrangeTransparentActive": {
                     "value": "#FA5F0547",
+                    "comment": ""
+                },
+                "dataElectricBlue": {
+                    "value": "[general.blue.400]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.300]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#83ADFCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#79A7FCFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.150]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#D6E4FFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#D1E0FFFF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.150]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#E2E9EEFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#DEE7EDFF",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.400]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.100]",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.400]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#E09600FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.400]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.400]",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.150]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#F3E0FFFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#F1DBFFFF",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.400]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.300]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#F288E0FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#F17EDEFF",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.150]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#FCD9F5FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#FCD4F4FF",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.100]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#D1FFF2FF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#CCFFF1FF",
                     "comment": ""
                 }
             },
@@ -12575,14 +14639,6 @@
                     "value": "[general.amber.950]",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
-                "dataOrchid": {
-                    "value": "[general.orchid.600]",
-                    "comment": ""
-                },
-                "dataOrange": {
-                    "value": "[general.orange.500]",
-                    "comment": ""
-                },
                 "dataOrangeMinor": {
                     "value": "[general.orange.800]",
                     "comment": ""
@@ -12603,28 +14659,12 @@
                     "value": "[general.red.900]",
                     "comment": ""
                 },
-                "dataArctic": {
-                    "value": "[general.arctic.700]",
-                    "comment": ""
-                },
-                "dataGreen": {
-                    "value": "[general.green.500]",
-                    "comment": ""
-                },
                 "dataGreenMinor": {
                     "value": "[general.green.700]",
                     "comment": ""
                 },
-                "dataGreenLight": {
-                    "value": "[general.green.850]",
-                    "comment": ""
-                },
                 "dataSpring": {
                     "value": "[general.spring.700]",
-                    "comment": ""
-                },
-                "dataBlue": {
-                    "value": "[general.blue.500]",
                     "comment": ""
                 },
                 "dataBlueMild": {
@@ -12637,14 +14677,6 @@
                 },
                 "dataMalachiteMinor": {
                     "value": "[general.malachite.800]",
-                    "comment": ""
-                },
-                "dataElectricBlue": {
-                    "value": "[general.electricBlue.800]",
-                    "comment": ""
-                },
-                "dataFuchsia": {
-                    "value": "[general.fuchsia.800]",
                     "comment": ""
                 },
                 "dataPink": {
@@ -12684,11 +14716,11 @@
                     "comment": ""
                 },
                 "dataOrchidHover": {
-                    "value": "#BA5FF7FF",
+                    "value": "#A94AE8FF",
                     "comment": ""
                 },
                 "dataOrchidActive": {
-                    "value": "#A938F5FF",
+                    "value": "#9C2FE4FF",
                     "comment": ""
                 },
                 "dataOrchidMinorHover": {
@@ -12700,11 +14732,11 @@
                     "comment": ""
                 },
                 "dataOrangeHover": {
-                    "value": "#FB7223FF",
+                    "value": "#FC5E03FF",
                     "comment": ""
                 },
                 "dataOrangeActive": {
-                    "value": "#F05B05FF",
+                    "value": "#DE5302FF",
                     "comment": ""
                 },
                 "dataOrangeMinorHover": {
@@ -12756,11 +14788,11 @@
                     "comment": ""
                 },
                 "dataGreenHover": {
-                    "value": "#1DAF37FF",
+                    "value": "#12A12AFF",
                     "comment": ""
                 },
                 "dataGreenActive": {
-                    "value": "#18952FFF",
+                    "value": "#0F8523FF",
                     "comment": ""
                 },
                 "dataGreenMinorHover": {
@@ -12772,11 +14804,11 @@
                     "comment": ""
                 },
                 "dataGreenLightHover": {
-                    "value": "#0D541AFF",
+                    "value": "#0E3A16FF",
                     "comment": ""
                 },
                 "dataGreenLightActive": {
-                    "value": "#093912FF",
+                    "value": "#08210CFF",
                     "comment": ""
                 },
                 "dataSpringHover": {
@@ -12788,11 +14820,11 @@
                     "comment": ""
                 },
                 "dataBlueHover": {
-                    "value": "#1798EEFF",
+                    "value": "#0C8ADFFF",
                     "comment": ""
                 },
                 "dataBlueActive": {
-                    "value": "#1086D5FF",
+                    "value": "#0A78C2FF",
                     "comment": ""
                 },
                 "dataBlueMildHover": {
@@ -12820,19 +14852,19 @@
                     "comment": ""
                 },
                 "dataElectricBlueHover": {
-                    "value": "#1852BFFF",
+                    "value": "#3D78E6FF",
                     "comment": ""
                 },
                 "dataElectricBlueActive": {
-                    "value": "#1446A3FF",
+                    "value": "#2265E2FF",
                     "comment": ""
                 },
                 "dataFuchsiaHover": {
-                    "value": "#9C2688FF",
+                    "value": "#D52AB8FF",
                     "comment": ""
                 },
                 "dataFuchsiaActive": {
-                    "value": "#832073FF",
+                    "value": "#BB25A2FF",
                     "comment": ""
                 },
                 "dataPinkHover": {
@@ -12906,6 +14938,134 @@
                 "dataBlueLightActive": {
                     "value": "#08141CFF",
                     "comment": "Инвертированный светлый голубой цвет для данных"
+                },
+                "dataElectricBlue": {
+                    "value": "[general.electricBlue.700]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinor": {
+                    "value": "[general.electricBlue.800]",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorHover": {
+                    "value": "#1852BFFF",
+                    "comment": ""
+                },
+                "dataElectricBlueMinorActive": {
+                    "value": "#1446A3FF",
+                    "comment": ""
+                },
+                "dataElectricBlueLight": {
+                    "value": "[general.electricBlue.900]",
+                    "comment": ""
+                },
+                "dataElectricBlueLightHover": {
+                    "value": "#0A2A67FF",
+                    "comment": ""
+                },
+                "dataElectricBlueLightActive": {
+                    "value": "#071F4BFF",
+                    "comment": ""
+                },
+                "dataGrayLight": {
+                    "value": "[general.coolGray.900]",
+                    "comment": ""
+                },
+                "dataGrayLightHover": {
+                    "value": "#2C343AFF",
+                    "comment": ""
+                },
+                "dataGrayLightActive": {
+                    "value": "#1F2528FF",
+                    "comment": ""
+                },
+                "dataGreen": {
+                    "value": "[general.green.600]",
+                    "comment": ""
+                },
+                "dataGreenLight": {
+                    "value": "[general.green.900]",
+                    "comment": ""
+                },
+                "dataYellowDarkHover": {
+                    "value": "#B87A00FF",
+                    "comment": ""
+                },
+                "dataYellowDarkActive": {
+                    "value": "#996600FF",
+                    "comment": ""
+                },
+                "dataYellowDark": {
+                    "value": "[general.amber.700]",
+                    "comment": ""
+                },
+                "dataOrange": {
+                    "value": "[general.orange.600]",
+                    "comment": ""
+                },
+                "dataBlue": {
+                    "value": "[general.blue.600]",
+                    "comment": ""
+                },
+                "dataOrchid": {
+                    "value": "[general.orchid.700]",
+                    "comment": ""
+                },
+                "dataOrchidLight": {
+                    "value": "[general.orchid.900]",
+                    "comment": ""
+                },
+                "dataOrchidLightHover": {
+                    "value": "#41195CFF",
+                    "comment": ""
+                },
+                "dataOrchidLightActive": {
+                    "value": "#301344FF",
+                    "comment": ""
+                },
+                "dataFuchsia": {
+                    "value": "[general.fuchsia.700]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinor": {
+                    "value": "[general.fuchsia.800]",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorHover": {
+                    "value": "#9C2688FF",
+                    "comment": ""
+                },
+                "dataFuchsiaMinorActive": {
+                    "value": "#832073FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLight": {
+                    "value": "[general.fuchsia.900]",
+                    "comment": ""
+                },
+                "dataFuchsiaLightHover": {
+                    "value": "#551149FF",
+                    "comment": ""
+                },
+                "dataFuchsiaLightActive": {
+                    "value": "#3B0C33FF",
+                    "comment": ""
+                },
+                "dataArctic": {
+                    "value": "[general.arctic.700]",
+                    "comment": ""
+                },
+                "dataArcticLightHover": {
+                    "value": "#0A3D2FFF",
+                    "comment": ""
+                },
+                "dataArcticLightActive": {
+                    "value": "#06231BFF",
+                    "comment": ""
+                },
+                "dataArcticLight": {
+                    "value": "[general.arctic.900]",
+                    "comment": ""
                 }
             }
         }

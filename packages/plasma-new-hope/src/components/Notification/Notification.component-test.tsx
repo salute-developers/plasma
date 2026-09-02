@@ -12,13 +12,18 @@ import {
 import { IconPlasma, IconTrash } from 'override/_Icon';
 
 import type { NotificationPlacement, NotificationProps } from './Notification.types';
+import { classes } from './Notification.tokens';
 
 type NotificationsProviderProps = React.PropsWithChildren<{
     placement?: NotificationPlacement;
 }>;
 
-type AddNotification = (notification: NotificationProps & { id: string }, timeout: number | null) => void;
+type AddNotification = (notification: NotificationProps, timeout?: number | null) => string;
 type CloseNotification = (id: string) => void;
+type UseNotifications = () => {
+    addNotification: AddNotification;
+    closeNotification: CloseNotification;
+};
 
 type ButtonProps = {
     text: string;
@@ -32,6 +37,7 @@ const componentExists = hasComponent('Notification');
 const providerExists = hasComponent('NotificationsProvider');
 const addNotificationExists = hasComponent('addNotification');
 const closeNotificationExists = hasComponent('closeNotification');
+const useNotificationsExists = hasComponent('useNotifications');
 const buttonExists = hasComponent('Button');
 const describeFn = getDescribeFN('Notification');
 
@@ -58,11 +64,53 @@ describeFn('Notification', () => {
     const NotificationsProvider = providerExists
         ? getComponent<NotificationsProviderProps>('NotificationsProvider')
         : () => null;
-    const addNotification = addNotificationExists ? getComponent<AddNotification>('addNotification') : () => undefined;
+    const addNotification = addNotificationExists ? getComponent<AddNotification>('addNotification') : () => '';
     const closeNotification = closeNotificationExists
         ? getComponent<CloseNotification>('closeNotification')
         : () => undefined;
+    const useNotifications = useNotificationsExists
+        ? ((getComponent('useNotifications') as unknown) as UseNotifications)
+        : () => ({ addNotification: () => '', closeNotification: () => undefined });
     const Button = buttonExists ? getComponent<ButtonProps>('Button') : () => null;
+
+    const ScopedNotificationControls = () => {
+        const {
+            addNotification: addScopedNotification,
+            closeNotification: closeScopedNotification,
+        } = useNotifications();
+
+        return (
+            <>
+                <Button
+                    text="Open scoped notification"
+                    onClick={() => {
+                        addScopedNotification(
+                            {
+                                id: 'scoped-provider',
+                                title: 'Scoped notification',
+                            },
+                            null,
+                        );
+                    }}
+                />
+                <Button text="Close scoped notification" onClick={() => closeScopedNotification('scoped-provider')} />
+            </>
+        );
+    };
+
+    const TimedNotificationsControls = () => {
+        const { addNotification: addScopedNotification } = useNotifications();
+
+        return (
+            <Button
+                text="Open timed notifications"
+                onClick={() => {
+                    addScopedNotification({ title: 'First timed notification' }, 1000);
+                    addScopedNotification({ title: 'Second timed notification' }, 3000);
+                }}
+            />
+        );
+    };
 
     const renderActions = (size = 'xs', stretching?: string) => (
         <ButtonsWrapper>
@@ -240,6 +288,27 @@ describeFn('Notification', () => {
         cy.get('.popup-base-root').should('not.exist');
     });
 
+    it('closes notifications according to their individual timeouts', () => {
+        mount(
+            <NotificationsProvider>
+                <TimedNotificationsControls />
+            </NotificationsProvider>,
+        );
+
+        cy.clock();
+        cy.get('button').contains('Open timed notifications').click();
+        cy.contains('First timed notification').should('be.visible');
+        cy.contains('Second timed notification').should('be.visible');
+
+        cy.tick(1500);
+        cy.contains('First timed notification').should('not.exist');
+        cy.contains('Second timed notification').should('be.visible');
+
+        cy.tick(2000);
+        cy.contains('Second timed notification').should('not.exist');
+        cy.get('.popup-base-root').should('not.exist');
+    });
+
     it('close notification by action', () => {
         mount(
             <NotificationsProvider>
@@ -291,6 +360,56 @@ describeFn('Notification', () => {
 
         cy.get('button').contains('Открыть').click();
         cy.get('button.notification-close-icon').click();
+        cy.get('.popup-base-root').should('not.exist');
+    });
+
+    it('renders notification once with multiple providers', () => {
+        mount(
+            <>
+                <NotificationsProvider>
+                    <Button
+                        text="Open notification"
+                        onClick={() => {
+                            addNotification(
+                                {
+                                    id: 'multiple-providers',
+                                    title: 'Notification with multiple providers',
+                                },
+                                null,
+                            );
+                        }}
+                    />
+                </NotificationsProvider>
+                <NotificationsProvider>
+                    <div />
+                </NotificationsProvider>
+            </>,
+        );
+
+        cy.get('button').contains('Open notification').click();
+        cy.get('.popup-base-root').should('have.length', 1);
+
+        closeNotification('multiple-providers');
+        cy.get('.popup-base-root').should('not.exist');
+    });
+
+    it('uses the nearest provider configuration with multiple providers', () => {
+        mount(
+            <>
+                <NotificationsProvider placement="bottom-left">
+                    <div />
+                </NotificationsProvider>
+                <NotificationsProvider placement="center">
+                    <ScopedNotificationControls />
+                </NotificationsProvider>
+            </>,
+        );
+
+        cy.get('button').contains('Open scoped notification').click();
+        cy.get('.popup-base-root').should('have.length', 1);
+        cy.get(`.${classes.notificationLeftToRightAnimation}`).should('not.exist');
+
+        cy.get('button').contains('Close scoped notification').click();
         cy.get('.popup-base-root').should('not.exist');
     });
 

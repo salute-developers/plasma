@@ -3,6 +3,7 @@ import {
     surfaceAccent,
     textAccent,
     textAccentActive,
+    textAccentGradient,
     textAccentHover,
     textInfo,
     textInfoActive,
@@ -91,6 +92,15 @@ export const config = {
                 ${tokens.colorActive}: ${textInfoActive};
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.spinnerColor}: ${textInfo};
+                ${tokens.focusColor}: ${surfaceAccent};
+                ${tokens.loadingIconOpacity}: 0.06;
+            `,
+            gradient: css`
+                ${tokens.color}: ${textAccentGradient};
+                ${tokens.colorHover}: ${textAccentGradient};
+                ${tokens.colorActive}: ${textAccentGradient};
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.spinnerColor}: ${textAccentGradient};
                 ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.loadingIconOpacity}: 0.06;
             `,

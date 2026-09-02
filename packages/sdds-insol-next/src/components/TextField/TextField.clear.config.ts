@@ -87,10 +87,10 @@ export const config = {
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             positive: css`
-                ${tokens.color}: ${textPositive};
+                ${tokens.color}: ${textPrimary};
 
-                ${tokens.placeholderColor}: ${textPositive};
-                ${tokens.placeholderColorFocus}: ${textPositive};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -121,10 +121,10 @@ export const config = {
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             warning: css`
-                ${tokens.color}: ${textWarning};
+                ${tokens.color}: ${textPrimary};
 
-                ${tokens.placeholderColor}: ${textWarning};
-                ${tokens.placeholderColorFocus}: ${textWarning};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -155,10 +155,10 @@ export const config = {
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             negative: css`
-                ${tokens.color}: ${textNegative};
+                ${tokens.color}: ${textPrimary};
 
-                ${tokens.placeholderColor}: ${textNegative};
-                ${tokens.placeholderColorFocus}: ${textNegative};
+                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;

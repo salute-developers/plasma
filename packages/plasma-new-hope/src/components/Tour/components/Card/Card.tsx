@@ -1,9 +1,10 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useCallback, useRef } from 'react';
+import cls from 'classnames';
 import { RootProps } from 'src/engines';
 import { IconClose } from 'src/components/_Icon';
-import cls from 'classnames';
+import { usePaginationDots } from 'src/components/PaginationDots/usePaginationDots';
 
-import type { TourCardProps } from './Card.types';
+import type { RootTourCardProps, TourCardProps } from './Card.types';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import {
@@ -19,10 +20,11 @@ import {
     ActionButtonsContainer,
     SkipButtonContainer,
     CardBody,
+    NumberContainer,
 } from './Card.styles';
-import { classes } from './Card.tokens';
+import { classes, tokens } from './Card.tokens';
 
-export const tourCardRoot = (Root: RootProps<HTMLDivElement, TourCardProps>) =>
+export const tourCardRoot = (Root: RootProps<HTMLDivElement, RootTourCardProps>) =>
     forwardRef<HTMLDivElement, TourCardProps>(
         (
             {
@@ -32,7 +34,10 @@ export const tourCardRoot = (Root: RootProps<HTMLDivElement, TourCardProps>) =>
                 title,
                 description,
                 orientation = 'horizontal',
+                contentDirection = 'row-reverse',
                 showPagination = true,
+                paginationVisibleItems = 3,
+                paginationType = 'dot',
                 stepCurrent = 0,
                 stepLength = 0,
                 actionButtons,
@@ -49,18 +54,61 @@ export const tourCardRoot = (Root: RootProps<HTMLDivElement, TourCardProps>) =>
             // Если показан только текст, то к нему добавляется отступ снизу для компенсации.
             const onlyText = !showPagination && !actionButtons && !skipButton;
 
+            const paginationItems = useRef(
+                Array(stepLength)
+                    .fill(0)
+                    .map((_, ind) => ({ id: ind + 1 })),
+            );
+
+            const { sliced, activeId } = usePaginationDots({
+                items: paginationItems.current,
+                index: stepCurrent,
+                visibleItems: Math.min(paginationVisibleItems, stepLength),
+            });
+
             const dotOnClick = (index: number) => {
                 if (goToStep) {
                     goToStep(index);
                 }
             };
 
+            const getPaginationContent = useCallback(() => {
+                const paginationContent = {
+                    dot: (
+                        <DotsContainer orientation={orientation} className={classes.pagination}>
+                            {sliced.map(({ id }, index) => (
+                                <Dot key={index} isActive={activeId === id} onClick={() => dotOnClick(index)} />
+                            ))}
+                        </DotsContainer>
+                    ),
+                    compact: (
+                        <NumberContainer>
+                            {activeId}/{stepLength}
+                        </NumberContainer>
+                    ),
+                };
+
+                if (orientation !== 'horizontal') {
+                    return paginationContent.dot;
+                }
+
+                return paginationContent[paginationType];
+            }, [sliced, activeId, stepLength, orientation, paginationType]);
+
             return (
                 <Root ref={outerRef} view={view} size={size} {...rest}>
-                    <TourCard className={cls(className, classes.card)} style={style} orientation={orientation}>
+                    <TourCard
+                        className={cls(className, classes.card)}
+                        style={style}
+                        orientation={orientation}
+                        contentDirection={contentDirection}
+                    >
                         {showClose && (
                             <CloseButton onClick={onClose}>
-                                <IconClose size="xs" color="inherit" />
+                                <IconClose
+                                    sizeCustomValue={`var(${tokens.closeButtonIconSize}, 1rem)`}
+                                    color="inherit"
+                                />
                             </CloseButton>
                         )}
 
@@ -73,20 +121,8 @@ export const tourCardRoot = (Root: RootProps<HTMLDivElement, TourCardProps>) =>
                                 <Description className={classes.description}>{description}</Description>
                             </CardText>
 
-                            <Controls orientation={orientation}>
-                                {showPagination && (
-                                    <DotsContainer orientation={orientation} className={classes.pagination}>
-                                        {Array(stepLength)
-                                            .fill(null)
-                                            .map((_, index) => (
-                                                <Dot
-                                                    key={index}
-                                                    isActive={stepCurrent === index}
-                                                    onClick={() => dotOnClick(index)}
-                                                />
-                                            ))}
-                                    </DotsContainer>
-                                )}
+                            <Controls orientation={orientation} contentDirection={contentDirection}>
+                                {showPagination && getPaginationContent()}
 
                                 {actionButtons && (
                                     <ActionButtonsContainer orientation={orientation} className={classes.actionButtons}>

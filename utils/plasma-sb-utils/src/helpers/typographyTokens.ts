@@ -71,11 +71,14 @@ const result = {
     },
 } as TypographyStructure;
 
-const breakpoints: Record<Breakpoint, string> = {
-    small: '\\(max-width: 559px\\)',
-    medium: '\\(min-width: 560px\\) and \\(max-width: 959px\\)',
-    large: '\\(min-width: 960px\\)',
-};
+const breakpointOrder: Array<Breakpoint> = ['small', 'medium', 'large'];
+
+const mediaBlockRegex = /@media\s*([^{]+)\{([\s\S]*?)\}/g;
+
+const getBreakpointBlocks = (cssString: string) =>
+    Array.from(cssString.matchAll(mediaBlockRegex))
+        .map(([, query, content]) => ({ width: Number(query.match(/(\d+)px/)?.[1]) || 0, content }))
+        .sort((first, second) => first.width - second.width);
 
 const fontFamilies = {
     dspl: 'SB Sans Display',
@@ -187,12 +190,11 @@ export const getGroupedTypographyTokens = (cssString: string) => {
 
     getFontRootInfo(fontRootMatch[1]);
 
-    Object.entries(breakpoints).forEach(([breakpoint, mediaQuery]) => {
-        const regex = new RegExp(`@media\\s*${mediaQuery}\\s*\\{([\\s\\S]*?)\\}`);
-        const match = cssString.match(regex);
+    getBreakpointBlocks(cssString).forEach(({ content }, index) => {
+        const breakpoint = breakpointOrder[index];
 
-        if (match) {
-            getFontMainInfo(match[1], breakpoint as Breakpoint);
+        if (breakpoint) {
+            getFontMainInfo(content, breakpoint);
         }
     });
 

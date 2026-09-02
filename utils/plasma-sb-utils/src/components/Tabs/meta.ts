@@ -41,6 +41,7 @@ export const createMeta = ({
             size: regularSizes[0],
             orientation: 'horizontal',
             disabled: false,
+            disableScroll: false,
             hasDivider: true,
             hasAction: false,
             helperText: '',
@@ -64,6 +65,10 @@ export const createMeta = ({
                 table: { category: 'variation' },
             },
             disabled: {
+                control: { type: 'boolean' },
+                table: { category: 'variation' },
+            },
+            disableScroll: {
                 control: { type: 'boolean' },
                 table: { category: 'variation' },
             },

@@ -15,48 +15,61 @@ export type NotificationsEvents = {
     remove: string;
 };
 
+export type NotificationsStoreInstance = StoreonStore<NotificationsState, NotificationsEvents>;
+export type AddNotification = (props: NotificationProps, timeout?: number | null) => string;
+export type CloseNotification = (id: string, delay?: number) => void;
+
 /**
  * Создает хранилище с ключом `notifications` к массиву с окнами.
  */
-export const NotificationsStore = createStoreon([
-    (store: StoreonStore<NotificationsState, NotificationsEvents>) => {
-        store.on('@init', () => ({ notifications: [] }));
+export const createNotificationsStore = () =>
+    createStoreon([
+        (store: NotificationsStoreInstance) => {
+            store.on('@init', () => ({ notifications: [] }));
 
-        store.on('add', ({ notifications }, notif) => {
-            return { notifications: notifications.concat([notif]) };
-        });
+            store.on('add', ({ notifications }, notif) => {
+                return { notifications: notifications.concat([notif]) };
+            });
 
-        store.on('hide', ({ notifications }, id) => {
-            return {
-                notifications: notifications.map((notif) => (id === notif.id ? { ...notif, isHidden: true } : notif)),
-            };
-        });
+            store.on('hide', ({ notifications }, id) => {
+                return {
+                    notifications: notifications.map((notif) =>
+                        id === notif.id ? { ...notif, isHidden: true } : notif,
+                    ),
+                };
+            });
 
-        store.on('remove', ({ notifications }, id) => {
-            return { notifications: notifications.filter((notif) => id !== notif.id) };
-        });
-    },
-]);
+            store.on('remove', ({ notifications }, id) => {
+                return { notifications: notifications.filter((notif) => id !== notif.id) };
+            });
+        },
+    ]);
 
-export const closeNotification = (id: string, delay = 380) => {
-    const { dispatch } = NotificationsStore;
+export const NotificationsStore = createNotificationsStore();
+
+let notificationIdCounter = 0;
+
+const createNotificationId = () => {
+    notificationIdCounter += 1;
+
+    return `plasma-notification-${Date.now()}-${notificationIdCounter}`;
+};
+
+const closeNotificationInStore = (store: NotificationsStoreInstance, id: string, delay = 380) => {
+    const { dispatch } = store;
 
     dispatch('hide', id);
 
     setTimeout(() => dispatch('remove', id), delay);
 };
 
-/**
- * Открыть новое оповещение.
- * @param props Пропсы всплывающего оповещения
- * @return Идентификатор нового оповещения
- */
-export function addNotification(
+const addNotificationToStore = (
+    store: NotificationsStoreInstance,
     { id: externalId, onTimeoutClose, ...rest }: NotificationProps,
     timeout: number | null = 2000,
-) {
-    const id = externalId || `plasma-notification-${Date.now()}`;
-    const { dispatch, get } = NotificationsStore;
+) => {
+    const id = externalId || createNotificationId();
+    const { dispatch, get } = store;
 
     dispatch('add', {
         ...rest,
@@ -75,11 +88,29 @@ export function addNotification(
                 return;
             }
 
-            closeNotification(id);
+            closeNotificationInStore(store, id);
 
             onTimeoutClose?.();
         }, timeout);
     }
 
     return id;
-}
+};
+
+export const createNotificationsApi = (store: NotificationsStoreInstance) => ({
+    addNotification: ((props, timeout = 2000) => addNotificationToStore(store, props, timeout)) as AddNotification,
+    closeNotification: ((id, delay = 380) => closeNotificationInStore(store, id, delay)) as CloseNotification,
+});
+
+export const GlobalNotificationsApi = createNotificationsApi(NotificationsStore);
+
+export const closeNotification: CloseNotification = (id, delay = 380) =>
+    closeNotificationInStore(NotificationsStore, id, delay);
+
+/**
+ * Открыть новое оповещение.
+ * @param props Пропсы всплывающего оповещения
+ * @return Идентификатор нового оповещения
+ */
+export const addNotification: AddNotification = (props, timeout = 2000) =>
+    addNotificationToStore(NotificationsStore, props, timeout);

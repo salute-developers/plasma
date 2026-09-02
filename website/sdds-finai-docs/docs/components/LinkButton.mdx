@@ -61,7 +61,8 @@ export function App() {
 ```
 
 ### Вид кнопки
-Вид кнопки задается с помощью свойства `view`. Возможные значения свойства `view`:
+Вид кнопки задается с помощью свойства `view`. Доступные значения: `default`, `accent`, `secondary`, `positive`, `warning`, `negative`, `info`, `gradient`.
+Значение `gradient` окрашивает текст, переданный через свойство `text`, в акцентный градиент.
 
 ```tsx live
 import React from 'react';
@@ -72,6 +73,7 @@ export function App() {
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
             <LinkButton text="Кнопка" size="s" view="default" />
             <LinkButton text="Кнопка" size="s" view="accent" />
+            <LinkButton text="Кнопка" size="s" view="gradient" />
             <LinkButton text="Кнопка" size="s" view="secondary" />
             <LinkButton text="Кнопка" size="s" view="positive" />
             <LinkButton text="Кнопка" size="s" view="warning" />

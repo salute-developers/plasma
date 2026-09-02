@@ -96,7 +96,7 @@ export const calendarBaseRoot = (
                 min.setHours(0, 0, 0, 0);
             }
             if (max) {
-                max.setHours(23, 59, 59, 999);
+                max.setHours(0, 0, 0, 0);
             }
 
             const renderFrom = renderFromDate && new Date(renderFromDate);

@@ -292,6 +292,28 @@ export const config = {
                 ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
                 ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.25rem;
             `,
+            xxs: css`
+                ${buttonTokens.buttonHeight}: 1.5rem;
+                ${buttonTokens.buttonWidth}: 7.5rem;
+                ${buttonTokens.buttonPadding}: 0.625rem;
+                ${buttonTokens.buttonRadius}: 0.375rem;
+
+                ${buttonTokens.buttonFontFamily}: ${bodyXS.fontFamily};
+                ${buttonTokens.buttonFontSize}: ${bodyXS.fontSize};
+                ${buttonTokens.buttonFontStyle}: ${bodyXS.fontStyle};
+                ${buttonTokens.buttonFontWeight}: ${bodyXSBold.fontWeight};
+                ${buttonTokens.buttonLetterSpacing}: ${bodyXS.letterSpacing};
+                ${buttonTokens.buttonLineHeight}: ${bodyXS.lineHeight};
+
+                ${buttonTokens.buttonSpinnerSize}: 0.75rem;
+                ${buttonTokens.buttonSpinnerColor}: inherit;
+
+                ${buttonTokens.buttonLeftContentMargin}: 0 0.25rem 0 -0.125rem;
+                ${buttonTokens.buttonRightContentMargin}: 0 -0.125rem 0 0.25rem;
+                ${buttonTokens.buttonValueMargin}: 0 0 0 0.125rem;
+                ${buttonTokens.buttonAdditionalContentMargin}: 0 0 0 0.25rem;
+                ${buttonTokens.buttonAdditionalContentMarginRightWidthValue}: 0.125rem;
+            `,
         },
         disabled: {
             true: css`

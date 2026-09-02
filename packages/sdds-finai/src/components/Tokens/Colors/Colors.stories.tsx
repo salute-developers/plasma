@@ -122,7 +122,7 @@ const StoryDemoColor = ({ context }) => {
             <SubthemeSwitcher>
                 <SegmentGroup view="clear" size="xs" hasBackground pilled>
                     {Object.entries(groupedTokens).map(([category]) => (
-                        <StyledSegmentItem key={`label_${category}`} value={category} view="default" pilled>
+                        <StyledSegmentItem key={`label_${category}`} value={category} view="primary" pilled>
                             {category}
                         </StyledSegmentItem>
                     ))}

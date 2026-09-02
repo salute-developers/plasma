@@ -67,5 +67,10 @@ export const config = {
                 ${tabsTokens.disabledOpacity}: 0.4;
             `,
         },
+        pilled: {
+            true: css`
+                ${tabsTokens.tabsPilledBorderRadius}: 1.625rem;
+            `,
+        },
     },
 };

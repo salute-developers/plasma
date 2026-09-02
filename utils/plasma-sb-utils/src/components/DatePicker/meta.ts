@@ -386,6 +386,11 @@ export const createRangeMeta = ({
                 control: { type: 'select' },
                 table: { category: 'dropdown' },
             },
+            isCalendarPositionedByInput: {
+                control: { type: 'boolean' },
+                table: { category: 'dropdown' },
+                if: { arg: 'isDoubleCalendar', truthy: false },
+            },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },

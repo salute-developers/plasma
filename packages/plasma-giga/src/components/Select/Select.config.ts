@@ -136,7 +136,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -187,7 +187,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -238,7 +238,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -289,7 +289,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -315,7 +315,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -341,7 +341,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -367,7 +367,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -393,7 +393,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -419,7 +419,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
@@ -445,7 +445,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceSolidDefault};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};

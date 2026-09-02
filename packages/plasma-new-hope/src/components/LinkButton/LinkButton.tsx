@@ -1,5 +1,7 @@
 import React, { forwardRef } from 'react';
 import type { MouseEvent } from 'react';
+import cls from 'classnames';
+import { GRADIENT_TEXT_CLASS } from 'src/utils/constants';
 
 import type { RootProps } from '../../engines';
 
@@ -82,7 +84,7 @@ export const linkButtonRoot = (Root: RootProps<HTMLAnchorElement, LinkButtonProp
             >
                 <LoadWrap isLoading={!disabled && isLoading} style={{ ...loadingCustomOpacity }}>
                     {contentLeft && <StyledContentLeft hasContent={hasContent}>{contentLeft}</StyledContentLeft>}
-                    {txt ? <LinkButtonText>{txt}</LinkButtonText> : children}
+                    {txt ? <LinkButtonText className={cls(GRADIENT_TEXT_CLASS)}>{txt}</LinkButtonText> : children}
                     {additionalContent && <StyledAdditionalContent>{additionalContent}</StyledAdditionalContent>}
                     {contentRight && <StyledContentRight hasContent={hasContent}>{contentRight}</StyledContentRight>}
                 </LoadWrap>

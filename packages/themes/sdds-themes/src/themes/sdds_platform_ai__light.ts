@@ -38,8 +38,6 @@ export const sdds_platform_ai__light = ([
   --text-accent-active: #B6FB37FF;
   --text-accent-minor-hover: #47DC62FF;
   --text-accent-minor-active: #21B03CFF;
-  --text-promo-hover: #A0F8DFFF;
-  --text-promo-active: #2EEFB9FF;
   --text-positive-hover: #24DB45FF;
   --text-positive-active: #178C2CFF;
   --text-warning-hover: #FD6B17FF;
@@ -64,7 +62,6 @@ export const sdds_platform_ai__light = ([
   --text-warning-minor: #FD9C68;
   --text-negative-minor: #FF8F9A;
   --text-info-minor: #52BAFF;
-  --text-promo: #52F2C5;
   --text-accent: #C5FC5F;
   --text-primary: #080808;
   --text-secondary: #080808B3;
@@ -232,8 +229,6 @@ export const sdds_platform_ai__light = ([
   --surface-accent-minor-active: #8BF99FFF;
   --surface-transparent-accent-hover: #108E252E;
   --surface-transparent-accent-active: #108E2533;
-  --surface-promo-hover: #58E4BAFF;
-  --surface-promo-active: #2CDDA8FF;
   --surface-positive-hover: #1EB83AFF;
   --surface-positive-active: #178C2CFF;
   --surface-positive: #1A9E32;
@@ -277,7 +272,6 @@ export const sdds_platform_ai__light = ([
   --surface-transparent-negative-minor-hover: #FA5F0512;
   --surface-transparent-negative-minor-active: #FA5F0517;
   --surface-solid-default: #080808;
-  --surface-promo: #3FE0B1;
   --surface-negative: #F31B31;
   --surface-transparent-negative: #F31B311F;
   --surface-transparent-positive: #28D2471F;
@@ -417,8 +411,6 @@ export const sdds_platform_ai__light = ([
   --on-light-surface-accent-minor-active: #8BF99FFF;
   --on-light-surface-transparent-accent-hover: #1A9E322E;
   --on-light-surface-transparent-accent-active: #1A9E3233;
-  --on-light-surface-promo-hover: #58E4BAFF;
-  --on-light-surface-promo-active: #2CDDA8FF;
   --on-light-surface-positive-hover: #1EB83AFF;
   --on-light-surface-positive-active: #178C2CFF;
   --on-light-surface-positive: #1A9E32;
@@ -461,7 +453,6 @@ export const sdds_platform_ai__light = ([
   --on-light-surface-transparent-negative-minor-hover: #FA5F0512;
   --on-light-surface-transparent-negative-minor-active: #FA5F0517;
   --on-light-surface-solid-default: #080808;
-  --on-light-surface-promo: #3FE0B1;
   --on-light-surface-negative: #F31B31;
   --on-light-surface-transparent-positive: #28D2471F;
   --on-light-surface-transparent-negative: #F31B311F;

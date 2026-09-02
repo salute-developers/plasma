@@ -32,6 +32,7 @@ export * from './components/Switch';
 export * from './components/Autocomplete';
 export * from './components/Combobox';
 export * from './components/DatePicker';
+export * from './components/TimePicker';
 export * from './components/Select';
 
 // Navigation

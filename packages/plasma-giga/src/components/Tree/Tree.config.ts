@@ -9,7 +9,6 @@ import {
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
-    textAccent,
     textPrimary,
     textSecondary,
     textSecondaryActive,
@@ -36,7 +35,7 @@ export const config = {
                 ${tokens.itemBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
                 ${tokens.itemBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
                 ${tokens.checkboxBorderColor}: ${textSecondary};
-                ${tokens.checkboxBackgroundColor}: ${textAccent};
+                ${tokens.checkboxBackgroundColor}: ${surfaceSolidDefault};
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledBorderColor}: ${textSecondary};
                 ${tokens.itemDisabledColor}: ${textSecondary};

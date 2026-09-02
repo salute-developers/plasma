@@ -30,6 +30,11 @@ export interface BaseTabItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonEl
      */
     selected?: boolean;
     /**
+     * Отключает скролл к TabItem при его выборе
+     * @default false
+     */
+    disableScroll?: boolean;
+    /**
      * TabItem неактивен
      * @default false
      */
@@ -86,7 +91,7 @@ export type CustomHorizontalTabItemProps = {
     /**
      * Размер TabItem
      */
-    size?: 'xs' | 's' | 'm' | 'l';
+    size?: string;
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`
@@ -112,7 +117,7 @@ export type CustomHorizontalIconTabItemProps = {
     /**
      * Размер TabItem
      */
-    size?: 'xs' | 's' | 'm' | 'l' | 'h6' | 'h5' | 'h4' | 'h3' | 'h2' | 'h1';
+    size?: string;
     /**
      * Активен ли TabItem
      * @deprecated Используйте свойство `selected`
@@ -188,6 +193,11 @@ export type CustomVerticalTabItemProps = {
      * Размер TabItem
      */
     size?: string;
+    /**
+     * TabItem c округлым border-radius
+     * @default false
+     */
+    pilled?: boolean;
 } & RightContent;
 
 export type HorizontalTabItemProps = BaseTabItemProps & (CustomHorizontalTabItemProps | CustomHeaderTabItemProps);

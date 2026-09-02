@@ -565,9 +565,11 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
         import { DatePickerRange, IconButton } from '@salutejs/sdds-platform-ai';
         import { IconDone } from '@salutejs/plasma-icons';
 
-        type DateType = Date | string | undefined | null
+        
 
         export function App() {
+            type DateType = Date | string | undefined | null
+            
             const [dateValue, setDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [originalDateValue, setOriginalDate] = useState<[DateType, DateType]>([new Date(), null]);
             const [isoDateValue, setIsoDate] = useState<[string?, string?]>([new Date().toISOString(), '']);
@@ -845,6 +847,28 @@ import { DatePicker } from '@salutejs/sdds-platform-ai';
                         usePortal
                     />
                 </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="calendar-position" label="isCalendarPositionedByInput">
+        Свойство `isCalendarPositionedByInput` привязывает одиночный календарь к активному полю ввода.
+        При переключении между полями открытый календарь перемещается под выбранное поле.
+
+        ```tsx live
+        import React from 'react';
+        import { DatePickerRange } from '@salutejs/sdds-platform-ai';
+
+        export function App() {
+            return (
+                <DatePickerRange
+                    size="l"
+                    label="Период"
+                    firstPlaceholder="Дата начала"
+                    secondPlaceholder="Дата окончания"
+                    isCalendarPositionedByInput
+                    usePortal
+                />
             );
         }
         ```

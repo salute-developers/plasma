@@ -1,4 +1,9 @@
-import { findTabbableDescendants } from './tabbable';
+import { findTabbableInFocusScope, FocusTrapSelectors, isElementInFocusScope } from './focusScope';
+
+type FocusNode = {
+    element: HTMLElement;
+    getFocusTrapSelectors?: () => FocusTrapSelectors | undefined;
+};
 
 /**
  *  Менеджер фокуса при открытии и закрытии нод при использовании focus-trap.
@@ -9,18 +14,22 @@ export class FocusManager {
     private focusAfterElements: Array<HTMLElement> = [];
 
     // массив с trap нодами
-    private focusNodes: Array<HTMLElement> = [];
+    private focusNodes: Array<FocusNode> = [];
 
     private handleFocus = () => {
         // Фокус всегда должен находиться внутри необходимой ноды
         const focusNode = this.focusNodes[this.focusNodes.length - 1];
 
-        if (!focusNode || focusNode.contains(document.activeElement)) {
+        if (
+            !focusNode ||
+            isElementInFocusScope(focusNode.element, document.activeElement, focusNode.getFocusTrapSelectors?.())
+        ) {
             return;
         }
 
         // Выделяем первый tabbable элемент
-        const el = findTabbableDescendants(focusNode)[0] || focusNode;
+        const el =
+            findTabbableInFocusScope(focusNode.element, focusNode.getFocusTrapSelectors?.())[0] || focusNode.element;
         el.focus();
     };
 
@@ -40,14 +49,28 @@ export class FocusManager {
     };
 
     // при маунте ноды
-    public setupScopedFocus = (element: HTMLElement) => {
-        this.focusNodes.push(element);
-        document.addEventListener('focusin', this.handleFocus, true);
+    public setupScopedFocus = (element: HTMLElement, getFocusTrapSelectors?: () => FocusTrapSelectors | undefined) => {
+        this.focusNodes.push({ element, getFocusTrapSelectors });
+
+        if (this.focusNodes.length === 1) {
+            document.addEventListener('focusin', this.handleFocus, true);
+        }
     };
 
     // при анмаунте
-    public teardownScopedFocus = () => {
-        this.focusNodes.pop();
-        document.removeEventListener('focusin', this.handleFocus);
+    public teardownScopedFocus = (element?: HTMLElement) => {
+        const focusNodeIndex = element
+            ? this.focusNodes.map((focusNode) => focusNode.element).lastIndexOf(element)
+            : this.focusNodes.length - 1;
+
+        if (focusNodeIndex >= 0) {
+            this.focusNodes.splice(focusNodeIndex, 1);
+        }
+
+        if (!this.focusNodes.length) {
+            document.removeEventListener('focusin', this.handleFocus, true);
+        }
     };
+
+    public isTopFocusNode = (element: HTMLElement) => this.focusNodes[this.focusNodes.length - 1]?.element === element;
 }

@@ -14,7 +14,7 @@ type StoryPropsDefault = ComponentProps<typeof List>;
 const onKeyDown = action('onKeyDown');
 const onKeyListDown = action('onKeyListDown');
 
-const { views } = getConfigVariations(config);
+const { views, sizes } = getConfigVariations(config);
 
 const ChevronRight = styled(IconChevronRight)`
     transform: rotate(0deg);
@@ -24,6 +24,12 @@ const meta: Meta<typeof List> = {
     title: 'Data Display/List',
     component: List,
     argTypes: {
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
         view: {
             options: views,
             control: {
@@ -36,7 +42,7 @@ const meta: Meta<typeof List> = {
                 type: 'select',
             },
         },
-        ...disableProps(['view', 'size']),
+        ...disableProps(['view']),
     },
 };
 

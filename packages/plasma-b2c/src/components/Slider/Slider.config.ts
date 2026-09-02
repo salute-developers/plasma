@@ -239,8 +239,7 @@ export const config = {
         },
         pointerSize: {
             small: css`
-                ${sliderTokens.thumbSize}: 1rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbWidth}: 1rem;
                 ${sliderTokens.thumbBorderWidth}: 0.0625rem;
 
                 ${sliderTokens.tickSeparatorWidth}: 0.25rem;
@@ -248,8 +247,7 @@ export const config = {
                 ${sliderTokens.tickSeparatorBorderRadius}: 0.25rem;
             `,
             large: css`
-                ${sliderTokens.thumbSize}: 1.25rem;
-                ${sliderTokens.thumbBorderStyle}: solid;
+                ${sliderTokens.thumbWidth}: 1.25rem;
                 ${sliderTokens.thumbBorderWidth}: 0.0625rem;
 
                 ${sliderTokens.tickSeparatorWidth}: 0.25rem;
@@ -257,7 +255,7 @@ export const config = {
                 ${sliderTokens.tickSeparatorBorderRadius}: 0.25rem;
             `,
             none: css`
-                ${sliderTokens.thumbSize}: 0rem;
+                ${sliderTokens.thumbWidth}: 0rem;
 
                 ${sliderTokens.tickSeparatorWidth}: 0.25rem;
                 ${sliderTokens.tickSeparatorHeight}: 0.5rem;

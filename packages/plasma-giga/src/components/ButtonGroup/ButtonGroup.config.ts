@@ -71,15 +71,15 @@ export const config = {
                 ${buttonGroupTokens.buttonBackgroundColorActive}: ${surfaceSolidDefaultActive};
             `,
             accent: css`
-                ${buttonGroupTokens.buttonColor}: ${onDarkTextPrimary};
-                ${buttonGroupTokens.buttonTextColor}: ${onDarkTextPrimary};
-                ${buttonGroupTokens.buttonIconColor}: ${onDarkTextPrimary};
-                ${buttonGroupTokens.buttonValueColor}: ${onDarkTextSecondary};
+                ${buttonGroupTokens.buttonColor}: ${inverseTextPrimary};
+                ${buttonGroupTokens.buttonTextColor}: ${inverseTextPrimary};
+                ${buttonGroupTokens.buttonIconColor}: ${inverseTextPrimary};
+                ${buttonGroupTokens.buttonValueColor}: ${inverseTextSecondary};
                 ${buttonGroupTokens.buttonBackgroundColor}: ${surfaceAccent};
                 ${buttonGroupTokens.buttonLoadingBackgroundColor}: var(${buttonGroupTokens.buttonBackgroundColor});
-                ${buttonGroupTokens.buttonColorHover}: ${onDarkTextPrimary};
+                ${buttonGroupTokens.buttonColorHover}: ${inverseTextPrimary};
                 ${buttonGroupTokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
-                ${buttonGroupTokens.buttonColorActive}: ${onDarkTextPrimary};
+                ${buttonGroupTokens.buttonColorActive}: ${inverseTextPrimary};
                 ${buttonGroupTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
             `,
             secondary: css`

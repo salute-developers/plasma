@@ -91,6 +91,311 @@ export function App() {
 }
 ```
 
+### Собранные примеры карточек
+
+<Tabs>
+    <TabItem value="bank" label="CardBank" default>
+        ```tsx live
+        import React from 'react';
+        import { BodyXS, BodyXXS, Card, Flow } from '@salutejs/sdds-insol-next';
+
+        export function App() {
+            const cardShadow =
+                '0 0.0625rem 0.25rem #5A5C7F1F, 0 0 0.0625rem #1F213F0A';
+            const states = [
+                {
+                    name: 'Default',
+                    backgroundColor: 'var(--surface-solid-primary)',
+                },
+                {
+                    name: 'Hover',
+                    backgroundColor: 'var(--surface-solid-secondary)',
+                },
+                {
+                    name: 'Focus',
+                    backgroundColor: 'var(--surface-solid-secondary)',
+                    focused: true,
+                },
+            ];
+            const ImagePlaceholder = () => (
+                <div
+                    aria-label="Место для изображения банка"
+                    style={{
+                        width: '2rem',
+                        height: '2rem',
+                        flex: '0 0 auto',
+                        borderRadius: '50%',
+                        backgroundColor: 'var(--surface-solid-card)',
+                        backgroundImage:
+                            'linear-gradient(45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(-45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--surface-solid-primary) 75%), linear-gradient(-45deg, transparent 75%, var(--surface-solid-primary) 75%)',
+                        backgroundPosition: '0 0, 0 0.25rem, 0.25rem -0.25rem, -0.25rem 0',
+                        backgroundSize: '0.5rem 0.5rem',
+                    }}
+                />
+            );
+
+            return (
+                <Flow mainAxisGap="1.5rem" style={{ padding: '0.5rem', overflowX: 'auto' }}>
+                    {states.map(({ name, backgroundColor, focused }) => (
+                        <Card
+                            key={name}
+                            aria-label={`CardBank: ${name}`}
+                            orientation="vertical"
+                            backgroundType="solid"
+                            style={{
+                                width: '6rem',
+                                height: '6rem',
+                                flex: '0 0 auto',
+                                padding: '0.5rem',
+                                alignItems: 'flex-start',
+                                justifyContent: 'space-between',
+                                gap: '0.5rem',
+                                overflow: 'hidden',
+                                borderRadius: '1.0625rem',
+                                backgroundColor,
+                                boxShadow: focused
+                                    ? `inset 0 0 0 0.0625rem var(--outline-accent), ${cardShadow}`
+                                    : cardShadow,
+                            }}
+                        >
+                            <ImagePlaceholder />
+                            <Flow orientation="vertical" style={{ width: '100%', minWidth: 0 }}>
+                                <BodyXS
+                                    bold
+                                    style={{ width: '100%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+                                >
+                                    Сложнобанк
+                                </BodyXS>
+                                <BodyXXS
+                                    style={{ width: '100%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}
+                                >
+                                    Длиннофамилин
+                                </BodyXXS>
+                            </Flow>
+                        </Card>
+                    ))}
+                </Flow>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="police" label="PoliceCard">
+        ```tsx live
+        import React from 'react';
+        import { Badge, BodyXS, Card, Flow, H4, shadowDownSoftS } from '@salutejs/sdds-insol-next';
+
+        export function App() {
+            const ImagePlaceholder = () => (
+                <div
+                    aria-label="Место для изображения"
+                    style={{
+                        width: '7.125rem',
+                        height: '7.4375rem',
+                        flex: '0 0 auto',
+                        backgroundColor: 'var(--surface-solid-secondary)',
+                        backgroundImage:
+                            'linear-gradient(45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(-45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--surface-solid-primary) 75%), linear-gradient(-45deg, transparent 75%, var(--surface-solid-primary) 75%)',
+                        backgroundPosition: '0 0, 0 0.5rem, 0.5rem -0.5rem, -0.5rem 0',
+                        backgroundSize: '1rem 1rem',
+                    }}
+                />
+            );
+
+            return (
+                <Card
+                    orientation="horizontal"
+                    backgroundType="solid"
+                    style={{
+                        width: '23.3rem',
+                        maxWidth: '100%',
+                        minHeight: '7.4375rem',
+                        padding: '0 0 0 1rem',
+                        alignItems: 'stretch',
+                        overflow: 'hidden',
+                        borderRadius: '1.5rem',
+                        backgroundColor: 'var(--surface-solid-card)',
+                        boxShadow: shadowDownSoftS,
+                    }}
+                >
+                    <Flow
+                        orientation="vertical"
+                        arrangement="center"
+                        mainAxisGap="1rem"
+                        style={{ flex: 1, minWidth: 0, padding: '1rem 0' }}
+                    >
+                        <Flow orientation="vertical" mainAxisGap="0.5rem">
+                            <H4 bold>Title</H4>
+                            <BodyXS style={{ color: 'var(--text-secondary)' }}>Subtitle</BodyXS>
+                        </Flow>
+                        <Flow mainAxisGap="0.25rem">
+                            <Badge appearance="transparent" view="warning" size="m" text="Status" />
+                            <Badge appearance="transparent" view="accent" size="m" text="Date" />
+                        </Flow>
+                    </Flow>
+                    <ImagePlaceholder />
+                </Card>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="main" label="MainCard">
+        ```tsx live
+        import React from 'react';
+        import { Badge, BodyS, Card, Flow, shadowDownSoftS, TextSlim } from '@salutejs/sdds-insol-next';
+
+        export function App() {
+            const ImagePlaceholder = () => (
+                <div
+                    aria-label="Место для изображения"
+                    style={{
+                        width: '2.5rem',
+                        height: '2.5rem',
+                        flex: '0 0 auto',
+                        borderRadius: '50%',
+                        backgroundColor: 'var(--surface-solid-secondary)',
+                        backgroundImage:
+                            'linear-gradient(45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(-45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--surface-solid-primary) 75%), linear-gradient(-45deg, transparent 75%, var(--surface-solid-primary) 75%)',
+                        backgroundPosition: '0 0, 0 0.25rem, 0.25rem -0.25rem, -0.25rem 0',
+                        backgroundSize: '0.5rem 0.5rem',
+                    }}
+                />
+            );
+
+            return (
+                <Card
+                    orientation="horizontal"
+                    backgroundType="solid"
+                    style={{
+                        width: '24rem',
+                        maxWidth: '100%',
+                        padding: '1rem',
+                        alignItems: 'flex-start',
+                        gap: '1rem',
+                        borderRadius: '1.5rem',
+                        backgroundColor: 'var(--surface-solid-card)',
+                        boxShadow: shadowDownSoftS,
+                    }}
+                >
+                    <ImagePlaceholder />
+                    <Flow alignment="start" mainAxisGap="0.5rem" style={{ width: '100%', minWidth: 0 }}>
+                        <Flow orientation="vertical" mainAxisGap="0.5rem" style={{ flex: 1, minWidth: 0 }}>
+                            <Flow orientation="vertical" mainAxisGap="0.125rem">
+                                <TextSlim bold>Title</TextSlim>
+                                <BodyS style={{ color: 'var(--text-secondary)' }}>Subtitle</BodyS>
+                            </Flow>
+                            <BodyS bold style={{ color: 'var(--text-info)' }}>
+                                Status
+                            </BodyS>
+                        </Flow>
+                        <Badge appearance="transparent" view="accent" size="xs" text="Label" />
+                    </Flow>
+                </Card>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="status" label="StatusCard">
+        ```tsx live
+        import React from 'react';
+        import { BodyM, Card, Flow, H4 } from '@salutejs/sdds-insol-next';
+
+        export function App() {
+            const pinkGradient =
+                'linear-gradient(111deg, var(--surface-solid-card) 8.55%, var(--data-pink) 259.66%)';
+
+            const cards = [
+                {
+                    title: 'В работе',
+                    subtitle: 'За 5 дней рассмотрим и пришлём\nответ',
+                    minHeight: '7.25rem',
+                    background: 'var(--surface-info-gradient)',
+                },
+                {
+                    title: 'Понадобились ещё\nдокументы',
+                    subtitle: 'Как только получим их —\nпродолжим работу',
+                    minHeight: '8.875rem',
+                    background: pinkGradient,
+                },
+                {
+                    title: 'Нужны только реквизиты',
+                    subtitle: 'Чтобы отправить выплату',
+                    minHeight: '6.5rem',
+                    background: pinkGradient,
+                },
+                {
+                    title: 'Выплата',
+                    subtitle: 'Деньги уже отправлены',
+                    minHeight: '6.5rem',
+                    background: 'var(--surface-positive-gradient)',
+                },
+                {
+                    title: 'Отказано',
+                    subtitle: 'Подробнее — в смс или на почте',
+                    minHeight: '6.5rem',
+                    background: 'var(--surface-warning-gradient)',
+                },
+                {
+                    title: 'Ждём наследственные\nдокументы',
+                    subtitle: 'Чтобы отправить выплату',
+                    minHeight: '7.625rem',
+                    background: pinkGradient,
+                },
+            ];
+
+            const ImagePlaceholder = () => (
+                <div
+                    aria-label="Место для изображения"
+                    style={{
+                        width: '2.5rem',
+                        height: '2.5rem',
+                        flex: '0 0 auto',
+                        borderRadius: '50%',
+                        backgroundColor: 'var(--surface-solid-secondary)',
+                        backgroundImage:
+                            'linear-gradient(45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(-45deg, var(--surface-solid-primary) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--surface-solid-primary) 75%), linear-gradient(-45deg, transparent 75%, var(--surface-solid-primary) 75%)',
+                        backgroundPosition: '0 0, 0 0.25rem, 0.25rem -0.25rem, -0.25rem 0',
+                        backgroundSize: '0.5rem 0.5rem',
+                    }}
+                />
+            );
+
+            return (
+                <Flow orientation="vertical" mainAxisGap="1.5rem">
+                    {cards.map(({ title, subtitle, minHeight, background }) => (
+                        <Card
+                            key={title}
+                            orientation="horizontal"
+                            backgroundType="solid"
+                            style={{
+                                width: '24rem',
+                                maxWidth: '100%',
+                                minHeight,
+                                padding: '1.5rem',
+                                alignItems: 'center',
+                                gap: '0.75rem',
+                                borderRadius: '1.5rem',
+                                background,
+                            }}
+                        >
+                            <Flow orientation="vertical" mainAxisGap="0.125rem" style={{ flex: 1, minWidth: 0 }}>
+                                <H4 bold style={{ whiteSpace: 'pre-line' }}>
+                                    {title}
+                                </H4>
+                                <BodyM style={{ whiteSpace: 'pre-line' }}>{subtitle}</BodyM>
+                            </Flow>
+                            <ImagePlaceholder />
+                        </Card>
+                    ))}
+                </Flow>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ### Карточки с вертикальной ориентацией
 
 <Tabs>

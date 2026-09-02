@@ -83,8 +83,8 @@ export const config = {
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
                 ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderBoxShadow}: 0 0 0 0.063rem ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
+                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -135,8 +135,8 @@ export const config = {
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
                 ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderBoxShadow}: 0 0 0 0.063rem ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
+                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textPositive};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -192,8 +192,8 @@ export const config = {
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
                 ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderBoxShadow}: 0 0 0 0.063rem ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
+                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textSecondary};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -250,8 +250,8 @@ export const config = {
 
                 ${tokens.sliderTrackBackground}: ${surfaceSolidTertiary};
                 ${tokens.sliderThumbBackground}: ${onLightSurfaceSolidCard};
-                ${tokens.sliderThumbBorderBoxShadow}: 0 0 0 0.063rem ${onLightSurfaceTransparentTertiary};
-                ${tokens.sliderThumbBorderBoxShadowFocus}: 0 0 0 0.063rem ${surfaceSolidDefault};
+                ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
+                ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
 
                 ${tokens.scaleValueColor}: ${textNegative};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
@@ -341,8 +341,9 @@ export const config = {
                 ${tokens.sliderContainerOffset}: -0.5rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 100%;
-                ${tokens.sliderThumbSize}: 1rem;
+                ${tokens.sliderTrackBorderRadius}: 0.5rem;
+                ${tokens.sliderThumbWidth}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.063rem;
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
@@ -430,8 +431,9 @@ export const config = {
                 ${tokens.sliderContainerOffset}: -0.5rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 100%;
-                ${tokens.sliderThumbSize}: 1rem;
+                ${tokens.sliderTrackBorderRadius}: 0.5rem;
+                ${tokens.sliderThumbWidth}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.063rem;
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
@@ -519,8 +521,9 @@ export const config = {
                 ${tokens.sliderContainerOffset}: -0.5rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 100%;
-                ${tokens.sliderThumbSize}: 1rem;
+                ${tokens.sliderTrackBorderRadius}: 0.5rem;
+                ${tokens.sliderThumbWidth}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.063rem;
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
@@ -608,8 +611,9 @@ export const config = {
                 ${tokens.sliderContainerOffset}: -0.5rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 100%;
-                ${tokens.sliderThumbSize}: 1rem;
+                ${tokens.sliderTrackBorderRadius}: 0.5rem;
+                ${tokens.sliderThumbWidth}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.063rem;
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
@@ -709,8 +713,9 @@ export const config = {
                 ${tokens.sliderContainerOffset}: -0.5rem;
 
                 ${tokens.sliderTrackHeight}: 0.25rem;
-                ${tokens.sliderTrackBorderRadius}: 100%;
-                ${tokens.sliderThumbSize}: 1rem;
+                ${tokens.sliderTrackBorderRadius}: 0.5rem;
+                ${tokens.sliderThumbWidth}: 1rem;
+                ${tokens.sliderThumbBorderWidth}: 0.063rem;
 
                 ${tokens.scaleWrapperOffset}: 0.25rem;
                 ${tokens.scaleWrapperPaddingTop}: 0.25rem;
