@@ -967,9 +967,6 @@ export const sdds_insol_next__light = ([
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient: linear-gradient(87deg, #1BA68CFF 0%, #31C2A7FF 100%);
-  --inverse-surface-crad-gradient-hover: #FFFFFFFF;
-  --inverse-surface-crad-gradient-active: #FFFFFFFF;
-  --inverse-surface-crad-gradient: linear-gradient(97deg, #13181BFF 29%, #30373CFF 115%);
   --inverse-surface-negative-gradient-hover: #FFFFFFFF;
   --inverse-surface-negative-gradient-active: #FFFFFFFF;
   --inverse-surface-negative-gradient: linear-gradient(111deg, #13181BFF 13.93%, #F31B31FF 269.94%);
@@ -982,6 +979,9 @@ export const sdds_insol_next__light = ([
   --inverse-surface-info-gradient-hover: #FFFFFFFF;
   --inverse-surface-info-gradient-active: #FFFFFFFF;
   --inverse-surface-info-gradient: linear-gradient(111deg, #13181BFF 8.55%, #166DC4FF 259.66%);
+  --inverse-surface-card-gradient: linear-gradient(97deg, #FFFFFFFF 29%, #D5DFE6FF 115%);
+  --inverse-surface-card-gradient-hover: #FFFFFFFF;
+  --inverse-surface-card-gradient-active: #FFFFFFFF;
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #FFFFFF17 0%, #FFFFFF14 6.25%, #FFFFFF0D 12.5%, #FFFFFF03 25%, #FFFFFF0D 37.5%, #FFFFFF14 43.75%, #FFFFFF17 50%, #FFFFFF14 56.25%, #FFFFFF0D 62.5%, #FFFFFF03 75%, #FFFFFF0D 87.5%, #FFFFFF14 93.75%, #FFFFFF17 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
