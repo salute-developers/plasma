@@ -4,7 +4,6 @@ import { ArrowTopRight } from '../components/icons/ArrowTopRight';
 import { ArrowRight } from '../components/icons/ArrowRight';
 import { History } from '../components/icons/History';
 
-import { iconListGroupNames } from './iconsList';
 import { formattedPaletteColors } from './getColors';
 
 type PackagesInfo = {
@@ -262,7 +261,21 @@ export const verticalsMap = [
     },
 ];
 
-export const products = [
+type ProductLink = {
+    text: string;
+    href: string;
+    badge?: string;
+    description?: string;
+};
+
+type Product = {
+    title: string;
+    href: string;
+    items?: ProductLink[];
+    itemsDirection?: 'row' | 'column';
+};
+
+export const products: Product[] = [
     {
         title: 'Палитра',
         href: '/palette/',
@@ -273,11 +286,21 @@ export const products = [
     },
     {
         title: 'Пиктограммы',
-        href: '/icons/',
-        items: iconListGroupNames.map((groupName) => ({
-            text: groupName.toLowerCase(),
-            href: `/icons/?group=${groupName}`,
-        })),
+        href: '/sdds-icons/',
+        itemsDirection: 'column',
+        items: [
+            {
+                text: 'SDDS Icons',
+                href: '/sdds-icons/',
+                badge: 'новое',
+                description: 'Новое поколение библиотеки иконок',
+            },
+            {
+                text: 'Plasma Icons',
+                href: '/icons/',
+                description: 'Поддержка до 31 декабря 2026',
+            },
+        ],
     },
     {
         title: 'Билдер',

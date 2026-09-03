@@ -18,6 +18,7 @@ module.exports = {
         PACKAGES_INFO: JSON.stringify(packagesInfo),
     },
     output: 'export',
+    transpilePackages: ['@salutejs/sdds-icons'],
     experimental: {
         esmExternals: 'loose',
     },
@@ -26,7 +27,7 @@ module.exports = {
     },
     distDir: 'build',
     webpack: (config, { isServer }) => {
-        config.resolve.conditionNames = isServer ? ['require', 'node', 'default'] : ['import', 'browser', 'default'];
+        config.resolve.conditionNames = isServer ? ['import', 'node', 'default'] : ['import', 'browser', 'default'];
 
         return {
             ...config,

@@ -17,14 +17,17 @@ export const DraggableScrollContainer = styled.div`
     }
 `;
 
-export const ScrollableContainer = styled.div`
+export const ScrollableContainer = styled.div<{ $direction: 'row' | 'column' }>`
     display: flex;
+    flex-direction: ${({ $direction }) => $direction};
+    align-items: flex-start;
     gap: 1rem;
     padding: 0 4rem;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 
     scrollbar-width: none;
+
     ::-webkit-scrollbar {
         display: none;
     }
@@ -34,7 +37,7 @@ export const ScrollableContainer = styled.div`
             pointer-events: none;
         }
     }
-    
+
     ${multipleMediaQuery(['XL', 'L'])(css`
         padding-left: 2.5rem;
     `)}

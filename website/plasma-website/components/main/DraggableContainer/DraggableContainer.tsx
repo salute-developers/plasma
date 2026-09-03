@@ -6,9 +6,14 @@ import { DraggableScrollContainer, ScrollableContainer } from './DraggableContai
 type DraggableContainerProps = {
     children: React.ReactNode;
     className?: string;
+    direction?: 'row' | 'column';
 };
 
-export const DraggableContainer: React.FC<DraggableContainerProps> = ({ children, className = '' }) => {
+export const DraggableContainer: React.FC<DraggableContainerProps> = ({
+    children,
+    className = '',
+    direction = 'row',
+}) => {
     const containerRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
@@ -111,7 +116,11 @@ export const DraggableContainer: React.FC<DraggableContainerProps> = ({ children
             onTouchEnd={handleTouchEnd}
             onTouchMove={handleTouchMove}
         >
-            <ScrollableContainer ref={contentRef} className={cls({ inactiveLinks: preventLinkClick })}>
+            <ScrollableContainer
+                ref={contentRef}
+                $direction={direction}
+                className={cls({ inactiveLinks: preventLinkClick })}
+            >
                 {children}
             </ScrollableContainer>
         </DraggableScrollContainer>
