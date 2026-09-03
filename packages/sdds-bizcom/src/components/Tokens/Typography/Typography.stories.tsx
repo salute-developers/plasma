@@ -168,9 +168,7 @@ const TokenData: FC<TokenDataProps> = ({ title, token, size, fontFamily, fontWei
 
     return (
         <AccordionInfo>
-            <TokenShortName onClick={copyFontTokens}>
-                {actualTitle} {fontWeight.charAt(0).toLocaleUpperCase()}
-            </TokenShortName>
+            <TokenShortName onClick={copyFontTokens}>{actualTitle}</TokenShortName>
 
             <TokenInfo>
                 <TokenText {...data} isDisplay={token === 'dspl'}>
