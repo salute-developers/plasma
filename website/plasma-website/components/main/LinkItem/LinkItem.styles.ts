@@ -5,10 +5,21 @@ import { general } from '@salutejs/plasma-colors';
 
 import { addGradient } from '../../../mixins';
 import { removeGradient } from '../../../mixins/addGradient';
+import { Badge } from '../../Badge';
 import { Link } from '../../Link';
 
 export const Title = styled(TextS)`
     white-space: nowrap;
+`;
+
+export const Description = styled(TextS)`
+    margin-left: 0.5rem;
+    color: ${secondary};
+    white-space: nowrap;
+`;
+
+export const StyledBadge = styled(Badge)`
+    margin-left: 0;
 `;
 
 export const IconContentWrapper = styled.div`
@@ -23,9 +34,8 @@ export const ContentLeftWrapper = styled(IconContentWrapper)``;
 export const ContentRightWrapper = styled(IconContentWrapper)``;
 
 export const LinkItemWrapper = styled(Link)<{ isMeta?: boolean }>`
-    height: 1rem;
+    min-height: 1rem;
     width: fit-content;
-    color: ${whitePrimary};
     text-decoration: none;
     user-select: none;
     -webkit-user-drag: none;

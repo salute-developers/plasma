@@ -15,6 +15,12 @@ type IconInfoProps = {
     onClose: () => void;
     offset: number;
     isDeprecated: boolean;
+    getCodeSources?: (name: string, size: '16' | '24' | '36', color: string) => IconCodeSources;
+};
+
+type IconCodeSources = {
+    codeSnippet: string;
+    importCode: string;
 };
 
 const StyledHeader = styled.header`
@@ -92,7 +98,7 @@ const StyledDeprecatedIcon = styled.span`
     color: var(--text-negative);
 `;
 
-export const IconExtendedInfo = ({ offset, onClose, isDeprecated }: IconInfoProps) => {
+export const IconExtendedInfo = ({ getCodeSources, offset, onClose, isDeprecated }: IconInfoProps) => {
     const { state } = useContext(Context);
 
     if (!state.wizardItemName) {
@@ -100,8 +106,10 @@ export const IconExtendedInfo = ({ offset, onClose, isDeprecated }: IconInfoProp
     }
 
     const iconComponent = `Icon${capitalize(state.wizardItemName)}`;
-    const importCode = `import { ${iconComponent} } from '@salutejs/plasma-icons';`;
-    const codeSnippet = `<${iconComponent} size="${state.size?.value}" color="${state.color?.value}" />`;
+    const { importCode, codeSnippet } = getCodeSources?.(state.wizardItemName, state.size.label, state.color.value) || {
+        importCode: `import { ${iconComponent} } from '@salutejs/plasma-icons';`,
+        codeSnippet: `<${iconComponent} size="${state.size.value}" color="${state.color.value}" />`,
+    };
 
     return (
         <StyledExtendInfo offset={offset}>

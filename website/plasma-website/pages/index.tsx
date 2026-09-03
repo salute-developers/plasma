@@ -403,20 +403,22 @@ export default function Home() {
             <Menu products={products} expanded={menuExpanded} handleScrollToTop={handleScrollToTop} />
             <ScrollBlock ref={scrollSnapBlock}>
                 <ProductList>
-                    {products.map(({ title, href, items }) => (
+                    {products.map(({ title, href, items, itemsDirection }) => (
                         <Product
                             key={title + href}
                             href={href}
                             title={title}
                             additionalInfo={
-                                /**
-                                 * TODO: вернуть вывод ссылок на группы иконок,
-                                 * после добавления фильтров в url на странице
-                                 */
                                 items?.length && (
-                                    <DraggableContainer>
-                                        {items?.map(({ text, href }) => (
-                                            <LinkItem key={text + href} title={text} href={href} />
+                                    <DraggableContainer direction={itemsDirection}>
+                                        {items?.map(({ text, href: itemHref, badge, description }) => (
+                                            <LinkItem
+                                                key={text + itemHref}
+                                                badge={badge}
+                                                description={description}
+                                                title={text}
+                                                href={itemHref}
+                                            />
                                         ))}
                                     </DraggableContainer>
                                 )

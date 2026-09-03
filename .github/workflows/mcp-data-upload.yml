@@ -7,6 +7,9 @@ on:
         branches: [master]
         types: [completed]
 
+permissions:
+    contents: read
+
 jobs:
     upload-mcp-data:
         name: Upload ${{ matrix.package_name }} MCP data
@@ -130,6 +133,9 @@ jobs:
 
     upload-icons-manifest:
         name: Upload sdds-icons MCP manifest
+        concurrency:
+            group: mcp-sdds-icons-manifest
+            cancel-in-progress: true
         if: >-
             ${{ github.event_name == 'workflow_dispatch' ||
                 (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}

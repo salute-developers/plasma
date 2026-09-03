@@ -18,16 +18,16 @@ interface SearchFormProps {
 const minWidth = 64;
 
 const StyledForm = styled.form`
-    padding-top: 5rem;
+    padding-top: 2.5rem;
     padding-bottom: 7.5rem;
 
     ${multipleMediaQuery(['M'])(css`
-        padding-top: 3rem;
+        padding-top: 2rem;
         padding-bottom: 4rem;
     `)}
 
     ${multipleMediaQuery(['S'])(css`
-        padding-top: 1rem;
+        padding-top: 1.5rem;
         padding-bottom: 2.5rem;
     `)}
 `;
