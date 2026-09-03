@@ -117,20 +117,22 @@ const Text = withTypograph(TextM);
 <Text typograph={latinTypographRules}>in the woods — "hi"</Text>
 ```
 
-Если строка режется на токены (стрим, markdown), `typograph()` каждый раз начинает кавычки с нуля. Прокидывайте глубину через `applyQuotes`:
+Если строка режется на токены (стрим, markdown), `typograph()` каждый раз начинает кавычки с нуля. Прокидывайте глубину и последний символ куска через `applyQuotes`:
 
 ```tsx
 import { applyQuotes } from '@salutejs/plasma-giga';
 
 let depth = 0;
+let prev: string | undefined;
 for (const token of tokens) {
-    const next = applyQuotes(token, depth);
+    const next = applyQuotes(token, prev, depth);
     depth = next.depth;
+    prev = next.prev;
     // next.text
 }
 ```
 
-`quotes(text, depth?)` по-прежнему возвращает строку. `typograph()` рассчитан на целую строку и depth не прокидывает.
+`quotes(text, prev?, depth?)` по-прежнему возвращает строку. `typograph()` рассчитан на целую строку и состояние между кусками не прокидывает.
 
 Чтобы снять типографику перед копированием (NBSP и ёлочки/лапки), есть `detypograph`:
 
