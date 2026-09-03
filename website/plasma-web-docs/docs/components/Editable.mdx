@@ -17,13 +17,13 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 import React from 'react';
 import { Editable } from '@salutejs/plasma-web';
 import { IconEdit } from '@salutejs/plasma-icons';
-import { Headline1 } from '@salutejs/plasma-typo';
+import { H1 } from '@salutejs/plasma-typo';
 
 export function App() {
     return (
         <Editable
             icon={<IconEdit size='s' color="inherit" />}
-            textComponent={Headline1}
+            textComponent={H1}
             value="Default value"
             onChange={() => { console.log('handleChange') }}
         />
