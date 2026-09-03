@@ -8,6 +8,11 @@ import { multipleMediaQuery } from '../../mixins';
 
 export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {
     children?: never;
+    packageName?: string;
+    releaseDate?: string;
+    showMeta?: boolean;
+    title?: string;
+    version?: string;
 }
 
 type PackagesInfo = {
@@ -47,17 +52,27 @@ const StyledLineSkeleton = styled(LineSkeleton)`
     width: 6rem;
 `;
 
-export const Header: FC<HeaderProps> = () => {
+export const Header: FC<HeaderProps> = ({
+    packageName = '@salutejs/plasma-icons',
+    releaseDate: releaseDateProp,
+    showMeta = true,
+    title = 'Пиктограммы',
+    version: versionProp,
+}) => {
     const PACKAGES_INFO: PackagesInfo = JSON.parse(process.env.PACKAGES_INFO || '{}') as PackagesInfo;
-    const [latestVersion, releaseDate] = PACKAGES_INFO['@salutejs/plasma-icons'] || [];
+    const [packageVersion, packageReleaseDate] = PACKAGES_INFO[packageName] || [];
+    const latestVersion = versionProp || packageVersion;
+    const releaseDate = releaseDateProp || packageReleaseDate;
 
     return (
         <StyledHeader>
-            <StyledHeading bold>Пиктограммы</StyledHeading>
-            <MetaInfo>
-                <BodyXS>{latestVersion || <StyledLineSkeleton size="caption" />}</BodyXS>
-                <BodyXS>{releaseDate || <StyledLineSkeleton size="caption" />}</BodyXS>
-            </MetaInfo>
+            <StyledHeading bold>{title}</StyledHeading>
+            {showMeta && (
+                <MetaInfo>
+                    <BodyXS>{latestVersion || <StyledLineSkeleton size="caption" />}</BodyXS>
+                    <BodyXS>{releaseDate || <StyledLineSkeleton size="caption" />}</BodyXS>
+                </MetaInfo>
+            )}
         </StyledHeader>
     );
 };
