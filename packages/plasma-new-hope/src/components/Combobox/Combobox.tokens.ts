@@ -147,6 +147,7 @@ export const tokens = {
     textFieldTitleCaptionColor: '--plasma-combobox-new-textfield-title-caption-color',
     textFieldTitleCaptionColorReadOnly: '--plasma-combobox-new-textfield-title-caption-color-readonly',
     textFieldTitleCaptionInnerLabelOffset: '--plasma-combobox-new-textfield-title-caption-label-inner-offset',
+    textFieldTitleCaptionJustifyContent: '--plasma-combobox-new-textfield-title-caption-justify-content',
 
     textFieldTitleCaptionFontFamily: '--plasma-combobox-new-textfield-title-caption-font-family',
     textFieldTitleCaptionFontStyle: '--plasma-combobox-new-textfield-title-caption-font-style',

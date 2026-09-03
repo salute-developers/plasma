@@ -64,6 +64,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelInnerLineHeight}: var(${tokens.labelInnerLineHeight});
 
     ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.titleCaptionOffset});
+    ${textFieldTokens.titleCaptionJustifyContent}: var(${tokens.titleCaptionJustifyContent}, flex-end);
     ${textFieldTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});
     ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.titleCaptionFontFamily});
     ${textFieldTokens.titleCaptionFontStyle}: var(${tokens.titleCaptionFontStyle});

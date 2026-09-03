@@ -142,6 +142,7 @@ export const tokens = {
     leftHelperLineHeight: '--plasma-date-time-picker__left-helper-line-height',
 
     titleCaptionOffset: '--plasma-date-time-picker-title-caption-offset',
+    titleCaptionJustifyContent: '--plasma-date-time-picker-title-caption-justify-content',
     titleCaptionColor: '--plasma-date-time-picker-title-caption-color',
     titleCaptionFontFamily: '--plasma-date-time-picker-title-caption-font-family',
     titleCaptionFontStyle: '--plasma-date-time-picker-title-caption-font-style',

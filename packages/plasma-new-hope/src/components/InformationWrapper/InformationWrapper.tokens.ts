@@ -25,6 +25,7 @@ export const tokens = {
     contentGap: '--plasma-info-wrapper-content-gap',
 
     titleCaptionOffset: '--plasma-info-wrapper-title-caption-offset',
+    titleCaptionJustifyContent: '--plasma-info-wrapper-title-caption-justify-content',
     titleCaptionColor: '--plasma-info-wrapper-title-caption-color',
     titleCaptionColorReadOnly: '--plasma-info-wrapper-title-caption-color-readonly',
     titleCaptionFontFamily: '--plasma-info-wrapper-title-caption-font-family',

@@ -137,8 +137,9 @@ export const OptionalText = styled.span`
 `;
 
 export const TitleCaption = styled.div<{ hasLabel: boolean }>`
-    display: inline-block;
-    margin-left: auto;
+    display: flex;
+    flex-grow: 1;
+    justify-content: var(${tokens.titleCaptionJustifyContent}, flex-end);
     margin-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset})` : 'unset')};
 `;
 

@@ -176,6 +176,7 @@ export const tokens = {
     titleCaptionColor: '--plasma-textarea__title-caption-color',
     titleCaptionColorReadOnly: '--plasma-textarea__title-caption-color-readonly',
     titleCaptionInnerLabelOffset: '--plasma-textarea__title-caption-label-inner-offset',
+    titleCaptionJustifyContent: '--plasma-textarea__title-caption-justify-content',
 
     titleCaptionFontFamily: '--plasma-textarea__title-caption-font-family',
     titleCaptionFontStyle: '--plasma-textarea__title-caption-font-style',
