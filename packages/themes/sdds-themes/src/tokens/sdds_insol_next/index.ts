@@ -2912,16 +2912,6 @@ export const inverseSurfaceAccentGradientActive = 'var(--inverse-surface-accent-
 export const inverseSurfaceAccentGradient =
     'var(--inverse-surface-accent-gradient, linear-gradient(87deg, #0EAB91FF 0%, #29CCB1FF 100%))';
 
-/** dark surface inverse surfaceCradGradient */
-export const inverseSurfaceCradGradient =
-    'var(--inverse-surface-crad-gradient, linear-gradient(97deg, #FFFFFFFF 29%, #D5DFE6FF 115%))';
-
-/** dark surface inverse surfaceCradGradientHover */
-export const inverseSurfaceCradGradientHover = 'var(--inverse-surface-crad-gradient-hover, #FFFFFFFF)';
-
-/** dark surface inverse surfaceCradGradientActive */
-export const inverseSurfaceCradGradientActive = 'var(--inverse-surface-crad-gradient-active, #FFFFFFFF)';
-
 /** dark surface inverse surfaceNegativeGradientHover */
 export const inverseSurfaceNegativeGradientHover = 'var(--inverse-surface-negative-gradient-hover, #FFFFFFFF)';
 
@@ -2961,6 +2951,16 @@ export const inverseSurfaceInfoGradientHover = 'var(--inverse-surface-info-gradi
 
 /** dark surface inverse surfaceInfoGradientActive */
 export const inverseSurfaceInfoGradientActive = 'var(--inverse-surface-info-gradient-active, #FFFFFFFF)';
+
+/** dark surface inverse surfaceCardGradient */
+export const inverseSurfaceCardGradient =
+    'var(--inverse-surface-card-gradient, linear-gradient(97deg, #FFFFFFFF 29%, #D5DFE6FF 115%))';
+
+/** dark surface inverse surfaceCardGradientHover */
+export const inverseSurfaceCardGradientHover = 'var(--inverse-surface-card-gradient-hover, #FFFFFFFF)';
+
+/** dark surface inverse surfaceCardGradientActive */
+export const inverseSurfaceCardGradientActive = 'var(--inverse-surface-card-gradient-active, #FFFFFFFF)';
 
 /** Фон для скелетона */
 export const inverseSurfaceSkeletonGradient =
@@ -4126,9 +4126,6 @@ export const viewContainer = {
         --inverse-surface-accent-gradient-hover: var(--on-light-surface-accent-gradient-hover);
         --inverse-surface-accent-gradient-active: var(--on-light-surface-accent-gradient-active);
         --inverse-surface-accent-gradient: var(--on-light-surface-accent-gradient);
-        --inverse-surface-crad-gradient: var(--on-light-surface-crad-gradient);
-        --inverse-surface-crad-gradient-hover: var(--on-light-surface-crad-gradient-hover);
-        --inverse-surface-crad-gradient-active: var(--on-light-surface-crad-gradient-active);
         --inverse-surface-negative-gradient-hover: var(--on-light-surface-negative-gradient-hover);
         --inverse-surface-negative-gradient-active: var(--on-light-surface-negative-gradient-active);
         --inverse-surface-negative-gradient: var(--on-light-surface-negative-gradient);
@@ -4141,6 +4138,9 @@ export const viewContainer = {
         --inverse-surface-info-gradient: var(--on-light-surface-info-gradient);
         --inverse-surface-info-gradient-hover: var(--on-light-surface-info-gradient-hover);
         --inverse-surface-info-gradient-active: var(--on-light-surface-info-gradient-active);
+        --inverse-surface-card-gradient: var(--on-light-surface-card-gradient);
+        --inverse-surface-card-gradient-hover: var(--on-light-surface-card-gradient-hover);
+        --inverse-surface-card-gradient-active: var(--on-light-surface-card-gradient-active);
         --inverse-surface-skeleton-gradient: var(--on-light-surface-skeleton-gradient);
         --inverse-surface-skeleton-gradient-hover: var(--on-light-surface-skeleton-gradient-hover);
         --inverse-surface-skeleton-gradient-active: var(--on-light-surface-skeleton-gradient-active);
@@ -4618,9 +4618,6 @@ export const viewContainer = {
         --inverse-surface-accent-gradient-hover: var(--on-dark-surface-accent-gradient-hover);
         --inverse-surface-accent-gradient-active: var(--on-dark-surface-accent-gradient-active);
         --inverse-surface-accent-gradient: var(--on-dark-surface-accent-gradient);
-        --inverse-surface-crad-gradient-hover: var(--on-dark-surface-crad-gradient-hover);
-        --inverse-surface-crad-gradient-active: var(--on-dark-surface-crad-gradient-active);
-        --inverse-surface-crad-gradient: var(--on-dark-surface-crad-gradient);
         --inverse-surface-negative-gradient-hover: var(--on-dark-surface-negative-gradient-hover);
         --inverse-surface-negative-gradient-active: var(--on-dark-surface-negative-gradient-active);
         --inverse-surface-negative-gradient: var(--on-dark-surface-negative-gradient);
@@ -4633,6 +4630,9 @@ export const viewContainer = {
         --inverse-surface-info-gradient-hover: var(--on-dark-surface-info-gradient-hover);
         --inverse-surface-info-gradient-active: var(--on-dark-surface-info-gradient-active);
         --inverse-surface-info-gradient: var(--on-dark-surface-info-gradient);
+        --inverse-surface-card-gradient: var(--on-dark-surface-card-gradient);
+        --inverse-surface-card-gradient-hover: var(--on-dark-surface-card-gradient-hover);
+        --inverse-surface-card-gradient-active: var(--on-dark-surface-card-gradient-active);
         --inverse-surface-skeleton-gradient: var(--on-dark-surface-skeleton-gradient);
         --inverse-surface-skeleton-gradient-hover: var(--on-dark-surface-skeleton-gradient-hover);
         --inverse-surface-skeleton-gradient-active: var(--on-dark-surface-skeleton-gradient-active);
