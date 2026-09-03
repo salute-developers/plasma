@@ -4,10 +4,15 @@ import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-u
 
 import {
     addTypographRule,
+    applyQuotes,
     createTypograph,
+    cyrillicTypographRules,
     dash,
-    defaultTypographRules,
+    detypograph,
+    getTypographLocale,
+    latinTypographRules,
     quotes,
+    setTypographLocale,
     setTypographRules,
     typograph,
 } from './typograph';
@@ -175,7 +180,7 @@ const NBSP = '\u00A0';
 
 describe('plasma-giga: typograph', () => {
     afterEach(() => {
-        setTypographRules(defaultTypographRules);
+        setTypographLocale('ru');
     });
 
     describe('кавычки', () => {
@@ -204,6 +209,39 @@ describe('plasma-giga: typograph', () => {
             expect(typograph('сказал—"привет"')).to.equal('сказал—«привет»');
         });
 
+        it('прокидывает глубину между кусками', () => {
+            const first = applyQuotes('"начало');
+
+            expect(first).to.deep.equal({ text: '«начало', depth: 1, prev: 'о' });
+            expect(applyQuotes('конец"', first.prev, first.depth)).to.deep.equal({
+                text: 'конец»',
+                depth: 0,
+                prev: '"',
+            });
+        });
+
+        it('закрывает кавычку в начале следующего куска по prev', () => {
+            const first = applyQuotes('"текст');
+
+            expect(first).to.deep.equal({ text: '«текст', depth: 1, prev: 'т' });
+            expect(applyQuotes('"', first.prev, first.depth)).to.deep.equal({ text: '»', depth: 0, prev: '"' });
+        });
+
+        it('прокидывает prev через кусок без кавычек', () => {
+            const first = applyQuotes('"текст');
+            const middle = applyQuotes('', first.prev, first.depth);
+
+            expect(middle).to.deep.equal({ text: '', depth: 1, prev: 'т' });
+            expect(applyQuotes('"', middle.prev, middle.depth).text).to.equal('»');
+        });
+
+        it('без prev кусок, который начинается с кавычки, открывает заново', () => {
+            expect(applyQuotes('"', undefined, 1)).to.deep.equal({ text: '„', depth: 2, prev: '"' });
+            expect(quotes('"внутренняя"')).to.equal('«внутренняя»');
+            expect(quotes('"внутренняя"', undefined, 1)).to.equal('„внутренняя“');
+            expect(applyQuotes('"внутренняя"', undefined, 1).text).to.equal('„внутренняя“');
+        });
+
         it('не трогает текст без кавычек', () => {
             expect(typograph('обычный текст')).to.equal('обычный текст');
         });
@@ -226,8 +264,12 @@ describe('plasma-giga: typograph', () => {
             expect(typograph('поле в поле')).to.equal(`поле в${NBSP}поле`);
         });
 
-        it('работает с латиницей', () => {
-            expect(typograph('at home')).to.equal(`at${NBSP}home`);
+        it('не привязывает латинские короткие слова', () => {
+            expect(typograph('at home')).to.equal('at home');
+        });
+
+        it('в смешанной строке клеит только кириллицу', () => {
+            expect(typograph('in the docs в лесу')).to.equal(`in the docs в${NBSP}лесу`);
         });
     });
 
@@ -279,6 +321,29 @@ describe('plasma-giga: typograph', () => {
         it('не забирает закрывающую кавычку из обёртки URL', () => {
             expect(typograph('"https://example.test"')).to.equal('«https://example.test»');
         });
+
+        it('не снимает кавычку из query-параметра', () => {
+            expect(typograph('см gigachat://dialog?value="c"')).to.equal(`см${NBSP}gigachat://dialog?value="c"`);
+            expect(typograph('см http://example.com/a?b="c"')).to.equal(`см${NBSP}http://example.com/a?b="c"`);
+            expect(typograph('"https://example.com/a?b="c"')).to.equal('«https://example.com/a?b="c»');
+        });
+
+        it('защищает http, диплинки и www', () => {
+            expect(typograph('см http://example.com/a?b="c"')).to.include('http://example.com/a?b="c');
+            expect(typograph('открой gigachat://dialog/1')).to.include('gigachat://dialog/1');
+            expect(typograph('зайди на www.example.com и всё')).to.include('www.example.com');
+        });
+
+        it('защищает голый домен с путём', () => {
+            const result = typograph('см example.com/a?b="c и всё');
+
+            expect(result).to.include('example.com/a?b="c');
+            expect(result).to.not.include('»c');
+        });
+
+        it('не считает расширения файлов ссылками', () => {
+            expect(typograph('node.js, file.ts')).to.equal('node.js, file.ts');
+        });
     });
 
     describe('рантайм', () => {
@@ -299,6 +364,57 @@ describe('plasma-giga: typograph', () => {
 
             expect(withDigits('см https://example.com/a1 и 2')).to.equal('см https://example.com/a1 и #');
         });
+
+        it('latinTypographRules не клеит предлоги', () => {
+            expect(typograph('in the woods — "hi"', latinTypographRules)).to.equal(`in the woods${NBSP}— «hi»`);
+        });
+
+        it('cyrillicTypographRules клеит кириллические предлоги', () => {
+            expect(typograph('в лесу', cyrillicTypographRules)).to.equal(`в${NBSP}лесу`);
+        });
+
+        it('setTypographLocale("en") отключает висячие предлоги', () => {
+            setTypographLocale('en');
+
+            expect(getTypographLocale()).to.equal('en');
+            expect(typograph('в лесу')).to.equal('в лесу');
+            expect(typograph('in the woods — "hi"')).to.equal(`in the woods${NBSP}— «hi»`);
+        });
+
+        it('setTypographLocale принимает en-US как латиницу', () => {
+            setTypographLocale('en-US');
+
+            expect(getTypographLocale()).to.equal('en-US');
+            expect(typograph('в лесу')).to.equal('в лесу');
+        });
+
+        it('setTypographLocale("ru") возвращает кириллический пресет', () => {
+            setTypographLocale('en');
+            setTypographLocale('ru');
+
+            expect(getTypographLocale()).to.equal('ru');
+            expect(typograph('в лесу')).to.equal(`в${NBSP}лесу`);
+        });
+
+        it('setTypographLocale сбрасывает правила из addTypographRule', () => {
+            addTypographRule((text) => text.replace(/\(c\)/gi, '©'));
+            setTypographLocale('ru');
+
+            expect(typograph('(c) 2026')).to.equal('(c) 2026');
+        });
+
+        it('setTypographRules перекрывает пресет локали', () => {
+            setTypographLocale('en');
+            setTypographRules(cyrillicTypographRules);
+
+            expect(typograph('в лесу')).to.equal(`в${NBSP}лесу`);
+        });
+
+        it('detypograph снимает NBSP и ёлочки', () => {
+            const source = 'он сказал "привет" в лесу — и ушёл';
+
+            expect(detypograph(typograph(source))).to.equal(source);
+        });
     });
 });
 
@@ -306,7 +422,7 @@ describe('plasma-giga: withTypograph', () => {
     const TextM = withTypograph(getComponent('TextM'));
 
     afterEach(() => {
-        setTypographRules(defaultTypographRules);
+        setTypographLocale('ru');
     });
 
     it('обрабатывает строковых children', () => {
