@@ -1709,13 +1709,6 @@ export const inverseSurfaceTransparentPositive = 'var(--inverse-surface-transpar
 /** Прозрачный инвертированный цвет фона поверхности/контрола информация */
 export const inverseSurfaceTransparentInfo = 'var(--inverse-surface-transparent-info, #166dc41f)';
 
-export const inverseSurfaceCradGradient =
-    'var(--inverse-surface-crad-gradient, linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%))';
-
-export const inverseSurfaceCradGradientHover = 'var(--inverse-surface-crad-gradient-hover, #FFFFFFFF)';
-
-export const inverseSurfaceCradGradientActive = 'var(--inverse-surface-crad-gradient-active, #FFFFFFFF)';
-
 export const inverseSurfaceNegativeGradientHover = 'var(--inverse-surface-negative-gradient-hover, #FFFFFFFF)';
 
 export const inverseSurfaceNegativeGradientActive = 'var(--inverse-surface-negative-gradient-active, #FFFFFFFF)';
@@ -1743,6 +1736,13 @@ export const inverseSurfaceInfoGradient =
 export const inverseSurfaceInfoGradientHover = 'var(--inverse-surface-info-gradient-hover, #FFFFFFFF)';
 
 export const inverseSurfaceInfoGradientActive = 'var(--inverse-surface-info-gradient-active, #FFFFFFFF)';
+
+export const inverseSurfaceCardGradient =
+    'var(--inverse-surface-card-gradient, linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%))';
+
+export const inverseSurfaceCardGradientHover = 'var(--inverse-surface-card-gradient-hover, #FFFFFFFF)';
+
+export const inverseSurfaceCardGradientActive = 'var(--inverse-surface-card-gradient-active, #FFFFFFFF)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #060A0C)';
