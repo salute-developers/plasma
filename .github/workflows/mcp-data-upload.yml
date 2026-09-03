@@ -3,14 +3,16 @@ name: Upload MCP data
 on:
     workflow_dispatch:
     workflow_run:
-        workflows: ["Release"]
+        workflows: ["Publish npm"]
         branches: [master]
         types: [completed]
 
 jobs:
     upload-mcp-data:
         name: Upload ${{ matrix.package_name }} MCP data
-        if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+        if: >-
+            ${{ github.event_name == 'workflow_dispatch' ||
+                (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
         runs-on: ubuntu-22.04
         strategy:
             fail-fast: false
@@ -125,3 +127,54 @@ jobs:
                     sync
                     ./website/${{ matrix.package_name }}-docs/mcpData/
                     ${{ env.S3_TARGET_LATEST_PATH }}
+
+    upload-icons-manifest:
+        name: Upload sdds-icons MCP manifest
+        if: >-
+            ${{ github.event_name == 'workflow_dispatch' ||
+                (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
+        runs-on: ubuntu-22.04
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+                with:
+                    ref: master
+                    show-progress: false
+
+            -   name: Prepare environment
+                uses: ./.github/actions/prepare-environment
+
+            -   name: Generate icons manifest
+                run: npm run generate-manifest --prefix=./packages/sdds-icons
+
+            -   name: Install s3cmd
+                run: pip3 install s3cmd
+
+            -   name: Clean icons S3 path
+                run: |
+                    s3cmd \
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }} \
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} \
+                    --host ${{ secrets.AWS_ENDPOINT }} \
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }} \
+                    --bucket-location ${{ secrets.AWS_REGION }} \
+                    --signature-v2 \
+                    del \
+                    --recursive \
+                    --force \
+                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/sdds-icons/
+
+            -   name: Upload icons manifest
+                run: >
+                    s3cmd
+                    --access_key ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    --secret_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                    --host ${{ secrets.AWS_ENDPOINT }}
+                    --host-bucket ${{ secrets.AWS_ENDPOINT }}
+                    --bucket-location ${{ secrets.AWS_REGION }}
+                    --signature-v2
+                    --delete-removed
+                    --no-mime-magic
+                    sync
+                    ./packages/sdds-icons/mcpData/
+                    s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/sdds-icons/

@@ -91,6 +91,7 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "node ./scripts/build.mjs",
+    "generate-manifest": "node ./scripts/generate-manifest.mjs",
     "build:android": "node ./scripts/build-android.mjs",
     "build:ios": "node ./scripts/build-ios.mjs",
     "prestorybook": "npm run build",
