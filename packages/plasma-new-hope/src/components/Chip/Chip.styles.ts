@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { applyEllipsis } from '../../mixins';
+import { applyEllipsis, applyHover } from '../../mixins';
 
 import { privateTokens, tokens } from './Chip.tokens';
 
@@ -45,7 +45,9 @@ export const StyledContentClear = styled.div`
     margin-right: var(${tokens.clearContentMarginRight});
     color: var(${tokens.closeIconColor});
 
-    :hover {
-        color: var(${tokens.closeIconColorHover});
-    }
+    ${applyHover(`
+        :hover {
+            color: var(${tokens.closeIconColorHover});
+        }
+    `)}
 `;

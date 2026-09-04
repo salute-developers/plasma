@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { applyHover } from 'src/mixins';
 
 import { classes, privateTokens, tokens } from '../../TextField.tokens';
 import {
@@ -28,10 +29,12 @@ export const base = css`
         transition: background-color 0.1s ease-in, color 0.1s ease-in, box-shadow 0.1s ease-in;
     }
 
-    &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)):not(:focus-within) {
-        ${privateTokens.borderColor}: var(${tokens.borderColorHover}, var(${tokens.borderColor}));
-        ${privateTokens.backgroundColor}: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
-    }
+    ${applyHover(`
+        &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)):not(:focus-within) {
+            ${privateTokens.borderColor}: var(${tokens.borderColorHover}, var(${tokens.borderColor}));
+            ${privateTokens.backgroundColor}: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
+        }
+    `)}
 
     ${Input} {
         color: var(${tokens.color});
@@ -110,12 +113,14 @@ export const base = css`
             }
         }
 
-        &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)):not(:focus-within) {
-            --plasma_private-textfield-divider-color: var(
-                ${tokens.dividerColorHover},
-                var(${tokens.dividerColor})
-            );
-        }
+        ${applyHover(`
+            &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)):not(:focus-within) {
+                --plasma_private-textfield-divider-color: var(
+                    ${tokens.dividerColorHover},
+                    var(${tokens.dividerColor})
+                );
+            }
+        `)}
 
         &:not([readonly]) ${InputWrapper}:focus-within {
             --plasma_private-textfield-divider-color: var(
