@@ -21,12 +21,18 @@ export {
 export {
     addTypographRule,
     afterShortWord,
+    applyQuotes,
     createTypograph,
+    cyrillicTypographRules,
     dash,
     defaultTypographRules,
+    detypograph,
+    getTypographLocale,
+    latinTypographRules,
     quotes,
+    setTypographLocale,
     setTypographRules,
     typograph,
 } from './typograph';
 export { withTypograph } from './typograph/withTypograph';
-export type { TypographProps, TypographRule } from './typograph';
+export type { QuotesState, TypographProps, TypographRule } from './typograph';

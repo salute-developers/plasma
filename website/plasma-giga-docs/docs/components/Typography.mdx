@@ -41,10 +41,10 @@ title: Typography
 Компоненты типографики сами текст не обрабатывают. Чтобы включить правила, оберните нужный компонент в `withTypograph`:
 
 - прямые кавычки заменяются на «ёлочки» и вложенные „лапки“;
-- после коротких слов (1–2 буквы) ставится неразрывный пробел, чтобы предлоги не висели в конце строки;
+- после коротких кириллических слов (1–2 буквы) ставится неразрывный пробел, чтобы предлоги не висели в конце строки;
 - длинное и среднее тире прижимается к предыдущему слову и не переносится на новую строку.
 
-Обрабатывается только строка. Смешанные дети (`текст <Link /> ещё`) не меняются. URL на время обработки прячутся, чтобы не портить кавычки в query-параметрах.
+Обрабатывается только строка. Смешанные дети (`текст <Link /> ещё`) не меняются. URL на время обработки прячутся: схемы с `://` (`https://`, `http://`, `gigachat://`), адреса `www.*` и голые домены вроде `example.com`, чтобы не портить кавычки в query-параметрах. Расширения файлов (`node.js`, `file.ts`) ссылками не считаются.
 
 ```tsx live
 import React from 'react';
@@ -82,7 +82,18 @@ const Text = withTypograph(TextM);
 <Text>в лесу — "цитата" (c)</Text>
 ```
 
-`setTypographRules` полностью заменяет базовый набор и сбрасывает правила из `addTypographRule`. Например, оставить только кавычки и тире:
+`setTypographLocale` выбирает готовый пресет по языку: `en` и `en-*` — без висячих предлогов, остальные — кириллический набор.
+
+```tsx
+import { setTypographLocale } from '@salutejs/plasma-giga';
+
+// bootstrap приложения, не внутри компонента
+setTypographLocale(locale);
+```
+
+Текущую локаль можно прочитать через `getTypographLocale`. `cyrillicTypographRules` совпадает с `defaultTypographRules`.
+
+`setTypographRules` полностью заменяет базовый набор и сбрасывает правила из `addTypographRule`. Если нужен свой пайплайн, а не пресет по языку:
 
 ```tsx
 import { setTypographRules, quotes, dash, defaultTypographRules } from '@salutejs/plasma-giga';
@@ -94,16 +105,45 @@ setTypographRules([quotes, dash]);
 setTypographRules(defaultTypographRules);
 ```
 
+`afterShortWord` в дефолтном наборе клеит только кириллицу: `at home` не меняется, `в лесу` — меняется.
+
 Локальные правила для отдельного инстанса:
 
 ```tsx
-import { TextM, withTypograph, createTypograph, quotes, dash } from '@salutejs/plasma-giga';
+import { TextM, withTypograph, latinTypographRules } from '@salutejs/plasma-giga';
 
 const Text = withTypograph(TextM);
-const compact = createTypograph([quotes, dash]);
 
-<Text typograph={[compact]}>без предлогов</Text>
+<Text typograph={latinTypographRules}>in the woods — "hi"</Text>
 ```
+
+Если строка режется на токены (стрим, markdown), `typograph()` каждый раз начинает кавычки с нуля. Прокидывайте глубину и последний символ куска через `applyQuotes`:
+
+```tsx
+import { applyQuotes } from '@salutejs/plasma-giga';
+
+let depth = 0;
+let prev: string | undefined;
+for (const token of tokens) {
+    const next = applyQuotes(token, prev, depth);
+    depth = next.depth;
+    prev = next.prev;
+    // next.text
+}
+```
+
+`quotes(text, prev?, depth?)` по-прежнему возвращает строку. `typograph()` рассчитан на целую строку и состояние между кусками не прокидывает.
+
+Чтобы снять типографику перед копированием (NBSP и ёлочки/лапки), есть `detypograph`:
+
+```tsx
+import { typograph, detypograph } from '@salutejs/plasma-giga';
+
+const pretty = typograph('он сказал "привет"');
+navigator.clipboard.writeText(detypograph(pretty));
+```
+
+Тире не откатывается: дефис в `—` мы не конвертируем.
 
 Та же функция `typograph()` доступна отдельно — например, для markdown-рендерера.
 
