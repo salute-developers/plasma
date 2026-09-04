@@ -60,6 +60,7 @@ export const items = [
         label: 'Европа',
         dividerBefore: true,
         dividerAfter: true,
+        view: 'negative',
         items: [
             {
                 value: 'france',
@@ -106,10 +107,12 @@ export const items = [
             {
                 value: 'spain',
                 label: 'Испания',
+                view: 'negative',
                 items: [
                     {
                         value: 'madrid',
                         label: 'Мадрид',
+                        view: 'negative',
                     },
                     {
                         value: 'barcelona',

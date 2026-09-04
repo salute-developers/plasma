@@ -12,6 +12,7 @@ type CreateStoriesProps = {
         Button: React.ComponentType<any>;
     };
     disablePropsList?: string[];
+    additionalArgTypes?: {};
     defaultArgs?: {};
 };
 

@@ -26,7 +26,18 @@ export const Item: FC<DropdownItemProps> = ({
     ariaLevel,
     ariaLabel,
 }) => {
-    const { value, label, disabled, contentLeft, contentRight, dividerBefore, dividerAfter, className, ...rest } = item;
+    const {
+        value,
+        label,
+        disabled,
+        contentLeft,
+        contentRight,
+        dividerBefore,
+        dividerAfter,
+        className,
+        view = 'default',
+        ...rest
+    } = item;
 
     const ref = useRef<HTMLLIElement | null>(null);
 
@@ -51,6 +62,10 @@ export const Item: FC<DropdownItemProps> = ({
             ? classes.dropdownItemIsFocused
             : undefined;
     const activeClass = value === path?.[currentLevel + 1] ? classes.dropdownItemIsActive : undefined;
+    const dropdownViewClass = {
+        default: '',
+        negative: classes.dropdownItemNegative,
+    };
 
     useEffect(() => {
         if (focusedClass && ref?.current) {
@@ -106,7 +121,7 @@ export const Item: FC<DropdownItemProps> = ({
                 {renderItem ? (
                     <RenderItemWrapper>{renderItem(item)}</RenderItemWrapper>
                 ) : (
-                    <CellWrapper>
+                    <CellWrapper className={cls(dropdownViewClass[view])}>
                         <StyledCell
                             contentLeft={contentLeft}
                             contentRight={contentRight}

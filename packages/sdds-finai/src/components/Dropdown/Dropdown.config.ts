@@ -5,6 +5,7 @@ import {
     bodyXS,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
+    textNegative,
 } from '@salutejs/sdds-themes/tokens/sdds_finai';
 
 export const config = {
@@ -130,6 +131,8 @@ export const config = {
             default: css`
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
+
+                ${tokens.cellTitleColorNegative}: ${textNegative};
             `,
         },
     },

@@ -64,6 +64,11 @@ export type ItemOption = {
      * Скрытие элемента, а также всех его дочерних элементов.
      */
     hidden?: boolean;
+    /**
+     * Вид элемента выпадающего списка.
+     * @default default
+     */
+    view?: 'default' | 'negative';
 };
 
 export type DropdownProps<T extends ItemOption = ItemOption> = {
