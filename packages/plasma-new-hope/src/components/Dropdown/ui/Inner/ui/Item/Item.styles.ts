@@ -26,6 +26,10 @@ export const CellWrapper = styled.div`
     ${cellTokens.cellTitleLetterSpacing}: var(${tokens.cellTitleLetterSpacing});
     ${cellTokens.cellTitleLineHeight}: var(${tokens.cellTitleLineHeight});
     width: 100%;
+
+    &.${classes.dropdownItemNegative} {
+        ${cellTokens.cellTitleColor}: var(${tokens.cellTitleColorNegative});
+    }
 `;
 
 export const StyledCell = styled(Cell)``;

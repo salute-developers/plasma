@@ -4,6 +4,7 @@ export const classes = {
     dropdownItemIsDisabled: 'dropdown-item-is-disabled',
     dropdownItemIsActive: 'dropdown-item-is-active',
     dropdownItemIsSelected: 'dropdown-item-is-selected',
+    dropdownItemNegative: 'dropdown-item-negative',
 };
 
 export const tokens = {
@@ -75,6 +76,8 @@ export const tokens = {
     cellTitleFontWeight: '--plasma-dropdown-cell-title-font-weight',
     cellTitleLetterSpacing: '--plasma-dropdown-cell-title-letter-spacing',
     cellTitleLineHeight: '--plasma-dropdown-cell-title-line-height',
+
+    cellTitleColorNegative: '--plasma-dropdown-cell-title-color-negative',
 
     // TODO: Remove below tokens as soon as they are no longer needed
     footerBackground: '--plasma-dropdown-footer-background',
