@@ -3,14 +3,15 @@ import {
     overlaySoft,
     surfaceAccent,
     surfaceSolidCard,
-    textSecondary,
-    textSecondaryActive,
-    textSecondaryHover,
+    textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
     defaults: {
         view: 'default',
+        size: 'm',
     },
     variations: {
         view: {
@@ -19,13 +20,36 @@ export const config = {
                 ${modalTokens.modalOverlayColor}: ${overlaySoft};
                 ${modalTokens.modalBodyBackground}: ${surfaceSolidCard};
                 ${modalTokens.modalBodyBorderRadius}: 1.25rem;
-                ${modalTokens.modalBodyPadding}: 2rem;
-                ${modalTokens.modalContentPadding}: 0.625rem;
-                ${modalTokens.modalCloseButtonRadius}: 0.375rem;
-                ${modalTokens.modalCloseButtonColor}: ${textSecondary};
-                ${modalTokens.modalCloseButtonHoverColor}: ${textSecondaryHover};
-                ${modalTokens.modalCloseButtonActiveColor}: ${textSecondaryActive};
+                ${modalTokens.modalCloseButtonColor}: ${textPrimary};
+                ${modalTokens.modalCloseButtonHoverColor}: ${textPrimaryHover};
+                ${modalTokens.modalCloseButtonActiveColor}: ${textPrimaryActive};
                 ${modalTokens.modalOutlineFocusColor}: ${surfaceAccent};
+            `,
+        },
+        size: {
+            s: css`
+                ${modalTokens.modalWidth}: 30rem;
+                ${modalTokens.modalBodyPadding}: 0rem;
+                ${modalTokens.modalContentPadding}: 0rem;
+                ${modalTokens.modalCloseButtonSize}: 2.5rem;
+                ${modalTokens.modalCloseButtonTop}: 1.125rem;
+                ${modalTokens.modalCloseButtonRight}: 1.5rem;
+                ${modalTokens.modalCloseButtonRadius}: 1.25rem;
+                ${modalTokens.modalHeaderPadding}: 1.5rem 1.5rem 0.75rem;
+                ${modalTokens.modalFooterPadding}: 1.5rem;
+                ${modalTokens.modalFooterGap}: 0.5rem;
+            `,
+            m: css`
+                ${modalTokens.modalWidth}: 40rem;
+                ${modalTokens.modalBodyPadding}: 0rem;
+                ${modalTokens.modalContentPadding}: 0rem;
+                ${modalTokens.modalCloseButtonSize}: 2.5rem;
+                ${modalTokens.modalCloseButtonTop}: 2rem;
+                ${modalTokens.modalCloseButtonRight}: 2rem;
+                ${modalTokens.modalCloseButtonRadius}: 1.25rem;
+                ${modalTokens.modalHeaderPadding}: 2rem;
+                ${modalTokens.modalFooterPadding}: 2rem;
+                ${modalTokens.modalFooterGap}: 0.5rem;
             `,
         },
     },

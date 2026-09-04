@@ -61,6 +61,10 @@ export interface CommonModalProps extends PopupProps {
      */
     onClose?: () => void;
     view?: string;
+    /**
+     * Размер модального окна.
+     */
+    size?: string;
 }
 
 export type ModalProps = CommonModalProps & ModalBodyProps;

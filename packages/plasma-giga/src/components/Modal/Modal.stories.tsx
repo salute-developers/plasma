@@ -8,18 +8,52 @@ import { SSRProvider } from '../SSRProvider';
 import { Button } from '../Button';
 import { TextField } from '../TextField';
 import { PopupProvider, popupClasses } from '../Popup';
+import { H2, H3 } from '../Typography';
 
-import { Modal, modalClasses } from '.';
+import { config } from './Modal.config';
+
+import { Modal, ModalFooter, ModalHeader, ModalImage, modalClasses } from '.';
 import type { ModalProps } from '.';
 
 const meta: Meta<ModalProps> = {
     title: 'Overlay/Modal',
     decorators: [InSpacingDecorator],
     parameters: {
-        docs: { story: { inline: false, iframeHeight: '30rem' } },
+        docs: { story: { inline: false, iframeHeight: '40rem' } },
     },
     argTypes: {
         ...disableProps(['hasBody']),
+        size: {
+            options: Object.keys(config.variations.size),
+            control: {
+                type: 'select',
+            },
+        },
+        showHeader: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        showFooter: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        showImage: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        content: {
+            control: {
+                type: 'text',
+            },
+        },
+        absoluteHeader: {
+            control: {
+                type: 'boolean',
+            },
+        },
         placement: {
             options: [
                 'center',
@@ -115,6 +149,11 @@ type StoryModalProps = ComponentProps<typeof Modal> & {
     closeOnOverlayClick: boolean;
     withBlur: boolean;
     hasClose?: boolean;
+    showHeader?: boolean;
+    showFooter?: boolean;
+    showImage?: boolean;
+    absoluteHeader?: boolean;
+    content?: string;
     draggableDisabled: boolean;
     resizableDisabled: boolean;
     resizableDirections: string[];
@@ -139,6 +178,30 @@ const StyledWrapper = styled.div`
 const Content = styled.div`
     background: var(--surface-solid-secondary);
     padding: 1rem;
+`;
+
+const BodyContent = styled.div`
+    box-sizing: border-box;
+    min-height: 4.75rem;
+    padding: 0.75rem 1.5rem;
+`;
+
+const ResizableContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+`;
+
+const ImagePlaceholder = styled.div`
+    width: 100%;
+    height: 12.5rem;
+    background-color: #e8e8e8;
+    background-image: linear-gradient(45deg, #d0d0d0 25%, transparent 25%),
+        linear-gradient(-45deg, #d0d0d0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d0d0d0 75%),
+        linear-gradient(-45deg, transparent 75%, #d0d0d0 75%);
+    background-size: 1.25rem 1.25rem;
+    background-position: 0 0, 0 0.625rem, 0.625rem -0.625rem, -0.625rem 0;
 `;
 
 const ButtonWrapper = styled.div`
@@ -180,65 +243,56 @@ const StyledModal = styled(Modal)`
     }
 `;
 
-const StoryModalDemo = ({ placement, offsetX, offsetY, ...rest }: StoryModalProps) => {
-    const [isOpenA, setIsOpenA] = useState(false);
-    const [isOpenB, setIsOpenB] = useState(false);
-    const [isOpenC, setIsOpenC] = useState(false);
+const StoryModalDemo = ({
+    placement,
+    offsetX,
+    offsetY,
+    showHeader = true,
+    showFooter = true,
+    showImage = true,
+    absoluteHeader = false,
+    content = 'Content',
+    size,
+    hasClose,
+    ...rest
+}: StoryModalProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const title = size === 's' ? <H3>Заголовок</H3> : <H2>Заголовок</H2>;
 
     return (
         <SSRProvider>
             <StyledWrapper>
                 <PopupProvider>
                     <ButtonWrapper>
-                        <StyledButton text="Открыть A" onClick={() => setIsOpenA(true)} />
+                        <StyledButton text="Открыть" onClick={() => setIsOpen(true)} />
                     </ButtonWrapper>
                     <StyledModal
-                        id="modalA"
+                        id="modal"
                         frame="theme-root"
                         withAnimation
-                        onClose={() => setIsOpenA(false)}
-                        opened={isOpenA}
+                        onClose={() => setIsOpen(false)}
+                        opened={isOpen}
                         placement={placement}
                         offset={[offsetX, offsetY]}
                         hasBody
+                        hasClose={hasClose}
+                        size={size}
                         {...rest}
                     >
-                        <Button onClick={() => setIsOpenA(false)}>Close</Button>
-                        <ButtonWrapper>
-                            <StyledButton text="Открыть B" onClick={() => setIsOpenB(true)} />
-                        </ButtonWrapper>
-                        <Modal
-                            id="modalB"
-                            frame="theme-root"
-                            onClose={() => setIsOpenB(false)}
-                            opened={isOpenB}
-                            placement="left"
-                            offset={[offsetX, offsetY]}
-                            hasBody
-                            {...rest}
-                        >
-                            <Button style={{ marginRight: '1rem' }} onClick={() => setIsOpenB(false)}>
-                                Close
-                            </Button>
-                            <ButtonWrapper>
-                                <StyledButton text="Открыть C" onClick={() => setIsOpenC(true)} />
-                            </ButtonWrapper>
-                            <Modal
-                                id="modalC"
-                                frame="theme-root"
-                                onClose={() => setIsOpenC(false)}
-                                opened={isOpenC}
-                                placement="top"
-                                offset={[offsetX, offsetY]}
-                                hasBody
-                                {...rest}
-                            >
-                                <Button style={{ marginRight: '1rem' }} onClick={() => setIsOpenC(false)}>
-                                    Close
-                                </Button>
-                                <>Content</>
-                            </Modal>
-                        </Modal>
+                        {showHeader && !absoluteHeader && <ModalHeader>{title}</ModalHeader>}
+                        {showImage && (
+                            <ModalImage>
+                                <ImagePlaceholder />
+                            </ModalImage>
+                        )}
+                        {showHeader && absoluteHeader && <ModalHeader absolute>{title}</ModalHeader>}
+                        <BodyContent>{content}</BodyContent>
+                        {showFooter && (
+                            <ModalFooter>
+                                <Button view="default" size="m" text="Label" />
+                                <Button view="secondary" size="m" text="Label" />
+                            </ModalFooter>
+                        )}
                     </StyledModal>
                 </PopupProvider>
             </StyledWrapper>
@@ -324,6 +378,12 @@ export const Default: StoryObj<StoryModalProps> = {
         offsetX: 0,
         offsetY: 0,
         hasClose: true,
+        size: 'm',
+        showHeader: true,
+        showFooter: true,
+        showImage: true,
+        absoluteHeader: false,
+        content: 'Content',
     },
     argTypes: {
         hasClose: {
@@ -492,7 +552,6 @@ const StoryModalResizable = ({
             <StyledWrapper>
                 <PopupProvider>
                     <Button text="Открыть" onClick={() => setIsOpen(true)} />
-
                     <Modal
                         frame="theme-root"
                         onClose={() => setIsOpen(false)}
@@ -514,11 +573,11 @@ const StoryModalResizable = ({
                         }}
                         {...rest}
                     >
-                        Content
-                        <br />
-                        <Button stretching="filled" onClick={() => setIsOpen(false)}>
-                            Close
-                        </Button>
+                        <ResizableContent>
+                            Content
+                            <br />
+                            <Button onClick={() => setIsOpen(false)}>Close</Button>
+                        </ResizableContent>
                     </Modal>
                 </PopupProvider>
             </StyledWrapper>
@@ -536,13 +595,14 @@ export const Resizable: StoryObj<StoryModalProps> = {
         offsetX: 0,
         offsetY: 0,
         hasClose: true,
+        size: 'm',
         draggableDisabled: false,
         resizableDisabled: false,
         resizableDirections: ['bottom-right'],
         resizableHiddenIcons: [],
         resizableIconSize: 's',
-        resizableDefaultSize: { width: 300, height: 150 },
-        resizableMinWidth: 300,
+        resizableDefaultSize: { width: 640, height: 150 },
+        resizableMinWidth: 320,
         resizableMinHeight: 150,
     },
     argTypes: {
@@ -562,6 +622,7 @@ export const Resizable: StoryObj<StoryModalProps> = {
                 'offsetX',
                 'offsetY',
                 'hasClose',
+                'size',
                 'draggableDisabled',
                 'resizableDisabled',
                 'resizableDirections',

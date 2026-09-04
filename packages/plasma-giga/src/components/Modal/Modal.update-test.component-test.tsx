@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 
@@ -9,10 +9,33 @@ const Content = styled.div`
     box-sizing: border-box;
 `;
 
+const BodyPad = styled.div`
+    box-sizing: border-box;
+    padding: 2rem;
+`;
+
+const WIDE_VIEWPORT = { width: 800, height: 500 } as const;
+
+function getEdgeOffset(placement?: string): [number, number] {
+    if (placement === 'left' || placement === 'right') {
+        return [1, 0];
+    }
+
+    if (placement === 'top' || placement === 'bottom') {
+        return [0, 1];
+    }
+
+    return [0, 0];
+}
+
 describe('plasma-giga: Modal', () => {
     const PopupProvider = getComponent('PopupProvider');
     const Modal = getComponent('Modal');
+    const ModalHeader = getComponent('ModalHeader');
+    const ModalFooter = getComponent('ModalFooter');
+    const ModalImage = getComponent('ModalImage');
     const Button = getComponent('Button');
+    const H2 = getComponent('H2');
     const H3 = getComponent('H3');
 
     function Demo({
@@ -43,13 +66,17 @@ describe('plasma-giga: Modal', () => {
                     onClose={() => setIsOpen(false)}
                     withBlur={withBlur}
                     placement={placement}
+                    offset={getEdgeOffset(placement)}
                     hasBody
                     hasClose={hasClose}
+                    size="s"
                     closeOnEsc={closeOnEsc}
                     closeOnOverlayClick={closeOnOverlayClick}
                 >
-                    <H3>Modal</H3>
-                    <Button id="button-close" text="Close" onClick={() => setIsOpen(false)} />
+                    <BodyPad>
+                        <H3>Modal</H3>
+                        <Button id="button-close" text="Close" onClick={() => setIsOpen(false)} />
+                    </BodyPad>
                 </Modal>
             </PopupProvider>
         );
@@ -92,6 +119,8 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('[PLASMA-T1649] ModalBase: placement=right', () => {
+        cy.viewport(WIDE_VIEWPORT.width, WIDE_VIEWPORT.height);
+
         mount(
             <CypressTestDecorator>
                 <Demo placement="right" />
@@ -105,6 +134,8 @@ describe('plasma-giga: Modal', () => {
     });
 
     it('[PLASMA-T1650] ModalBase: placement=left', () => {
+        cy.viewport(WIDE_VIEWPORT.width, WIDE_VIEWPORT.height);
+
         mount(
             <CypressTestDecorator>
                 <Demo placement="left" />
@@ -182,6 +213,144 @@ describe('plasma-giga: Modal', () => {
             .trigger('mousemove', { clientX: 400, clientY: 400 })
             .trigger('mouseup');
 
+        cy.matchImageSnapshot();
+    });
+
+    it('ModalBase: hasBody, slots, size=m', () => {
+        cy.viewport(WIDE_VIEWPORT.width, WIDE_VIEWPORT.height);
+
+        function DemoWithSlots() {
+            const [isOpen, setIsOpen] = React.useState(true);
+
+            return (
+                <PopupProvider>
+                    <Modal opened={isOpen} onClose={() => setIsOpen(false)} hasBody hasClose size="m">
+                        <ModalHeader>
+                            <H2>Заголовок</H2>
+                        </ModalHeader>
+                        <ModalImage>
+                            <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
+                        </ModalImage>
+                        <div style={{ minHeight: '4.875rem' }} />
+                        <ModalFooter>
+                            <Button text="Label" />
+                            <Button view="secondary" text="Label" />
+                        </ModalFooter>
+                    </Modal>
+                </PopupProvider>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <DemoWithSlots />
+            </CypressTestDecorator>,
+        );
+
+        cy.contains('Заголовок').should('be.visible');
+        cy.get('[data-test="modal-close"]').should('be.visible');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('ModalBase: hasBody, slots, size=s', () => {
+        function DemoWithSlots() {
+            const [isOpen, setIsOpen] = React.useState(true);
+
+            return (
+                <PopupProvider>
+                    <Modal opened={isOpen} onClose={() => setIsOpen(false)} hasBody hasClose size="s">
+                        <ModalHeader>
+                            <H3>Заголовок</H3>
+                        </ModalHeader>
+                        <ModalImage>
+                            <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
+                        </ModalImage>
+                        <div style={{ minHeight: '4.875rem' }} />
+                        <ModalFooter>
+                            <Button size="s" text="Label" />
+                            <Button size="s" view="secondary" text="Label" />
+                        </ModalFooter>
+                    </Modal>
+                </PopupProvider>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <DemoWithSlots />
+            </CypressTestDecorator>,
+        );
+
+        cy.contains('Заголовок').should('be.visible');
+        cy.matchImageSnapshot();
+    });
+
+    it('ModalBase: hasBody, absoluteHeader, ModalImage', () => {
+        function DemoAbsolute() {
+            const [isOpen, setIsOpen] = React.useState(true);
+
+            return (
+                <PopupProvider>
+                    <Modal opened={isOpen} onClose={() => setIsOpen(false)} hasBody hasClose size="s">
+                        <ModalImage>
+                            <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
+                        </ModalImage>
+                        <ModalHeader absolute>
+                            <H3>Заголовок</H3>
+                        </ModalHeader>
+                        <ModalFooter>
+                            <Button size="s" text="Label" />
+                            <Button size="s" view="secondary" text="Label" />
+                        </ModalFooter>
+                    </Modal>
+                </PopupProvider>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <DemoAbsolute />
+            </CypressTestDecorator>,
+        );
+
+        cy.contains('Заголовок').should('be.visible');
+        cy.matchImageSnapshot();
+    });
+
+    it('ModalBase: hasBody, resizable', () => {
+        function Resizable() {
+            const [isOpen, setIsOpen] = React.useState(true);
+
+            return (
+                <PopupProvider>
+                    <Modal
+                        opened={isOpen}
+                        placement="center"
+                        hasBody
+                        hasClose
+                        size="s"
+                        resizable={{
+                            defaultSize: { width: 320, height: 200 },
+                            directions: ['bottom-right'],
+                        }}
+                    >
+                        <BodyPad>
+                            Content
+                            <Button text="Close" onClick={() => setIsOpen(false)} />
+                        </BodyPad>
+                    </Modal>
+                </PopupProvider>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <Resizable />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('.resizable-bottom-right-icon').should('be.visible');
         cy.matchImageSnapshot();
     });
 });
