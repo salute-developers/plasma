@@ -209,6 +209,11 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     filter?: (item: T, textValue: string) => boolean;
     /**
+     * Функция сортировки элементов после фильтрации.
+     * Вызывается при открытии выпадающего списка; порядок фиксируется, пока список открыт.
+     */
+    sortItems?: (items: T[], textValue: string) => T[];
+    /**
      * Закрывать ли выпадающий список после выбора элемента.
      * @default если single, то true; если multiple, то false; если передан alwaysOpened, то false
      */
