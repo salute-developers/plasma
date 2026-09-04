@@ -1,5 +1,5 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<metadata>{"aliases":["flip","vertical","mirror","up-down","reflect","reverse"],"category":"Actions &amp; Feedback","source":"24/FlipVertical/FlipVerticalOutlineBold","size":"24"}</metadata>
+<metadata>{"aliases":["flip","vertical","mirror","up-down","reflect","reverse","отразить","зеркало","перевернуть","вертикально","высота","действие"],"category":"Actions &amp; Feedback","source":"24/FlipVertical/FlipVerticalOutlineBold","size":"24"}</metadata>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M19.124 12.2002C20.466 12.2012 20.9266 13.9879 19.7529 14.6377L5.62988 22.4424C4.86789 22.8634 3.95645 22.4299 3.74609 21.6465L3.71191 21.4756V21.4658L3.70215 21.3262L3.7002 21.3154V14C3.70043 13.0062 4.50695 12.2002 5.50098 12.2002H19.124ZM5.80078 19.9483L16.0225 14.2998H5.80078V19.9483Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.74609 2.3545C3.95605 1.57069 4.86753 1.13639 5.62988 1.55763L19.7529 9.36231C20.9268 10.0122 20.4658 11.7988 19.124 11.7998H5.50098C4.507 11.7998 3.70042 10.9939 3.7002 10V2.68458L3.70215 2.67481L3.71191 2.53517V2.5254L3.74609 2.3545ZM5.80078 9.7002H16.0225L5.80078 4.05079V9.7002Z" fill="black"/>
 </svg>
