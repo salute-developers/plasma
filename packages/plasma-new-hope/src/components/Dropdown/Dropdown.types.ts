@@ -49,7 +49,7 @@ export type ItemOption = {
      */
     dividerAfter?: boolean;
     /**
-     * Classname для item.
+     * Classname для item. Для негативного отображения используйте `dropdown-item-negative`.
      */
     className?: string;
     /**
