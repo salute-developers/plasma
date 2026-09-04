@@ -2642,6 +2642,122 @@ describeFn('Combobox', () => {
         cy.get('ul').find('li').should('have.length', 4);
     });
 
+    it('flow: custom sortItems', () => {
+        cy.viewport(500, 500);
+
+        const sortExampleItems = [
+            { value: 'c', label: 'Charlie' },
+            { value: 'a', label: 'Alpha' },
+            { value: 'b', label: 'Bravo' },
+        ];
+
+        const Component = () => {
+            return (
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="combobox"
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={sortExampleItems}
+                        sortItems={(list) => [...list].sort((a, b) => a.label.localeCompare(b.label))}
+                        listMaxHeight="300px"
+                        alwaysOpened
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('ul').should('be.visible');
+        cy.get('ul')
+            .find('li')
+            .then(($lis) => {
+                expect($lis.eq(0)).to.contain('Alpha');
+                expect($lis.eq(1)).to.contain('Bravo');
+                expect($lis.eq(2)).to.contain('Charlie');
+            });
+    });
+
+    it('flow: sortItems freezes order while list is open', () => {
+        cy.viewport(800, 500);
+
+        type NestedItem = {
+            value: string;
+            label: string;
+            items?: NestedItem[];
+        };
+
+        const nestedItems: NestedItem[] = [
+            {
+                value: 'europe',
+                label: 'Europe',
+                items: [
+                    { value: 'berlin', label: 'Berlin' },
+                    { value: 'paris', label: 'Paris' },
+                ],
+            },
+            {
+                value: 'asia',
+                label: 'Asia',
+                items: [
+                    { value: 'tokyo', label: 'Tokyo' },
+                    { value: 'osaka', label: 'Osaka' },
+                ],
+            },
+        ];
+
+        const Component = () => {
+            const [value, setValue] = useState<string[]>(['berlin']);
+
+            const sortSelectedFirst = (list: NestedItem[]) =>
+                [...list].sort((a, b) => {
+                    const hasSelected = (item: NestedItem): boolean =>
+                        value.includes(item.value) || Boolean(item.items?.some((child) => value.includes(child.value)));
+
+                    return Number(hasSelected(b)) - Number(hasSelected(a));
+                });
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="combobox"
+                        multiple
+                        label="Label"
+                        placeholder="Placeholder"
+                        items={nestedItems}
+                        value={value}
+                        onChange={setValue}
+                        listMaxHeight="300px"
+                        sortItems={sortSelectedFirst}
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click();
+
+        // При открытии Europe выше (есть berlin).
+        cy.get('[id$="tree_level_1"]').find('li').eq(0).should('contain', 'Europe');
+        cy.get('[id$="tree_level_1"]').find('li').eq(1).should('contain', 'Asia');
+
+        // Выбираем Tokyo — порядок верхнего уровня не должен меняться, пока список открыт.
+        cy.get('[id$="tree_level_1"]').contains('li', 'Asia').trigger('mouseover');
+        cy.get('[id$="tree_level_2"]').contains('li', 'Tokyo').click({ force: true });
+
+        cy.get('[id$="tree_level_1"]').find('li').eq(0).should('contain', 'Europe');
+        cy.get('[id$="tree_level_1"]').find('li').eq(1).should('contain', 'Asia');
+
+        // После закрытия и повторного открытия Asia поднимается вверх.
+        cy.get('body').click(0, 0);
+        cy.get('#combobox').click();
+
+        cy.get('[id$="tree_level_1"]').find('li').eq(0).should('contain', 'Asia');
+        cy.get('[id$="tree_level_1"]').find('li').eq(1).should('contain', 'Europe');
+    });
+
     it('flow: single mode, async items loading', () => {
         const Component = () => {
             const [value, setValue] = useState('');
