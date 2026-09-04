@@ -156,6 +156,7 @@ export const tokens = {
     textFieldTitleCaptionColor: '--plasma-select-textfield-title-caption-color',
     textFieldTitleCaptionColorReadOnly: '--plasma-select-textfield__title-caption-color-readonly',
     textFieldTitleCaptionInnerLabelOffset: '--plasma-select-textfield-title-caption-label-inner-offset',
+    textFieldTitleCaptionJustifyContent: '--plasma-select-textfield-title-caption-justify-content',
 
     textFieldTitleCaptionFontFamily: '--plasma-select-textfield-title-caption-font-family',
     textFieldTitleCaptionFontStyle: '--plasma-select-textfield-title-caption-font-style',

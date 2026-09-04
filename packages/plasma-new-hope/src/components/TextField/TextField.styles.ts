@@ -113,7 +113,6 @@ export const InputPlaceholderValue = styled.div`
 export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
     align-items: center;
-
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
     padding: ${({ isInnerLabel }) => (isInnerLabel ? 0 : `var(${tokens.labelPadding}, 0)`)};
@@ -122,8 +121,9 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
 `;
 
 export const TitleCaption = styled.div<{ hasLabel: boolean }>`
-    display: inline-block;
-    margin-left: auto;
+    display: flex;
+    flex-grow: 1;
+    justify-content: var(${tokens.titleCaptionJustifyContent}, flex-end);
     margin-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset}, 0)` : 'unset')};
 `;
 

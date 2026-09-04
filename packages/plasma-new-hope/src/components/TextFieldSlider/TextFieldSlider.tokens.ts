@@ -92,6 +92,7 @@ export const tokens = {
     titleCaptionColor: '--plasma-textfield-slider__title-caption-color',
     titleCaptionColorReadOnly: '--plasma-textfield-slider__title-caption-color-readonly',
     titleCaptionInnerLabelOffset: '--plasma-textfield-slider__title-caption-label-inner-offset',
+    titleCaptionJustifyContent: '--plasma-textfield-slider__title-caption-justify-content',
 
     titleCaptionFontFamily: '--plasma-textfield-slider__title-caption-font-family',
     titleCaptionFontStyle: '--plasma-textfield-slider__title-caption-font-style',

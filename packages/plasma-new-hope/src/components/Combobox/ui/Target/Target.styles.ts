@@ -95,6 +95,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.titleCaptionColor}: var(${comboboxTokens.textFieldTitleCaptionColor});
     ${textFieldTokens.titleCaptionColorReadOnly}: var(${comboboxTokens.textFieldTitleCaptionColorReadOnly});
     ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${comboboxTokens.textFieldTitleCaptionInnerLabelOffset});
+    ${textFieldTokens.titleCaptionJustifyContent}: var(${comboboxTokens.textFieldTitleCaptionJustifyContent}, flex-end);
 
     ${textFieldTokens.titleCaptionFontFamily}: var(${comboboxTokens.textFieldTitleCaptionFontFamily});
     ${textFieldTokens.titleCaptionFontStyle}: var(${comboboxTokens.textFieldTitleCaptionFontStyle});

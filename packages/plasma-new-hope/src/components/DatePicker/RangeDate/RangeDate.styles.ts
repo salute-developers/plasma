@@ -128,6 +128,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
     ${rangeTokens.titleCaptionOffset}: var(${tokens.titleCaptionOffset});
+    ${rangeTokens.titleCaptionJustifyContent}: var(${tokens.titleCaptionJustifyContent}, flex-end);
     ${rangeTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});
     ${rangeTokens.titleCaptionFontFamily}: var(${tokens.titleCaptionFontFamily});
     ${rangeTokens.titleCaptionFontStyle}: var(${tokens.titleCaptionFontStyle});

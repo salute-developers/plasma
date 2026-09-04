@@ -100,6 +100,7 @@ export const tokens = {
     contentGap: '--plasma-range-info-wrapper-content-gap',
 
     titleCaptionOffset: '--plasma-range-info-wrapper-title-caption-offset',
+    titleCaptionJustifyContent: '--plasma-range-info-wrapper-title-caption-justify-content',
     titleCaptionColor: '--plasma-range-info-wrapper-title-caption-color',
     titleCaptionFontFamily: '--plasma-range-info-wrapper-title-caption-font-family',
     titleCaptionFontStyle: '--plasma-range-info-wrapper-title-caption-font-style',
