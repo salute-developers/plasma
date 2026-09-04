@@ -27,6 +27,7 @@
     "lint": "npm run lint:scripts && npm run lint:lerna && npm run lint:packages",
     "test": "lerna run test --since=$(git merge-base --fork-point origin/dev)",
     "typescript-coverage": "lerna run typescript-coverage --since=$(git merge-base --fork-point origin/dev) --no-bail --stream",
+    "generate:api-props": "node utils/plasma-sb-utils/scripts/generate-api-props.js",
     "generate:theme-html": "lerna run generate:theme-html --scope @salutejs/plasma-tokens",
     "setup": "npm run setup:deps && npm run setup:cypress && npm run setup:packages",
     "setup:ci": "npm run setup:deps:ci && npm run setup:packages --",

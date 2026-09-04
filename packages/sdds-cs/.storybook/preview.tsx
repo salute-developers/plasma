@@ -4,7 +4,13 @@ import storybookTheme from './theme';
 import { docsPage } from './docsPage';
 import { withTheme, SDDS_CS_LIGHT_THEME, DEFAULT_MODE, ON_LIGHT_MODE, ON_DARK_MODE } from './decoratorThemes';
 import { withToast } from './decoratorToast';
-import { withReactStrictMode, reactStrictModePreviewOption, disabledToolsParameters } from '@salutejs/plasma-sb-utils';
+import {
+    withReactStrictMode,
+    reactStrictModePreviewOption,
+    disabledToolsParameters,
+    createStorybookOnlyArgTypesEnhancer,
+} from '@salutejs/plasma-sb-utils';
+import * as packageApiProps from './apiProps.generated';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -13,6 +19,7 @@ if (typeof document !== 'undefined') {
 
 const preview: Preview = {
     decorators: [withTheme, withToast, withReactStrictMode],
+    argTypesEnhancers: [createStorybookOnlyArgTypesEnhancer(packageApiProps)],
     globalTypes: {
         theme: {
             description: 'Global theme for components',
