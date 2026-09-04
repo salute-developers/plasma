@@ -1,33 +1,22 @@
-import type { SpinnerInnerProps, SpinnerProps } from '../Spinner.types';
+const scalingPixelBasis = 16;
 
-export const sizeFormatting = (size: number | string, deviceScale = 1): string => {
-    const scalingPixelBasis = 16;
-
-    if (typeof size === 'number' || (!size.endsWith('rem') && !size.endsWith('px'))) {
-        return `${Number(size) / (scalingPixelBasis * deviceScale)}rem`;
+/**
+ * Приводит значение пропа size/width/height к css-длине.
+ */
+export const getCustomSize = (size?: string | number): string | undefined => {
+    if (typeof size === 'number') {
+        return `${size / scalingPixelBasis}rem`;
     }
 
-    return size;
-};
-
-// TODO: удалить после обновления API компонента
-export const getFallbackProps = (props: SpinnerProps, initialInnerProps: SpinnerInnerProps) => {
-    const { size } = props;
-    const color = props.color || initialInnerProps.color;
-
-    if (typeof size === 'number' || (size && !Number.isNaN(parseInt(size, 10)))) {
-        const wrapperSize = sizeFormatting(size);
-        return {
-            wrapperWidth: wrapperSize,
-            wrapperHeight: wrapperSize,
-            svgWidth: size,
-            svgHeight: size,
-            color,
-        };
+    if (!size) {
+        return undefined;
     }
 
-    return {
-        ...initialInnerProps,
-        color,
-    };
+    if (size.endsWith('px') || size.endsWith('rem')) {
+        return size;
+    }
+
+    const pixels = Number(size);
+
+    return Number.isNaN(pixels) ? undefined : `${pixels / scalingPixelBasis}rem`;
 };
