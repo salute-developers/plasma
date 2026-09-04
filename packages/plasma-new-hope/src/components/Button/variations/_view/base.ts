@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { applyHover } from 'src/mixins';
 
 import { tokens, classes } from '../../Button.tokens';
 
@@ -13,8 +14,7 @@ export const base = css`
         background: var(${tokens.buttonLoadingBackgroundColor});
     }
 
-    // INFO: Чтобы не было "залипания" состояния на мобильных устройствах
-    @media (hover: hover) and (pointer: fine) {
+    ${applyHover(`
         :hover {
             color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
             background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
@@ -23,7 +23,7 @@ export const base = css`
 
             scale: var(${tokens.buttonScaleHover});
         }
-    }
+    `)}
 
     :active {
         color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
