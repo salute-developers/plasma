@@ -10,7 +10,6 @@ import type { IconManifest } from '@salutejs/sdds-mcp/icon-search';
 import { Footer, Header, IconFilterMenu, Main } from '../components/roster';
 import { multipleMediaQuery } from '../mixins';
 import { StyledActionIcon } from '../components/roster/StyledActionIcon';
-import { SddsIconsList } from '../components/sdds-icons/SddsIconsList';
 
 const manifestUrl = 'https://plasma.sberdevices.ru/mcp/sdds-icons/manifest.json';
 
@@ -172,6 +171,19 @@ const StyledStateText = styled(BodyXS)`
 const StyledLineSkeleton = styled(LineSkeleton)`
     width: 14rem;
 `;
+
+const SddsIconsList = dynamic(
+    () => import('../components/sdds-icons/SddsIconsList').then((module) => module.SddsIconsList),
+    {
+        loading: () => (
+            <StyledManifestState>
+                <StyledStateTitle>Загружаем иконки</StyledStateTitle>
+                <StyledLineSkeleton size="body1" />
+            </StyledManifestState>
+        ),
+        ssr: false,
+    },
+);
 
 const isIconManifest = (value: unknown): value is IconManifest => {
     if (!value || typeof value !== 'object') {
