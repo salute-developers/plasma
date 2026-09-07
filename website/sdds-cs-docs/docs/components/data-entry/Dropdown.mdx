@@ -377,6 +377,104 @@ type ItemOption = {
         }
         ```
     </TabItem>
+    <TabItem value="slots" label="beforeList / afterList">
+        `beforeList` и `afterList` добавляют контент в начало и конец списка.
+
+        :::note
+        Слоты закреплены: скроллится только список, `listMaxHeight` ограничивает его, а не весь попап.
+        :::
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { BodyXS, Button, Divider, Dropdown, TabItem, Tabs } from '@salutejs/sdds-cs';
+
+        export function App() {
+            const regions = [
+                {
+                    value: 'europe',
+                    label: 'Европа',
+                    items: [
+                        {
+                            value: 'germany',
+                            label: 'Германия',
+                            items: [
+                                { value: 'berlin', label: 'Берлин' },
+                                { value: 'munich', label: 'Мюнхен' },
+                            ],
+                        },
+                        { value: 'france', label: 'Франция' },
+                        { value: 'italy', label: 'Италия' },
+                    ],
+                },
+                {
+                    value: 'america',
+                    label: 'Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                            items: [
+                                { value: 'rio_de_janeiro', label: 'Рио-де-Жанейро' },
+                                { value: 'sao_paulo', label: 'Сан-Паулу' },
+                            ],
+                        },
+                        { value: 'argentina', label: 'Аргентина' },
+                    ],
+                },
+                {
+                    value: 'asia',
+                    label: 'Азия',
+                    items: [
+                        { value: 'japan', label: 'Япония' },
+                        { value: 'china', label: 'Китай' },
+                        { value: 'thailand', label: 'Таиланд' },
+                    ],
+                },
+            ];
+
+            const [regionIndex, setRegionIndex] = useState(0);
+            const [selected, setSelected] = useState(null);
+
+            const region = regions[regionIndex];
+
+            return (
+                <div style={{ height:"340px" }}>
+                    <Dropdown
+                        items={region.items}
+                        listWidth="20rem"
+                        onItemSelect={(item) => setSelected(item)}
+                        beforeList={
+                            <Tabs view="filled" size="s" stretch>
+                                {regions.map((item, index) => (
+                                    <TabItem
+                                        key={item.value}
+                                        view="secondary"
+                                        size="s"
+                                        tabIndex={0}
+                                        selected={index === regionIndex}
+                                        onClick={() => setRegionIndex(index)}
+                                    >
+                                        {item.label}
+                                    </TabItem>
+                                ))}
+                            </Tabs>
+                        }
+                        afterList={
+                            <>
+                                <Divider />
+                                <BodyXS style={{ padding: '0.5rem 0.75rem', color: 'var(--text-secondary)' }}>
+                                    {`Направлений в разделе: ${region.items.length}`}
+                                </BodyXS>
+                            </>
+                        }
+                    >
+                        <Button text={selected ? selected.label : 'Куда летим?'} />
+                    </Dropdown>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация
