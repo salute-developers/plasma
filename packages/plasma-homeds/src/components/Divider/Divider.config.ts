@@ -1,6 +1,6 @@
 import { css, dividerTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    inverseTextTertiary,
+    inverseSurfaceTransparentTertiary,
     onDarkSurfaceTransparentTertiary,
     onLightSurfaceTransparentTertiary,
     surfaceTransparentTertiary,
@@ -23,14 +23,14 @@ export const config = {
             light: css`
                 ${dividerTokens.background}: ${onLightSurfaceTransparentTertiary};
             `,
-            // TODO поменять на корректный токен --inverse-surface-transparent-tertiary когда он появится
             inverse: css`
-                ${dividerTokens.background}: ${inverseTextTertiary};
+                ${dividerTokens.background}: ${inverseSurfaceTransparentTertiary};
             `,
         },
         size: {
             m: css`
                 ${dividerTokens.borderRadius}: 0.0625rem;
+                ${dividerTokens.lineThickness}: 0.03125rem;
             `,
         },
         orientation: {
