@@ -22,6 +22,7 @@ import {
     SingleWrapper,
     SliderBaseWrapper,
     SliderContainer,
+    TrackWrapper,
     StyledCurrentValue,
     StyledProgress,
     StyledRange,
@@ -268,21 +269,27 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                     })}
                     {...rest}
                 >
-                    {tickType === 'separator' ? (
-                        <>
-                            {trackSegments.map((segmentStyle, index) => (
-                                <TrackSegment key={`track-segment-${index}`} style={segmentStyle} />
-                            ))}
-                            {progressSegments.map((segmentStyle, index) => (
-                                <ProgressSegment key={`progress-segment-${index}`} style={segmentStyle} />
-                            ))}
-                        </>
-                    ) : (
-                        <>
-                            <StyledTrack />
-                            <StyledProgress style={progressSizeStyle} />
-                        </>
-                    )}
+                    <TrackWrapper>
+                        {tickType === 'separator' ? (
+                            <>
+                                {trackSegments.map((segmentStyle, index) => (
+                                    <TrackSegment key={`track-segment-${index}`} style={segmentStyle} />
+                                ))}
+                                {progressSegments.map((segmentStyle, index) => (
+                                    <ProgressSegment key={`progress-segment-${index}`} style={segmentStyle} />
+                                ))}
+                            </>
+                        ) : (
+                            <>
+                                <StyledTrack />
+                                <StyledProgress style={progressSizeStyle} />
+                            </>
+                        )}
+
+                        {innerShowCurrentValue && (
+                            <StyledCurrentValue style={currentValueStyle}>{value}</StyledCurrentValue>
+                        )}
+                    </TrackWrapper>
 
                     <StyledRange
                         type="range"
@@ -305,10 +312,6 @@ export const SingleSlider: FC<SingleSliderProps> = ({
                         onKeyUp={handleChangeCommitted}
                         onKeyDown={handleKeyDown}
                     />
-
-                    {innerShowCurrentValue && (
-                        <StyledCurrentValue style={currentValueStyle}>{value}</StyledCurrentValue>
-                    )}
                 </SliderContainer>
 
                 {innerShowScale && (

@@ -2,7 +2,9 @@ import styled from 'styled-components';
 
 import { applySliderThumb, applySliderThumbFocus } from '../../../../mixins';
 import type { SliderThumbTokens } from '../../../../mixins';
-import { tokens } from '../../Slider.tokens';
+import { classes, tokens } from '../../Slider.tokens';
+
+export const thumbGutter = `calc(var(${tokens.thumbWidth}, 0rem) / 2)`;
 
 const thumbTokens: SliderThumbTokens = {
     width: tokens.thumbWidth,
@@ -51,6 +53,29 @@ export const BaseSliderContainer = styled.div`
 `;
 
 /**
+ * Обёртка визуальной части трека.
+ *
+ * Горизонтальный нативный range оставляет по краям место под половину бегунка.
+ * Обёртка задаёт такую же рабочую область для рельса, прогресса и элементов,
+ * привязанных к их координатам.
+ */
+export const BaseTrackWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    right: ${thumbGutter};
+    bottom: 0;
+    left: ${thumbGutter};
+    pointer-events: none;
+
+    .${classes.verticalOrientation} & {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+`;
+
+/**
  * Рельс (неактивная часть дорожки)
  */
 export const BaseStyledTrack = styled.div`
@@ -73,10 +98,9 @@ export const BaseStyledRange = styled.input<{ showPointer?: boolean }>`
     outline: none;
     background: transparent;
     border: none;
-    width: calc(100% + var(${tokens.thumbWidth}, 0rem));
+    width: 100%;
     height: var(${tokens.size});
     margin: 0;
-    margin-left: calc(var(${tokens.thumbWidth}, 0rem) / -2);
     cursor: pointer;
 
     &:disabled {
