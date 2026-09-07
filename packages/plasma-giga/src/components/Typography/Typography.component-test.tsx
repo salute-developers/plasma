@@ -326,6 +326,7 @@ describe('plasma-giga: typograph', () => {
             expect(typograph('см gigachat://dialog?value="c"')).to.equal(`см${NBSP}gigachat://dialog?value="c"`);
             expect(typograph('см http://example.com/a?b="c"')).to.equal(`см${NBSP}http://example.com/a?b="c"`);
             expect(typograph('"https://example.com/a?b="c"')).to.equal('«https://example.com/a?b="c»');
+            expect(typograph('"gigachat://dialog?value="c""')).to.equal('«gigachat://dialog?value="c"»');
         });
 
         it('защищает http, диплинки и www', () => {
@@ -339,6 +340,12 @@ describe('plasma-giga: typograph', () => {
 
             expect(result).to.include('example.com/a?b="c');
             expect(result).to.not.include('»c');
+        });
+
+        it('защищает голый домен с query, fragment и портом', () => {
+            expect(typograph('см example.com?value="c"')).to.equal(`см${NBSP}example.com?value="c"`);
+            expect(typograph('см example.com#frag="c"')).to.equal(`см${NBSP}example.com#frag="c"`);
+            expect(typograph('см example.com:443/a?b="c"')).to.equal(`см${NBSP}example.com:443/a?b="c"`);
         });
 
         it('не считает расширения файлов ссылками', () => {
