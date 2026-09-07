@@ -6,6 +6,7 @@ export const classes = {
 
 export const tokens = {
     baseSideSize: '--plasma-divider-base-side-size',
+    lineThickness: '--plasma-divider-line-thickness',
     background: '--plasma-divider-background',
     borderRadius: '--plasma-divider-border-radius',
 };
