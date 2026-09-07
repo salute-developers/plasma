@@ -83,6 +83,9 @@ module.exports = {
     'sdds-sbcom': {
         scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-sbcom-docs', 'plasma-docs-ui'],
     },
+    'sdds-vc': {
+        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+    },
     'sdds-icons': {
         scope: [],
     },
