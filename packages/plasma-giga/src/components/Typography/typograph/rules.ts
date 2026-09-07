@@ -7,7 +7,8 @@ const PLACEHOLDER_MARK = 0xe010;
 const PLACEHOLDER_END = '\uE001';
 
 // Схема с ://, www.* и голые домены с безопасным списком TLD (не file.ts / node.js).
-const URL_RE = /(?:[a-z][\w+.-]*:\/\/[^\s]+|\bwww\.[^\s]+|\b(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:com|ru|org|net|io|ai|dev|app|test)(?:\/[^\s]*)?)/gi;
+// После TLD — необязательные :port, /path, ?query и #fragment.
+const URL_RE = /(?:[a-z][\w+.-]*:\/\/[^\s]+|\bwww\.[^\s]+|\b(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+(?:com|ru|org|net|io|ai|dev|app|test)(?::\d{1,5})?(?:[/?#][^\s]*)?)/gi;
 
 const LEFT_BOUNDARY = /[\s([«„]/;
 const OPENING_QUOTE = /[\s([{«„:;—–]/;
@@ -16,17 +17,22 @@ const LETTER = /[А-Яа-яЁё]/;
 const urlToken = (index: number) =>
     `${PLACEHOLDER_START}${String.fromCharCode(PLACEHOLDER_MARK + index)}${PLACEHOLDER_END}`;
 
-const peelTrailingWrap = (raw: string, before: string | undefined): { url: string; trailing: string } => {
+const peelTrailingWrap = (raw: string, insideQuotedSpan: boolean): { url: string; trailing: string } => {
     let url = raw;
     let trailing = '';
+    let peeledQuote = false;
 
     while (url.length > 0) {
         const last = url[url.length - 1];
         const isBracket = last === '<' || last === '>';
-        const isWrappedQuote = last === '"' && before === '"';
+        const isWrappedQuote = last === '"' && insideQuotedSpan && !peeledQuote;
 
         if (!isBracket && !isWrappedQuote) {
             break;
+        }
+
+        if (last === '"') {
+            peeledQuote = true;
         }
 
         trailing = `${last}${trailing}`;
@@ -165,16 +171,17 @@ export const dash = (text: string): string => {
 /**
  * Прячет URL за плейсхолдеры на время применения правил (аналог typograf safeTags).
  * Замыкающие обёрточные скобки и кавычки в URL не входят, чтобы `"https://example.test"`
- * отдало обе кавычки правилу quotes. Кавычка из query (`?value="c"`) остаётся в URL:
- * её снимаем, только если перед ссылкой стоит такая же обёрточная `"`.
+ * и `"См. https://example.test"` отдали закрывающую кавычку правилу quotes.
+ * Кавычка из query (`?value="c"`) остаётся в URL: снимаем не больше одной хвостовой `"`,
+ * и только если до ссылки нечётное число прямых кавычек — мы внутри обёртки.
  */
 export const withProtectedUrls = (apply: (text: string) => string) => (text: string): string => {
     const urls: string[] = [];
     const urlRe = new RegExp(URL_RE.source, URL_RE.flags);
 
     const masked = text.replace(urlRe, (raw, offset: number) => {
-        const before = offset > 0 ? text[offset - 1] : undefined;
-        const { url, trailing } = peelTrailingWrap(raw, before);
+        const quotesBefore = text.slice(0, offset).split('"').length - 1;
+        const { url, trailing } = peelTrailingWrap(raw, quotesBefore % 2 === 1);
         const token = urlToken(urls.length);
 
         urls.push(url);
