@@ -486,6 +486,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                     />
                                 ) : (
                                     <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
+                                        {beforeList}
+
                                         <Ul
                                             role="tree"
                                             id={`${treeId}_tree_level_1`}
@@ -494,8 +496,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                             virtual={virtual}
                                             onScroll={virtual ? undefined : onScroll}
                                         >
-                                            {beforeList}
-
                                             {props.multiple && props.selectAllOptions && (
                                                 // TODO: #2004
                                                 <SelectAll
@@ -548,9 +548,9 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                     )}
                                                 </>
                                             )}
-
-                                            {afterList}
                                         </Ul>
+
+                                        {afterList}
                                     </ListWrapper>
                                 )}
                             </Root>

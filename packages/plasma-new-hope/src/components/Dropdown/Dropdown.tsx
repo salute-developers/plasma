@@ -145,9 +145,9 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                             {...rest}
                         >
                             <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
-                                <Ul id={`${treeId}_tree_level_1`} role="tree" listMaxHeight={listMaxHeight}>
-                                    {beforeList}
+                                {beforeList}
 
+                                <Ul id={`${treeId}_tree_level_1`} role="tree" listMaxHeight={listMaxHeight}>
                                     {visibleItems.map((item, index) => (
                                         <Inner
                                             key={`${index}/0`}
@@ -161,9 +161,9 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                             portal={listWrapperRef}
                                         />
                                     ))}
-
-                                    {afterList}
                                 </Ul>
+
+                                {afterList}
                             </ListWrapper>
                         </Root>
                     </FloatingPopover>
