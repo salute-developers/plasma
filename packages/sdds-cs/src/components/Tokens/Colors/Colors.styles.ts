@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { segmentTokens } from '@salutejs/plasma-new-hope';
+import { segmentTokens } from '@salutejs/plasma-new-hope/emotion';
 
 import { AccordionItem } from '../../Accordion';
 import { SegmentItem } from '../../Segment/Segment';

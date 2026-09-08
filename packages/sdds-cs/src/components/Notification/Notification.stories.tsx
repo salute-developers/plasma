@@ -4,8 +4,8 @@ import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 import { disableProps, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from 'storybook/actions';
-import { addNotification } from '@salutejs/plasma-new-hope';
-import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
+import { addNotification } from '@salutejs/plasma-new-hope/emotion';
+import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope/emotion';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
