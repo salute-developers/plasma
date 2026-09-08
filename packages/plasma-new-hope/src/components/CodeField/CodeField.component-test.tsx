@@ -486,13 +486,29 @@ describeFn('CodeField', () => {
     it('does not start WebOTP for a non-empty controlled value with an invalid symbol', () => {
         mockWebOTP();
 
-        mount(<CodeField codeLength={4} value="12q4" />);
+        mount(<CodeField codeLength={4} value="12q4" enableWebOTP />);
 
         cy.get('[data-code-field-input]').should('have.value', '12q4');
         cy.get('@credentialsGet').should('not.have.been.called');
     });
 
-    it('does not restart a pending WebOTP request when an inline onChange callback changes', () => {
+    it('does not start WebOTP by default', () => {
+        mockWebOTP();
+
+        mount(<CodeField codeLength={4} autoComplete="one-time-code" />);
+
+        cy.get('@credentialsGet').should('not.have.been.called');
+    });
+
+    it('starts WebOTP when enabled independently of native autocomplete', () => {
+        mockWebOTP();
+
+        mount(<CodeField codeLength={4} autoComplete="off" enableWebOTP />);
+
+        cy.get('@credentialsGet').should('have.been.calledOnce');
+    });
+
+    it('does not restart a pending WebOTP request when inline callbacks change', () => {
         mockWebOTP();
 
         const Demo = () => {
@@ -503,7 +519,12 @@ describeFn('CodeField', () => {
                     <button type="button" onClick={() => setRenderCount((count) => count + 1)}>
                         Rerender {renderCount}
                     </button>
-                    <CodeField codeLength={4} onChange={() => undefined} />
+                    <CodeField
+                        codeLength={4}
+                        enableWebOTP
+                        onChange={() => undefined}
+                        onFullCodeEnter={() => undefined}
+                    />
                 </>
             );
         };

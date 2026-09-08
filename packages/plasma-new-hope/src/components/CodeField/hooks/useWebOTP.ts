@@ -4,7 +4,7 @@ import { getCodeValue, isWebOTPSupported } from '../utils';
 
 type UseWebOTPProps = {
     codeString: string;
-    enableSMSAutoRead: boolean;
+    enableWebOTP: boolean;
     disabled: boolean;
     codeLength: number;
     codeSetter: (newCode: Array<string>) => void;
@@ -29,7 +29,7 @@ const isOTPCredential = (credential: Credential | null): credential is OTPCreden
     return credential !== null && 'code' in credential;
 };
 
-export const useWebOTP = ({ codeString, enableSMSAutoRead, disabled, codeLength, codeSetter }: UseWebOTPProps) => {
+export const useWebOTP = ({ codeString, enableWebOTP, disabled, codeLength, codeSetter }: UseWebOTPProps) => {
     const abortControllerRef = useRef<AbortController | null>(null);
     const codeSetterRef = useRef(codeSetter);
 
@@ -40,7 +40,7 @@ export const useWebOTP = ({ codeString, enableSMSAutoRead, disabled, codeLength,
     codeSetterRef.current = codeSetter;
 
     const startWebOTPListener = useCallback(async () => {
-        if (!enableSMSAutoRead || disabled || !isWebOTPSupported()) {
+        if (!enableWebOTP || disabled || !isWebOTPSupported()) {
             return;
         }
 
@@ -75,7 +75,7 @@ export const useWebOTP = ({ codeString, enableSMSAutoRead, disabled, codeLength,
                 console.warn('Unknown Web OTP API error:', err);
             }
         }
-    }, [enableSMSAutoRead, disabled, codeLength]);
+    }, [enableWebOTP, disabled, codeLength]);
 
     const stopWebOTPListener = useCallback(() => {
         if (abortControllerRef.current) {
@@ -89,7 +89,7 @@ export const useWebOTP = ({ codeString, enableSMSAutoRead, disabled, codeLength,
      * когда поле заполняется, отключается или компонент размонтируется.
      */
     useEffect(() => {
-        if (isWebOTPSupported() && codeString === '' && enableSMSAutoRead && !disabled) {
+        if (isWebOTPSupported() && codeString === '' && enableWebOTP && !disabled) {
             startWebOTPListener();
         } else {
             stopWebOTPListener();
@@ -98,5 +98,5 @@ export const useWebOTP = ({ codeString, enableSMSAutoRead, disabled, codeLength,
         return () => {
             stopWebOTPListener();
         };
-    }, [codeString, enableSMSAutoRead, disabled, startWebOTPListener, stopWebOTPListener]);
+    }, [codeString, enableWebOTP, disabled, startWebOTPListener, stopWebOTPListener]);
 };
