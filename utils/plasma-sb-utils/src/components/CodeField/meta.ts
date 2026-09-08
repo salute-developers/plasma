@@ -43,6 +43,7 @@ export const createMeta = ({
             isError: false,
             itemErrorBehavior: 'remove-symbol',
             codeErrorBehavior: 'keep',
+            enableWebOTP: false,
             autoFocus: true,
             disabled: false,
             ...defaultArgs,
@@ -93,6 +94,10 @@ export const createMeta = ({
             codeErrorBehavior: {
                 options: codeErrorBehaviorVariants,
                 control: { type: 'select' },
+                table: { category: 'code-related' },
+            },
+            enableWebOTP: {
+                control: { type: 'boolean' },
                 table: { category: 'code-related' },
             },
             caption: {

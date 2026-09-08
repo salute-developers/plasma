@@ -50,6 +50,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
                 itemErrorBehavior = 'remove-symbol',
                 codeErrorBehavior = 'remove-code',
                 autoComplete = 'one-time-code',
+                enableWebOTP = false,
                 autoCapitalize,
                 autoCorrect,
                 spellCheck,
@@ -176,7 +177,7 @@ export const codeFieldRoot = (Root: RootProps<HTMLDivElement, CodeFieldProps>) =
 
             useWebOTP({
                 codeString: codeValue,
-                enableSMSAutoRead: autoComplete === 'one-time-code',
+                enableWebOTP,
                 disabled: Boolean(disabled),
                 codeLength,
                 codeSetter,
