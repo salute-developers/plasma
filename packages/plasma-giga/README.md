@@ -1,256 +1,169 @@
-# PLASMA-GIGA
+# Библиотека компонентов для вертикали PLASMA GIGA
 
-Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+[![license](https://img.shields.io/github/license/salute-developers/plasma)](https://github.com/salute-developers/plasma/blob/master/LICENSE.txt)
+[![npm version](https://img.shields.io/npm/v/@salutejs/plasma-giga.svg)](https://www.npmjs.com/package/@salutejs/plasma-giga)
+[![typescript](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/dev/typescript)](https://www.typescriptlang.org/)
+[![plasma-themes](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/@salutejs/plasma-themes?filename=packages%2Fplasma-giga%2Fpackage.json)](https://www.npmjs.com/package/@salutejs/plasma-themes)
 
-## Использование
+Реализация компонентов для создания веб-приложений.
 
-Библиотека реализована с помощью:
+Компоненты реализованы с помощью [React](https://react.dev/) и поставляются в двух вариантах:
 
--   [typescript](https://www.typescriptlang.org/)
--   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+-   на предсобранном CSS,
+-   на [styled-components](https://styled-components.com/).
 
-Однако их использование **необязательно**!
+## Ссылки
 
-### Установка зависимостей
+-   [Документация](https://plasma.sberdevices.ru/giga/) — гайды, список компонентов с примерами и API
+-   [Подключение в Next.js](https://plasma.sberdevices.ru/giga/next/)
+-   [Changelog](https://plasma.sberdevices.ru/changelog/?vertical=plasmaGigaApp&platform=React&version=0.361.0)
+-   [Задать вопрос или сообщить о проблеме](https://github.com/salute-developers/plasma/issues)
+
+## Установка
+
+Требуются `react` и `react-dom` версии `16.13.1` или выше:
 
 ```bash
+$ npm install --save react react-dom
 $ npm install --save @salutejs/plasma-giga @salutejs/plasma-themes
 ```
 
-Для работы со `styled-components`, необходимо установить
+Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
+
+Для варианта на styled-components:
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-### Использование компонентов
+CSS-вариант дополнительных зависимостей не требует.
 
-Все компоненты доступны напрямую из пакета
+## Варианты поставки
+
+> **Примечание:** CSS-вариант является поставкой по умолчанию.
+
+Один и тот же набор компонентов доступен из двух точек входа:
+
+| Точка входа                               | Реализация        | Дополнительные зависимости |
+| ----------------------------------------- | ----------------- | -------------------------- |
+| `@salutejs/plasma-giga`                   | предсобранный CSS | нет                        |
+| `@salutejs/plasma-giga/styled-components` | styled-components | `styled-components@5.3.1`  |
 
 ```jsx
-import styled from 'styled-components';
 import { Button } from '@salutejs/plasma-giga';
-import { textAccent } from '@salutejs/plasma-themes/tokens';
-
-export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
-    return (
-        <>
-            <Button>Hello, GIGA!</Button>
-            <StyledP>Token usage example</StyledP>
-        </>
-    );
-};
-```
-
-Так же библиотека поставляет компоненты собранные с помощью `styled-components`
-
-```js
+// или
 import { Button } from '@salutejs/plasma-giga/styled-components';
 ```
 
 ## Подключение шрифтов
 
-Типографическая система основана на фирменных шрифтах.
+Типографическая система основана на фирменных шрифтах, они поставляются с CDN.
 
-Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
-
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
-
-### Create react app
-
-Добавить внутрь тега `head`.
+Добавьте два css-файла внутрь тега `<head>`.
 
 ```html
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-        />
-        <title>Wep App</title>
-    </head>
-    <body>
-        ...
-    </body>
-</html>
-```
-
-### NextJs
-
-```tsx
-import Head from 'next/head';
-
-import { H2, Button } from '@salutejs/plasma-giga';
-
-export default function Home() {
-    return (
-        <>
-            <Head>
-                <title>Create Next App with plasma-giga components</title>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-                />
-            </Head>
-            <div>
-                <main>
-                    <div>
-                        <H2> Salute </H2>
-                        <Button text="Hello" />
-                    </div>
-                </main>
-            </div>
-        </>
-    );
-}
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css" />
 ```
 
 ## Подключение темы
 
-Точкой входа является корень приложения:
+Тема подключается один раз в корне приложения.
 
--   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
--   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+> **Примечание:** Для [Next.js](https://nextjs.org/) — в `pages/_app.tsx`.
 
-### CSS
+Тема включает в себя цветовые и типографические токены.
 
-Возможные дополнительные настройки bundle tools для проекта:
+Доступны светлая и тёмная темы — `plasma_giga__light` и `plasma_giga__dark`.
 
-<ul>
-    <li>
-        <a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a>
-    </li>
-    <li>
-        <a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a>
-    </li>
-</ul>
-
-В файле, где происходит подключение всех стилей, например `index.css`
-
-```css
-@import '@salutejs/plasma-themes/css/plasma_giga__light.css';
-```
+### Через импорт css-файла
 
 ```jsx
-import React from 'react';
-import { Button, BodyL } from '@salutejs/plasma-giga';
-
-import 'index.css';
-
-const App = () => {
-    return (
-        <>
-            <BodyL>Hello GIGA</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
+import '@salutejs/plasma-themes/css/plasma_giga__light.css';
 ```
 
-### Styled-components
+### Через styled-components
 
 ```jsx
-import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/plasma-giga/styled-components';
 import { plasma_giga__light } from '@salutejs/plasma-themes';
 
 const Theme = createGlobalStyle(plasma_giga__light);
 
-const App = () => {
+// вызовите <Theme /> в корне приложения
+```
+
+Переключение темы в рантайме и подключение через css-модули описаны в [документации](https://plasma.sberdevices.ru/giga/).
+
+## Использование компонентов
+
+```jsx
+// App.tsx
+import { Button, BodyL } from '@salutejs/plasma-giga';
+import '@salutejs/plasma-themes/css/plasma_giga__light.css';
+
+export const App = () => {
     return (
         <>
-            <Theme />
-            <BodyL>Hello GIGA</BodyL>
-            <Button text="This is themed button" />
+            <BodyL>Hello, GIGA!</BodyL>
+            <Button>Кнопка</Button>
         </>
     );
 };
-
-export default App;
 ```
 
-## Токены
+Дизайн-токены доступны в виде js-переменных:
 
-Все `css` токены завернуты в `js` переменные для более удобного доступа:
-
-```js
-/** Основной цвет текста */
-export const textPrimary = 'var(--text-primary, #F5F5F5)';
-/** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #000000)';
-```
-
-### Способы подключения
-
-Есть два пути импорта токенов:
-
--   Из вертикали `@salutejs/plasma-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/plasma-themes/tokens/plasma_giga` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
-
-### Использование
+-   базовый набор — из `@salutejs/plasma-themes/tokens`
+-   уникальные токены темы — из `@salutejs/plasma-themes/tokens/plasma_giga`.
 
 ```jsx
-import React from 'react';
-import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/plasma-themes/tokens';
+import { textAccent } from '@salutejs/plasma-themes/tokens';
 
-const AppStyled = styled.div`
-    padding: 2rem;
-    color: ${textAccent};
-    background-color: ${backgroundPrimary};
-`;
+<p style={{ color: textAccent }}>Пример использования токена</p>;
+```
 
-const Container = styled.div`
-    ${textL};
-    margin: 1rem;
-`;
+## SSR и Next.js
 
-const App = () => {
-    return (
-        <AppStyled>
-            <Container>
-                <span>Hello GIGA</span>
-            </Container>
-        </AppStyled>
-    );
+-   Библиотека поддерживает React Server Components (App Router) **только** при **явном** использовании директивы `'use client'` в модулях, импортирующих компоненты.
+-   Для CSS-варианта поставки добавьте пакеты в `transpilePackages` в `next.config.js`:
+
+```js
+const nextConfig = {
+    transpilePackages: ['@salutejs/plasma-giga', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons'],
 };
-
-export default App;
 ```
 
-## Типографика
+Подробности — в [гайде по Next.js](https://plasma.sberdevices.ru/giga/next/).
 
-Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
+## MCP-сервер для AI-агентов
 
-```ts
-import { BodyL, DsplL, H3 } from '@salutejs/plasma-giga';
+> **Примечание**: Поддерживаются версии библиотеки начиная с `0.338.0` — нужная указывается параметром `--version`.
+
+Библиотека предоставляет [MCP-сервер](https://plasma.sberdevices.ru/giga/how-to-mcp/) `@salutejs/sdds-mcp` — через него LLM-агент (Claude Code, Cursor и др.) получает актуальную документацию:
+
+-   список компонентов
+-   описание props
+-   примеры использования
+-   токены и гайды.
+
+Сервер работает по `stdio`:
+
+```bash
+npx -y @salutejs/sdds-mcp@latest --lib plasma-giga
 ```
 
-### Токены типографики на примере компонента `DsplL`
+Если агент настраивается через конфигурацию, используйте шаблон:
 
-Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
-
-```tsx
-import { CSSObject } from 'styled-components';
-
-export const dsplL = ({
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
-} as unknown) as CSSObject;
+```json
+{
+    "mcpServers": {
+        "plasma-giga": {
+            "command": "npx",
+            "args": ["-y", "@salutejs/sdds-mcp@latest", "--lib", "plasma-giga"]
+        }
+    }
+}
 ```
+
+Подробности и список инструментов — в [гайде по MCP](https://plasma.sberdevices.ru/giga/how-to-mcp/).
