@@ -1,0 +1,26 @@
+---
+id: spinner
+slug: /components/spinner
+title: Spinner
+description: "Индикация состояния загрузки — вращающийся спиннер."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Spinner
+<Description name="Spinner" />
+
+```tsx live
+import React from 'react';
+import { Spinner } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <Spinner size={32} />
+    );
+}
+```
+
+## API
+
+<PropsTable name="Spinner" exclude={['css', 'focused']}/>

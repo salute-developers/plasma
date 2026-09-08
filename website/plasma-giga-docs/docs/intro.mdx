@@ -1,6 +1,7 @@
 ---
 id: intro
 title: Введение
+description: "Библиотека компонентов PLASMA GIGA: установка, варианты поставки, подключение шрифтов и темы, использование компонентов и токенов."
 sidebar_position: 1
 slug: /
 ---
@@ -13,73 +14,64 @@ import ThemeTurnOn from './_theme-turn-on/theme-turn-on.mdx';
 import NextAppExample from './_examples/_init_next_app.mdx';
 import WepAppExample from './_examples/_init_web_app.mdx';
 
-# PLASMA-GIGA
+# Библиотека компонентов для вертикали PLASMA GIGA
 
-Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+Реализация компонентов для создания веб-приложений.
 
-## Использование
+Компоненты реализованы с помощью [React](https://react.dev/) и поставляются в двух вариантах:
 
-Библиотека реализована с помощью:
-- [typescript](https://www.typescriptlang.org/)
-- [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+-   на предсобранном CSS,
+-   на [styled-components](https://styled-components.com/).
 
-Однако их использование **необязательно**!
-
-### Установка зависимостей
+## Установка
 
 :::info
-Убедитесь, что у вас установлен ReactJS!
+Требуются `react` и `react-dom` версии `16.13.1` или выше.
 :::
 
 ```bash
+$ npm install --save react react-dom
 $ npm install --save @salutejs/plasma-giga @salutejs/plasma-themes
 ```
 
-Для работы со `styled-components`, необходимо установить
+Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
+
+Для варианта на styled-components:
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-### Использование компонентов
+CSS-вариант дополнительных зависимостей не требует.
 
-Все компоненты доступны напрямую из пакета
+## Варианты поставки
+
+:::info
+CSS-вариант является поставкой по умолчанию.
+:::
+
+Один и тот же набор компонентов доступен из двух точек входа:
+
+| Точка входа                               | Реализация        | Дополнительные зависимости |
+| ----------------------------------------- | ----------------- | -------------------------- |
+| `@salutejs/plasma-giga`                   | предсобранный CSS | нет                        |
+| `@salutejs/plasma-giga/styled-components` | styled-components | `styled-components@5.3.1`  |
 
 ```jsx
-import styled from 'styled-components';
 import { Button } from '@salutejs/plasma-giga';
-import { textAccent } from '@salutejs/plasma-themes/tokens';
-
-export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
-    return (
-        <>
-            <Button>Hello, Plasma!</Button>
-
-            <StyledP>
-                Token usage example
-            </StyledP>
-        </>
-    );
-};
-```
-
-Так же библиотека поставляет компоненты собранные с помощью `styled-components`
-
-```js
+// или
 import { Button } from '@salutejs/plasma-giga/styled-components';
 ```
 
 ## Подключение шрифтов
 
+:::info
+Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на CDN.
+:::
+
 Типографическая система основана на фирменных шрифтах.
 
-Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на [CDN](https://ru.wikipedia.org/wiki/Content_Delivery_Network).
-
-Для использования типографической системы необходимо загрузить три `css` файла в зависимости от используемых шрифтов в теме.
+Для её использования, необходимо загрузить три `css` файла в зависимости от используемых шрифтов в теме.
 
 <Tabs>
     <TabItem value="cra" label="html" default>
@@ -93,3 +85,95 @@ import { Button } from '@salutejs/plasma-giga/styled-components';
 <ThemeTurnOn/>
 
 <ThemeSwitch/>
+
+## Использование компонентов
+
+Все компоненты доступны напрямую из пакета:
+
+```jsx
+import { Button, BodyL } from '@salutejs/plasma-giga';
+
+export const App = () => {
+    return (
+        <>
+            <BodyL>Hello, GIGA!</BodyL>
+            <Button>Кнопка</Button>
+        </>
+    );
+};
+```
+
+## Использование токенов
+
+Все `css` токены завернуты в `js` переменные для более удобного доступа:
+
+```js
+/** Основной цвет текста */
+export const textPrimary = 'var(--text-primary, #F5F5F5)';
+/** Основной фон */
+export const backgroundPrimary = 'var(--background-primary, #000000)';
+```
+
+Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
+
+```js
+/** Токены типографики для компонента DsplL */
+export const dsplL = ({
+    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
+    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
+    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
+    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
+    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
+    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
+} as unknown) as CSSObject;
+```
+
+Есть два пути импорта токенов:
+
+:::tip
+Путь `@salutejs/plasma-themes/tokens/plasma_giga` следует использовать, когда нужны токены, которые есть только в этой теме.
+:::
+
+-   базовый набор — из `@salutejs/plasma-themes/tokens`
+-   уникальные токены темы — из `@salutejs/plasma-themes/tokens/plasma_giga`
+
+Пример использования:
+
+```jsx
+import React from 'react';
+import styled from 'styled-components';
+import { textAccent, backgroundPrimary, textL } from '@salutejs/plasma-themes/tokens';
+
+const AppStyled = styled.div`
+    padding: 2rem;
+    color: ${textAccent};
+    background-color: ${backgroundPrimary};
+`;
+
+const Container = styled.div`
+    ${textL};
+    margin: 1rem;
+`;
+
+const App = () => {
+    return (
+        <AppStyled>
+            <Container>
+                <span>Hello world</span>
+            </Container>
+        </AppStyled>
+    );
+};
+
+export default App;
+```
+
+## Что дальше
+
+Подробные руководства собраны в разделе «Руководства»:
+
+-   [Работа с Next](./guides/next.mdx) — RSC, `'use client'`, `transpilePackages`
+-   [Как работать с MCP](./guides/how-to-mcp.mdx) — актуальная документация для AI-агентов
+-   [Как работать с иконками](./guides/how-to-icons.mdx)
+-   [Поддержка React 16, 17](./guides/react_17.mdx) — `SSRProvider`
+-   [FAQ](./guides/FAQ.mdx)
