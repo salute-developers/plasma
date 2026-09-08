@@ -57,10 +57,10 @@ import { Button } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div>
-            <Button text="Button" size="xl" />
-            <Button text="Button" size="l" />
-            <Button text="Button" size="m" />
-            <Button text="Button" size="s" />
+            <Button text="Button" size="48" />
+            <Button text="Button" size="40" />
+            <Button text="Button" size="32" />
+            <Button text="Button" size="24" />
         </div>
     );
 }
@@ -114,10 +114,11 @@ export function App() {
 + `"accentWhite"`
 + `"primaryWhite"`
 + `"accentGrey"`
-+ `"accentClear"`
++ `"accentGreyClear"`
 + `"dangerTint"`
-+ `"dangerClear"`
++ `"dangerTintClear"`
 + `"primaryGrey"`
++ `"primaryGreyClear"`
 
 ```tsx live
 import React from 'react';
@@ -126,14 +127,15 @@ import { Button } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-            <Button text="Кнопка" size="s" view="accentFiled" />
-            <Button text="Кнопка" size="s" view="accentWhite" />
-            <Button text="Кнопка" size="s" view="primaryWhite" />
-            <Button text="Кнопка" size="s" view="accentGrey" />
-            <Button text="Кнопка" size="s" view="accentClear" />
-            <Button text="Кнопка" size="s" view="dangerTint" />
-            <Button text="Кнопка" size="s" view="dangerClear" />
-            <Button text="Кнопка" size="s" view="primaryGrey" />
+            <Button text="Кнопка" size="24" view="accentFiled" />
+            <Button text="Кнопка" size="24" view="accentWhite" />
+            <Button text="Кнопка" size="24" view="primaryWhite" />
+            <Button text="Кнопка" size="24" view="accentGrey" />
+            <Button text="Кнопка" size="24" view="accentGreyClear" />
+            <Button text="Кнопка" size="24" view="dangerTint" />
+            <Button text="Кнопка" size="24" view="dangerTintClear" />
+            <Button text="Кнопка" size="24" view="primaryGrey" />
+            <Button text="Кнопка" size="24" view="primaryGreyClear" />
         </div>
     );
 }
@@ -198,6 +200,69 @@ export function App() {
     return (
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <GradientButton text="Градиент" />
+        </div>
+    );
+}
+```
+
+### Настройка анимации
+
+Анимацию нажатия можно задать непосредственно для корневого элемента Button.
+В примере кнопка уменьшается и на время нажатия перекрашивается в цвет активного состояния.
+
+```tsx live
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Button } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedButton = styled(Button)`
+        transition: background-color 100ms ease;
+
+        &.animation-playing {
+            background-color: var(
+                --plasma-button-background-color-active,
+                var(--plasma-button-background-color)
+            );
+            animation: button-press 300ms ease-out;
+            
+        }
+
+        @keyframes button-press {
+            0% {
+                scale: 1;
+            }
+
+            66.67% {
+                scale: 0.95;
+            }
+
+            100% {
+                scale: 1;
+            }
+        }
+    `;
+
+    function Demo({ view, children }) {
+        const [playing, setPlaying] = useState(false);
+
+        return (
+            <AnimatedButton
+                view={view}
+                size="32"
+                className={playing ? 'animation-playing' : undefined}
+                onClick={() => setPlaying(true)}
+                onAnimationEnd={() => setPlaying(false)}
+            >
+                {children}
+            </AnimatedButton>
+        );
+    }
+
+    return (
+        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Demo view="accentFiled">Кнопка</Demo>
+            <Demo view="accentGrey">Кнопка</Demo>
         </div>
     );
 }

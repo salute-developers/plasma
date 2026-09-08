@@ -467,3 +467,49 @@ export function App() {
     );
 }
 ```
+
+### Настройка анимации
+
+По умолчанию выбранный Tab переключается без анимации. Чтобы анимировать его перемещение, задайте `transition`
+для класса `.tabs-selection`.
+
+```tsx live
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Tabs, TabItem } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedTabs = styled(Tabs)`
+        .tabs-selection {
+            transition:
+                transform 200ms ease,
+                width 200ms ease,
+                height 200ms ease;
+        }
+    `;
+
+    function Demo() {
+        const [index, setIndex] = useState(0);
+        const labels = ['Label', 'Long label', 'Third', 'One more'];
+
+        return (
+            <AnimatedTabs index={index} view="default" pilled size="s" hasDivider={false}>
+                {labels.map((label, itemIndex) => (
+                    <TabItem
+                        key={label}
+                        view="default"
+                        pilled
+                        size="s"
+                        selected={index === itemIndex}
+                        onClick={() => setIndex(itemIndex)}
+                    >
+                        {label}
+                    </TabItem>
+                ))}
+            </AnimatedTabs>
+        );
+    }
+
+    return <Demo />;
+}
+```

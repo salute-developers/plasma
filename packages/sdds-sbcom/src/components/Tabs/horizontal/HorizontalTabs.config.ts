@@ -49,7 +49,7 @@ export const config = {
 
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;
                 ${tabsTokens.tabsDividerColor}: ${surfaceTransparentTertiary};
-                ${tabsTokens.tabsDividerBorderRadius}: 0.0625rem;
+                ${tabsTokens.tabsDividerBorderRadius}: 0rem 0rem 0.1875rem 0.1875rem;
             `,
         },
         size: {

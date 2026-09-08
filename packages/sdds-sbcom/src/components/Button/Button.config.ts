@@ -41,7 +41,7 @@ export const config = {
     defaults: {
         view: 'accentFiled',
         focused: 'true',
-        size: 'm',
+        size: '40',
     },
     variations: {
         view: {

@@ -10,11 +10,13 @@ import {
     h2,
     h3,
     h4,
-    inverseTextPrimary,
-    inverseTextSecondary,
+    outlinePositive,
     surfaceAccent,
     surfaceSolidCard,
-    surfaceSolidDefault,
+    surfaceTransparentAccent,
+    textAccent,
+    textAccentHover,
+    textParagraph,
     textPrimary,
     textSecondary,
     textSecondaryActive,
@@ -86,18 +88,18 @@ export const config = {
                 ${tabsTokens.itemCursor}: pointer;
             `,
             divider: css`
-                ${tabsTokens.itemColor}: ${textSecondary};
-                ${tabsTokens.itemValueColor}: ${textTertiary};
+                ${tabsTokens.itemColor}: ${textParagraph};
+                ${tabsTokens.itemValueColor}: ${textParagraph};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemValueColorHover}: ${textSecondary};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
-                ${tabsTokens.itemValueColorActive}: ${textSecondary};
+                ${tabsTokens.itemColorHover}: ${textAccentHover};
+                ${tabsTokens.itemValueColorHover}: ${textAccentHover};
+                ${tabsTokens.itemColorActive}: ${textAccent};
+                ${tabsTokens.itemValueColorActive}: ${textAccent};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${textPrimary};
+                ${tabsTokens.itemSelectedColor}: ${textAccent};
                 ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColor}: transparent;
-                ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedColorHover}: ${textAccent};
                 ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
@@ -105,35 +107,33 @@ export const config = {
                 ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
-                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
-                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
+                ${tabsTokens.itemSelectedDividerColor}: ${surfaceAccent};
+                ${tabsTokens.itemSelectedDividerColorHover}: ${surfaceAccent};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
             default: css`
-                ${tabsTokens.itemColor}: ${textPrimary};
-                ${tabsTokens.itemValueColor}: ${textSecondary};
+                ${tabsTokens.itemColor}: ${textParagraph};
+                ${tabsTokens.itemValueColor}: ${textParagraph};
                 ${tabsTokens.itemBackgroundColor}: transparent;
-                ${tabsTokens.itemColorHover}: ${textSecondaryHover};
-                ${tabsTokens.itemValueColorHover}: ${textSecondary};
-                ${tabsTokens.itemColorActive}: ${textSecondaryActive};
-                ${tabsTokens.itemValueColorActive}: ${textSecondary};
+                ${tabsTokens.itemColorHover}: ${textAccentHover};
+                ${tabsTokens.itemValueColorHover}: ${textAccentHover};
+                ${tabsTokens.itemColorActive}: ${textAccent};
+                ${tabsTokens.itemValueColorActive}: ${textAccent};
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
-                ${tabsTokens.itemSelectedColor}: ${inverseTextPrimary};
-                ${tabsTokens.itemSelectedValueColor}: ${inverseTextSecondary};
-                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceSolidDefault};
-                ${tabsTokens.itemSelectedColorHover}: ${inverseTextPrimary};
-                ${tabsTokens.itemSelectedValueColorHover}: ${inverseTextSecondary};
-                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidDefault};
+                ${tabsTokens.itemSelectedColor}: ${textAccent};
+                ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
+                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceTransparentAccent};
+                ${tabsTokens.itemSelectedColorHover}: ${textAccent};
+                ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
+                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceTransparentAccent};
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: ${outlinePositive};
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0rem;
-                ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
-                ${tabsTokens.itemSelectedDividerColorHover}: ${textPrimary};
 
                 ${tabsTokens.itemCursor}: pointer;
             `,
@@ -344,4 +344,22 @@ export const config = {
             true: css``,
         },
     },
+    intersections: [
+        {
+            view: 'default',
+            size: 's',
+            style: css`
+                ${tabsTokens.itemBorderRadius}: 2rem;
+                ${tabsTokens.itemPilledBorderRadius}: 2rem;
+            `,
+        },
+        {
+            view: 'divider',
+            size: 's',
+            style: css`
+                ${tabsTokens.itemBorderRadius}: 0.5rem;
+                ${tabsTokens.itemPilledBorderRadius}: 0.5rem;
+            `,
+        },
+    ],
 };

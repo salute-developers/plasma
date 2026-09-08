@@ -387,3 +387,87 @@ export function App() {
     );
 }
 ```
+
+### Настройка анимации
+
+Для анимации изменения высоты, очистки и плавающего label доступны CSS-селекторы:
+
+- `.textarea` — нативный textarea;
+- `.textarea-placeholder` — внешний или плавающий label;
+- `.textarea-wrapper` — обёртка textarea.
+
+```tsx live
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { IconClose } from '@salutejs/plasma-icons';
+import { EmbedIconButton, TextArea } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedTextArea = styled(TextArea)`
+        .textarea {
+            scroll-behavior: smooth;
+            transition:
+                height 200ms ease,
+                opacity 100ms ease;
+        }
+
+        .textarea-wrapper {
+            transition: padding 200ms ease;
+        }
+
+        &.clearing .textarea {
+            opacity: 0;
+        }
+
+        .textarea-placeholder {
+            transition-duration: 100ms;
+        }
+
+        .inner-placeholder-up .textarea-placeholder {
+            opacity: 0.9;
+        }
+    `;
+
+    function Demo() {
+        const [value, setValue] = useState('Первая строка');
+        const [clearing, setClearing] = useState(false);
+
+        const clear = () => {
+            setClearing(true);
+            window.setTimeout(() => {
+                setValue('');
+                setClearing(false);
+            }, 100);
+        };
+
+        return (
+            <AnimatedTextArea
+                style={{ width: '20rem' }}
+                size="l"
+                label="Описание"
+                labelPlacement="inner"
+                autoResize
+                value={value}
+                className={clearing ? 'clearing' : undefined}
+                onChange={(event) => setValue(event.target.value)}
+                contentRight={
+                    <EmbedIconButton
+                        size="s"
+                        view="secondary"
+                        style={{ visibility: value ? 'visible' : 'hidden' }}
+                        aria-label="Очистить"
+                        aria-hidden={!value}
+                        tabIndex={value ? 0 : -1}
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={clear}
+                    >
+                        <IconClose color="inherit" size="s" />
+                    </EmbedIconButton>
+                }
+            />
+        );
+    }
+
+    return <Demo />;
+}
+```
