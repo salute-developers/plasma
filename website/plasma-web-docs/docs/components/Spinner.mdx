@@ -4,11 +4,20 @@ title: Spinner
 ---
 
 import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Spinner
 <Description name="Spinner" />
 <PropsTable name="Spinner" exclude={['css', 'focused']}/>
 <StorybookLink name="Spinner" />
+
+:::caution Устаревшие свойства
+Свойства `width`, `height`, `color` и `deviceScale` оставлены для обратной совместимости и будут удалены.
+Для настройки размера и цвета используйте `size` и `view`.
+:::
+
+## Быстрый старт
 
 ```tsx live
 import React from 'react';
@@ -16,7 +25,66 @@ import { Spinner } from '@salutejs/plasma-web';
 
 export function App() {
     return (
-        <Spinner size={32} />
+        <Spinner size="m" view="accent" />
     );
 }
 ```
+
+## Управление внешним видом
+
+Внешний вид компонента задаётся свойствами `view` и `size`:
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        Возможные значения свойства `view`:
+
+        + `"default"` – по умолчанию;
+        + `"primary"` – основной;
+        + `"secondary"` – вторичный;
+        + `"tertiary"` – третичный;
+        + `"paragraph"` – для основного текста;
+        + `"accent"` – акцентный;
+        + `"positive"` – успешное завершение;
+        + `"warning"` – предупреждение;
+        + `"negative"` – ошибка.
+
+        ```tsx live
+        import React from 'react';
+        import { Spinner } from '@salutejs/plasma-web';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                    <Spinner view="default" />
+                    <Spinner view="primary" />
+                    <Spinner view="secondary" />
+                    <Spinner view="tertiary" />
+                    <Spinner view="paragraph" />
+                    <Spinner view="accent" />
+                    <Spinner view="positive" />
+                    <Spinner view="warning" />
+                    <Spinner view="negative" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        Возможные значения свойства `size`: `"s"`, `"m"`, `"l"`.
+
+        ```tsx live
+        import React from 'react';
+        import { Spinner } from '@salutejs/plasma-web';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                    <Spinner size="s" />
+                    <Spinner size="m" />
+                    <Spinner size="l" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>

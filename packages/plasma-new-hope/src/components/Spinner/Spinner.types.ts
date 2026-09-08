@@ -1,11 +1,3 @@
-export type SpinnerInnerProps = {
-    wrapperWidth: string;
-    wrapperHeight: string;
-    svgWidth: string | number;
-    svgHeight: string | number;
-    color: string;
-};
-
 export type SpinnerProps = React.HTMLAttributes<HTMLDivElement> &
     (
         | {
