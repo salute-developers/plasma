@@ -4,6 +4,8 @@ import { getCorrectHeight } from './utils';
 import { DropdownProps } from './Dropdown.types';
 import { tokens, constants } from './Dropdown.tokens';
 
+const defaultListBorderRadius = `calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem))`;
+
 export const ListWrapper = styled.div<{
     listWidth?: DropdownProps['listWidth'];
 }>`
@@ -22,7 +24,7 @@ export const Ul = styled.ul<{
     max-height: ${({ listMaxHeight }) => (listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto')};
     overflow-x: hidden;
     overflow-y: auto;
-    border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.borderWidth}, 0rem));
+    border-radius: var(${tokens.listBorderRadius}, ${defaultListBorderRadius});
     margin: 0;
     padding: 0;
 `;

@@ -25,7 +25,8 @@ export const config = {
                 ${tokens.itemHeight}: 1.5rem;
                 ${tokens.itemPadding}: 1.25rem 1.125rem;
                 ${tokens.itemPaddingTight}: 1rem 1.125rem;
-                ${tokens.itemBorderRadius}: 1rem;
+                ${tokens.itemBorderRadius}: 0.875rem;
+                ${tokens.listBorderRadius}: var(${tokens.itemBorderRadius});
 
                 ${tokens.dividerMarginTop}: 0.625rem;
                 ${tokens.dividerMarginRight}: 1.25rem;
@@ -64,6 +65,7 @@ export const config = {
                 ${tokens.itemPadding}: 1rem;
                 ${tokens.itemPaddingTight}: 0.75rem 1rem;
                 ${tokens.itemBorderRadius}: 0.875rem;
+                ${tokens.listBorderRadius}: var(${tokens.itemBorderRadius});
 
                 ${tokens.dividerMarginTop}: 0.5rem;
                 ${tokens.dividerMarginRight}: 1.125rem;
@@ -102,6 +104,7 @@ export const config = {
                 ${tokens.itemPadding}: 0.8125rem 0.75rem;
                 ${tokens.itemPaddingTight}: 0.5625rem 0.75rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
+                ${tokens.listBorderRadius}: var(${tokens.itemBorderRadius});
 
                 ${tokens.dividerMarginTop}: 0.375rem;
                 ${tokens.dividerMarginRight}: 0.875rem;
@@ -140,6 +143,7 @@ export const config = {
                 ${tokens.itemPadding}: 0.625rem 0.5rem;
                 ${tokens.itemPaddingTight}: 0.375rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.625rem;
+                ${tokens.listBorderRadius}: var(${tokens.itemBorderRadius});
 
                 ${tokens.dividerMarginTop}: 0.375rem;
                 ${tokens.dividerMarginRight}: 0.75rem;
@@ -177,6 +181,7 @@ export const config = {
                 ${tokens.itemPadding}: 0.5rem;
                 ${tokens.itemPaddingTight}: 0.25rem 0.5rem;
                 ${tokens.itemBorderRadius}: 0.375rem;
+                ${tokens.listBorderRadius}: var(${tokens.itemBorderRadius});
 
                 ${tokens.dividerMarginTop}: 0.25rem;
                 ${tokens.dividerMarginRight}: 0.5rem;

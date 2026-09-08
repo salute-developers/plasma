@@ -11,6 +11,7 @@ export const tokens = {
     boxShadow: '--plasma-dropdown-box-shadow',
     width: '--plasma-dropdown-width',
     borderRadius: '--plasma-dropdown-border-radius',
+    listBorderRadius: '--plasma-dropdown-list-border-radius',
     padding: '--plasma-dropdown-padding',
     disclosureIconColor: '--plasma-dropdown-disclosure-icon-color',
     disabledOpacity: '--plasma-dropdown-disabled-opacity',
