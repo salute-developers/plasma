@@ -180,3 +180,79 @@ export function App() {
     );
 }
 ```
+
+### Настройка анимации
+
+Переходы input и плавающего label можно настроить независимо через CSS-селекторы:
+
+- `.textfield-input` — нативный input;
+- `.textfield-label` — внешний или плавающий label.
+
+```tsx live
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { IconClose } from '@salutejs/plasma-icons';
+import { EmbedIconButton, TextField } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedTextField = styled(TextField)`
+        .textfield-input {
+            transition: opacity 100ms ease;
+        }
+
+        &.clearing .textfield-input {
+            opacity: 0;
+        }
+
+        .textfield-label {
+            transition-duration: 100ms;
+        }
+
+        .textfield-input:focus ~ .textfield-label,
+        .textfield-input.has-value ~ .textfield-label {
+            opacity: 0.9;
+        }
+    `;
+
+    function Demo() {
+        const [value, setValue] = useState('Значение');
+        const [clearing, setClearing] = useState(false);
+
+        const clear = () => {
+            setClearing(true);
+            window.setTimeout(() => {
+                setValue('');
+                setClearing(false);
+            }, 100);
+        };
+
+        return (
+            <AnimatedTextField
+                style={{ width: '20rem' }}
+                size="l"
+                label="Название"
+                labelPlacement="inner"
+                value={value}
+                className={clearing ? 'clearing' : undefined}
+                onChange={(event) => setValue(event.target.value)}
+                contentRight={
+                    <EmbedIconButton
+                        size="s"
+                        view="secondary"
+                        style={{ visibility: value ? 'visible' : 'hidden' }}
+                        aria-label="Очистить"
+                        aria-hidden={!value}
+                        tabIndex={value ? 0 : -1}
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={clear}
+                    >
+                        <IconClose color="inherit" size="s" />
+                    </EmbedIconButton>
+                }
+            />
+        );
+    }
+
+    return <Demo />;
+}
+```

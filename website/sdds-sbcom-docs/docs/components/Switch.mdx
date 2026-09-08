@@ -58,3 +58,34 @@ export function App() {
     );
 }
 ```
+
+### Настройка анимации
+
+Скорость переходов трека и переключателя настраивается отдельно:
+
+- `.switch-track` — трек;
+- `.switch-track::after` — переключатель.
+
+```tsx live
+import React from 'react';
+import styled from 'styled-components';
+import { Switch } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const AnimatedSwitch = styled(Switch)`
+        .switch-track {
+            transition:
+                background-color 100ms ease,
+                border-color 100ms ease;
+        }
+
+        .switch-track::after {
+            transition:
+                transform 100ms ease,
+                width 100ms ease;
+        }
+    `;
+
+    return <AnimatedSwitch label="Уведомления" />;
+}
+```
