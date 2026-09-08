@@ -468,6 +468,29 @@ describeFn('DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('normalizes a calendar value before calling onChangeValue', () => {
+        const onChangeValue = cy.stub().as('onChangeValue');
+        const max = new Date(2026, 7, 22);
+        const dateShortcuts = [{ value: max, label: 'Верхняя граница' }];
+
+        mount(
+            <Demo
+                defaultDate={new Date(2026, 7, 20)}
+                max={max}
+                includeEdgeDates={false}
+                dateShortcuts={dateShortcuts}
+                onChangeValue={onChangeValue}
+            />,
+        );
+
+        cy.get('input').first().click();
+        cy.contains('Верхняя граница').click();
+
+        cy.get('input').first().should('have.value', '21.08.2026');
+        cy.get('@onChangeValue').its('lastCall.args.1').should('equal', '21.08.2026');
+        cy.get('@onChangeValue').its('lastCall.args.2').should('deep.equal', new Date(2026, 7, 21));
+    });
+
     it.skip('controlled datepicker: set date', () => {
         cy.viewport(500, 544);
 
