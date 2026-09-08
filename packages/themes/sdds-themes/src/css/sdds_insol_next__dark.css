@@ -965,9 +965,6 @@
   --inverse-surface-accent-gradient-hover: #FFFFFFFF;
   --inverse-surface-accent-gradient-active: #FFFFFFFF;
   --inverse-surface-accent-gradient: linear-gradient(87deg, #0EAB91FF 0%, #29CCB1FF 100%);
-  --inverse-surface-crad-gradient: linear-gradient(97deg, #FFFFFFFF 29%, #D5DFE6FF 115%);
-  --inverse-surface-crad-gradient-hover: #FFFFFFFF;
-  --inverse-surface-crad-gradient-active: #FFFFFFFF;
   --inverse-surface-negative-gradient-hover: #FFFFFFFF;
   --inverse-surface-negative-gradient-active: #FFFFFFFF;
   --inverse-surface-negative-gradient: linear-gradient(111deg, #FFFFFFFF 13.93%, #F31B31FF 269.94%);
@@ -980,6 +977,9 @@
   --inverse-surface-info-gradient: linear-gradient(111deg, #FFFFFFFF 8.55%, #166DC4FF 259.66%);
   --inverse-surface-info-gradient-hover: #FFFFFFFF;
   --inverse-surface-info-gradient-active: #FFFFFFFF;
+  --inverse-surface-card-gradient: linear-gradient(97deg, #FFFFFFFF 29%, #D5DFE6FF 115%);
+  --inverse-surface-card-gradient-hover: #FFFFFFFF;
+  --inverse-surface-card-gradient-active: #FFFFFFFF;
   --inverse-surface-skeleton-gradient: linear-gradient(90deg, #08080817 0%, #08080814 6.25%, #0808080D 12.5%, #08080803 25%, #0808080D 37.5%, #08080814 43.75%, #08080817 50%, #08080814 56.25%, #0808080D 62.5%, #08080803 75%, #0808080D 87.5%, #08080814 93.75%, #08080817 100%);
   --inverse-surface-skeleton-gradient-hover: #FFFFFFFF;
   --inverse-surface-skeleton-gradient-active: #FFFFFFFF;
