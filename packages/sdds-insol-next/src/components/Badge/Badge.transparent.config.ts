@@ -53,9 +53,9 @@ export const config = {
                 ${badgeTokens.color}: ${onDarkTextPrimary};
                 ${badgeTokens.background}: ${onDarkSurfaceTransparentCard};
             `,
+            /* TODO: change with token data-pink-transparent-minor, when it will be added to theme */
             pink: css`
                 ${badgeTokens.color}: ${onLightDataPink};
-                // TODO: change with token data-pink-transparent-minor, when it will be added to theme
                 ${badgeTokens.background}: #FF369A1F;
             `,
         },
