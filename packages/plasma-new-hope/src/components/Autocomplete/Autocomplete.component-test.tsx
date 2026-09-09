@@ -410,6 +410,29 @@ describeFn('Autocomplete', () => {
         cy.matchImageSnapshot();
     });
 
+    it('beforeList and afterList on scroll', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Autocomplete
+                    label="Label"
+                    placeholder="Placeholder"
+                    suggestions={suggestions}
+                    threshold={0}
+                    listMaxHeight="150px"
+                    beforeList="Content before list"
+                    afterList="Content after list"
+                />
+            </div>,
+        );
+
+        cy.get('input').click();
+        cy.get('[role="listbox"]').scrollTo(0, 50);
+
+        cy.matchImageSnapshot();
+    });
+
     it('renderItem', () => {
         cy.viewport(400, 400);
 

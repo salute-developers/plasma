@@ -644,6 +644,28 @@ describeFn('Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
+    it('beforeList and afterList on scroll', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Dropdown
+                    items={items}
+                    listMaxHeight="150px"
+                    beforeList="Content before list"
+                    afterList="Content after list"
+                >
+                    <Button text="Список стран" />
+                </Dropdown>
+            </div>,
+        );
+
+        cy.get('button').click();
+        cy.get('[id$="tree_level_1"]').scrollTo(0, 50);
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: items.hidden', () => {
         mount(
             <Dropdown items={itemsWithHidden}>

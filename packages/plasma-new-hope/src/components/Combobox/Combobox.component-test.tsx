@@ -969,6 +969,28 @@ describeFn('Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('beforeList and afterList on scroll', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Combobox
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listMaxHeight="150px"
+                    alwaysOpened
+                    beforeList="Content before list"
+                    afterList="Content after list"
+                />
+            </div>,
+        );
+
+        cy.get('[id$="tree_level_1"]').scrollTo(0, 50);
+
+        cy.matchImageSnapshot();
+    });
+
     it('selectAll button', () => {
         cy.viewport(400, 300);
 
