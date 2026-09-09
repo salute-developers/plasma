@@ -1,0 +1,19 @@
+.l {
+    --plasma-embedded-button-border-radius: 0.75rem;
+    --plasma-embedded-button-spinner-size: 2.25rem;
+}
+
+.m {
+    --plasma-embedded-button-border-radius: 0.625rem;
+    --plasma-embedded-button-spinner-size: 1.5rem;
+}
+
+.s {
+    --plasma-embedded-button-border-radius: 0.5rem;
+    --plasma-embedded-button-spinner-size: 1rem;
+}
+
+.xs {
+    --plasma-embedded-button-border-radius: 0.375rem;
+    --plasma-embedded-button-spinner-size: 0.75rem;
+}

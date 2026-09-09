@@ -1,5 +1,5 @@
-import { Placement as ResizablePlacement } from '../../../_Resizable/Resizable.types';
-import { PopoverProps } from '../Popover.types';
+import type { PopoverProps } from '../Popover.types';
+import type { ResizablePlacement } from '../Resizable.types';
 
 export const matchPlacements = (placement: PopoverProps['placement']): ResizablePlacement => {
     switch (placement) {
