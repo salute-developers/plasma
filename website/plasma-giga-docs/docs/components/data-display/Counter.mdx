@@ -12,8 +12,26 @@ import { PropsTable, Description } from '@site/src/components';
 
 ## Примеры
 
+### Строковое значение
+
+Если `count` передан как строка, значение отображается без изменений. Ограничения по минимальному и максимальному значению, а также автоматическая круглая форма применяются только к числам. Свойство `maxCount` для строки игнорируется.
+
+```tsx live
+import React from 'react';
+import { Counter } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <div>
+            <Counter count="NEW" />
+            <Counter count="100+" maxCount={1} />
+        </div>
+    );
+}
+```
+
 ### Максимальное значение числового badge
-Задается с помощью свойства `maxCount`. Как и `count`, не может быть меньше 1.
+Задается с помощью свойства `maxCount` и применяется только к числовому `count`. Не может быть меньше 1.
 
 ```tsx live
 import React from 'react';
