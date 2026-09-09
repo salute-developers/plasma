@@ -1,0 +1,93 @@
+---
+id: toast
+slug: /components/toast
+title: Toast
+description: "Всплывающее уведомление (toast) поверх контента."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Toast
+:::info
+Обновленная версия компонента Toast с расширенным функционалом.
+:::
+
+Компонент `ToastContainer`:
+<Description name="ToastContainer" />
+
+## Использование
+Для корректной работы необходимо импортировать:
+- компонент `ToastContainer` - DOM-контейнер для тостов, вставляется один раз в любом месте приложения;
+- метод `showToast(text: string, options: ShowToastType)`;
+
+Настраивать тосты можно как через `ToastContainer`, так и через опции в методе `showToast`. При чем большинство этих свойств пересекается, но более высокий приоритет имеют опции из `showToast`.\
+Таким образом можно задать дефолтное поведение через `ToastContainer`, и уже индивидуально настраивать каждый тост через опции из `showToast`.
+
+Формат типа <b>ShowToastType</b> следующий:
+```tsx
+type ShowToastType = {
+    hasClose?: boolean;
+    contentLeft?: ReactNode;
+    width?: CSSProperties['width'];
+    textColor?: CSSProperties['color'];
+    position?: ToastPosition;
+    duration?: number;
+    view?: string;
+    size?: string;
+    pilled?: boolean;
+};
+```
+
+## Примеры
+
+### Default
+```tsx live
+import React from 'react';
+import { ToastContainer, showToast, Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    const handleShowToast = () => {
+        showToast("Текст всплывающего уведомления");
+    };
+
+    return (
+        <div>
+            <ToastContainer />
+
+            <Button onClick={handleShowToast}>Показать тост</Button>
+        </div>
+    );
+}
+```
+
+### Override
+В данном примере показано, как гибко настроить каждый тост. Напоминаем, что опции в `showToast` переопределяют такие же в `ToastContainer`.
+```tsx live
+import React from 'react';
+import { ToastContainer, showToast, Button } from '@salutejs/sdds-cs';
+
+export function App() {
+    const handleShowToastDefault = () => {
+        showToast("Стандартный тост");
+    };
+
+    const handleShowToastCustom = () => {
+        showToast("Кастомный тост", { textColor: "blue", pilled: true, hasClose: false, duration: 3000 });
+    };
+
+    return (
+        <div>
+            <ToastContainer textColor="green" />
+
+            <Button onClick={handleShowToastDefault}>Показать стандартный тост</Button>
+            <Button onClick={handleShowToastCustom}>Показать кастомный тост</Button>
+        </div>
+    );
+}
+```
+
+## API
+
+<PropsTable name="ToastContainer" />

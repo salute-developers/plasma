@@ -1,0 +1,57 @@
+---
+id: next
+title: Работа с Next
+description: "Раздел описывает варианты и нюансы подключения библиотеки в рамках работы с `NextJs`."
+slug: /next
+sidebar_position: 1
+---
+Раздел описывает варианты и нюансы подключения библиотеки в рамках работы с `NextJs`.
+
+:::caution RSC - React Server Components (App router)
+<p>Библиотека поддерживает работу с **RSC** только при **явном использовании** директивы **'use client'**.</p>
+
+```ts
+'use client'
+
+import { Button } from '@salutejs/sdds-cs';
+
+...
+```
+:::
+
+## Подключение тем
+
+```tsx
+import type { AppProps } from "next/app";
+import { Global, css } from '@emotion/react';
+import { sdds_cs__light } from '@salutejs/sdds-themes';
+
+const themeStyle = css(sdds_cs__light);
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+      <>
+        <Global styles={themeStyle} />
+
+        <Component {...pageProps} />
+      </>
+  );
+}
+```
+
+## Работа с компонентами
+
+Библиотека поставляет компоненты в формате `Emotion`.
+
+```jsx
+import React from 'react';
+import { Button } from '@salutejs/sdds-cs'
+
+export default function Home() {
+  return (
+    <div>
+        <Button>Button</Button>
+    </div>
+  );
+}
+```
