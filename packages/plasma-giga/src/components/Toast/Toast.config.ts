@@ -1,17 +1,17 @@
 import { css, toastTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyXS,
+    inverseSurfaceSolidCardBrightness,
+    inverseTextNegative,
+    inverseTextPositive,
+    inverseTextPrimary,
+    inverseTextSecondary,
     onDarkSurfaceSolidPrimaryBrightness,
     onDarkTextPrimary,
     onDarkTextSecondary,
     onLightSurfaceSolidPrimaryBrightness,
     onLightTextPrimary,
     onLightTextSecondary,
-    surfaceSolidCardBrightness,
-    textNegative,
-    textPositive,
-    textPrimary,
-    textSecondary,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
@@ -23,27 +23,27 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${toastTokens.color}: ${textPrimary};
-                ${toastTokens.background}: ${surfaceSolidCardBrightness};
+                ${toastTokens.color}: ${inverseTextPrimary};
+                ${toastTokens.background}: ${inverseSurfaceSolidCardBrightness};
 
-                ${toastTokens.closeIconColor}: ${textSecondary};
-                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
+                ${toastTokens.closeIconColor}: ${inverseTextSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${inverseTextSecondary};
             `,
             positive: css`
-                ${toastTokens.color}: ${textPrimary};
-                ${toastTokens.background}: ${surfaceSolidCardBrightness};
-                ${toastTokens.contentLeftColor}: ${textPositive};
+                ${toastTokens.color}: ${inverseTextPrimary};
+                ${toastTokens.background}: ${inverseSurfaceSolidCardBrightness};
+                ${toastTokens.contentLeftColor}: ${inverseTextPositive};
 
-                ${toastTokens.closeIconColor}: ${textSecondary};
-                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
+                ${toastTokens.closeIconColor}: ${inverseTextSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${inverseTextSecondary};
             `,
             negative: css`
-                ${toastTokens.color}: ${textPrimary};
-                ${toastTokens.background}: ${surfaceSolidCardBrightness};
-                ${toastTokens.contentLeftColor}: ${textNegative};
+                ${toastTokens.color}: ${inverseTextPrimary};
+                ${toastTokens.background}: ${inverseSurfaceSolidCardBrightness};
+                ${toastTokens.contentLeftColor}: ${inverseTextNegative};
 
-                ${toastTokens.closeIconColor}: ${textSecondary};
-                ${toastTokens.closeIconColorOnHover}: ${textSecondary};
+                ${toastTokens.closeIconColor}: ${inverseTextSecondary};
+                ${toastTokens.closeIconColorOnHover}: ${inverseTextSecondary};
             `,
             /**
              * @deprecated
