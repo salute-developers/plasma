@@ -4,7 +4,7 @@ import * as Tokens from '@salutejs/sdds-themes/tokens';
 import * as Package from '@salutejs/sdds-cs';
 import * as Beta from '@salutejs/sdds-cs/beta';
 import { Filler } from '@salutejs/plasma-docs-ui';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { useForm, Controller } from 'react-hook-form';
 
 // Add react-live imports you need here

@@ -20,7 +20,7 @@ const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: 'SDDS CS',
-    tagline: 'Дизайн-система для разработки современных приложений.',
+    tagline: 'Дизайн-система для разработки современных веб приложений.',
     url: 'https://plasma.sberdevices.ru/',
     baseUrl,
     onBrokenLinks: 'warn',
@@ -74,7 +74,7 @@ module.exports = {
 
             // Hides the switch in the navbar
             // Useful if you want to support a single color mode
-            disableSwitch: false,
+            disableSwitch: true,
 
             // Whether to use the prefers-color-scheme media-query,
             // using user system preferences, instead of the hardcoded defaultMode.
@@ -243,6 +243,48 @@ module.exports = {
                 },
             };
         },
+        [
+            'docusaurus-plugin-llms',
+            {
+                excludeImports: true,
+                removeDuplicateHeadings: true,
+                generateLLMsTxt: true,
+                generateLLMsFullTxt: true,
+                // routeBasePath доков — '/', как в preset-classic; иначе плагин строит ссылки с /docs/
+                docsDir: [{ path: 'docs', routeBasePath: '/' }],
+                // .md-копии страниц в выдаче сборки: ссылки в llms.txt ведут на них (конвенция llmstxt.org)
+                generateMarkdownFiles: true,
+                // Docusaurus (_examples, components/_*) не имеют маршрутов
+                ignoreFiles: ['**/_*/**', '**/_*.md', '**/_*.mdx'],
+                title: 'Библиотека компонентов SDDS CS',
+                description:
+                    'React-компоненты дизайн-системы SDDS CS для веб-приложений. Один вариант поставки: emotion.',
+                version: pckgJson.dependencies['@salutejs/sdds-cs'],
+                // страницы guides/* имеют абсолютный slug (/next, /how-to-mcp, ...) — плагин не учитывает
+                // его при сопоставлении с маршрутами, поэтому вычищаем служебные сегменты из URL вручную
+                pathTransformation: {
+                    ignorePaths: ['docs', 'guides'],
+                },
+                includeOrder: [
+                    'intro*',
+                    'guides/next*',
+                    'guides/how-to-mcp*',
+                    'guides/how-to-icons*',
+                    'guides/react_17*',
+                    'guides/FAQ*',
+                    'components/**',
+                    'beta/**',
+                    'utils/**',
+                    'form/**',
+                ],
+                rootContent: [
+                    'Установка: `npm install @salutejs/sdds-cs @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше, @emotion/react и @emotion/styled версии 11 или выше).',
+                    'Точки входа: `@salutejs/sdds-cs` — emotion (единственный вариант поставки), `@salutejs/sdds-cs/beta` — экспериментальные компоненты.',
+                    'Темы: `sdds_cs__light`, `sdds_cs__dark` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
+                    'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-cs`.',
+                ].join('\n\n'),
+            },
+        ],
     ],
     markdown: {
         format: 'detect',
