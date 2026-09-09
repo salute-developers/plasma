@@ -2,6 +2,7 @@ import { css, badgeTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     onDarkSurfaceTransparentCard,
     onDarkTextPrimary,
+    onLightDataPink,
     onLightSurfaceTransparentDeep,
     surfaceTransparentAccent,
     surfaceTransparentNegative,
@@ -51,6 +52,11 @@ export const config = {
             light: css`
                 ${badgeTokens.color}: ${onDarkTextPrimary};
                 ${badgeTokens.background}: ${onDarkSurfaceTransparentCard};
+            `,
+            pink: css`
+                ${badgeTokens.color}: ${onLightDataPink};
+                // TODO: change with token data-pink-transparent-minor, when it will be added to theme
+                ${badgeTokens.background}: #FF369A1F;
             `,
         },
         size: {

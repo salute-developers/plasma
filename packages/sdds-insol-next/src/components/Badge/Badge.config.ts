@@ -4,6 +4,7 @@ import {
     onDarkSurfaceSolidDefault,
     onDarkSurfaceTransparentCard,
     onDarkTextPrimary,
+    onLightDataPink,
     onLightSurfaceSolidDefault,
     onLightSurfaceTransparentDeep,
     onLightTextPrimary,
@@ -96,6 +97,16 @@ export const config = {
                 ${badgeTokens.backgroundTransparent}: ${onDarkSurfaceTransparentCard};
 
                 ${badgeTokens.colorClear}: ${onDarkTextPrimary};
+            `,
+            pink: css`
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${onLightDataPink};
+
+                ${badgeTokens.colorTransparent}: ${onLightDataPink};
+                // TODO: change with token data-pink-transparent-minor, when it will be added to theme
+                ${badgeTokens.backgroundTransparent}: #FF369A1F;
+
+                ${badgeTokens.colorClear}: ${onLightDataPink};
             `,
         },
         size: {
