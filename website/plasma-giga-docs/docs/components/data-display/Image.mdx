@@ -6,6 +6,8 @@ description: "Изображение с опциональным fallback-сод
 ---
 
 import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Image
 <Description name="Image" />
@@ -22,6 +24,195 @@ export function App() {
             height="320px"
             alt="Картинка для примера фоном"
         />
+    );
+}
+```
+
+## Состояния загрузки и ошибки
+
+У `Image` нет встроенных состояний загрузки и ошибки: их собирают из `Image` и `RectSkeleton`. Статус приходит снаружи — из Loader, запроса или своего стейта.
+
+Один и тот же пример работает на вебе и на native: задавайте явные `width` и `height`, используйте flexbox и токены темы.
+
+<Tabs>
+    <TabItem value="loading" label="Загрузка" default>
+        ```tsx live
+        import React from 'react';
+        import { RectSkeleton } from '@salutejs/plasma-giga';
+
+        export function App() {
+            return (
+                <RectSkeleton
+                    width={240}
+                    height={240}
+                    roundness={0}
+                    customGradientColor="var(--surface-skeleton-gradient)"
+                />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="error" label="Ошибка">
+        ```tsx live
+        import React, { useState } from 'react';
+        import { BodyXXS, IconButton, RectSkeleton } from '@salutejs/plasma-giga';
+        import { IconRefresh } from '@salutejs/plasma-icons';
+
+        export function App() {
+            const [status, setStatus] = useState('error');
+
+            if (status === 'loading') {
+                return (
+                    <RectSkeleton
+                        width={240}
+                        height={240}
+                        roundness={0}
+                        customGradientColor="var(--surface-skeleton-gradient)"
+                    />
+                );
+            }
+
+            return (
+                <div
+                    style={{
+                        width: 240,
+                        height: 240,
+                        boxSizing: 'border-box',
+                        padding: 4,
+                        background: 'var(--inverse-outline-solid-default)',
+                    }}
+                >
+                    <div
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'var(--surface-solid-primary)',
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: 166,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: 6,
+                            }}
+                        >
+                            <BodyXXS color="var(--text-secondary)" style={{ textAlign: 'center' }}>
+                                Не удалось загрузить изображение
+                            </BodyXXS>
+                            <IconButton
+                                view="clear"
+                                size="xs"
+                                aria-label="Повторить загрузку"
+                                onClick={() => setStatus('loading')}
+                                style={{ width: 24, height: 24, padding: 0 }}
+                            >
+                                <IconRefresh color="var(--text-primary)" size="xs" sizeCustomValue="12px" />
+                            </IconButton>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Готовый пример
+
+Скопируйте `ImageWithStatus` и передавайте в него `status` из своего Loader:
+
+```tsx live
+import React, { useState } from 'react';
+import { Image, RectSkeleton, BodyXXS, IconButton, Button } from '@salutejs/plasma-giga';
+import { IconRefresh } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [status, setStatus] = useState('loading');
+
+    const ImageWithStatus = ({ src, width, height, alt, status, onRetry }) => {
+        if (status === 'loading') {
+            return (
+                <RectSkeleton
+                    width={width}
+                    height={height}
+                    roundness={0}
+                    customGradientColor="var(--surface-skeleton-gradient)"
+                />
+            );
+        }
+
+        if (status === 'error') {
+            return (
+                <div
+                    style={{
+                        width,
+                        height,
+                        boxSizing: 'border-box',
+                        padding: 4,
+                        background: 'var(--inverse-outline-solid-default)',
+                    }}
+                >
+                    <div
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            background: 'var(--surface-solid-primary)',
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: 166,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                gap: 6,
+                            }}
+                        >
+                            <BodyXXS color="var(--text-secondary)" style={{ textAlign: 'center' }}>
+                                Не удалось загрузить изображение
+                            </BodyXXS>
+                            <IconButton
+                                view="clear"
+                                size="xs"
+                                aria-label="Повторить загрузку"
+                                onClick={onRetry}
+                                style={{ width: 24, height: 24, padding: 0 }}
+                            >
+                                <IconRefresh color="var(--text-primary)" size="xs" sizeCustomValue="12px" />
+                            </IconButton>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        return <Image src={src} width={width + 'px'} height={height + 'px'} alt={alt} />;
+    };
+
+    return (
+        <div>
+            <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
+                <Button size="xs" text="Загрузка" onClick={() => setStatus('loading')} />
+                <Button size="xs" text="Ошибка" onClick={() => setStatus('error')} />
+                <Button size="xs" text="Загружено" onClick={() => setStatus('loaded')} />
+            </div>
+            <ImageWithStatus
+                src="/plasma-giga/images/320_320_9.jpg"
+                width={240}
+                height={240}
+                alt="Картинка для примера фоном"
+                status={status}
+                onRetry={() => setStatus('loading')}
+            />
+        </div>
     );
 }
 ```
