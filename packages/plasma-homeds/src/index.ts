@@ -29,6 +29,7 @@ export * from './components/Popover';
 export * from './components/Popup';
 export * from './components/Portal';
 export * from './components/Price';
+export * from './components/Numbers';
 export * from './components/Progress';
 export * from './components/Pagination';
 export * from './components/Range';
