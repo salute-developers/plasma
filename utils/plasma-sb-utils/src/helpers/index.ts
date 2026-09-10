@@ -5,6 +5,7 @@ export { getGroupedCornerRadiusTokens, getGroupedSpacingTokens } from './numberT
 export { getOpacityFromHex, getGroupedTokens, upperFirstLetter } from './colorTokens';
 export { getGroupedTypographyTokens, typographyPangrams, typographyToCssMap } from './typographyTokens';
 export { getConfigVariations } from './getConfigVariations';
+export { createStorybookOnlyArgTypesEnhancer, storybookOnlyArgTypesEnhancer } from './storybookOnly';
 
 export type { GroupedTokens, TokenData } from './colorTokens';
 export type { GroupedNumberTokens } from './numberTokens';

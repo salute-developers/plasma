@@ -53,107 +53,86 @@ export const createMeta = ({
         view: {
             options: componentConfig.views,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         size: {
             options: componentConfig.sizes,
             control: { type: 'inline-radio' },
-            table: { category: 'variation' },
         },
         disabled: {
             control: { type: 'boolean' },
-            table: { category: 'variation' },
         },
         label: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
         labelPlacement: {
             options: labelPlacements,
             control: { type: 'select' },
-            table: { category: 'layout' },
         },
         titleCaption: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
         enableLeftHelperIcon: {
             control: { type: 'boolean' },
-            table: { category: 'layout' },
         },
         rightHelper: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
         required: {
             control: { type: 'boolean' },
             if: { arg: 'optional', truthy: false },
-            table: { category: 'form-related' },
         },
         requiredIndicatorPlacement: {
             options: requiredPlacements,
             control: { type: 'select' },
             if: { arg: 'optional', truthy: false },
-            table: { category: 'form-related' },
         },
         hasRequiredIndicator: {
             control: { type: 'boolean' },
             if: { arg: 'optional', truthy: false },
-            table: { category: 'form-related' },
         },
         optional: {
             control: { type: 'boolean' },
             if: { arg: 'required', truthy: false },
-            table: { category: 'form-related' },
         },
         optionalText: {
             control: { type: 'text' },
             if: { arg: 'required', truthy: false },
-            table: { category: 'form-related' },
         },
         hasHint: {
             control: { type: 'boolean' },
-            table: { category: 'hint' },
         },
         hintText: {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
-            table: { category: 'hint' },
         },
         hintView: {
             options: hintViews,
             control: { type: 'select' },
             if: { arg: 'hasHint', truthy: true },
-            table: { category: 'hint' },
         },
         hintSize: {
             options: hintSizes,
             control: { type: 'select' },
             if: { arg: 'hasHint', truthy: true },
-            table: { category: 'hint' },
         },
         hintTrigger: {
             options: hintTriggers,
             control: { type: 'inline-radio' },
             if: { arg: 'hasHint', truthy: true },
-            table: { category: 'hint' },
         },
         hintPlacement: {
             options: placements,
             control: { type: 'select' },
             if: { arg: 'hasHint', truthy: true },
             mappers: placements,
-            table: { category: 'hint' },
         },
         hintHasArrow: {
             control: { type: 'boolean' },
             if: { arg: 'hasHint', truthy: true },
-            table: { category: 'hint' },
         },
         hintWidth: {
             control: { type: 'text' },
             if: { arg: 'hasHint', truthy: true },
-            table: { category: 'hint' },
         },
         ...additionalArgTypes,
         ...disableProps([...commonDisabledArgs, ...disablePropsList]),

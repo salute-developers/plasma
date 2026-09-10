@@ -36,34 +36,27 @@ export const createMeta = ({
         argTypes: {
             buttonContainerWidth: {
                 control: { type: 'text' },
-                table: { category: 'example-related' },
             },
             buttonContainerHeight: {
                 control: { type: 'text' },
-                table: { category: 'example-related' },
             },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             position: {
                 options: positionValues,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             isLoading: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             ...additionalArgTypes,
             ...disableProps([

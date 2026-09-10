@@ -1,7 +1,12 @@
 import type { Preview } from '@storybook/react-vite';
 // @ts-ignore
 import { withViewContainer } from './decoratorViewContainer';
-import { withReactStrictMode, reactStrictModePreviewOption, disabledToolsParameters } from '@salutejs/plasma-sb-utils';
+import {
+    withReactStrictMode,
+    reactStrictModePreviewOption,
+    disabledToolsParameters,
+    storybookOnlyArgTypesEnhancer,
+} from '@salutejs/plasma-sb-utils';
 
 const LIGHT_THEME = 'light';
 const DARK_THEME = 'dark';
@@ -12,6 +17,7 @@ const ON_LIGHT_MODE = 'onLight';
 
 const preview: Preview = {
     decorators: [withViewContainer, withReactStrictMode],
+    argTypesEnhancers: [storybookOnlyArgTypesEnhancer],
     parameters: {
         ...disabledToolsParameters,
         docs: {

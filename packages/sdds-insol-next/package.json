@@ -88,8 +88,11 @@
     "build:beta": "rm -rf dist/beta/es dist/beta/cjs && BETA=true rollup -c",
     "postbuild:beta": "rm -rf src-css",
     "generate:typings": "rm -rf types && tsc && rm -rf dist/beta/types && tsc -p src/components/_beta/tsconfig.json",
+    "generate:api-props": "node ../../utils/plasma-sb-utils/scripts/generate-api-props.js --package .",
     "storybook": "npm run storybook:sc",
+    "prestorybook:sc": "npm run generate:api-props",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
+    "prestorybook:build": "npm run generate:api-props",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "typescript-coverage": "npx typescript-coverage-report > /dev/null",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"

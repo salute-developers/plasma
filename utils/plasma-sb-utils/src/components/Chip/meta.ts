@@ -41,50 +41,39 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             appearance: {
                 options: appearances,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             focused: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             text: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             pilled: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             pin: {
                 options: pinValues,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             hasClear: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             enableContentLeft: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             enableContentRight: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, 'textGradientOption', ...disablePropsList]),
