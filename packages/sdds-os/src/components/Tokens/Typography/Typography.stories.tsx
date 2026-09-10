@@ -8,7 +8,7 @@ import {
     upperFirstLetter,
     typographyToCssMap,
 } from '@salutejs/plasma-sb-utils';
-import { addNotification } from '@salutejs/plasma-new-hope';
+import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import type {
     TypographyStructure,
     Breakpoint,

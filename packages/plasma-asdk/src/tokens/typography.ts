@@ -55,7 +55,7 @@ export {
     paragraph1,
     paragraph2,
     underline,
-} from '@salutejs/plasma-new-hope';
+} from '@salutejs/plasma-new-hope/styled-components';
 
 export const fieldTypo = ({
     fontFamily: 'var(--plasma-field-font-family)',

@@ -1,3 +1,31 @@
+const getPackageSourceGlobs = (packages) =>
+    packages.map((packageName) => `packages/${packageName}/src/**/*.{js,ts,tsx}`);
+
+const getPlasmaNewHopeRootRestriction = (styleEngine) => ({
+    name: '@salutejs/plasma-new-hope',
+    message: `Value imports must use the explicit /${styleEngine} entrypoint`,
+    allowTypeImports: true,
+});
+
+const styledComponentsPackages = [
+    'plasma-web',
+    'plasma-b2c',
+    'plasma-giga',
+    'plasma-homeds',
+    'plasma-asdk',
+    'sdds-serv',
+    'sdds-dfa',
+    'sdds-finai',
+    'sdds-insol',
+    'sdds-insol-next',
+    'sdds-netology',
+    'sdds-os',
+    'sdds-platform-ai',
+    'sdds-sbcom',
+    'sdds-scan',
+    'sdds-bizcom',
+];
+
 module.exports = {
     extends: ['@salutejs/eslint-config'],
     rules: {
@@ -46,6 +74,65 @@ module.exports = {
         'func-call-spacing': 'off',
         'no-spaced-func': 'off',
     },
+    overrides: [
+        {
+            files: getPackageSourceGlobs(['sdds-cs']),
+            rules: {
+                '@typescript-eslint/no-restricted-imports': [
+                    'error',
+                    {
+                        paths: [getPlasmaNewHopeRootRestriction('emotion')],
+                        patterns: [
+                            {
+                                group: [
+                                    '@salutejs/plasma-new-hope/styled-components',
+                                    '@salutejs/plasma-new-hope/styled-components/*',
+                                    '@salutejs/plasma-new-hope/css',
+                                    '@salutejs/plasma-new-hope/css/*',
+                                    '@salutejs/plasma-new-hope/linaria',
+                                    '@salutejs/plasma-new-hope/linaria/*',
+                                    'styled-components',
+                                    'styled-components/*',
+                                    '@linaria/*',
+                                ],
+                                message: 'sdds-cs uses Emotion; import from plasma-new-hope/emotion and @emotion/*',
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+        {
+            files: getPackageSourceGlobs(styledComponentsPackages),
+            rules: {
+                '@typescript-eslint/no-restricted-imports': [
+                    'error',
+                    {
+                        paths: [getPlasmaNewHopeRootRestriction('styled-components')],
+                        patterns: [
+                            {
+                                group: [
+                                    '@salutejs/plasma-new-hope/emotion',
+                                    '@salutejs/plasma-new-hope/emotion/*',
+                                    '@salutejs/plasma-new-hope/css',
+                                    '@salutejs/plasma-new-hope/css/*',
+                                    '@salutejs/plasma-new-hope/linaria',
+                                    '@salutejs/plasma-new-hope/linaria/*',
+                                    '@emotion/*',
+                                    '@linaria/*',
+                                ],
+                                message: 'Source files in this package use styled-components',
+                            },
+                            {
+                                group: ['styled-components/*'],
+                                message: 'Build transforms only the styled-components package root',
+                            },
+                        ],
+                    },
+                ],
+            },
+        },
+    ],
     settings: {
         react: {
             version: 'detect',

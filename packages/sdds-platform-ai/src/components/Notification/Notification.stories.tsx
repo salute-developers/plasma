@@ -4,7 +4,7 @@ import type { StoryObj, Meta } from '@storybook/react';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from 'storybook/actions';
-import { addNotification } from '@salutejs/plasma-new-hope';
+import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
 
 import { Button } from '../Button/Button';
