@@ -480,6 +480,19 @@ describeFn('TimePicker', () => {
         cy.get('input').first().should('have.value', '12:25:00');
     });
 
+    it('multiplicityMinutes: arrow keys walk the minutes column by the configured step', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker multiplicityMinutes={15} value="13:00" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-column="minutes"][data-value="00"]').first().focus().trigger('keydown', { key: 'ArrowDown' });
+        cy.get('[data-column="minutes"][data-value="15"]').first().should('be.focused');
+
+        cy.get('[data-column="minutes"][data-value="15"]').first().trigger('keydown', { key: 'ArrowUp' });
+        cy.get('[data-column="minutes"][data-value="00"]').first().should('be.focused');
+    });
+
     it('min without seconds: hour 12 is not disabled when min="12:05"', () => {
         cy.viewport(580, 900);
         mount(<TimePicker min="12:05" />);
@@ -528,5 +541,154 @@ describeFn('TimePicker', () => {
         cy.get('@onChange').should('have.been.called');
         cy.get('@onChange').its('lastCall.args.1').should('have.property', 'value');
         cy.get('@onChange').its('lastCall.args.1').should('have.property', 'timeValues');
+    });
+
+    it('hasTimeFormat: shows a 24-hour value in 12-hour format', () => {
+        cy.viewport(580, 900);
+
+        mount(
+            <>
+                <TimePicker hasTimeFormat value="13:30" />
+                <TimePicker hasTimeFormat value="00:00" />
+                <TimePicker hasTimeFormat value="12:00" />
+            </>,
+        );
+
+        cy.get('input').eq(0).should('have.value', '01:30');
+        cy.get('input').eq(0).parent().should('have.text', 'PM');
+        cy.get('input').eq(1).should('have.value', '12:00');
+        cy.get('input').eq(1).parent().should('have.text', 'AM');
+        cy.get('input').eq(2).should('have.value', '12:00');
+        cy.get('input').eq(2).parent().should('have.text', 'PM');
+    });
+
+    it('hasTimeFormat: turns typed digits into a 12-hour time and a 24-hour value', () => {
+        cy.viewport(580, 900);
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePicker hasTimeFormat onChange={onChange} />);
+
+        cy.get('input').first().click().type('1230');
+
+        cy.get('input').first().should('have.value', '12:30');
+        cy.get('input').first().parent().should('have.text', 'AM');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '00:30');
+
+        // 13–23 — однозначно 24-часовой час: переводится в 12-часовой и сам задаёт PM
+        cy.get('input').first().clear().type('1440');
+
+        cy.get('input').first().should('have.value', '02:40');
+        cy.get('input').first().parent().should('have.text', 'PM');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '14:40');
+    });
+
+    it('hasTimeFormat: switches the meridiem from the dropdown', () => {
+        cy.viewport(580, 900);
+        const onChange = cy.stub().as('onChange');
+        mount(<TimePicker hasTimeFormat onChange={onChange} />);
+
+        cy.get('input').first().click().type('0130');
+        cy.get('[data-column="meridiem"][data-value="PM"]').first().click();
+
+        cy.get('input').first().should('have.value', '01:30');
+        cy.get('input').first().parent().should('have.text', 'PM');
+        cy.get('@onChange')
+            .its('lastCall.args.1')
+            .should('deep.equal', {
+                value: '13:30',
+                timeValues: { hour: 13, minute: 30, second: undefined },
+            });
+    });
+
+    it('hasTimeFormat: keeps midnight hours in the dropdown payload', () => {
+        const onChange = cy.stub().as('onChange');
+        mount(<TimePicker hasTimeFormat value="12:30" onChange={onChange} />);
+
+        cy.get('input').first().click();
+        cy.get('[data-column="meridiem"][data-value="AM"]').first().click();
+
+        cy.get('@onChange')
+            .its('lastCall.args.1')
+            .should('deep.equal', {
+                value: '00:30',
+                timeValues: { hour: 0, minute: 30, second: undefined },
+            });
+    });
+
+    it('hasTimeFormat: controlled value follows dropdown changes', () => {
+        const ControlledTimePicker = () => {
+            const [value, setValue] = React.useState('01:30');
+
+            return (
+                <TimePicker hasTimeFormat value={value} onChange={(_, nextValue) => setValue(nextValue.value ?? '')} />
+            );
+        };
+
+        mount(<ControlledTimePicker />);
+        cy.get('input').first().click();
+        cy.get('[data-column="meridiem"][data-value="PM"]').first().click();
+
+        cy.get('input').first().should('have.value', '01:30');
+        cy.get('input').first().parent().should('have.text', 'PM');
+        cy.get('[data-column="hours"][data-value="02"]').first().click();
+        cy.get('input').first().should('have.value', '02:30');
+    });
+
+    it('hasTimeFormat: keeps a leading zero editable without completing the hour', () => {
+        const onChange = cy.stub().as('onChange');
+        mount(<TimePicker hasTimeFormat onChange={onChange} />);
+
+        cy.get('input').first().type('0');
+
+        cy.get('input').first().should('have.value', '0');
+        cy.get('@onChange')
+            .its('lastCall.args.1')
+            .should('deep.equal', {
+                value: '0',
+                timeValues: { hour: null, minute: null, second: null },
+            });
+        cy.get('input').first().type('1');
+        cy.get('input').first().should('have.value', '01');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '01');
+    });
+
+    it('hasTimeFormat: keeps a leading zero editable in controlled mode', () => {
+        const ControlledTimePicker = () => {
+            const [value, setValue] = React.useState('');
+
+            return (
+                <TimePicker hasTimeFormat value={value} onChange={(_, nextValue) => setValue(nextValue.value ?? '')} />
+            );
+        };
+
+        mount(<ControlledTimePicker />);
+        cy.get('input').first().type('0');
+        cy.get('input').first().should('have.value', '0');
+        cy.get('input').first().type('1');
+        cy.get('input').first().should('have.value', '01');
+    });
+
+    it('hasTimeFormat: disables the meridiem cut off by min', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker hasTimeFormat columnsQuantity={3} value="13:00:00" min="12:00:00" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-column="meridiem"]').should('have.length', 2);
+        cy.get('[data-column="meridiem"][data-value="AM"]').should('have.attr', 'aria-disabled', 'true');
+        cy.get('[data-column="meridiem"][data-value="PM"]').should('have.attr', 'aria-disabled', 'false');
+    });
+
+    it('hasTimeFormat: dropdown with the meridiem column', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker hasTimeFormat columnsQuantity={3} value="13:30:45" />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
     });
 });
