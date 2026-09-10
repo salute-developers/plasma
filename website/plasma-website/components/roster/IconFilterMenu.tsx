@@ -9,6 +9,7 @@ import { StyledActionIcon } from './StyledActionIcon';
 
 type IconFilterMenuProps = {
     setInputFocus: () => void;
+    showSearch?: boolean;
 };
 
 const StyledFilterMenu = styled.div`
@@ -57,7 +58,7 @@ const StyledFilterMenuItem = styled.div<{ isActive?: boolean }>`
         `}
 `;
 
-export const IconFilterMenu = ({ setInputFocus }: IconFilterMenuProps) => {
+export const IconFilterMenu = ({ setInputFocus, showSearch = true }: IconFilterMenuProps) => {
     const { state, dispatch } = useContext(Context);
 
     const scrollToTop = () => {
@@ -71,9 +72,11 @@ export const IconFilterMenu = ({ setInputFocus }: IconFilterMenuProps) => {
 
     return (
         <StyledFilterMenu>
-            <StyledIconSearch onClick={scrollToTop}>
-                <IconSearch size="xs" color="inherit" />
-            </StyledIconSearch>
+            {showSearch && (
+                <StyledIconSearch onClick={scrollToTop}>
+                    <IconSearch size="xs" color="inherit" />
+                </StyledIconSearch>
+            )}
             {listSizes.map(({ value, label }) => (
                 <StyledFilterMenuItem
                     key={label}

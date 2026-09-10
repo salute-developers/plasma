@@ -4,3 +4,4 @@
 /.build-temp-*
 /native-build
 /build-sb
+/mcpData
