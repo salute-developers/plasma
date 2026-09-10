@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
-import { buttonConfig, component, cx, mergeConfig, RootProps } from '@salutejs/plasma-new-hope';
+import { buttonConfig, component, cx, mergeConfig, RootProps } from '@salutejs/plasma-new-hope/styled-components';
 
 import { classes, tokens } from '../../Header.tokens';
 

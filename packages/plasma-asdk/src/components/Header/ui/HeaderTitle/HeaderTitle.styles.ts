@@ -1,4 +1,4 @@
-import { applyEllipsis, h3, mediaQuery } from '@salutejs/plasma-new-hope';
+import { applyEllipsis, h3, mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 import styled, { CSSObject } from 'styled-components';
 
 export const StyledHeaderTitle = styled.div`

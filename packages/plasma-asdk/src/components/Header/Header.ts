@@ -1,5 +1,4 @@
-import { mergeConfig } from '@salutejs/plasma-new-hope';
-import { component } from '@salutejs/plasma-new-hope/styled-components';
+import { mergeConfig, component } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './Header.config';
 import { headerRootConfig } from './HeaderRoot/HeaderRoot';
