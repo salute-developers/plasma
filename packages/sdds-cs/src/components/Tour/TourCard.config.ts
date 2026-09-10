@@ -1,4 +1,4 @@
-import { tourCardTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
+import { tourCardTokens as tokens, css } from '@salutejs/plasma-new-hope/emotion';
 import {
     bodyS,
     h4Bold,
