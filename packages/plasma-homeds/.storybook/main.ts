@@ -5,7 +5,7 @@ import * as path from 'node:path';
 const stories = ['../README.mdx', '../src/**/*.stories.tsx'];
 
 const config: StorybookConfig = {
-    staticDirs: ['public'],
+    staticDirs: ['public', { from: '../fonts', to: '/fonts' }],
     stories,
     addons: ['@storybook/addon-docs'],
     framework: {

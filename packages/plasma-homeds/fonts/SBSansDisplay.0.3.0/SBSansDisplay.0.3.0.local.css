@@ -1,0 +1,49 @@
+/* Local urls for Storybook. Same faces as SBSansDisplay.0.3.0.css */
+
+@font-face {
+    font-family: 'SB Sans Display 0.3';
+    src: url('./SBSansDisplay-Light.woff2') format('woff2'),
+         url('./SBSansDisplay-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display 0.3';
+    src: url('./SBSansDisplay-Thin.woff2') format('woff2'),
+         url('./SBSansDisplay-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display 0.3';
+    src: url('./SBSansDisplay-Bold.woff2') format('woff2'),
+         url('./SBSansDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display 0.3';
+    src: url('./SBSansDisplay-Regular.woff2') format('woff2'),
+         url('./SBSansDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display 0.3';
+    src: url('./SBSansDisplay-Semibold.woff2') format('woff2'),
+         url('./SBSansDisplay-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display 0.3';
+    src: url('./SBSansDisplay-Medium.woff2') format('woff2'),
+         url('./SBSansDisplay-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
