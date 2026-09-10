@@ -1,4 +1,18 @@
 {
+  "0.370.1": {
+    "date": "2026-09-10",
+    "core": [],
+    "lib": [
+      {
+        "component": "Hotfix",
+        "children": [
+          {
+            "text": "исправлены некорректные imports с иcпользованием styled-components"
+          }
+        ]
+      }
+    ]
+  },
   "0.370.0": {
     "date": "2026-09-02",
     "core": [
