@@ -1,0 +1,27 @@
+---
+id: numbers
+title: Numbers
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Numbers
+
+<Description name="Numbers" />
+<PropsTable name="Numbers" exclude={['css']} />
+
+Шрифт `SBLCD` входит в поставку компонента и подключается автоматически.
+Семейство можно переопределить токеном `numbersTokens.fontFamily`.
+
+Компонент отображает числовой `value`, выделяя дробную часть уменьшенным кеглем.
+Единица измерения `unit` необязательна: поддерживаются `degree` (°) и `percent` (%).
+`NaN` и бесконечные значения не отображаются.
+
+```tsx live
+import React from 'react';
+import { Numbers } from '@salutejs/plasma-homeds';
+
+export function App() {
+    return <Numbers value={-28.8} unit="degree" size="m" />;
+}
+```
