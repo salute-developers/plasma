@@ -1,6 +1,12 @@
 import React, { ComponentProps, useCallback, MouseEvent, forwardRef } from 'react';
-import { buttonConfig, component, mergeConfig, buttonClasses, buttonTokens } from '@salutejs/plasma-new-hope/emotion';
-import { makePolymorphic } from '@salutejs/plasma-new-hope';
+import {
+    buttonConfig,
+    component,
+    mergeConfig,
+    buttonClasses,
+    buttonTokens,
+    makePolymorphic,
+} from '@salutejs/plasma-new-hope/emotion';
 import styled from '@emotion/styled';
 
 import { config } from './Button.config';
