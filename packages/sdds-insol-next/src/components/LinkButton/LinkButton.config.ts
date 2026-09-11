@@ -4,6 +4,9 @@ import {
     bodyMBold,
     bodySBold,
     bodyXSBold,
+    onLightDataPink,
+    onLightDataPinkActive,
+    onLightDataPinkHover,
     surfaceAccent,
     surfaceClear,
     textAccent,
@@ -117,6 +120,17 @@ export const config = {
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textInfoHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textInfoActive};
+
+                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+            `,
+            pink: css`
+                ${linkButtonTokens.linkButtonIconColor}: ${onLightDataPink};
+                ${linkButtonTokens.linkButtonTextColor}: ${onLightDataPink};
+                ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
+                ${linkButtonTokens.linkButtonIconColorHover}: ${onLightDataPinkHover};
+                ${linkButtonTokens.linkButtonIconColorActive}: ${onLightDataPinkActive};
+                ${linkButtonTokens.linkButtonTextColorHover}: ${onLightDataPinkHover};
+                ${linkButtonTokens.linkButtonTextColorActive}: ${onLightDataPinkActive};
 
                 ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
             `,
