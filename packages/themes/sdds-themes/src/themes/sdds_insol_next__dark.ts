@@ -821,6 +821,9 @@ export const sdds_insol_next__dark = ([
   --data-pink-transparent-hover: #FF389CAD;
   --data-pink-transparent-active: #FF389C80;
   --data-pink-transparent: #FF369A8F;
+  --data-pink-transparent-minor: #FF369A33;
+  --data-pink-transparent-minor-hover: #FF389C52;
+  --data-pink-transparent-minor-active: #FF389C24;
   --on-dark-data-yellow: #F3A912;
   --on-dark-data-yellow-hover: #F4B22FFF;
   --on-dark-data-yellow-active: #EDA20CFF;
@@ -839,6 +842,9 @@ export const sdds_insol_next__dark = ([
   --on-dark-data-pink-transparent: #FF57AB8F;
   --on-dark-data-pink-transparent-hover: #FF57ABAD;
   --on-dark-data-pink-transparent-active: #FF57AB80;
+  --on-dark-data-pink-transparent-minor: #FF369A33;
+  --on-dark-data-pink-transparent-minor-hover: #FF389C52;
+  --on-dark-data-pink-transparent-minor-active: #FF389C24;
   --on-light-data-yellow: #F3A912;
   --on-light-data-yellow-hover: #F5B638FF;
   --on-light-data-yellow-active: #E49C0CFF;
@@ -857,6 +863,9 @@ export const sdds_insol_next__dark = ([
   --on-light-data-pink-transparent-hover: #FF389C9E;
   --on-light-data-pink-transparent-active: #FF389CA3;
   --on-light-data-pink-transparent: #FF369A8F;
+  --on-light-data-pink-transparent-minor: #FF369A1F;
+  --on-light-data-pink-transparent-minor-hover: #FF389C2E;
+  --on-light-data-pink-transparent-minor-active: #FF389C33;
   --inverse-data-yellow: #F3A912;
   --inverse-data-yellow-hover: #F5B638FF;
   --inverse-data-yellow-active: #E49C0CFF;
@@ -875,6 +884,9 @@ export const sdds_insol_next__dark = ([
   --inverse-data-pink-transparent: #FF57AB8F;
   --inverse-data-pink-transparent-hover: #FF57AB9E;
   --inverse-data-pink-transparent-active: #FF57ABA3;
+  --inverse-data-pink-transparent-minor: #FF369A1F;
+  --inverse-data-pink-transparent-minor-hover: #FF389C2E;
+  --inverse-data-pink-transparent-minor-active: #FF389C33;
   color: var(--text-primary);
   background-color: var(--background-primary);
 }
