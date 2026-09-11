@@ -480,6 +480,19 @@ describeFn('TimePicker', () => {
         cy.get('input').first().should('have.value', '12:25:00');
     });
 
+    it('multiplicityMinutes: arrow keys walk the minutes column by the configured step', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker multiplicityMinutes={15} value="13:00" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-column="minutes"][data-value="00"]').first().focus().trigger('keydown', { key: 'ArrowDown' });
+        cy.get('[data-column="minutes"][data-value="15"]').first().should('be.focused');
+
+        cy.get('[data-column="minutes"][data-value="15"]').first().trigger('keydown', { key: 'ArrowUp' });
+        cy.get('[data-column="minutes"][data-value="00"]').first().should('be.focused');
+    });
+
     it('min without seconds: hour 12 is not disabled when min="12:05"', () => {
         cy.viewport(580, 900);
         mount(<TimePicker min="12:05" />);
@@ -528,5 +541,79 @@ describeFn('TimePicker', () => {
         cy.get('@onChange').should('have.been.called');
         cy.get('@onChange').its('lastCall.args.1').should('have.property', 'value');
         cy.get('@onChange').its('lastCall.args.1').should('have.property', 'timeValues');
+    });
+
+    it('use12Hours: shows a 24-hour value in 12-hour format', () => {
+        cy.viewport(580, 900);
+
+        mount(
+            <>
+                <TimePicker use12Hours value="13:30" />
+                <TimePicker use12Hours value="00:00" />
+                <TimePicker use12Hours value="12:00" />
+            </>,
+        );
+
+        cy.get('input').eq(0).should('have.value', '01:30');
+        cy.get('input').eq(0).parent().should('have.text', 'PM');
+        cy.get('input').eq(1).should('have.value', '12:00');
+        cy.get('input').eq(1).parent().should('have.text', 'AM');
+        cy.get('input').eq(2).should('have.value', '12:00');
+        cy.get('input').eq(2).parent().should('have.text', 'PM');
+    });
+
+    it('use12Hours: turns typed digits into a 12-hour time and a 24-hour value', () => {
+        cy.viewport(580, 900);
+
+        const onChange = cy.stub().as('onChange');
+
+        mount(<TimePicker use12Hours onChange={onChange} />);
+
+        cy.get('input').first().click().type('1230');
+
+        cy.get('input').first().should('have.value', '12:30');
+        cy.get('input').first().parent().should('have.text', 'AM');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '00:30');
+
+        // 13–23 — однозначно 24-часовой час: переводится в 12-часовой и сам задаёт PM
+        cy.get('input').first().clear().type('1440');
+
+        cy.get('input').first().should('have.value', '02:40');
+        cy.get('input').first().parent().should('have.text', 'PM');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '14:40');
+    });
+
+    it('use12Hours: switches the meridiem from the dropdown', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours />);
+
+        cy.get('input').first().click().type('0130');
+        cy.get('[data-column="meridiem"][data-value="PM"]').first().click();
+
+        cy.get('input').first().should('have.value', '01:30');
+        cy.get('input').first().parent().should('have.text', 'PM');
+    });
+
+    it('use12Hours: disables the meridiem cut off by min', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours columnsQuantity={3} value="13:00:00" min="12:00:00" />);
+
+        cy.get('input').first().click();
+
+        cy.get('[data-column="meridiem"]').should('have.length', 2);
+        cy.get('[data-column="meridiem"][data-value="AM"]').should('have.attr', 'aria-disabled', 'true');
+        cy.get('[data-column="meridiem"][data-value="PM"]').should('have.attr', 'aria-disabled', 'false');
+    });
+
+    it('use12Hours: dropdown with the meridiem column', () => {
+        cy.viewport(580, 900);
+        mount(<TimePicker use12Hours columnsQuantity={3} value="13:30:45" />);
+
+        cy.get('input').first().click();
+
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+
+        cy.matchImageSnapshot();
     });
 });

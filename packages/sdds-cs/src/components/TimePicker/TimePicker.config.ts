@@ -92,6 +92,8 @@ export const config = {
                 ${tokens.scrollbarColor}: ${surfaceSolidTertiary};
                 ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
 
+                ${tokens.disabledOpacity}: 0.4;
+
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};

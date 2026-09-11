@@ -5,6 +5,7 @@ import type { RootProps } from 'src/engines';
 import { useForkRef } from 'src/hooks';
 
 import { getCalendarContainerSize } from '../DatePicker/utils';
+import { getMeridiemTextAfter } from '../TimePickerGrid/utils';
 
 import type { DateTimePickerProps, DateTimePickerRootProps } from './DateTimePicker.types';
 import { base, CalendarContainerOverlay, LeftHelper } from './DateTimePicker.styles';
@@ -56,6 +57,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 timeFormat = 'HH:mm:ss',
                 dateTimeSeparator = ' ',
                 maskWithFormat,
+                use12Hours = false,
                 min,
                 max,
                 renderFromDate,
@@ -148,6 +150,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 dateVisibleValue,
                 calendarGridValue,
                 inputValue,
+                meridiem,
                 timeVisibleValue,
                 timeColumnsCount,
                 errorClass,
@@ -178,6 +181,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 min,
                 includeEdgeDates,
                 dateOnTimeSelectOnly,
+                use12Hours,
 
                 onChangeValue,
                 onCommitDate,
@@ -276,7 +280,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 contentLeft={contentLeft}
                                 contentRight={contentRight}
                                 textBefore={textBefore}
-                                textAfter={textAfter}
+                                textAfter={getMeridiemTextAfter(meridiem, textAfter)}
                                 autoComplete={autoComplete}
                                 readOnly={readOnly}
                                 disabled={disabled}
@@ -367,6 +371,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                             <TimeGrid
                                 value={timeVisibleValue}
                                 format={timeFormat}
+                                use12Hours={use12Hours}
                                 columns={timeColumnsCount}
                                 calendarContainerWidth={calendarContainerWidthValue}
                                 calendarContainerHeight={calendarContainerHeightValue}
