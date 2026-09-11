@@ -50,6 +50,7 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
+    "docusaurus-plugin-llms": "0.5.1",
     "@docusaurus/module-type-aliases": "3.6.1",
     "@docusaurus/types": "3.6.1",
     "@tsconfig/docusaurus": "2.0.2",
@@ -62,15 +63,7 @@
     "typescript": "5.2.2"
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }

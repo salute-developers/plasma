@@ -1,0 +1,34 @@
+---
+id: avatarGroup
+slug: /components/avatarGroup
+title: AvatarGroup
+description: "Группа аватаров с наложением друг на друга."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# AvatarGroup
+<Description name="AvatarGroup" />
+
+AvatarGroup это обертка для Avatar. Принимает в себя группу из avatar's.
+
+```tsx live
+import React from 'react';
+import { Avatar, AvatarGroup } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <AvatarGroup>
+                {
+                    Array(5).fill(true).map(() => (
+                        <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                    ))
+                }
+            </AvatarGroup>
+    );
+}
+```
+
+## API
+
+<PropsTable name="AvatarGroup" exclude={['css']} />

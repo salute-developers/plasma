@@ -108,6 +108,57 @@ export function App() {
 }
 ```
 
+## Ширина окна
+
+Окно не задаёт свои размеры — по умолчанию оно подстраивается под контент.
+Чтобы задать ширину, передайте `style` в `ModalBase`: он попадает на контейнер окна,
+поэтому размер работает и со стилизованной обёрткой `hasBody`.
+
+```tsx live
+import React from 'react';
+import { surfaceSolid02 } from '@salutejs/plasma-tokens-b2c';
+import { Button, ModalBase, PopupBaseProvider } from '@salutejs/plasma-b2c';
+
+export function App() {
+    const [isOpenFixed, setIsOpenFixed] = React.useState(false);
+    const [isOpenFull, setIsOpenFull] = React.useState(false);
+
+    return (
+        <PopupBaseProvider>
+            <div style={{ height: "300px" }}>
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                    <Button text="Фиксированная ширина" onClick={() => setIsOpenFixed(true)} />
+                    <Button text="На всю ширину экрана" onClick={() => setIsOpenFull(true)} />
+                </div>
+                <ModalBase
+                    id="modalFixed"
+                    onClose={() => setIsOpenFixed(false)}
+                    opened={isOpenFixed}
+                    placement="center"
+                    offset={[0, 0]}
+                    style={{ width: "25rem" }}
+                    hasBody
+                >
+                    <Button text="Закрыть" onClick={() => setIsOpenFixed(false)} />
+                </ModalBase>
+                <ModalBase
+                    id="modalFull"
+                    onClose={() => setIsOpenFull(false)}
+                    opened={isOpenFull}
+                    placement="bottom"
+                    offset={[0, 0]}
+                    style={{ width: "100%" }}
+                >
+                    <div style={{ background: `${surfaceSolid02}`, padding: "1rem" }}>
+                        <Button text="Закрыть" onClick={() => setIsOpenFull(false)} />
+                    </div>
+                </ModalBase>
+            </div>
+        </PopupBaseProvider>
+    );
+}
+```
+
 ## Подключение анимации
 
 Подключение анимации аналогично тому, как это происходит в `PopupBase` - через свойство `withAnimation`(управление через `popupBaseClasses`, `modalBaseClasses`).

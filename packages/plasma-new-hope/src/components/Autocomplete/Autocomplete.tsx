@@ -221,7 +221,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                         )}
                     >
                         {(renderList && renderList(finalResults)) ||
-                            (Boolean(finalResults.length) && (
+                            (Boolean(finalResults.length || beforeList || afterList) && (
                                 <Root
                                     view={view}
                                     size={size}
@@ -230,6 +230,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                     readOnly={readOnly}
                                 >
                                     <ListWrapper ref={listWrapperRef}>
+                                        {beforeList}
+
                                         <Ul
                                             id={listId}
                                             role="listbox"
@@ -248,28 +250,24 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                                     renderItem={renderItem}
                                                 />
                                             ) : (
-                                                <>
-                                                    {beforeList}
-
-                                                    {finalResults.map((suggestion, index) => (
-                                                        <SuggestionItem
-                                                            key={index}
-                                                            item={suggestion}
-                                                            onClick={handleItemClick}
-                                                            id={`${listId}/${index}`}
-                                                            focused={focused === index}
-                                                            renderItem={renderItem}
-                                                        />
-                                                    ))}
-
-                                                    {afterList}
-                                                </>
+                                                finalResults.map((suggestion, index) => (
+                                                    <SuggestionItem
+                                                        key={index}
+                                                        item={suggestion}
+                                                        onClick={handleItemClick}
+                                                        id={`${listId}/${index}`}
+                                                        focused={focused === index}
+                                                        renderItem={renderItem}
+                                                    />
+                                                ))
                                             )}
 
                                             {renderListEnd && (
                                                 <InfiniteLoaderWrapper>{renderListEnd()}</InfiniteLoaderWrapper>
                                             )}
                                         </Ul>
+
+                                        {afterList}
                                     </ListWrapper>
                                 </Root>
                             ))}

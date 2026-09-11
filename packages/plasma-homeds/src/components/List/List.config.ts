@@ -45,6 +45,7 @@ export const config = {
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
                 ${listTokens.listItemDividerHeight}: 0.0625rem;
+                ${listTokens.listItemDividerThickness}: 0.03125rem;
 
                 ${listTokens.listItemFontFamily}: ${bodyS.fontFamily};
                 ${listTokens.listItemFontSize}: ${bodyS.fontSize};
@@ -69,6 +70,7 @@ export const config = {
                 ${listTokens.listItemTightDifference}: 0.25rem;
 
                 ${listTokens.listItemDividerHeight}: 0.0625rem;
+                ${listTokens.listItemDividerThickness}: 0.03125rem;
 
                 ${listTokens.listItemFontFamily}: ${bodyM.fontFamily};
                 ${listTokens.listItemFontSize}: ${bodyM.fontSize};

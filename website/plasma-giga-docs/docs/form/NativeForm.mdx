@@ -1,6 +1,7 @@
 ---
 id: native-form
 title: Нативная форма
+description: "Подход к работе с нативной html-формой (тег form) и компонентами библиотеки."
 sidebar_position: 3
 ---
 
@@ -9,12 +10,12 @@ import TabItem from '@theme/TabItem';
 
 # Нативная форма
 
-Для работы с простой формой ( имеется ввиду html тег `<form>` ) можно использовать следующий подход.
+Для работы с простой формой (имеется ввиду html тег `<form>`) можно использовать следующий подход.
 
 ```tsx live
 
 import React from 'react';
-import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, Autocomplite } from "@salutejs{{ name }}";
+import { Button, TextField, TextArea, Checkbox, Switch, Radiobox, RadioGroup, Slider, DatePicker, Autocomplete, Combobox } from "@salutejs/plasma-giga";
 
 export function App() {
     const langName = 'language';
@@ -336,7 +337,7 @@ export function App() {
 <Tabs>
     <TabItem value="custom" label="Собственное решение" default>
         [Пример CodeSandbox](https://codesandbox.io/p/sandbox/custom-form-validation-9f3k55)
-        
+
         ```tsx
         export function App() {
             const emailOptions = {

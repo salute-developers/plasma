@@ -73,8 +73,17 @@ export const StyledListItem = styled.li`
             -1 * (var(${tokens.listItemPaddingBottom}) + var(${tokens.listItemDividerMarginTop}, 0rem) +
                         var(${tokens.listItemDividerHeight}))
         );
+        box-sizing: border-box;
         height: var(${tokens.listItemDividerHeight});
+        padding: calc(
+                (
+                        var(${tokens.listItemDividerHeight}) -
+                            var(${tokens.listItemDividerThickness}, var(${tokens.listItemDividerHeight}))
+                    ) / 2
+            )
+            0;
         background: var(${tokens.listItemDividerColor});
+        background-clip: content-box;
     }
     /* stylelint-enable */
 

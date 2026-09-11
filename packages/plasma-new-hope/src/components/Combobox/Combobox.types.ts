@@ -1,6 +1,6 @@
 import type { CSSProperties, InputHTMLAttributes, ChangeEventHandler, Dispatch, ReactNode } from 'react';
 import { SafeExtract } from 'src/types';
-import type { RequiredProps, HintProps, LabelProps } from 'src/components/TextField/TextField.types';
+import type { RequiredProps, HintProps, LabelProps, TextFieldProps } from 'src/components/TextField/TextField.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import type { ValueToCheckedMapType, CheckedType } from './hooks';
@@ -316,6 +316,7 @@ type PrivateProps = {
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     LabelProps &
+    Pick<TextFieldProps, 'appearance' | 'hasDivider'> &
     IsMultiple<T> &
     RequiredProps &
     HintProps &

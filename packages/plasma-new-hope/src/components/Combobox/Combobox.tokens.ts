@@ -80,10 +80,15 @@ export const tokens = {
     textFieldBorderColorHover: '--plasma-combobox-new-textfield-border-color-hover',
     textFieldBorderColorFocus: '--plasma-combobox-new-textfield-border-color-focus',
 
+    textFieldDividerColor: '--plasma-combobox-new-textfield-divider-color',
+    textFieldDividerColorHover: '--plasma-combobox-new-textfield-divider-color-hover',
+    textFieldDividerColorFocus: '--plasma-combobox-new-textfield-divider-color-focus',
+
     textFieldColorReadOnly: '--plasma-combobox-new-textfield-color-readonly',
     textFieldBackgroundColorReadOnly: '--plasma-combobox-new-textfield-bg-color-readonly',
     textFieldBorderColorReadOnly: '--plasma-combobox-new-textfield-border-color-readonly',
     textFieldPlaceholderColorReadOnly: '--plasma-combobox-new-textfield-placeholder-color-readonly',
+    textFieldDividerColorReadOnly: '--plasma-combobox-new-textfield-divider-color-readonly',
 
     textFieldCaretColor: '--plasma-combobox-new-textfield-caret-color',
     textFieldPlaceholderColor: '--plasma-combobox-new-textfield-placeholder-color',
