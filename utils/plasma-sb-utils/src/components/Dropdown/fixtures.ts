@@ -60,6 +60,7 @@ export const items = [
         label: 'Европа',
         dividerBefore: true,
         dividerAfter: true,
+        className: 'dropdown-item-negative',
         items: [
             {
                 value: 'france',
@@ -106,10 +107,12 @@ export const items = [
             {
                 value: 'spain',
                 label: 'Испания',
+                className: 'dropdown-item-negative',
                 items: [
                     {
                         value: 'madrid',
                         label: 'Мадрид',
+                        className: 'dropdown-item-negative',
                     },
                     {
                         value: 'barcelona',

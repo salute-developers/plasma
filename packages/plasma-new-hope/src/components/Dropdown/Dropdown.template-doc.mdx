@@ -62,7 +62,7 @@ type ItemOption = {
      */
     dividerAfter?: boolean;
     /**
-     * Classname для item.
+     * Classname для item. Для негативного отображения используйте `dropdown-item-negative`.
      */
     className?: string;
     /**
@@ -78,6 +78,18 @@ type ItemOption = {
      */
     hidden?: boolean;
 };
+```
+
+Чтобы окрасить отдельный элемент в негативный цвет, передайте ему CSS-класс `dropdown-item-negative` или же js-перемнную `dropdownClasses.dropdownItemNegative`:
+
+```tsx
+const items = [
+    {
+        value: 'delete',
+        label: 'Удалить',
+        className: 'dropdown-item-negative',
+    },
+];
 ```
 
 ## Примеры
