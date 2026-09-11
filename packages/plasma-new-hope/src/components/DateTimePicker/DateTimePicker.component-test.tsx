@@ -734,4 +734,49 @@ describeFn('DateTimePicker', () => {
 
         cy.get('input').first().click().type('14062023');
     });
+
+    it('use12Hours: shows the time in 12-hour format and the meridiem in textAfter', () => {
+        cy.viewport(750, 700);
+
+        mount(
+            <>
+                <Demo use12Hours value={new Date(2024, 5, 15, 13, 30, 0)} />
+                <Demo use12Hours value={new Date(2024, 5, 15, 0, 15, 0)} />
+                <Demo use12Hours value={new Date(2024, 5, 15, 12, 0, 0)} />
+            </>,
+        );
+
+        cy.get('input').eq(0).should('have.value', '15.06.2024 01:30:00');
+        cy.get('input').eq(0).parent().should('have.text', 'PM');
+        cy.get('input').eq(1).should('have.value', '15.06.2024 12:15:00');
+        cy.get('input').eq(1).parent().should('have.text', 'AM');
+        cy.get('input').eq(2).should('have.value', '15.06.2024 12:00:00');
+        cy.get('input').eq(2).parent().should('have.text', 'PM');
+    });
+
+    it('use12Hours: typed 24-hour hours set the meridiem and stay 24-hour in callbacks', () => {
+        cy.viewport(750, 700);
+
+        const onChangeValue = cy.stub().as('onChangeValue');
+        const onCommitDate = cy.stub().as('onCommitDate');
+
+        mount(<Demo use12Hours maskWithFormat onChangeValue={onChangeValue} onCommitDate={onCommitDate} />);
+
+        cy.get('input').first().click().type('15062024173000');
+
+        cy.get('input').first().should('have.value', '15.06.2024 05:30:00');
+        cy.get('input').first().parent().should('have.text', 'PM');
+        cy.get('@onChangeValue').its('lastCall.args.1').should('eq', '15.06.2024 17:30:00');
+        cy.get('@onCommitDate').its('lastCall.args.0').should('eq', '15.06.2024 17:30:00');
+    });
+
+    it('use12Hours: dropdown with the meridiem column', () => {
+        mount(<Demo use12Hours defaultDate={new Date(2024, 5, 15, 13, 30, 0)} renderFromDate={new Date(2024, 5, 1)} />);
+        openDateTimePicker();
+
+        cy.get('body').find('[data-active="true"]').last().should('be.visible');
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(350);
+        cy.matchImageSnapshot();
+    });
 });
