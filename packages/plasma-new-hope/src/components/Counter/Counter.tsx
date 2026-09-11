@@ -15,15 +15,19 @@ export const counterRoot = (Root: RootProps<HTMLDivElement, CounterProps>) =>
     forwardRef<HTMLDivElement, CounterProps>((props, ref) => {
         const { count, maxCount, size, view, className, ...rest } = props;
 
-        const currentCount = count < MIN_COUNT ? MIN_COUNT : count;
-        const currentMaxCount = maxCount && maxCount < MIN_COUNT ? MIN_COUNT : maxCount;
+        let content = count;
+        let roundClass: string | undefined;
 
-        const isCurrentCountOneDigit = currentCount >= 0 && currentCount < 10;
-        const isCurrentMaxCountExceeded = currentMaxCount && currentCount > currentMaxCount;
+        if (typeof count === 'number') {
+            const currentCount = count < MIN_COUNT ? MIN_COUNT : count;
+            const currentMaxCount = maxCount && maxCount < MIN_COUNT ? MIN_COUNT : maxCount;
 
-        const content = isCurrentMaxCountExceeded ? `${currentMaxCount}+` : currentCount;
+            const isCurrentCountOneDigit = currentCount >= 0 && currentCount < 10;
+            const isCurrentMaxCountExceeded = currentMaxCount && currentCount > currentMaxCount;
 
-        const roundClass = !isCurrentMaxCountExceeded && isCurrentCountOneDigit ? classes.round : undefined;
+            content = isCurrentMaxCountExceeded ? `${currentMaxCount}+` : currentCount;
+            roundClass = !isCurrentMaxCountExceeded && isCurrentCountOneDigit ? classes.round : undefined;
+        }
 
         return (
             <Root ref={ref} view={view} size={size} count={count} className={cx(roundClass, className)} {...rest}>
