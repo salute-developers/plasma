@@ -2458,6 +2458,15 @@ export const dataPinkTransparentActive = 'var(--data-pink-transparent-active, #F
 /** dark data default dataPinkTransparent */
 export const dataPinkTransparent = 'var(--data-pink-transparent, #FF369A8F)';
 
+/** dark data default dataPinkTransparentMinor */
+export const dataPinkTransparentMinor = 'var(--data-pink-transparent-minor, #FF369A33)';
+
+/** dark data default dataPinkTransparentMinorHover */
+export const dataPinkTransparentMinorHover = 'var(--data-pink-transparent-minor-hover, #FF389C52)';
+
+/** dark data default dataPinkTransparentMinorActive */
+export const dataPinkTransparentMinorActive = 'var(--data-pink-transparent-minor-active, #FF389C24)';
+
 /** Желтый цвет для данных на темном фоне */
 export const onDarkDataYellow = 'var(--on-dark-data-yellow, #F3A912)';
 
@@ -2511,6 +2520,15 @@ export const onDarkDataPinkTransparentHover = 'var(--on-dark-data-pink-transpare
 
 /** dark data onDark dataPinkTransparentActive */
 export const onDarkDataPinkTransparentActive = 'var(--on-dark-data-pink-transparent-active, #FF57AB80)';
+
+/** dark data onDark dataPinkTransparentMinor */
+export const onDarkDataPinkTransparentMinor = 'var(--on-dark-data-pink-transparent-minor, #FF369A33)';
+
+/** dark data onDark dataPinkTransparentMinorHover */
+export const onDarkDataPinkTransparentMinorHover = 'var(--on-dark-data-pink-transparent-minor-hover, #FF389C52)';
+
+/** dark data onDark dataPinkTransparentMinorActive */
+export const onDarkDataPinkTransparentMinorActive = 'var(--on-dark-data-pink-transparent-minor-active, #FF389C24)';
 
 /** Желтый цвет для данных на светлом фоне */
 export const onLightDataYellow = 'var(--on-light-data-yellow, #F3A912)';
@@ -2566,6 +2584,15 @@ export const onLightDataPinkTransparentActive = 'var(--on-light-data-pink-transp
 /** dark data onLight dataPinkTransparent */
 export const onLightDataPinkTransparent = 'var(--on-light-data-pink-transparent, #FF369A8F)';
 
+/** dark data onLight dataPinkTransparentMinor */
+export const onLightDataPinkTransparentMinor = 'var(--on-light-data-pink-transparent-minor, #FF369A1F)';
+
+/** dark data onLight dataPinkTransparentMinorHover */
+export const onLightDataPinkTransparentMinorHover = 'var(--on-light-data-pink-transparent-minor-hover, #FF389C2E)';
+
+/** dark data onLight dataPinkTransparentMinorActive */
+export const onLightDataPinkTransparentMinorActive = 'var(--on-light-data-pink-transparent-minor-active, #FF389C33)';
+
 /** Инвертированный желтый цвет для данных */
 export const inverseDataYellow = 'var(--inverse-data-yellow, #F3A912)';
 
@@ -2619,6 +2646,15 @@ export const inverseDataPinkTransparentHover = 'var(--inverse-data-pink-transpar
 
 /** dark data inverse dataPinkTransparentActive */
 export const inverseDataPinkTransparentActive = 'var(--inverse-data-pink-transparent-active, #FF57ABA3)';
+
+/** dark data inverse dataPinkTransparentMinor */
+export const inverseDataPinkTransparentMinor = 'var(--inverse-data-pink-transparent-minor, #FF369A1F)';
+
+/** dark data inverse dataPinkTransparentMinorHover */
+export const inverseDataPinkTransparentMinorHover = 'var(--inverse-data-pink-transparent-minor-hover, #FF389C2E)';
+
+/** dark data inverse dataPinkTransparentMinorActive */
+export const inverseDataPinkTransparentMinorActive = 'var(--inverse-data-pink-transparent-minor-active, #FF389C33)';
 
 /** Акцентный цвет с градиентом */
 export const textAccentGradientHover = 'var(--text-accent-gradient-hover, #858585FF)';
@@ -4075,6 +4111,9 @@ export const viewContainer = {
         --data-pink-transparent-hover: var(--on-dark-data-pink-transparent-hover);
         --data-pink-transparent-active: var(--on-dark-data-pink-transparent-active);
         --data-pink-transparent: var(--on-dark-data-pink-transparent);
+        --data-pink-transparent-minor: var(--on-dark-data-pink-transparent-minor);
+        --data-pink-transparent-minor-hover: var(--on-dark-data-pink-transparent-minor-hover);
+        --data-pink-transparent-minor-active: var(--on-dark-data-pink-transparent-minor-active);
         --inverse-data-yellow: var(--on-light-data-yellow);
         --inverse-data-yellow-hover: var(--on-light-data-yellow-hover);
         --inverse-data-yellow-active: var(--on-light-data-yellow-active);
@@ -4093,6 +4132,9 @@ export const viewContainer = {
         --inverse-data-pink-transparent: var(--on-light-data-pink-transparent);
         --inverse-data-pink-transparent-hover: var(--on-light-data-pink-transparent-hover);
         --inverse-data-pink-transparent-active: var(--on-light-data-pink-transparent-active);
+        --inverse-data-pink-transparent-minor: var(--on-light-data-pink-transparent-minor);
+        --inverse-data-pink-transparent-minor-hover: var(--on-light-data-pink-transparent-minor-hover);
+        --inverse-data-pink-transparent-minor-active: var(--on-light-data-pink-transparent-minor-active);
         --text-accent-gradient-hover: var(--on-dark-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-dark-text-accent-gradient-active);
         --text-accent-gradient: var(--on-dark-text-accent-gradient);
@@ -4567,6 +4609,9 @@ export const viewContainer = {
         --data-pink-transparent: var(--on-light-data-pink-transparent);
         --data-pink-transparent-hover: var(--on-light-data-pink-transparent-hover);
         --data-pink-transparent-active: var(--on-light-data-pink-transparent-active);
+        --data-pink-transparent-minor-hover: var(--on-light-data-pink-transparent-minor-hover);
+        --data-pink-transparent-minor-active: var(--on-light-data-pink-transparent-minor-active);
+        --data-pink-transparent-minor: var(--on-light-data-pink-transparent-minor);
         --inverse-data-yellow: var(--on-dark-data-yellow);
         --inverse-data-yellow-hover: var(--on-dark-data-yellow-hover);
         --inverse-data-yellow-active: var(--on-dark-data-yellow-active);
@@ -4585,6 +4630,9 @@ export const viewContainer = {
         --inverse-data-pink-transparent: var(--on-dark-data-pink-transparent);
         --inverse-data-pink-transparent-hover: var(--on-dark-data-pink-transparent-hover);
         --inverse-data-pink-transparent-active: var(--on-dark-data-pink-transparent-active);
+        --inverse-data-pink-transparent-minor-hover: var(--on-dark-data-pink-transparent-minor-hover);
+        --inverse-data-pink-transparent-minor-active: var(--on-dark-data-pink-transparent-minor-active);
+        --inverse-data-pink-transparent-minor: var(--on-dark-data-pink-transparent-minor);
         --text-accent-gradient-hover: var(--on-light-text-accent-gradient-hover);
         --text-accent-gradient-active: var(--on-light-text-accent-gradient-active);
         --text-accent-gradient: var(--on-light-text-accent-gradient);
