@@ -35,6 +35,7 @@
         "sdds-platform-ai",
         "sdds-os",
         "sdds-sbcom",
+        "sdds-vc",
         "sdds-icons"
     ],
     "PACKAGES_TYPESENSE": [
