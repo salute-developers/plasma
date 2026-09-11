@@ -6,15 +6,13 @@ on:
     push:
         branches:
             - master
-    pull_request:
-        branches:
-            - master
-            - dev
-            - next-sbcom
+    issue_comment:
+        types:
+            - created
     workflow_dispatch:
         inputs:
             release:
-                description: "Release type: dev, next-branch"
+                description: "Release type: rc, next-branch"
                 required: true
                 type: choice
                 options:
@@ -22,25 +20,75 @@ on:
                     - next-sbcom
 
 concurrency:
-    # PR и dispatch next-*: новый прогон отменяет предыдущий в той же группе.
-    # rc и push в master: группа уникальна (run_id) — прогоны не отменяются и не сливаются.
-    group: ${{ github.workflow }}-${{ github.head_ref || inputs.release || github.run_id }}
-    cancel-in-progress: ${{ github.event_name == 'pull_request' || startsWith(inputs.release, 'next-') }}
+    # Canary группируются по номеру PR, остальные ручные публикации — по типу релиза.
+    group: ${{ github.workflow }}-${{ github.event.issue.number || inputs.release || github.run_id }}
+    cancel-in-progress: ${{ startsWith(inputs.release, 'next-') }}
 
 jobs:
+    authorize-canary:
+        name: Authorize canary publication
+        if: |
+            github.event_name == 'issue_comment' &&
+            github.event.issue.pull_request &&
+            github.event.comment.body == '/release-canary'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            pull-requests: read
+        outputs:
+            pull-request-number: ${{ steps.authorize.outputs.pull-request-number }}
+            head-sha: ${{ steps.authorize.outputs.head-sha }}
+        steps:
+            - name: Check author permission and pull request
+              id: authorize
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const allowedPermissions = new Set(['write', 'maintain', 'admin']);
+                      const pullNumber = context.issue.number;
+                      const username = context.payload.comment.user.login;
+
+                      const { data: access } = await github.rest.repos.getCollaboratorPermissionLevel({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          username,
+                      });
+
+                      if (!allowedPermissions.has(access.permission)) {
+                          core.setFailed(`@${username} does not have permission to publish canary versions.`);
+                          return;
+                      }
+
+                      const { data: pull } = await github.rest.pulls.get({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          pull_number: pullNumber,
+                      });
+
+                      if (pull.state !== 'open') {
+                          core.setFailed(`Pull request #${pullNumber} is not open.`);
+                          return;
+                      }
+
+                      if (pull.head.repo?.full_name !== `${context.repo.owner}/${context.repo.repo}`) {
+                          core.setFailed('Canary publication is allowed only for pull requests from this repository.');
+                          return;
+                      }
+
+                      core.setOutput('pull-request-number', pullNumber);
+                      core.setOutput('head-sha', pull.head.sha);
+
     publish-canary:
         name: Publish canary version
-        # Только PR из этого же репозитория: у fork-PR нет ни секретов, ни id-token.
-        # pull_request_target не обрабатываем, поэтому canary для внешних PR не публикуется.
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        needs: [authorize-canary]
         permissions:
             id-token: write # выдать OIDC-токен для npm trusted publishing
             contents: read
+            pull-requests: write
         uses: ./.github/workflows/publish-common.yml
         with:
-            ref: refs/pull/${{ github.event.pull_request.number }}/merge
-            auto-options: '--no-changelog'
-            prepare-since: ${{ github.event.pull_request.base.sha }}
+            pull-request-number: ${{ needs.authorize-canary.outputs.pull-request-number }}
+            expected-head-sha: ${{ needs.authorize-canary.outputs.head-sha }}
         secrets:
             gh_token: ${{ secrets.GH_TOKEN }}
             npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}
