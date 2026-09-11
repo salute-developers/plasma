@@ -51,6 +51,9 @@ import {
     textSecondaryHover,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
+// INFO: Rounded radius. Should be removed after token will be added in theme
+const roundedRadius = '1000px';
+
 export const config = {
     defaults: {
         view: 'default',
@@ -507,7 +510,7 @@ export const config = {
                 ${attachTokens.buttonHeight}: 3.5rem;
                 ${attachTokens.buttonWidth}: 12.5rem;
                 ${attachTokens.buttonPadding}: 1.5rem;
-                ${attachTokens.buttonRadius}: 0.875rem;
+                ${attachTokens.buttonRadius}: ${roundedRadius};
                 ${attachTokens.buttonFontFamily}: ${bodyL.fontFamily};
                 ${attachTokens.buttonFontSize}: ${bodyL.fontSize};
                 ${attachTokens.buttonFontStyle}: ${bodyL.fontStyle};
@@ -556,7 +559,7 @@ export const config = {
                 ${attachTokens.iconButtonHeight}: 3.5rem;
                 ${attachTokens.iconButtonWidth}: 3.5rem;
                 ${attachTokens.iconButtonPadding}: 1.5rem;
-                ${attachTokens.iconButtonRadius}: 0.875rem;
+                ${attachTokens.iconButtonRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonFontFamily}: ${bodyL.fontFamily};
                 ${attachTokens.iconButtonFontSize}: ${bodyL.fontSize};
                 ${attachTokens.iconButtonFontStyle}: ${bodyL.fontStyle};
@@ -570,7 +573,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelHeight}: 2rem;
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
-                ${attachTokens.iconButtonCancelRadius}: 0.5rem;
+                ${attachTokens.iconButtonCancelRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
                 ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
                 ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
@@ -597,7 +600,7 @@ export const config = {
                 ${attachTokens.buttonHeight}: 3rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1.25rem;
-                ${attachTokens.buttonRadius}: 0.75rem;
+                ${attachTokens.buttonRadius}: ${roundedRadius};
                 ${attachTokens.buttonFontFamily}: ${bodyM.fontFamily};
                 ${attachTokens.buttonFontSize}: ${bodyM.fontSize};
                 ${attachTokens.buttonFontStyle}: ${bodyM.fontStyle};
@@ -646,7 +649,7 @@ export const config = {
                 ${attachTokens.iconButtonHeight}: 3rem;
                 ${attachTokens.iconButtonWidth}: 3rem;
                 ${attachTokens.iconButtonPadding}: 1.25rem;
-                ${attachTokens.iconButtonRadius}: 0.75rem;
+                ${attachTokens.iconButtonRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonFontFamily}: ${bodyM.fontFamily};
                 ${attachTokens.iconButtonFontSize}: ${bodyM.fontSize};
                 ${attachTokens.iconButtonFontStyle}: ${bodyM.fontStyle};
@@ -660,7 +663,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelHeight}: 2rem;
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
-                ${attachTokens.iconButtonCancelRadius}: 0.5rem;
+                ${attachTokens.iconButtonCancelRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
                 ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
                 ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
@@ -687,7 +690,7 @@ export const config = {
                 ${attachTokens.buttonHeight}: 2.5rem;
                 ${attachTokens.buttonWidth}: 11.25rem;
                 ${attachTokens.buttonPadding}: 1rem;
-                ${attachTokens.buttonRadius}: 0.625rem;
+                ${attachTokens.buttonRadius}: ${roundedRadius};
                 ${attachTokens.buttonFontFamily}: ${bodyS.fontFamily};
                 ${attachTokens.buttonFontSize}: ${bodyS.fontSize};
                 ${attachTokens.buttonFontStyle}: ${bodyS.fontStyle};
@@ -736,7 +739,7 @@ export const config = {
                 ${attachTokens.iconButtonHeight}: 2.5rem;
                 ${attachTokens.iconButtonWidth}: 2.5rem;
                 ${attachTokens.iconButtonPadding}: 1rem;
-                ${attachTokens.iconButtonRadius}: 0.625rem;
+                ${attachTokens.iconButtonRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonFontFamily}: ${bodyS.fontFamily};
                 ${attachTokens.iconButtonFontSize}: ${bodyS.fontSize};
                 ${attachTokens.iconButtonFontStyle}: ${bodyS.fontStyle};
@@ -750,7 +753,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelHeight}: 2rem;
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
-                ${attachTokens.iconButtonCancelRadius}: 0.5rem;
+                ${attachTokens.iconButtonCancelRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
                 ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
                 ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};
@@ -777,7 +780,7 @@ export const config = {
                 ${attachTokens.buttonHeight}: 2rem;
                 ${attachTokens.buttonWidth}: 10rem;
                 ${attachTokens.buttonPadding}: 0.75rem;
-                ${attachTokens.buttonRadius}: 0.5rem;
+                ${attachTokens.buttonRadius}: ${roundedRadius};
                 ${attachTokens.buttonFontFamily}: ${bodyXS.fontFamily};
                 ${attachTokens.buttonFontSize}: ${bodyXS.fontSize};
                 ${attachTokens.buttonFontStyle}: ${bodyXS.fontStyle};
@@ -826,7 +829,7 @@ export const config = {
                 ${attachTokens.iconButtonHeight}: 2rem;
                 ${attachTokens.iconButtonWidth}: 2rem;
                 ${attachTokens.iconButtonPadding}: 0.75rem;
-                ${attachTokens.iconButtonRadius}: 0.5rem;
+                ${attachTokens.iconButtonRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonFontFamily}: ${bodyXS.fontFamily};
                 ${attachTokens.iconButtonFontSize}: ${bodyXS.fontSize};
                 ${attachTokens.iconButtonFontStyle}: ${bodyXS.fontStyle};
@@ -840,7 +843,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelHeight}: 2rem;
                 ${attachTokens.iconButtonCancelWidth}: 2rem;
                 ${attachTokens.iconButtonCancelPadding}: 0.75rem;
-                ${attachTokens.iconButtonCancelRadius}: 0.5rem;
+                ${attachTokens.iconButtonCancelRadius}: ${roundedRadius};
                 ${attachTokens.iconButtonCancelFontFamily}: ${bodyXS.fontFamily};
                 ${attachTokens.iconButtonCancelFontSize}: ${bodyXS.fontSize};
                 ${attachTokens.iconButtonCancelFontStyle}: ${bodyXS.fontStyle};

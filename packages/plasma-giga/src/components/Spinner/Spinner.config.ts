@@ -1,11 +1,10 @@
-import { css } from '@salutejs/plasma-new-hope/styled-components';
+import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    textAccent,
-    textNegative,
+    surfaceNegative,
+    surfaceSolidDefault,
+    surfaceTransparentDeep,
     textParagraph,
     textPositive,
-    textPrimary,
-    textSecondary,
     textTertiary,
     textWarning,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
@@ -18,28 +17,28 @@ export const config = {
     variations: {
         view: {
             default: css`
-                --plasma-spinner-color: ${textPrimary};
+                ${tokens.color}: ${surfaceSolidDefault};
             `,
             secondary: css`
-                --plasma-spinner-color: ${textSecondary};
+                ${tokens.color}: ${surfaceTransparentDeep};
             `,
             tertiary: css`
-                --plasma-spinner-color: ${textTertiary};
+                ${tokens.color}: ${textTertiary};
             `,
             paragraph: css`
-                --plasma-spinner-color: ${textParagraph};
+                ${tokens.color}: ${textParagraph};
             `,
             accent: css`
-                --plasma-spinner-color: ${textAccent};
+                ${tokens.color}: ${surfaceSolidDefault};
             `,
             positive: css`
-                --plasma-spinner-color: ${textPositive};
+                ${tokens.color}: ${textPositive};
             `,
             warning: css`
-                --plasma-spinner-color: ${textWarning};
+                ${tokens.color}: ${textWarning};
             `,
             negative: css`
-                --plasma-spinner-color: ${textNegative};
+                ${tokens.color}: ${surfaceNegative};
             `,
         },
     },
