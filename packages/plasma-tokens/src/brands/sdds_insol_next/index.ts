@@ -2667,6 +2667,14 @@ export const dataDefaultDataPinkTransparentActive = 'var(--data-default-data-pin
 
 export const dataDefaultDataPinkTransparent = 'var(--data-default-data-pink-transparent, #ff369a8f)';
 
+export const dataDefaultDataPinkTransparentMinor = 'var(--data-default-data-pink-transparent-minor, #ff369a33)';
+
+export const dataDefaultDataPinkTransparentMinorHover =
+    'var(--data-default-data-pink-transparent-minor-hover, #FF389C52)';
+
+export const dataDefaultDataPinkTransparentMinorActive =
+    'var(--data-default-data-pink-transparent-minor-active, #FF389C24)';
+
 /** Желтый цвет для данных на темном фоне */
 export const dataOnDarkDataYellow = 'var(--data-on-dark-data-yellow, #F3A912)';
 
@@ -2711,6 +2719,14 @@ export const dataOnDarkDataPinkTransparent = 'var(--data-on-dark-data-pink-trans
 export const dataOnDarkDataPinkTransparentHover = 'var(--data-on-dark-data-pink-transparent-hover, #FF57ABAD)';
 
 export const dataOnDarkDataPinkTransparentActive = 'var(--data-on-dark-data-pink-transparent-active, #FF57AB80)';
+
+export const dataOnDarkDataPinkTransparentMinor = 'var(--data-on-dark-data-pink-transparent-minor, #ff369a33)';
+
+export const dataOnDarkDataPinkTransparentMinorHover =
+    'var(--data-on-dark-data-pink-transparent-minor-hover, #FF389C52)';
+
+export const dataOnDarkDataPinkTransparentMinorActive =
+    'var(--data-on-dark-data-pink-transparent-minor-active, #FF389C24)';
 
 /** Желтый цвет для данных на светлом фоне */
 export const dataOnLightDataYellow = 'var(--data-on-light-data-yellow, #F3A912)';
@@ -2757,6 +2773,14 @@ export const dataOnLightDataPinkTransparentActive = 'var(--data-on-light-data-pi
 
 export const dataOnLightDataPinkTransparent = 'var(--data-on-light-data-pink-transparent, #ff369a8f)';
 
+export const dataOnLightDataPinkTransparentMinor = 'var(--data-on-light-data-pink-transparent-minor, #ff369a1f)';
+
+export const dataOnLightDataPinkTransparentMinorHover =
+    'var(--data-on-light-data-pink-transparent-minor-hover, #FF389C2E)';
+
+export const dataOnLightDataPinkTransparentMinorActive =
+    'var(--data-on-light-data-pink-transparent-minor-active, #FF389C33)';
+
 /** Инвертированный желтый цвет для данных */
 export const dataInverseDataYellow = 'var(--data-inverse-data-yellow, #F3A912)';
 
@@ -2801,6 +2825,14 @@ export const dataInverseDataPinkTransparent = 'var(--data-inverse-data-pink-tran
 export const dataInverseDataPinkTransparentHover = 'var(--data-inverse-data-pink-transparent-hover, #FF57AB9E)';
 
 export const dataInverseDataPinkTransparentActive = 'var(--data-inverse-data-pink-transparent-active, #FF57ABA3)';
+
+export const dataInverseDataPinkTransparentMinor = 'var(--data-inverse-data-pink-transparent-minor, #ff369a1f)';
+
+export const dataInverseDataPinkTransparentMinorHover =
+    'var(--data-inverse-data-pink-transparent-minor-hover, #FF389C2E)';
+
+export const dataInverseDataPinkTransparentMinorActive =
+    'var(--data-inverse-data-pink-transparent-minor-active, #FF389C33)';
 
 export const skeletonGradient =
     'var(--skeleton-gradient, linear-gradient( 90deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.08) 6.25%, rgba(255, 255, 255, 0.05) 12.5%, rgba(255, 255, 255, 0.01) 25%, rgba(255, 255, 255, 0.05) 37.5%, rgba(255, 255, 255, 0.08) 43.75%, rgba(255, 255, 255, 0.09) 50%, rgba(255, 255, 255, 0.08) 56.25%, rgba(255, 255, 255, 0.05) 62.5%, rgba(255, 255, 255, 0.01) 75%, rgba(255, 255, 255, 0.05) 87.5%, rgba(255, 255, 255, 0.08) 93.75%, rgba(255, 255, 255, 0.09) 100% ))';
