@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { cx, RootProps } from '@salutejs/plasma-new-hope';
+import { cx, RootProps } from '@salutejs/plasma-new-hope/styled-components';
 
 import { classes } from '../Header.tokens';
 

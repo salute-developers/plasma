@@ -3,8 +3,8 @@ import {
     component,
     mergeConfig,
     createConditionalComponent,
+    makePolymorphic,
 } from '@salutejs/plasma-new-hope/styled-components';
-import { makePolymorphic } from '@salutejs/plasma-new-hope';
 
 import { config } from './Button.config';
 import { config as outlineConfig } from './Button.outline.config';

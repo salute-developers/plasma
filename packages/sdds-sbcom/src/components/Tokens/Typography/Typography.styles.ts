@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { segmentTokens, bodyXS, bodyM } from '@salutejs/plasma-new-hope';
+import { segmentTokens, bodyXS, bodyM } from '@salutejs/plasma-new-hope/styled-components';
 
 import { AccordionItem } from '../../Accordion';
 import { SegmentItem } from '../../Segment/Segment';

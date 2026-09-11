@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { bodyXS, bodyM } from '@salutejs/plasma-new-hope';
+import { bodyXS, bodyM } from '@salutejs/plasma-new-hope/styled-components';
 
 import { AccordionItem } from '../../Accordion';
 
