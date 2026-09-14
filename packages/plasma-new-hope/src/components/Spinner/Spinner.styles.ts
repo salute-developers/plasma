@@ -2,75 +2,74 @@ import styled, { css } from 'styled-components';
 
 import { privateTokens, tokens } from './Spinner.tokens';
 
-// Мягкий переход убирает ступенчатость на границе mask.
-const edgeSmoothing = '0.03125rem';
-
 const size = `var(${tokens.size}, 1.5rem)`;
-
-// Сторона бокса спиннера.
-const box = '100cqmin';
-
-// Начало и длина дуги из макета, в градусах по часовой стрелке от 12 часов.
-const arcStart = 133.8;
-const arcLength = 316.7;
-// Середина разрыва между головой и хвостом.
-const gapMiddle = 180 + arcLength / 2;
+const tailColor = `var(${tokens.tailColor}, rgba(255, 255, 255, 0.06))`;
+const animationDuration = `var(${tokens.animationDuration}, 1s)`;
 
 const padding = `var(${privateTokens.padding})`;
 const diameter = `var(${privateTokens.diameter})`;
 const thickness = `var(${privateTokens.thickness})`;
 
-// Цвет затухающего конца дуги.
-const tailColor = 'rgba(255, 255, 255, 0.06)';
+/* Дуга занимает content-box корня. */
+const box = '100cqmin';
 
-// Отступ до дуги из макета: 16/24/36/48/56/88/128px → 1/2/3/4/4/6/8px.
+const arcStart = `var(${tokens.arcStart}, 133.8deg)`;
+const arcLength = `var(${tokens.arcLength}, 316.7deg)`;
+const arcEnd = `calc(${arcStart} + ${arcLength})`;
+const gapMiddle = `calc(180deg + ${arcLength} / 2)`;
+
+/* Отступ из макета: 16/24/36/48/56/88/128px → 1/2/3/4/4/6/8px. */
 const paddingByBox = `min(${box} / 12, ${box} * 0.05 + 0.1rem)`;
 
-const toRadians = (degrees: number) => (degrees * Math.PI) / 180;
+/* Мягкий переход убирает ступенчатость на кромке капа. */
+const edgeSmoothing = '0.25px';
 
-const ringMask = `radial-gradient(
-        circle closest-side,
-        transparent calc(100% - ${thickness} - ${edgeSmoothing}),
-        #000 calc(100% - ${thickness} + ${edgeSmoothing})
-    )`;
+/* Центр скруглённого конца дуги — на осевой линии кольца. */
+const capCenter = (angle: string) =>
+    `calc(50% + sin(${angle}) * ((${diameter} - ${thickness}) / 2)) calc(50% - cos(${angle}) * ((${diameter} - ${thickness}) / 2))`;
 
-const arcMask = `conic-gradient(from ${arcStart}deg, #000 ${arcLength}deg, transparent ${arcLength}deg)`;
+/* Кап входит в маску, а не рисуется поверх: иначе на перекрытии альфа удваивается. */
+const cap = (angle: string) =>
+    `radial-gradient(circle at ${capCenter(
+        angle,
+    )}, #000 calc(${thickness} / 2 - ${edgeSmoothing}), transparent calc(${thickness} / 2 + ${edgeSmoothing}))`;
 
-// Скруглённый конец дуги — круг в маске на осевой линии.
-const capMask = (angle: number) => {
-    const axisRadius = `(${diameter} - ${thickness}) / 2`;
-    const x = `calc(50% + ${Math.sin(toRadians(angle)).toFixed(5)} * ${axisRadius})`;
-    const y = `calc(50% - ${Math.cos(toRadians(angle)).toFixed(5)} * ${axisRadius})`;
+const arcSector = `conic-gradient(from ${arcStart}, #000 ${arcLength}, transparent ${arcLength})`;
 
-    return `radial-gradient(
-        circle at ${x} ${y},
-        #000 calc(${thickness} / 2 - ${edgeSmoothing}),
-        transparent calc(${thickness} / 2 + ${edgeSmoothing})
-    )`;
-};
+/* Дырка кольца — content-box; внешнюю окружность даёт border-radius самого элемента. */
+const ringHole = 'linear-gradient(#000 0 0) content-box';
 
-// Слои сверху вниз: (кольцо ∩ сектор дуги) ∪ кап начала ∪ кап конца.
-const mask = [capMask(arcStart + arcLength), capMask(arcStart), ringMask, arcMask].join(', ');
+/* Слои сверху вниз: (сектор − дырка) ∪ кап начала ∪ кап конца. */
+const mask = [cap(arcEnd), cap(arcStart), arcSector, ringHole].join(', ');
 
 export const SpinnerRing = styled.div`
     box-sizing: border-box;
     width: ${diameter};
     height: ${diameter};
-    margin: auto;
+    margin: ${padding};
+    padding: ${thickness};
     border-radius: 50%;
 
     background: conic-gradient(
-        from ${arcStart}deg,
+        from ${arcStart},
         ${tailColor} 0deg,
-        currentColor ${arcLength}deg,
-        currentColor ${gapMiddle}deg,
-        ${tailColor} ${gapMiddle}deg
+        currentColor ${arcLength},
+        currentColor ${gapMiddle},
+        ${tailColor} ${gapMiddle}
     );
 
     -webkit-mask: ${mask};
     mask: ${mask};
-    -webkit-mask-composite: source-over, source-over, source-in, source-over;
-    mask-composite: add, add, intersect, add;
+    -webkit-mask-composite: source-over, source-over, source-out, source-over;
+    mask-composite: add, add, subtract, add;
+
+    animation: spinnerRotateAnimation ${animationDuration} linear infinite;
+
+    @keyframes spinnerRotateAnimation {
+        to {
+            transform: rotate(360deg);
+        }
+    }
 `;
 
 export const BodyWrapper = styled.div`
@@ -98,12 +97,4 @@ export const base = css`
     container-type: size;
 
     color: var(${tokens.color}, currentColor);
-
-    animation: spinnerRotateAnimation var(${tokens.animationDuration}, 1s) linear infinite;
-
-    @keyframes spinnerRotateAnimation {
-        to {
-            transform: rotate(360deg);
-        }
-    }
 `;

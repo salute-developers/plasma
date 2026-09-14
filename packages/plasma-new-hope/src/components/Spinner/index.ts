@@ -1,2 +1,3 @@
 export { spinnerRoot, spinnerConfig } from './Spinner';
-export { tokens as spinnerTokens } from './Spinner.tokens';
+export type { SpinnerProps } from './Spinner.types';
+export { tokens as spinnerTokens, classes as spinnerClasses } from './Spinner.tokens';
