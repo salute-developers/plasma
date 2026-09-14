@@ -23,7 +23,7 @@ import {
 export const config = {
     defaults: {
         view: 'white',
-        size: 'm',
+        size: '40',
     },
     variations: {
         view: {

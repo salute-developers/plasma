@@ -38,14 +38,13 @@ import React from 'react';
 import { Loader } from '@salutejs/sdds-sbcom';
 
 export function App() {
-    return <Loader type="progress" value={45} />;
+    return <Loader type="progress" value={45} size="32" />;
 }
 ```
 
 ## Примеры
 
 ### Размеры индикатора
-Размер задается с помощью свойства `size`:
 
 ```tsx live
 import React from 'react';
@@ -62,7 +61,6 @@ export function App() {
             <Loader type="progress" size="16" value={25} />
             <Loader type="progress" size="24" value={50} />
             <Loader type="progress" size="32" value={75} />
-            <Loader type="progress" size="40" value={100} />
         </div>
     );
 }
@@ -83,10 +81,10 @@ export function App() {
             <Loader type="spinner" view="danger" />
             <Loader type="spinner" view="primary" />
 
-            <Loader type="progress" view="white" value={25} />
-            <Loader type="progress" view="accent" value={50} />
-            <Loader type="progress" view="danger" value={75} />
-            <Loader type="progress" view="primary" value={100} />
+            <Loader type="progress" view="white" size="32" value={25} />
+            <Loader type="progress" view="accent" size="32" value={50} />
+            <Loader type="progress" view="danger" size="32" value={75} />
+            <Loader type="progress" view="primary" size="32" value={100} />
         </div>
     );
 }
@@ -141,8 +139,8 @@ import { IconClose } from '@salutejs/plasma-icons';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="progress" value={25} size="40">25%</Loader>
-            <Loader type="progress" value={75} size="32">
+            <Loader type="progress" value={25} size="32">25%</Loader>
+            <Loader type="progress" value={75} size="24">
                 <IconClose color="var(--text-primary)" size="s" />
             </Loader>
         </div>
@@ -160,9 +158,9 @@ import { Loader } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="progress" value={50} strokeSize={2} />
-            <Loader type="progress" value={50} strokeSize={4} />
-            <Loader type="progress" value={50} strokeSize={8} />
+            <Loader type="progress" value={50} size="32" strokeSize={2} />
+            <Loader type="progress" value={50} size="32" strokeSize={4} />
+            <Loader type="progress" value={50} size="32" strokeSize={8} />
         </div>
     );
 }
@@ -178,8 +176,8 @@ import { Loader } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="progress" value={50} hasTrack />
-            <Loader type="progress" value={50} hasTrack={false} />
+            <Loader type="progress" value={50} size="32" hasTrack />
+            <Loader type="progress" value={50} size="32" hasTrack={false} />
         </div>
     );
 }
@@ -195,10 +193,106 @@ import { Loader } from '@salutejs/sdds-sbcom';
 export function App() {
     return (
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <Loader type="progress" value={25} maxValue={50} size="40">25/50</Loader>
-            <Loader type="progress" value={75} maxValue={150} size="40">75/150</Loader>
+            <Loader type="progress" value={25} maxValue={50} size="32">25/50</Loader>
+            <Loader type="progress" value={75} maxValue={150} size="32">75/150</Loader>
         </div>
     );
 }
 ```
 
+
+### Настройка анимации
+Дуга спиннера построена на двух углах: `--plasma-spinner-arc-start` — хвост, `--plasma-spinner-arc-length` — длина дуги до головы. 
+
+Углы обязательно зарегистрировать через `@property`: без регистрации браузер интерполирует кастомные свойства дискретно и дуга идёт ступеньками.
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const styles = `
+        @property --spinner-head {
+            syntax: '<angle>';
+            inherits: true;
+            initial-value: 180deg;
+        }
+
+        @property --spinner-tail {
+            syntax: '<angle>';
+            inherits: true;
+            initial-value: 180deg;
+        }
+
+        @property --plasma-spinner-tail-color {
+            syntax: '<color>';
+            inherits: true;
+            initial-value: rgba(255, 255, 255, 0.06);
+        }
+
+        .loader-tail {
+            --plasma-spinner-animation-duration: 1000ms;
+        }
+
+        .loader-tail .spinner-ring {
+            --plasma-spinner-arc-start: var(--spinner-tail);
+            --plasma-spinner-arc-length: calc(var(--spinner-head) - var(--spinner-tail));
+
+            animation: loader-tail-head var(--plasma-spinner-animation-duration) infinite,
+                loader-tail-tail var(--plasma-spinner-animation-duration) infinite,
+                loader-tail-fade var(--plasma-spinner-animation-duration) infinite;
+        }
+
+        @keyframes loader-tail-head {
+            0% {
+                --spinner-head: 180deg;
+                animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+            }
+
+            50% {
+                --spinner-head: 630deg;
+                animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
+            }
+
+            100% {
+                --spinner-head: 900deg;
+            }
+        }
+
+        @keyframes loader-tail-tail {
+            0% {
+                --spinner-tail: 180deg;
+                animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+            }
+
+            50% {
+                --spinner-tail: 270deg;
+                animation-timing-function: cubic-bezier(0, 0, 0.3, 1);
+            }
+
+            100% {
+                --spinner-tail: 900deg;
+            }
+        }
+
+        @keyframes loader-tail-fade {
+            0%,
+            100% {
+                --plasma-spinner-tail-color: currentColor;
+            }
+
+            10%,
+            90% {
+                --plasma-spinner-tail-color: rgba(255, 255, 255, 0.06);
+            }
+        }
+    `;
+
+    return (
+        <>
+            <style>{styles}</style>
+            <Loader className="loader-tail" type="spinner" size="40" view="accent" />
+        </>
+    );
+}
+```
