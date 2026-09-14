@@ -296,7 +296,7 @@ describe('plasma-giga: Modal', () => {
                         <ModalImage>
                             <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
                         </ModalImage>
-                        <ModalHeader absolute>
+                        <ModalHeader isAbsolute>
                             <H3>Заголовок</H3>
                         </ModalHeader>
                         <ModalFooter>
@@ -325,7 +325,7 @@ describe('plasma-giga: Modal', () => {
             return (
                 <PopupProvider>
                     <Modal opened={isOpen} onClose={() => setIsOpen(false)} hasBody hasClose size="s">
-                        <ModalHeader absolute>
+                        <ModalHeader isAbsolute>
                             <H3>Заголовок</H3>
                         </ModalHeader>
                         <div style={{ minHeight: '4.875rem', padding: '0.75rem 1.5rem' }}>Content</div>

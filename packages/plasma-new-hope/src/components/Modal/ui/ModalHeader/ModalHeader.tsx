@@ -8,12 +8,12 @@ import { ModalHeaderProps } from './ModalHeader.types';
 import { base as viewCSS } from './variations/_view/base';
 
 export const modalHeaderRoot = (Root: RootProps<HTMLDivElement, ModalHeaderProps>) =>
-    forwardRef<HTMLDivElement, ModalHeaderProps>(({ children, view, className, absolute, ...rest }, outerRef) => {
+    forwardRef<HTMLDivElement, ModalHeaderProps>(({ children, view, className, isAbsolute, ...rest }, outerRef) => {
         return (
             <Root
                 ref={outerRef}
                 view={view}
-                className={cx(className, classes.header, absolute && classes.headerAbsolute)}
+                className={cx(className, classes.header, isAbsolute && classes.headerAbsolute)}
                 {...rest}
             >
                 {children}
