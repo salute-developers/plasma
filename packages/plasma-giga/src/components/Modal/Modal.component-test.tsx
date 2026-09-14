@@ -258,7 +258,7 @@ describe('plasma-giga: Modal', () => {
                             <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
                         </ModalImage>
                     )}
-                    {absoluteHeader && <ModalHeader absolute>{title}</ModalHeader>}
+                    {absoluteHeader && <ModalHeader isAbsolute>{title}</ModalHeader>}
                     <div
                         style={{
                             minHeight: '4.875rem',

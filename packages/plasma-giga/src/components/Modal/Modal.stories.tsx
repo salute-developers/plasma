@@ -302,7 +302,7 @@ const StoryModalDemo = ({
                                 <ImagePlaceholder />
                             </ModalImage>
                         )}
-                        {showHeader && absoluteHeader && <ModalHeader absolute>{title}</ModalHeader>}
+                        {showHeader && absoluteHeader && <ModalHeader isAbsolute>{title}</ModalHeader>}
                         <BodyContent>{content}</BodyContent>
                         {showFooter && (
                             <Footer>

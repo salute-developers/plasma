@@ -8,5 +8,5 @@ export type ModalHeaderProps = {
     /**
      * Позиционирует шапку поверх контента (например, над ModalImage).
      */
-    absolute?: boolean;
+    isAbsolute?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
