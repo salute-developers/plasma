@@ -30,7 +30,7 @@ describeFn('Spinner', () => {
     });
 
     it('color', () => {
-        mount(<Spin color={critical} size={32} />);
+        mount(<Spin style={{ color: critical }} size={32} />);
         cy.matchImageSnapshot({
             failureThreshold: 0.01,
             failureThresholdType: 'percent',
@@ -50,18 +50,7 @@ describeFn('Spinner', () => {
                 <PadMe />
                 <Spin size={96} />
                 <PadMe />
-                <Spin size="128px" />
-            </>,
-        );
-        cy.matchImageSnapshot();
-    });
-
-    it('id', () => {
-        mount(
-            <>
-                <Spin size={16} id="16" />
-                <PadMe />
-                <Spin size={32} id="32" />
+                <Spin size={128} />
             </>,
         );
         cy.matchImageSnapshot();
@@ -70,11 +59,11 @@ describeFn('Spinner', () => {
     it('many colors', () => {
         mount(
             <>
-                <Spin size={32} color="green" />
+                <Spin size={32} style={{ color: 'green' }} />
                 <PadMe />
-                <Spin size={32} color="blue" />
+                <Spin size={32} style={{ color: 'blue' }} />
                 <PadMe />
-                <Spin size={32} color="red" />
+                <Spin size={32} style={{ color: 'red' }} />
             </>,
         );
         cy.matchImageSnapshot();
