@@ -1,45 +1,32 @@
-export type SpinnerProps = React.HTMLAttributes<HTMLDivElement> &
-    (
-        | {
-              width?: never;
-              height?: never;
-              /**
-               * Размер спиннера
-               */
-              size?: string | number;
-              /**
-               * Цвет спиннера
-               */
-              view?: string;
-          }
-        | {
-              /**
-               * Кастомная ширина спиннера
-               */
-              width: number;
-              /**
-               * Кастомная высота спиннера
-               */
-              height: number;
-              size?: never;
-              /**
-               * Цвет спиннера
-               */
-              view?: string;
-          }
-        | {
-              /**
-               * Кастомная ширина спиннера
-               */
-              width: string;
-              /**
-               * Кастомная высота спиннера
-               */
-              height: string;
-              size?: never;
-              /**
-               * Цвет спиннера
-               */
-              view?: string;
-          }
-    );
+import { HTMLAttributes } from 'react';
+
+export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
+    /**
+     * Размер спиннера.
+     * Числовое значение устарело — задавайте размер через `style`.
+     */
+    size?: string | number;
+    /**
+     * Цвет спиннера
+     */
+    view?: string;
+    /**
+     * Кастомная ширина спиннера
+     * @deprecated Задавайте размер через `style`
+     */
+    width?: string | number;
+    /**
+     * Кастомная высота спиннера
+     * @deprecated Задавайте размер через `style`
+     */
+    height?: string | number;
+    /**
+     * Цвет спиннера
+     * @deprecated Используйте `view` или `style`
+     */
+    color?: string;
+    /**
+     * @deprecated Не используется
+     */
+    deviceScale?: number;
+};
