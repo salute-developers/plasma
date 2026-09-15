@@ -6,6 +6,7 @@ import { tooltipConfig } from '../Tooltip';
 import { popoverClasses } from '../Popover';
 
 import { classes, tokens } from './TextField.tokens';
+import { caretReserve } from './getInputWidth';
 
 const mergedConfig = mergeConfig(tooltipConfig);
 const Tooltip = component(mergedConfig);
@@ -81,6 +82,7 @@ export const InputContainer = styled.div<{ hasDynamicWidth?: boolean }>`
 
     ${Input} {
         max-width: ${({ hasDynamicWidth }) => (hasDynamicWidth ? '100%' : 'none')};
+        margin-right: ${({ hasDynamicWidth }) => (hasDynamicWidth ? `-${caretReserve}px` : '0')};
     }
 `;
 

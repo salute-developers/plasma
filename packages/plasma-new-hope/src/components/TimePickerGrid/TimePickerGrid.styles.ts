@@ -10,6 +10,7 @@ export const base = css`
 export const StyledTimePicker = styled.div<{ width?: string | number }>`
     background: var(${tokens.timePickerGridBackground});
     border-radius: var(${tokens.timePickerGridBorderRadius});
+
     width: ${({ width }) => {
         if (width === 'fullWidth') return '100%';
         if (width === 'fixed' || width === undefined) return `var(${tokens.timePickerGridWidth})`;

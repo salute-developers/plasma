@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 > [!NOTE]
 > Визуально код разделен на ячейки, но ввод выполняется через один нативный `input`.
-> Благодаря этому компонент поддерживает вставку полного кода, системное автозаполнение из СМС, WebOTP и стандартную работу с HTML-формами.
+> Благодаря этому компонент поддерживает вставку полного кода, системное автозаполнение из СМС, опциональный WebOTP и стандартную работу с HTML-формами.
 
 <Description name="CodeField" />
 
@@ -130,7 +130,8 @@ export function App() {
 ## Поведение при вводе
 
 Поведение ячейки при вводе некорректного символа регулируется свойством `itemErrorBehavior`.
-Когда введено `codeLength` символов, срабатывает колбэк `onFullCodeEnter`. Он вызывается как после ручного ввода, так и после вставки, системного автозаполнения или WebOTP. При неверном вводе кода поведение компонента управляется свойством `codeErrorBehavior`. Индикация ошибки задается с помощью флага `isError` и колбэка `setIsError`:
+Когда введено `codeLength` символов, срабатывает колбэк `onFullCodeEnter`. Он вызывается как после ручного ввода, так и после вставки, системного автозаполнения или WebOTP.
+При неверном вводе кода поведение компонента управляется свойством `codeErrorBehavior`. Индикация ошибки задается с помощью флага `isError` и колбэка `setIsError`:
 
 <Tabs>
     <TabItem value="itemErrorBehavior" label="itemErrorBehavior" default>
@@ -266,7 +267,7 @@ export function App() {
 
 ## Работа с OTP-кодом из СМС
 
-По умолчанию `CodeField` использует `autoComplete="one-time-code"` и поддерживает два механизма автозаполнения.
+По умолчанию `CodeField` использует `autoComplete="one-time-code"` для системного автозаполнения.
 
 ### Системное автозаполнение
 
@@ -276,6 +277,17 @@ export function App() {
 ### Web OTP API
 
 [Web OTP API](https://developer.mozilla.org/en-US/docs/Web/API/WebOTP_API) используется как дополнительный механизм в поддерживающих его мобильных браузерах.
+По умолчанию WebOTP отключен. Чтобы разрешить компоненту запросить код через `navigator.credentials.get()`, передайте свойство `enableWebOTP`:
+
+```tsx live
+import React from 'react';
+import { CodeField } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return <CodeField enableWebOTP caption="Введите код из СМС" />;
+}
+```
+
 Для WebOTP страница должна работать в безопасном контексте, а последняя строка СМС должна содержать домен страницы и код:
 
 ```
@@ -292,7 +304,7 @@ export function App() {
 
 После успешной автоподстановки компонент вызывает `onChange`, а при заполнении всех ячеек — `onFullCodeEnter`.
 
-Чтобы компонент не запускал WebOTP и не запрашивал у браузера режим `one-time-code`, передайте `autoComplete="off"`.
+Свойство `autoComplete` управляет только нативным автозаполнением. Например, `autoComplete="off"` отключает системную подсказку, но не влияет на явно включенный `enableWebOTP`.
 
 ## Таблица свойств
 <PropsTable name="CodeField" />

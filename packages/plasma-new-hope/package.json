@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.380.0-next-sbcom.0",
+  "version": "0.380.0-dev.0",
   "description": "Salute Design System blueprint",
   "exports": {
     ".": {
@@ -25,10 +25,7 @@
     },
     "./types/*": "./types/*"
   },
-  "files": [
-    "dist",
-    "types"
-  ],
+  "files": ["dist", "types"],
   "publishConfig": {
     "access": "public"
   },
@@ -59,11 +56,7 @@
     "url": "git+https://github.com/salute-developers/plasma.git",
     "directory": "packages/plasma-new-hope"
   },
-  "keywords": [
-    "design-system",
-    "ui-kit",
-    "react"
-  ],
+  "keywords": ["design-system", "ui-kit", "react"],
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -90,9 +83,9 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "@salutejs/plasma-cy-utils": "0.173.0-next-sbcom.0",
-    "@salutejs/plasma-sb-utils": "0.244.0-next-sbcom.0",
-    "@salutejs/plasma-themes": "0.64.0-next-sbcom.0",
+    "@salutejs/plasma-cy-utils": "0.173.0-dev.0",
+    "@salutejs/plasma-sb-utils": "0.244.0-dev.0",
+    "@salutejs/plasma-themes": "0.64.0-dev.0",
     "@types/lodash": "^4.14.191",
     "@types/lodash.chunk": "4.2.9",
     "@types/lodash.throttle": "4.1.6",
@@ -122,8 +115,8 @@
     "@linaria/core": "5.0.2",
     "@linaria/react": "5.0.3",
     "@popperjs/core": "2.11.8",
-    "@salutejs/input-core": "2.1.2",
-    "@salutejs/react-maskinput": "3.3.2",
+    "@salutejs/input-core": "2.2.0",
+    "@salutejs/react-maskinput": "3.4.0",
     "@tanstack/react-table": "8.21.2",
     "@tanstack/react-virtual": "3.13.2",
     "classnames": "2.5.1",
@@ -142,7 +135,5 @@
     "react-syntax-highlighter": "16.1.1",
     "storeon": "3.1.5"
   },
-  "sideEffects": [
-    "*.css"
-  ]
+  "sideEffects": ["*.css"]
 }

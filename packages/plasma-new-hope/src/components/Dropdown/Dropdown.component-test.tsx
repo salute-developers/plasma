@@ -16,6 +16,12 @@ const matrixItems: NonNullable<DropdownProps['items']> = [
     { value: 'c', label: 'Пункт C' },
 ];
 
+const edgeItems: NonNullable<DropdownProps['items']> = [
+    { value: 'first', label: 'Первый пункт', className: 'dropdown-item-is-active' },
+    { value: 'middle', label: 'Средний пункт' },
+    { value: 'last', label: 'Последний пункт', className: 'dropdown-item-is-active' },
+];
+
 const matrixComponentProps = {
     items: matrixItems,
     alwaysOpened: true,
@@ -1000,5 +1006,15 @@ describeFn('Dropdown', () => {
         cy.pressKey('ArrowDown').pressKey('Tab');
         cy.get('[id$="tree_level_1"]').should('not.exist');
         // cy.get('button').should('not.have.focus');
+    });
+
+    it('behavior: edge items hover background', () => {
+        mount(
+            <Dropdown items={edgeItems} alwaysOpened closeOnOverlayClick={false}>
+                <Button text="Открыть" />
+            </Dropdown>,
+        );
+
+        cy.matchImageSnapshot();
     });
 });

@@ -5,6 +5,8 @@ import { applyNoSelect, H4 } from '@salutejs/plasma-b2c';
 
 import { Context, setWizardItem, setIconColor, setIconSize, initColorState } from '../../store';
 import { iconsList } from '../../utils';
+import { matchesIconStyle } from '../../utils/iconStyle';
+import type { IconStyle } from '../../utils/iconStyle';
 import { multipleMediaQuery } from '../../mixins';
 
 import { IconGroupHeading } from './IconGroupHeading';
@@ -15,6 +17,7 @@ import { Grid } from './Grid';
 
 export interface IconsListProps {
     pageRef: RefObject<HTMLDivElement>;
+    iconStyle: IconStyle;
     searchQuery?: string;
     activeGroup?: string;
     showDeprecated?: boolean;
@@ -138,7 +141,14 @@ const StyledIcon = styled.div<{ isDeprecated: boolean; isActive?: boolean; hasOp
         `}
 `;
 
-export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, showDeprecated, onItemClick, pageRef }) => {
+export const IconsList: FC<IconsListProps> = ({
+    searchQuery,
+    activeGroup,
+    iconStyle,
+    showDeprecated,
+    onItemClick,
+    pageRef,
+}) => {
     const { state, dispatch } = useContext(Context);
     const [offset, setOffset] = useState(0);
     const [cellIndex, setCellIndex] = useState(1);
@@ -155,16 +165,20 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, showDe
         }
 
         if (!searchQuery) {
-            const processedGroups = filteredIconsList.map((group) => ({
-                ...group,
-                items: [...group.items]
-                    .filter((item) => showDeprecated || !item.isDeprecated) // Фильтруем deprecated иконки
-                    .sort((a, b) => {
-                        if (!a.isDeprecated && b.isDeprecated) return -1;
-                        if (a.isDeprecated && !b.isDeprecated) return 1;
-                        return 0;
-                    }),
-            }));
+            const processedGroups = filteredIconsList
+                .map((group) => ({
+                    ...group,
+                    items: [...group.items]
+                        .filter(
+                            (item) => matchesIconStyle(item.name, iconStyle) && (showDeprecated || !item.isDeprecated),
+                        ) // Фильтруем deprecated иконки и выбранное начертание
+                        .sort((a, b) => {
+                            if (!a.isDeprecated && b.isDeprecated) return -1;
+                            if (a.isDeprecated && !b.isDeprecated) return 1;
+                            return 0;
+                        }),
+                }))
+                .filter((group) => group.items.length);
 
             return processedGroups.sort((a, b) => {
                 const aAllDeprecated = a.items.every((item) => item.isDeprecated);
@@ -185,7 +199,8 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, showDe
                         if (!showDeprecated && isDeprecated) {
                             return false;
                         }
-                        return name.toLocaleLowerCase().search(regExp) !== -1;
+
+                        return matchesIconStyle(name, iconStyle) && name.toLocaleLowerCase().search(regExp) !== -1;
                     })
                     .sort((a, b) => {
                         if (!a.isDeprecated && b.isDeprecated) return -1;
@@ -206,7 +221,7 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, showDe
         });
 
         return filteredGroups;
-    }, [searchQuery, showDeprecated]);
+    }, [iconStyle, searchQuery, showDeprecated]);
 
     useEffect(() => {
         items.forEach((group, gridIndex) => {
@@ -270,7 +285,11 @@ export const IconsList: FC<IconsListProps> = ({ searchQuery, activeGroup, showDe
 
     if (!items.length) {
         return (
-            <StyledEmptySearch bold={false}>У нас нет иконки с таким именем, а по тегам пока не ищем</StyledEmptySearch>
+            <StyledEmptySearch bold={false}>
+                {searchQuery
+                    ? 'У нас нет иконки с таким именем, а по тегам пока не ищем'
+                    : 'У нас нет иконок с таким начертанием'}
+            </StyledEmptySearch>
         );
     }
 

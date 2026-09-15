@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { applyHover } from 'src/mixins';
 
 import { classes, tokens } from '../../../../../tokens';
 import { TabItemValue } from '../../HorizontalTabItem.styles';
@@ -9,14 +10,16 @@ export const base = css`
 
     margin-left: var(${tokens.itemMarginLeftFilled}, var(${tokens.itemMarginLeft}));
 
-    &:hover {
-        color: var(${tokens.itemColorHover});
-        background-color: var(${tokens.itemBackgroundColorHover});
+    ${applyHover(`
+        &:hover {
+            color: var(${tokens.itemColorHover});
+            background-color: var(${tokens.itemBackgroundColorHover});
 
-        ${TabItemValue} {
-            color: var(${tokens.itemValueColorHover});
+            ${TabItemValue} {
+                color: var(${tokens.itemValueColorHover});
+            }
         }
-    }
+    `)}
 
     &:active {
         color: var(${tokens.itemColorActive});
@@ -34,16 +37,25 @@ export const base = css`
         color: var(${tokens.itemSelectedColor});
         cursor: var(${tokens.itemCursor});
 
-        &:hover {
-            color: var(${tokens.itemSelectedColorHover});
-        }
+        ${applyHover(`
+            &:hover {
+                color: var(${tokens.itemSelectedColorHover});
+                background-color: var(${tokens.itemSelectedBackgroundColorHover});
+
+                &::after {
+                    background: var(${tokens.itemSelectedDividerColorHover});
+                }
+            }
+        `)}
 
         ${TabItemValue} {
             color: var(${tokens.itemSelectedValueColorHover});
 
-            &:hover {
-                color: var(${tokens.itemSelectedValueColorHover});
-            }
+            ${applyHover(`
+                &:hover {
+                    color: var(${tokens.itemSelectedValueColorHover});
+                }
+            `)}
         }
     }
 `;

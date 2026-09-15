@@ -84,6 +84,11 @@ export type CodeFieldProps = {
      */
     codeErrorBehavior?: CodeErrorBehavior;
     /**
+     * Включает получение OTP-кода из СМС через Web OTP API
+     * @default false
+     */
+    enableWebOTP?: boolean;
+    /**
      * Коллбек, вызываемый при изменении значения кода
      */
     onChange?: (value: string) => void;

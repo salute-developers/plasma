@@ -8,6 +8,7 @@ import {
     Label,
     LabelWrapper as BaseLabelWrapper,
     BaseSliderContainer,
+    BaseTrackWrapper,
     BaseStyledTrack,
     BaseStyledRange,
 } from '../SliderBase/SliderBase.styles';
@@ -110,6 +111,8 @@ export const DoubleWrapper = styled.div`
 `;
 
 export const SliderContainer = BaseSliderContainer;
+
+export const TrackWrapper = BaseTrackWrapper;
 
 export const StyledTrack = BaseStyledTrack;
 

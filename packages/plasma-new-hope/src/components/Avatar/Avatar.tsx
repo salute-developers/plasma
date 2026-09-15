@@ -88,6 +88,7 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarRootProps>) => 
             counterView,
             count,
             maxCount,
+            thousandSeparator,
 
             badgeView,
             text,
@@ -135,7 +136,12 @@ export const avatarRoot = (Root: RootProps<HTMLDivElement, AvatarRootProps>) => 
                 {hasExtra && avatarSize !== 'fit' && (
                     <ExtraContent className={extraPlacementMap(extraPlacement)}>
                         {type === 'counter' ? (
-                            <ExtraCounter view={counterView} count={counterValue} maxCount={maxCount} />
+                            <ExtraCounter
+                                view={counterView}
+                                count={counterValue}
+                                maxCount={maxCount}
+                                thousandSeparator={thousandSeparator}
+                            />
                         ) : (
                             avatarSize !== 's' && (
                                 <ExtraBadge

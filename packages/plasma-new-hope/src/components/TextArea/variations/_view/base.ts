@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+import { applyHover } from 'src/mixins';
 
 import { tokens, classes, privateTokens } from '../../TextArea.tokens';
 import { StyledTextAreaWrapper, TitleCaption } from '../../TextArea.styles';
@@ -59,23 +60,25 @@ export const base = css`
         background-color: var(${tokens.helpersBackgroundColorFocus});
     }
 
-    &:hover:${exclusionSelectors} .${styledContainer} {
-        background-color: var(${tokens.backgroundColorHover});
-        box-shadow: var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
+    ${applyHover(`
+        &:hover:${exclusionSelectors} .${styledContainer} {
+            background-color: var(${tokens.backgroundColorHover});
+            box-shadow: var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
 
-        &::after {
-            box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.borderColorHover});
+            &::after {
+                box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.borderColorHover});
+            }
         }
-    }
 
-    &:hover:${exclusionSelectors} .${styledTextAreaWrapper} {
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorHover});
-        background-color: var(${tokens.inputBackgroundColorHover});
-    }
+        &:hover:${exclusionSelectors} .${styledTextAreaWrapper} {
+            box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorHover});
+            background-color: var(${tokens.inputBackgroundColorHover});
+        }
 
-    &:hover:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {
-        background-color: var(${tokens.helpersBackgroundColorHover});
-    }
+        &:hover:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {
+            background-color: var(${tokens.helpersBackgroundColorHover});
+        }
+    `)}
 
     &:active:${exclusionSelectors} .${styledTextAreaWrapper} {
         box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorActive});
@@ -108,12 +111,14 @@ export const base = css`
             }
         }
 
-        &:not([readonly]) ${StyledTextAreaWrapper}:hover {
-            ${privateTokens.dividerColor}: var(
-                ${tokens.dividerColorHover},
-                var(${tokens.dividerColor})
-            );
-        }
+        ${applyHover(`
+            &:not([readonly]) ${StyledTextAreaWrapper}:hover {
+                ${privateTokens.dividerColor}: var(
+                    ${tokens.dividerColorHover},
+                    var(${tokens.dividerColor})
+                );
+            }
+        `)}
 
         &:not([readonly]) ${StyledTextAreaWrapper}:focus-within {
             ${privateTokens.dividerColor}: var(

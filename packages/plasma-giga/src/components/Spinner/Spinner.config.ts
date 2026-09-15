@@ -1,11 +1,10 @@
 import { css, spinnerTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    textAccent,
-    textNegative,
+    surfaceNegative,
+    surfaceSolidDefault,
+    surfaceTransparentDeep,
     textParagraph,
     textPositive,
-    textPrimary,
-    textSecondary,
     textTertiary,
     textWarning,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
@@ -41,10 +40,10 @@ export const config = {
         },
         view: {
             default: css`
-                ${tokens.color}: ${textPrimary};
+                ${tokens.color}: ${surfaceSolidDefault};
             `,
             secondary: css`
-                ${tokens.color}: ${textSecondary};
+                ${tokens.color}: ${surfaceTransparentDeep};
             `,
             tertiary: css`
                 ${tokens.color}: ${textTertiary};
@@ -53,7 +52,7 @@ export const config = {
                 ${tokens.color}: ${textParagraph};
             `,
             accent: css`
-                ${tokens.color}: ${textAccent};
+                ${tokens.color}: ${surfaceSolidDefault};
             `,
             positive: css`
                 ${tokens.color}: ${textPositive};
@@ -62,7 +61,7 @@ export const config = {
                 ${tokens.color}: ${textWarning};
             `,
             negative: css`
-                ${tokens.color}: ${textNegative};
+                ${tokens.color}: ${surfaceNegative};
             `,
         },
     },

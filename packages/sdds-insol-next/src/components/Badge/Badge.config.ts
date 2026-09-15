@@ -4,10 +4,13 @@ import {
     onDarkSurfaceSolidDefault,
     onDarkSurfaceTransparentCard,
     onDarkTextPrimary,
+    onLightDataPink,
+    onLightDataPinkTransparentMinor,
     onLightSurfaceSolidDefault,
     onLightSurfaceTransparentDeep,
     onLightTextPrimary,
     surfaceAccent,
+    surfaceAccentGradient,
     surfaceClear,
     surfaceNegative,
     surfacePositive,
@@ -51,6 +54,10 @@ export const config = {
                 ${badgeTokens.backgroundTransparent}: ${surfaceTransparentAccent};
 
                 ${badgeTokens.colorClear}: ${textAccent};
+            `,
+            'accent-gradient': css`
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfaceAccentGradient};
             `,
             positive: css`
                 ${badgeTokens.color}: ${onDarkTextPrimary};
@@ -96,6 +103,15 @@ export const config = {
                 ${badgeTokens.backgroundTransparent}: ${onDarkSurfaceTransparentCard};
 
                 ${badgeTokens.colorClear}: ${onDarkTextPrimary};
+            `,
+            pink: css`
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${onLightDataPink};
+
+                ${badgeTokens.colorTransparent}: ${onLightDataPink};
+                ${badgeTokens.backgroundTransparent}: ${onLightDataPinkTransparentMinor};
+
+                ${badgeTokens.colorClear}: ${onLightDataPink};
             `,
         },
         size: {

@@ -4,13 +4,14 @@ import type { Dayjs } from 'dayjs';
 import { customDayjs } from 'src/utils/datejs';
 import { QUARTER_NAMES } from 'src/components/Calendar/utils';
 import type { TimePickerGridChangeEvent } from 'src/components/TimePickerGrid/TimePickerGrid.types';
+import type { Meridiem } from 'src/components/TimePickerGrid/utils';
 import { getDateFormatDelimiter } from 'src/components/DatePicker/utils/dateHelper';
 
 import type { CalendarValueType, DateInfo, DateType } from '../../Calendar/Calendar.types';
 import { classes } from '../DateTimePicker.tokens';
 import type { UseDateTimePickerArgs } from '../DateTimePicker.types';
 import { getMaskedValue } from '../utils/getMaskedValue';
-import { getFormattedDateTime, normalizeDateTime } from '../utils';
+import { getFormattedDateTime, normalizeDateTime, toDisplayDateTime, toValueDateTime } from '../utils';
 
 type GetFormattedCorrectInputArgs = {
     formattedDate: string;
@@ -39,6 +40,7 @@ export const useDateTimePicker = ({
     includeEdgeDates,
     dateOnTimeSelectOnly,
     preserveInvalidOnBlur,
+    hasTimeFormat = false,
     onChangeValue,
     onCommitDate,
     onBlur,
@@ -53,7 +55,9 @@ export const useDateTimePicker = ({
     const delimiters = [dateFormatDelimiter, timeFormatDelimiter, dateTimeSeparator];
 
     const format = dateFormat + dateTimeSeparator + timeFormat;
-    const timeColumnsCount = timeFormat?.split(timeFormatDelimiter).length || 2;
+
+    const meridiemColumnsCount = hasTimeFormat && timeFormat.includes('HH') ? 1 : 0;
+    const timeColumnsCount = (timeFormat?.split(timeFormatDelimiter).length || 2) + meridiemColumnsCount;
 
     const [innerDate, setInnerDate] = useState<string | DateType>(defaultDate || '');
     const dateVisibleValue = outerValue ?? innerDate;
@@ -80,7 +84,23 @@ export const useDateTimePicker = ({
 
     customDayjs.locale(lang);
     const timeVisibleValue = timeGridValue ? customDayjs(timeGridValue).format(timeFormat) : '';
-    const inputValue = initialValues.formattedDate;
+
+    const formats = { dateFormat, timeFormat, dateTimeSeparator };
+    const { text: inputValue, meridiem } = hasTimeFormat
+        ? toDisplayDateTime(initialValues.formattedDate, formats)
+        : { text: initialValues.formattedDate, meridiem: null };
+
+    const getInputTime = (value: string) => {
+        const suffix = hasTimeFormat ? value.match(/\s*(AM|PM)\s*$/i) : null;
+
+        return {
+            text: suffix ? value.slice(0, suffix.index) : value,
+            meridiem: (suffix?.[1].toUpperCase() as Meridiem | undefined) ?? meridiem ?? 'AM',
+        };
+    };
+
+    const toInnerValue = (text: string, inputMeridiem: Meridiem) =>
+        hasTimeFormat ? toValueDateTime(text, inputMeridiem, formats) : text;
 
     const getQuarterInfo = (originalDate?: Date) => {
         if (type !== 'Quarters' || !originalDate) {
@@ -146,13 +166,14 @@ export const useDateTimePicker = ({
             return;
         }
         const { value, selectionStart } = event.target;
+        const { text: parseValue, meridiem: inputMeridiem } = getInputTime(value);
 
         const { formattedValue, selectionStart: newSelectionStart } = maskWithFormat
-            ? getMaskedValue({ value, format, delimiters, prevValue: inputValue, selectionStart })
-            : { formattedValue: value, selectionStart };
+            ? getMaskedValue({ value: parseValue, format, delimiters, prevValue: inputValue, selectionStart })
+            : { formattedValue: parseValue, selectionStart };
 
         const { formattedDate, isoDate, originalDate, dateValue, timeValue } = getFormattedDateTime({
-            value: formattedValue,
+            value: toInnerValue(formattedValue, inputMeridiem),
             lang,
             format,
             dateFormat,
@@ -209,8 +230,9 @@ export const useDateTimePicker = ({
             return;
         }
 
+        const { text: parseValue, meridiem: inputMeridiem } = getInputTime(date);
         const { formattedDate, isoDate, originalDate } = getFormattedDateTime({
-            value: date,
+            value: toInnerValue(parseValue, inputMeridiem),
             lang,
             format,
             dateFormat,
@@ -438,6 +460,7 @@ export const useDateTimePicker = ({
         dateVisibleValue,
         calendarGridValue,
         inputValue,
+        meridiem,
         timeVisibleValue,
         timeColumnsCount,
         errorClass,

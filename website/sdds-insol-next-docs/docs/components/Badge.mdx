@@ -76,6 +76,7 @@ export function App() {
                 <Badge text="Бейдж" size="l" view="negative" appearance={appearance} />
                 <Badge text="Бейдж" size="l" view="dark" appearance={appearance} />
                 <Badge text="Бейдж" size="l" view="light" appearance={appearance} />
+                <Badge text="Бейдж" size="l" view="pink" appearance={appearance} />
             </div>
         )
     }
@@ -85,6 +86,21 @@ export function App() {
             <Badges />
             <Badges appearance="transparent" />
             <Badges appearance="clear" />
+        </div>
+    );
+}
+```
+
+View `accent-gradient` доступен только для `appearance="default"`:
+
+```tsx live
+import React from 'react';
+import { Badge } from '@salutejs/sdds-insol-next';
+
+export function App() {
+    return (
+        <div>
+            <Badge text="Бейдж" size="l" view="accent-gradient" />
         </div>
     );
 }
