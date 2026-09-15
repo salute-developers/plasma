@@ -35,8 +35,9 @@ type Story = StoryObj<typeof Counter>;
 
 export const Default: Story = {
     args: {
-        count: 123,
-        maxCount: 200,
+        count: 123456,
+        maxCount: 200000,
+        thousandSeparator: ' ',
         view: 'default',
         size: 'xs',
     },
