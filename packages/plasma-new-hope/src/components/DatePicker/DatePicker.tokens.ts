@@ -131,6 +131,7 @@ export const tokens = {
     leftHelperLineHeight: '--plasma-date-picker__left-helper-line-height',
 
     titleCaptionOffset: '--plasma-date-picker-title-caption-offset',
+    titleCaptionInnerLabelOffset: '--plasma-date-picker-title-caption-label-inner-offset',
     titleCaptionColor: '--plasma-date-picker-title-caption-color',
     titleCaptionFontFamily: '--plasma-date-picker-title-caption-font-family',
     titleCaptionFontStyle: '--plasma-date-picker-title-caption-font-style',

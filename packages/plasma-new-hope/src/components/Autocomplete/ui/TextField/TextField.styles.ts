@@ -61,6 +61,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.labelInnerLineHeight}: var(${autocompleteTokens.textFieldLabelInnerLineHeight});
     ${textFieldTokens.labelInnerPadding}: var(${autocompleteTokens.textFieldLabelInnerPadding});
     ${textFieldTokens.contentLabelInnerPadding}: var(${autocompleteTokens.textFieldContentLabelInnerPadding});
+    ${textFieldTokens.titleCaptionOffset}: var(${autocompleteTokens.textFieldTitleCaptionOffset});
     ${textFieldTokens.leftHelperColor}: var(${autocompleteTokens.textFieldLeftHelperColor});
     ${textFieldTokens.leftHelperColorFocus}: var(${autocompleteTokens.textFieldLeftHelperColorFocus});
     ${textFieldTokens.leftHelperColorReadOnly}: var(${autocompleteTokens.textFieldLeftHelperColorReadOnly});

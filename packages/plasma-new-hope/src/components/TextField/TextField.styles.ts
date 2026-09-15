@@ -124,7 +124,7 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
 export const TitleCaption = styled.div<{ hasLabel: boolean }>`
     display: inline-block;
     margin-left: auto;
-    margin-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset}, 0)` : 'unset')};
+    padding-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset}, 0)` : 'unset')};
 `;
 
 export const StyledIndicatorWrapper = styled.div`

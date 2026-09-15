@@ -199,7 +199,8 @@ export const config = {
 
                 ${tokens.hintInnerLabelPlacementOffset}:0.82rem -2.063rem auto auto;
 
-                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionOffset}: 0.25rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -370,7 +371,8 @@ export const config = {
 
                 ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
-                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionOffset}: 0.25rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -541,7 +543,8 @@ export const config = {
 
                 ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionOffset}: 0.1875rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -712,7 +715,8 @@ export const config = {
 
                 ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -884,6 +888,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);

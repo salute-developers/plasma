@@ -366,7 +366,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                 {optionalTextNode}
                             </StyledIndicatorWrapper>
                         )}
-                        {titleCaption && <TitleCaption>{titleCaption}</TitleCaption>}
+                        {titleCaption && <TitleCaption hasLabel={hasOuterLabel}>{titleCaption}</TitleCaption>}
                     </OuterLabelWrapper>
                 )}
                 <StyledContainer
