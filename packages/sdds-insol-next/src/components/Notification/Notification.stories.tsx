@@ -6,6 +6,7 @@ import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from 'storybook/actions';
 import { addNotification } from '@salutejs/plasma-new-hope';
 import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
+import styled from 'styled-components';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
@@ -46,6 +47,25 @@ const getNotificationProps = (i: number) => ({
 
 const placements = ['top', 'left'];
 
+const ButtonsWrapper = styled.div<{ $filled?: boolean; $hasLeftIcon?: boolean; $isVertical?: boolean }>`
+    display: flex;
+    gap: 2px;
+    width: ${({ $filled }) => ($filled ? '100%' : 'auto')};
+    margin-bottom: ${({ $isVertical }) => ($isVertical ? '0.625rem' : '0')};
+    margin-left: ${({ $filled, $hasLeftIcon }) =>
+        !$filled && $hasLeftIcon
+            ? 'calc(var(--plasma-notification-content-left-icon-size) + var(--plasma-notification-content-left-icon-margin))'
+            : '0'};
+`;
+
+const NotificationWithHugButtons = styled(Notification)`
+    --plasma-notification-padding: 0.375rem 0.75rem;
+    --plasma-notification-close-icon-top: 0.75rem;
+    --plasma-notification-close-icon-right: 1rem;
+    --plasma-notification-content-padding-right: 0;
+    --plasma-notification-content-padding-left: 0;
+`;
+
 const meta: Meta<typeof Notification> = {
     title: 'Overlay/Notification',
     decorators: [InSpacingDecorator],
@@ -57,6 +77,7 @@ type StoryDefaultProps = {
     showLeftIcon: boolean;
     iconColor?: string;
     enableCustomCloseIcon?: boolean;
+    buttonStretching?: boolean;
 } & ComponentProps<typeof Notification>;
 
 const StoryDefault = ({
@@ -68,19 +89,27 @@ const StoryDefault = ({
     showLeftIcon,
     iconColor,
     enableCustomCloseIcon,
+    buttonStretching,
     ...rest
 }: StoryDefaultProps) => {
+    const isVertical = layout === 'vertical';
+    const isFilled = isVertical && buttonStretching;
+    const Root = (isFilled ? Notification : NotificationWithHugButtons) as typeof Notification;
+
     return (
-        <Notification
+        <Root
             title={title}
             icon={showLeftIcon ? <IconDisclosureRight color={iconColor || 'inherit'} /> : ''}
             iconPlacement={iconPlacement}
             actions={
-                <Button
-                    text="text"
-                    size={layout === 'horizontal' ? 'xs' : size}
-                    stretch={layout === 'vertical' && size === 'xs'}
-                />
+                <ButtonsWrapper
+                    $filled={isFilled}
+                    $hasLeftIcon={showLeftIcon && iconPlacement === 'left'}
+                    $isVertical={isVertical}
+                >
+                    <Button text="text" size={isFilled ? 'xs' : 'xxs'} stretching={isFilled ? 'filled' : 'auto'} />
+                    <Button text="text" size={isFilled ? 'xs' : 'xxs'} stretching={isFilled ? 'filled' : 'auto'} />
+                </ButtonsWrapper>
             }
             size={size}
             layout={layout}
@@ -88,7 +117,7 @@ const StoryDefault = ({
             {...rest}
         >
             {children}
-        </Notification>
+        </Root>
     );
 };
 
@@ -139,6 +168,15 @@ export const Default: StoryObj<StoryDefaultProps> = {
                 truthy: true,
             },
         },
+        buttonStretching: {
+            control: {
+                type: 'boolean',
+            },
+            if: {
+                arg: 'layout',
+                eq: 'vertical',
+            },
+        },
     },
     args: {
         title: 'Title',
@@ -150,6 +188,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
         layout: 'vertical',
         view: 'default',
         size: 'xs',
+        buttonStretching: false,
     },
     render: (args) => <StoryDefault {...args} />,
 };
