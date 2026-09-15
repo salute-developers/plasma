@@ -193,6 +193,7 @@ export const iconSectionsSet = {
         searchAIOutline: 'SearchAIOutline',
         screenShareErrorOutline: 'ScreenShareErrorOutline',
         screenShareErrorFill: 'ScreenShareErrorFill',
+        speedLowOutline: 'SpeedLowOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
