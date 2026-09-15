@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
-import { DateTimePickerProps } from '@salutejs/plasma-new-hope';
+import { DateTimePickerProps } from '@salutejs/plasma-new-hope/styled-components';
 
 const sizes = ['s', 'xs'];
 

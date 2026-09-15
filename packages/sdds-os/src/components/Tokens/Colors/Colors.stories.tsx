@@ -3,7 +3,7 @@ import type { StoryObj, Meta } from '@storybook/react-vite';
 import { sdds_os__dark, sdds_os__light } from '@salutejs-ds/sdds_os';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
-import { addNotification, cx } from '@salutejs/plasma-new-hope';
+import { addNotification, cx } from '@salutejs/plasma-new-hope/styled-components';
 
 import { Accordion } from '../../Accordion/Accordion';
 import { NotificationsProvider } from '../../Notification/Notification';
