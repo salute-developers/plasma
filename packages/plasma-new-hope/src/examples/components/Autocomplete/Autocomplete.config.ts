@@ -203,6 +203,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.textFieldLabelOffset}: 0.75rem;
+                ${tokens.textFieldTitleCaptionOffset}: 0.25rem;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-l-font-size);
@@ -278,6 +279,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.textFieldLabelOffset}: 0.625rem;
+                ${tokens.textFieldTitleCaptionOffset}: 0.1875rem;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-m-font-size);
@@ -353,6 +355,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.textFieldLabelOffset}: 0.5rem;
+                ${tokens.textFieldTitleCaptionOffset}: 0;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-s-font-size);
@@ -428,6 +431,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelOffset}: 0.375rem;
+                ${tokens.textFieldTitleCaptionOffset}: 0;
                 ${tokens.textFieldClearLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-xs-font-size);

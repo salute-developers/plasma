@@ -133,7 +133,8 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionOffset}: 0.25rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -300,7 +301,8 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionOffset}: 0.25rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -467,7 +469,8 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionOffset}: 0.1875rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -634,7 +637,8 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
-                ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -802,6 +806,7 @@ export const config = {
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);

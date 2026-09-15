@@ -32,9 +32,10 @@ export const StyledLabel = styled.div`
     line-height: var(${tokens.labelOuterLineHeight}, var(${tokens.inputLineHeight}));
 `;
 
-export const TitleCaption = styled.div`
+export const TitleCaption = styled.div<{ hasLabel?: boolean }>`
     display: inline-block;
     margin-left: auto;
+    padding-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset}, 0)` : 'unset')};
 
     font-family: var(${tokens.titleCaptionFontFamily});
     font-size: var(${tokens.titleCaptionFontSize});
