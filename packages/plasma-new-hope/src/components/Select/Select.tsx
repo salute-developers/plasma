@@ -330,6 +330,8 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                 />
                             ) : (
                                 <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
+                                    {beforeList}
+
                                     <Ul
                                         role="tree"
                                         id={`${treeId}_tree_level_1`}
@@ -338,8 +340,6 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                         onScroll={virtual ? undefined : onScroll}
                                         virtual={virtual}
                                     >
-                                        {beforeList}
-
                                         {multiselect && selectAllOptions && (
                                             <SelectAll selectAllOptions={selectAllOptions} variant={variant} />
                                         )}
@@ -375,9 +375,9 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                                 )}
                                             </>
                                         )}
-
-                                        {afterList}
                                     </Ul>
+
+                                    {afterList}
                                 </ListWrapper>
                             )}
                         </Root>

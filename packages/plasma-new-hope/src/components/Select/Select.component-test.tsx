@@ -455,6 +455,29 @@ describeFn('Select', () => {
         cy.matchImageSnapshot();
     });
 
+    it('beforeList and afterList on scroll', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Select
+                    id="single"
+                    items={items}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listMaxHeight="150px"
+                    beforeList="Content before list"
+                    afterList="Content after list"
+                />
+            </div>,
+        );
+
+        cy.get('#single').click();
+        cy.get('[id$="tree_level_1"]').scrollTo(0, 50);
+
+        cy.matchImageSnapshot();
+    });
+
     it('item data-attrs', () => {
         cy.viewport(400, 100);
 

@@ -17,6 +17,7 @@ import {
     StyledInput,
     DoubleWrapper,
     SliderContainer,
+    TrackWrapper,
     StyledTrack,
     StyledDoubleProgress,
     StyledRange,
@@ -181,8 +182,10 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 
             <SliderWrapper>
                 <SliderContainer {...rest}>
-                    <StyledTrack />
-                    <StyledDoubleProgress style={doubleProgressStyle} />
+                    <TrackWrapper>
+                        <StyledTrack />
+                        <StyledDoubleProgress style={doubleProgressStyle} />
+                    </TrackWrapper>
 
                     {/* Первый ползунок (левый / минимальный) */}
                     <StyledRange

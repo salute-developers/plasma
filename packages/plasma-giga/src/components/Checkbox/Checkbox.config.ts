@@ -111,7 +111,7 @@ export const config = {
                 ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: ${textSecondary};
+                ${checkboxTokens.triggerBorderColor}: ${outlinePositive};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             negative: css`

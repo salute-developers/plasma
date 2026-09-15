@@ -7,8 +7,10 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 import { multipleMediaQuery } from '../mixins';
-import { Header, Main, SearchForm, IconsList, Footer, IconFilterMenu } from '../components/roster';
+import { Header, Main, SearchForm, IconsList, Footer, IconsToolbar } from '../components/roster';
 import { StyledActionIcon } from '../components/roster/StyledActionIcon';
+import { defaultIconStyle } from '../utils/iconStyle';
+import type { IconStyle } from '../utils/iconStyle';
 
 const StyledSection = styled.div`
     --page-padding-y: 4rem;
@@ -37,24 +39,15 @@ const StyledSection = styled.div`
     `)}
 `;
 
-const StyledFilterWrapper = styled.div`
+const StyledIconBackWrapper = styled.div`
     position: absolute;
     top: 0;
-    right: 1.375rem;
+    left: 1.375rem;
     z-index: 1;
+    padding: 2rem 0;
 
     min-height: calc(100% - 7.125rem);
     max-width: 1.25rem;
-
-    ${multipleMediaQuery(['S'])(css`
-        right: 0.5rem;
-    `)}
-`;
-
-const StyledIconBackWrapper = styled(StyledFilterWrapper)`
-    right: auto;
-    left: 1.375rem;
-    padding: 2rem 0;
 
     ${multipleMediaQuery(['S'])(css`
         left: 0.5rem;
@@ -91,6 +84,7 @@ function Home() {
     const [searchQuery, setSearchQuery] = useState('');
     const [isScrolling, setIsScrolling] = useState(false);
     const [showDeprecated, setShowDeprecated] = useState(false);
+    const [iconStyle, setIconStyle] = useState<IconStyle>(defaultIconStyle);
 
     const inputRef = useRef<HTMLInputElement>(null);
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -151,11 +145,9 @@ function Home() {
                         ←
                     </StyledIconNavigation>
                 </StyledIconBackWrapper>
-                <StyledFilterWrapper>
-                    <IconFilterMenu setInputFocus={setInputFocus} />
-                </StyledFilterWrapper>
                 <Header />
                 <StyledMain>
+                    <IconsToolbar activeCollection="plasma" iconStyle={iconStyle} onIconStyleChange={setIconStyle} />
                     <SearchForm
                         searchQuery={searchQuery}
                         onInput={onSearchInput}
@@ -165,6 +157,7 @@ function Home() {
                     />
                     <IconsList
                         activeGroup={activeGroup}
+                        iconStyle={iconStyle}
                         searchQuery={searchQuery}
                         showDeprecated={showDeprecated}
                         pageRef={sectionRef}

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { CodeSandbox as CodeSandboxView } from '@salutejs/plasma-docs-ui';
 import IconExternalLink from '@theme/Icon/ExternalLink';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import packageJson from '../../package.json';
 
@@ -9,8 +9,8 @@ const StyledText = styled.span`
     margin-left: 6px;
 `;
 
-const sberdevicesDependencies = Object.entries(packageJson.dependencies)
-    .filter(([key]) => key.startsWith('@salutejs') && !key.includes('plasma-docs-ui'))
+const packageDependencies = Object.entries(packageJson.dependencies)
+    .filter(([key]) => (key.startsWith('@salutejs') || key.startsWith('@emotion')) && !key.includes('plasma-docs-ui'))
     .reduce((acc: Record<string, string>, [key, value]) => {
         acc[key] = value;
         return acc;
@@ -18,26 +18,27 @@ const sberdevicesDependencies = Object.entries(packageJson.dependencies)
 
 const indexSource = `import React from "react";
 import ReactDOM from "react-dom";
-import styled, { createGlobalStyle } from "styled-components";
+import { Global, css } from '@emotion/react';
+import styled from '@emotion/styled';
 import { sdds_cs__light } from '@salutejs/sdds-themes';
 
 import { App } from "./App";
 import "./style.css";
 
-const Theme = createGlobalStyle(sdds_cs__light);
+const themeStyle = css(sdds_cs__light);
 
 const StyledPreview = styled.div\`
-    padding: 1rem; 
+    padding: 1rem;
 
-    > div { 
-        display: flex; 
-        gap: 1rem; 
+    > div {
+        display: flex;
+        gap: 1rem;
     }
 \`
-    
+
 ReactDOM.render(
     <>
-       <Theme/>
+       <Global styles={themeStyle} />
        <StyledPreview>
             <App />
         </StyledPreview>
@@ -55,8 +56,8 @@ export const CodeSandbox: FC<{ source: string }> = ({ source }) => {
                     <StyledText>Open in CodeSandbox</StyledText>
                 </>
             }
-            sandboxName="plasma-sdds-cs-example"
-            dependencies={sberdevicesDependencies}
+            sandboxName="sdds-cs__example"
+            dependencies={packageDependencies}
             indexSource={indexSource}
         />
     );

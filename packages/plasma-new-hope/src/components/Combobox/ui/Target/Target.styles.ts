@@ -27,6 +27,11 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     opened ? `var(${comboboxTokens.textFieldBorderColorFocus})` : `var(${comboboxTokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${comboboxTokens.textFieldBorderColorFocus});
 
+    ${textFieldTokens.dividerColor}: var(${comboboxTokens.textFieldDividerColor});
+    ${textFieldTokens.dividerColorHover}: var(${comboboxTokens.textFieldDividerColorHover});
+    ${textFieldTokens.dividerColorFocus}: var(${comboboxTokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorReadOnly}: var(${comboboxTokens.textFieldDividerColorReadOnly});
+
     ${textFieldTokens.colorReadOnly}: var(${comboboxTokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${comboboxTokens.textFieldBackgroundColorReadOnly});
     ${textFieldTokens.borderColorReadOnly}: var(${comboboxTokens.textFieldBorderColorReadOnly});

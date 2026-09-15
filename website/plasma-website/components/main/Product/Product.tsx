@@ -10,6 +10,8 @@ import { Title, Icon, ProductMainInfo, ProductWrapper, ProductAdditionalInfo } f
 export type LinkItem = {
     text: string;
     href?: string;
+    badge?: string;
+    description?: string;
     contentRight?: ReactNode;
     contentLeft?: ReactNode;
     isMeta?: boolean;

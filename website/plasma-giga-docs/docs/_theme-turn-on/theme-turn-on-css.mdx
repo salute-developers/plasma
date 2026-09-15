@@ -6,7 +6,7 @@ import TipProcessingStyle from '../_utils/_tip-processing-styles.mdx';
 import React from 'react';
 import { Button, BodyL } from '@salutejs/plasma-giga';
 
-import 'index.css';
+import '@salutejs/plasma-themes/css/plasma_giga__light.css';
 
 const App = () => {
     return (
@@ -20,8 +20,8 @@ const App = () => {
 export default App;
 ```
 
-В файле, где происходит подключение всех стилей, например `index.css`
+Или подключите тему в файле, где собраны все стили приложения, например `index.css`
 
 ```css
-@import '@salutejs/plasma-themes/css/plasma_giga__dark.css';
+@import '@salutejs/plasma-themes/css/plasma_giga__light.css';
 ```

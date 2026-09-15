@@ -601,6 +601,86 @@ type SuggestionItem = {
     <TabItem value="example clear" label="Clear input">
         <AutocompleteExampleClear />
     </TabItem>
+    <TabItem value="slots" label="beforeList / afterList">
+        `beforeList` и `afterList` добавляют контент в начало и конец списка подсказок.
+
+        :::note
+        - Слоты закреплены: скроллится только список, `listMaxHeight` ограничивает его, а не весь попап.
+        - На пустой выдаче попап всё равно откроется, если задан хотя бы один слот.
+        :::
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Autocomplete, BodyXS, Divider, TabItem, Tabs } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const departments = [
+                { value: 'all', label: 'Все' },
+                { value: 'design', label: 'Дизайн' },
+                { value: 'frontend', label: 'Фронтенд' },
+            ];
+
+            const people = [
+                { label: 'Алексей Смирнов', department: 'design' },
+                { label: 'Екатерина Иванова', department: 'design' },
+                { label: 'Ольга Васильева', department: 'design' },
+                { label: 'Дмитрий Петров', department: 'frontend' },
+                { label: 'Сергей Сидоров', department: 'frontend' },
+                { label: 'Мария Кузнецова', department: 'frontend' },
+                { label: 'Андрей Попов', department: 'frontend' },
+            ];
+
+            const [department, setDepartment] = useState('all');
+            const [value, setValue] = useState('');
+
+            const filter = (item) =>
+                (department === 'all' || item.department === department) &&
+                item.label.toLowerCase().includes(value.toLowerCase());
+
+            const found = people.filter(filter);
+
+            return (
+                <div style={{ display: 'block', height:"420px" }}>
+                    <Autocomplete
+                        suggestions={people}
+                        filter={filter}
+                        value={value}
+                        onChange={(event) => setValue(event.target.value)}
+                        onSuggestionSelect={(item) => setValue(item.label)}
+                        threshold={0}
+                        label="Label"
+                        placeholder="Placeholder"
+                        listMaxHeight="200px"
+                        beforeList={
+                            <Tabs view="divider" size="xs" stretch>
+                                {departments.map((item) => (
+                                    <TabItem
+                                        key={item.value}
+                                        view="secondary"
+                                        size="xs"
+                                        tabIndex={0}
+                                        selected={item.value === department}
+                                        onClick={() => setDepartment(item.value)}
+                                    >
+                                        {item.label}
+                                    </TabItem>
+                                ))}
+                            </Tabs>
+                        }
+                        afterList={
+                            <>
+                                <Divider />
+                                <BodyXS style={{ padding: '0.5rem 0.75rem', color: 'var(--text-secondary)' }}>
+                                    {`Найдено: ${found.length}`}
+                                </BodyXS>
+                            </>
+                        }
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Клавиатурная навигация

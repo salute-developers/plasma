@@ -1,11 +1,12 @@
 import type { CSSProperties, KeyboardEvent } from 'react';
 
-export type TimeColumnType = 'hours' | 'minutes' | 'seconds';
+export type TimeColumnType = 'hours' | 'minutes' | 'seconds' | 'meridiem';
 
 interface ActiveTime {
     hours: number | null;
     minutes: number | null;
     seconds: number | null;
+    meridiem?: string | null;
 }
 
 type CurrentColumn = TimeColumnType | null;

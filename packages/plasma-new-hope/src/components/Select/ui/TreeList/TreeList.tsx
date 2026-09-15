@@ -33,9 +33,9 @@ export const TreeList: React.FC<Props> = ({
 
     return (
         <ListWrapper>
-            <ScrollContainer listMaxHeight={listMaxHeight} onScroll={onScroll}>
-                {beforeList}
+            {beforeList}
 
+            <ScrollContainer listMaxHeight={listMaxHeight} onScroll={onScroll}>
                 {isEmpty(items) ? (
                     <StyledEmptyState
                         className={classes.emptyStateWrapper}
@@ -48,9 +48,9 @@ export const TreeList: React.FC<Props> = ({
                         })}
                     </>
                 )}
-
-                {afterList}
             </ScrollContainer>
+
+            {afterList}
         </ListWrapper>
     );
 };

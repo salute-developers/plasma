@@ -34,6 +34,7 @@ import {
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
+    surfaceTransparentTertiary,
     surfaceWarning,
     surfaceWarningActive,
     surfaceWarningHover,
@@ -66,7 +67,7 @@ export const config = {
                 ${iconButtonTokens.iconButtonColor}: ${textPrimary};
                 ${iconButtonTokens.iconButtonBackgroundColor}: ${surfaceTransparentSecondary};
                 ${iconButtonTokens.iconButtonLoadingBackgroundColor}: var(${iconButtonTokens.iconButtonBackgroundColor});
-                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+                ${iconButtonTokens.iconButtonBackgroundColorHover}: ${surfaceTransparentTertiary};
                 ${iconButtonTokens.iconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
             `,
             clear: css`

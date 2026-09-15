@@ -10,6 +10,13 @@ export type CustomCounterProps = {
      */
     maxCount?: number;
     /**
+     * Разделитель тысяч.
+     * Может быть строкой (например, ",") или булевым значением.
+     * @default ' ' (пробел)
+     * @example 123 456 789
+     */
+    thousandSeparator?: boolean | string;
+    /**
      * Размер Counter
      * @default
      * xs

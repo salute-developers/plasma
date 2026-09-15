@@ -212,18 +212,24 @@ export const useDatePicker = ({
             return;
         }
 
-        customDayjs.locale(lang);
-        const formattedDate = customDayjs(date).format(format);
-        const isoDate = date.toISOString();
+        const { formattedDate, isoDate, originalDate } = getFormattedDates({
+            value: date,
+            lang,
+            delimiter: dateFormatDelimiter,
+            format,
+            includeEdgeDates,
+            min,
+            max,
+        });
 
-        setInnerDate(date);
-        setCorrectDates({ calendar: date, input: formattedDate });
+        setInnerDate(originalDate);
+        setCorrectDates({ calendar: originalDate, input: formattedDate });
 
         if (onChangeValue) {
-            onChangeValue(null, formattedDate, date, isoDate);
+            onChangeValue(null, formattedDate, originalDate, isoDate);
         }
         if (onChange) {
-            onChange({ target: { value: formattedDate, originalDate: date, isoDate, name } });
+            onChange({ target: { value: formattedDate, originalDate, isoDate, name } });
         }
         if (onCommitDate) {
             invokeOnCommitDate({
@@ -233,7 +239,7 @@ export const useDatePicker = ({
                     error: false,
                     success: true,
                     dateInfo,
-                    originalDate: date,
+                    originalDate,
                     isoDate,
                 },
             });

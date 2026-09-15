@@ -1,11 +1,20 @@
 import React, { FC, ReactNode, MouseEvent } from 'react';
 
-import { ContentLeftWrapper, ContentRightWrapper, LinkItemWrapper, Title } from './LinkItem.styles';
+import {
+    ContentLeftWrapper,
+    ContentRightWrapper,
+    Description,
+    LinkItemWrapper,
+    StyledBadge,
+    Title,
+} from './LinkItem.styles';
 
 export type LinkItemProps = {
     href?: string;
     isMeta?: boolean;
     title?: string;
+    badge?: string;
+    description?: string;
     contentLeft?: ReactNode;
     contentRight?: ReactNode;
     className?: string;
@@ -16,6 +25,8 @@ export type LinkItemProps = {
 export const LinkItem: FC<LinkItemProps> = ({
     isMeta,
     title,
+    badge,
+    description,
     contentLeft,
     contentRight,
     href,
@@ -44,6 +55,8 @@ export const LinkItem: FC<LinkItemProps> = ({
         >
             {contentLeft && <ContentLeftWrapper>{contentLeft}</ContentLeftWrapper>}
             <Title>{title}</Title>
+            {badge && <StyledBadge text={badge} />}
+            {description && <Description>{description}</Description>}
             {contentRight && <ContentRightWrapper>{contentRight}</ContentRightWrapper>}
         </LinkItemWrapper>
     );

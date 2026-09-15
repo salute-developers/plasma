@@ -3,9 +3,9 @@ import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import styled, { createGlobalStyle } from 'styled-components';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useIsBrowser from '@docusaurus/useIsBrowser';
-import { usePrismTheme, useColorMode } from '@docusaurus/theme-common';
+import { usePrismTheme } from '@docusaurus/theme-common';
 import { PlaygroundPreview } from '@salutejs/plasma-docs-ui';
-import { sdds_cs__light, sdds_cs__dark } from '@salutejs/sdds-themes';
+import { sdds_cs__light } from '@salutejs/sdds-themes';
 import Translate from '@docusaurus/Translate';
 import clsx from 'clsx';
 
@@ -15,7 +15,6 @@ import styles from './styles.module.css';
 
 // Именно в этом файле подключаются/управляются темы/токены
 const LightTheme = createGlobalStyle(sdds_cs__light);
-const DarkTheme = createGlobalStyle(sdds_cs__dark);
 
 // INFO: По договоренности с командой дизайна
 const BackgroundPrimaryTokenOverwrite = createGlobalStyle`
@@ -48,18 +47,16 @@ const Header = ({ children }: PropsWithChildren) => {
 };
 
 const ResultWithHeader: FC = () => {
-    const { colorMode } = useColorMode();
-
     return (
         <>
-            {colorMode === 'dark' ? <DarkTheme /> : <LightTheme />}
-            {colorMode === 'light' && <BackgroundPrimaryTokenOverwrite />}
+            <LightTheme />
+            <BackgroundPrimaryTokenOverwrite />
             <Header>
                 <Translate id="theme.Playground.result" description="The result label of the live codeblocks">
                     Result
                 </Translate>
             </Header>
-            <LivePreview Component={PlaygroundPreview} theme={colorMode} />
+            <LivePreview Component={PlaygroundPreview} theme="light" />
             <LiveError />
         </>
     );

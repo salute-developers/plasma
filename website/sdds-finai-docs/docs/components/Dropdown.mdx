@@ -134,6 +134,45 @@ type ItemOption = {
         ```
     </TabItem>
 
+    <TabItem value="item-color" label="Цвет элемента">
+        Чтобы изменить цвет отдельного элемента, передайте ему `className` в массиве `items`.
+
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'edit',
+                    label: 'Редактировать',
+                },
+                {
+                    value: 'delete',
+                    label: 'Удалить',
+                    className: 'dropdown-item-negative',
+                },
+            ];
+
+            return (
+                <>
+                    <style>{`
+                        .dropdown-item-negative .cell-textbox-title {
+                            color: var(--text-negative);
+                        }
+                    `}</style>
+
+                    <div style={{ height: "180px" }}>
+                        <Dropdown items={items}>
+                            <Button text="Действия" />
+                        </Dropdown>
+                    </div>
+                </>
+            );
+        }
+        ```
+    </TabItem>
+
     <TabItem value="size" label="Size">
         Размер `Dropdown` задается с помощью свойства `size`.<br />
         Возможные значения свойства:  `"m"`, `"s"` или `"xs"`.
@@ -385,6 +424,104 @@ type ItemOption = {
                 <div style={{ position: "relative", height: "300px" }} ref={ref}>
                     <Dropdown items={items} portal={ref}>
                         <Button text="Список стран" />
+                    </Dropdown>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="slots" label="beforeList / afterList">
+        `beforeList` и `afterList` добавляют контент в начало и конец списка.
+
+        :::note
+        Слоты закреплены: скроллится только список, `listMaxHeight` ограничивает его, а не весь попап.
+        :::
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { BodyXS, Button, Divider, Dropdown, TabItem, Tabs } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const regions = [
+                {
+                    value: 'europe',
+                    label: 'Европа',
+                    items: [
+                        {
+                            value: 'germany',
+                            label: 'Германия',
+                            items: [
+                                { value: 'berlin', label: 'Берлин' },
+                                { value: 'munich', label: 'Мюнхен' },
+                            ],
+                        },
+                        { value: 'france', label: 'Франция' },
+                        { value: 'italy', label: 'Италия' },
+                    ],
+                },
+                {
+                    value: 'america',
+                    label: 'Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                            items: [
+                                { value: 'rio_de_janeiro', label: 'Рио-де-Жанейро' },
+                                { value: 'sao_paulo', label: 'Сан-Паулу' },
+                            ],
+                        },
+                        { value: 'argentina', label: 'Аргентина' },
+                    ],
+                },
+                {
+                    value: 'asia',
+                    label: 'Азия',
+                    items: [
+                        { value: 'japan', label: 'Япония' },
+                        { value: 'china', label: 'Китай' },
+                        { value: 'thailand', label: 'Таиланд' },
+                    ],
+                },
+            ];
+
+            const [regionIndex, setRegionIndex] = useState(0);
+            const [selected, setSelected] = useState(null);
+
+            const region = regions[regionIndex];
+
+            return (
+                <div style={{ height:"340px" }}>
+                    <Dropdown
+                        items={region.items}
+                        listWidth="20rem"
+                        onItemSelect={(item) => setSelected(item)}
+                        beforeList={
+                            <Tabs view="filled" size="xs" stretch>
+                                {regions.map((item, index) => (
+                                    <TabItem
+                                        key={item.value}
+                                        view="secondary"
+                                        size="xs"
+                                        tabIndex={0}
+                                        selected={index === regionIndex}
+                                        onClick={() => setRegionIndex(index)}
+                                    >
+                                        {item.label}
+                                    </TabItem>
+                                ))}
+                            </Tabs>
+                        }
+                        afterList={
+                            <>
+                                <Divider />
+                                <BodyXS style={{ padding: '0.5rem 0.75rem', color: 'var(--text-secondary)' }}>
+                                    {`Направлений в разделе: ${region.items.length}`}
+                                </BodyXS>
+                            </>
+                        }
+                    >
+                        <Button text={selected ? selected.label : 'Куда летим?'} />
                     </Dropdown>
                 </div>
             );
