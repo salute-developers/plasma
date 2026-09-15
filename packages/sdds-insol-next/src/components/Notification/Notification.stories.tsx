@@ -6,6 +6,7 @@ import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from 'storybook/actions';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import type { NotificationIconPlacement } from '@salutejs/plasma-new-hope';
+import styled from 'styled-components';
 
 import { Button } from '../Button/Button';
 import { Modal } from '../Modal/Modal';
@@ -46,6 +47,11 @@ const getNotificationProps = (i: number) => ({
 
 const placements = ['top', 'left'];
 
+const ButtonsWrapper = styled.div<{ $filled?: boolean }>`
+    display: flex;
+    gap: 2px;
+`;
+
 const meta: Meta<typeof Notification> = {
     title: 'Overlay/Notification',
     decorators: [InSpacingDecorator],
@@ -70,17 +76,18 @@ const StoryDefault = ({
     enableCustomCloseIcon,
     ...rest
 }: StoryDefaultProps) => {
+    const isVertical = layout === 'vertical';
+
     return (
         <Notification
             title={title}
             icon={showLeftIcon ? <IconDisclosureRight color={iconColor || 'inherit'} /> : ''}
             iconPlacement={iconPlacement}
             actions={
-                <Button
-                    text="text"
-                    size={layout === 'horizontal' ? 'xs' : size}
-                    stretch={layout === 'vertical' && size === 'xs'}
-                />
+                <ButtonsWrapper>
+                    <Button text="text" size={isVertical ? size : 'xs'} stretch={isVertical && size === 'xs'} />
+                    <Button text="text" size={isVertical ? size : 'xs'} stretch={isVertical && size === 'xs'} />
+                </ButtonsWrapper>
             }
             size={size}
             layout={layout}
