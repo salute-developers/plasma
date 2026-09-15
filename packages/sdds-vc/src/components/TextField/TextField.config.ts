@@ -223,7 +223,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -316,7 +316,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -402,7 +402,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -488,7 +488,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -574,7 +574,7 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
-                ${tokens.leftHelperOffset}: 0.25rem 0 0 1rem;
+                ${tokens.leftHelperPadding}: 0.25rem 0 0 1rem;
                 ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
