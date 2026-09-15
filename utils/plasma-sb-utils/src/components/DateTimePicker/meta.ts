@@ -100,209 +100,164 @@ export const createMeta = ({
                 control: {
                     type: 'select',
                 },
-                table: { category: 'variation' },
             },
             hasClearDivider: {
                 control: { type: 'boolean' },
                 if: { arg: 'appearance', eq: 'clear' },
-                table: { category: 'variation' },
             },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             readOnly: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             valueError: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             valueSuccess: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             label: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             titleCaption: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             leftHelper: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             placeholder: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             labelPlacement: {
                 options: labelPlacements,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             textBefore: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             enableContentLeft: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             enableContentRight: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             isDouble: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             stretched: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             defaultDate: {
                 control: { type: 'date' },
-                table: { category: 'date-related' },
             },
             min: {
                 control: { type: 'date' },
-                table: { category: 'date-time-constraints' },
             },
             max: {
                 control: { type: 'date' },
-                table: { category: 'date-time-constraints' },
             },
             includeEdgeDates: {
                 control: { type: 'boolean' },
-                table: { category: 'date-related' },
             },
             renderFromDate: {
                 control: { type: 'date' },
-                table: { category: 'date-related' },
             },
             lang: {
                 options: ['ru', 'en'],
                 control: { type: 'select' },
-                table: { category: 'date-related' },
             },
             dateFormat: {
                 options: dateFormats,
                 control: { type: 'select' },
-                table: { category: 'date-related' },
             },
             timeFormat: {
                 options: timeFormats,
                 control: { type: 'select' },
-                table: { category: 'date-related' },
             },
             maskWithFormat: {
                 control: { type: 'boolean' },
-                table: { category: 'date-related' },
             },
             preserveInvalidOnBlur: {
                 control: { type: 'boolean' },
-                table: { category: 'date-related' },
             },
             calendarContainerWidth: {
                 control: { type: 'text' },
-                table: { category: 'calendar' },
             },
             calendarContainerHeight: {
                 control: { type: 'text' },
-                table: { category: 'calendar' },
             },
             hasShortcuts: {
                 control: { type: 'boolean' },
-                table: { category: 'shortcuts' },
             },
             dateShortcutsWidth: {
                 control: { type: 'text' },
                 if: { arg: 'hasShortcuts', truthy: true },
-                table: { category: 'shortcuts' },
             },
             dateShortcutsPlacement: {
                 options: shortcutsPlacements,
                 control: { type: 'select' },
                 if: { arg: 'hasShortcuts', truthy: true },
-                table: { category: 'shortcuts' },
             },
             required: {
                 control: { type: 'boolean' },
-                table: { category: 'form-related' },
             },
             requiredPlacement: {
                 options: requiredPlacements,
                 control: { type: 'select' },
                 if: { arg: 'required', truthy: true },
-                table: { category: 'form-related' },
             },
             hasRequiredIndicator: {
                 control: { type: 'boolean' },
                 if: { arg: 'required', truthy: true },
-                table: { category: 'form-related' },
             },
             hasHint: {
                 control: { type: 'boolean' },
-                table: { category: 'hint' },
             },
             hintText: {
                 control: { type: 'text' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintView: {
                 options: hintViews,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintSize: {
                 options: hintSizes,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintTargetPlacement: {
                 options: hintTargetPlacements,
                 control: { type: 'inline-radio' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintTrigger: {
                 options: hintTriggers,
                 control: { type: 'inline-radio' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintPlacement: {
                 options: placements,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintHasArrow: {
                 control: { type: 'boolean' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintWidth: {
                 control: { type: 'text' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),

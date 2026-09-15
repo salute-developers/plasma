@@ -38,28 +38,22 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             focused: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             underline: {
                 options: underlineOptions,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             text: {
                 control: { type: 'text' },
-                table: { category: 'content' },
             },
             href: {
                 control: { type: 'text' },
-                table: { category: 'content' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),

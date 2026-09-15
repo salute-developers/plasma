@@ -45,21 +45,17 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             progressSize: {
                 options: progressTrackSizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             hasValue: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             value: {
                 control: {
@@ -68,31 +64,25 @@ export const createMeta = ({
                     max: 100,
                     step: 1,
                 },
-                table: { category: 'progress' },
             },
             label: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             hasLabelIcon: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             labelTextPlacement: {
                 options: labelTextPlacements,
                 control: { type: 'select' },
-                table: { category: 'layout' },
                 if: { arg: 'hasLabelIcon', truthy: true },
             },
             labelPlacement: {
                 options: labelPlacements,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             valuePlacement: {
                 options: valuePlacements,
                 control: { type: 'select' },
-                table: { category: 'layout' },
                 if: { arg: 'hasValue', truthy: true },
             },
             showValueAlign: {
@@ -101,12 +91,10 @@ export const createMeta = ({
             valueAlign: {
                 options: valueAligns,
                 control: { type: 'select' },
-                table: { category: 'layout' },
                 if: { arg: 'showValueAlign', truthy: true },
             },
             caption: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),

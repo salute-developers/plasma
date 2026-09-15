@@ -10,7 +10,13 @@ import {
     ON_DARK_MODE,
     ON_LIGHT_MODE,
 } from './decoratorThemes';
-import { withReactStrictMode, reactStrictModePreviewOption, disabledToolsParameters } from '@salutejs/plasma-sb-utils';
+import {
+    withReactStrictMode,
+    reactStrictModePreviewOption,
+    disabledToolsParameters,
+    createStorybookOnlyArgTypesEnhancer,
+} from '@salutejs/plasma-sb-utils';
+import * as packageApiProps from './apiProps.generated';
 
 // Workaround: to make VoiceOver read russian text properly
 if (typeof document !== 'undefined') {
@@ -19,6 +25,7 @@ if (typeof document !== 'undefined') {
 
 const preview: Preview = {
     decorators: [withTheme, withReactStrictMode],
+    argTypesEnhancers: [createStorybookOnlyArgTypesEnhancer(packageApiProps)],
     globalTypes: {
         theme: {
             description: 'Global theme for components',

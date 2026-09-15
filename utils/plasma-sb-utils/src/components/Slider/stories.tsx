@@ -84,7 +84,6 @@ export const createMultipleValuesStoryArgTypes = () => ({
         pointerSize: {
             options: ['small', 'large'],
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         ...disableProps([
             'orientation',

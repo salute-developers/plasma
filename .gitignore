@@ -15,3 +15,5 @@ s3_build
 temp
 **/.DS_Store
 **/.swc
+packages/*/.storybook/apiProps.generated.ts
+packages/plasma-new-hope/src/apiPropsProbe.generated.ts

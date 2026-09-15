@@ -46,80 +46,62 @@ export const createMeta = ({
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             type: {
                 options: types,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             viewCurrentPage: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             pilled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             square: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             slots: {
                 control: { type: 'range', min: 1, max: 15 },
-                table: { category: 'layout' },
             },
             hasQuickJump: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             textQuickJump: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
                 if: { arg: 'hasQuickJump', truhty: true },
             },
             placeholderQuickJump: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
                 if: { arg: 'hasQuickJump', truhty: true },
             },
             hasPerPage: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             singleLine: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             listWidth: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             helperText: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             count: {
                 control: { type: 'number' },
-                table: { category: 'layout' },
             },
             perPage: {
                 control: { type: 'number' },
-                table: { category: 'layout' },
             },
             enableLeftSlot: {
                 control: { type: 'boolean' },
-                table: { category: 'slot' },
             },
             enableRightSlot: {
                 control: { type: 'boolean' },
-                table: { category: 'slot' },
             },
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),

@@ -54,43 +54,33 @@ export const createMeta = ({
                 control: {
                     type: 'inline-radio',
                 },
-                table: { category: 'layout' },
             },
             maxHeight: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             hasClose: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             hasHandle: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             withOverlay: {
                 control: { type: 'boolean' },
-                table: { category: 'overlay' },
             },
             withBlur: {
                 control: { type: 'boolean' },
-                table: { category: 'overlay' },
             },
             withTransition: {
                 control: { type: 'boolean' },
-                table: { category: 'animation' },
             },
             showContentBeforeHeader: {
                 control: { type: 'boolean' },
-                table: { category: 'story' },
             },
             showContentHeader: {
                 control: { type: 'boolean' },
-                table: { category: 'story' },
             },
             showContentFooter: {
                 control: { type: 'boolean' },
-                table: { category: 'story' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),

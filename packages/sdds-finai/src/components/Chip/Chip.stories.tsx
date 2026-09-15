@@ -26,7 +26,6 @@ const { meta: META, Default: DefaultStory } = getChipStories({
     additionalArgTypes: {
         contentLeftType: {
             name: 'contentLeftType',
-            table: { category: 'layout' },
             control: { type: 'select' },
             options: ['icon', 'avatar'],
             if: { arg: 'enableContentLeft' },

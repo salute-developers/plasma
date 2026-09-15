@@ -251,7 +251,6 @@ const getCommonArgTypes = (componentConfig: any) => ({
     },
     disableFlip: {
         control: { type: 'boolean' },
-        table: { category: 'dropdown' },
     },
 });
 
@@ -321,7 +320,6 @@ export const createMeta = ({
             placement: {
                 options: placements,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
@@ -384,11 +382,9 @@ export const createRangeMeta = ({
             placement: {
                 options: datePickerRangePlacements,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             isCalendarPositionedByInput: {
                 control: { type: 'boolean' },
-                table: { category: 'dropdown' },
                 if: { arg: 'isDoubleCalendar', truthy: false },
             },
             ...additionalArgTypes,

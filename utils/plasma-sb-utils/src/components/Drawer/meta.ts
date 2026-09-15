@@ -65,87 +65,74 @@ export const createMeta = ({
         view: {
             options: componentConfig.views,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         size: {
             options: componentConfig.sizes,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         borderRadius: {
             options: borderRadiuses,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         customBackgroundColor: {
             control: { type: 'color' },
-            table: { category: 'variation' },
         },
         customContentBackgroundColor: {
             control: { type: 'color' },
-            table: { category: 'variation' },
         },
         placement: {
             options: placements,
             control: { type: 'select' },
-            table: { category: 'layout', defaultValue: { summary: 'right' } },
+            table: { defaultValue: { summary: 'right' } },
         },
         width: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
         height: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
         offsetX: {
             control: { type: 'number' },
-            table: { category: 'layout', defaultValue: { summary: 0 } },
+            table: { defaultValue: { summary: 0 } },
         },
         offsetY: {
             control: { type: 'number' },
-            table: { category: 'layout', defaultValue: { summary: 0 } },
+            table: { defaultValue: { summary: 0 } },
         },
         closeOnEsc: {
             control: { type: 'boolean' },
-            table: { category: 'overlay', defaultValue: { summary: true } },
+            table: { defaultValue: { summary: true } },
         },
         closeOnOverlayClick: {
             control: { type: 'boolean' },
-            table: { category: 'overlay', defaultValue: { summary: true } },
+            table: { defaultValue: { summary: true } },
         },
         withBlur: {
             control: { type: 'boolean' },
-            table: { category: 'overlay', defaultValue: { summary: false } },
+            table: { defaultValue: { summary: false } },
         },
         asModal: {
             control: { type: 'boolean' },
-            table: { category: 'overlay' },
         },
         overlayProps: {
             control: { type: 'object' },
-            table: { category: 'overlay' },
         },
         showHeader: {
             control: { type: 'boolean' },
-            table: { category: 'story' },
         },
         showFooter: {
             control: { type: 'boolean' },
-            table: { category: 'story' },
         },
         showActions: {
             control: { type: 'boolean' },
-            table: { category: 'story' },
         },
         hasClose: {
             control: { type: 'boolean' },
-            table: { category: 'story' },
         },
         closePlacement: {
             options: closePlacements,
             control: { type: 'select' },
-            table: { category: 'story', defaultValue: { summary: 'right' } },
+            table: { defaultValue: { summary: 'right' } },
         },
         ...additionalArgTypes,
         ...disableProps([...commonDisabledArgs, ...disablePropsList]),

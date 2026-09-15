@@ -69,172 +69,138 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 defaultValue: 's',
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             appearance: {
                 options: appearances,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             hasDivider: {
                 control: { type: 'boolean' },
                 if: { arg: 'appearance', eq: 'clear' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             readOnly: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
 
             required: {
                 control: { type: 'boolean' },
                 if: { arg: 'optional', truthy: false },
-                table: { category: 'form-related' },
             },
             requiredPlacement: {
                 options: requiredPlacements,
                 control: { type: 'select' },
                 if: { arg: 'optional', truthy: false },
-                table: { category: 'form-related' },
             },
             hasRequiredIndicator: {
                 control: { type: 'boolean' },
                 if: { arg: 'required', truthy: true },
-                table: { category: 'form-related' },
             },
             optional: {
                 control: { type: 'boolean' },
                 if: { arg: 'required', truthy: false },
-                table: { category: 'form-related' },
             },
             optionalText: {
                 control: { type: 'text' },
                 if: { arg: 'required', truthy: false },
-                table: { category: 'form-related' },
             },
 
             label: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             labelPlacement: {
                 options: labelPlacements,
                 control: { type: 'inline-radio' },
-                table: { category: 'layout' },
             },
             placeholder: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             titleCaption: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             leftHelper: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             rightHelper: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             enableContentRight: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             enableHeader: {
                 control: { type: 'boolean' },
                 if: { arg: 'appearance', neq: 'clear' },
-                table: { category: 'layout' },
             },
 
             width: {
                 control: { type: 'text' },
-                table: { category: 'dimensions' },
             },
             height: {
                 control: { type: 'text' },
-                table: { category: 'dimensions' },
             },
             rows: {
                 control: { type: 'number' },
                 if: { arg: 'appearance', neq: 'clear' },
-                table: { category: 'dimensions' },
             },
             cols: {
                 control: { type: 'number' },
                 if: { arg: 'appearance', neq: 'clear' },
-                table: { category: 'dimensions' },
             },
             autoResize: {
                 control: { type: 'boolean' },
                 if: { arg: 'appearance', neq: 'clear' },
-                table: { category: 'dimensions' },
             },
             minAuto: {
                 control: { type: 'number' },
                 if: { arg: 'appearance', neq: 'clear' },
-                table: { category: 'dimensions' },
             },
             maxAuto: {
                 control: { type: 'number' },
                 if: { arg: 'appearance', neq: 'clear' },
-                table: { category: 'dimensions' },
             },
 
             hasHint: {
                 control: { type: 'boolean' },
-                table: { category: 'hint' },
             },
             hintText: {
                 control: { type: 'text' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintTrigger: {
                 options: hintTriggers,
                 control: { type: 'inline-radio' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintView: {
                 options: hintViews,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintSize: {
                 options: hintSizes,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintPlacement: {
                 options: placements,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
                 mappers: placements,
-                table: { category: 'hint' },
             },
             hintHasArrow: {
                 control: { type: 'boolean' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintWidth: {
                 control: { type: 'text' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
 
             ...additionalArgTypes,

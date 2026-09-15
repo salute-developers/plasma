@@ -18,7 +18,6 @@ const { meta: META, Default, MultipleValues } = getSliderStories({
         pointerSize: {
             options: ['small', 'none'],
             control: { type: 'inline-radio' },
-            table: { category: 'variation' },
         },
     },
 });

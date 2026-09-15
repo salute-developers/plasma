@@ -40,44 +40,35 @@ export const createMeta = ({
         view: {
             options: componentConfig.views,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         size: {
             options: componentConfig.sizes,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         appearance: {
             options: appearances,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         pilled: {
             control: { type: 'boolean' },
-            table: { category: 'variation' },
         },
         text: {
             control: { type: 'text' },
             if: { arg: 'enableText', truthy: true },
-            table: { category: 'layout' },
         },
         maxWidth: {
             control: { type: 'text' },
-            table: { category: 'layout' },
         },
         enableText: {
             control: { type: 'boolean' },
-            table: { category: 'layout' },
         },
         enableContentLeft: {
             control: { type: 'boolean' },
             if: { arg: 'enableContentRight', truthy: false },
-            table: { category: 'layout' },
         },
         enableContentRight: {
             control: { type: 'boolean' },
             if: { arg: 'enableText', truthy: true },
-            table: { category: 'layout' },
         },
         ...additionalArgTypes,
         ...disableProps([...commonDisabledArgs, ...disablePropsList]),

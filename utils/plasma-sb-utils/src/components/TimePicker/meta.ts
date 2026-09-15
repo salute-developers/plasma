@@ -82,180 +82,142 @@ export const createMeta = ({
                 control: {
                     type: 'select',
                 },
-                table: { category: 'variation' },
             },
             hasClearDivider: {
                 control: { type: 'boolean' },
                 if: { arg: 'appearance', eq: 'clear' },
-                table: { category: 'variation' },
             },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             readonly: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             valueError: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             valueSuccess: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             label: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             labelPlacement: {
                 options: labelPlacements,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             leftHelper: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             placeholder: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             textBefore: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             textAfter: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             enableContentLeft: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             enableContentRight: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             stretched: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             required: {
                 control: { type: 'boolean' },
-                table: { category: 'form-related' },
             },
             requiredPlacement: {
                 options: requiredPlacements,
                 control: { type: 'select' },
                 if: { arg: 'required', truthy: true },
-                table: { category: 'form-related' },
             },
             hasRequiredIndicator: {
                 control: { type: 'boolean' },
                 if: { arg: 'required', truthy: true },
-                table: { category: 'form-related' },
             },
             hasHint: {
                 control: { type: 'boolean' },
-                table: { category: 'hint' },
             },
             hintText: {
                 control: { type: 'text' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintView: {
                 options: hintViews,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintSize: {
                 options: hintSizes,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintTargetPlacement: {
                 options: hintTargetPlacements,
                 control: { type: 'inline-radio' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintTrigger: {
                 options: hintTriggers,
                 control: { type: 'inline-radio' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintPlacement: {
                 options: placements,
                 control: { type: 'select' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintHasArrow: {
                 control: { type: 'boolean' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             hintWidth: {
                 control: { type: 'text' },
                 if: { arg: 'hasHint', truthy: true },
-                table: { category: 'hint' },
             },
             placement: {
                 options: placements,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             columnsQuantity: {
                 options: columnsQuantities,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             multiplicityMinutes: {
                 options: multiplicityOptions,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             multiplicitySeconds: {
                 options: multiplicityOptions,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             dropdownWidth: {
                 options: dropdownWidths,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             dropdownHeight: {
                 control: { type: 'text' },
-                table: { category: 'dropdown' },
             },
             disableFlip: {
                 control: { type: 'boolean' },
-                table: { category: 'dropdown' },
             },
             min: {
                 control: { type: 'text' },
-                table: { category: 'time-constraints' },
             },
             max: {
                 control: { type: 'text' },
-                table: { category: 'time-constraints' },
             },
             ...additionalArgTypes,
             ...disableProps(['view', 'contentLeft', 'contentRight', 'onToggle', 'dropdownAlign', ...disablePropsList]),

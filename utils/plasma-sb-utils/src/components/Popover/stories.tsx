@@ -114,41 +114,32 @@ export const resizableStoryArgs = {
 export const resizableStoryArgTypes = {
     resizableDisabled: {
         control: 'boolean',
-        table: { category: 'resizable' },
     },
     resizableDirections: {
         control: 'check',
         options: resizableDirections,
-        table: { category: 'resizable' },
     },
     resizableHiddenIcons: {
         control: 'check',
         options: resizableHiddenIconsOptions,
-        table: { category: 'resizable' },
     },
     resizableDefaultSize: {
         control: 'object',
-        table: { category: 'resizable' },
     },
     resizableMinWidth: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableMinHeight: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableMaxWidth: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableMaxHeight: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableIconSize: {
         control: { type: 'select' },
         options: resizableIconSizes,
-        table: { category: 'resizable' },
     },
 };

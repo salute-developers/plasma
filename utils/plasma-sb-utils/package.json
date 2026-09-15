@@ -24,6 +24,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
+    "generate:api-props": "node scripts/generate-api-props.js",
     "prebuild": "npm run clean",
     "build": "tsc",
     "clean": "rm -rf lib",
