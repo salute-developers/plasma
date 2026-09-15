@@ -195,6 +195,7 @@ export const iconSectionsSet = {
         screenShareErrorFill: 'ScreenShareErrorFill',
         speedLowOutline: 'SpeedLowOutline',
         speedMediumOutline: 'SpeedMediumOutline',
+        speedHighOutline: 'SpeedHighOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
