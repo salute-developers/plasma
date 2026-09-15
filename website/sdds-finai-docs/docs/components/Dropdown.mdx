@@ -134,6 +134,45 @@ type ItemOption = {
         ```
     </TabItem>
 
+    <TabItem value="item-color" label="Цвет элемента">
+        Чтобы изменить цвет отдельного элемента, передайте ему `className` в массиве `items`.
+
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'edit',
+                    label: 'Редактировать',
+                },
+                {
+                    value: 'delete',
+                    label: 'Удалить',
+                    className: 'dropdown-item-negative',
+                },
+            ];
+
+            return (
+                <>
+                    <style>{`
+                        .dropdown-item-negative .cell-textbox-title {
+                            color: var(--text-negative);
+                        }
+                    `}</style>
+
+                    <div style={{ height: "180px" }}>
+                        <Dropdown items={items}>
+                            <Button text="Действия" />
+                        </Dropdown>
+                    </div>
+                </>
+            );
+        }
+        ```
+    </TabItem>
+
     <TabItem value="size" label="Size">
         Размер `Dropdown` задается с помощью свойства `size`.<br />
         Возможные значения свойства:  `"m"`, `"s"` или `"xs"`.
