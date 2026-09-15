@@ -28,6 +28,25 @@ export function App() {
 }
 ```
 
+### Разделитель тысяч
+Разделитель задается с помощью свойства `thousandSeparator`. По умолчанию используется пробел.
+
+```tsx live
+import React from 'react';
+import { Counter } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div>
+            <Counter count={1234567} />
+            <Counter count={1234567} thousandSeparator="," />
+            <Counter count={1234567} thousandSeparator={false} />
+            <Counter count={1234567} maxCount={999999} />
+        </div>
+    );
+}
+```
+
 ### Размер числового бейджа
 Размер задается с помощью свойства `size`. Возможные значения свойства: `"xs"` или `"xxs"`.
 
