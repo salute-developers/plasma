@@ -21,7 +21,3 @@ files=$(find src-css/components -name '*.ts' -or -name '*.tsx')
 
 # plasma-new-hope/styled-components => plasma-new-hope/css
 perl -p -i -e "s/\/styled-components/\/css/g" $files
-
-# TODO: #1024 удалить обертку styled в спиннере
-perl -p -i -e "s/import styled from 'styled-components';//g" src-css/components/Spinner/Spinner.tsx
-perl -p -i -e "s/styled\(SpinnerComponent\)\`\`/SpinnerComponent/g" src-css/components/Spinner/Spinner.tsx
