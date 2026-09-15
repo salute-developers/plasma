@@ -651,6 +651,188 @@ export function App() {
         }
         ```
     </TabItem>
+    <TabItem value="sortItems" label="Custom Sort">
+        `sortItems` — функция сортировки после фильтрации. Вызывается **при открытии** списка; порядок фиксируется, пока дропдаун открыт (удобно для nested). В примере выбранные chips-элементы поднимаются вверх.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/sdds-finai';
+
+        export function App() {
+            const [value, setValue] = useState(['berlin', 'vienna']);
+
+            const items = [
+                { value: 'paris', label: 'Париж' },
+                { value: 'berlin', label: 'Берлин' },
+                { value: 'rome', label: 'Рим' },
+                { value: 'madrid', label: 'Мадрид' },
+                { value: 'lisbon', label: 'Лиссабон' },
+                { value: 'vienna', label: 'Вена' },
+                { value: 'prague', label: 'Прага' },
+                { value: 'amsterdam', label: 'Амстердам' },
+            ];
+
+            return (
+                <div style={{ display: "block", width: "350px", height: "400px" }}>
+                    <Combobox
+                        multiple
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Сортировка при открытии списка: выбранные элементы сверху"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        listMaxHeight="250px"
+                        sortItems={(items) =>
+                            [...items].sort((a, b) => {
+                                const aSelected = value.includes(a.value) ? 0 : 1;
+                                const bSelected = value.includes(b.value) ? 0 : 1;
+
+                                return aSelected - bSelected || a.label.localeCompare(b.label, 'ru');
+                            })
+                        }
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="sortItemsNested" label="Custom Sort Nested">
+        Тот же подход для вложенных `items`. Порядок на каждом уровне фиксируется при открытии, поэтому каскадные меню не прыгают при выборе.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/sdds-finai';
+
+        type Item = {
+            value: string;
+            label: string;
+            items?: Item[];
+        };
+
+        const hasSelectedInTree = (item: Item, selected: string[]): boolean => {
+            if (selected.includes(item.value)) {
+                return true;
+            }
+
+            return Boolean(item.items?.some((child) => hasSelectedInTree(child, selected)));
+        };
+
+        const sortSelectedFirst = (items: Item[], selected: string[]): Item[] =>
+            [...items]
+                .map((item) =>
+                    item.items
+                        ? {
+                              ...item,
+                              items: sortSelectedFirst(item.items, selected),
+                          }
+                        : item,
+                )
+                .sort((a, b) => {
+                    const aSelected = hasSelectedInTree(a, selected) ? 0 : 1;
+                    const bSelected = hasSelectedInTree(b, selected) ? 0 : 1;
+
+                    return aSelected - bSelected || a.label.localeCompare(b.label, 'ru');
+                });
+
+        export function App() {
+            const [value, setValue] = useState(['berlin', 'rio_de_janeiro']);
+
+            const items = [
+                {
+                    value: 'europe',
+                    label: 'Европа',
+                    items: [
+                        {
+                            value: 'france',
+                            label: 'Франция',
+                            items: [
+                                { value: 'paris', label: 'Париж' },
+                                { value: 'lyon', label: 'Лион' },
+                            ],
+                        },
+                        {
+                            value: 'germany',
+                            label: 'Германия',
+                            items: [
+                                { value: 'berlin', label: 'Берлин' },
+                                { value: 'munich', label: 'Мюнхен' },
+                            ],
+                        },
+                        {
+                            value: 'italy',
+                            label: 'Италия',
+                            items: [
+                                { value: 'rome', label: 'Рим' },
+                                { value: 'milan', label: 'Милан' },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                    items: [
+                        {
+                            value: 'brazil',
+                            label: 'Бразилия',
+                            items: [
+                                { value: 'rio_de_janeiro', label: 'Рио-де-Жанейро' },
+                                { value: 'sao_paulo', label: 'Сан-Паулу' },
+                            ],
+                        },
+                        {
+                            value: 'argentina',
+                            label: 'Аргентина',
+                            items: [
+                                { value: 'buenos_aires', label: 'Буэнос-Айрес' },
+                                { value: 'cordoba', label: 'Кордова' },
+                            ],
+                        },
+                    ],
+                },
+                {
+                    value: 'asia',
+                    label: 'Азия',
+                    items: [
+                        {
+                            value: 'japan',
+                            label: 'Япония',
+                            items: [
+                                { value: 'tokyo', label: 'Токио' },
+                                { value: 'osaka', label: 'Осака' },
+                            ],
+                        },
+                        {
+                            value: 'china',
+                            label: 'Китай',
+                            items: [
+                                { value: 'beijing', label: 'Пекин' },
+                                { value: 'shanghai', label: 'Шанхай' },
+                            ],
+                        },
+                    ],
+                },
+            ];
+
+            return (
+                <div style={{ display: "block", width: "350px", height: "400px" }}>
+                    <Combobox
+                        multiple
+                        label="Label"
+                        placeholder="Placeholder"
+                        helperText="Сортировка при открытии: ветки с выбранными элементами сверху"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                        listMaxHeight="250px"
+                        sortItems={(items) => sortSelectedFirst(items, value)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
     <TabItem value="renderSelectionIcon" label="Render icon">
         `renderSelectionIcon` - свойство для кастомной настройки иконки выбора элемента. Принимает коллбэк с одним параметром: `selected`.
 

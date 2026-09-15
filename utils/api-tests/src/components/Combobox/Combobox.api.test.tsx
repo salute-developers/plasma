@@ -88,6 +88,9 @@ describe('Basics', () => {
             .toHaveProperty('filter')
             .toEqualTypeOf<((item: ItemOption, textValue: string) => boolean) | undefined>();
         expectTypeOf<ComboboxProps>()
+            .toHaveProperty('sortItems')
+            .toEqualTypeOf<((items: ItemOption[], textValue: string) => ItemOption[]) | undefined>();
+        expectTypeOf<ComboboxProps>()
             .toHaveProperty('onChangeValue')
             .toEqualTypeOf<((value: string) => void) | undefined>();
         expectTypeOf<ComboboxProps>()
@@ -339,6 +342,9 @@ describe('Generics', () => {
                 onChange={(_, item) => item?.customLabel}
                 renderItem={(item) => item?.customLabel}
                 filter={(item) => item.isAvailable}
+                sortItems={(sortedItems) => {
+                    return [...sortedItems].sort((a, b) => Number(b.isAvailable) - Number(a.isAvailable));
+                }}
             />
         );
 
@@ -350,6 +356,9 @@ describe('Generics', () => {
                 renderItem={(item) => item?.customLabel}
                 renderValue={(item) => item?.customLabel}
                 filter={(item) => item.isAvailable}
+                sortItems={(sortedItems) => {
+                    return [...sortedItems].sort((a, b) => Number(b.isAvailable) - Number(a.isAvailable));
+                }}
             />
         );
 
@@ -360,6 +369,8 @@ describe('Generics', () => {
                 renderItem={(item) => item?.nonExistedProp}
                 // @ts-expect-error
                 filter={(item) => item.nonExistedProp}
+                // @ts-expect-error
+                sortItems={(sortedItems) => [...sortedItems].sort((a, b) => a.nonExistedProp - b.nonExistedProp)}
                 // @ts-expect-error
                 onChange={(_, item) => item?.nonExistedProp}
             />
@@ -375,6 +386,8 @@ describe('Generics', () => {
                 renderValue={(item) => item?.nonExistedProp}
                 // @ts-expect-error
                 filter={(item) => item.nonExistedProp}
+                // @ts-expect-error
+                sortItems={(sortedItems) => [...sortedItems].sort((a, b) => a.nonExistedProp - b.nonExistedProp)}
                 // @ts-expect-error
                 onChange={(_, item) => item?.nonExistedProp}
             />

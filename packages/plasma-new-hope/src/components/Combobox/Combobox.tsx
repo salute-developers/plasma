@@ -81,6 +81,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             renderItem,
             renderSelectionIcon,
             filter,
+            sortItems,
             closeAfterSelect: outerCloseAfterSelect,
             onChangeValue,
             filterValue,
@@ -139,20 +140,6 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const currentLabel = getTextValue(multiple, value, valueToItemMap, renderValue);
 
         const {
-            filteredItems,
-            filteredMaps: {
-                pathMap: filteredPathMap,
-                focusedToValueMap: filteredFocusedToValueMap,
-                valueToPathMap: filteredValueToPathMap,
-            },
-        } = useComboboxItems({
-            items: transformedItems,
-            textValue,
-            currentLabel,
-            filter,
-        });
-
-        const {
             path,
             treePath,
             focusedPath,
@@ -173,6 +160,22 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             value,
             valueToItemMap,
             setTextValue,
+        });
+
+        const {
+            filteredItems,
+            filteredMaps: {
+                pathMap: filteredPathMap,
+                focusedToValueMap: filteredFocusedToValueMap,
+                valueToPathMap: filteredValueToPathMap,
+            },
+        } = useComboboxItems({
+            items: transformedItems,
+            textValue,
+            currentLabel,
+            filter,
+            sortItems,
+            isListOpened,
         });
 
         const { checked, handleCheckboxChange, handleItemClick, handlePressDown } = useCheckedState({
@@ -533,7 +536,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                                                     ) : (
                                                         filteredItems.map((item, index) => (
                                                             <Inner
-                                                                key={`${index}/0`}
+                                                                key={String(item.value)}
                                                                 item={item}
                                                                 currentLevel={0}
                                                                 path={path}
