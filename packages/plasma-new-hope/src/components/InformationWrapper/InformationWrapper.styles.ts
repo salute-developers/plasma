@@ -139,7 +139,7 @@ export const OptionalText = styled.span`
 export const TitleCaption = styled.div<{ hasLabel: boolean }>`
     display: inline-block;
     margin-left: auto;
-    margin-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset})` : 'unset')};
+    padding-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset})` : 'unset')};
 `;
 
 export const Helpers = styled.div`

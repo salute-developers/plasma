@@ -137,6 +137,8 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0.25rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.8125rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.813rem 0 0.813rem 0;
 
@@ -296,6 +298,8 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-l-line-height);
 
                 ${tokens.labelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0.25rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.5625rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.5625rem 0 0.5625rem 0;
 
@@ -455,6 +459,8 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.labelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0.1875rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.375rem 0 0.125rem 0;
                 ${tokens.contentLabelInnerPadding}: 1.375rem 0 0.375rem 0;
 
@@ -614,6 +620,8 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.labelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 
@@ -773,6 +781,8 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.labelOffset}: 0.25rem;
+                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
                 ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
 

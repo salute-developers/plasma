@@ -84,6 +84,8 @@ export const tokens = {
     textFieldLabelInnerPadding: '--plasma-autocomplete-textfield-placement-inner-label-padding',
     textFieldContentLabelInnerPadding: '--plasma-autocomplete-textfield-placement-inner-content-padding',
 
+    textFieldTitleCaptionOffset: '--plasma-autocomplete-textfield-title-caption-offset',
+
     textFieldLeftHelperColor: '--plasma-autocomplete-textfield-left-helper-color',
     textFieldLeftHelperColorReadOnly: '--plasma-autocomplete-textfield-left-helper-color-readonly',
     textFieldLeftHelperOffset: '--plasma-autocomplete-textfield-left-helper-offset',
