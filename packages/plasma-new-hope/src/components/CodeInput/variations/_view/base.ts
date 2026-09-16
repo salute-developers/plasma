@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { addFocus } from 'src/mixins';
+import { addFocus, applyHover } from 'src/mixins';
 
 import { CaptionWrapper, ItemInput, ItemCircle } from '../../CodeInput.styles';
 import { classes, tokens } from '../../CodeInput.tokens';
@@ -52,12 +52,14 @@ export const base = css`
         }
     }
 
-    &:hover {
-        .${classes.hoverEnabled} {
-            background-color: var(${tokens.backgroundColorHover});
-            box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorHover});
+    ${applyHover(`
+        &:hover {
+            .${classes.hoverEnabled} {
+                background-color: var(${tokens.backgroundColorHover});
+                box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorHover});
+            }
         }
-    }
+    `)}
 
     &:focus-within {
         ${ItemInput}:focus-within {
@@ -116,21 +118,27 @@ export const base = css`
         14% {
             transform: translateX(-0.125rem);
         }
+
         28% {
             transform: translateX(0.125rem);
         }
+
         42% {
             transform: translateX(-0.125rem);
         }
+
         57% {
             transform: translateX(0.125rem);
         }
+
         71% {
             transform: translateX(-0.125rem);
         }
+
         85% {
             transform: translateX(0.125rem);
         }
+
         100% {
             transform: translateX(-0.125rem);
         }
@@ -140,6 +148,7 @@ export const base = css`
         50% {
             color: var(${tokens.codeColorError});
         }
+
         100% {
             color: transparent;
         }

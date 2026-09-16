@@ -24,6 +24,7 @@ describe('Basics', () => {
         expectTypeOf<Props>().toHaveProperty('columnsQuantity').toEqualTypeOf<2 | 3 | undefined>();
         expectTypeOf<Props>().toHaveProperty('multiplicityMinutes').toEqualTypeOf<TimePickerMultiplicity | undefined>();
         expectTypeOf<Props>().toHaveProperty('multiplicitySeconds').toEqualTypeOf<TimePickerMultiplicity | undefined>();
+        expectTypeOf<Props>().toHaveProperty('hasTimeFormat').toEqualTypeOf<boolean | undefined>();
     });
 
     it('Variations', () => {

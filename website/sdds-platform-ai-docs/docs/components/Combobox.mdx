@@ -686,6 +686,100 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="slots" label="beforeList / afterList">
+        `beforeList` и `afterList` добавляют контент в начало и конец списка.
+
+        :::note
+        Слоты закреплены: скроллится только список, `listMaxHeight` ограничивает его, а не весь попап.
+        :::
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { BodyXS, Combobox, Divider, LinkButton, TabItem, Tabs } from '@salutejs/sdds-platform-ai';
+
+        export function App() {
+            const regions = [
+                { value: 'all', label: 'Все' },
+                { value: 'europe', label: 'Европа' },
+                { value: 'asia', label: 'Азия' },
+            ];
+
+            const cities = [
+                { value: 'berlin', label: 'Берлин', region: 'europe' },
+                { value: 'paris', label: 'Париж', region: 'europe' },
+                { value: 'rome', label: 'Рим', region: 'europe' },
+                { value: 'madrid', label: 'Мадрид', region: 'europe' },
+                { value: 'prague', label: 'Прага', region: 'europe' },
+                { value: 'tokyo', label: 'Токио', region: 'asia' },
+                { value: 'seoul', label: 'Сеул', region: 'asia' },
+                { value: 'bangkok', label: 'Бангкок', region: 'asia' },
+                { value: 'shanghai', label: 'Шанхай', region: 'asia' },
+            ];
+
+            const [region, setRegion] = useState('all');
+            const [value, setValue] = useState([]);
+
+            const items = cities.filter((item) => region === 'all' || item.region === region);
+
+            return (
+                <div style={{ display: "flex", gap: "30px", height: "420px" }}>
+                    <div style={{ width: "300px" }}>
+                        <Combobox
+                            multiple
+                            items={items}
+                            value={value}
+                            onChange={setValue}
+                            label="Label"
+                            placeholder="Placeholder"
+                            listMaxHeight="200px"
+                            beforeList={
+                                <Tabs view="filled" size="s" stretch>
+                                    {regions.map((item) => (
+                                        <TabItem
+                                            key={item.value}
+                                            view="divider"
+                                            size="s"
+                                            tabIndex={0}
+                                            selected={item.value === region}
+                                            onClick={() => setRegion(item.value)}
+                                        >
+                                            {item.label}
+                                        </TabItem>
+                                    ))}
+                                </Tabs>
+                            }
+                            afterList={
+                                <>
+                                    <Divider />
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'space-between',
+                                            gap: '0.5rem',
+                                            padding: '0.5rem 0.75rem',
+                                        }}
+                                    >
+                                        <BodyXS style={{ color: 'var(--text-secondary)' }}>
+                                            {`В разделе: ${items.length}`}
+                                        </BodyXS>
+                                        <LinkButton
+                                            size="xs"
+                                            view="accent"
+                                            text="Показать все"
+                                            disabled={region === 'all'}
+                                            onClick={() => setRegion('all')}
+                                        />
+                                    </div>
+                                </>
+                            }
+                        />
+                    </div>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Взаимодействие с disabled-элементами

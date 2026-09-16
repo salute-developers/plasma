@@ -4101,60 +4101,6 @@
                     "value": "#166dc41f",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола информация"
                 },
-                "surfaceCradGradient": {
-                    "value": {
-                        "origin": "linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "#FFFFFF",
-                                "#D5DFE6"
-                            ],
-                            "locations": [
-                                0.29,
-                                1.15
-                            ],
-                            "startPoint": {
-                                "x": 0.01,
-                                "y": 0.44
-                            },
-                            "endPoint": {
-                                "x": 0.99,
-                                "y": 0.56
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "#FFFFFF",
-                                "#D5DFE6"
-                            ],
-                            "locations": [
-                                0.29,
-                                1.15
-                            ],
-                            "startPoint": {
-                                "x": 0.01,
-                                "y": 0.44
-                            },
-                            "endPoint": {
-                                "x": 0.99,
-                                "y": 0.56
-                            }
-                        }
-                    },
-                    "comment": ""
-                },
-                "surfaceCradGradientHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceCradGradientActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
                 "surfaceNegativeGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
@@ -4368,6 +4314,60 @@
                     "comment": ""
                 },
                 "surfaceInfoGradientActive": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
                     "value": "#FFFFFFFF",
                     "comment": ""
                 }
@@ -6104,6 +6104,18 @@
                 "dataPinkTransparent": {
                     "value": "#ff369a8f",
                     "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a33",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C52",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C24",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -6177,6 +6189,18 @@
                 },
                 "dataPinkTransparentActive": {
                     "value": "#FF57AB80",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a33",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C52",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C24",
                     "comment": ""
                 }
             },
@@ -6252,6 +6276,18 @@
                 "dataPinkTransparent": {
                     "value": "#ff369a8f",
                     "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a1f",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C2E",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C33",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -6325,6 +6361,18 @@
                 },
                 "dataPinkTransparentActive": {
                     "value": "#FF57ABA3",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a1f",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C2E",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C33",
                     "comment": ""
                 }
             }
@@ -10421,60 +10469,6 @@
                     "value": "#0A3D35",
                     "comment": "Инвертированный минорный цвет фона поверхности/контрола успех"
                 },
-                "surfaceCradGradientHover": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceCradGradientActive": {
-                    "value": "#FFFFFFFF",
-                    "comment": ""
-                },
-                "surfaceCradGradient": {
-                    "value": {
-                        "origin": "linear-gradient(97deg, #13181B 29%, #30373C 115%)",
-                        "swift": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "#13181B",
-                                "#30373C"
-                            ],
-                            "locations": [
-                                0.29,
-                                1.15
-                            ],
-                            "startPoint": {
-                                "x": 0.01,
-                                "y": 0.44
-                            },
-                            "endPoint": {
-                                "x": 0.99,
-                                "y": 0.56
-                            }
-                        },
-                        "xml": {
-                            "kind": "gradient",
-                            "type": ".linear",
-                            "colors": [
-                                "#13181B",
-                                "#30373C"
-                            ],
-                            "locations": [
-                                0.29,
-                                1.15
-                            ],
-                            "startPoint": {
-                                "x": 0.01,
-                                "y": 0.44
-                            },
-                            "endPoint": {
-                                "x": 0.99,
-                                "y": 0.56
-                            }
-                        }
-                    },
-                    "comment": ""
-                },
                 "surfaceNegativeGradientHover": {
                     "value": "#FFFFFFFF",
                     "comment": ""
@@ -10689,6 +10683,60 @@
                             }
                         }
                     },
+                    "comment": ""
+                },
+                "surfaceCardGradient": {
+                    "value": {
+                        "origin": "linear-gradient(97deg, #FFFFFF 29%, #D5DFE6 115%)",
+                        "swift": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        },
+                        "xml": {
+                            "kind": "gradient",
+                            "type": ".linear",
+                            "colors": [
+                                "#FFFFFF",
+                                "#D5DFE6"
+                            ],
+                            "locations": [
+                                0.29,
+                                1.15
+                            ],
+                            "startPoint": {
+                                "x": 0.01,
+                                "y": 0.44
+                            },
+                            "endPoint": {
+                                "x": 0.99,
+                                "y": 0.56
+                            }
+                        }
+                    },
+                    "comment": ""
+                },
+                "surfaceCardGradientHover": {
+                    "value": "#FFFFFFFF",
+                    "comment": ""
+                },
+                "surfaceCardGradientActive": {
+                    "value": "#FFFFFFFF",
                     "comment": ""
                 }
             }
@@ -12424,6 +12472,18 @@
                 "dataPinkTransparentActive": {
                     "value": "#FF57ABA3",
                     "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C2E",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C33",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a1f",
+                    "comment": ""
                 }
             },
             "onDark": {
@@ -12497,6 +12557,18 @@
                 },
                 "dataPinkTransparentActive": {
                     "value": "#FF57AB80",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C52",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C24",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a33",
                     "comment": ""
                 }
             },
@@ -12572,6 +12644,18 @@
                 "dataPinkTransparentActive": {
                     "value": "#FF57ABA3",
                     "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a1f",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C2E",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C33",
+                    "comment": ""
                 }
             },
             "inverse": {
@@ -12645,6 +12729,18 @@
                 },
                 "dataPinkTransparentActive": {
                     "value": "#FF57AB80",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorHover": {
+                    "value": "#FF389C52",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinorActive": {
+                    "value": "#FF389C24",
+                    "comment": ""
+                },
+                "dataPinkTransparentMinor": {
+                    "value": "#ff369a33",
                     "comment": ""
                 }
             }

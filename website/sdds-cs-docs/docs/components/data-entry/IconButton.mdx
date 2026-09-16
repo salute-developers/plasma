@@ -1,0 +1,131 @@
+---
+id: IconButton
+slug: /components/IconButton
+title: IconButton
+description: "Кнопка с иконкой."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# IconButton
+Кнопки могут отображаться в нескольких размерах и цветах, могут содержать иконку.
+
+## IconButton
+<Description name="IconButton" />
+
+## Использование
+Компонент `IconButton` может содержать иконку, которая указывается напрямую через `children`.
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/sdds-cs';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <IconButton>
+                <IconClose color="inherit" />
+            </IconButton>
+        </div>
+    );
+}
+```
+
+## Примеры
+
+### Размер кнопки
+Размер кнопки задается с помощью свойства `size`.
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/sdds-cs';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: "flex", gap: "1rem" }}>
+            <IconButton size="s">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="m">
+                <IconClose color="inherit" />
+            </IconButton>
+        </div>
+    );
+}
+```
+
+### Вид кнопки
+Вид кнопки задается с помощью свойства `view`.
+
+Возможные значения свойства `view`:
++ `"accent"` – по умолчанию;
++ `"secondary"` – вторичная;
++ `"clear"` – без цветового сопровождения;
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/sdds-cs';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <IconButton size="s" view="accent">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="secondary">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton size="s" view="clear">
+                <IconClose color="inherit" />
+            </IconButton>
+        </div>
+    );
+}
+```
+
+### Границы кнопки
+Границы кнопки задаются с помощью свойства `pin`. Возможные значения свойства `pin`:
++ `square` – обычное скругление;
++ `circle` – сильное скругление;
++ `clear` – нет скругления.
+
+```tsx live
+import React from 'react';
+import { IconButton } from '@salutejs/sdds-cs';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <IconButton pin="square-square">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="square-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-square">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="clear-circle">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="circle-clear">
+                <IconClose color="inherit" />
+            </IconButton>
+            <IconButton pin="circle-circle">
+                <IconClose color="inherit" />
+            </IconButton>
+        </div>
+    );
+}
+```
+
+## API
+
+<PropsTable name="IconButton" exclude={['css']} />

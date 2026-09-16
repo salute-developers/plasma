@@ -48,6 +48,7 @@ export const tokens = {
 
     listItemDividerColor: '--plasma-list-item-divider-color',
     listItemDividerHeight: '--plasma-list-item-divider-height',
+    listItemDividerThickness: '--plasma-list-item-divider-thickness',
     listItemDividerMarginTop: '--plasma-list-item-divider-margin-top',
     listItemDividerMarginBottom: '--plasma-list-item-divider-margin-bottom',
 

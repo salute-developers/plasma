@@ -8,3 +8,4 @@ export { SearchForm } from './SearchForm';
 export { ThemeSwitcher } from './ThemeSwitcher';
 export { Footer } from './Footer';
 export { IconFilterMenu } from './IconFilterMenu';
+export { IconsToolbar } from './IconsToolbar';

@@ -1,5 +1,5 @@
 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-<metadata>{"aliases":["flip","horizontal","mirror","left-right","reflect","reverse"],"category":"Actions &amp; Feedback","source":"36/FlipHorizontal/FlipHorizontalOutline","size":"36"}</metadata>
+<metadata>{"aliases":["flip","horizontal","mirror","left-right","reflect","reverse","отразить","зеркало","перевернуть","горизонтально","ширина","действие"],"category":"Actions &amp; Feedback","source":"36/FlipHorizontal/FlipHorizontalOutline","size":"36"}</metadata>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M14.437 6.58945C15.1866 5.23387 17.2491 5.76601 17.2495 7.31504V27.7496L17.2378 27.9801C17.1301 29.0387 16.2886 29.8802 15.23 29.9879L14.9995 29.9996H4.04249L3.8335 29.9859C2.81504 29.8475 2.21121 28.7112 2.72901 27.774L14.437 6.58945ZM4.89014 27.9996H14.9995C15.1376 27.9996 15.2495 27.8877 15.2495 27.7496V9.25351L4.89014 27.9996Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7505 7.31504C18.751 5.76599 20.8134 5.23382 21.563 6.58945L33.271 27.774C33.7888 28.7112 33.1849 29.8475 32.1665 29.9859L31.9575 29.9996H21.0005L20.77 29.9879C19.7114 29.8802 18.8699 29.0387 18.7622 27.9801L18.7505 27.7496V7.31504ZM20.7505 27.7496C20.7505 27.8877 20.8624 27.9996 21.0005 27.9996H31.1099L20.7505 9.25351V27.7496Z" fill="black"/>
 </svg>

@@ -45,6 +45,23 @@ describeFn('Slider', () => {
         cy.matchImageSnapshot();
     });
 
+    it('does not cause horizontal overflow', () => {
+        mount(
+            <>
+                <div data-cy="single-slider-overflow-container" style={{ width: '100%' }}>
+                    <Slider min={0} max={100} value={50} />
+                </div>
+                <div data-cy="double-slider-overflow-container" style={{ width: '100%' }}>
+                    <Slider min={0} max={100} value={[25, 75]} />
+                </div>
+            </>,
+        );
+
+        cy.get('[data-cy$="slider-overflow-container"]').each(($container) => {
+            expect($container[0].scrollWidth).to.equal($container[0].clientWidth);
+        });
+    });
+
     it('focus', () => {
         mount(<Slider value={25} min={0} max={100} />);
 

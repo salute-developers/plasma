@@ -22,7 +22,6 @@ export const FloatingTarget = styled.div``;
 export const FloatingContent = styled.div``;
 
 export const StyledTimePickerGrid = styled(TimePickerGrid)<{
-    columns: number;
     innerWidth?: string | number;
     innerHeight?: string | number;
 }>`

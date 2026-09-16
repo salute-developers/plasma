@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { numericFormatter } from 'react-number-format';
 
 import type { RootProps } from '../../engines';
 import { cx } from '../../utils';
@@ -13,7 +14,7 @@ const MIN_COUNT = 0;
 
 export const counterRoot = (Root: RootProps<HTMLDivElement, CounterProps>) =>
     forwardRef<HTMLDivElement, CounterProps>((props, ref) => {
-        const { count, maxCount, size, view, className, ...rest } = props;
+        const { count, maxCount, thousandSeparator = ' ', size, view, className, ...rest } = props;
 
         const currentCount = count < MIN_COUNT ? MIN_COUNT : count;
         const currentMaxCount = maxCount && maxCount < MIN_COUNT ? MIN_COUNT : maxCount;
@@ -21,7 +22,11 @@ export const counterRoot = (Root: RootProps<HTMLDivElement, CounterProps>) =>
         const isCurrentCountOneDigit = currentCount >= 0 && currentCount < 10;
         const isCurrentMaxCountExceeded = currentMaxCount && currentCount > currentMaxCount;
 
-        const content = isCurrentMaxCountExceeded ? `${currentMaxCount}+` : currentCount;
+        const rawContent = isCurrentMaxCountExceeded ? currentMaxCount : currentCount;
+        const formattedContent = numericFormatter(String(rawContent), {
+            thousandSeparator,
+        });
+        const content = `${formattedContent}${isCurrentMaxCountExceeded ? '+' : ''}`;
 
         const roundClass = !isCurrentMaxCountExceeded && isCurrentCountOneDigit ? classes.round : undefined;
 

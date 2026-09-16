@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { applyEllipsis, addFocus } from 'src/mixins';
+import { applyEllipsis, addFocus, applyHover } from 'src/mixins';
 import { component, mergeConfig } from 'src/engines';
 
 import { spinnerConfig, spinnerTokens } from '../Spinner';
@@ -143,17 +143,15 @@ export const baseContent = `
     background: var(${tokens.buttonBackgroundColor});
     box-shadow: inset 0 0 0 var(--box-shadow-spread) var(${tokens.buttonBorderColor}, inset 0 0 0 0 transparent);
 
-    @media (hover: hover) and (pointer: fine) {
+    ${applyHover(`
         :hover {
             color: var(${tokens.buttonColorHover}, var(${tokens.buttonColor}));
             background: var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}));
-            box-shadow: inset 0 0 0 var(--box-shadow-spread) var(${
-                tokens.buttonBorderColorHover
-            }, inset 0 0 0 0 transparent);
+            box-shadow: inset 0 0 0 var(--box-shadow-spread) var(${tokens.buttonBorderColorHover}, inset 0 0 0 0 transparent);
 
             scale: var(${tokens.buttonScaleHover});
         }
-    }
+    `)}
 
     :active {
         color: var(${tokens.buttonColorActive}, var(${tokens.buttonColor}));
@@ -196,7 +194,7 @@ export const baseContent = `
         opacity: var(${tokens.buttonDisabledOpacity});
         cursor: not-allowed;
 
-        @media (hover: hover) and (pointer: fine) {
+        ${applyHover(`
             :hover,
             :active {
                 scale: none;
@@ -204,7 +202,7 @@ export const baseContent = `
                 color: var(${tokens.buttonColor});
                 background: var(${tokens.buttonBackgroundColor});
             }
-        }
+        `)}
     }
 
     &.${classes.fixedStretching} {

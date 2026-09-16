@@ -5,8 +5,10 @@ import {
     Label,
     LabelWrapper,
     BaseSliderContainer,
+    BaseTrackWrapper,
     BaseStyledTrack,
     BaseStyledRange,
+    thumbGutter,
 } from '../SliderBase/SliderBase.styles';
 
 export { Label, LabelWrapper };
@@ -61,6 +63,8 @@ export const SliderContainer = styled(BaseSliderContainer)`
         }
     }
 `;
+
+export const TrackWrapper = BaseTrackWrapper;
 
 export const StyledTrack = styled(BaseStyledTrack)`
     .${classes.verticalOrientation} & {
@@ -360,6 +364,8 @@ export const ScaleTicksWrapper = styled.datalist<{ isVertical?: boolean; reverse
     position: relative;
     display: block;
 
+    margin-inline: ${({ isVertical }) => (isVertical ? '0' : thumbGutter)};
+
     grid-column-start: ${({ isVertical }) => (isVertical ? 'b' : 'b')};
     grid-column-end: ${({ isVertical }) => (isVertical ? 'b' : 'c')};
 
@@ -407,9 +413,12 @@ export const SliderBaseWrapper = styled.div`
 
         ${StyledRangeValue} {
             width: fit-content;
+            margin-left: calc(${thumbGutter} / 2);
 
             &.${classes.maxRangeValue} {
                 justify-self: end;
+                margin-left: 0;
+                margin-right: calc(${thumbGutter} / 2);
             }
         }
 
