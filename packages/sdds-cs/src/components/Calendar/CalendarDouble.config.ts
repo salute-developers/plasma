@@ -36,7 +36,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarHoveredItemColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarRangeBackground}: ${surfaceTransparentAccent};
                 ${calendarDoubleTokens.calendarOutlineFocusColor}: ${surfaceAccent};
-                ${calendarDoubleTokens.calendarContentPrimaryColor}: var(--surface-primary);
+                ${calendarDoubleTokens.calendarContentPrimaryColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: ${textSecondary};
                 ${calendarDoubleTokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${calendarDoubleTokens.calendarContentSecondaryDisabledColor}: ${textSecondary};

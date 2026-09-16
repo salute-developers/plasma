@@ -41,8 +41,8 @@ export const config = {
                 ${calendarBaseTokens.calendarHoveredItemColor}: ${textPrimary};
                 ${calendarBaseTokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
                 ${calendarBaseTokens.calendarOutlineFocusColor}: ${surfaceAccent};
-                ${calendarBaseTokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
-                ${calendarBaseTokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
+                ${calendarBaseTokens.calendarContentPrimaryColor}: ${textPrimary};
+                ${calendarBaseTokens.calendarContentPrimaryDisabledColor}: ${textPrimary};
                 ${calendarBaseTokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${calendarBaseTokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
                 ${calendarBaseTokens.calendarHeaderArrowColor}: ${calendarBaseTokens.calendarContentPrimaryColor};
