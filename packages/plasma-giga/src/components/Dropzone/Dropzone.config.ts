@@ -5,7 +5,6 @@ import {
     h4Bold,
     outlineAccent,
     outlineSolidSecondary,
-    outlineSolidSecondaryHover,
     overlaySoft,
     surfaceSolidCard,
     surfaceSolidCardHover,
@@ -25,7 +24,7 @@ export const config = {
                 ${dropzoneTokens.backgroundHover}: ${surfaceSolidCardHover};
                 ${dropzoneTokens.overlayColorActive}: ${overlaySoft};
                 ${dropzoneTokens.borderColor}: ${outlineSolidSecondary};
-                ${dropzoneTokens.borderColorHover}: ${outlineSolidSecondaryHover};
+                ${dropzoneTokens.borderColorHover}: var(${dropzoneTokens.borderColor});
                 ${dropzoneTokens.borderColorActive}: ${outlineAccent};
                 ${dropzoneTokens.titleColor}: ${textPrimary};
                 ${dropzoneTokens.descriptionColor}: ${textSecondary};
