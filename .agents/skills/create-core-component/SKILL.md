@@ -1,6 +1,11 @@
-# Руководство по созданию core компонентов
+---
+name: create-core-component
+description: Create a Plasma/SDDS component from scratch in the plasma-new-hope core and expose it through one or more vertical packages. Use for new core components, their tokens, variations, vertical configurations, exports, stories, and required tests.
+---
 
-Это руководство описывает процесс создания новых компонентов в экосистеме SDDS.
+# Создание core-компонента
+
+Этот навык описывает процесс создания новых компонентов в экосистеме SDDS. Перед реализацией найди близкие по устройству актуальные компоненты: если пример ниже расходится с текущим кодом, следуй соглашениям репозитория.
 
 Архитектура построена на разделении **ядра** (логика и структура) и **вертикалей** (токены и стилизация для конкретного бренда).
 
@@ -104,8 +109,8 @@ MyComponent/
 ```typescript
 // CSS-классы для состояний и модификаторов
 export const classes = {
-    active: 'sdds-core-component-name-active',
-    disabled: 'sdds-core-component-name-disabled',
+    disabled: 'plasma-component-name-disabled',
+    stretch: 'plasma-component-name-stretch',
 };
 
 // Публичные токены (переопределяются в вертикалях)
@@ -140,6 +145,8 @@ export const tokens = {
     closeIconColorOnHover: '--sdds-core-component-name-close-icon-color-on-hover',
 };
 ```
+
+Значения в `classes` всегда начинаются с префикса `plasma-` и включают имя компонента.
 
 Связь между объявлением и использованием:
 
@@ -176,13 +183,13 @@ export type MyComponentProps = {
      */
     size?: string;
     /**
-     * Наличие кнопки закрытия
+     * Контент перед текстом
      */
-    hasClose?: boolean;
+    contentBefore?: ReactNode;
     /**
-     * Callback при нажатии на кнопку закрытия
+     * Растянуть компонент на доступную ширину
      */
-    onCloseButtonClick?: () => void;
+    stretch?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 ```
 
@@ -195,8 +202,6 @@ export type MyComponentProps = {
 ```typescript
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
-
-import { tokens } from './MyComponent.tokens';
 
 // Базовые стили для корневого элемента
 export const base = css`
@@ -288,12 +293,13 @@ export const base = css`
 Файл `MyComponent.tsx` — содержит layout-функцию (JSX-структуру) и конфигурацию компонента.
 
 -   **`RootProps<RefElement, Props>`** — тип из `src/engines`, описывающий корневой React-компонент, который engine создаёт на основе конфигурации. Первый параметр — тип HTML-элемента (должен соответствовать `tag` в конфигурации), второй — тип пропсов компонента.
--   **`classnames(...classes)`** — утилита из `src/utils`. Объединяет строки и условные классы: `classnames('a', false && 'b', 'c')` → `'a c'`.
+-   **`cls(...classes)`** — функция из пакета `classnames`. Объединяет строки и условные классы: `cls('a', false && 'b', 'c')` → `'a c'`.
+
+Импортируйте `classnames` только через default import: `import cls from 'classnames';`. Не используйте named import, namespace import или имя `classnames` для импортированной функции.
 
 ```tsx
 import React, { forwardRef } from 'react';
-
-import { classnames } from '../../utils';
+import cls from 'classnames';
 import type { RootProps } from '../../engines';
 
 import type { MyComponentProps } from './MyComponent.types';
@@ -304,23 +310,15 @@ import { classes } from './MyComponent.tokens';
 
 export const myComponentRoot = (Root: RootProps<HTMLDivElement, MyComponentProps>) =>
     forwardRef<HTMLDivElement, MyComponentProps>(
-        (
-            { className, title, text, contentBefore, size, view, stretch, hasClose, onCloseButtonClick, ...rest },
-            ref,
-        ) => {
-            return (
-                <Root
-                    ref={ref}
-                    className={classnames(className, stretch && classes.stretch)}
-                    view={view}
-                    size={size}
-                    {...rest}
-                >
-                    {contentBefore && <ContentBefore>{contentBefore}</ContentBefore>}
-                    <ContentWrapper>{title && <Title>{title}</Title>}</ContentWrapper>
-                </Root>
-            );
-        },
+        ({ className, title, text, contentBefore, size, view, stretch, ...rest }, ref) => (
+            <Root ref={ref} className={cls(className, stretch && classes.stretch)} view={view} size={size} {...rest}>
+                {contentBefore && <ContentBefore>{contentBefore}</ContentBefore>}
+                <ContentWrapper>
+                    {title && <Title>{title}</Title>}
+                    {text}
+                </ContentWrapper>
+            </Root>
+        ),
     );
 
 export const myComponentConfig = {
@@ -349,7 +347,7 @@ export const myComponentConfig = {
 
 ### 6. Экспортируйте компонент из ядра
 
-Файл `index.ts`:
+Файл `packages/plasma-new-hope/src/components/MyComponent/index.ts`:
 
 ```ts
 export { myComponentRoot, myComponentConfig } from './MyComponent';
@@ -363,6 +361,12 @@ export type { MyComponentProps } from './MyComponent.types';
 ```
 
 > **Примечание:** Токены (`tokens`) экспортируются всегда — они используются в конфигурациях вертикалей. Экспорт `classes` опционален — только если CSS-классы нужны внешним потребителям.
+
+Добавьте компонент в публичный API ядра — `packages/plasma-new-hope/src/index.ts`:
+
+```ts
+export * from './components/MyComponent';
+```
 
 ---
 
@@ -492,17 +496,18 @@ export { myComponentTokens } from '@salutejs/plasma-new-hope/styled-components';
 ### 10. Проверьте
 
 ```bash
-# Установка зависимостей
-npm install
+# Подготовка репозитория (из корня)
+npm run setup
 
-# Сборка пакета
-cd packages/sdds-serv && npm run build
+# Сборка ядра и выбранной вертикали
+npm run build --workspace=@salutejs/plasma-new-hope
+npm run build --workspace=@salutejs/sdds-serv
 
-# Запуск Storybook
-npm run storybook
+# Запуск Storybook вертикали
+npm run storybook --workspace=@salutejs/sdds-serv
 ```
 
-> Примеры реальных компонентов: [Note](../../packages/plasma-new-hope/src/components/Note/), [Button](../../packages/plasma-new-hope/src/components/Button/), [Attach](../../packages/plasma-new-hope/src/components/Attach/).
+> Примеры реальных компонентов: [Note](../../../packages/plasma-new-hope/src/components/Note/), [Button](../../../packages/plasma-new-hope/src/components/Button/), [Attach](../../../packages/plasma-new-hope/src/components/Attach/).
 
 ---
 
@@ -858,7 +863,21 @@ export const myComponentRoot = (Root: RootProps<HTMLDivElement, MyComponentProps
 
 ## Тестирование
 
-> Подход к тестированию компонентов находится в процессе обновления. Руководство по тестированию будет описано в отдельном документе.
+Компонентные тесты ядра находятся рядом с реализацией в файлах `*.component-test.tsx`. При изменении поведения или внешнего вида компонента добавьте или обновите соответствующие тесты.
+
+Запуск теста выбранного компонента выполняется из корня через общий Cypress-скрипт. Укажите пакет вертикали, в котором должна собираться конфигурация компонента:
+
+```bash
+PACKAGE_NAME=sdds-serv COMPONENTS=MyComponent npm run cy:run
+```
+
+По умолчанию используется Chromium. Для WebKit добавьте `BROWSER=webkit`. Чтобы обновить визуальные снимки, добавьте `CYPRESS_updateSnapshots=true` и проверьте получившийся diff перед коммитом.
+
+Если компонент добавляет или меняет публичные TypeScript-типы, создайте или обновите API-тест в `utils/api-tests/src/components/` по навыку [api-test](../api-test/SKILL.md), затем выполните:
+
+```bash
+npm run test --workspace=@salutejs/sdds-api-tests
+```
 
 ---
 
@@ -910,6 +929,7 @@ export const myComponentConfig = {
 -   [ ] Все вариации имеют `base.ts` (файлы `tokens.json` опциональны)
 -   [ ] CSS-классы определены в `classes`
 -   [ ] Экспорты добавлены в `index.ts` (токены обязательно, классы — опционально)
+-   [ ] Компонент экспортирован из `packages/plasma-new-hope/src/index.ts`
 -   [ ] Intersections добавлены при необходимости (если есть зависимости между вариациями)
 -   [ ] Учтены базовые требования accessibility (семантический HTML, aria-атрибуты)
 
@@ -925,6 +945,7 @@ export const myComponentConfig = {
 
 -   [ ] Код проходит lint (`npm run lint` из директории пакета)
 -   [ ] Сборка проходит (`npm run build` из директории пакета)
+-   [ ] Компонентные и API-тесты добавлены или обновлены, если изменение затрагивает поведение, внешний вид или публичные типы
 -   [ ] PR содержит описание изменений
 
 ---
@@ -936,19 +957,21 @@ export const myComponentConfig = {
 ### Из корня проекта
 
 ```bash
-# Установка зависимостей
-npm install
+# Подготовка репозитория
+npm run setup
 
 # Линтинг изменённых пакетов (относительно ветки dev)
 npm run lint
 
-# Cypress компонентные тесты для вертикали (пример для sdds-insol)
-npm run cy:insol:run
-npm run cy:insol:run --components=Button
-npm run cy:insol:open  # Открыть Cypress UI
+# Cypress-компонентные тесты (пример для sdds-insol)
+PACKAGE_NAME=sdds-insol COMPONENTS=Button npm run cy:run
+PACKAGE_NAME=sdds-insol COMPONENTS=Button BROWSER=webkit npm run cy:run
 
 # Обновление скриншотов Cypress
-npm run cy:insol:update --components=Button
+PACKAGE_NAME=sdds-insol COMPONENTS=Button CYPRESS_updateSnapshots=true npm run cy:run
+
+# Интерактивный Cypress в локальном Chromium
+PACKAGE_NAME=sdds-insol COMPONENTS=Button npm run cy:open
 ```
 
 ### Из директории пакета
@@ -1021,7 +1044,7 @@ Engine выбирает CSS-класс по значению пропса. Ес�
 
 -   [Кодгайд](https://github.com/salute-developers/plasma/issues/1215)
 -   Примеры компонентов:
-    -   [Button (простой)](../../packages/plasma-new-hope/src/components/Button/) — базовый пример
-    -   [Note (средний)](../../packages/plasma-new-hope/src/components/Note/) — с ContentBefore и hasClose
-    -   [Attach (сложный)](../../packages/plasma-new-hope/src/components/Attach/) — с подкомпонентами и ui/
--   [Button в вертикали](../../packages/sdds-serv/src/components/Button/)
+    -   [Button (простой)](../../../packages/plasma-new-hope/src/components/Button/) — базовый пример
+    -   [Note (средний)](../../../packages/plasma-new-hope/src/components/Note/) — с ContentBefore и hasClose
+    -   [Attach (сложный)](../../../packages/plasma-new-hope/src/components/Attach/) — с подкомпонентами и ui/
+-   [Button в вертикали](../../../packages/sdds-serv/src/components/Button/)

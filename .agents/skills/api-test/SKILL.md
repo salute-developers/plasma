@@ -1,19 +1,20 @@
 ---
 name: api-test
-description: Create an API type-check test for a component. Use when asked to create, generate, or write an API test for a component. Example - "создай api-test для Checkbox", "api-test Switch".
-argument-hint: '[ComponentName]'
+description: Create or update a shared API type-check test for a Plasma/SDDS component. Use for a new component or a change to its public props, unions, generics, overloads, or exports.
 allowed-tools: Glob, Grep, Read, Write, Edit, Bash, Agent
 ---
 
 # Создание API type-check теста для компонента **\$ARGUMENTS**
 
-Тесты проверяют публичный API (типы пропсов) компонента через `expectTypeOf` из `expect-type`.
-Исходный файл пишется для `@salutejs/plasma-b2c`, затем `script.mjs` автоматически генерирует варианты для всех библиотек.
+Тесты фиксируют публичный TypeScript API компонента через `expectTypeOf` из `expect-type`. Они не рендерят компонент и не проверяют его runtime-поведение.
+
+Исходный файл пишется для `@salutejs/plasma-b2c`, затем `script.mjs` генерирует варианты для всех настроенных библиотек. `describe` и `it` из `node:test` используются только для структуры: текущая проверка запускает `tsc`, а не Node test runner.
 
 ## Архитектурный контекст
 
 -   Тесты: `utils/api-tests/src/components/{ComponentName}/{ComponentName}.api.test.tsx`
 -   `utils/api-tests/script.mjs` копирует тесты из `src/` в `tests/{lib}/`, заменяя импорт `@salutejs/plasma-b2c` на каждую целевую библиотеку
+-   `utils/api-tests/tests/` генерируется при запуске, исключён из Git и не редактируется вручную
 
 ---
 
@@ -243,18 +244,15 @@ describe('Examples', () => {
 
 ## Шаг 3 — Запуск и валидация
 
-Запустить полный цикл тестов (генерация + typecheck):
+Перед проверкой пересобрать изменённые пакеты вертикалей и их декларации типов. Затем из корня репозитория запустить полный цикл — генерацию и typecheck:
 
 ```bash
-cd utils/api-tests && npm test
+npm run test --workspace=@salutejs/sdds-api-tests
 ```
 
 Это выполнит `rm -rf tests && node script.mjs && NODE_OPTIONS=--max-old-space-size=8192 tsc --noEmit -p ./tsconfig.typecheck.json` — сгенерирует тесты для всех библиотек и запустит typecheck.
 
-Все тесты должны пройти без ошибок типов (`Type Errors: no errors`).
-Рантайм ошибки `Cannot find module 'styled-components'` — ожидаемые, игнорировать.
-
-Если есть ошибки типов — внимательно прочитать полный вывод (строки с `TypeCheckError`), исправить ассерты в `src/` файле (не в компоненте) и перезапустить.
+Если есть ошибки типов, определи, вызваны ли они ошибкой реализации или неверным ожиданием теста. Исправляй исходный файл в `src/`, а не сгенерированную копию в `tests/`, и перезапускай полную команду.
 
 ---
 
@@ -268,6 +266,8 @@ cd utils/api-tests && npm test
 6. **JSX-примеры должны компилироваться** — это реальные type-check проверки, не документация
 7. **Группировать пропсы логически** в Common: layout → state → content slots → callbacks
 8. **Юнионы с обеих сторон** — валидные комбинации И `@ts-expect-error` для невалидных, или `// TODO` если юнион "дырявый"
+9. **Не редактировать `utils/api-tests/tests/`** — каталог полностью пересоздаётся при запуске
+10. **Не оставлять временные фильтры** — список библиотек и `includeComponents` / `excludeComponents` задаются в `script.mjs`; CLI-флага для одного компонента нет
 
 ---
 
@@ -280,7 +280,8 @@ cd utils/api-tests && npm test
 -   [ ] HTML-атрибуты покрыты в `HTML...Element`
 -   [ ] Дискриминированные юнионы покрыты в `Unions` с `@ts-expect-error`
 -   [ ] JSX-примеры в `Examples`
--   [ ] Тесты проходят typecheck (`Type Errors: no errors`)
+-   [ ] Изменённые пакеты вертикалей и декларации типов пересобраны
+-   [ ] Полная команда API-тестов проходит без ошибок TypeScript
 
 ---
 

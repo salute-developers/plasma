@@ -14,6 +14,12 @@
 -   @salutejs/plasma-tokens-web
 -   @salutejs/plasma-tokens-b2c
 -   @salutejs/plasma-icons
+-   @salutejs/plasma-giga
+-   @salutejs/plasma-new-hope
+-   @salutejs/sdds-serv
+-   @salutejs/plasma-themes
+-   @salutejs/sdds-themes
+-   @salutejs/sdds-icons
 
 ### plasma-web
 
@@ -44,6 +50,13 @@
 ### plasma-ui
 
 > **Важно:** пакет `plasma-ui` переехал в репозиторий [salute-developers/plasma-ui](https://github.com/salute-developers/plasma-ui).
+
+## Разработка
+
+-   [Правила внесения изменений](./CONTRIBUTING.md)
+-   [Навык создания core-компонента](./.agents/skills/create-core-component/SKILL.md)
+-   [Навык создания API-тестов](./.agents/skills/api-test/SKILL.md)
+-   [Инструкции для AI-агентов](./AGENTS.md)
 
 ## Обратная связь
 
