@@ -51,49 +51,38 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             iconPlacement: {
                 options: iconPlacements,
                 control: { type: 'inline-radio' },
-                table: { category: 'layout' },
             },
             stretch: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             width: {
                 control: { type: 'number' },
-                table: { category: 'layout' },
             },
             height: {
                 control: { type: 'number' },
-                table: { category: 'layout' },
             },
             title: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             description: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             multiple: {
                 control: { type: 'boolean' },
-                table: { category: 'file-related' },
             },
             accept: {
                 control: { type: 'text' },
-                table: { category: 'file-related' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),

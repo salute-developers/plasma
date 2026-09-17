@@ -19,7 +19,6 @@ const { meta: META, Single, Multiple, SelectAll, AddItem } = getComboboxStories(
         chipView: {
             options: ['default'],
             type: 'select',
-            table: { category: 'chip' },
         },
     },
 });

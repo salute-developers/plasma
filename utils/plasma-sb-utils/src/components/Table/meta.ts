@@ -1,3 +1,4 @@
+import { exampleOnly } from '../../index';
 import { disableProps, InSpacingDecorator } from '../..';
 
 const borderVariant = ['rows', 'header', 'all'];
@@ -51,12 +52,14 @@ export const createMeta = ({
             enableSelection: {
                 control: 'boolean',
             },
-            hasTopContent: {
-                control: 'boolean',
-            },
-            hasBottomContent: {
-                control: 'boolean',
-            },
+            ...exampleOnly({
+                hasTopContent: {
+                    control: 'boolean',
+                },
+                hasBottomContent: {
+                    control: 'boolean',
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),
         },

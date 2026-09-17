@@ -1,4 +1,4 @@
-import { disableProps } from '../../index';
+import { disableProps, exampleOnly } from '../../index';
 
 import { orientations, contentLeftOptions, contentRightOptions } from './fixtures';
 
@@ -57,12 +57,6 @@ const getCommonArgTypes = (componentConfig: { group: any; item: any }, additiona
             type: 'select',
         },
     },
-    segmentItemView: {
-        options: componentConfig.item.views,
-        control: {
-            type: 'select',
-        },
-    },
     contentLeft: {
         options: contentLeftOptions,
         control: {
@@ -81,6 +75,14 @@ const getCommonArgTypes = (componentConfig: { group: any; item: any }, additiona
             type: 'select',
         },
     },
+    ...exampleOnly({
+        segmentItemView: {
+            options: componentConfig.item.views,
+            control: {
+                type: 'select',
+            },
+        },
+    }),
     ...additionalArgTypes,
 });
 
@@ -105,6 +107,9 @@ export const createMeta = ({
         },
         argTypes: {
             ...getCommonArgTypes(componentConfig, additionalArgTypes),
+            ...exampleOnly({
+                itemQuantity: { control: { type: 'number' } },
+            }),
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
     };

@@ -86,6 +86,7 @@ description: Сравнивать компоненты Plasma с точными 
 3. Назвать props по существующим conventions репозитория, а не по случайным Figma layer names.
 4. Экспортировать компонент из `index.ts` компонента и из package `src/index.ts`, если этого требует локальная конвенция.
 5. Добавлять config, stories и focused tests по образцу соседних компонентов.
+    - В stories контролы, которых нет в API компонента (`enableContentLeft`, `hasHint`, ширина обёртки и т.п.), оборачивать в `exampleOnly({...})` из `@salutejs/plasma-sb-utils` — они попадут в секцию `Example only`. Пропсам компонента `table.category` не задавать.
 6. Для variants из Figma описывать размеры/виды через config variations и tokens, а не через ad hoc CSS в story.
 7. Предпочитать wrappers/shared primitives из `@salutejs/plasma-new-hope/styled-components`, если они доступны.
 

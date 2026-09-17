@@ -2,7 +2,7 @@ import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { IconPlasma } from '@salutejs/plasma-icons';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { InSpacingDecorator, exampleOnly } from '@salutejs/plasma-sb-utils';
 
 import { EmbeddedButton } from './EmbeddedButton';
 
@@ -41,8 +41,10 @@ const meta: Meta<StoryProps> = {
         position: { options: positions, control: 'select' },
         disabled: { control: 'boolean' },
         isLoading: { control: 'boolean' },
-        buttonContainerWidth: { control: 'text', table: { category: 'example-related' } },
-        buttonContainerHeight: { control: 'text', table: { category: 'example-related' } },
+        ...exampleOnly({
+            buttonContainerWidth: { control: 'text' },
+            buttonContainerHeight: { control: 'text' },
+        }),
     },
     args: {
         buttonContainerWidth: '10rem',

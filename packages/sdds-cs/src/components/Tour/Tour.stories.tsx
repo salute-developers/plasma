@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { getTourStories } from '@salutejs/plasma-sb-utils';
+import { getTourStories, exampleOnly } from '@salutejs/plasma-sb-utils';
 
 import { Avatar } from '../Avatar';
 import { Button } from '../Button';
@@ -255,6 +255,11 @@ const Card: StoryObj<TourProps> = {
                 type: 'select',
             },
         },
+        ...exampleOnly({
+            showImage: { control: { type: 'boolean' } },
+            showActionButtons: { control: { type: 'boolean' } },
+            showSkipButton: { control: { type: 'boolean' } },
+        }),
     },
     render: (args) => <StoryCard {...args} />,
 };

@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import {
     variant,
@@ -123,13 +123,6 @@ export const createMeta = ({
                     eq: 'textfield-like',
                 },
             },
-            enableContentLeft: {
-                control: 'boolean',
-                if: {
-                    arg: 'target',
-                    eq: 'textfield-like',
-                },
-            },
             readOnly: {
                 control: {
                     type: 'boolean',
@@ -249,6 +242,16 @@ export const createMeta = ({
             emptyStateDescription: {
                 control: 'text',
             },
+            ...exampleOnly({
+                enableContentLeft: {
+                    control: 'boolean',
+                    if: {
+                        arg: 'target',
+                        eq: 'textfield-like',
+                    },
+                },
+                hasHint: { control: { type: 'boolean' } },
+            }),
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),
         },

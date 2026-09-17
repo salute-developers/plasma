@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { action } from 'storybook/actions';
 
+import { exampleOnly } from '../../index';
+
 import { resizableDirections, resizableHiddenIconsOptions, resizableIconSizes } from './fixtures';
 
 const onToggleAction = action('onToggle');
@@ -111,44 +113,35 @@ export const resizableStoryArgs = {
     resizableMinHeight: 100,
 };
 
-export const resizableStoryArgTypes = {
+export const resizableStoryArgTypes = exampleOnly({
     resizableDisabled: {
         control: 'boolean',
-        table: { category: 'resizable' },
     },
     resizableDirections: {
         control: 'check',
         options: resizableDirections,
-        table: { category: 'resizable' },
     },
     resizableHiddenIcons: {
         control: 'check',
         options: resizableHiddenIconsOptions,
-        table: { category: 'resizable' },
     },
     resizableDefaultSize: {
         control: 'object',
-        table: { category: 'resizable' },
     },
     resizableMinWidth: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableMinHeight: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableMaxWidth: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableMaxHeight: {
         control: 'number',
-        table: { category: 'resizable' },
     },
     resizableIconSize: {
         control: { type: 'select' },
         options: resizableIconSizes,
-        table: { category: 'resizable' },
     },
-};
+});

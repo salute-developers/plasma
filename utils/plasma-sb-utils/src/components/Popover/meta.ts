@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import { placements, triggers } from './fixtures';
 
@@ -52,46 +52,38 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             placement: {
                 options: placements,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             trigger: {
                 options: triggers,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             hasArrow: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             animated: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             closeOnOverlayClick: {
                 control: { type: 'boolean' },
-                table: { category: 'behaviour' },
             },
             closeOnEsc: {
                 control: { type: 'boolean' },
-                table: { category: 'behaviour' },
             },
             isFocusTrapped: {
                 control: { type: 'boolean' },
-                table: { category: 'behaviour' },
             },
-            skidding: {
-                control: { type: 'number' },
-                table: { category: 'offset' },
-            },
-            distance: {
-                control: { type: 'number' },
-                table: { category: 'offset' },
-            },
+            ...exampleOnly({
+                skidding: {
+                    control: { type: 'number' },
+                },
+                distance: {
+                    control: { type: 'number' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
