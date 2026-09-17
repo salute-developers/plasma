@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import { underlineOptions } from './fixtures';
 
@@ -38,29 +38,25 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             focused: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             underline: {
                 options: underlineOptions,
                 control: { type: 'select' },
-                table: { category: 'variation' },
-            },
-            text: {
-                control: { type: 'text' },
-                table: { category: 'content' },
             },
             href: {
                 control: { type: 'text' },
-                table: { category: 'content' },
             },
+            ...exampleOnly({
+                text: {
+                    control: { type: 'text' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },

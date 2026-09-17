@@ -1,4 +1,5 @@
 export { disableProps } from './disableProps';
+export { exampleOnly, EXAMPLE_ONLY_CATEGORY } from './exampleOnly';
 export { flattenPalette } from './flattenPalette';
 export { extractCanvasThemeColors, extractWebThemeColors } from './themeColors';
 export { getGroupedCornerRadiusTokens, getGroupedSpacingTokens } from './numberTokens';

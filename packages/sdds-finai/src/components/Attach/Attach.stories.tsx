@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { getAttachStories } from '@salutejs/plasma-sb-utils';
+import { getAttachStories, exampleOnly } from '@salutejs/plasma-sb-utils';
 
 import { InformationWrapper } from '../InformationWrapper';
 
@@ -93,8 +93,10 @@ export const WithInformationWrapper: StoryObj<AttachProps> = {
         hintText: 'Hint text',
     },
     argTypes: {
-        label: { control: 'text' },
-        titleCaption: { control: 'text' },
-        hintText: { control: 'text' },
+        ...exampleOnly({
+            label: { control: 'text' },
+            titleCaption: { control: 'text' },
+            hintText: { control: 'text' },
+        }),
     },
 };

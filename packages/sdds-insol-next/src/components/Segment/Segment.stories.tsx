@@ -3,7 +3,7 @@ import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
 import { IconPlasma } from '@salutejs/plasma-icons';
 import styled from 'styled-components';
-import { getSegmentStories, getConfigVariations } from '@salutejs/plasma-sb-utils';
+import { getSegmentStories, getConfigVariations, exampleOnly } from '@salutejs/plasma-sb-utils';
 
 import { Counter } from '../Counter';
 
@@ -75,14 +75,14 @@ const { meta: META, Default } = getSegmentStories({
     useSegment,
     customGetContentLeft: getContentLeft,
     customGetContentRight: getContentRight,
-    additionalArgTypes: {
+    additionalArgTypes: exampleOnly({
         segmentItemView: {
             options: segmentItemViews,
             control: {
                 type: 'select',
             },
         },
-    },
+    }),
 });
 
 const meta: Meta<SegmentGroupProps> = {

@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import { positionValues } from './fixtures';
 
@@ -34,37 +34,32 @@ export const createMeta = ({
             ...defaultArgs,
         },
         argTypes: {
-            buttonContainerWidth: {
-                control: { type: 'text' },
-                table: { category: 'example-related' },
-            },
-            buttonContainerHeight: {
-                control: { type: 'text' },
-                table: { category: 'example-related' },
-            },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             position: {
                 options: positionValues,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             isLoading: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
+            ...exampleOnly({
+                buttonContainerWidth: {
+                    control: { type: 'text' },
+                },
+                buttonContainerHeight: {
+                    control: { type: 'text' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([
                 'theme',
