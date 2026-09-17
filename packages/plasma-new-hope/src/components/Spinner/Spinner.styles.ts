@@ -8,7 +8,7 @@ const animationDuration = `var(${tokens.animationDuration}, 1s)`;
 
 const padding = `var(${privateTokens.padding})`;
 const diameter = `var(${privateTokens.diameter})`;
-const thickness = `var(${privateTokens.thickness})`;
+const strokeSize = `var(${privateTokens.strokeSize})`;
 
 /* Дуга занимает content-box корня. */
 const box = '100cqmin';
@@ -26,13 +26,13 @@ const edgeSmoothing = '0.25px';
 
 /* Центр скруглённого конца дуги — на осевой линии кольца. */
 const capCenter = (angle: string) =>
-    `calc(50% + sin(${angle}) * ((${diameter} - ${thickness}) / 2)) calc(50% - cos(${angle}) * ((${diameter} - ${thickness}) / 2))`;
+    `calc(50% + sin(${angle}) * ((${diameter} - ${strokeSize}) / 2)) calc(50% - cos(${angle}) * ((${diameter} - ${strokeSize}) / 2))`;
 
 /* Кап входит в маску, а не рисуется поверх: иначе на перекрытии альфа удваивается. */
 const cap = (angle: string) =>
     `radial-gradient(circle at ${capCenter(
         angle,
-    )}, #000 calc(${thickness} / 2 - ${edgeSmoothing}), transparent calc(${thickness} / 2 + ${edgeSmoothing}))`;
+    )}, #000 calc(${strokeSize} / 2 - ${edgeSmoothing}), transparent calc(${strokeSize} / 2 + ${edgeSmoothing}))`;
 
 const arcSector = `conic-gradient(from ${arcStart}, #000 ${arcLength}, transparent ${arcLength})`;
 
@@ -42,12 +42,17 @@ const ringHole = 'linear-gradient(#000 0 0) content-box';
 /* Слои сверху вниз: (сектор − дырка) ∪ кап начала ∪ кап конца. */
 const mask = [cap(arcEnd), cap(arcStart), arcSector, ringHole].join(', ');
 
-export const SpinnerRing = styled.div`
+export const SpinnerRing = styled.div<{ customStrokeSize?: number }>`
+    ${privateTokens.strokeSize}: ${({ customStrokeSize }) =>
+        customStrokeSize !== undefined
+            ? `${customStrokeSize}px`
+            : `var(${tokens.strokeSize}, calc(var(${privateTokens.diameter}) * 0.1))`};
+
     box-sizing: border-box;
     width: ${diameter};
     height: ${diameter};
     margin: ${padding};
-    padding: ${thickness};
+    padding: ${strokeSize};
     border-radius: 50%;
 
     background: conic-gradient(
@@ -83,8 +88,6 @@ export const BodyWrapper = styled.div`
 export const base = css`
     ${privateTokens.padding}: var(${tokens.padding}, ${paddingByBox});
     ${privateTokens.diameter}: calc(${box} - 2 * ${padding});
-    ${privateTokens.thickness}: var(${tokens.thickness}, calc(var(${privateTokens.diameter}) * 0.1));
-
     @supports (width: round(1px, 1px)) {
         ${privateTokens.padding}: var(${tokens.padding}, round(${paddingByBox}, 1px));
     }

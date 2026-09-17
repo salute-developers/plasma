@@ -11,6 +11,10 @@ export type SpinnerProps = HTMLAttributes<HTMLDivElement> & {
      */
     view?: string;
     /**
+     * Толщина дуги
+     */
+    strokeSize?: number;
+    /**
      * Кастомная ширина спиннера
      * @deprecated Задавайте размер через `style`
      */

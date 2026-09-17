@@ -12,7 +12,7 @@ const scalingPixelBasis = 16;
 export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
     forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { size, width, height, color, deviceScale, children, style, ...rest } = props;
+        const { size, width, height, color, deviceScale, strokeSize, children, style, ...rest } = props;
 
         const legacySize = typeof size === 'number' ? `${size / scalingPixelBasis}rem` : undefined;
         const legacyWidth = width ?? legacySize;
@@ -25,7 +25,7 @@ export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
                 {...rest}
                 style={{ width: legacyWidth, height: legacyHeight, color, ...style }}
             >
-                <SpinnerRing className={classes.spinnerRing} />
+                {strokeSize !== 0 && <SpinnerRing className={classes.spinnerRing} customStrokeSize={strokeSize} />}
                 {children && <BodyWrapper>{children}</BodyWrapper>}
             </Root>
         );

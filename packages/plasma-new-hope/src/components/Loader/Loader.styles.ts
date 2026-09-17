@@ -25,6 +25,7 @@ export const base = css`
 export const StyledSpinner = styled(Spinner)`
     ${spinnerTokens.size}: var(${tokens.spinnerSize});
     ${spinnerTokens.color}: var(${tokens.spinnerColor});
+    ${spinnerTokens.strokeSize}: var(${tokens.spinnerStrokeSize});
 `;
 
 export const StyledProgressBarCircular = styled(ProgressBarCircular)`
