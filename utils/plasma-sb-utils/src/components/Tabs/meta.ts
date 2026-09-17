@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 import { getConfigVariations } from '../../helpers';
 
 import { orientations, clips, contentLeftOptions, contentRightOptions, dividerAligns, splitSizes } from './fixtures';
@@ -57,80 +57,66 @@ export const createMeta = ({
             orientation: {
                 options: orientations,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: regularSizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             disableScroll: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             hasDivider: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
-            },
-            hasAction: {
-                control: { type: 'boolean' },
-                table: { category: 'layout' },
-            },
-            helperText: {
-                control: { type: 'text' },
-                table: { category: 'layout' },
-            },
-            itemQuantity: {
-                control: { type: 'number' },
-                table: { category: 'layout' },
             },
             stretch: {
                 control: { type: 'boolean' },
                 if: { arg: 'orientation', eq: 'horizontal' },
-                table: { category: 'layout' },
             },
             maxItemWidth: {
                 control: { type: 'text' },
                 if: { arg: 'stretch', truthy: false },
-                table: { category: 'layout' },
             },
             clip: {
                 options: clips,
                 control: { type: 'select' },
                 if: { arg: 'stretch', truthy: false },
-                table: { category: 'layout' },
-            },
-            width: {
-                control: { type: 'text' },
-                if: { arg: 'clip', eq: 'scroll' },
-                table: { category: 'layout' },
-            },
-            height: {
-                control: { type: 'text' },
-                if: { arg: 'clip', eq: 'scroll' },
-                table: { category: 'layout' },
             },
             contentLeft: {
                 options: contentLeftOptions,
                 control: { type: 'select' },
-                table: { category: 'layout' },
             },
             contentRight: {
                 options: contentRightOptions,
                 control: { type: 'select' },
                 if: { arg: 'helperText', eq: '' },
-                table: { category: 'layout' },
             },
             dividerAlign: {
                 options: dividerAligns,
                 control: { type: 'select' },
                 if: { arg: 'orientation', eq: 'vertical' },
-                table: { category: 'layout' },
             },
+            ...exampleOnly({
+                hasAction: {
+                    control: { type: 'boolean' },
+                },
+                helperText: {
+                    control: { type: 'text' },
+                },
+                itemQuantity: {
+                    control: { type: 'number' },
+                },
+                width: {
+                    control: { type: 'text' },
+                    if: { arg: 'clip', eq: 'scroll' },
+                },
+                height: {
+                    control: { type: 'text' },
+                    if: { arg: 'clip', eq: 'scroll' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },

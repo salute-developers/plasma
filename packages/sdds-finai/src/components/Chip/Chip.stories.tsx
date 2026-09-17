@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
-import { getChipStories } from '@salutejs/plasma-sb-utils';
+import { getChipStories, exampleOnly } from '@salutejs/plasma-sb-utils';
 
 import { Avatar } from '../Avatar';
 
@@ -23,15 +23,14 @@ const contentSizeMapper: Record<string, string> = {
 const { meta: META, Default: DefaultStory } = getChipStories({
     component: Chip,
     componentConfig: config,
-    additionalArgTypes: {
+    additionalArgTypes: exampleOnly({
         contentLeftType: {
             name: 'contentLeftType',
-            table: { category: 'layout' },
             control: { type: 'select' },
             options: ['icon', 'avatar'],
             if: { arg: 'enableContentLeft' },
         },
-    },
+    }),
 });
 
 const meta: Meta<ChipProps> = {

@@ -1,4 +1,4 @@
-import { disableProps } from '../../../index';
+import { disableProps, exampleOnly } from '../../../index';
 
 export const createMeta = ({ component, componentConfig, decorators = [] }: any) => {
     const { views, sizes } = componentConfig;
@@ -20,45 +20,39 @@ export const createMeta = ({ component, componentConfig, decorators = [] }: any)
                 description: 'Вид компонента',
                 options: views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 description: 'Размер компонента',
                 options: sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             title: {
                 description: 'Заголовок',
                 control: 'text',
-                table: { category: 'content-related' },
             },
             description: {
                 description: 'Подзаголовок / описание',
                 control: 'text',
-                table: { category: 'content-related' },
             },
             textAlign: {
                 description: 'Выравнивание текстового контента',
                 options: textAligns,
                 control: { type: 'select' },
-                table: { category: 'content-related' },
             },
             hasDivider: {
                 description: 'Показывать разделитель',
                 control: 'boolean',
-                table: { category: 'layout-related' },
             },
-            hasActionBefore: {
-                description: 'Показывать контент перед заголовком (иконка, аватар и т.п.)',
-                control: 'boolean',
-                table: { category: 'story-related' },
-            },
-            hasActionAfter: {
-                description: 'Показывать контент после заголовка (кнопка закрытия и т.п.)',
-                control: 'boolean',
-                table: { category: 'story-related' },
-            },
+            ...exampleOnly({
+                hasActionBefore: {
+                    description: 'Показывать контент перед заголовком (иконка, аватар и т.п.)',
+                    control: 'boolean',
+                },
+                hasActionAfter: {
+                    description: 'Показывать контент после заголовка (кнопка закрытия и т.п.)',
+                    control: 'boolean',
+                },
+            }),
             ...disableProps(['actionBefore', 'actionAfter']),
         },
         args: {

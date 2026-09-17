@@ -66,53 +66,41 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'inline-radio' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             readOnly: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             defaultValue: {
                 control: { type: 'text' },
-                table: { category: 'value-related' },
             },
             thousandsGroupStyle: {
                 options: thousandsGroupStyles,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             thousandSeparator: {
                 control: { type: 'text' },
-                table: { category: 'value-related' },
             },
             decimalScale: {
                 control: { type: 'number' },
-                table: { category: 'value-related' },
             },
             decimalSeparator: {
                 control: { type: 'text' },
-                table: { category: 'value-related' },
             },
             fixedDecimalScale: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             allowNegative: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             allowLeadingZeros: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             requiredPlacement: {
                 options: requiredPlacements,
@@ -121,7 +109,6 @@ export const createMeta = ({
                     arg: 'optional',
                     truthy: false,
                 },
-                table: { category: 'form-related' },
             },
             required: {
                 control: { type: 'boolean' },
@@ -129,7 +116,6 @@ export const createMeta = ({
                     arg: 'optional',
                     truthy: false,
                 },
-                table: { category: 'form-related' },
             },
             optional: {
                 control: { type: 'boolean' },
@@ -137,7 +123,6 @@ export const createMeta = ({
                     arg: 'required',
                     truthy: false,
                 },
-                table: { category: 'form-related' },
             },
             optionalText: {
                 control: { type: 'text' },
@@ -145,16 +130,13 @@ export const createMeta = ({
                     arg: 'required',
                     truthy: false,
                 },
-                table: { category: 'layout' },
             },
             label: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             labelPlacement: {
                 options: labelPlacements,
                 control: { type: 'inline-radio' },
-                table: { category: 'layout' },
             },
             keepPlaceholder: {
                 control: { type: 'boolean' },
@@ -162,39 +144,30 @@ export const createMeta = ({
                     arg: 'labelPlacement',
                     eq: 'inner',
                 },
-                table: { category: 'layout' },
             },
             titleCaption: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             prefix: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             textBefore: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             textAfter: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             suffix: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             placeholder: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             leftHelper: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             clear: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             hasDivider: {
                 control: { type: 'boolean' },
@@ -202,7 +175,6 @@ export const createMeta = ({
                     arg: 'clear',
                     truthy: true,
                 },
-                table: { category: 'layout' },
             },
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
