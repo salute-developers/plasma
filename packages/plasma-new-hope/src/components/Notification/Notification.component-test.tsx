@@ -14,11 +14,16 @@ import { IconPlasma, IconTrash } from 'override/_Icon';
 import type { NotificationPlacement, NotificationProps } from './Notification.types';
 import { classes } from './Notification.tokens';
 
+type NotificationDefaultArgs = Omit<NotificationProps, 'id'> & {
+    timeout?: number | null;
+};
+
 type NotificationsProviderProps = React.PropsWithChildren<{
     placement?: NotificationPlacement;
+    defaultNotificationArgs?: NotificationDefaultArgs;
 }>;
 
-type AddNotification = (notification: NotificationProps, timeout?: number | null) => string;
+type AddNotification = (notification?: NotificationProps, timeout?: number | null) => string;
 type CloseNotification = (id: string) => void;
 type UseNotifications = () => {
     addNotification: AddNotification;
@@ -109,6 +114,40 @@ describeFn('Notification', () => {
                     addScopedNotification({ title: 'Second timed notification' }, 3000);
                 }}
             />
+        );
+    };
+
+    const DefaultArgsControls = () => {
+        const { addNotification: addScopedNotification } = useNotifications();
+
+        return (
+            <ButtonsWrapper>
+                <Button id="open-default" text="Open default" onClick={() => addScopedNotification()} />
+                <Button
+                    id="open-overridden"
+                    text="Open overridden"
+                    onClick={() => addScopedNotification({ title: 'Overridden title', showCloseIcon: false })}
+                />
+            </ButtonsWrapper>
+        );
+    };
+
+    const DefaultTimeoutControls = () => {
+        const { addNotification: addScopedNotification } = useNotifications();
+
+        return (
+            <ButtonsWrapper>
+                <Button
+                    id="open-default-timeout"
+                    text="Open with default timeout"
+                    onClick={() => addScopedNotification()}
+                />
+                <Button
+                    id="open-infinite"
+                    text="Open infinite"
+                    onClick={() => addScopedNotification({ title: 'Infinite notification' }, null)}
+                />
+            </ButtonsWrapper>
         );
     };
 
@@ -410,6 +449,76 @@ describeFn('Notification', () => {
         cy.get(`.${classes.notificationLeftToRightAnimation}`).should('not.exist');
 
         cy.get('button').contains('Close scoped notification').click();
+        cy.get('.popup-base-root').should('not.exist');
+    });
+
+    it('defaultNotificationArgs', () => {
+        mount(
+            <NotificationsProvider
+                defaultNotificationArgs={{
+                    title: 'Default title',
+                    children: 'Default text',
+                    layout: 'horizontal',
+                    icon: <IconPlasma />,
+                    showCloseIcon: true,
+                    timeout: null,
+                }}
+            >
+                <DefaultArgsControls />
+            </NotificationsProvider>,
+        );
+
+        cy.get('#open-default').click();
+        cy.contains('Default title').should('be.visible');
+        cy.contains('Default text').should('be.visible');
+
+        // Переданные пропы перекрывают дефолты, остальные дефолты продолжают применяться.
+        cy.get('#open-overridden').click();
+        cy.contains('Overridden title').should('be.visible');
+        cy.get(`.${classes.text}`).should('have.length', 2).and('contain.text', 'Default text');
+        cy.get(`.${classes.closeIcon}`).should('have.length', 1);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('defaultNotificationArgs timeout', () => {
+        mount(
+            <NotificationsProvider defaultNotificationArgs={{ title: 'Default timeout notification', timeout: 5000 }}>
+                <DefaultTimeoutControls />
+            </NotificationsProvider>,
+        );
+
+        cy.clock();
+        cy.get('#open-default-timeout').click();
+        cy.contains('Default timeout notification').should('be.visible');
+
+        // Хардкодный дефолт в 2000 мс уже закрыл бы оповещение.
+        cy.tick(3000);
+        cy.contains('Default timeout notification').should('be.visible');
+        cy.tick(3000);
+        cy.contains('Default timeout notification').should('not.exist');
+
+        // Явно переданный timeout имеет приоритет над дефолтным.
+        cy.get('#open-infinite').click();
+        cy.tick(6000);
+        cy.contains('Infinite notification').should('be.visible');
+    });
+
+    it('global addNotification uses defaultNotificationArgs', () => {
+        mount(
+            <NotificationsProvider defaultNotificationArgs={{ title: 'Global default title', timeout: null }}>
+                <Button
+                    text="Open global notification"
+                    onClick={() => addNotification({ id: 'global-defaults', children: 'Global text' })}
+                />
+            </NotificationsProvider>,
+        );
+
+        cy.get('button').contains('Open global notification').click();
+        cy.contains('Global default title').should('be.visible');
+        cy.contains('Global text').should('be.visible');
+
+        closeNotification('global-defaults');
         cy.get('.popup-base-root').should('not.exist');
     });
 

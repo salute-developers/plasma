@@ -1,6 +1,7 @@
 import React, { ComponentProps, ForwardRefExoticComponent, ReactNode } from 'react';
 import {
     NotificationProps as NotificationPropsNewHope,
+    NotificationDefaultArgs,
     NotificationPlacement,
     notificationConfig,
     NotificationsProvider as Provider,
@@ -27,9 +28,16 @@ export const NotificationsProvider: React.FC<{
     frame?: string;
     placement?: NotificationPlacement;
     UNSAFE_SSR_ENABLED?: boolean;
-}> = ({ children, frame = 'document', placement, UNSAFE_SSR_ENABLED }) => {
+    defaultNotificationArgs?: NotificationDefaultArgs<NotificationProps>;
+}> = ({ children, frame = 'document', placement, UNSAFE_SSR_ENABLED, defaultNotificationArgs }) => {
     return (
-        <Provider config={mergedConfig} frame={frame} placement={placement} UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}>
+        <Provider
+            config={mergedConfig}
+            frame={frame}
+            placement={placement}
+            UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}
+            defaultNotificationArgs={defaultNotificationArgs}
+        >
             {children}
         </Provider>
     );
