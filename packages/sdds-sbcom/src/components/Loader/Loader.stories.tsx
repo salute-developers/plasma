@@ -47,10 +47,6 @@ const meta: Meta<StoryPropsDefault> = {
             control: {
                 type: 'radio',
             },
-            if: {
-                arg: 'type',
-                eq: 'progress',
-            },
         },
         hasOverlay: {
             control: {

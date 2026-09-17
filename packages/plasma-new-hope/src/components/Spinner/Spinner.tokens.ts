@@ -5,7 +5,7 @@ export const classes = {
 export const tokens = {
     size: '--plasma-spinner-size',
     padding: '--plasma-spinner-padding',
-    thickness: '--plasma-spinner-thickness',
+    strokeSize: '--plasma-spinner-stroke-size',
     color: '--plasma-spinner-color',
     tailColor: '--plasma-spinner-tail-color',
     animationDuration: '--plasma-spinner-animation-duration',
@@ -15,6 +15,6 @@ export const tokens = {
 
 export const privateTokens = {
     padding: '--plasma_private-spinner-padding',
-    thickness: '--plasma_private-spinner-thickness',
+    strokeSize: '--plasma_private-spinner-stroke-size',
     diameter: '--plasma_private-spinner-diameter',
 };
