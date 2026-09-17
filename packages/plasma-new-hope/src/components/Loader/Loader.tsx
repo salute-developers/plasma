@@ -40,7 +40,7 @@ export const loaderRoot = (Root: RootProps<HTMLDivElement, LoaderProps>) =>
         const loaderContent = (
             <Root ref={ref} view={view} size={size} className={className} style={style} {...rest}>
                 {type === 'spinner' ? (
-                    <StyledSpinner size={size} view={view}>
+                    <StyledSpinner size={size} view={view} strokeSize={strokeSize}>
                         {children}
                     </StyledSpinner>
                 ) : (

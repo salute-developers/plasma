@@ -38,6 +38,11 @@ export const createMeta = ({
             control: { type: 'select' },
             table: { category: 'variation' },
         },
+        strokeSize: {
+            options: [2, 4, 6, 8],
+            control: { type: 'radio' },
+            table: { category: 'variation' },
+        },
         ...additionalArgTypes,
         ...disableProps([...commonDisabledArgs, ...disablePropsList]),
     },
