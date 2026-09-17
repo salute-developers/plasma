@@ -1,8 +1,5 @@
-import React, { FC, HTMLAttributes, ReactNode, useEffect, useMemo, useState } from 'react';
+import React, { FC, useEffect, useMemo, useRef, useState } from 'react';
 import { StoreContext } from 'storeon/react';
-
-import { ComponentConfig } from '../../engines';
-import { PropsType, Variants } from '../../engines/types';
 
 import { NotificationsContext } from './NotificationsContext';
 import {
@@ -10,9 +7,10 @@ import {
     createNotificationsStore,
     GlobalNotificationsApi,
     NotificationsStore,
+    registerGlobalDefaultNotificationArgs,
 } from './NotificationsStore';
 import { NotificationsPortal } from './NotificationsPortal';
-import { NotificationPlacement, NotificationProps } from './Notification.types';
+import { NotificationsProviderProps } from './Notification.types';
 
 type GlobalPortalSubscriber = (isActive: boolean) => void;
 
@@ -39,22 +37,32 @@ const subscribeGlobalPortalProvider = (subscriber: GlobalPortalSubscriber) => {
     };
 };
 
-export const NotificationsProvider: FC<{
-    children: ReactNode;
-    config: ComponentConfig<string, Variants, PropsType<Variants>, NotificationProps & HTMLAttributes<HTMLDivElement>>;
-    frame?: string;
-    placement?: NotificationPlacement;
-    /**
-     * @description Только для применения в рамках SSR.
-     */
-    UNSAFE_SSR_ENABLED?: boolean;
-    className?: string;
-}> = ({ children, config, frame, placement, UNSAFE_SSR_ENABLED, className }) => {
+export const NotificationsProvider: FC<NotificationsProviderProps> = ({
+    children,
+    config,
+    frame,
+    placement,
+    UNSAFE_SSR_ENABLED,
+    className,
+    defaultNotificationArgs,
+}) => {
     const [store] = useState(createNotificationsStore);
-    const notificationsApi = useMemo(() => createNotificationsApi(store), [store]);
     const [isGlobalPortalActive, setIsGlobalPortalActive] = useState(false);
 
+    const defaultArgsRef = useRef(defaultNotificationArgs);
+    defaultArgsRef.current = defaultNotificationArgs;
+
+    const notificationsApi = useMemo(() => createNotificationsApi(store, () => defaultArgsRef.current), [store]);
+
     useEffect(() => subscribeGlobalPortalProvider(setIsGlobalPortalActive), []);
+
+    useEffect(() => {
+        if (!isGlobalPortalActive) {
+            return undefined;
+        }
+
+        return registerGlobalDefaultNotificationArgs(() => defaultArgsRef.current);
+    }, [isGlobalPortalActive]);
 
     return (
         <>

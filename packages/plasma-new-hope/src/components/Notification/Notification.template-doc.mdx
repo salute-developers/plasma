@@ -116,6 +116,62 @@ export function App() {
 }
 ```
 
+### Дефолтные параметры
+
+Свойство `defaultNotificationArgs` задает параметры, которые применяются к каждому оповещению провайдера.
+Аргументы, переданные в `addNotification`, перекрывают дефолтные, поэтому повторять общие настройки на каждом вызове не нужно.
+
+Помимо пропсов `Notification`, здесь можно указать `timeout` — он заменяет собой значение по умолчанию в 2000 мс.
+
+```tsx live
+import React, { useCallback } from 'react';
+import { IconBell } from '@salutejs/plasma-icons';
+import { Button, ButtonGroup, NotificationsProvider, useNotifications } from '@salutejs/{{ package }}';
+
+export function App() {
+    function NotificationExample() {
+        const { addNotification } = useNotifications();
+
+        const handleShowDefault = useCallback(() => {
+            // INFO: Все параметры берутся из defaultNotificationArgs
+            addNotification();
+        }, [addNotification]);
+
+        const handleShowCustom = useCallback(() => {
+            // INFO: title перекрывает дефолтный, остальные параметры остаются дефолтными
+            addNotification({ title: 'Исходящий вызов' });
+        }, [addNotification]);
+
+        return (
+            <ButtonGroup isCommonButtonStyles={false}>
+                <Button view="accent" text="Оповещение по умолчанию" onClick={handleShowDefault} />
+                <Button view="secondary" text="Оповещение со своим заголовком" onClick={handleShowCustom} />
+            </ButtonGroup>
+        );
+    }
+
+    return (
+        <NotificationsProvider
+            defaultNotificationArgs={{
+                title: 'Входящий вызов',
+                children: 'Принять?',
+                icon: <IconBell color="inherit" size="xs" />,
+                view: 'positive',
+                timeout: 5000,
+            }}
+        >
+            <NotificationExample />
+        </NotificationsProvider>
+    );
+}
+```
+
+:::info
+Глобальные `addNotification` и `closeNotification` тоже используют `defaultNotificationArgs`. Если провайдеров несколько,
+применяются дефолты того из них, который отображает глобальный портал. Чтобы дефолты были предсказуемыми, вызывайте
+`addNotification` из `useNotifications` — он всегда привязан к ближайшему провайдеру.
+:::
+
 ### Позиционирование
 
 С помощью свойства `placement` у компонента `NotificationsProvider` можно задать позиционирование для Notification.
