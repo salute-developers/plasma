@@ -3,6 +3,7 @@ import React, { ForwardRefExoticComponent, HTMLAttributes, ReactNode } from 'rea
 import {
     notificationConfig,
     NotificationProps,
+    NotificationDefaultArgs,
     NotificationsProvider as Provider,
     NotificationPlacement,
 } from '../../../components/Notification';
@@ -24,9 +25,15 @@ export const NotificationsProvider: React.FC<{
     children: ReactNode;
     frame?: string;
     placement?: NotificationPlacement;
-}> = ({ children, frame = 'theme-root', placement }) => {
+    defaultNotificationArgs?: NotificationDefaultArgs;
+}> = ({ children, frame = 'theme-root', placement, defaultNotificationArgs }) => {
     return (
-        <Provider config={mergedConfig} frame={frame} placement={placement}>
+        <Provider
+            config={mergedConfig}
+            frame={frame}
+            placement={placement}
+            defaultNotificationArgs={defaultNotificationArgs}
+        >
             {children}
         </Provider>
     );
