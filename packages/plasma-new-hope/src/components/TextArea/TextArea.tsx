@@ -246,6 +246,17 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             setHelperWidth(`${elementWidth / ROOT_FONT_SIZE}rem`);
         }, [cols]);
 
+        const recalculateAutoResize = useAutoResize(
+            applyAutoResize,
+            outerRef,
+            value || uncontrolledValue,
+            minAuto,
+            maxAuto,
+            resize,
+            hiddenRef,
+            size,
+        );
+
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
 
@@ -253,9 +264,9 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 const { width: elementWidth } = currentElement.getBoundingClientRect();
                 setHelperWidth(`${elementWidth / ROOT_FONT_SIZE}rem`);
             }
-        });
 
-        useAutoResize(applyAutoResize, outerRef, value || uncontrolledValue, minAuto, maxAuto, resize, hiddenRef, size);
+            recalculateAutoResize();
+        });
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
