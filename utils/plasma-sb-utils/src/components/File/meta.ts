@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import { actionPlacements, loaderTypes, thumbVariants } from './fixtures';
 
@@ -52,10 +52,6 @@ export const createMeta = ({
             description: {
                 control: { type: 'text' },
             },
-            contentType: {
-                control: { type: 'select' },
-                options: thumbVariants,
-            },
             actionPlacement: {
                 options: actionPlacements,
                 control: { type: 'select' },
@@ -82,6 +78,13 @@ export const createMeta = ({
             disabled: {
                 control: { type: 'boolean' },
             },
+            ...exampleOnly({
+                contentType: {
+                    control: { type: 'select' },
+                    options: thumbVariants,
+                },
+                fileContainerWidth: { control: { type: 'text' } },
+            }),
             ...additionalArgTypes,
             ...disableProps(['theme', 'as', 'forwardedAs', ...disablePropsList]),
         },

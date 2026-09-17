@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import {
     labelPlacements,
@@ -152,16 +152,6 @@ const getCommonArgTypes = (componentConfig: any) => ({
             type: 'select',
         },
     },
-    eventTooltipSize: {
-        options: eventTooltipSizes,
-        control: {
-            type: 'select',
-        },
-        if: {
-            arg: 'enableEventTooltip',
-            truthy: true,
-        },
-    },
 
     hintText: {
         control: { type: 'text' },
@@ -236,23 +226,39 @@ const getCommonArgTypes = (componentConfig: any) => ({
         },
     },
 
-    shortcutsWidth: {
-        control: {
-            type: 'text',
-        },
-        if: { arg: 'hasShortcuts', truthy: true },
-    },
-    shortcutsPlacement: {
-        options: shortcutsPlacements,
-        control: {
-            type: 'select',
-        },
-        if: { arg: 'hasShortcuts', truthy: true },
-    },
     disableFlip: {
         control: { type: 'boolean' },
-        table: { category: 'dropdown' },
     },
+    ...exampleOnly({
+        enableContentLeft: { control: { type: 'boolean' } },
+        enableContentRight: { control: { type: 'boolean' } },
+        enableEventTooltip: { control: { type: 'boolean' } },
+        hasHint: { control: { type: 'boolean' } },
+        hasShortcuts: { control: { type: 'boolean' } },
+        eventTooltipSize: {
+            options: eventTooltipSizes,
+            control: {
+                type: 'select',
+            },
+            if: {
+                arg: 'enableEventTooltip',
+                truthy: true,
+            },
+        },
+        shortcutsWidth: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'hasShortcuts', truthy: true },
+        },
+        shortcutsPlacement: {
+            options: shortcutsPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasShortcuts', truthy: true },
+        },
+    }),
 });
 
 const commonDisabledArgs = [
@@ -314,15 +320,16 @@ export const createMeta = ({
                     type: 'select',
                 },
             },
-            inputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
             placement: {
                 options: placements,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
+            ...exampleOnly({
+                inputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
@@ -373,24 +380,28 @@ export const createRangeMeta = ({
                     type: 'select',
                 },
             },
-            firstInputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
-            secondInputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
             placement: {
                 options: datePickerRangePlacements,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             isCalendarPositionedByInput: {
                 control: { type: 'boolean' },
-                table: { category: 'dropdown' },
                 if: { arg: 'isDoubleCalendar', truthy: false },
             },
+            ...exampleOnly({
+                firstInputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+                secondInputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+                enableFirstTextfieldContentLeft: { control: { type: 'boolean' } },
+                enableFirstTextfieldContentRight: { control: { type: 'boolean' } },
+                enableSecondTextfieldContentLeft: { control: { type: 'boolean' } },
+                enableSecondTextfieldContentRight: { control: { type: 'boolean' } },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },

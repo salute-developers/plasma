@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import {
     appearances,
@@ -206,14 +206,23 @@ export const createMeta = ({
                     truthy: true,
                 },
             },
-            firstInputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
-            secondInputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
+            ...exampleOnly({
+                firstInputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+                secondInputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+                enableContentLeft: { control: { type: 'boolean' } },
+                enableContentRight: { control: { type: 'boolean' } },
+                enableFirstTextfieldContentLeft: { control: { type: 'boolean' } },
+                enableFirstTextfieldContentRight: { control: { type: 'boolean' } },
+                enableSecondTextfieldContentLeft: { control: { type: 'boolean' } },
+                enableSecondTextfieldContentRight: { control: { type: 'boolean' } },
+                hasHint: { control: { type: 'boolean' } },
+            }),
             ...additionalArgTypes,
             ...disableProps(['view', ...disablePropsList]),
         },
