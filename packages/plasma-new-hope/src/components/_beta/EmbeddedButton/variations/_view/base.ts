@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { tokens } from '../../EmbeddedButton.tokens';
 import { IconContainer } from '../../EmbeddedButton.styles';
@@ -12,7 +11,7 @@ export const base = css`
         color: var(${tokens.color});
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         :hover {
             background: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
             box-shadow: inset 0 0 0 0.063rem var(${tokens.borderColorHover}, inset 0 0 0 0 transparent);
@@ -21,7 +20,7 @@ export const base = css`
                 color: var(${tokens.colorHover});
             }
         }
-    `)}
+    }
 
     :active {
         background: var(${tokens.backgroundColorActive}, var(${tokens.backgroundColor}));

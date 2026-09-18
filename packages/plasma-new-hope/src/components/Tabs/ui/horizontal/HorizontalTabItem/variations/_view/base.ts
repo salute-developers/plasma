@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { classes, tokens } from '../../../../../tokens';
 import { TabItemValue } from '../../HorizontalTabItem.styles';
@@ -10,7 +9,7 @@ export const base = css`
 
     margin-left: var(${tokens.itemMarginLeftFilled}, var(${tokens.itemMarginLeft}));
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             color: var(${tokens.itemColorHover});
             background-color: var(${tokens.itemBackgroundColorHover});
@@ -19,7 +18,7 @@ export const base = css`
                 color: var(${tokens.itemValueColorHover});
             }
         }
-    `)}
+    }
 
     &:active {
         color: var(${tokens.itemColorActive});
@@ -38,7 +37,7 @@ export const base = css`
         background-color: var(${tokens.itemSelectedBackgroundColor});
         cursor: var(${tokens.itemCursor});
 
-        ${applyHover(`
+        @media (hover: hover) and (pointer: fine) {
             &:hover {
                 color: var(${tokens.itemSelectedColorHover});
                 background-color: var(${tokens.itemSelectedBackgroundColorHover});
@@ -47,16 +46,16 @@ export const base = css`
                     background: var(${tokens.itemSelectedDividerColorHover});
                 }
             }
-        `)}
+        }
 
         ${TabItemValue} {
             color: var(${tokens.itemSelectedValueColorHover});
 
-            ${applyHover(`
+            @media (hover: hover) and (pointer: fine) {
                 &:hover {
                     color: var(${tokens.itemSelectedValueColorHover});
                 }
-            `)}
+            }
         }
 
         &::after {

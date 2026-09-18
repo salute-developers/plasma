@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { tokens } from '../Switch.tokens';
 import { StyledTrigger, StyledInput, StyledLabel, StyledDescription } from '../Switch.styles';
@@ -10,24 +9,24 @@ export const base = css`
         border-color: var(${tokens.trackBorderColorOff});
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         ${StyledInput}:not([disabled]) ~ ${StyledTrigger}:hover {
             background-color: var(${tokens.trackBackgroundColorOffHover}, var(${tokens.trackBackgroundColorOff}));
             border-color: var(${tokens.trackBorderColorOffHover}, var(${tokens.trackBorderColorOff}));
         }
-    `)}
+    }
 
     ${StyledInput}:checked ~ ${StyledTrigger} {
         background-color: var(${tokens.trackBackgroundColorOn});
         border-color: var(${tokens.trackBorderColorOn});
     }
 
-    ${applyHover(`
-        ${StyledInput}:checked:not([disabled]) ~ ${StyledTrigger}:hover  {
+    @media (hover: hover) and (pointer: fine) {
+        ${StyledInput}:checked:not([disabled]) ~ ${StyledTrigger}:hover {
             background-color: var(${tokens.trackBackgroundColorOnHover}, var(${tokens.trackBackgroundColorOn}));
             border-color: var(${tokens.trackBorderColorOnHover}, var(${tokens.trackBorderColorOn}));
         }
-    `)}
+    }
 
     ${StyledTrigger}::after {
         background-color: var(${tokens.thumbBackgroundColorOff});

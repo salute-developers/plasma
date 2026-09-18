@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { classes, tokens } from '../../Dropzone.tokens';
 import { Description, DropzoneHandlerOverlay, ContentWrapper } from '../../Dropzone.styles';
@@ -18,11 +17,11 @@ export const base = css`
         ${hoverLike}
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:not(.${classes.active}):hover {
             ${hoverLike}
         }
-    `)}
+    }
 
     &.${classes.active} {
         border-color: var(${tokens.borderColorActive});
