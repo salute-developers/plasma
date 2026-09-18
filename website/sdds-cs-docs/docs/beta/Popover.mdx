@@ -85,6 +85,7 @@ export function App() {
         `portal` задаёт контейнер для окна. Можно передать ref или id контейнера; без этого свойства окно рендерится перед `</body>`.
 
         ```tsx live
+        import { useRef } from 'react';
         import * as Beta from '@salutejs/sdds-cs/beta';
         import { Button } from '@salutejs/sdds-cs';
         import { surfaceSolidCard } from '@salutejs/sdds-themes/tokens';
