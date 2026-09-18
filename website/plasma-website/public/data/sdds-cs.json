@@ -1,4 +1,26 @@
 {
+  "0.373.0": {
+    "date": "2026-09-18",
+    "core": [
+      {
+        "component": "Hotfix",
+        "children": [
+          {
+            "text": "замен mixin от \"залипания\" на `touch` устройствах на прямой медиа запрос\n\nссылка на сбору css с `@salutejs/sdds-insol-next@0.363.0-canary.3180.35339219797.0`:\r\nhttps://vmytnik.github.io/insol-build/"
+          }
+        ]
+      },
+      {
+        "component": "What/why changed",
+        "children": [
+          {
+            "text": "заменен миксин от залипания на тач устройствах на прямой медиа запрос"
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.372.0": {
     "date": "2026-09-16",
     "core": [
