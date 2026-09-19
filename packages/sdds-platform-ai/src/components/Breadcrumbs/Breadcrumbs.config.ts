@@ -4,7 +4,7 @@ import { bodyS, surfaceAccent, textPrimary } from '@salutejs/sdds-themes/tokens/
 export const config = {
     defaults: {
         view: 'default',
-        size: 'm',
+        size: 's',
     },
     variations: {
         view: {
