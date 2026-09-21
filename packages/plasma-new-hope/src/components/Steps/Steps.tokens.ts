@@ -15,6 +15,7 @@ export const classes = {
     activeItem: 'item-active',
     transparentDivider: 'transparent-divider',
     verticalLastItem: 'vertical-last-item',
+    firstItem: 'first-item',
     noTitle: 'no-title',
 };
 

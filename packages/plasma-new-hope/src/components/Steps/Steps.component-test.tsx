@@ -362,6 +362,90 @@ describeFn('Steps', () => {
         cy.matchImageSnapshot();
     });
 
+    it('first active marker stays inside the container', () => {
+        const indicatorItems: StepItemProps[] = [
+            { indicator: 1, title: 'Title', content: 'Content', status: 'active' },
+            { indicator: 2, title: 'Title', content: 'Content', status: 'inactive' },
+        ];
+        const bulletItems: StepItemProps[] = indicatorItems.map(({ indicator: _indicator, ...item }) => item);
+
+        const clip = { overflow: 'hidden', background: '#c5d8ee' } as const;
+
+        mount(
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '400px' }}>
+                <div style={clip}>
+                    <Steps id="horizontal-indicator" items={indicatorItems} hasLine />
+                </div>
+                <div style={{ ...clip, height: '12rem' }}>
+                    <Steps id="vertical-indicator" items={indicatorItems} orientation="vertical" hasLine />
+                </div>
+                <div style={clip}>
+                    <Steps id="horizontal-bullet" items={bulletItems} hasLine />
+                </div>
+                <div style={{ ...clip, height: '12rem' }}>
+                    <Steps id="vertical-bullet" items={bulletItems} orientation="vertical" hasLine />
+                </div>
+            </div>,
+        );
+
+        ['horizontal-indicator', 'horizontal-bullet'].forEach((id) => {
+            cy.get(`#${id} .step-item`)
+                .first()
+                .then(($item) => {
+                    const itemLeft = $item[0].getBoundingClientRect().left;
+
+                    cy.wrap($item)
+                        .find('button')
+                        .then(($marker) => {
+                            expect($marker[0].getBoundingClientRect().left).to.be.at.least(itemLeft - 1);
+                        });
+                });
+        });
+
+        ['vertical-indicator', 'vertical-bullet'].forEach((id) => {
+            cy.get(`#${id} .step-item`)
+                .first()
+                .then(($item) => {
+                    const itemTop = $item[0].getBoundingClientRect().top;
+
+                    cy.wrap($item)
+                        .find('button')
+                        .then(($marker) => {
+                            expect($marker[0].getBoundingClientRect().top).to.be.at.least(itemTop - 1);
+                        });
+                });
+        });
+
+        cy.matchImageSnapshot();
+    });
+
+    it('consecutive active items, divider does not overlap indicator', () => {
+        const consecutiveActiveItems: StepItemProps[] = [
+            { title: 'Title', content: 'Content', status: 'active', height: '4rem' },
+            { title: 'Title', status: 'active', height: '4rem' },
+            { title: 'Title', status: 'active', height: '4rem' },
+            { title: 'Title', content: 'Content', status: 'completed', height: '4rem' },
+        ];
+
+        const consecutiveActiveIndicators: StepItemProps[] = consecutiveActiveItems.map((item, index) => ({
+            ...item,
+            indicator: index + 1,
+        }));
+
+        mount(
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '600px' }}>
+                <div style={{ display: 'flex', gap: '2rem' }}>
+                    <Steps items={consecutiveActiveItems} orientation="vertical" hasLine size="s" />
+                    <Steps items={consecutiveActiveIndicators} orientation="vertical" hasLine />
+                    <Steps items={consecutiveActiveIndicators} hasLine />
+                </div>
+                <Steps items={consecutiveActiveItems} hasLine />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('custom width, orientation=horizontal', () => {
         const itemsWithWidth: StepItemProps[] = [
             { indicator: 1, title: 'Title', content: 'Content', status: 'completed', width: '200px' },
