@@ -125,6 +125,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 [classes.hasIndicator]: hasIndicator,
                 [classes.verticalOrientation]: isVertical,
                 [classes.verticalLastItem]: isVertical && isLast,
+                [classes.firstItem]: isFirst,
                 isNextActive,
             })}
             style={customSizeStyle}
