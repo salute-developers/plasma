@@ -33,6 +33,17 @@ export const base = css`
         display: flex;
         flex-direction: column;
         justify-content: center;
+        box-sizing: border-box;
         height: 100%;
+
+        &:not(.${classes.simple}) {
+            &.${classes.hasIndicator} {
+                padding-top: max(0px, calc((var(${tokens.titleLineHeight}) - var(${tokens.indicatorSize})) / 2));
+            }
+
+            &:not(.${classes.hasIndicator}) {
+                padding-top: max(0px, calc((var(${tokens.titleLineHeight}) - var(${tokens.bulletSize})) / 2));
+            }
+        }
     }
 `;
