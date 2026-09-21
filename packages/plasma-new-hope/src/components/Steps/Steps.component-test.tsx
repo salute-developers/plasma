@@ -327,6 +327,41 @@ describeFn('Steps', () => {
         cy.matchImageSnapshot();
     });
 
+    it('title of first item is not cropped, orientation=vertical', () => {
+        const itemsWithoutIndicator: StepItemProps[] = [
+            { title: 'Title', content: 'Content', status: 'completed', height: '4rem' },
+            { title: 'Title', status: 'completed', height: '4rem' },
+            { title: 'Title', status: 'active', height: '4rem' },
+        ];
+
+        mount(
+            <div style={{ width: '300px', overflow: 'hidden' }}>
+                <div id="neighbour" style={{ background: '#9d9d9d' }}>
+                    Neighbour
+                </div>
+                <Steps
+                    id="vertical-bullet-steps"
+                    size="s"
+                    items={itemsWithoutIndicator}
+                    orientation="vertical"
+                    hasLine
+                />
+            </div>,
+        );
+
+        cy.get('#vertical-bullet-steps').then(($steps) => {
+            const stepsTop = $steps[0].getBoundingClientRect().top;
+
+            cy.get('.step-item-title')
+                .first()
+                .then(($title) => {
+                    expect($title[0].getBoundingClientRect().top).to.be.at.least(stepsTop - 1);
+                });
+        });
+
+        cy.matchImageSnapshot();
+    });
+
     it('custom width, orientation=horizontal', () => {
         const itemsWithWidth: StepItemProps[] = [
             { indicator: 1, title: 'Title', content: 'Content', status: 'completed', width: '200px' },

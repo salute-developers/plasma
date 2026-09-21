@@ -1,6 +1,7 @@
 export const classes = {
     simple: 'simple',
     stepItem: 'step-item',
+    stepItemTitle: 'step-item-title',
     centered: 'item-centered',
     active: 'item-active',
     nextActive: 'next-item-active',
