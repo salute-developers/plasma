@@ -9,7 +9,6 @@ export * from './typography';
 export * from './applyRoundness';
 export * from './applySkeletonAnimation';
 export * from './applyHidden';
-export * from './applyHover';
 export * from './createApplyPaperMixin';
 export * from './addScrollbar';
 export * from './applySliderThumb';

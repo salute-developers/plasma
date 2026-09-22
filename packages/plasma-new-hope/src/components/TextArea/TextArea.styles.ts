@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { tooltipConfig } from '../Tooltip';
 import { component, mergeConfig } from '../../engines';
@@ -146,11 +145,11 @@ export const StyledContent = styled.div<{ hasHeader?: boolean }>`
     height: var(${tokens.rightContentHeight});
     width: var(${tokens.rightContentWidth}, auto);
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             color: var(${tokens.rightContentColorHover});
         }
-    `)}
+    }
 
     &:active {
         color: var(${tokens.rightContentColorActive});
