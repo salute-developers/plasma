@@ -95,3 +95,5 @@ utils/plasma-tokens-utils/*
 scaffold
 !scaffold/template-docs
 !scaffold/template-component
+
+website/landing/*
