@@ -1,6 +1,6 @@
 import React, { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
-import { getRangeStories } from '@salutejs/plasma-sb-utils';
+import { getRangeStories, exampleOnly } from '@salutejs/plasma-sb-utils';
 import { IconDisclosureRight, IconLockOutline, IconPlasma } from '@salutejs/plasma-icons';
 
 import { Range } from './Range';
@@ -17,8 +17,10 @@ const { meta: META, Default } = getRangeStories({
             options: ['default', 'viewMode'],
             control: { type: 'select' },
         },
-        firstInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
-        secondInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        ...exampleOnly({
+            firstInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+            secondInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        }),
     },
     customIcon: (size: string, type?: 'left' | 'right', disabled?: boolean) => {
         const iconSize = size === 'xs' ? 'xs' : 's';

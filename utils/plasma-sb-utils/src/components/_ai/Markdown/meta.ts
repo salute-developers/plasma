@@ -1,4 +1,4 @@
-import { disableProps } from '../../../index';
+import { disableProps, exampleOnly } from '../../../index';
 
 import { markdownTemplate } from './stories';
 
@@ -18,12 +18,14 @@ export const createMeta = ({ component, componentConfig, decorators = [] }: any)
                 options: sizes,
                 control: { type: 'select' },
             },
-            storyWidth: {
-                control: { type: 'number' },
-            },
             shouldParseIncompleteMarkdown: {
                 control: { type: 'boolean' },
             },
+            ...exampleOnly({
+                storyWidth: {
+                    control: { type: 'number' },
+                },
+            }),
             ...disableProps(['tokenRenderer', 'markedOptions']),
         },
         args: {
