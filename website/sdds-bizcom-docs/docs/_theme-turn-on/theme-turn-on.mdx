@@ -1,12 +1,14 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import ThemeTurnOnSC from './theme-turn-on-sc.mdx';
-import ThemeTurnOnCssModule from './theme-turn-on-css-module.mdx';
 import ThemeTurnOnCss from './theme-turn-on-css.mdx';
+import ThemeTurnOnCssModule from './theme-turn-on-css-module.mdx';
+import ThemeTurnOnSC from './theme-turn-on-sc.mdx';
 import ThemeTurnOnSass from './theme-turn-on-sass.mdx';
 import ThemeTurnOnSassModule from './theme-turn-on-sass-module.mdx';
 
 ## Подключение темы
+
+Тема включает в себя цветовые и типографические токены и подключается один раз в корне приложения.
 
 :::info
 Точкой входа является корень приложения:
@@ -14,6 +16,8 @@ import ThemeTurnOnSassModule from './theme-turn-on-sass-module.mdx';
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 :::
+
+Доступны светлая и тёмная темы — `sdds_bizcom__light` и `sdds_bizcom__dark`.
 
 :::info
 
@@ -26,17 +30,17 @@ import ThemeTurnOnSassModule from './theme-turn-on-sass-module.mdx';
 :::
 
 <Tabs>
-    <TabItem value="sc" label="styled-components" default>
-        <ThemeTurnOnSC />
-    </TabItem>
-    <TabItem value="css" label="css">
+    <TabItem value="css" label="css" default>
         <ThemeTurnOnCss />
-    </TabItem>
-    <TabItem value="sass" label="sass">
-        <ThemeTurnOnSass />
     </TabItem>
     <TabItem value="css-module" label="css-module">
         <ThemeTurnOnCssModule />
+    </TabItem>
+    <TabItem value="sc" label="styled-components">
+        <ThemeTurnOnSC />
+    </TabItem>
+    <TabItem value="sass" label="sass">
+        <ThemeTurnOnSass />
     </TabItem>
     <TabItem value="sass-module" label="sass-module">
         <ThemeTurnOnSassModule />
