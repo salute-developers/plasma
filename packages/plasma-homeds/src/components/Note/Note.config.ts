@@ -53,7 +53,7 @@ export const config = {
         size: {
             m: css`
                 ${tokens.borderRadius}: 1.25rem;
-                ${tokens.gap}: 0.5rem;
+                ${tokens.gap}: 0.75rem;
                 ${tokens.gapScalable}: 0.75rem;
                 ${tokens.contentGap}: 0.125rem;
 
