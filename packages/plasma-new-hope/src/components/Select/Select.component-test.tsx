@@ -331,6 +331,45 @@ describeFn('Select', () => {
         );
     };
 
+    it('sortItems', () => {
+        const options = [
+            { value: 'a', label: 'Alpha' },
+            { value: 'b', label: 'Beta' },
+            { value: 'c', label: 'Gamma' },
+        ];
+        const Demo = () => {
+            const [value, setValue] = useState<string[]>([]);
+
+            return (
+                <Select
+                    id="select"
+                    items={options}
+                    multiselect
+                    value={value}
+                    onChange={setValue}
+                    sortItems={(a, b) => Number(value.includes(b.value)) - Number(value.includes(a.value))}
+                />
+            );
+        };
+
+        mount(<Demo />);
+
+        cy.get('#select').click();
+        cy.get('[role="treeitem"]').should(($items) => {
+            expect($items.toArray().map((item) => item.textContent)).to.deep.equal(['Alpha', 'Beta', 'Gamma']);
+        });
+
+        cy.contains('[role="treeitem"]', 'Beta').click();
+        cy.get('[role="treeitem"]').should(($items) => {
+            expect($items.toArray().map((item) => item.textContent)).to.deep.equal(['Beta', 'Alpha', 'Gamma']);
+        });
+
+        cy.contains('[role="treeitem"]', 'Gamma').click();
+        cy.get('[role="treeitem"]').should(($items) => {
+            expect($items.toArray().map((item) => item.textContent)).to.deep.equal(['Beta', 'Gamma', 'Alpha']);
+        });
+    });
+
     it('chipType', () => {
         cy.viewport(400, 100);
 

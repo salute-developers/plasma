@@ -21,6 +21,9 @@ describe('Basics', () => {
         expectTypeOf<ComboboxProps>({});
         expectTypeOf<ComboboxProps>({ items: [] });
         expectTypeOf<ComboboxProps>().toHaveProperty('items').toEqualTypeOf<ItemOption[]>();
+        expectTypeOf<ComboboxProps>()
+            .toHaveProperty('sortItems')
+            .toEqualTypeOf<((a: ItemOption, b: ItemOption) => number) | undefined>();
 
         expectTypeOf<ComboboxProps>().toHaveProperty('treeView').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('arrowPlacement').toEqualTypeOf<'left' | 'right' | undefined>();
@@ -339,6 +342,7 @@ describe('Generics', () => {
                 onChange={(_, item) => item?.customLabel}
                 renderItem={(item) => item?.customLabel}
                 filter={(item) => item.isAvailable}
+                sortItems={(a, b) => a.customLabel.localeCompare(b.customLabel)}
             />
         );
 
@@ -350,6 +354,7 @@ describe('Generics', () => {
                 renderItem={(item) => item?.customLabel}
                 renderValue={(item) => item?.customLabel}
                 filter={(item) => item.isAvailable}
+                sortItems={(a, b) => a.customLabel.localeCompare(b.customLabel)}
             />
         );
 
