@@ -1,274 +1,195 @@
 import React from 'react';
-import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import styled from 'styled-components';
+import { blackPrimary, surfaceSolid03, whitePrimary, whiteSecondary } from '@salutejs/plasma-tokens-b2c';
+import { IconStarFill } from '@salutejs/plasma-icons';
+import { additional } from '@salutejs/plasma-colors';
+import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 
-import { Flow } from '../Flow/Flow';
+import { BodyM, H4 } from '../Typography';
+import { Cell } from '../Cell';
 
-import { Card, CardInnerContent, CardContent } from './Card';
-import { config } from './Card.config';
+import { Card, CardBody, CardBadge, CardContent, CardMedia } from '.';
+import type { CardProps } from '.';
 
-const { views, sizes } = getConfigVariations(config);
+const roundList = [250, 32, 28, 24, 20, 18, 16, 14, 12, 8, 0] as const;
 
-const GridDot = styled.div`
-    width: 2rem;
-    height: 2rem;
-    margin: 1rem;
-    border-radius: 50%;
+const ratios = ['1/1', '3/4', '4/3', '9/16', '16/9', '1/2', '2/1'] as const;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--plasma-colors-accent);
-`;
-
-const Content = styled.div`
-    display: flex;
-    flex: 1;
-
-    padding: 1rem;
-    box-sizing: border-box;
-
-    align-items: center;
-    justify-content: center;
-`;
-
-const SvgBackground = (props) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMinYMin slice"
-        viewBox="1 0.5 8 8"
-        {...props}
-        style={{ ...props.style, background: 'var(--text-tertiary)' }}
-    >
-        <path stroke="#fff" strokeDasharray={1} d="M1 1h7M2 2h7M1 3h7M2 4h7M1 5h7M2 6h7M1 7h7M2 8h7" />
-    </svg>
-);
-
-const meta: Meta<typeof Card> = {
+const meta: Meta<StoryCardProps> = {
     title: 'Data Display/Card',
     decorators: [InSpacingDecorator],
     component: Card,
     argTypes: {
-        width: {
-            control: {
-                type: 'text',
-            },
-        },
-        view: {
-            options: views,
+        ratio: {
+            options: ratios,
             control: {
                 type: 'select',
             },
         },
-        size: {
-            options: sizes,
+        roundness: {
+            options: roundList,
             control: {
-                type: 'inline-radio',
+                type: 'select',
             },
         },
-        backgroundType: {
-            options: ['none', 'solid'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        textPosition: {
-            options: ['inner', 'outer'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        contentPosition: {
-            options: ['inner', 'outer'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        contentAlign: {
-            options: ['left', 'center', 'right'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        quantity: {
-            options: [1, 2, 4],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        aspectRatio: {
-            control: {
-                type: 'text',
-            },
-        },
-        hasText: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        hasContent: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        hasImage: {
-            control: {
-                type: 'boolean',
-            },
-        },
-        ...disableProps(['view']),
     },
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Card>;
-
-const itemsPerLineMap = {
-    1: 1,
-    2: 2,
-    3: 3,
-    4: 2,
+type StoryCardProps = CardProps & {
+    label: string;
+    coverGradient: boolean;
+    title: string;
+    rating: string;
+    description: string;
+    ratio: typeof ratios[number];
 };
 
-const orderMap = {
-    left: 0,
-    top: 0,
-    center: 1,
-    right: 2,
-    bottom: 2,
-};
+type Story = StoryObj<StoryCardProps>;
 
-const alignContentValue = {
-    left: 'flex-start',
-    top: 'flex-start',
-    center: 'center',
-    right: 'flex-end',
-    bottom: 'flex-end',
-};
+const StyledCardBadge = styled(CardBadge)`
+    border-radius: 1rem;
+    background-color: ${whitePrimary};
+    color: ${blackPrimary};
 
-const render: React.FC = ({
-    hasContent,
-    hasImage,
-    hasText,
-    text,
-    quantity,
-    width,
-    orientation,
-    textPosition,
-    contentPosition,
-    textAlign,
-    contentAlign,
-    aspectRatio,
-    ...rest
-}: StoryProps) => {
-    const onlyInnerText = Boolean(
-        (!hasContent || contentPosition === 'outer') && hasText && text && textPosition === 'inner',
-    );
-    const onlyInnerContent = (!hasText || textPosition === 'outer') && hasContent && contentPosition === 'inner';
+    left: 1.25rem;
+    top: 1rem;
+`;
 
-    const alignProp = orientation === 'vertical' ? 'alignItems' : 'justifyContent';
+const StyledBodyM = styled(BodyM)`
+    color: ${whiteSecondary};
+`;
 
-    const cardTitleNode = (
-        <Content
-            style={{
-                order: orderMap[textAlign],
-                [alignProp]: onlyInnerText ? alignContentValue[textAlign] : 'center',
-            }}
-        >
-            {text}
-        </Content>
-    );
+const StyledH4 = styled(H4)`
+    margin: 0.25rem 0;
 
-    const cardContentNode = (
-        <Content
-            style={{
-                order: orderMap[contentAlign],
-                [alignProp]: onlyInnerContent ? alignContentValue[contentAlign] : 'center',
-            }}
-        >
-            <Flow
-                itemsPerLine={itemsPerLineMap[quantity]}
-                itemsCount={quantity}
-                orientation={orientation}
-                arrangement={orientation === 'vertical' ? 'center' : 'spaceAround'}
-                alignment={orientation === 'vertical' ? 'center' : 'center'}
-                style={{
-                    height: orientation === 'vertical' ? '10rem' : '100%',
-                }}
-            >
-                {new Array(quantity).fill(null).map((_, i) => (
-                    <GridDot key={i}>{i + 1}</GridDot>
-                ))}
-            </Flow>
-        </Content>
-    );
+    color: ${whitePrimary};
+`;
 
-    return (
-        <Card {...rest} orientation={orientation} style={{ width }}>
-            {hasText && textPosition === 'outer' && cardTitleNode}
-            {hasContent && contentPosition === 'outer' && cardContentNode}
-            <CardContent orientation={orientation} aspectRatio={aspectRatio}>
-                <CardInnerContent orientation={orientation}>
-                    {hasText && textPosition === 'inner' && cardTitleNode}
-                    {hasContent && contentPosition === 'inner' && cardContentNode}
-                </CardInnerContent>
-                {hasImage && <SvgBackground width="100%" height="100%" style={{ width: '100%', height: '100%' }} />}
-            </CardContent>
-        </Card>
-    );
+const StyledDescription = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+const StyledIconStarFill = styled(IconStarFill)`
+    transform: scale(0.75);
+`;
+
+const StyledCellRating = styled(Cell)`
+    color: ${additional.h40[300]};
+    margin-right: 0.75rem;
+`;
+
+const StoryConfigDefault: Story = {
+    args: {
+        ratio: '1/1',
+        roundness: 20,
+        outlined: true,
+        scaleOnFocus: true,
+        label: 'Потребительский кредит',
+        rating: '4.7',
+        title: 'до 230 000 ₽',
+        description: 'На 18 месяцев, ставка 13,9%',
+    },
 };
 
 export const Default: Story = {
-    args: {
-        width: '500px',
-        text: 'Title',
-        view: 'default',
-        size: 'm',
+    ...StoryConfigDefault,
+    render: (args) => {
+        const { outlined, scaleOnFocus, roundness, label, title, description, rating, ratio } = args;
 
-        selected: true,
-        backgroundType: 'none',
-        textPosition: 'inner',
-        contentPosition: 'inner',
-        textAlign: 'left',
-        contentAlign: 'left',
-        hasText: true,
-        hasContent: true,
-        hasImage: true,
-        quantity: 2,
-        aspectRatio: '4 / 3',
+        return (
+            <Card
+                style={{ width: '22.5rem' }}
+                tabIndex={0}
+                outlined={outlined}
+                scaleOnFocus={scaleOnFocus}
+                roundness={roundness}
+            >
+                <CardBody>
+                    <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
+                    <StyledCardBadge size="l" text="60 минут" />
+                    <CardContent>
+                        <BodyM>{label}</BodyM>
+                        <H4>{title}</H4>
+                        <StyledDescription>
+                            <StyledCellRating
+                                content={<StyledIconStarFill color={additional.h40[300]} />}
+                                description={rating}
+                            />
+                            <BodyM>{description}</BodyM>
+                        </StyledDescription>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        );
     },
-    render,
 };
 
-export const Vertical: Story = {
+export const WithBackground: Story = {
+    ...StoryConfigDefault,
+    render: ({ outlined, scaleOnFocus, roundness, label, title, description, rating, ratio }) => {
+        return (
+            <Card
+                style={{ width: '22.5rem' }}
+                tabIndex={0}
+                outlined={outlined}
+                scaleOnFocus={scaleOnFocus}
+                roundness={roundness}
+                background={surfaceSolid03}
+            >
+                <CardBody>
+                    <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
+                    <StyledCardBadge size="l" text="60 минут" />
+                    <CardContent>
+                        <BodyM>{label}</BodyM>
+                        <H4>{title}</H4>
+                        <StyledDescription>
+                            <StyledCellRating
+                                content={<StyledIconStarFill color={additional.h40[300]} />}
+                                description={rating}
+                            />
+                            <BodyM>{description}</BodyM>
+                        </StyledDescription>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        );
+    },
+};
+
+export const WithCover: Story = {
     args: {
-        ...Default.args,
-        width: '450px',
-        orientation: 'vertical',
-        textAlign: 'top',
-        contentAlign: 'top',
+        ...StoryConfigDefault.args,
+        coverGradient: true,
     },
-    argTypes: {
-        textAlign: {
-            options: ['top', 'center', 'bottom'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
-        contentAlign: {
-            options: ['top', 'center', 'bottom'],
-            control: {
-                type: 'inline-radio',
-            },
-        },
+    render: ({ outlined, scaleOnFocus, label, title, description, rating, ratio, roundness, coverGradient }) => {
+        return (
+            <Card
+                style={{ width: '22.5rem' }}
+                tabIndex={0}
+                outlined={outlined}
+                scaleOnFocus={scaleOnFocus}
+                roundness={roundness}
+            >
+                <CardBody>
+                    <CardMedia src="./images/320_320_0.jpg" placeholder="./images/320_320_1.jpg" ratio={ratio} />
+                    <StyledCardBadge size="l" text="60 минут" />
+                    <CardContent cover coverGradient={coverGradient}>
+                        <StyledBodyM>{label}</StyledBodyM>
+                        <StyledH4>{title}</StyledH4>
+                        <StyledDescription>
+                            <StyledCellRating
+                                content={<StyledIconStarFill color={additional.h40[300]} />}
+                                description={rating}
+                            />
+                            <StyledBodyM>{description}</StyledBodyM>
+                        </StyledDescription>
+                    </CardContent>
+                </CardBody>
+            </Card>
+        );
     },
-    render,
 };
