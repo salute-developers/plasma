@@ -32,7 +32,7 @@ export function App() {
 
 ## Управление внешним видом
 
-Внешний вид компонента задаётся свойствами `view` и `size`:
+Внешний вид компонента задаётся свойствами `view`, `size` и `strokeSize`:
 
 <Tabs>
     <TabItem value="view" label="View" default>
@@ -81,6 +81,24 @@ export function App() {
                     <Spinner size="s" />
                     <Spinner size="m" />
                     <Spinner size="l" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="strokeSize" label="Stroke size">
+        Свойство `strokeSize` задаёт толщину дуги в пикселях. Передайте число; если свойство не задано, толщина зависит от размера спиннера.
+
+        ```tsx live
+        import React from 'react';
+        import { Spinner } from '@salutejs/plasma-b2c';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                    <Spinner size="m" strokeSize={2} />
+                    <Spinner size="m" strokeSize={4} />
+                    <Spinner size="m" strokeSize={8} />
                 </div>
             );
         }

@@ -27,6 +27,7 @@ export const tokens = {
     overlayColor: '--plasma-loader-overlay-color',
 
     spinnerSize: '--plasma-loader-spinner-size',
+    spinnerStrokeSize: '--plasma-loader-spinner-stroke-size',
     spinnerColor: '--plasma-loader-spinner-color',
 };
 
