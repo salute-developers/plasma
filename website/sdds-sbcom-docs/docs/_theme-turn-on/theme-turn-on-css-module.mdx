@@ -1,0 +1,21 @@
+import TipCssModules from '../_utils/_tip-css-modules.mdx';
+
+<TipCssModules />
+
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/sdds-sbcom';
+
+import styles from '@salutejs-ds/sdds_sbcom/css/sdds_sbcom.module.css';
+
+const App = () => {
+    return (
+        <div className={styles.light}>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </div>
+    );
+};
+
+export default App;
+```

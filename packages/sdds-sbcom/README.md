@@ -1,268 +1,103 @@
-# SDDS-SBCOM
+# Библиотека компонентов для вертикали SDDS SBCOM
 
-Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+[![license](https://img.shields.io/github/license/salute-developers/plasma)](https://github.com/salute-developers/plasma/blob/master/LICENSE.txt)
+[![npm version](https://img.shields.io/npm/v/@salutejs/sdds-sbcom.svg)](https://www.npmjs.com/package/@salutejs/sdds-sbcom)
+[![typescript](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/dev/typescript)](https://www.typescriptlang.org/)
 
-## Использование
+Реализация компонентов для создания веб-приложений.
 
-Библиотека реализована с помощью:
+Компоненты реализованы с помощью [React](https://react.dev/) и поставляются в виде предсобранного CSS.
 
--   [typescript](https://www.typescriptlang.org/)
+## Ссылки
 
-Однако их использование **необязательно**!
+-   [Документация](https://plasma.sberdevices.ru/sdds-sbcom/) — гайды, список компонентов с примерами и API
+-   [Задать вопрос или сообщить о проблеме](https://github.com/salute-developers/plasma/issues)
 
-### Установка зависимостей
+## Установка
+
+Требуются `react` и `react-dom` версии `16.13.1` или выше:
 
 ```bash
+$ npm install --save react react-dom
 $ npm install --save @salutejs/sdds-sbcom @salutejs-ds/sdds_sbcom
 ```
 
-### Использование компонентов
+## Варианты поставки
 
-Все компоненты доступны напрямую из пакета
+Единственный вариант поставки — предсобранный CSS.
+
+| Точка входа            | Реализация         | Дополнительные зависимости |
+| ----------------------- | ------------------ | --------------------------- |
+| `@salutejs/sdds-sbcom`  | предсобранный CSS  | нет                          |
 
 ```jsx
 import { Button } from '@salutejs/sdds-sbcom';
-
-export const App = () => {
-    return (
-        <>
-            <Button>Hello, sbcom!</Button>
-            <StyledP>Token usage example</StyledP>
-        </>
-    );
-};
 ```
+
+Beta-компоненты доступны из точки входа `@salutejs/sdds-sbcom/beta`. Подробнее — в [документации](https://plasma.sberdevices.ru/sdds-sbcom/beta/popover/).
 
 ## Подключение шрифтов
 
-Типографическая система основана на фирменных шрифтах.
+Типографическая система основана на фирменных шрифтах, они поставляются с CDN.
 
-Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
-
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
-
-### Create react app
-
-Добавить внутрь тега `head`.
+Добавьте два css-файла внутрь тега `<head>`.
 
 ```html
-<html lang="ru">
-    <head>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
-            rel="stylesheet"
-        />
-        <title>...</title>
-    </head>
-    <body>
-        ...
-    </body>
-</html>
-```
-
-### NextJs
-
-```tsx
-import Head from 'next/head';
-
-import { H2, Button } from '@salutejs/sdds-sbcom';
-
-export default function Home() {
-    return (
-        <>
-            <Head>
-                <title>Next App with sdds-sbcom components</title>
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
-                    rel="stylesheet"
-                />
-            </Head>
-            <div>
-                <main>
-                    <div>
-                        <H2> Salute </H2>
-                        <Button text="Hello" />
-                    </div>
-                </main>
-            </div>
-        </>
-    );
-}
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css" />
 ```
 
 ## Подключение темы
 
-Точкой входа является корень приложения:
+Тема подключается один раз в корне приложения.
 
--   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
--   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+> **Примечание:** Для [Next.js](https://nextjs.org/) — в `pages/_app.tsx`.
 
-В файле, где происходит подключение всех стилей, например `index.css`
+Тема включает в себя цветовые и типографические токены.
 
-```css index.css
-@import '@salutejs-ds/sdds_sbcom/css/sdds_sbcom__light.css';
-```
+Доступны светлая и тёмная темы — `sdds_sbcom__light` и `sdds_sbcom__dark`.
 
 ```jsx
-import React from 'react';
+import '@salutejs-ds/sdds_sbcom/css/sdds_sbcom__light.css';
+```
+
+Переключение темы в рантайме и подключение через css-модули описаны в [документации](https://plasma.sberdevices.ru/sdds-sbcom/).
+
+## Использование компонентов
+
+```jsx
+// App.tsx
 import { Button, BodyL } from '@salutejs/sdds-sbcom';
+import '@salutejs-ds/sdds_sbcom/css/sdds_sbcom__light.css';
 
-import 'index.css';
-
-const App = () => {
+export const App = () => {
     return (
         <>
-            <BodyL>Hello world</BodyL>
-            <Button text="This is themed button" />
+            <BodyL>Hello, SDDS SBCOM!</BodyL>
+            <Button>Кнопка</Button>
         </>
     );
 };
-
-export default App;
 ```
 
-## Переключение темы
+Дизайн-токены доступны в виде js-переменных из `@salutejs-ds/sdds_sbcom/theme/tokens`:
 
 ```jsx
-import React, { useLayoutEffect, useState } from 'react';
-import { Switch } from '@salutejs/sdds-sbcom';
+import { textPrimary } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
-import './index.css';
-
-const App = () => {
-    const [theme, setTheme] = useState('light');
-
-    useLayoutEffect(() => {
-        document.documentElement.className = theme;
-    }, [theme]);
-
-    return (
-        <div className="wrapper">
-            <Switch
-                label={`app theme: ${theme}`}
-                onChange={() => {
-                    setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
-                }}
-            />
-        </div>
-    );
-};
-
-export default App;
+<p style={{ color: textPrimary }}>Пример использования токена</p>;
 ```
 
-В файле, где происходит подключение всех стилей, например `index.css`
+## SSR и Next.js
 
-```css
-@import '@salutejs-ds/sdds_sbcom/css/sdds_sbcom__light.css';
-```
-
-### Возможные дополнительные настройки в проекте для работы с css:
-
-Возможные дополнительные настройки bundle tools для проекта:
-
-<ul>
-    <li>
-        <a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a>
-    </li>
-    <li>
-        <a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a>
-    </li>
-</ul>
-
-## Советы при работе с NextJS
-
-Next не разрешает импорт CSS из сторонних модулей, поэтому важно не забыть добавить наши библиотеки в `next.config.js` следующим образом:
+-   Библиотека поддерживает React Server Components (App Router) **только** при **явном** использовании директивы `'use client'` в модулях, импортирующих компоненты.
+-   Добавьте пакеты в `transpilePackages` в `next.config.js`:
 
 ```js
 const nextConfig = {
-    reactStrictMode: true,
-    transpilePackages: [
-        '@salutejs/sdds-sbcom',
-        '@salutejs/plasma-new-hope',
-        '@salutejs/plasma-icons',
-        '@salutejs-ds/sdds_sbcom',
-    ],
+    transpilePackages: ['@salutejs/sdds-sbcom', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons', '@salutejs-ds/sdds_sbcom'],
 };
 ```
-
-**RSC - React Server Components (App router)**
-
-Библиотека поддерживает работу с **RSC** только при **явном использовании** директивы **'use client'**.
-
-```ts
-'use client'
-
-import { Button } from '@salutejs/sdds-sbcom';
-
-...
-```
-
-## Токены
-
-Все `css` токены завернуты в `js` переменные для более удобного доступа:
-
-```js
-/** Основной цвет текста */
-export const textPrimary = 'var(--text-primary, #F5F5F5)';
-/** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #000000)';
-```
-
-### Способы подключения
-
-```tsx
-import { textPrimary, h5 } from '@salutejs-ds/sdds_sbcom';
-```
-
-## Типографика
-
-Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
-
-```ts
-import { BodyL, DsplL, H3 } from '@salutejs/sdds-sbcom';
-```
-
-### Токены типографики на примере компонента `DsplL`
-
-Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
-
-```tsx
-import { CSSObject } from 'styled-components';
-
-export const dsplL = ({
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
-} as unknown) as CSSObject;
-```
-
-## Как разрабатывать
-
-Ветка `next-sbcom` - это master + ваши **срочные** изменения
-
-#### Создание pull request для next-sbcom
-
--   создаем ветку от next-sbcom
--   создаем pull request в next-sbcom
-
-На этом этапе мы создаем изменения, которые лягут в основу новой версии за тегом для npm `@next-sbcom`
-
-Такой подход нужен в первую очередь для быстрых независимых релизов.
-
-#### Создание pull request для dev
-
--   создаем ветку от dev
--   создаем pull request в dev
-
-На этом этапе мы дублируем изменения (из next-sbcom) которые лягут в master ветку вашей вертикали.
-
-Это нужно для синхронизации мастера и next-sbcom.
-
-#### Наименование commit, branch
-
-branch - `fix-update-tokens`
-commit - `fix: update tokens for Select`

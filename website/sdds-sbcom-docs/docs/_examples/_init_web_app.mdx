@@ -1,0 +1,24 @@
+:::info
+Если в качестве основы web-приложения вы используете [create-react-app](https://create-react-app.dev), вам необходимо изменить файл `./public/index.html`.
+:::
+
+Добавить внутрь тега `head`.
+
+```html
+<html>
+    <head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400..700;1,400..700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css"
+        />
+        <title>Web App</title>
+    </head>
+    <body>
+    ...
+    </body>
+</html>
+```
