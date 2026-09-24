@@ -68,6 +68,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
 
             // Basic
             items,
+            sortItems,
             treeView = false,
             arrowPlacement = 'left',
             placement = 'bottom',
@@ -97,8 +98,10 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
             ...rest
         } = props;
 
+        const sortedItems = useMemo(() => (sortItems ? [...(items || [])].sort(sortItems) : items), [items, sortItems]);
+
         // Deep copy массива items с добавлением parent-ноды родителя.
-        const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
+        const transformedItems = useMemo(() => initialItemsTransform(sortedItems || []), [sortedItems]);
 
         // Создаем структуры для быстрой работы с деревом.
         const [pathMap, focusedToValueMap, valueToCheckedMap, valueToItemMap, valueToPathMap] = usePathMaps(
@@ -320,7 +323,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                         >
                             {treeView ? (
                                 <TreeList
-                                    items={items}
+                                    items={sortedItems}
                                     listMaxHeight={listMaxHeight}
                                     onScroll={virtual ? undefined : onScroll}
                                     virtual={virtual}
