@@ -742,6 +742,41 @@ type Items = Array<{
         }
         ```
     </TabItem>
+    <TabItem value="sortItems" label="Сортировка">
+        Свойство `sortItems` принимает компаратор `(a, b) => number`.
+        Сортируются только элементы первого уровня: порядок вложенных элементов и исходный массив `items` не изменяются.
+        Без `sortItems` элементы отображаются в исходном порядке.
+
+        В примере выбранные элементы перемещаются наверх при каждом изменении выбора.
+
+        ```tsx live
+        import React from 'react';
+        import { Select } from '@salutejs/sdds-platform-ai';
+
+        export function App() {
+            const [value, setValue] = React.useState(['banana']);
+            const items = [
+                { value: 'apple', label: 'Яблоко' },
+                { value: 'banana', label: 'Банан' },
+                { value: 'orange', label: 'Апельсин' },
+                { value: 'pear', label: 'Груша' },
+            ];
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
+                    <Select
+                        label="Фрукты"
+                        items={items}
+                        multiselect
+                        value={value}
+                        onChange={setValue}
+                        sortItems={(a, b) => Number(value.includes(b.value)) - Number(value.includes(a.value))}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
 </Tabs>
 
 ## Взаимодействие с disabled-элементами
