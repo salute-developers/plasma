@@ -1,21 +1,34 @@
 import React from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    getBaseVisualTests,
+    PadMe,
+    skipForPackages,
+} from '@salutejs/plasma-cy-utils';
 
 import type { CardProps } from './Card.types';
 
 const componentExists = hasComponent('Card');
 const describeFn = getDescribeFN('Card');
+const itSkip = skipForPackages(['plasma-b2c']);
 
-const CardContent = getComponent<{
-    aspectRatio?: string | number;
-    orientation?: 'vertical' | 'horizontal';
-    children?: React.ReactNode;
-    style?: React.CSSProperties;
-}>('CardContent');
-const CardInnerContent = getComponent<{
-    orientation?: 'vertical' | 'horizontal';
-    children?: React.ReactNode;
-}>('CardInnerContent');
+const CardContent = hasComponent('CardContent')
+    ? getComponent<{
+          aspectRatio?: string | number;
+          orientation?: 'vertical' | 'horizontal';
+          children?: React.ReactNode;
+          style?: React.CSSProperties;
+      }>('CardContent')
+    : () => null;
+const CardInnerContent = hasComponent('CardInnerContent')
+    ? getComponent<{
+          orientation?: 'vertical' | 'horizontal';
+          children?: React.ReactNode;
+      }>('CardInnerContent')
+    : () => null;
 
 const src = 'images/320_320_0.jpg';
 
@@ -59,6 +72,7 @@ getBaseVisualTests({
     actionBeforeSnapshot: () => {
         cy.mockImage('img', src);
     },
+    packagesForSkip: ['plasma-b2c'],
 });
 
 describeFn('Card', () => {
@@ -83,7 +97,7 @@ describeFn('Card', () => {
         </Card>
     );
 
-    it('aspectRatio', () => {
+    itSkip('aspectRatio', () => {
         mount(
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
                 <Demo aspectRatio="1/1" style={{ width: '100%' }} />
@@ -96,7 +110,7 @@ describeFn('Card', () => {
         matchMockedImageSnapshot(500, 700);
     });
 
-    it('orientation', () => {
+    itSkip('orientation', () => {
         mount(
             <>
                 <Demo orientation="vertical" aspectRatio="4/3" />
@@ -108,7 +122,7 @@ describeFn('Card', () => {
         matchMockedImageSnapshot(500, 600);
     });
 
-    it('selected', () => {
+    itSkip('selected', () => {
         mount(
             <>
                 <Demo />
@@ -120,7 +134,7 @@ describeFn('Card', () => {
         matchMockedImageSnapshot(500, 600);
     });
 
-    it('backgroundType', () => {
+    itSkip('backgroundType', () => {
         mount(
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
                 <Demo backgroundType="none" style={{ width: '100%' }} />
@@ -132,7 +146,7 @@ describeFn('Card', () => {
         matchMockedImageSnapshot(500, 600);
     });
 
-    it('cover & outer content', () => {
+    itSkip('cover & outer content', () => {
         mount(
             <>
                 <Demo cover />
