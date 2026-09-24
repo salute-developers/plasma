@@ -31,72 +31,37 @@ import TabItem from '@theme/TabItem';
                         title="Title"
                         text="Text"
                         view="default"
-                        size="s"
+                        size="m"
                         contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
                     />
                     <Note
                         title="Title"
                         text="Text"
                         view="positive"
-                        size="s"
+                        size="m"
                         contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
                     />
                     <Note
                         title="Title"
                         text="Text"
                         view="warning"
-                        size="s"
+                        size="m"
                         contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
                     />
                     <Note
                         title="Title"
                         text="Text"
                         view="negative"
-                        size="s"
+                        size="m"
                         contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
                     />
                     <Note
                         title="Title"
                         text="Text"
                         view="info"
-                        size="s"
+                        size="m"
                         contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
                     />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-
-    <TabItem value="size" label="Size">
-        Размер компонента задается с помощью свойства `size`.\
-        Также можно указать собственную ширину и высоту с помощью `width` и `height` соответственно.\
-        Или задать `stretch`, чтобы `Note` занял всю доступную ширину и высоту.
-
-        ```tsx live
-        import React from 'react';
-        import { Note } from '@salutejs/plasma-homeds';
-
-        export function App() {
-            return (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                    <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                        <Note title="Title" text="Text" view="default" size="l" />
-                        <Note title="Title" text="Text" view="default" size="m" />
-                        <Note title="Title" text="Text" view="default" size="s" />
-                        <Note title="Title" text="Text" view="default" size="xs" />
-                    </div>
-                    <Note
-                        title="Title"
-                        text="Text"
-                        view="default"
-                        size="l"
-                        width="400"
-                        height="116"
-                    />
-                    <div style={{ width: '300px', height: '300px' }}>
-                        <Note title="Title" text="Text" view="default" size="l" stretch />
-                    </div>
                 </div>
             );
         }
@@ -119,7 +84,7 @@ import TabItem from '@theme/TabItem';
                         title="Title"
                         text="Text"
                         view="default"
-                        size="l"
+                        size="m"
                         orientation="vertical"
                         contentBefore={<IconSaluteOutline size="s" color="inherit" />}
                     />
@@ -127,7 +92,7 @@ import TabItem from '@theme/TabItem';
                         title="Title"
                         text="Text"
                         view="default"
-                        size="l"
+                        size="m"
                         orientation="horizontal"
                         contentBefore={<IconSaluteOutline size="s" color="inherit" />}
                         actionContent={<LinkButton text="Label" />}
@@ -156,7 +121,7 @@ export function App() {
                 title="Title"
                 text="Text"
                 view="default"
-                size="s"
+                size="m"
                 contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
                 contentBeforeSizing="fixed"
             />
@@ -164,7 +129,7 @@ export function App() {
                 title="Title"
                 text="Text"
                 view="positive"
-                size="s"
+                size="m"
                 contentBefore={<IconSaluteOutline size="m" color="inherit" />}
                 contentBeforeSizing="scalable"
             />
@@ -189,7 +154,7 @@ export function App() {
                 title="Title"
                 text="Text"
                 view="default"
-                size="l"
+                size="m"
                 contentBefore={<IconSaluteOutline size="s" color="inherit" />}
                 actionContent={<LinkButton text="Label" />}
             />
@@ -197,7 +162,7 @@ export function App() {
                 title="Title"
                 text="Text"
                 view="positive"
-                size="l"
+                size="m"
                 orientation="horizontal"
                 contentBefore={<IconSaluteOutline size="s" color="inherit" />}
                 actionContent={<LinkButton text="Label" />}
@@ -233,7 +198,7 @@ export function App() {
           title="Ваш заголовок"
           text="Пример с возможностью закрыть по control"
           view="default"
-          size="s"
+          size="m"
           contentBefore={<IconSaluteOutline size="xs" color="inherit" />}
           hasClose
           onCloseButtonClick={() => setState(false)}
