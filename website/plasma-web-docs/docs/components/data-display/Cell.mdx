@@ -1,0 +1,74 @@
+---
+id: cell
+slug: /components/cell
+title: Cell
+description: "Ячейка со стилизованными слотами для контента."
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Cell
+Компонент ячейки.
+<StorybookLink name="Cell" />
+
+Компонент представляет собой стилизировные слоты для контента. Также имеются вспомогательные компоненты ( Textbox, TextTitle, TextSubtitle, TextLabel ). Они представляют собой стилизированный текст и слот для них.
+
+## Примеры
+
+### Базовое использование
+```tsx live
+import React from 'react';
+import { Cell } from '@salutejs/plasma-web';
+import { Avatar } from '@salutejs/plasma-web';
+import { IconChevronRight } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Cell
+                contentLeft={
+                    <Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                }
+                size="m"
+                contentRight={<IconChevronRight color="inherit" size="xs" />}
+                title="Title"
+                subtitle="Subtitle"
+                label="Label"
+            />
+        </div>
+    );
+}
+```
+
+### С использованием своих стилей или встроеных компонентов
+```tsx live
+import React from 'react';
+import { Cell , CellTextboxLabel , CellTextboxTitle , CellTextboxSubtitle, CellTextbox } from '@salutejs/plasma-web';
+import { Avatar } from '@salutejs/plasma-web';
+import { IconChevronRight } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Cell
+                contentLeft={
+                    <Avatar size="m" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
+                }
+                size="m"
+                contentRight={<IconChevronRight color="inherit" size="xs" />}
+            >
+                <CellTextbox>
+                    <CellTextboxLabel>Label</CellTextboxLabel>
+                    <CellTextboxTitle>Title</CellTextboxTitle>
+                    <CellTextboxSubtitle>Subtitle</CellTextboxSubtitle>
+                    <div style={{'font-size': '12px', opacity: 0.4}}>Caption</div>
+                </CellTextbox>
+            </Cell>
+        </div>
+    );
+}
+```
+
+## API
+
+<PropsTable name="Cell" />
