@@ -1,0 +1,54 @@
+/* SB Sans Display 0.3.0
+ * Same glyphs/hinting/GSUB as 0.2.0. Only OS/2 + hhea metrics:
+ *   sTypoAscender / usWinAscent / hhea.ascent = 950 (95%)
+ *   sTypoDescender / hhea.descent = -250, usWinDescent = 250 (25%)
+ * Drop-in instead of SBSansDisplay.0.2.0.css after fonts are uploaded to CDN.
+ */
+
+@font-face {
+    font-family: 'SB Sans Display';
+    src: url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Light.woff2') format('woff2'),
+         url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display';
+    src: url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Thin.woff2') format('woff2'),
+         url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display';
+    src: url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Bold.woff2') format('woff2'),
+         url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display';
+    src: url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Regular.woff2') format('woff2'),
+         url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display';
+    src: url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Semibold.woff2') format('woff2'),
+         url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SB Sans Display';
+    src: url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Medium.woff2') format('woff2'),
+         url('https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.3.0/SBSansDisplay-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
