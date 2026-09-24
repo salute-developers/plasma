@@ -1,64 +1,64 @@
-# Plasma
+# SDDS (Plasma)
 
-<p align="center">
-  <img width="800" src="https://user-images.githubusercontent.com/1813468/98610527-d37ba500-2300-11eb-87c3-80cc1c08ecb4.png" alt="plasma" />
-</p>
+[![license](https://img.shields.io/github/license/salute-developers/plasma)](https://github.com/salute-developers/plasma/blob/master/LICENSE.txt)
+[![typescript](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/dev/typescript)](https://www.typescriptlang.org/)
+[![node](https://img.shields.io/badge/node-24.11.1-339933?logo=nodedotjs&logoColor=white)](./.nvmrc)
+[![npm](https://img.shields.io/badge/npm-11.6.2-CB3837?logo=npm&logoColor=white)](./.nvmrc)
 
-Использование дизайн-системы Plasma позволяет реализовать [Canvas App](https://bit.ly/3Mx0UQq) как часть экосистемы виртуальных ассистентов семейства "Салют" и клиентские приложения B2B- и B2C-ориентированности. Все текущие приложения в экосистеме Salute реализованы с помощью Plasma.
+Дизайн-система для веб-приложений на React. Репозиторий содержит ядро компонентов и пакеты конечных **продуктовых** вертикалей.
 
-## Состав
+Вертикаль — это **готовый** набор компонентов со своими темами и конфигурацией для конкретного продукта или направления.
 
--   @salutejs/plasma-web
--   @salutejs/plasma-b2c
--   @salutejs/plasma-tokens
--   @salutejs/plasma-tokens-web
--   @salutejs/plasma-tokens-b2c
--   @salutejs/plasma-icons
--   @salutejs/plasma-giga
--   @salutejs/plasma-new-hope
--   @salutejs/sdds-serv
--   @salutejs/plasma-themes
--   @salutejs/sdds-themes
--   @salutejs/sdds-icons
+## С чего начать
 
-### plasma-web
+1. Выберите пакет вертикали в таблице ниже.
+2. Установите пакет и его тему по инструкции из README пакета или со страницы документации.
+3. Импортируйте компоненты из пакета вертикали, например `import { Button } from '@salutejs/sdds-serv'`.
 
-Пакет с набором готовых компонентов для создания веб-приложений направленных на B2B-сегмент. [Документация](https://bit.ly/3OtwX5v) и [Storybook](https://bit.ly/3EH1x7b).
+## Пакеты компонентов
 
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-web?label=%40salutejs%2Fplasma-web&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-web)
+| Пакет                                                                                  | README                                          | Документация                                                        | Storybook                                                                               |
+| -------------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| [@salutejs/plasma-web](https://www.npmjs.com/package/@salutejs/plasma-web)             | [README](./packages/plasma-web/README.md)       | [web](https://plasma.sberdevices.ru/web/)                           | [web-storybook](https://plasma.sberdevices.ru/web-storybook/)                           |
+| [@salutejs/plasma-b2c](https://www.npmjs.com/package/@salutejs/plasma-b2c)             | [README](./packages/plasma-b2c/README.md)       | [b2c](https://plasma.sberdevices.ru/b2c/)                           | [b2c-storybook](https://plasma.sberdevices.ru/b2c-storybook/)                           |
+| [@salutejs/plasma-giga](https://www.npmjs.com/package/@salutejs/plasma-giga)           | [README](./packages/plasma-giga/README.md)      | [giga](https://plasma.sberdevices.ru/giga/)                         | [giga-storybook](https://plasma.sberdevices.ru/giga-storybook/)                         |
+| [@salutejs/plasma-homeds](https://www.npmjs.com/package/@salutejs/plasma-homeds)       | [README](./packages/plasma-homeds/README.md)    | [homeds](https://plasma.sberdevices.ru/homeds/)                     | [homeds-storybook](https://plasma.sberdevices.ru/homeds-storybook/)                     |
+| [@salutejs/sdds-serv](https://www.npmjs.com/package/@salutejs/sdds-serv)               | [README](./packages/sdds-serv/README.md)        | [sdds-serv](https://plasma.sberdevices.ru/sdds-serv/)               | [sdds-serv-storybook](https://plasma.sberdevices.ru/sdds-serv-storybook/)               |
+| [@salutejs/sdds-cs](https://www.npmjs.com/package/@salutejs/sdds-cs)                   | [README](./packages/sdds-cs/README.md)          | [sdds-cs](https://plasma.sberdevices.ru/sdds-cs/)                   | [sdds-cs-storybook](https://plasma.sberdevices.ru/sdds-cs-storybook/)                   |
+| [@salutejs/sdds-bizcom](https://www.npmjs.com/package/@salutejs/sdds-bizcom)           | [README](./packages/sdds-bizcom/README.md)      | [sdds-bizcom](https://plasma.sberdevices.ru/sdds-bizcom/)           | [sdds-bizcom-storybook](https://plasma.sberdevices.ru/sdds-bizcom-storybook/)           |
+| [@salutejs/sdds-dfa](https://www.npmjs.com/package/@salutejs/sdds-dfa)                 | [README](./packages/sdds-dfa/README.md)         | [sdds-dfa](https://plasma.sberdevices.ru/sdds-dfa/)                 | [sdds-dfa-storybook](https://plasma.sberdevices.ru/sdds-dfa-storybook/)                 |
+| [@salutejs/sdds-finai](https://www.npmjs.com/package/@salutejs/sdds-finai)             | [README](./packages/sdds-finai/README.md)       | [sdds-finai](https://plasma.sberdevices.ru/sdds-finai/)             | [sdds-finai-storybook](https://plasma.sberdevices.ru/sdds-finai-storybook/)             |
+| [@salutejs/sdds-insol-next](https://www.npmjs.com/package/@salutejs/sdds-insol-next)   | [README](./packages/sdds-insol-next/README.md)  | [sdds-insol-next](https://plasma.sberdevices.ru/sdds-insol-next/)   | [sdds-insol-next-storybook](https://plasma.sberdevices.ru/sdds-insol-next-storybook/)   |
+| [@salutejs/sdds-netology](https://www.npmjs.com/package/@salutejs/sdds-netology)       | [README](./packages/sdds-netology/README.md)    | [sdds-netology](https://plasma.sberdevices.ru/sdds-netology/)       | [sdds-netology-storybook](https://plasma.sberdevices.ru/sdds-netology-storybook/)       |
+| [@salutejs/sdds-platform-ai](https://www.npmjs.com/package/@salutejs/sdds-platform-ai) | [README](./packages/sdds-platform-ai/README.md) | [sdds-platform-ai](https://plasma.sberdevices.ru/sdds-platform-ai/) | [sdds-platform-ai-storybook](https://plasma.sberdevices.ru/sdds-platform-ai-storybook/) |
+| [@salutejs/sdds-sbcom](https://www.npmjs.com/package/@salutejs/sdds-sbcom)             | [README](./packages/sdds-sbcom/README.md)       | [sdds-sbcom](https://plasma.sberdevices.ru/sdds-sbcom/)             | [sdds-sbcom-storybook](https://plasma.sberdevices.ru/sdds-sbcom-storybook/)             |
+| [@salutejs/sdds-scan](https://www.npmjs.com/package/@salutejs/sdds-scan)               | [README](./packages/sdds-scan/README.md)        | [sdds-scan](https://plasma.sberdevices.ru/sdds-scan/)               | [sdds-scan-storybook](https://plasma.sberdevices.ru/sdds-scan-storybook/)               |
+| [@salutejs/sdds-os](https://www.npmjs.com/package/@salutejs/sdds-os)                   | [README](./packages/sdds-os/README.md)          | —                                                                   | [sdds-os-storybook](https://plasma.sberdevices.ru/sdds-os-storybook/)                   |
 
-### plasma-b2c
+> **!!ВАЖНО!!:** Пакет `plasma-ui` переехал в отдельный репозиторий [salute-developers/plasma-ui](https://github.com/salute-developers/plasma-ui).
 
-Пакет с набором готовых компонентов для создания веб-приложений ориентированных на B2C-сегмент. [Документация](https://bit.ly/3OtwX5v) и [Storybook](https://bit.ly/44CjWib).
+## Темы и иконки
 
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-b2c?label=%40salutejs%2Fplasma-b2c&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-b2c)
+-   [@salutejs/plasma-themes](https://www.npmjs.com/package/@salutejs/plasma-themes) и [@salutejs/sdds-themes](https://www.npmjs.com/package/@salutejs/sdds-themes) содержат темы и дизайн-токены вертикалей. Какой пакет тем нужен вашей вертикали, указано в README её пакета.
+-   [@salutejs/plasma-icons](https://www.npmjs.com/package/@salutejs/plasma-icons) и [@salutejs/sdds-icons](https://www.npmjs.com/package/@salutejs/sdds-icons) содержат React-иконки. Весь набор можно посмотреть на странице [иконок](https://plasma.sberdevices.ru/icons/).
 
-### plasma-tokens, plasma-tokens-web, plasma-tokens-b2c
+## Для AI-агентов
 
-Пакеты с набором _дизайн-токенов_. В пакет входят типографические и цветовые константы. Дизайн-токены поставляются в качестве [CSS custom propperties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) и JavaScript переменных. Перед использованием рекомендуется ознакомится с документацией по [токенам](https://bit.ly/3KflkeS).
+-   Компоненты, их свойства и примеры для вертикали отдаёт MCP-сервер `@salutejs/sdds-mcp`. Список поддерживаемых пакетов и настройка описаны в разделе «Как работать с MCP» документации вертикали. Запуск:
 
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens?label=%40salutejs%2Fplasma-tokens&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens)
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens-web?label=%40salutejs%2Fplasma-tokens-web&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens-web)
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-tokens-b2c?label=%40salutejs%2Fplasma-tokens-b2c&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-tokens-b2c)
+    ```bash
+    npx -y @salutejs/sdds-mcp@latest --lib <пакет-вертикали>
+    ```
 
-### plasma-icons
-
-Пакет с набором иконок, которые доступны к просмотру в [хранилище](https://bit.ly/42hgVSf), а также в [Storybook](https://bit.ly/3LhwBwC) и [документации](https://bit.ly/3xQMjuM).
-
-[![npm ui](https://img.shields.io/npm/v/@salutejs/plasma-icons?label=%40salutejs%2Fplasma-icons&style=for-the-badge)](https://www.npmjs.com/package/@salutejs/plasma-icons)
-
-### plasma-ui
-
-> **Важно:** пакет `plasma-ui` переехал в репозиторий [salute-developers/plasma-ui](https://github.com/salute-developers/plasma-ui).
+-   `llms.txt` есть у сайта документации в каждой вертикали есть и находится по адресу `<сайт документации>/llms.txt`, например `https://plasma.sberdevices.ru/sdds-serv/llms.txt`.
+-   В коде приложения импортируйте компоненты и токены только из пакета вертикали и её пакета тем, а иконки из пакета иконок. Остальные пакеты в `packages/`, включая ядро `plasma-new-hope`, служат зависимостями вертикалей и напрямую не подключаются.
+-   Для работы внутри этого репозитория следуйте [AGENTS.md](./AGENTS.md).
 
 ## Разработка
 
--   [Правила внесения изменений](./CONTRIBUTING.md)
--   [Навык создания core-компонента](./.agents/skills/create-core-component/SKILL.md)
--   [Навык создания API-тестов](./.agents/skills/api-test/SKILL.md)
--   [Инструкции для AI-агентов](./AGENTS.md)
+-   [AGENTS.md](./AGENTS.md) описывает структуру монорепозитория, команды сборки и проверок, навыки агентов.
+-   [CONTRIBUTING.md](./CONTRIBUTING.md) содержит правила внесения изменений.
 
 ## Обратная связь
 
-Разработка дизайн-системы Plasma ведется в репозитории <https://github.com/salute-developers/plasma>.
-Если вы хотите добавить новый компонент, вы можете прислать пулл-реквест следуя [правилам разработки](./CONTRIBUTING.md). Также вы можете [завести задачу](https://github.com/salute-developers/plasma/issues/new) на создание нового компонента или описать некоректное поведение текущего.
+Чтобы предложить новый компонент, пришлите пулл-реквест по [правилам разработки](./CONTRIBUTING.md) или [заведите задачу](https://github.com/salute-developers/plasma/issues/new). Там же можно сообщить о некорректном поведении существующего компонента.
