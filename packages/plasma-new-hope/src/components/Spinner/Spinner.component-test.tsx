@@ -56,6 +56,21 @@ describeFn('Spinner', () => {
         cy.matchImageSnapshot();
     });
 
+    it('strokeSize', () => {
+        mount(
+            <>
+                <Spin size={64} strokeSize={1} />
+                <PadMe />
+                <Spin size={64} strokeSize={2} />
+                <PadMe />
+                <Spin size={64} strokeSize={4} />
+                <PadMe />
+                <Spin size={64} strokeSize={8} />
+            </>,
+        );
+        cy.matchImageSnapshot();
+    });
+
     it('many colors', () => {
         mount(
             <>
