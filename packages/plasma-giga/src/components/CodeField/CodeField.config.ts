@@ -7,6 +7,7 @@ import {
     bodyS,
     bodyXS,
     outlineAccent,
+    outlineSolidPrimary,
     outlineTransparentNegative,
     surfaceAccent,
     surfaceTransparentNegative,
@@ -34,6 +35,7 @@ export const config = {
 
                 ${tokens.codeColor}: ${textPrimary};
                 ${tokens.codeColorError}: ${textNegative};
+                ${tokens.borderColor}: ${outlineSolidPrimary};
                 ${tokens.borderColorFocus}: ${outlineAccent};
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
