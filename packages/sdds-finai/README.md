@@ -1,306 +1,193 @@
-# SDDS-FinAI
+# Библиотека компонентов для вертикали SDDS FINAI
 
-Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+[![license](https://img.shields.io/github/license/salute-developers/plasma)](https://github.com/salute-developers/plasma/blob/master/LICENSE.txt)
+[![npm version](https://img.shields.io/npm/v/@salutejs/sdds-finai.svg)](https://www.npmjs.com/package/@salutejs/sdds-finai)
+[![typescript](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/dev/typescript)](https://www.typescriptlang.org/)
+[![sdds-themes](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/@salutejs/sdds-themes?filename=packages%2Fsdds-finai%2Fpackage.json)](https://www.npmjs.com/package/@salutejs/sdds-themes)
 
-## Использование
+Реализация компонентов для создания веб-приложений.
 
-Библиотека реализована с помощью:
+Компоненты реализованы с помощью [React](https://react.dev/) и поставляются в трёх вариантах:
 
--   [typescript](https://www.typescriptlang.org/)
--   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
--   [emotion](https://emotion.sh/)
--   обычного `css` (linaria)
+-   на [styled-components](https://styled-components.com/) (по умолчанию),
+-   на предсобранном CSS,
+-   на [emotion](https://emotion.sh/).
 
-По умолчанию пакет отдаёт сборку **styled-components**. Также доступны таргеты `emotion` и `css`.
+## Ссылки
 
-### Установка зависимостей
+-   [Документация](https://plasma.sberdevices.ru/sdds-finai/) — гайды, список компонентов с примерами и API
+-   [Подключение в Next.js](https://plasma.sberdevices.ru/sdds-finai/next/)
+-   [Changelog](https://plasma.sberdevices.ru/changelog/?vertical=SDDSFinAI&platform=React&version=0.360.0)
+-   [Задать вопрос или сообщить о проблеме](https://github.com/salute-developers/plasma/issues)
 
-```bash
-npm install --save @salutejs/sdds-finai @salutejs/sdds-themes
-```
+## Установка
 
-Для работы со `styled-components`, необходимо установить
-
-```bash
-npm install --save styled-components@5.3.1
-```
-
-Или, если вы используете `@emotion`
+Требуются `react` и `react-dom` версии `16.13.1` или выше:
 
 ```bash
-npm install --save @emotion/styled @emotion/react @emotion/css
+$ npm install --save react react-dom
+$ npm install --save @salutejs/sdds-finai @salutejs/sdds-themes
 ```
 
-Для таргета `css` runtime CSS-in-JS не нужен.
+Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
 
-### Использование компонентов
+Для варианта на styled-components:
 
-Компоненты доступны из разных entry points:
+```bash
+$ npm install --save styled-components@5.3.1
+```
+
+Для варианта на emotion:
+
+```bash
+$ npm install --save @emotion/styled @emotion/react
+```
+
+CSS-вариант дополнительных зависимостей не требует.
+
+## Варианты поставки
+
+> **Примечание:** Вариант на styled-components является поставкой по умолчанию.
+
+Один и тот же набор компонентов доступен из трёх точек входа:
+
+| Точка входа                     | Реализация         | Дополнительные зависимости          |
+| -------------------------------- | ------------------ | ------------------------------------ |
+| `@salutejs/sdds-finai`           | styled-components  | `styled-components@5.3.1`            |
+| `@salutejs/sdds-finai/css`       | предсобранный CSS  | нет                                   |
+| `@salutejs/sdds-finai/emotion`   | emotion            | `@emotion/styled`, `@emotion/react`  |
 
 ```jsx
-import { Button } from '@salutejs/sdds-finai'; // styled-components (default)
-import { Button } from '@salutejs/sdds-finai/emotion';
-import { Button } from '@salutejs/sdds-finai/css';
-```
-
-Пример со `styled-components`:
-
-```jsx
-import styled from 'styled-components';
 import { Button } from '@salutejs/sdds-finai';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
-
-export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
-    return (
-        <>
-            <Button>Hello, FinAI!</Button>
-            <StyledP>Token usage example</StyledP>
-        </>
-    );
-};
-```
-
-#### `@emotion`
-
-```jsx
-import { Button } from '@salutejs/sdds-finai/emotion';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
-
-export const App = () => {
-    return (
-        <>
-            <Button>Hello, FinAI!</Button>
-            <p style={{ color: textAccent }}>Token usage example</p>
-        </>
-    );
-};
-```
-
-#### `css`
-
-```jsx
+// или
 import { Button } from '@salutejs/sdds-finai/css';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
-
-export const App = () => {
-    return (
-        <>
-            <Button>Hello, FinAI!</Button>
-            <p style={{ color: textAccent }}>Token usage example</p>
-        </>
-    );
-};
+// или
+import { Button } from '@salutejs/sdds-finai/emotion';
 ```
+
+Beta-компоненты доступны из точки входа `@salutejs/sdds-finai/beta`. Подробнее — в [документации](https://plasma.sberdevices.ru/sdds-finai/beta/embedded-button/).
 
 ## Подключение шрифтов
 
-Типографическая система основана на фирменных шрифтах.
+Типографическая система основана на фирменных шрифтах, они поставляются с CDN.
 
-Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
-
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
-
-### Create react app
-
-Добавить внутрь тега `head`.
+Добавьте три css-файла внутрь тега `<head>`.
 
 ```html
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-        />
-        <title>Wep App</title>
-    </head>
-    <body>
-        ...
-    </body>
-</html>
-```
-
-### NextJs
-
-```tsx
-import Head from 'next/head';
-
-import { H2, Button } from '@salutejs/sdds-finai';
-
-export default function Home() {
-    return (
-        <>
-            <Head>
-                <title>Create Next App with sdds-finai components</title>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-                />
-            </Head>
-            <div>
-                <main>
-                    <div>
-                        <H2> Salute FinAI </H2>
-                        <Button text="Hello" />
-                    </div>
-                </main>
-            </div>
-        </>
-    );
-}
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css" />
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css" />
 ```
 
 ## Подключение темы
 
-Точкой входа является корень приложения:
+Тема подключается один раз в корне приложения.
 
--   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
--   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` / `app/layout.tsx` и подключите стили в нем.
+> **Примечание:** Для [Next.js](https://nextjs.org/) — в `pages/_app.tsx`.
 
-### С помощью `styled-components`
+Тема включает в себя цветовые и типографические токены.
+
+Доступны светлая и тёмная темы — `sdds_finai__light` и `sdds_finai__dark`.
+
+### Через импорт css-файла
 
 ```jsx
-import React from 'react';
+import '@salutejs/sdds-themes/css/sdds_finai__light.css';
+```
+
+### Через styled-components
+
+```jsx
 import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/sdds-finai';
 import { sdds_finai__light } from '@salutejs/sdds-themes';
 
 const Theme = createGlobalStyle(sdds_finai__light);
 
-const App = () => {
-    return (
-        <>
-            <Theme />
-            <BodyL>Hello FinAI</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
+// вызовите <Theme /> в корне приложения
 ```
 
-#### С помощью `emotion`
+### Через emotion
 
 ```jsx
-import React from 'react';
 import { Global, css } from '@emotion/react';
-import { Button, BodyL } from '@salutejs/sdds-finai/emotion';
 import { sdds_finai__light } from '@salutejs/sdds-themes';
 
 const themeStyle = css(sdds_finai__light);
 
-const App = () => {
-    return (
-        <>
-            <Global styles={themeStyle} />
-            <BodyL>Hello FinAI</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
+// вызовите <Global styles={themeStyle} /> в корне приложения
 ```
 
-#### С помощью импорта `css` файла
+Переключение темы в рантайме и подключение через css-модули описаны в [документации](https://plasma.sberdevices.ru/sdds-finai/).
+
+## Использование компонентов
 
 ```jsx
-import React from 'react';
-import { Button, BodyL } from '@salutejs/sdds-finai/css';
-
+// App.tsx
+import { Button, BodyL } from '@salutejs/sdds-finai';
 import '@salutejs/sdds-themes/css/sdds_finai__light.css';
 
-const App = () => {
+export const App = () => {
     return (
         <>
-            <BodyL>Hello FinAI</BodyL>
-            <Button text="This is themed button" />
+            <BodyL>Hello, SDDS FINAI!</BodyL>
+            <Button>Кнопка</Button>
         </>
     );
 };
-
-export default App;
 ```
 
-## Токены
+Дизайн-токены доступны в виде js-переменных:
 
-Все `css` токены завернуты в `js` переменные для более удобного доступа:
-
-```js
-/** Основной цвет текста */
-export const textPrimary = 'var(--text-primary, #F5F5F5)';
-/** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #000000)';
-```
-
-### Способы подключения
-
-Есть два пути импорта токенов:
-
--   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-finai` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
-
-### Использование
+-   базовый набор — из `@salutejs/sdds-themes/tokens`
+-   уникальные токены темы — из `@salutejs/sdds-themes/tokens/sdds_finai`.
 
 ```jsx
-import React from 'react';
-import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+import { textAccent } from '@salutejs/sdds-themes/tokens';
 
-const AppStyled = styled.div`
-    padding: 2rem;
-    color: ${textAccent};
-    background-color: ${backgroundPrimary};
-`;
+<p style={{ color: textAccent }}>Пример использования токена</p>;
+```
 
-const Container = styled.div`
-    ${textL};
-    margin: 1rem;
-`;
+## SSR и Next.js
 
-const App = () => {
-    return (
-        <AppStyled>
-            <Container>
-                <span>Hello FinAI</span>
-            </Container>
-        </AppStyled>
-    );
+-   Библиотека поддерживает React Server Components (App Router) **только** при **явном** использовании директивы `'use client'` в модулях, импортирующих компоненты.
+-   Для CSS-варианта поставки добавьте пакеты в `transpilePackages` в `next.config.js`:
+
+```js
+const nextConfig = {
+    transpilePackages: ['@salutejs/sdds-finai', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons'],
 };
-
-export default App;
 ```
 
-## Типографика
+Подробности — в [гайде по Next.js](https://plasma.sberdevices.ru/sdds-finai/next/).
 
-Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
+## MCP-сервер для AI-агентов
 
-```ts
-import { BodyL, DsplL, H3 } from '@salutejs/sdds-finai';
+> **Примечание**: Поддерживаются версии библиотеки начиная с `0.334.0` — нужная указывается параметром `--version`.
+
+Библиотека предоставляет [MCP-сервер](https://plasma.sberdevices.ru/sdds-finai/how-to-mcp/) `@salutejs/sdds-mcp` — через него LLM-агент (Claude Code, Cursor и др.) получает актуальную документацию:
+
+-   список компонентов
+-   описание props
+-   примеры использования
+-   токены и гайды.
+
+Сервер работает по `stdio`:
+
+```bash
+npx -y @salutejs/sdds-mcp@latest --lib sdds-finai
 ```
 
-### Токены типографики на примере компонента `DsplL`
+Если агент настраивается через конфигурацию, используйте шаблон:
 
-Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
-
-```tsx
-import { CSSObject } from 'styled-components';
-
-export const dsplL = ({
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
-} as unknown) as CSSObject;
+```json
+{
+    "mcpServers": {
+        "sdds-finai": {
+            "command": "npx",
+            "args": ["-y", "@salutejs/sdds-mcp@latest", "--lib", "sdds-finai"]
+        }
+    }
+}
 ```
+
+Подробности и список инструментов — в [гайде по MCP](https://plasma.sberdevices.ru/sdds-finai/how-to-mcp/).
