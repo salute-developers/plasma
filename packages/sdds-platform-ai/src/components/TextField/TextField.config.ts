@@ -226,10 +226,7 @@ export const config = {
                 ${tokens.letterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.lineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.labelPadding}: 0;
                 ${tokens.labelOffset}: 0.25rem;
-                ${tokens.clearLabelOffset}: 0.25rem;
-
                 ${tokens.labelFontFamily}: ${bodyM.fontFamily};
                 ${tokens.labelFontSize}: ${bodyM.fontSize};
                 ${tokens.labelFontStyle}: ${bodyM.fontStyle};
@@ -273,11 +270,10 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.375rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2.25rem;
-                ${tokens.chipPadding}: 0.375rem 0.5rem 0.375rem 0.75rem;
-                ${tokens.chipClearContentMarginLeft}: 0.375rem;
+                ${tokens.chipPadding}: 0 0.625rem 0 0.875rem;
+                ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: 0rem;
                 ${tokens.chipCloseIconSize}: 1.25rem;
-
                 ${tokens.chipFontFamily}: ${bodyM.fontFamily};
                 ${tokens.chipFontSize}: ${bodyM.fontSize};
                 ${tokens.chipFontStyle}: ${bodyM.fontStyle};
@@ -291,9 +287,178 @@ export const config = {
                 ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.75rem;
                 ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
                 ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.6875rem auto auto;
-                ${tokens.clearIndicatorLabelPlacementInner}: 1.25rem auto auto -0.875rem;
-                ${tokens.clearIndicatorLabelPlacementInnerRight}: 1.25rem -0.875rem auto auto;
-                ${tokens.clearIndicatorHintInnerRight}: 1.25rem -2.488rem auto auto;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+            `,
+            s: css`
+                ${tokens.height}: 2.5rem;
+                ${tokens.padding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
+                ${tokens.paddingWithChips}: 0.375rem;
+                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderWidth}: 0.0625rem;
+
+                ${tokens.leftContentMargin}: -0.1875rem 0.125rem -0.1875rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.rightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+
+                ${tokens.contentRightWrapperGap}: 0.25rem;
+                ${tokens.contentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.fontFamily}: ${bodyS.fontFamily};
+                ${tokens.fontSize}: ${bodyS.fontSize};
+                ${tokens.fontStyle}: ${bodyS.fontStyle};
+                ${tokens.fontWeight}: ${bodyS.fontWeight};
+                ${tokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.lineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.labelOffset}: 0.125rem;
+                ${tokens.labelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.labelFontSize}: ${bodyS.fontSize};
+                ${tokens.labelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.labelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.chipGap}: 0.25rem;
+                ${tokens.chipBorderRadius}: 0.25rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 1.75rem;
+                ${tokens.chipPadding}: 0 0.5rem 0 0.75rem;
+                ${tokens.chipClearContentMarginLeft}: 0.375rem;
+                ${tokens.chipClearContentMarginRight}: 0rem;
+                ${tokens.chipCloseIconSize}: 1rem;
+                ${tokens.chipFontFamily}: ${bodyS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.indicatorSizeInner}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+
+                ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textAfterMargin}: 0 0 0 0.25rem;
+            `,
+            xs: css`
+                ${tokens.height}: 2rem;
+                ${tokens.padding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
+                ${tokens.paddingWithChips}: 0.375rem;
+                ${tokens.borderRadius}: 0.5rem;
+                ${tokens.borderWidth}: 0.0625rem;
+
+                ${tokens.leftContentMargin}: -0.0625rem 0.125rem -0.0625rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
+                ${tokens.rightContentWithHintMargin}: -0.0625rem -0.688rem -0.0625rem 0.75rem;
+
+                ${tokens.contentRightWrapperGap}: 0.25rem;
+                ${tokens.contentRightWrapperMargin}: -0.688rem -0.688rem -0.688rem 0;
+
+                ${tokens.fontFamily}: ${bodyXS.fontFamily};
+                ${tokens.fontSize}: ${bodyXS.fontSize};
+                ${tokens.fontStyle}: ${bodyXS.fontStyle};
+                ${tokens.fontWeight}: ${bodyXS.fontWeight};
+                ${tokens.letterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.lineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelOffset}: 0.375rem;
+                ${tokens.labelFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
+                ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.leftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.leftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.leftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.leftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.rightHelperOffset}: 0.25rem 0 0 0.25rem;
+                ${tokens.rightHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.rightHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.rightHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.rightHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.rightHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.rightHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.contentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.chipGap}: 0.25rem;
+                ${tokens.chipBorderRadius}: 0.125rem;
+                ${tokens.chipWidth}: auto;
+                ${tokens.chipHeight}: 1.25rem;
+                ${tokens.chipPadding}: 0 0.375rem 0 0.625rem;
+                ${tokens.chipClearContentMarginLeft}: 0.25rem;
+                ${tokens.chipClearContentMarginRight}: 0rem;
+                ${tokens.chipCloseIconSize}: 0.75rem;
+                ${tokens.chipFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.chipFontSize}: ${bodyXS.fontSize};
+                ${tokens.chipFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.chipFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.chipLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.chipLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.indicatorSizeInner}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.6875rem auto auto;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
