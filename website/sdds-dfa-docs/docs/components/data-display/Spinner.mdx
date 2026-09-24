@@ -1,0 +1,30 @@
+---
+id: spinner
+slug: /components/spinner
+title: Spinner
+description: "Индикация состояния загрузки — вращающийся спиннер."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Spinner
+<Description name="Spinner" />
+
+:::caution Устаревшие значения свойства view
+Значения `tertiary` и `paragraph` устарели и будут удалены в будущих версиях.
+:::
+
+```tsx live
+import React from 'react';
+import { Spinner } from '@salutejs/sdds-dfa';
+
+export function App() {
+    return (
+        <Spinner size={32} />
+    );
+}
+```
+
+## API
+
+<PropsTable name="Spinner" exclude={['css', 'focused']}/>
