@@ -32,6 +32,7 @@ export const RangeDatePopover = ({
     disabledMonthList,
     eventQuarterList,
     disabledQuarterList,
+    quarterNames,
     eventYearList,
     disabledYearList,
 
@@ -151,6 +152,7 @@ export const RangeDatePopover = ({
                             disabledMonthList={disabledMonthList}
                             eventQuarterList={eventQuarterList}
                             disabledQuarterList={disabledQuarterList}
+                            quarterNames={quarterNames}
                             eventYearList={eventYearList}
                             disabledYearList={disabledYearList}
                             min={min}
@@ -224,6 +226,7 @@ export const RangeDatePopover = ({
                         disabledMonthList={disabledMonthList}
                         eventQuarterList={eventQuarterList}
                         disabledQuarterList={disabledQuarterList}
+                        quarterNames={quarterNames}
                         eventYearList={eventYearList}
                         disabledYearList={disabledYearList}
                         renderFromDate={renderFromDate}

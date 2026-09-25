@@ -7,6 +7,7 @@ export interface CalendarQuartersProps extends HTMLAttributes<HTMLDivElement> {
     value: CalendarValueType;
     outerRefs: MutableRefObject<HTMLDivElement[][]>;
     onChangeQuarter: (date: DateObject, coord: number[], quarterName: string) => void;
+    quarterNames?: string[];
     eventList?: EventDay[];
     disabledList?: DisabledDay[];
     min?: Date;

@@ -199,6 +199,7 @@ export type UseDateTimePickerArgs = {
     min?: Date;
     max?: Date;
     includeEdgeDates?: boolean;
+    quarterNames?: string[];
     dateOnTimeSelectOnly?: Date;
     hasTimeFormat?: boolean;
     onChangeValue?: InputProps['onChangeValue'];

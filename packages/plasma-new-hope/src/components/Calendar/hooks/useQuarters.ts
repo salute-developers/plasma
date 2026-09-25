@@ -17,10 +17,20 @@ import type { UseQuartersArgs } from './types';
 /**
  * Хук для получения списка месяцев.
  */
-export const useQuarters = ({ date, value, eventList, disabledList, min, max, includeEdgeDates }: UseQuartersArgs) =>
+export const useQuarters = ({
+    date,
+    value,
+    eventList,
+    disabledList,
+    min,
+    max,
+    includeEdgeDates,
+    quarterNames = QUARTER_NAMES,
+}: UseQuartersArgs) =>
     useMemo(() => {
-        const quarters = QUARTER_NAMES.map((quarterName: string) => {
-            const { monthIndex, day } = quarterDates[quarterName];
+        const quarters = QUARTER_NAMES.map((defaultQuarterName, quarterIndex) => {
+            const quarterName = quarterNames[quarterIndex] ?? defaultQuarterName;
+            const { monthIndex, day } = quarterDates[quarterIndex];
 
             return {
                 quarterName,
@@ -48,4 +58,4 @@ export const useQuarters = ({ date, value, eventList, disabledList, min, max, in
         }
 
         return getMatrix<DateItem>(quarters, 2);
-    }, [date, value, eventList, disabledList, max, min]);
+    }, [date, value, eventList, disabledList, max, min, includeEdgeDates, quarterNames]);

@@ -112,6 +112,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 disabledMonthList,
                 eventQuarterList,
                 disabledQuarterList,
+                quarterNames,
                 eventYearList,
                 disabledYearList,
                 type = 'Days',
@@ -198,6 +199,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 min,
                 max,
                 includeEdgeDates,
+                quarterNames,
                 setCorrectDates,
                 setInnerDate,
                 dateFormatDelimiter,
@@ -429,6 +431,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                                     disabledMonthList={disabledMonthList}
                                     eventQuarterList={eventQuarterList}
                                     disabledQuarterList={disabledQuarterList}
+                                    quarterNames={quarterNames}
                                     eventYearList={eventYearList}
                                     disabledYearList={disabledYearList}
                                     min={min}
