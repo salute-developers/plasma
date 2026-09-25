@@ -1,7 +1,14 @@
 {
   "name": "plasma",
   "private": true,
-  "workspaces": ["packages/*", "packages/themes/*", "utils/*", "website/*-docs", "website/plasma-website"],
+  "workspaces": [
+    "packages/*",
+    "packages/themes/*",
+    "utils/*",
+    "website/*-docs",
+    "website/plasma-website",
+    "website/landing"
+  ],
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "scripts": {
