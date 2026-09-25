@@ -15,3 +15,5 @@ s3_build
 temp
 **/.DS_Store
 **/.swc
+website/landing/dist/
+website/landing/.ssr/
