@@ -2,6 +2,14 @@
 
 export { plasma_b2c__dark, darkPlasma_b2c } from './plasma_b2c__dark';
 export { plasma_b2c__light, lightPlasma_b2c } from './plasma_b2c__light';
+export {
+    plasma_b2c_ACTUAL_TYPOGRAPHY__dark,
+    darkPlasma_b2c_ACTUAL_TYPOGRAPHY,
+} from './plasma_b2c_ACTUAL_TYPOGRAPHY__dark';
+export {
+    plasma_b2c_ACTUAL_TYPOGRAPHY__light,
+    lightPlasma_b2c_ACTUAL_TYPOGRAPHY,
+} from './plasma_b2c_ACTUAL_TYPOGRAPHY__light';
 export { plasma_giga__dark, darkPlasma_giga } from './plasma_giga__dark';
 export { plasma_giga__light, lightPlasma_giga } from './plasma_giga__light';
 export { plasma_giga_app__dark, darkPlasma_giga_app } from './plasma_giga_app__dark';
