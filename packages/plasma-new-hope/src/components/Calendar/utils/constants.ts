@@ -50,24 +50,24 @@ export const offsetMap = {
 
 export const QUARTER_NAMES = ['Q1', 'Q2', 'Q3', 'Q4'];
 
-export const quarterDates: Record<typeof QUARTER_NAMES[number], QuarterPartialDate> = {
-    Q1: {
+export const quarterDates: QuarterPartialDate[] = [
+    {
         monthIndex: 0,
         day: 1,
     },
-    Q2: {
+    {
         monthIndex: 3,
         day: 1,
     },
-    Q3: {
+    {
         monthIndex: 6,
         day: 1,
     },
-    Q4: {
+    {
         monthIndex: 9,
         day: 1,
     },
-};
+];
 
 export const SHORT_DAY_NAMES: LocalMap = {
     ru: WEEKS.map(callbackDayFormatter('ru', { weekday: 'short' })),
