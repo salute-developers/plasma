@@ -243,6 +243,29 @@ export function App() {
 }
 ```
 
+### Пользовательские названия кварталов
+
+Названия кварталов задаются с помощью свойства `quarterNames`. По умолчанию используются значения `Q1`, `Q2`, `Q3`, `Q4`.
+
+```tsx live
+import React from 'react';
+import { DateTimePicker } from '@salutejs/sdds-scan';
+
+export function App() {
+    const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
+
+    return (
+        <DateTimePicker
+            type="Quarters"
+            quarterNames={quarterNames}
+            label="Квартал и время"
+            placeholder="Выберите квартал и время"
+            usePortal
+        />
+    );
+}
+```
+
 ### 12-часовой формат (AM/PM)
 
 Свойство `hasTimeFormat` включает 12-часовой формат: колонка часов показывает значения `12`, `01`–`11`,

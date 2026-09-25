@@ -118,6 +118,11 @@ export type DatePickerCalendarProps = {
      */
     disabledQuarterList?: DisabledDay[];
     /**
+     * Названия кварталов.
+     * @default ['Q1', 'Q2', 'Q3', 'Q4']
+     */
+    quarterNames?: string[];
+    /**
      * Список событий по годам.
      */
     eventYearList?: EventDay[];
@@ -211,6 +216,7 @@ export type UseDatePickerProps = {
     min?: Date;
     max?: Date;
     includeEdgeDates?: boolean;
+    quarterNames?: string[];
     setInnerDate: Dispatch<SetStateAction<string | DateType>>;
     setCorrectDates: Dispatch<
         SetStateAction<{

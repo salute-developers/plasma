@@ -19,6 +19,7 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
     disabledList,
     min,
     max,
+    quarterNames,
     outerRefs,
     isDouble,
     isSecond,
@@ -39,6 +40,7 @@ export const CalendarQuarters: React.FC<CalendarQuartersProps> = ({
         disabledList,
         min: minDate,
         max: maxDate,
+        quarterNames,
     });
     const selectedRef = useRef(selected);
     const onSetSelectedRef = useRef(onSetSelected);

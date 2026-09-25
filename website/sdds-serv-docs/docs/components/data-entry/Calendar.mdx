@@ -290,6 +290,26 @@ export function App() {
 }
 ```
 
+## Пользовательские названия кварталов.
+
+Названия кварталов задаются с помощью свойства `quarterNames`. По умолчанию используются значения `Q1`, `Q2`, `Q3`, `Q4`.
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/sdds-serv';
+
+export function App() {
+    const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
+
+    return (
+        <CalendarBase
+            type="Quarters"
+            quarterNames={quarterNames}
+        />
+    );
+}
+```
+
 ## Выбор языка.
 Для выбора языка необходимо указать свойство `locale: 'ru' | 'en'`.
 

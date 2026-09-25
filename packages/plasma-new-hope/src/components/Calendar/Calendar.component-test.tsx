@@ -170,6 +170,7 @@ describeFn('Calendar', () => {
             uncontrolled = false,
             renderFromDate,
             onChangeVisibleDate,
+            quarterNames,
         } = args;
         const [value, setValue] = useState(baseValue);
 
@@ -223,7 +224,12 @@ describeFn('Calendar', () => {
                 renderFromDate,
             }),
             Months: getCalendarComponent({ type: 'Months', eventMonthList: monthEvents, stretched }),
-            Quarters: getCalendarComponent({ type: 'Quarters', eventQuarterList: quarterEvents, stretched }),
+            Quarters: getCalendarComponent({
+                type: 'Quarters',
+                eventQuarterList: quarterEvents,
+                quarterNames,
+                stretched,
+            }),
             Years: getCalendarComponent({ type: 'Years', eventYearList: yearEvents, stretched }),
         };
 
@@ -245,6 +251,16 @@ describeFn('Calendar', () => {
 
         cy.viewport(500, 1134);
         cy.matchImageSnapshot();
+    });
+
+    it('custom quarter names', () => {
+        const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
+
+        mount(<Demo baseValue={baseDate} type="Quarters" quarterNames={quarterNames} />);
+
+        quarterNames.forEach((quarterName) => {
+            cy.contains('[role="gridcell"]', quarterName).should('be.visible');
+        });
     });
 
     itSkipForWebkit('default: double calendar', () => {

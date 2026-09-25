@@ -54,6 +54,7 @@ export const calendarBaseRoot = (
                 disabledMonthList,
                 eventQuarterList,
                 disabledQuarterList,
+                quarterNames,
                 eventYearList,
                 disabledYearList,
                 locale = 'ru',
@@ -305,6 +306,7 @@ export const calendarBaseRoot = (
                             max={max}
                             eventList={eventQuarterList}
                             disabledList={disabledQuarterList}
+                            quarterNames={quarterNames}
                             hoveredQuarter={hoveredItem}
                             selectIndexes={selectIndexes}
                             onChangeQuarter={handleOnChangeQuarter}

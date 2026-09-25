@@ -47,6 +47,7 @@ export type UseMonthsArgs = {
 
 export type UseQuartersArgs = {
     includeEdgeDates?: boolean;
+    quarterNames?: string[];
 } & UseDateStructureArgs;
 
 export type UseYearsArgs = {
