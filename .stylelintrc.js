@@ -104,7 +104,7 @@ module.exports = {
         'selector-pseudo-element-colon-notation': 'double',
         'selector-pseudo-element-no-unknown': true,
         'selector-type-case': ['lower', { ignoreTypes: ['/^\\$\\w./'] }],
-        // правило ложно срабатывает на интерполяции mixins (applyHover, addFocus)
+        // правило ложно срабатывает на интерполяции mixins (addFocus)
         'selector-max-empty-lines': null,
 
         'selector-list-comma-newline-after': null,

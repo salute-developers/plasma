@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { classes, tokens } from '../Link.tokens';
 
@@ -23,7 +22,7 @@ export const base = css`
         ${underline}
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &.${classes.linkUnderlineHover}:hover {
             ${underline}
         }
@@ -35,7 +34,7 @@ export const base = css`
         &:visited:hover {
             ${getColor(tokens.linkColorVisitedHover)};
         }
-    `)}
+    }
 
     &:active {
         ${getColor(tokens.linkColorActive)};

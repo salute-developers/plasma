@@ -56,8 +56,6 @@
     "styled-components": "5.3.1",
     "ts-node": "10.2.1"
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
+  "contributors": ["salute.developers@gmail.com"],
   "sideEffects": false
 }

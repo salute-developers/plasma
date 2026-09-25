@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { classes, tokens } from '../../../../../tokens';
 
@@ -7,12 +6,12 @@ export const base = css`
     color: var(${tokens.itemColor});
     background-color: var(${tokens.itemBackgroundColor});
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             color: var(${tokens.itemColorHover});
             background-color: var(${tokens.itemBackgroundColorHover});
         }
-    `)}
+    }
 
     &:active {
         color: var(${tokens.itemColorActive});
@@ -26,7 +25,7 @@ export const base = css`
         color: var(${tokens.itemSelectedColor});
         cursor: var(${tokens.itemCursor});
 
-        ${applyHover(`
+        @media (hover: hover) and (pointer: fine) {
             &:hover {
                 color: var(${tokens.itemSelectedColorHover});
                 background-color: var(${tokens.itemSelectedBackgroundColorHover});
@@ -35,7 +34,7 @@ export const base = css`
                     background-color: var(${tokens.itemSelectedDividerColorHover});
                 }
             }
-        `)}
+        }
 
         &::after {
             content: '';

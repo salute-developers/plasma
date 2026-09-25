@@ -5,11 +5,7 @@
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE.txt"
-  ],
+  "files": ["dist", "README.md", "LICENSE.txt"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/salute-developers/plasma.git",
@@ -104,7 +100,5 @@
     "storybook:build": "storybook build -c .storybook -o build-sb"
   },
   "sideEffects": false,
-  "contributors": [
-    "salute.developers@gmail.com"
-  ]
+  "contributors": ["salute.developers@gmail.com"]
 }

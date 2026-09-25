@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { tokens, classes, privateTokens } from '../../TextArea.tokens';
 import { StyledTextAreaWrapper, TitleCaption } from '../../TextArea.styles';
@@ -60,7 +59,7 @@ export const base = css`
         background-color: var(${tokens.helpersBackgroundColorFocus});
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:hover:${exclusionSelectors} .${styledContainer} {
             background-color: var(${tokens.backgroundColorHover});
             box-shadow: var(${tokens.boxShadow}, inset 0 0 0 0 transparent);
@@ -78,7 +77,7 @@ export const base = css`
         &:hover:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {
             background-color: var(${tokens.helpersBackgroundColorHover});
         }
-    `)}
+    }
 
     &:active:${exclusionSelectors} .${styledTextAreaWrapper} {
         box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorActive});
@@ -111,14 +110,14 @@ export const base = css`
             }
         }
 
-        ${applyHover(`
+        @media (hover: hover) and (pointer: fine) {
             &:not([readonly]) ${StyledTextAreaWrapper}:hover {
                 ${privateTokens.dividerColor}: var(
                     ${tokens.dividerColorHover},
                     var(${tokens.dividerColor})
                 );
             }
-        `)}
+        }
 
         &:not([readonly]) ${StyledTextAreaWrapper}:focus-within {
             ${privateTokens.dividerColor}: var(

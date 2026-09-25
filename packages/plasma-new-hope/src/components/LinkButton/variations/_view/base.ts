@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { LinkButtonText, StyledContentLeft, StyledContentRight } from '../../LinkButton.styles';
 import { tokens } from '../../LinkButton.tokens';
@@ -7,7 +6,7 @@ import { tokens } from '../../LinkButton.tokens';
 export const base = css`
     background: var(${tokens.linkButtonBackgroundColor});
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         :not([disabled]):hover {
             ${LinkButtonText} {
                 color: var(${tokens.linkButtonTextColorHover});
@@ -18,7 +17,7 @@ export const base = css`
                 color: var(${tokens.linkButtonIconColorHover});
             }
         }
-    `)}
+    }
 
     :not([disabled]):active {
         ${LinkButtonText} {

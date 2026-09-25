@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { classes, tokens } from '../../../../tokens';
 import { RightContent } from '../../SegmentItem.styles';
@@ -8,7 +7,7 @@ export const base = css`
     color: var(${tokens.itemColor});
     background-color: var(${tokens.itemBackgroundColor});
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             color: var(${tokens.itemColorHover});
             background-color: var(${tokens.itemBackgroundColorHover});
@@ -21,7 +20,7 @@ export const base = css`
                 color: var(${tokens.itemAdditionalColorHover});
             }
         }
-    `)}
+    }
 
     &.${classes.selectedSegmentItem} {
         color: var(${tokens.itemSelectedColor});
@@ -34,7 +33,7 @@ export const base = css`
             color: var(${tokens.itemSelectedAdditionalColor});
         }
 
-        ${applyHover(`
+        @media (hover: hover) and (pointer: fine) {
             &:hover {
                 color: var(${tokens.itemSelectedColorHover});
 
@@ -46,17 +45,17 @@ export const base = css`
                     color: var(${tokens.itemSelectedAdditionalColorHover});
                 }
             }
-        `)}
+        }
 
         /* фон в single-режиме рисует StyledThumb (SegmentGroup); здесь он нужен только для multiple */
         &.${classes.segmentMultipleSelection} {
             background-color: var(${tokens.itemSelectedBackgroundColor});
 
-            ${applyHover(`
+            @media (hover: hover) and (pointer: fine) {
                 &:hover {
                     background-color: var(${tokens.itemSelectedBackgroundColorHover});
                 }
-            `)}
+            }
         }
     }
 `;

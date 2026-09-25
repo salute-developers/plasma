@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { addFocus, applyHover } from 'src/mixins';
+import { addFocus } from 'src/mixins';
 
 import { CaptionWrapper, ItemInput, ItemCircle } from '../../CodeInput.styles';
 import { classes, tokens } from '../../CodeInput.tokens';
@@ -52,14 +52,14 @@ export const base = css`
         }
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             .${classes.hoverEnabled} {
                 background-color: var(${tokens.backgroundColorHover});
                 box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorHover});
             }
         }
-    `)}
+    }
 
     &:focus-within {
         ${ItemInput}:focus-within {

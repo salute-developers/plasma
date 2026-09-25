@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { CaptionWrapper, ItemInput, ItemValue } from '../../CodeField.styles';
 import { classes, tokens } from '../../CodeField.tokens';
@@ -25,14 +24,14 @@ export const base = css`
         background-color: Highlight;
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         &:hover {
             .${classes.hoverEnabled} {
                 background-color: var(${tokens.backgroundColorHover});
                 box-shadow: inset 0 0 0 var(${tokens.borderWidth}) var(${tokens.borderColorHover});
             }
         }
-    `)}
+    }
 
     &:focus-within {
         .${classes.itemFocused}:not(.${classes.itemError}) {

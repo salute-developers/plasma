@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { applyHover } from 'src/mixins';
 
 import { StyledContentWrapper, StyledTrigger } from '../../Checkbox.styles';
 import { tokens } from '../../Checkbox.tokens';
@@ -15,7 +14,7 @@ export const base = css`
         border-color: var(${tokens.triggerBorderCheckedColor});
     }
 
-    ${applyHover(`
+    @media (hover: hover) and (pointer: fine) {
         input[type='checkbox']:indeterminate:not(:disabled) + ${StyledContentWrapper}:hover ${StyledTrigger} {
             background: var(${tokens.fillColorHover}, var(${tokens.fillColor}));
         }
@@ -23,5 +22,5 @@ export const base = css`
         input:checked:not(:disabled) + ${StyledContentWrapper}:hover ${StyledTrigger} {
             background: var(${tokens.fillColorHover}, var(${tokens.fillColor}));
         }
-    `)}
+    }
 `;
