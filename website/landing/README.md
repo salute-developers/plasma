@@ -42,7 +42,7 @@ npm run preview --workspace=@salutejs/sdds-landing
 ## Публикация
 
 Workflow **Publish SDDS landing** запускается вручную в GitHub Actions. Он
-собирает ветку `master` и синхронизирует `dist/` с OBS-префиксом
+собирает выбранную при запуске ветку и синхронизирует `dist/` с OBS-префиксом
 `sdds.sberdevices.ru/` с удалением старых объектов. Затем
 `scripts/publish-obs.mjs` кладёт HTML каждой страницы под ключ, совпадающий с
 URL: `/news` соответствует объекту
