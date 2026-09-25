@@ -38,3 +38,13 @@ export const headerConfig = {
         padding-bottom: 1.5rem;
     `,
 };
+
+export const contentConfig = {
+    variations: {
+        view: {
+            default: css`
+                padding-right: 0;
+            `,
+        },
+    },
+};
