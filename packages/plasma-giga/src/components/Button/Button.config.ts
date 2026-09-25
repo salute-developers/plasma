@@ -17,7 +17,8 @@ import {
     onDarkTextPrimaryActive,
     onDarkTextPrimaryHover,
     onDarkTextSecondary,
-    onLightSurfaceSolidDefault,
+    onLightSurfaceSolidContrast,
+    onLightSurfaceSolidContrastHover,
     onLightSurfaceTransparentDeep,
     onLightTextPrimary,
     onLightTextPrimaryActive,
@@ -141,10 +142,9 @@ export const config = {
                 ${buttonTokens.buttonTextColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonIconColor}: ${onDarkTextPrimary};
                 ${buttonTokens.buttonValueColor}: ${onDarkTextSecondary};
-                ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidDefault};
+                ${buttonTokens.buttonBackgroundColor}: ${onLightSurfaceSolidContrast};
+                ${buttonTokens.buttonBackgroundColorHover}: ${onLightSurfaceSolidContrastHover};
                 ${buttonTokens.buttonLoadingBackgroundColor}: var(${buttonTokens.buttonBackgroundColor});
-                ${buttonTokens.buttonColorHover}: ${onDarkTextPrimaryHover};
-                ${buttonTokens.buttonColorActive}: ${onDarkTextPrimaryActive};
             `,
             white: css`
                 ${buttonTokens.buttonColor}: ${onLightTextPrimary};
