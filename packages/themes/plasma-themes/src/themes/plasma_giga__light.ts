@@ -280,6 +280,9 @@ export const plasma_giga__light = ([
   --surface-accent: #122654FF;
   --surface-accent-minor: #333F65FF;
   --surface-transparent-accent: #1226541F;
+  --surface-solid-contrast: #080808;
+  --surface-solid-contrast-hover: #262626FF;
+  --surface-solid-contrast-active: #030303FF;
   --on-dark-surface-solid-primary-hover: #2B2B2BFF;
   --on-dark-surface-solid-primary-active: #030303FF;
   --on-dark-surface-solid-primary-brightness: #1C1C1CFF;
@@ -358,6 +361,9 @@ export const plasma_giga__light = ([
   --on-dark-surface-accent: #FFFFFFFF;
   --on-dark-surface-accent-minor: #D8D8D8FF;
   --on-dark-surface-transparent-accent: #FFFFFF33;
+  --on-dark-surface-solid-contrast: #FFFFFFFF;
+  --on-dark-surface-solid-contrast-hover: #FFFFFFFF;
+  --on-dark-surface-solid-contrast-active: #FFFFFFFF;
   --on-light-surface-solid-primary-hover: #F7F7F7FF;
   --on-light-surface-solid-primary-active: #EDEDEDFF;
   --on-light-surface-solid-primary-brightness: #FFFFFFFF;
@@ -436,6 +442,9 @@ export const plasma_giga__light = ([
   --on-light-surface-accent: #122654FF;
   --on-light-surface-accent-minor: #333F65FF;
   --on-light-surface-transparent-accent: #1226541F;
+  --on-light-surface-solid-contrast: #080808;
+  --on-light-surface-solid-contrast-hover: #262626FF;
+  --on-light-surface-solid-contrast-active: #030303FF;
   --inverse-surface-solid-primary-hover: #2B2B2BFF;
   --inverse-surface-solid-primary-active: #030303FF;
   --inverse-surface-solid-primary-brightness: #1C1C1CFF;
@@ -514,6 +523,9 @@ export const plasma_giga__light = ([
   --inverse-surface-accent: #FFFFFFFF;
   --inverse-surface-accent-minor: #D8D8D8FF;
   --inverse-surface-transparent-accent: #FFFFFF33;
+  --inverse-surface-solid-contrast-hover: #FFFFFFFF;
+  --inverse-surface-solid-contrast-active: #FFFFFFFF;
+  --inverse-surface-solid-contrast: #FFFFFFFF;
   --background-primary: #FAFCFFFF;
   --dark-background-primary: #171717;
   --light-background-primary: #FAFCFFFF;
