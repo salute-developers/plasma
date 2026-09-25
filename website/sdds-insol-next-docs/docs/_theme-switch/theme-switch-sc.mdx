@@ -1,0 +1,33 @@
+```jsx
+import React, { useState } from 'react';
+import { createGlobalStyle } from 'styled-components';
+
+import { Switch } from '@salutejs/sdds-insol-next/styled-components';
+import { sdds_insol_next__light, sdds_insol_next__dark } from '@salutejs/sdds-themes';
+
+import './style.css';
+
+const LightTheme = createGlobalStyle(sdds_insol_next__light);
+const DarkTheme = createGlobalStyle(sdds_insol_next__dark);
+
+const App = () => {
+    const [theme, setTheme] = useState('light');
+
+    return (
+        <>
+            {theme === 'light' ? <LightTheme /> : <DarkTheme />}
+
+            <div className="wrapper">
+                <Switch
+                    label={`app theme: ${theme}`}
+                    onChange={() => {
+                        setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+                    }}
+                />
+            </div>
+        </>
+    );
+};
+
+export default App;
+```

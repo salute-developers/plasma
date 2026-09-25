@@ -1,8 +1,8 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import ThemeTurnOnSC from './theme-turn-on-sc.mdx';
 
 ## Подключение темы
+
+Тема включает в себя цветовые и типографические токены и подключается один раз в корне приложения.
 
 :::info
 Точкой входа является корень приложения:
@@ -11,8 +11,6 @@ import ThemeTurnOnSC from './theme-turn-on-sc.mdx';
 -   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
 :::
 
-<Tabs>
-    <TabItem value="sc" label="styled-components" default>
-        <ThemeTurnOnSC />
-    </TabItem>
-</Tabs>
+Доступны светлая и тёмная темы — `plasma_homeds__light` и `plasma_homeds__dark`.
+
+<ThemeTurnOnSC />

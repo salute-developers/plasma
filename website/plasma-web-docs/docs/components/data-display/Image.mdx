@@ -1,0 +1,32 @@
+---
+id: image
+slug: /components/image
+title: Image
+description: "Изображение с опциональным fallback-содержимым."
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+
+# Image
+<Description name="Image" />
+<StorybookLink name="Image" />
+
+```tsx live
+import React from 'react';
+import { Image } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <Image
+            src="/web/images/320_320_9.jpg"
+            width="320px"
+            height="320px"
+            alt="Картинка для примера фоном"
+        />
+    );
+}
+```
+
+## API
+
+<PropsTable name="Image" />

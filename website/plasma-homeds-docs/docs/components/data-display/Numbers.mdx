@@ -1,0 +1,36 @@
+---
+id: numbers
+slug: /components/numbers
+title: Numbers
+description: "Отображение числового значения с уменьшенной дробной частью и опциональной единицей измерения."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Numbers
+
+<Description name="Numbers" />
+
+Шрифт `SBLCD` входит в поставку компонента и подключается автоматически.
+Семейство можно переопределить токеном `numbersTokens.fontFamily`.
+
+Компонент отображает числовой `value`, выделяя дробную часть уменьшенным кеглем.
+Единица измерения `unit` необязательна: поддерживаются `degree` (°) и `percent` (%).
+`NaN` и бесконечные значения не отображаются.
+
+```tsx live
+import React from 'react';
+import { Numbers } from '@salutejs/plasma-homeds';
+
+export function App() {
+    return (
+        <div style={{padding: '2rem', background: 'var(--inverse-background-primary)' }}>
+            <Numbers value={-28.8} unit="degree" size="m" />
+        </div>
+    );
+}
+```
+
+## API
+
+<PropsTable name="Numbers" exclude={['css']} />
