@@ -257,6 +257,29 @@ export function App() {
 }
 ```
 
+### Пользовательские названия кварталов
+
+Названия кварталов задаются с помощью свойства `quarterNames`. По умолчанию используются значения `Q1`, `Q2`, `Q3`, `Q4`.
+
+```tsx live
+import React from 'react';
+import { DatePicker } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
+
+    return (
+        <DatePicker
+            type="Quarters"
+            quarterNames={quarterNames}
+            label="Квартал"
+            placeholder="Выберите квартал"
+            usePortal
+        />
+    );
+}
+```
+
 ### Язык даты
 Язык даты задается с помощью свойства `lang`.
 
