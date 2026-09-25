@@ -55,6 +55,7 @@ export const calendarDoubleRoot = (
                 disabledMonthList,
                 eventQuarterList,
                 disabledQuarterList,
+                quarterNames,
                 eventYearList,
                 disabledYearList,
                 locale = 'ru',
@@ -401,6 +402,7 @@ export const calendarDoubleRoot = (
                                     max={max}
                                     eventList={eventQuarterList}
                                     disabledList={disabledQuarterList}
+                                    quarterNames={quarterNames}
                                     hoveredQuarter={hoveredItem}
                                     selectIndexes={selectIndexes}
                                     onChangeQuarter={handleOnChangeQuarter}
@@ -419,6 +421,7 @@ export const calendarDoubleRoot = (
                                     max={max}
                                     eventList={eventQuarterList}
                                     disabledList={disabledQuarterList}
+                                    quarterNames={quarterNames}
                                     hoveredQuarter={hoveredItem}
                                     selectIndexes={selectIndexes}
                                     onChangeQuarter={handleOnChangeQuarter}

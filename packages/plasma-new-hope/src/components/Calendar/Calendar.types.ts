@@ -209,6 +209,11 @@ export interface Calendar extends HTMLAttributes<HTMLDivElement> {
      */
     disabledQuarterList?: DisabledDay[];
     /**
+     * Названия кварталов.
+     * @default ['Q1', 'Q2', 'Q3', 'Q4']
+     */
+    quarterNames?: string[];
+    /**
      * Список событий по годам.
      */
     eventYearList?: EventDay[];

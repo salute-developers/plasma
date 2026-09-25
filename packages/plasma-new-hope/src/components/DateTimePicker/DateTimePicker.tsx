@@ -76,6 +76,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 disabledMonthList,
                 eventQuarterList,
                 disabledQuarterList,
+                quarterNames,
                 eventYearList,
                 disabledYearList,
 
@@ -180,6 +181,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 max,
                 min,
                 includeEdgeDates,
+                quarterNames,
                 dateOnTimeSelectOnly,
                 hasTimeFormat,
 
@@ -355,6 +357,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 disabledMonthList={disabledMonthList}
                                 eventQuarterList={eventQuarterList}
                                 disabledQuarterList={disabledQuarterList}
+                                quarterNames={quarterNames}
                                 eventYearList={eventYearList}
                                 disabledYearList={disabledYearList}
                                 min={calendarMin}

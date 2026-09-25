@@ -305,6 +305,28 @@ describeFn('DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('custom quarter names', () => {
+        const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
+        const onCommitDate = cy.stub().as('onCommitDate');
+
+        mount(
+            <Demo
+                type="Quarters"
+                quarterNames={quarterNames}
+                renderFromDate={new Date(2023, 0, 1)}
+                onCommitDate={onCommitDate}
+            />,
+        );
+
+        cy.get('input').first().click();
+        quarterNames.forEach((quarterName) => {
+            cy.contains('[role="gridcell"]', quarterName).should('be.visible');
+        });
+
+        cy.get('input').first().type('14.06.2023');
+        cy.get('@onCommitDate').its('lastCall.args.1.dateInfo.name').should('equal', quarterNames[1]);
+    });
+
     it('input date from calendar', () => {
         mount(
             <Demo
@@ -941,6 +963,28 @@ describeFnRange('DatePickerRange', () => {
         cy.focused().type('17.06.2023');
 
         cy.matchImageSnapshot();
+    });
+
+    it('custom quarter names', () => {
+        const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
+        const onCommitFirstDate = cy.stub().as('onCommitFirstDate');
+
+        mount(
+            <Demo
+                type="Quarters"
+                quarterNames={quarterNames}
+                renderFromDate={new Date(2023, 0, 1)}
+                onCommitFirstDate={onCommitFirstDate}
+            />,
+        );
+
+        cy.get('input').first().click();
+        quarterNames.forEach((quarterName) => {
+            cy.contains('[role="gridcell"]', quarterName).should('be.visible');
+        });
+
+        cy.get('input').first().type('14.06.2023');
+        cy.get('@onCommitFirstDate').its('lastCall.args.1.dateInfo.name').should('equal', quarterNames[1]);
     });
 
     it('change only second date', () => {

@@ -38,6 +38,7 @@ export const useDateTimePicker = ({
     min,
     max,
     includeEdgeDates,
+    quarterNames = QUARTER_NAMES,
     dateOnTimeSelectOnly,
     preserveInvalidOnBlur,
     hasTimeFormat = false,
@@ -116,7 +117,7 @@ export const useDateTimePicker = ({
         const quarterIndex = customDayjs(originalDate).quarter() - 1;
 
         return {
-            name: QUARTER_NAMES[quarterIndex],
+            name: quarterNames[quarterIndex] ?? QUARTER_NAMES[quarterIndex],
             fullValue: [originalDate, endQuarter] as CalendarValueType,
         };
     };
