@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IconClose } from '@salutejs/plasma-icons';
-
-import { Button } from '../Button';
+import { Button } from '@salutejs/plasma-core';
 
 export interface ModalViewProps extends React.HTMLAttributes<HTMLDivElement> {
     /**
@@ -43,7 +42,7 @@ const StyledBody = styled.div`
 const StyledContent = styled.div`
     padding: 2rem;
 `;
-const StyledButtonClose = styled(Button({ design: 'web' })).attrs(() => ({ view: 'clear' }))`
+const StyledButtonClose = styled(Button).attrs(() => ({ view: 'clear' }))`
     position: absolute;
     top: 0;
     right: 0;
