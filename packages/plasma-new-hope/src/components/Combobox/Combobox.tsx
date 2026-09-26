@@ -68,6 +68,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
 
             /* Basic */
             items,
+            sortItems,
             treeView = false,
             arrowPlacement = 'left',
             placement = 'bottom-start',
@@ -105,8 +106,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             ...rest
         } = props;
 
+        const sortedItems = useMemo(() => (sortItems ? [...(items || [])].sort(sortItems) : items), [items, sortItems]);
+
         // Deep copy массива items с добавлением parent-ноды родителя.
-        const transformedItems = useMemo(() => initialItemsTransform(items || []), [items]);
+        const transformedItems = useMemo(() => initialItemsTransform(sortedItems || []), [sortedItems]);
 
         // Создаем структуры для быстрой работы с полным деревом.
         const [valueToCheckedMap, valueToItemMap, valueToPathMap] = useSelectionMaps(transformedItems);

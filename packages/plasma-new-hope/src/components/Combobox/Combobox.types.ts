@@ -136,6 +136,11 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     items: T[];
     /**
+     * Компаратор сортировки элементов первого уровня.
+     * Вложенные списки и исходный массив items не изменяются.
+     */
+    sortItems?: (a: T, b: T) => number;
+    /**
      * Режим отображения выпадающего списка в виде дерева.
      * @default false
      */

@@ -35,6 +35,9 @@ describe('Basics', () => {
         expectTypeOf<SelectProps>({ items: [] });
         expectTypeOf<SelectProps>().toHaveProperty('items').toEqualTypeOf<ItemOption[]>();
         expectTypeOf<SelectProps>()
+            .toHaveProperty('sortItems')
+            .toEqualTypeOf<((a: ItemOption, b: ItemOption) => number) | undefined>();
+        expectTypeOf<SelectProps>()
             .toHaveProperty('placement')
             .toEqualTypeOf<
                 'top' | 'bottom' | 'right' | 'left' | 'auto' | Array<'top' | 'bottom' | 'right' | 'left'> | undefined
@@ -279,6 +282,7 @@ describe('Generics', () => {
                 onChange={(_, item) => item?.customLabel}
                 renderItem={(item) => item?.customLabel}
                 renderValue={(item) => item?.customLabel}
+                sortItems={(a, b) => a.customLabel.localeCompare(b.customLabel)}
             />
         );
 
@@ -289,6 +293,7 @@ describe('Generics', () => {
                 onChange={(_, item) => item?.customLabel}
                 renderItem={(item) => item?.customLabel}
                 renderValue={(item) => item?.customLabel}
+                sortItems={(a, b) => a.customLabel.localeCompare(b.customLabel)}
             />
         );
 

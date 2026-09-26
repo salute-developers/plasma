@@ -207,6 +207,11 @@ export interface BasicProps<K extends ItemOption> {
      */
     items: K[];
     /**
+     * Компаратор сортировки элементов первого уровня.
+     * Вложенные списки и исходный массив items не изменяются.
+     */
+    sortItems?: (a: K, b: K) => number;
+    /**
      * Режим отображения выпадающего списка в виде дерева.
      * @default false
      */
