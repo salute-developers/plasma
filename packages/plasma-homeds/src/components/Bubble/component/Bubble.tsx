@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
 import { safeUseId } from '@salutejs/plasma-new-hope/styled-components';
 import type { RootProps } from '@salutejs/plasma-new-hope/styled-components';
 
 import type { BubbleProps } from './Bubble.types';
 import { classes } from './Bubble.tokens';
-import { base } from './Bubble.styles';
+import { BubbleMotionProperties, base } from './Bubble.styles';
 import { BodyGlowFilter, BodyJoin, CloseIcon, DecorStarIcon, SparkleIcon, StarShapeIcon } from './assets/icons';
 
 const placements = ['left', 'right', 'top-left', 'top-right'] as const;
@@ -18,9 +18,27 @@ export const bubbleRoot = (Root: RootProps<HTMLDivElement, Omit<BubbleProps, 'op
             const resolvedPlacement = placements.includes(placement) ? placement : 'top-right';
             const rootClassName = [opened && classes.opened, className].filter(Boolean).join(' ');
             const glowFilterId = `bubble-union-glow-${safeUseId()}`;
+            const openedRef = useRef(opened);
+            const [motion, setMotion] = useState(false);
+
+            useEffect(() => {
+                if (openedRef.current === opened) {
+                    return;
+                }
+
+                openedRef.current = opened;
+                setMotion(true);
+            }, [opened]);
 
             return (
-                <Root ref={ref} className={rootClassName} data-placement={resolvedPlacement} {...rest}>
+                <Root
+                    ref={ref}
+                    className={rootClassName}
+                    data-placement={resolvedPlacement}
+                    {...rest}
+                    data-motion={motion ? '' : undefined}
+                >
+                    <BubbleMotionProperties />
                     <BodyGlowFilter id={glowFilterId} />
                     <div className={classes.body}>
                         <div className={classes.bodyShape} style={{ filter: `url(#${glowFilterId})` }}>
