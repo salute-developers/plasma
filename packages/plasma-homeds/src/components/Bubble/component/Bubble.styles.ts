@@ -1,6 +1,53 @@
-import { css } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 import { classes, tokens } from './Bubble.tokens';
+
+const progress = '--plasma-bubble-progress';
+const scale = '--plasma-bubble-scale';
+
+export const BubbleMotionProperties = createGlobalStyle`
+    @property ${progress} {
+        syntax: '<number>';
+        inherits: true;
+        initial-value: 0;
+    }
+
+    @property ${scale} {
+        syntax: '<number>';
+        inherits: true;
+        initial-value: 1;
+    }
+
+    @keyframes plasma-bubble-overshoot-open {
+        0% {
+            ${scale}: 1;
+        }
+
+        70% {
+            ${scale}: 1.1;
+            animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        100% {
+            ${scale}: 1;
+        }
+    }
+
+    @keyframes plasma-bubble-overshoot-close {
+        0% {
+            ${scale}: 1;
+        }
+
+        30% {
+            ${scale}: 1.1;
+            animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        100% {
+            ${scale}: 1;
+        }
+    }
+`;
 
 export const base = css`
     position: relative;
@@ -10,22 +57,36 @@ export const base = css`
     vertical-align: top;
     flex-shrink: 0;
 
+    ${progress}: 0;
+    ${scale}: 1;
+    --plasma-bubble-content-opacity: clamp(0, calc((var(${progress}) - 0.85) / 0.15), 1);
+    transform: scale(var(${scale}));
+    transform-origin: center;
     --plasma-bubble-open-delay: 0s;
     --plasma-bubble-join-bleed: 0.1875rem;
+    transition-property: ${progress};
+    transition-duration: var(${tokens.duration});
+    transition-timing-function: var(${tokens.easing});
+    transition-delay: 0s;
 
     &.${classes.opened} {
+        ${progress}: 1;
         --plasma-bubble-open-delay: var(${tokens.delay});
+        --plasma-bubble-content-opacity: clamp(0, calc((var(${progress}) - 0.65) / 0.35), 1);
+        transition-delay: var(--plasma-bubble-open-delay);
     }
 
-    .${classes.body},
-        .${classes.content},
-        .${classes.decorStar},
-        .${classes.shapeStar},
-        .${classes.iconStar},
-        .${classes.iconClose} {
-        transition-duration: var(${tokens.duration});
-        transition-timing-function: var(${tokens.easing});
-        transition-delay: var(--plasma-bubble-open-delay);
+    &[data-motion] {
+        animation-name: plasma-bubble-overshoot-close;
+        animation-duration: var(${tokens.duration});
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-delay: 0s;
+    }
+
+    &[data-motion].${classes.opened} {
+        animation-name: plasma-bubble-overshoot-open;
+        animation-delay: var(--plasma-bubble-open-delay);
     }
 
     .${classes.body} {
@@ -34,19 +95,11 @@ export const base = css`
         box-sizing: border-box;
         width: var(${tokens.bodyWidth});
         min-height: var(${tokens.triggerSize});
-        clip-path: var(--plasma-bubble-clip);
-        opacity: 0;
         pointer-events: none;
-        transition-property: clip-path, opacity;
-        transition-duration: var(${tokens.duration}), calc(var(${tokens.duration}) * 0.45);
-        transition-delay: 0s, calc(var(${tokens.duration}) * 0.55);
     }
 
     &.${classes.opened} .${classes.body} {
-        opacity: 1;
         pointer-events: auto;
-        transition-duration: var(${tokens.duration}), 0s;
-        transition-delay: var(--plasma-bubble-open-delay), var(--plasma-bubble-open-delay);
     }
 
     .${classes.bodyShape} {
@@ -54,6 +107,8 @@ export const base = css`
         inset: 0;
         color: var(${tokens.backgroundColor});
         pointer-events: none;
+        opacity: var(${progress});
+        transform: scale(var(${progress}));
     }
 
     .${classes.bodyRect}, .${classes.bodyJoin} {
@@ -90,12 +145,12 @@ export const base = css`
     }
 
     &[data-placement='top-right'] {
-        --plasma-bubble-clip: inset(
-            calc(100% - var(${tokens.triggerSize})) calc(100% - var(${tokens.triggerSize})) 0 0
-        );
-
         .${classes.body} {
             left: 0;
+        }
+
+        .${classes.bodyShape}, .${classes.content} {
+            transform-origin: calc(var(${tokens.triggerSize}) / 2) calc(100% - var(${tokens.triggerSize}) / 2);
         }
 
         .${classes.bodyRect} {
@@ -110,12 +165,14 @@ export const base = css`
     }
 
     &[data-placement='top-left'] {
-        --plasma-bubble-clip: inset(
-            calc(100% - var(${tokens.triggerSize})) 0 0 calc(100% - var(${tokens.triggerSize}))
-        );
-
         .${classes.body} {
-            right: 0;
+            left: 0;
+            transform: translateX(calc(var(${tokens.triggerSize}) - 100%));
+        }
+
+        .${classes.bodyShape}, .${classes.content} {
+            transform-origin: calc(var(${tokens.bodyWidth}) - var(${tokens.triggerSize}) / 2)
+                calc(100% - var(${tokens.triggerSize}) / 2);
         }
 
         .${classes.bodyRect} {
@@ -152,14 +209,13 @@ export const base = css`
     }
 
     &[data-placement='right'] {
-        --plasma-bubble-clip: inset(
-            calc(50% - var(${tokens.triggerSize}) / 2) calc(100% - var(${tokens.triggerSize}))
-                calc(50% - var(${tokens.triggerSize}) / 2) 0
-        );
-
         .${classes.body} {
             left: 0;
             padding-left: var(${tokens.neckOffset});
+        }
+
+        .${classes.bodyShape}, .${classes.content} {
+            transform-origin: calc(var(${tokens.triggerSize}) / 2) 50%;
         }
 
         .${classes.bodyRect} {
@@ -172,14 +228,17 @@ export const base = css`
     }
 
     &[data-placement='left'] {
-        --plasma-bubble-clip: inset(
-            calc(50% - var(${tokens.triggerSize}) / 2) 0 calc(50% - var(${tokens.triggerSize}) / 2)
-                calc(100% - var(${tokens.triggerSize}))
-        );
-
         .${classes.body} {
-            right: 0;
+            left: 0;
             padding-right: var(${tokens.neckOffset});
+            transform: translate(calc(var(${tokens.triggerSize}) - 100%), -50%);
+        }
+
+        .${classes.bodyShape}, .${classes.content} {
+            transform-origin: calc(
+                    var(${tokens.bodyWidth}) + var(${tokens.neckOffset}) - var(${tokens.triggerSize}) / 2
+                )
+                50%;
         }
 
         .${classes.bodyRect} {
@@ -191,15 +250,12 @@ export const base = css`
         }
     }
 
-    &.${classes.opened} {
-        --plasma-bubble-clip: inset(-1.5rem);
-    }
-
     .${classes.content} {
         position: relative;
         z-index: 1;
         padding: var(${tokens.contentPadding});
-        opacity: 0;
+        opacity: var(--plasma-bubble-content-opacity);
+        transform: scale(var(${progress}));
         color: var(${tokens.color});
         font-family: var(${tokens.fontFamily});
         font-size: var(${tokens.fontSize});
@@ -207,11 +263,6 @@ export const base = css`
         font-weight: var(${tokens.fontWeight});
         letter-spacing: var(${tokens.letterSpacing});
         line-height: var(${tokens.lineHeight});
-        transition-property: opacity;
-    }
-
-    &.${classes.opened} .${classes.content} {
-        opacity: 1;
     }
 
     .${classes.trigger} {
@@ -242,11 +293,9 @@ export const base = css`
         position: absolute;
         inset: 0;
         pointer-events: none;
-        transition-property: opacity, transform;
         color: var(${tokens.backgroundColor});
-        opacity: 1;
-        transition-delay: calc(var(${tokens.duration}) * 0.55);
-        transition-duration: calc(var(${tokens.duration}) * 0.45);
+        opacity: clamp(0, calc((1 - var(${progress})) / 0.4), 1);
+        transform: rotate(calc(var(${progress}) * 45deg));
 
         svg {
             display: block;
@@ -259,13 +308,6 @@ export const base = css`
         }
     }
 
-    &.${classes.opened} .${classes.shapeStar} {
-        opacity: 0;
-        transform: rotate(-45deg);
-        transition-delay: var(--plasma-bubble-open-delay);
-        transition-duration: var(${tokens.duration});
-    }
-
     .${classes.decorStar} {
         position: absolute;
         inset: 0;
@@ -273,13 +315,9 @@ export const base = css`
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0;
+        opacity: var(${progress});
         pointer-events: none;
-        transition-property: opacity;
-    }
-
-    &.${classes.opened} .${classes.decorStar} {
-        opacity: 1;
+        transform: rotate(calc(var(${progress}) * 45deg));
     }
 
     .${classes.decorStar} svg {
@@ -294,6 +332,7 @@ export const base = css`
         width: var(${tokens.iconSize});
         height: var(${tokens.iconSize});
         color: var(${tokens.iconColor});
+        transform: rotate(calc(var(${progress}) * 45deg));
 
         > * {
             grid-area: 1 / 1;
@@ -304,7 +343,7 @@ export const base = css`
 
     .${classes.iconStar}, .${classes.iconClose} {
         display: flex;
-        transition-property: opacity, transform;
+        transform-origin: center;
 
         svg {
             display: block;
@@ -314,56 +353,24 @@ export const base = css`
     }
 
     .${classes.iconStar} {
-        opacity: 1;
-        transform: rotate(0deg);
-        transition-delay: calc(var(${tokens.duration}) * 0.55);
-        transition-duration: calc(var(${tokens.duration}) * 0.45);
+        opacity: calc(1 - var(${progress}));
+        transform: scale(calc(1 - var(${progress}) * 0.3));
     }
 
     .${classes.iconClose} {
-        opacity: 0;
-        transform: rotate(45deg);
-        transition-delay: 0s;
-        transition-duration: calc(var(${tokens.duration}) * 0.4);
-    }
-
-    &.${classes.opened} .${classes.iconStar} {
-        opacity: 0;
-        transform: rotate(-45deg);
-        transition-delay: var(--plasma-bubble-open-delay);
-        transition-duration: var(${tokens.duration});
-    }
-
-    &.${classes.opened} .${classes.iconClose} {
-        opacity: 1;
-        transform: rotate(-45deg);
-        transition-delay: var(--plasma-bubble-open-delay);
-        transition-duration: var(${tokens.duration});
+        opacity: var(${progress});
+        transform: rotate(calc(45deg - var(${progress}) * 45deg)) scale(calc(0.7 + var(${progress}) * 0.3));
     }
 
     @media (prefers-reduced-motion: reduce) {
         --plasma-bubble-open-delay: 0s;
+        transition-duration: 0.001ms;
+        transition-delay: 0s;
 
-        .${classes.body},
-            .${classes.content},
-            .${classes.decorStar},
-            .${classes.shapeStar},
-            .${classes.iconStar},
-            .${classes.iconClose} {
-            transition-duration: 0.001ms;
-            transition-delay: 0s;
-        }
-
-        &.${classes.opened}
-            .${classes.body},
-            &.${classes.opened}
-            .${classes.shapeStar},
-            &.${classes.opened}
-            .${classes.iconStar},
-            &.${classes.opened}
-            .${classes.iconClose} {
-            transition-delay: 0s;
-            transition-duration: 0.001ms;
+        &[data-motion],
+        &[data-motion].${classes.opened} {
+            animation: none;
+            transform: none;
         }
     }
 `;

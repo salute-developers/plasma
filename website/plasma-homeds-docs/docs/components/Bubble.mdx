@@ -1,0 +1,89 @@
+---
+id: Bubble
+title: Bubble
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Bubble
+
+Компактная подсказка. В покое это звезда, по клику она раскрывается в плашку с контентом. Раскрытие и закрытие анимируются на CSS, длительность 600ms.
+
+<Description name="Bubble" />
+<PropsTable name="Bubble" exclude={['css']} />
+
+## Базовое применение
+
+Состояние хранится снаружи: `opened` показывает плашку, `onClick` приходит с кнопки-триггера. Контент передаётся в `content` и остаётся в разметке, чтобы высота плашки следовала за ним.
+
+```tsx live
+import React, { useState } from 'react';
+import { Bubble } from '@salutejs/plasma-homeds';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <div style={{ background: '#171717', padding: '6rem 8rem' }}>
+            <Bubble
+                opened={opened}
+                content="Прокачать до 100%"
+                onClick={() => setOpened((value) => !value)}
+            />
+        </div>
+    );
+}
+```
+
+## Расположение
+
+`placement` задаёт, в какую сторону от кнопки раскрывается плашка. По умолчанию `top-right`.
+
+Возможные значения: `top-right`, `top-left`, `right`, `left`.
+
+```tsx live
+import React from 'react';
+import { Bubble } from '@salutejs/plasma-homeds';
+
+export function App() {
+    const placements = ['top-right', 'top-left', 'right', 'left'];
+
+    return (
+        <div
+            style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, max-content)',
+                gap: '5rem 8rem',
+                background: '#171717',
+                padding: '6rem',
+            }}
+        >
+            {placements.map((placement) => (
+                <Bubble key={placement} opened placement={placement} content="Прокачать до 100%" />
+            ))}
+        </div>
+    );
+}
+```
+
+## Ширина плашки
+
+Ширина задаётся CSS-переменной `--plasma-bubble-body-width`. По умолчанию `5.625rem` (90px при корневом шрифте 16px). Высота зависит от контента.
+
+```tsx live
+import React from 'react';
+import { Bubble } from '@salutejs/plasma-homeds';
+
+export function App() {
+    return (
+        <div style={{ background: '#171717', padding: '6rem 8rem' }}>
+            <Bubble
+                opened
+                placement="top-right"
+                content="Более длинная подсказка"
+                style={{ '--plasma-bubble-body-width': '10rem' }}
+            />
+        </div>
+    );
+}
+```
