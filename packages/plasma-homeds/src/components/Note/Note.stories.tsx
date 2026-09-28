@@ -17,6 +17,13 @@ const { meta: META, Default } = getNoteStories({
     },
     defaultArgs: {
         size: 'm',
+        enableContentAfter: false,
+    },
+    additionalArgTypes: {
+        enableContentAfter: {
+            control: { type: 'boolean' },
+            table: { category: 'layout' },
+        },
     },
     disablePropsList: ['size'],
     getIconSize: (_size, isScalable) => (isScalable ? 's' : 'xs'),

@@ -138,6 +138,28 @@ export function App() {
 }
 ```
 
+### Контент `contentAfter`
+
+Свойство `contentAfter` позволяет разместить произвольный контент справа от основного текста.
+
+```tsx live
+import React from 'react';
+import { Note } from '@salutejs/plasma-homeds';
+import { IconDisclosureRight } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <Note
+            title="Title"
+            text="Text"
+            view="default"
+            size="m"
+            contentAfter={<IconDisclosureRight size="s" color="inherit" />}
+        />
+    );
+}
+```
+
 ### Дополнительный контент `actionContent`
 
 Свойство `actionContent` позволяет разместить произвольный контент (например, кнопку) после основного текста.

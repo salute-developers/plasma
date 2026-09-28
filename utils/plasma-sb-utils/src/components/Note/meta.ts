@@ -11,7 +11,7 @@ type CreateMetaProps = {
     disablePropsList?: string[];
 };
 
-const commonDisabledArgs = ['contentBefore', 'onCloseButtonClick'];
+const commonDisabledArgs = ['contentBefore', 'contentAfter', 'onCloseButtonClick'];
 
 export const createMeta = ({
     component,
