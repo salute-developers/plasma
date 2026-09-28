@@ -58,6 +58,9 @@ export const config = {
                 ${tokens.contentGap}: 0.125rem;
 
                 ${tokens.contentBeforeAlignSelf}: center;
+                ${tokens.contentAfterAlignSelf}: center;
+
+                ${tokens.contentAfterPadding}: 0 1.625rem 0 0;
 
                 ${tokens.closeIconTop}: 0.625rem;
                 ${tokens.closeIconRight}: 0.625rem;

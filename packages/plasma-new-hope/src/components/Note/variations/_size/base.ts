@@ -3,6 +3,7 @@ import { css } from 'styled-components';
 import { classes, privateTokens, tokens } from '../../Note.tokens';
 import {
     ActionContentContainer,
+    ContentAfter,
     ContentBefore,
     ContentWrapper,
     Text,
@@ -40,6 +41,10 @@ export const base = css`
         padding: var(${tokens.fixedContentBeforePadding});
         align-self: var(${tokens.contentBeforeAlignSelf}, auto);
         box-sizing: border-box;
+    }
+
+    ${ContentAfter} {
+        align-self: var(${tokens.contentAfterAlignSelf}, auto);
     }
 
     ${TextBox} {
