@@ -28,15 +28,15 @@ npm run preview --workspace=@salutejs/sdds-landing
 ## Структура
 
 -   `src/pages/` — React-компоненты страниц, перенесённые из HTML-прототипа.
--   `src/routeManifest.js` — полный список URL, заголовков и описаний страниц.
--   `src/shared.jsx` — общая шапка, меню, поиск и ссылки.
+-   `src/routeManifest.ts` — полный список URL, заголовков и описаний страниц.
+-   `src/shared.tsx` — общая шапка, меню, поиск и ссылки.
 -   `src/legacy-effects/` — сценарии сложной анимации и каталогов, вызываемые при
     монтировании страницы и освобождающие обработчики при переходе на другую.
 -   `public/` — медиа, шрифты, данные и автономная React-песочница кнопки.
--   `scripts/prerender.mjs` — создание HTML для каждого маршрута в `dist/`.
+-   `scripts/prerender.ts` — создание HTML для каждого маршрута в `dist/`.
 
 При добавлении страницы создайте компонент в `src/pages/` и запись в
-`src/routeManifest.js`. Все внутренние ссылки должны вести на URL из этого файла;
+`src/routeManifest.ts`. Все внутренние ссылки должны вести на URL из этого файла;
 пути к статическим ресурсам начинаются с `/`.
 
 ## Публикация
@@ -44,7 +44,7 @@ npm run preview --workspace=@salutejs/sdds-landing
 Workflow **Publish SDDS landing** запускается вручную в GitHub Actions. Он
 собирает выбранную при запуске ветку и синхронизирует `dist/` с OBS-префиксом
 `sdds.sberdevices.ru/` с удалением старых объектов. Затем
-`scripts/publish-obs.mjs` кладёт HTML каждой страницы под ключ, совпадающий с
+`scripts/publish-obs.ts` кладёт HTML каждой страницы под ключ, совпадающий с
 URL: `/news` соответствует объекту
 `sdds.sberdevices.ru/news` с типом `text/html`. Главная страница остаётся
 объектом `sdds.sberdevices.ru/index.html`. Такой формат соответствует текущему
