@@ -5,8 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "vite build && vite build --ssr src/server.jsx --outDir .ssr && node scripts/prerender.mjs && node scripts/check-build.mjs",
-    "preview": "node scripts/preview.mjs"
+    "build": "vite build && vite build --ssr src/server.tsx --outDir .ssr && npm run typecheck && node scripts/prerender.ts && node scripts/check-build.ts",
+    "preview": "node scripts/preview.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src scripts vite.config.ts --ext .ts,.tsx --no-ignore"
   },
   "dependencies": {
     "react": "19.2.4",
