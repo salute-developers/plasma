@@ -11,7 +11,119 @@ const Button = component(mergedButtonConfig);
 
 export const base = css``;
 
-export const Toast = styled.div<{ width: CSSProperties['width']; textColor: CSSProperties['color'] }>`
+const toastAnimationStyles = `
+    @keyframes toast-enter-top {
+        0% {
+            transform: translate3d(0, -200%, 0) scale(0.6);
+            opacity: 0.5;
+        }
+
+        100% {
+            transform: translate3d(0, 0, 0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes toast-enter-bottom {
+        0% {
+            transform: translate3d(0, 200%, 0) scale(0.6);
+            opacity: 0.5;
+        }
+
+        100% {
+            transform: translate3d(0, 0, 0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes toast-exit-top {
+        0% {
+            transform: translate3d(0, 0, -1px) scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate3d(0, -150%, -1px) scale(0.6);
+            opacity: 0;
+        }
+    }
+
+    @keyframes toast-exit-bottom {
+        0% {
+            transform: translate3d(0, 0, -1px) scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate3d(0, 150%, -1px) scale(0.6);
+            opacity: 0;
+        }
+    }
+
+    @keyframes toast-fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes toast-fade-out {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+        }
+    }
+
+    &[data-visible='true'][data-position^='top'] {
+        animation: toast-enter-top 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+    }
+
+    &[data-visible='true'][data-position^='bottom'] {
+        animation: toast-enter-bottom 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+    }
+
+    &[data-visible='false'][data-position^='top'] {
+        animation: toast-exit-top 0.4s cubic-bezier(0.06, 0.71, 0.55, 1) forwards;
+    }
+
+    &[data-visible='false'][data-position^='bottom'] {
+        animation: toast-exit-bottom 0.4s cubic-bezier(0.06, 0.71, 0.55, 1) forwards;
+    }
+
+    &[data-custom-animation='true'][data-visible] {
+        animation: var(--plasma-private-toast-animation);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &[data-visible='true'][data-position] {
+            animation: toast-fade-in 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+        }
+
+        &[data-visible='false'][data-position] {
+            animation: toast-fade-out 0.4s cubic-bezier(0.06, 0.71, 0.55, 1) forwards;
+        }
+    }
+`;
+
+export const ToastAnimationWrapper = styled.div`
+    ${toastAnimationStyles}
+
+    display: inline-flex;
+    width: fit-content;
+    max-width: none;
+    align-items: initial;
+`;
+
+export const Toast = styled.div<{
+    width: CSSProperties['width'];
+    textColor: CSSProperties['color'];
+}>`
+    ${toastAnimationStyles}
+
     display: flex;
     align-items: center;
     background: var(${tokens.background});
