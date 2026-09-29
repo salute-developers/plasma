@@ -473,11 +473,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                                     {optionalTextNode}
                                 </StyledIndicatorWrapper>
                             )}
-                            {titleCaption && (
-                                <TitleCaption data-root hasLabel={hasOuterLabel}>
-                                    {titleCaption}
-                                </TitleCaption>
-                            )}
+                            {titleCaption && <TitleCaption data-root>{titleCaption}</TitleCaption>}
                         </OuterLabelWrapper>
                     )}
 

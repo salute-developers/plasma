@@ -204,6 +204,7 @@ export const tokens = {
     titleCaptionInnerLabelOffset: '--plasma-textfield__title-caption-label-inner-offset',
     /** @styleType dimension */
     titleCaptionOffset: '--plasma-textfield__title-caption-offset',
+    titleCaptionMargin: '--plasma-textfield__title-caption-margin',
 
     /** @styleType typography @styleProp titleCaptionStyle @stylePart fontFamily */
     titleCaptionFontFamily: '--plasma-textfield__title-caption-font-family',
