@@ -10,7 +10,10 @@ import {
     base,
     CarouselWrapper,
     CarouselTrack,
+    CarouselFullWidthTrack,
+    CarouselSlide,
     CarouselVirtualItem,
+    CarouselFullWidthVirtualItem,
     ControlsWrapper,
     IconButton,
 } from './Carousel.styles';
@@ -48,6 +51,7 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
                 autoPlayInterval = AUTO_PLAY_INTERVAL_DEFAULT,
                 swipeEnabled = false,
                 virtual = false,
+                fullWidth = false,
                 index: outerIndex,
                 onChangeIndex: outerOnChangeIndex,
                 ...rest
@@ -111,25 +115,32 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
                 virtual,
             });
 
+            const Track = fullWidth ? CarouselFullWidthTrack : CarouselTrack;
+            const VirtualItem = fullWidth ? CarouselFullWidthVirtualItem : CarouselVirtualItem;
+
             const slides = useMemo(() => {
                 if (!virtual) {
-                    return children;
+                    if (!fullWidth) {
+                        return children;
+                    }
+
+                    return Children.map(childrenArray, (child) => <CarouselSlide>{child}</CarouselSlide>);
                 }
 
                 return virtualItems.map((virtualItem) => {
                     const child = childrenArray[virtualItem.index];
 
                     return (
-                        <CarouselVirtualItem
+                        <VirtualItem
                             key={virtualItem.key as React.Key}
                             ref={measureVirtualItem(virtualItem.index)}
                             {...{ [ITEM_VIRTUAL_ATTRIBUTE]: virtualItem.index }}
                         >
                             {child}
-                        </CarouselVirtualItem>
+                        </VirtualItem>
                     );
                 });
-            }, [children, childrenArray, measureVirtualItem, virtual, virtualItems]);
+            }, [VirtualItem, children, childrenArray, fullWidth, measureVirtualItem, virtual, virtualItems]);
 
             useDisableScroll(scrollRef);
 
@@ -143,7 +154,7 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
                         )}
 
                         <CarouselWrapper ref={scrollRef} isSwipeEnabled={swipeEnabled}>
-                            <CarouselTrack ref={trackRef} gap={gap}>
+                            <Track ref={trackRef} gap={gap}>
                                 {virtual && beforeSpacerWidth > 0 && (
                                     <div style={{ width: beforeSpacerWidth, flex: '0 0 auto' }} aria-hidden />
                                 )}
@@ -153,7 +164,7 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
                                 {virtual && afterSpacerWidth > 0 && (
                                     <div style={{ width: afterSpacerWidth, flex: '0 0 auto' }} aria-hidden />
                                 )}
-                            </CarouselTrack>
+                            </Track>
                         </CarouselWrapper>
 
                         {(loop || index !== slidesAmount - 1) && !controlArrowsDisabled && (

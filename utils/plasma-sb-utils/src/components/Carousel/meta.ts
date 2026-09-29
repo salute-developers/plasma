@@ -36,6 +36,7 @@ export const createMeta = ({
             paginationCentered: false,
             gap: '20px',
             virtual: false,
+            fullWidth: false,
             ...defaultArgs,
         },
         argTypes: {
@@ -91,6 +92,9 @@ export const createMeta = ({
                 control: 'text',
             },
             virtual: {
+                control: 'boolean',
+            },
+            fullWidth: {
                 control: 'boolean',
             },
             ...additionalArgTypes,

@@ -7,7 +7,7 @@ import { config } from './Carousel.config';
 
 type CarouselProps = ComponentProps<typeof Carousel>;
 
-const { meta: META, Default } = getCarouselStories({
+const { meta: META, Default, VerticalScroll } = getCarouselStories({
     component: Carousel,
     componentConfig: config,
 });
@@ -19,4 +19,4 @@ const meta: Meta<CarouselProps> = {
 
 export default meta;
 
-export { Default };
+export { Default, VerticalScroll };
