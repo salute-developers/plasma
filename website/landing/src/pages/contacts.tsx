@@ -40,20 +40,20 @@ export default function ContactsPage() {
                     </div>
 
                     <div className="reach-list">
-                        <SiteLink className="reach-line" href="#">
-                            <span className="reach-line-name">Сообщество в Telegram</span>
+                        <SiteLink className="reach-line" href="https://t.me/kenymook">
+                            <span className="reach-line-name">Telegram</span>
 
                             <span className="reach-line-note">
-                                Вопросы по компонентам и сценариям. Отвечает команда системы и коллеги из продуктов
+                                Вопросы по компонентам и сценариям — напрямую команде системы
                             </span>
 
                             <span className="reach-line-go">
-                                @sdds_community
+                                Написать
                                 <i>↗</i>
                             </span>
                         </SiteLink>
 
-                        <SiteLink className="reach-line" href="#">
+                        <SiteLink className="reach-line" href="https://sberchat.sberbank.ru/@emmitrokhin">
                             <span className="reach-line-name">СберЧат</span>
 
                             <span className="reach-line-note">
@@ -61,30 +61,33 @@ export default function ContactsPage() {
                             </span>
 
                             <span className="reach-line-go">
-                                Канал SDDS
+                                Написать
                                 <i>↗</i>
                             </span>
                         </SiteLink>
 
-                        <SiteLink className="reach-line" href="#">
+                        <SiteLink className="reach-line" href="https://mm.sberdevices.ru/sberdevices/messages/@emmitrokhin">
                             <span className="reach-line-name">Mattermost</span>
 
                             <span className="reach-line-note">Для разработки: версии пакетов, сборка и токены</span>
 
                             <span className="reach-line-go">
-                                ~sdds-support
+                                Написать
                                 <i>↗</i>
                             </span>
                         </SiteLink>
 
-                        <SiteLink className="reach-line" href="/news">
+                        <SiteLink
+                            className="reach-line"
+                            href="https://plasma.sberdevices.ru/changelog/?vertical=plasmaSDService&platform=React"
+                        >
                             <span className="reach-line-name">Релизы</span>
 
                             <span className="reach-line-note">Что изменилось в последней версии библиотеки и тем</span>
 
                             <span className="reach-line-go">
-                                Новости
-                                <i>→</i>
+                                Перейти
+                                <i>↗</i>
                             </span>
                         </SiteLink>
                     </div>

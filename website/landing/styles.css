@@ -1496,13 +1496,22 @@ footer a:hover{color:var(--text-primary)}
 .reach-line:hover{padding-left:12px; border-color:var(--accent-line)}
 .reach-line-name{font-size:17px; font-weight:500; color:var(--text-primary)}
 .reach-line-note{font-size:15px; line-height:1.5; color:var(--text-tertiary)}
+/* Адрес получателя не показываем: в строке остаётся только действие, и оно
+   проявляется, когда курсор или фокус приходят на строку. */
 .reach-line-go{
   justify-self:end; display:inline-flex; align-items:center; gap:8px;
-  font-family:var(--mono); font-size:13.5px; color:var(--text-secondary);
+  font-size:14.5px; color:var(--text-secondary);
+  opacity:0; transition:opacity var(--dur) var(--ease), color var(--dur) var(--ease);
 }
 .reach-line-go i{font-style:normal; font-size:12px; opacity:.7; transition:transform var(--dur) var(--ease)}
-.reach-line:hover .reach-line-go{color:var(--text-primary)}
+.reach-line:hover .reach-line-go,
+.reach-line:focus-visible .reach-line-go{opacity:1; color:var(--text-primary)}
 .reach-line:hover .reach-line-go i{transform:translate(2px,-2px)}
+
+/* На тач-устройствах наведения нет — там действие видно сразу. */
+@media (hover:none){
+  .reach-line-go{opacity:1}
+}
 
 @media (max-width:900px){
   .reach-primary{align-items:flex-start; flex-direction:column; gap:16px}
