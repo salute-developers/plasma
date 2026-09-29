@@ -5,6 +5,8 @@ import { CarouselNewProps as CarouselProps } from '../Carousel.types';
 import { getGapWidth, getClosestIndex, getCalculatedPos } from '../utils';
 import { VIRTUAL_OVERSCAN, DEFAULT_ESTIMATED_SLIDE_WIDTH, ITEM_VIRTUAL_ATTRIBUTE } from '../Carousel';
 
+const AXIS_LOCK_THRESHOLD = 8;
+
 type UseCarouselOptions = Pick<CarouselProps, 'scrollAlign' | 'gap'> & {
     index: number;
     onChangeIndex: (index: number) => void;
@@ -267,8 +269,10 @@ export const useCarousel = ({
         }
 
         let startX = 0;
+        let startY = 0;
         let startScrollLeft = 0;
         let activePointerId: number | null = null;
+        let axisLocked = false;
         let initialScrollBehavior = '';
         let initialScrollSnapType = '';
 
@@ -281,6 +285,7 @@ export const useCarousel = ({
         // Сбрасывает служебное состояние drag/swipe.
         const resetInteraction = () => {
             activePointerId = null;
+            axisLocked = false;
             isInteracting.current = false;
             restoreScrollBehavior();
         };
@@ -311,9 +316,8 @@ export const useCarousel = ({
             onChangeIndex(nextIndex);
         };
 
-        // Запоминает стартовую точку drag и временно отключает smooth/snap на время жеста.
-        const startInteraction = ({ clientX }: { clientX: number }) => {
-            startX = clientX;
+        // Временно отключает smooth/snap после того, как жест признан горизонтальным.
+        const startInteraction = () => {
             startScrollLeft = scrollElement.scrollLeft;
             initialScrollBehavior = scrollElement.style.scrollBehavior;
             initialScrollSnapType = scrollElement.style.scrollSnapType;
@@ -339,6 +343,30 @@ export const useCarousel = ({
                 return;
             }
 
+            if (!axisLocked) {
+                const diffX = event.clientX - startX;
+                const diffY = event.clientY - startY;
+
+                if (Math.hypot(diffX, diffY) < AXIS_LOCK_THRESHOLD) {
+                    return;
+                }
+
+                // Вертикальный жест отдаём странице: без preventDefault скролл не блокируется.
+                if (Math.abs(diffY) > Math.abs(diffX)) {
+                    if (scrollElement.hasPointerCapture(event.pointerId)) {
+                        scrollElement.releasePointerCapture(event.pointerId);
+                    }
+
+                    activePointerId = null;
+
+                    return;
+                }
+
+                axisLocked = true;
+                startInteraction();
+                scrollElement.setPointerCapture(event.pointerId);
+            }
+
             moveInteraction({ clientX: event.clientX });
 
             if (event.cancelable) {
@@ -356,18 +384,31 @@ export const useCarousel = ({
                 scrollElement.releasePointerCapture(event.pointerId);
             }
 
+            if (!axisLocked) {
+                activePointerId = null;
+
+                return;
+            }
+
             finishInteraction();
         };
 
-        // Стартует drag только для допустимых primary-pointer событий.
+        // Запоминает старт жеста. Drag включается только после горизонтального порога.
         const onPointerDown = (event: PointerEvent) => {
             if (!swipeEnabled || !event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) {
                 return;
             }
 
             activePointerId = event.pointerId;
-            startInteraction({ clientX: event.clientX });
-            scrollElement.setPointerCapture(event.pointerId);
+            startX = event.clientX;
+            startY = event.clientY;
+            axisLocked = false;
+
+            // Мышь захватываем сразу, чтобы pointerup за пределами карусели сбросил жест.
+            // Тач не захватываем: иначе вертикальный скролл страницы блокируется.
+            if (event.pointerType === 'mouse') {
+                scrollElement.setPointerCapture(event.pointerId);
+            }
         };
 
         if (swipeEnabled) {
