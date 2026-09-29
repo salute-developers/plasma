@@ -123,10 +123,11 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
 `;
 
-export const TitleCaption = styled.div<{ hasLabel: boolean }>`
+export const TitleCaption = styled.div`
     display: inline-block;
+    align-self: flex-start;
     margin-left: auto;
-    margin-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset}, 0)` : 'unset')};
+    margin-top: var(${tokens.titleCaptionMargin}, 0);
 `;
 
 export const StyledIndicatorWrapper = styled.div`
