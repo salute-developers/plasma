@@ -1216,6 +1216,7 @@ export const iconSectionsSet = {
         noiseCancellationFill: 'NoiseCancellationFill',
         transparencyOutline: 'TransparencyOutline',
         transparencyFill: 'TransparencyFill',
+        soundNoiseOutline: 'SoundNoiseOutline',
     },
     Navigation: {
         arrowsMove: 'ArrowsMove',
