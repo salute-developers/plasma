@@ -95,6 +95,22 @@ describeFn('Carousel', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: fullWidth', () => {
+        cy.viewport(700, 500);
+
+        mount(
+            <div style={{ width: '600px' }}>
+                <Carousel fullWidth>
+                    {items.map((item, i) => (
+                        <StyledCard key={i}>{item.title}</StyledCard>
+                    ))}
+                </Carousel>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: paginationOptions.disabled', () => {
         cy.viewport(700, 500);
 
