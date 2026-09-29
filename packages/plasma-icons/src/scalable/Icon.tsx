@@ -1214,6 +1214,7 @@ export const iconSectionsSet = {
         cameraVideoRecOffFill: 'CameraVideoRecOffFill',
         noiseCancellationOutline: 'NoiseCancellationOutline',
         noiseCancellationFill: 'NoiseCancellationFill',
+        transparencyOutline: 'TransparencyOutline',
     },
     Navigation: {
         arrowsMove: 'ArrowsMove',
