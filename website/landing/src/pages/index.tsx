@@ -64,7 +64,9 @@ export default function IndexPage() {
 
                             <div className="spacer" />
 
-                            <SiteLink href="#">Продолжить в билдере</SiteLink>
+                            <SiteLink href="https://plasma.sberdevices.ru/design-system-builder/">
+                                Продолжить в билдере
+                            </SiteLink>
 
                             <button type="button" id="resumeReset">
                                 Сбросить
