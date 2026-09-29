@@ -1213,6 +1213,7 @@ export const iconSectionsSet = {
         cameraVideoRecOffOutline: 'CameraVideoRecOffOutline',
         cameraVideoRecOffFill: 'CameraVideoRecOffFill',
         noiseCancellationOutline: 'NoiseCancellationOutline',
+        noiseCancellationFill: 'NoiseCancellationFill',
     },
     Navigation: {
         arrowsMove: 'ArrowsMove',
