@@ -42,8 +42,8 @@
     "setup:install:ci": "npm run setup:deps:ci",
     "setup:cypress": "cypress install",
     "setup:packages": "lerna run prepare --stream",
-    "prepare": "test ! -n \"$CI\" && husky install || echo skip husky",
     "postinstall": "patch-package",
+    "prepare": "test ! -n \"$CI\" && husky install || echo skip husky",
     "prepare:packages": "for pkg in plasma-b2c plasma-giga plasma-web sdds-cs sdds-insol sdds-serv sdds-scan sdds-os sdds-platform-ai sdds-finai plasma-homeds; do (cd packages/$pkg && npm run prepare) & done; wait"
   },
   "devDependencies": {
