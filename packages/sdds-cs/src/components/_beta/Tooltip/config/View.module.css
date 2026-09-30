@@ -1,0 +1,11 @@
+.default {
+    --plasma-tooltip-background-color: var(--inverse-surface-solid-card);
+    --plasma-tooltip-box-shadow: var(--shadow-down-hard-s);
+    --plasma-tooltip-color: var(--inverse-text-primary);
+}
+
+.secondary {
+    --plasma-tooltip-background-color: var(--on-dark-surface-solid-secondary);
+    --plasma-tooltip-box-shadow: var(--shadow-down-hard-s);
+    --plasma-tooltip-color: var(--inverse-text-primary);
+}

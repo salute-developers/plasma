@@ -70,6 +70,7 @@ export function App() {
         По-умолчанию блок с выпадающим контентом рендерится на самом верхнем уровне перед тегом `</body>`.
 
         ```tsx live
+        import { useRef } from 'react';
         import * as Beta from '@salutejs/sdds-finai/beta';
         import { Button } from '@salutejs/sdds-finai';
 
@@ -79,7 +80,7 @@ export function App() {
             return (
                 <div style={{ margin: '100px 0', height: '200px', overflow: 'auto', background: 'lightgreen' }}>
                     <div ref={ref} style={{ position: 'relative', height: '1000px' }}>
-                        <Beta.Tooltip portal={ref} target={<Button text="Target" />}>Content</Tooltip>
+                        <Beta.Tooltip portal={ref} target={<Button text="Target" />}>Content</Beta.Tooltip>
                     </div>
                 </div>
             );

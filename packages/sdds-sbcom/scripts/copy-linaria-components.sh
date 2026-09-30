@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Example: Calendar
-components=$(grep -R plasma-new-hope src/components | cut -d / -f 3 | sort -u)
+components=$(grep -R plasma-new-hope src/components | cut -d / -f 3 | grep -v '^_beta$' | sort -u)
 
 mkdir -p src-css/components/
 touch src-css/index.ts

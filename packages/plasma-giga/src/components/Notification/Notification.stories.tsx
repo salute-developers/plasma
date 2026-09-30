@@ -2,9 +2,9 @@ import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
-import { InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
 import { action } from 'storybook/actions';
-import { addNotification } from '@salutejs/plasma-new-hope';
+import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import type { NotificationIconPlacement, NotificationLayout } from '@salutejs/plasma-new-hope';
 
 import { Button } from '../Button/Button';
@@ -12,10 +12,11 @@ import { Modal } from '../Modal/Modal';
 import { PopupProvider } from '../Popup';
 
 import { Notification, NotificationsProvider, NotificationPlacement } from './Notification';
+import { config } from './Notification.config';
 
 const titles = ['Выполнено', 'Внимание', 'Ошибка'];
 const texts = ['SSH ключ успешно скопирован', 'Нельзя скопировать SSH ключ', 'Не удалось скопировать SSH ключ'];
-const size = ['xs', 'xxs'];
+const { sizes } = getConfigVariations(config);
 const iconPlacement = ['top', 'left'];
 const notificationsPlacements = [
     'center',
@@ -37,7 +38,7 @@ providing developers with proven tools for building scalable, interactive web ap
 const getNotificationProps = (i: number) => ({
     title: titles[i % 3],
     children: texts[i % 3],
-    size: size[i % 2],
+    size: sizes[i % 2],
     iconPlacement: iconPlacement[i % 2] as NotificationIconPlacement,
     onTimeoutClose: () => {
         action('onTimeoutClose')('Callback, вызываемый при автоматическом закрытии по timeout.');
@@ -59,7 +60,7 @@ interface StoryDefaultProps {
     showCloseIcon: boolean;
     showLeftIcon: boolean;
     layout: NotificationLayout;
-    size: 'xs' | 'xxs';
+    size: 's' | 'xs' | 'xxs';
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
     view: 'default';
@@ -111,7 +112,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
             },
         },
         size: {
-            options: ['xs', 'xxs'],
+            options: sizes,
             control: {
                 type: 'select',
             },
@@ -167,7 +168,7 @@ export const Default: StoryObj<StoryDefaultProps> = {
 type StoryLiveDemoProps = ComponentProps<typeof Notification> & {
     timeout: number;
     layout: NotificationLayout;
-    size: 'xs' | 'xxs';
+    size: 's' | 'xs' | 'xxs';
     iconPlacement: NotificationIconPlacement;
     placement?: NotificationPlacement;
     enableCustomCloseIcon?: boolean;

@@ -831,6 +831,15 @@ export const surfaceAccentMinor = 'var(--surface-accent-minor, #D8D8D8FF)';
 /** Прозрачный акцентный фон поверхности/контрола */
 export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #FFFFFF33)';
 
+/** dark surface default surfaceSolidContrastHover */
+export const surfaceSolidContrastHover = 'var(--surface-solid-contrast-hover, #FFFFFFFF)';
+
+/** dark surface default surfaceSolidContrastActive */
+export const surfaceSolidContrastActive = 'var(--surface-solid-contrast-active, #FFFFFFFF)';
+
+/** dark surface default surfaceSolidContrast */
+export const surfaceSolidContrast = 'var(--surface-solid-contrast, #FFFFFFFF)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #121212FF)';
 
@@ -1064,6 +1073,15 @@ export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #D8
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #FFFFFF33)';
+
+/** dark surface onDark surfaceSolidContrast */
+export const onDarkSurfaceSolidContrast = 'var(--on-dark-surface-solid-contrast, #FFFFFFFF)';
+
+/** dark surface onDark surfaceSolidContrastHover */
+export const onDarkSurfaceSolidContrastHover = 'var(--on-dark-surface-solid-contrast-hover, #FFFFFFFF)';
+
+/** dark surface onDark surfaceSolidContrastActive */
+export const onDarkSurfaceSolidContrastActive = 'var(--on-dark-surface-solid-contrast-active, #FFFFFFFF)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F7F7F7FF)';
@@ -1300,6 +1318,15 @@ export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #1226541F)';
 
+/** dark surface onLight surfaceSolidContrast */
+export const onLightSurfaceSolidContrast = 'var(--on-light-surface-solid-contrast, #080808)';
+
+/** dark surface onLight surfaceSolidContrastHover */
+export const onLightSurfaceSolidContrastHover = 'var(--on-light-surface-solid-contrast-hover, #262626FF)';
+
+/** dark surface onLight surfaceSolidContrastActive */
+export const onLightSurfaceSolidContrastActive = 'var(--on-light-surface-solid-contrast-active, #030303FF)';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F7F7F7FF)';
 
@@ -1534,6 +1561,15 @@ export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #3
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #1226541F)';
+
+/** dark surface inverse surfaceSolidContrast */
+export const inverseSurfaceSolidContrast = 'var(--inverse-surface-solid-contrast, #080808)';
+
+/** dark surface inverse surfaceSolidContrastHover */
+export const inverseSurfaceSolidContrastHover = 'var(--inverse-surface-solid-contrast-hover, #262626FF)';
+
+/** dark surface inverse surfaceSolidContrastActive */
+export const inverseSurfaceSolidContrastActive = 'var(--inverse-surface-solid-contrast-active, #030303FF)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #171717)';
@@ -3480,6 +3516,9 @@ export const viewContainer = {
         --surface-accent: var(--on-dark-surface-accent);
         --surface-accent-minor: var(--on-dark-surface-accent-minor);
         --surface-transparent-accent: var(--on-dark-surface-transparent-accent);
+        --surface-solid-contrast-hover: var(--on-dark-surface-solid-contrast-hover);
+        --surface-solid-contrast-active: var(--on-dark-surface-solid-contrast-active);
+        --surface-solid-contrast: var(--on-dark-surface-solid-contrast);
         --inverse-surface-solid-primary-hover: var(--on-light-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-light-surface-solid-primary-active);
         --inverse-surface-solid-primary-brightness: var(--on-light-surface-solid-primary-brightness);
@@ -3558,6 +3597,9 @@ export const viewContainer = {
         --inverse-surface-accent: var(--on-light-surface-accent);
         --inverse-surface-accent-minor: var(--on-light-surface-accent-minor);
         --inverse-surface-transparent-accent: var(--on-light-surface-transparent-accent);
+        --inverse-surface-solid-contrast: var(--on-light-surface-solid-contrast);
+        --inverse-surface-solid-contrast-hover: var(--on-light-surface-solid-contrast-hover);
+        --inverse-surface-solid-contrast-active: var(--on-light-surface-solid-contrast-active);
         --background-primary: var(--dark-background-primary);
         --inverse-background-primary: var(--light-background-primary);
         --overlay-soft: var(--on-dark-overlay-soft);
@@ -3924,6 +3966,9 @@ export const viewContainer = {
         --surface-accent: var(--on-light-surface-accent);
         --surface-accent-minor: var(--on-light-surface-accent-minor);
         --surface-transparent-accent: var(--on-light-surface-transparent-accent);
+        --surface-solid-contrast: var(--on-light-surface-solid-contrast);
+        --surface-solid-contrast-hover: var(--on-light-surface-solid-contrast-hover);
+        --surface-solid-contrast-active: var(--on-light-surface-solid-contrast-active);
         --inverse-surface-solid-primary-hover: var(--on-dark-surface-solid-primary-hover);
         --inverse-surface-solid-primary-active: var(--on-dark-surface-solid-primary-active);
         --inverse-surface-solid-primary-brightness: var(--on-dark-surface-solid-primary-brightness);
@@ -4002,6 +4047,9 @@ export const viewContainer = {
         --inverse-surface-accent: var(--on-dark-surface-accent);
         --inverse-surface-accent-minor: var(--on-dark-surface-accent-minor);
         --inverse-surface-transparent-accent: var(--on-dark-surface-transparent-accent);
+        --inverse-surface-solid-contrast-hover: var(--on-dark-surface-solid-contrast-hover);
+        --inverse-surface-solid-contrast-active: var(--on-dark-surface-solid-contrast-active);
+        --inverse-surface-solid-contrast: var(--on-dark-surface-solid-contrast);
         --background-primary: var(--light-background-primary);
         --inverse-background-primary: var(--dark-background-primary);
         --overlay-soft: var(--on-light-overlay-soft);

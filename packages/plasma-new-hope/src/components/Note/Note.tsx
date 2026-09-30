@@ -13,6 +13,7 @@ import {
     ActionContentContainer,
     base,
     CloseIconWrapper,
+    ContentAfter,
     ContentBefore,
     ContentWrapper,
     Text,
@@ -33,6 +34,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                 text,
                 contentBefore,
                 contentBeforeSizing = 'fixed',
+                contentAfter,
                 size,
                 view,
                 stretch,
@@ -130,7 +132,7 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
 
             useLayoutEffect(() => {
                 setTruncatedText();
-            }, [text, title, contentBefore, contentBeforeSizing, stretch, orientation]);
+            }, [text, title, contentBefore, contentBeforeSizing, contentAfter, stretch, orientation]);
 
             useEffect(() => {
                 if (!contentBeforeRef?.current) {
@@ -187,6 +189,9 @@ export const noteRoot = (Root: RootProps<HTMLDivElement, NoteProps>) =>
                                 </>
                             )}
                         </TextBox>
+                        {contentAfter && (
+                            <ContentAfter hasClose={!isHorizontal && hasClose}>{contentAfter}</ContentAfter>
+                        )}
                     </ContentWrapper>
                     {actionContent && <ActionContentContainer>{actionContent}</ActionContentContainer>}
                     {hasClose && (

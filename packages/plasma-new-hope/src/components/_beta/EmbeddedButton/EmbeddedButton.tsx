@@ -1,58 +1,48 @@
 import React, { forwardRef } from 'react';
+import cls from 'classnames';
 
-import type { RootProps } from '../../../engines';
-import { cx } from '../../../utils';
+import addFocusMixin from '../mixins/addFocus.module.css';
 
-import { base as viewCSS } from './variations/_view/base';
-import { base as sizeCSS } from './variations/_size/base';
-import { base as disabledCSS } from './variations/_disabled/base';
 import type { EmbeddedButtonProps } from './EmbeddedButton.types';
-import { base, IconContainer, Loader, LoadWrap, StyledSpinner } from './EmbeddedButton.styles';
 import { classes } from './EmbeddedButton.tokens';
+import styles from './EmbeddedButton.module.css';
 
-export const embeddedButtonRoot = (Root: RootProps<HTMLButtonElement, EmbeddedButtonProps>) =>
-    forwardRef<HTMLButtonElement, EmbeddedButtonProps>((props, ref) => {
-        const { children, view, size, disabled, isLoading, loader, position = 'center', className, ...rest } = props;
+const Spinner = () => (
+    <span className={styles.spinner} aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="3" opacity="0.2" />
+            <path d="M12 3a9 9 0 0 1 9 9" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        </svg>
+    </span>
+);
 
-        const isLoadingClass = isLoading ? classes.embeddedButtonLoading : undefined;
+export const EmbeddedButton = forwardRef<HTMLButtonElement, EmbeddedButtonProps>((props, ref) => {
+    const {
+        children,
+        isLoading,
+        loader,
+        position = 'center',
+        as,
+        forwardedAs,
+        // @ts-ignore
+        _configClassName,
+        ...rest
+    } = props;
 
-        return (
-            <Root
-                type="button"
-                ref={ref}
-                view={view}
-                size={size}
-                disabled={disabled}
-                className={cx(isLoadingClass, className)}
-                {...rest}
-            >
-                <LoadWrap position={position} isLoading={isLoading}>
-                    <IconContainer>{children}</IconContainer>
-                </LoadWrap>
-                {isLoading && <Loader>{loader || <StyledSpinner />}</Loader>}
-            </Root>
-        );
-    });
+    const Root = (as ?? forwardedAs ?? 'button') as React.ElementType;
+    const isLoadingClass = isLoading ? classes.embeddedButtonLoading : undefined;
 
-export const embeddedButtonConfig = {
-    name: 'EmbeddedButton',
-    tag: 'button',
-    layout: embeddedButtonRoot,
-    base,
-    variations: {
-        view: {
-            css: viewCSS,
-        },
-        size: {
-            css: sizeCSS,
-        },
-        disabled: {
-            css: disabledCSS,
-            attrs: true,
-        },
-    },
-    defaults: {
-        view: 'secondary',
-        size: 'm',
-    },
-};
+    return (
+        <Root
+            ref={ref}
+            type="button"
+            {...rest}
+            className={cls(styles.root, addFocusMixin.focus, _configClassName, isLoadingClass, rest.className)}
+        >
+            <div className={styles.loadWrap} data-position={position} data-loading={isLoading}>
+                <div className={styles.iconContainer}>{children}</div>
+            </div>
+            {isLoading && <div className={styles.loader}>{loader || <Spinner />}</div>}
+        </Root>
+    );
+});

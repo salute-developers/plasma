@@ -1,0 +1,36 @@
+---
+id: spinner
+slug: /components/spinner
+title: Spinner
+description: "Индикация состояния загрузки — вращающийся спиннер."
+---
+
+import { PropsTable, Description, StorybookLink } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Spinner
+<Description name="Spinner" />
+<StorybookLink name="Spinner" />
+
+:::caution Устаревшие свойства
+Пропсы `width`, `height`, `color`, `deviceScale` и числовое значение `size` устарели и будут удалены.
+Используйте `size` и `view`.
+:::
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { Spinner } from '@salutejs/plasma-web';
+
+export function App() {
+    return (
+        <Spinner size="m" view="accent" />
+    );
+}
+```
+
+## API
+
+<PropsTable name="Spinner" exclude={['css', 'focused']}/>

@@ -1,5 +1,5 @@
 import styled, { CSSObject } from 'styled-components';
-import { applyEllipsis, applyHyphens, bodyM, bodyS, h1, h3 } from '@salutejs/plasma-new-hope';
+import { applyEllipsis, applyHyphens, bodyM, bodyS, h1, h3 } from '@salutejs/plasma-new-hope/styled-components';
 
 import { tokens } from '../../Header.tokens';
 

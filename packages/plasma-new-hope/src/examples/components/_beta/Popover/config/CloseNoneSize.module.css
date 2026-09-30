@@ -1,0 +1,23 @@
+.l {
+    --plasma-popover-border-radius: 1rem;
+    --plasma-popover-padding: 0.75rem;
+    --plasma-popover-tail-width: 20px;
+    --plasma-popover-tail-height: 8px;
+    --plasma-popover-tail-side-curvature: -10%;
+}
+
+.m {
+    --plasma-popover-border-radius: 0.875rem;
+    --plasma-popover-padding: 0.625rem;
+    --plasma-popover-tail-width: 20px;
+    --plasma-popover-tail-height: 8px;
+    --plasma-popover-tail-side-curvature: -10%;
+}
+
+.s {
+    --plasma-popover-border-radius: 0.75rem;
+    --plasma-popover-padding: 0.5rem;
+    --plasma-popover-tail-width: 20px;
+    --plasma-popover-tail-height: 8px;
+    --plasma-popover-tail-side-curvature: -10%;
+}

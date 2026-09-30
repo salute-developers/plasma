@@ -15,7 +15,7 @@ const baseUrl = VERSION_NAME ? `/versions/${VERSION_NAME}/` : defaultUrl;
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 const config = {
     title: 'plasma-homeds',
-    tagline: 'Дизайн-система для разработки современных приложений.',
+    tagline: 'Дизайн-система для разработки современных веб приложений.',
     url: 'https://plasma.sberdevices.ru/',
     baseUrl,
     onBrokenLinks: 'warn',
@@ -189,6 +189,47 @@ const config = {
                 },
             };
         },
+        [
+            'docusaurus-plugin-llms',
+            {
+                excludeImports: true,
+                removeDuplicateHeadings: true,
+                generateLLMsTxt: true,
+                generateLLMsFullTxt: true,
+                // routeBasePath доков — '/', как в preset-classic; иначе плагин строит ссылки с /docs/
+                docsDir: [{ path: 'docs', routeBasePath: '/' }],
+                // .md-копии страниц в выдаче сборки: ссылки в llms.txt ведут на них (конвенция llmstxt.org)
+                generateMarkdownFiles: true,
+                // Docusaurus (_examples, components/_*) не имеют маршрутов
+                ignoreFiles: ['**/_*/**', '**/_*.md', '**/_*.mdx'],
+                title: 'Библиотека компонентов PLASMA HOMEDS',
+                description:
+                    'React-компоненты дизайн-системы PLASMA HOMEDS для веб-приложений. Один вариант поставки: styled-components.',
+                version: pckgJson.dependencies['@salutejs/plasma-homeds'],
+                // страницы guides/* имеют абсолютный slug (/next, /how-to-mcp, ...) — плагин не учитывает
+                // его при сопоставлении с маршрутами, поэтому вычищаем служебные сегменты из URL вручную
+                pathTransformation: {
+                    ignorePaths: ['docs', 'guides'],
+                },
+                includeOrder: [
+                    'intro*',
+                    'guides/next*',
+                    'guides/how-to-mcp*',
+                    'guides/how-to-icons*',
+                    'guides/react_17*',
+                    'guides/FAQ*',
+                    'components/**',
+                    'utils/**',
+                    'form/**',
+                ],
+                rootContent: [
+                    'Установка: `npm install @salutejs/plasma-homeds @salutejs/plasma-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
+                    'Точки входа: `@salutejs/plasma-homeds` — единственная поставка, styled-components@5.3.1.',
+                    'Темы: `plasma_homeds__light`, `plasma_homeds__dark` из `@salutejs/plasma-themes`; дизайн-токены — из `@salutejs/plasma-themes/tokens`.',
+                    'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib plasma-homeds`.',
+                ].join('\n\n'),
+            },
+        ],
     ],
     markdown: {
         format: 'detect',

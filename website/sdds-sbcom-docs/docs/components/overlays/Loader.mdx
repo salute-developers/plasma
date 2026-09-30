@@ -1,0 +1,209 @@
+---
+slug: /components/Loader
+description: "Индикация состояния загрузки: спиннер или круговой прогресс-бар."
+---
+
+# Loader
+
+import { PropsTable, Description } from '@site/src/components';
+
+**Loader** - универсальный компонент для отображения индикаторов загрузки. Поддерживает два типа индикаторов: спиннер (`spinner`) и круговой прогресс-бар (`progress`).
+
+<Description name="Loader" />
+
+:::info Особенности работы
+
+- Автоматически ограничивает значение прогресса в диапазоне от 0 до `maxValue`
+- Поддерживает различные степени размытия фона (`blur`)
+- Может отображаться поверх контента с полупрозрачным оверлеем
+- Адаптирует толщину линии прогресса под размер компонента
+
+:::
+
+## Использование
+
+### Спиннер
+Используется для отображения процесса загрузки без указания прогресса:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return <Loader type="spinner" />;
+}
+```
+
+### Прогресс-бар
+Отображает прогресс выполнения задачи в виде круговой диаграммы:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return <Loader type="progress" value={45} size="32" />;
+}
+```
+
+## Примеры
+
+### Размеры индикатора
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="spinner" size="16" />
+            <Loader type="spinner" size="24" />
+            <Loader type="spinner" size="32" />
+            <Loader type="spinner" size="40" />
+
+            <Loader type="progress" size="16" value={25} />
+            <Loader type="progress" size="24" value={50} />
+            <Loader type="progress" size="32" value={75} />
+        </div>
+    );
+}
+```
+
+### Виды индикатора
+Вид задается с помощью свойства `view`:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="spinner" view="white" />
+            <Loader type="spinner" view="accent" />
+            <Loader type="spinner" view="danger" />
+            <Loader type="spinner" view="primary" />
+
+            <Loader type="progress" view="white" size="32" value={25} />
+            <Loader type="progress" view="accent" size="32" value={50} />
+            <Loader type="progress" view="danger" size="32" value={75} />
+            <Loader type="progress" view="primary" size="32" value={100} />
+        </div>
+    );
+}
+```
+
+### Полупрозрачный оверлей с размытием
+Отображение индикатора поверх затемненного фона с blur эффектом:
+
+```tsx live
+import React, { useState, useEffect } from 'react';
+import { Loader, Button } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const [loading, setLoading] = useState(false);
+
+    const handleShowLoader = () => {
+        setLoading(true);
+    };
+
+    useEffect(() => {
+        if (loading) {
+            const timer = setTimeout(() => {
+                setLoading(false);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [loading]);
+
+    return (
+        <div style={{ position: 'relative', height: '200px' }}>
+            <Button onClick={handleShowLoader}>Показать загрузку</Button>
+            {loading && (
+                <Loader
+                    type="spinner"
+                    hasOverlay
+                    withBlur
+                />
+            )}
+        </div>
+    );
+}
+```
+
+### Контент внутри прогресс-бара
+Отображение дополнительной информации внутри кругового индикатора:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={25} size="32">25%</Loader>
+            <Loader type="progress" value={75} size="24">
+                <IconClose color="var(--text-primary)" size="s" />
+            </Loader>
+        </div>
+    );
+}
+```
+
+### Настройка толщины линии прогресса
+Изменение толщины обводки прогресс-бара:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={50} size="32" strokeSize={2} />
+            <Loader type="progress" value={50} size="32" strokeSize={4} />
+            <Loader type="progress" value={50} size="32" strokeSize={8} />
+        </div>
+    );
+}
+```
+
+### Отключение фоновой дорожки
+Скрытие фоновой линии прогресс-бара:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={50} size="32" hasTrack />
+            <Loader type="progress" value={50} size="32" hasTrack={false} />
+        </div>
+    );
+}
+```
+
+### Кастомный максимальный показатель
+Изменение максимального значения прогресса:
+
+```tsx live
+import React from 'react';
+import { Loader } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <Loader type="progress" value={25} maxValue={50} size="32">25/50</Loader>
+            <Loader type="progress" value={75} maxValue={150} size="32">75/150</Loader>
+        </div>
+    );
+}
+```
+
+## API
+
+<PropsTable name="Loader" exclude={['css']} />

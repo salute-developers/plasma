@@ -42,7 +42,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarHoveredItemColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
                 ${calendarDoubleTokens.calendarOutlineFocusColor}: ${surfaceAccent};
-                ${calendarDoubleTokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
+                ${calendarDoubleTokens.calendarContentPrimaryColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${calendarDoubleTokens.calendarDisabledOpacity}: 0.4;
 

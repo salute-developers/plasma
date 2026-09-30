@@ -20,6 +20,12 @@ export const ContentBefore = styled.div`
     flex-shrink: 0;
 `;
 
+export const ContentAfter = styled.div<{ hasClose?: boolean }>`
+    display: flex;
+    flex-shrink: 0;
+    padding: ${({ hasClose }) => (hasClose ? `var(${tokens.contentAfterPadding}, 0)` : 0)};
+`;
+
 export const ContentWrapper = styled.div`
     display: flex;
     flex-direction: row;

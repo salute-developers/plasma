@@ -1,0 +1,23 @@
+```jsx
+import React from 'react';
+import { Button, BodyL } from '@salutejs/plasma-web/css';
+
+import '@salutejs/plasma-themes/css/plasma_web__light.css';
+
+const App = () => {
+    return (
+        <>
+            <BodyL>Hello world</BodyL>
+            <Button text="This is themed button" />
+        </>
+    );
+};
+
+export default App;
+```
+
+Или подключите тему в файле, где собраны все стили приложения, например `index.css`
+
+```css
+@import '@salutejs/plasma-themes/css/plasma_web__light.css';
+```

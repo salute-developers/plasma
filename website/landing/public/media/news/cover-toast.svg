@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img">
+  <defs>
+    <linearGradient id="grad5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#171a20"/>
+      <stop offset="1" stop-color="#0e1015"/>
+    </linearGradient>
+    <pattern id="grid5" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+    </pattern>
+    <filter id="blur5" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <g id="bg5">
+      <rect width="800" height="450" fill="url(#grad5)"/>
+      <rect width="800" height="450" fill="url(#grid5)"/>
+      <rect x="120" y="90" width="560" height="280" rx="24" fill="#ffffff" fill-opacity=".03"/>
+    </g>
+    <clipPath id="g5_0"><rect x="170" y="120" width="460" height="52" rx="14"/></clipPath><clipPath id="g5_1"><rect x="188" y="186" width="424" height="52" rx="14"/></clipPath><clipPath id="g5_2"><rect x="206" y="252" width="388" height="52" rx="14"/></clipPath>
+  </defs>
+  <use href="#bg5"/>
+  <g clip-path="url(#g5_0)"><use href="#bg5" filter="url(#blur5)"/><rect x="170" y="120" width="460" height="52" rx="14" fill="#ffffff" fill-opacity=".1"/></g><rect x="170" y="120" width="460" height="52" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".22"/><g clip-path="url(#g5_1)"><use href="#bg5" filter="url(#blur5)"/><rect x="188" y="186" width="424" height="52" rx="14" fill="#ffffff" fill-opacity=".1"/></g><rect x="188" y="186" width="424" height="52" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".22"/><g clip-path="url(#g5_2)"><use href="#bg5" filter="url(#blur5)"/><rect x="206" y="252" width="388" height="52" rx="14" fill="#ffffff" fill-opacity=".1"/></g><rect x="206" y="252" width="388" height="52" rx="14" fill="none" stroke="#ffffff" stroke-opacity=".22"/>
+</svg>

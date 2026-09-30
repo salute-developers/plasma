@@ -141,10 +141,10 @@ export const config = {
                 ${tokens.calendarActiveItemColor}: ${inverseTextPrimary};
                 ${tokens.calendarHoveredItemBackground}: ${surfaceAccent};
                 ${tokens.calendarHoveredItemColor}: ${textPrimary};
-                ${tokens.calendarRangeBackground}: ${surfaceTransparentAccent};
-                ${tokens.calendarOutlineFocusColor}: ${outlinePositive};
-                ${tokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
-                ${tokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
+                ${tokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
+                ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${tokens.calendarContentPrimaryColor}: ${textPrimary};
+                ${tokens.calendarContentPrimaryDisabledColor}: ${textPrimary};
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
                 ${tokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${tokens.calendarContentSecondaryDisabledColor}: ${textSecondary};

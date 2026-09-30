@@ -1,0 +1,22 @@
+{
+  "name": "@salutejs/sdds-landing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build && vite build --ssr src/server.tsx --outDir .ssr && npm run typecheck && node scripts/prerender.ts && node scripts/check-build.ts",
+    "preview": "node scripts/preview.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint src scripts vite.config.ts --ext .ts,.tsx --no-ignore"
+  },
+  "dependencies": {
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-router-dom": "6.30.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react-swc": "4.2.2",
+    "vite": "5.4.21"
+  }
+}

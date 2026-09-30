@@ -48,6 +48,7 @@ export * from './components/TextFieldGroup';
 export * from './components/Toast';
 export * from './components/Toolbar';
 export * from './components/Tooltip';
+export * from './components/Bubble';
 export * from './components/Typography';
 export * from './components/Notification';
 export * from './components/ButtonBase';

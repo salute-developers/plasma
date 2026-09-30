@@ -1,6 +1,7 @@
 export const classes = {
     simple: 'simple',
     stepItem: 'step-item',
+    stepItemTitle: 'step-item-title',
     centered: 'item-centered',
     active: 'item-active',
     nextActive: 'next-item-active',
@@ -14,6 +15,7 @@ export const classes = {
     activeItem: 'item-active',
     transparentDivider: 'transparent-divider',
     verticalLastItem: 'vertical-last-item',
+    firstItem: 'first-item',
     noTitle: 'no-title',
 };
 

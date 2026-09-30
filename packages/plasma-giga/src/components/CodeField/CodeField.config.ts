@@ -7,6 +7,8 @@ import {
     bodyS,
     bodyXS,
     outlineAccent,
+    outlineSolidPrimary,
+    outlineTransparentNegative,
     surfaceAccent,
     surfaceTransparentNegative,
     surfaceTransparentPrimary,
@@ -33,18 +35,20 @@ export const config = {
 
                 ${tokens.codeColor}: ${textPrimary};
                 ${tokens.codeColorError}: ${textNegative};
+                ${tokens.borderColor}: ${outlineSolidPrimary};
                 ${tokens.borderColorFocus}: ${outlineAccent};
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
                 ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.borderErrorColor}: ${outlineTransparentNegative};
             `,
         },
         size: {
             xl: css`
                 ${tokens.captionGap}: 0.875rem;
-                ${tokens.codeItemsGap}: 0.125rem;
+                ${tokens.codeItemsGap}: 0.25rem;
 
                 ${tokens.separatorWidth}: 0.25rem;
 
@@ -65,13 +69,14 @@ export const config = {
                 ${tokens.captionLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.captionLineHeight}: ${bodyS.lineHeight};
 
+                ${tokens.borderWidth}: 0.063rem;
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.borderRadiusSegmented}: 0.5rem;
                 ${tokens.segmentedSideBorderRadius}: 1rem;
             `,
             l: css`
                 ${tokens.captionGap}: 0.875rem;
-                ${tokens.codeItemsGap}: 0.125rem;
+                ${tokens.codeItemsGap}: 0.25rem;
 
                 ${tokens.separatorWidth}: 0.25rem;
 
@@ -92,13 +97,14 @@ export const config = {
                 ${tokens.captionLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.captionLineHeight}: ${bodyS.lineHeight};
 
+                ${tokens.borderWidth}: 0.063rem;
                 ${tokens.borderRadius}: 0.875rem;
                 ${tokens.borderRadiusSegmented}: 0.375rem;
                 ${tokens.segmentedSideBorderRadius}: 0.875rem;
             `,
             m: css`
                 ${tokens.captionGap}: 0.75rem;
-                ${tokens.codeItemsGap}: 0.125rem;
+                ${tokens.codeItemsGap}: 0.25rem;
 
                 ${tokens.separatorWidth}: 0.25rem;
 
@@ -119,6 +125,7 @@ export const config = {
                 ${tokens.captionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.captionLineHeight}: ${bodyXS.lineHeight};
 
+                ${tokens.borderWidth}: 0.063rem;
                 ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderRadiusSegmented}: 0.25rem;
                 ${tokens.segmentedSideBorderRadius}: 0.75rem;

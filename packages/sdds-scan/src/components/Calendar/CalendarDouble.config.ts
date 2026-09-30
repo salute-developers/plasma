@@ -43,8 +43,8 @@ export const config = {
                 ${calendarDoubleTokens.calendarHoveredItemColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
                 ${calendarDoubleTokens.calendarOutlineFocusColor}: ${surfaceAccent};
-                ${calendarDoubleTokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
-                ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
+                ${calendarDoubleTokens.calendarContentPrimaryColor}: ${textPrimary};
+                ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarHeaderArrowColor}: ${calendarDoubleTokens.calendarContentPrimaryColor};
                 ${calendarDoubleTokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${calendarDoubleTokens.calendarContentSecondaryDisabledColor}: ${textSecondary};

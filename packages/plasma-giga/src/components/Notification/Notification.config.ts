@@ -2,6 +2,8 @@ import { css, notificationTokens } from '@salutejs/plasma-new-hope/styled-compon
 import {
     bodyS,
     bodySBold,
+    h5,
+    h5Bold,
     surfaceTransparentCard,
     textInfo,
     textNegative,
@@ -82,6 +84,56 @@ export const config = {
             `,
         },
         size: {
+            s: css`
+                ${notificationTokens.borderRadius}: 0.75rem;
+
+                ${notificationTokens.contentPaddingTopWithoutIcon}: 0.25rem;
+                ${notificationTokens.horizontalLayoutRightPaddingWithoutCloseIcon}: 1rem;
+
+                ${notificationTokens.textboxPaddingTop}: 0.1875rem;
+                ${notificationTokens.textboxPaddingRight}: 0.125rem;
+                ${notificationTokens.textboxPaddingBottom}: 0.375rem;
+                ${notificationTokens.textboxPaddingLeft}: 0.125rem;
+                ${notificationTokens.textboxPaddingRightWithCloseIcon}: 1.625rem;
+                ${notificationTokens.textboxGap}: 0.25rem;
+
+                ${notificationTokens.buttonsMarginTop}: 0.375rem;
+
+                ${notificationTokens.contentLeftIconSize}: 1.5rem;
+                ${notificationTokens.contentLeftIconMargin}: 0.375rem;
+                ${notificationTokens.contentTopIconMargin}: 0.5rem;
+
+                ${notificationTokens.contentFontFamily}: ${bodyS.fontFamily};
+                ${notificationTokens.contentFontSize}: ${bodyS.fontSize};
+                ${notificationTokens.contentFontStyle}: ${bodyS.fontStyle};
+                ${notificationTokens.contentFontWeight}: ${bodyS.fontWeight};
+                ${notificationTokens.contentFontLetterSpacing}: ${bodyS.letterSpacing};
+                ${notificationTokens.contentFontLineHeight}: ${bodyS.lineHeight};
+
+                ${notificationTokens.titleFontFamily}: ${h5.fontFamily};
+                ${notificationTokens.titleFontSize}: ${h5.fontSize};
+                ${notificationTokens.titleFontStyle}: ${h5.fontStyle};
+                ${notificationTokens.titleFontWeight}: ${h5Bold.fontWeight};
+                ${notificationTokens.titleFontLetterSpacing}: ${h5.letterSpacing};
+                ${notificationTokens.titleFontLineHeight}: ${h5.lineHeight};
+
+                ${notificationTokens.horizontalLayoutGap}: 0.5rem;
+                ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
+                ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
+
+                ${notificationTokens.closeIconTop}: 0.5rem;
+                ${notificationTokens.closeIconRight}: 0.5rem;
+
+                ${notificationTokens.padding}: 0.375rem;
+                ${notificationTokens.textboxPaddingTopWithTopIcon}: 0rem;
+
+                ${notificationTokens.contentPaddingTop}: 0.125rem;
+                ${notificationTokens.contentPaddingRight}: 0.25rem;
+                ${notificationTokens.contentPaddingBottom}: 0rem;
+                ${notificationTokens.contentPaddingLeft}: 0.25rem;
+
+                ${notificationTokens.buttonsMarginLeft}: 0rem;
+            `,
             xs: css`
                 ${notificationTokens.borderRadius}: 0.75rem;
 
@@ -115,7 +167,7 @@ export const config = {
                 ${notificationTokens.titleFontLetterSpacing}: ${bodyS.letterSpacing};
                 ${notificationTokens.titleFontLineHeight}: ${bodyS.lineHeight};
 
-                ${notificationTokens.horizontalLayoutGap}: 0.375rem;
+                ${notificationTokens.horizontalLayoutGap}: 0.5rem;
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
 
@@ -132,6 +184,7 @@ export const config = {
 
                 ${notificationTokens.buttonsMarginLeft}: 0rem;
             `,
+            // deprecated
             xxs: css`
                 ${notificationTokens.borderRadius}: 0.75rem;
 

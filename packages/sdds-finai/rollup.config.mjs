@@ -78,7 +78,7 @@ const createConfig = (inputFile, outputDir) => ({
     ],
 });
 
-export default [createConfig('index.ts', 'dist/css'), createConfig('beta.ts', 'dist/beta/css')];
+export default createConfig('index.ts', 'dist/css');
 
 function importCssPlugin() {
     const filter = createFilter(['**/*.css']);

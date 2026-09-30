@@ -1,42 +1,25 @@
-import React from 'react';
 import type { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { disableProps } from '@salutejs/plasma-sb-utils';
+import type { Meta } from '@storybook/react-vite';
+import { getBreadcrumbsStories } from '@salutejs/plasma-sb-utils';
 
-import { mergeConfig } from '../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../_helpers';
-import { accordionConfig } from '../../../components/Accordion';
+import { Dropdown } from '../Dropdown/Dropdown';
 
-import { config } from './Breadcrumbs.config';
 import { Breadcrumbs } from './Breadcrumbs';
+import { config } from './Breadcrumbs.config';
 
 type BreadcrumbsProps = ComponentProps<typeof Breadcrumbs>;
 
-const meta: Meta<BreadcrumbsProps> = {
-    title: 'Navigation/Breadcrumbs',
-    decorators: [WithTheme],
+const { meta: META, Default, CustomShorter } = getBreadcrumbsStories({
     component: Breadcrumbs,
-    args: {
-        view: 'default',
-        size: 'm',
-        showItems: 2,
-        items: [
-            { title: 'Home', href: '/' },
-            { title: 'About as', href: '/' },
-            { renderItem: () => <span>Custom Item</span> },
-            { title: 'Contacts' },
-        ],
-    },
-    argTypes: {
-        ...argTypesFromConfig(mergeConfig(accordionConfig, config)),
-        ...disableProps(['separator']),
-    },
+    componentConfig: config,
+    additionalComponents: { Dropdown },
+});
+
+const meta: Meta<BreadcrumbsProps> = {
+    ...(META as Meta<BreadcrumbsProps>),
+    title: 'Navigation/Breadcrumbs',
 };
 
 export default meta;
 
-export const Default: StoryObj<BreadcrumbsProps> = {
-    render: (props: BreadcrumbsProps) => {
-        return <Breadcrumbs {...props} />;
-    },
-};
+export { Default, CustomShorter };
