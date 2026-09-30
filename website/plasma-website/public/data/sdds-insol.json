@@ -1,4 +1,70 @@
 {
+  "0.365.0": {
+    "date": "2026-09-30",
+    "core": [
+      {
+        "component": "Calendar, DatePicker, DateTimePicker",
+        "children": [
+          {
+            "text": "значение `calendarContentPrimaryColor` приведено в соответствие с макетами:\r\n`surface-solid-default` -> `text-primary`",
+            "link": "https://github.com/salute-developers/plasma/pull/3174",
+            "id": 3174
+          }
+        ]
+      },
+      {
+        "component": "TextArea",
+        "children": [
+          {
+            "text": "исправлена нулевая высота при `autoResize` после показа из `display: none`",
+            "link": "https://github.com/salute-developers/plasma/pull/3177",
+            "id": 3177
+          }
+        ]
+      },
+      {
+        "component": "Segment",
+        "children": [
+          {
+            "text": "добавлен пример `size` в документацию",
+            "link": "https://github.com/salute-developers/plasma/pull/3176",
+            "id": 3176
+          }
+        ]
+      },
+      {
+        "component": "Breadcrumbs",
+        "children": [
+          {
+            "text": "исправлено жирное начертание текста",
+            "link": "https://github.com/salute-developers/plasma/pull/3183",
+            "id": 3183
+          }
+        ]
+      },
+      {
+        "component": "Select, Combobox",
+        "children": [
+          {
+            "text": "добавлено свойство `sortItems` для сортировки элементов в выпадающем списке",
+            "link": "https://github.com/salute-developers/plasma/pull/3193",
+            "id": 3193
+          }
+        ]
+      },
+      {
+        "component": "Calendar, Datepicker, DateTimePicker",
+        "children": [
+          {
+            "text": "добавлено свойство для задания пользовательских подписей кварталов",
+            "link": "https://github.com/salute-developers/plasma/pull/3198",
+            "id": 3198
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.364.0": {
     "date": "2026-09-18",
     "core": [
