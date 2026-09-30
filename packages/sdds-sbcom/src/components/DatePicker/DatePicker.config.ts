@@ -24,8 +24,6 @@ import {
     surfaceClear,
     surfaceNegative,
     surfaceSolidCardBrightness,
-    surfaceSolidDefault,
-    surfaceTransparentAccent,
     surfaceTransparentCard,
     surfaceTransparentNegative,
     surfaceTransparentPrimary,
