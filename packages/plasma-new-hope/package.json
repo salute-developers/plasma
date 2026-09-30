@@ -127,7 +127,7 @@
     "@tanstack/react-virtual": "3.13.2",
     "classnames": "2.5.1",
     "dayjs": "1.11.11",
-    "dompurify": "3.3.3",
+    "dompurify": "3.4.16",
     "focus-visible": "5.2.0",
     "lodash.chunk": "4.2.0",
     "lodash.throttle": "4.1.1",
