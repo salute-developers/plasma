@@ -17,7 +17,7 @@ export const InputWrapper = styled.div`
     align-items: center;
     box-sizing: border-box;
 
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         z-index: -2;
@@ -125,7 +125,7 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
 
 export const TitleCaption = styled.div`
     display: inline-block;
-    align-self: flex-start;
+    align-self: auto;
     margin-left: auto;
     margin-top: var(${tokens.titleCaptionMargin}, 0);
 `;

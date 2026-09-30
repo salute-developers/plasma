@@ -33,7 +33,9 @@ export const StyledLabel = styled.div`
 
 export const TitleCaption = styled.div`
     display: inline-block;
+    align-self: auto;
     margin-left: auto;
+    margin-top: var(${tokens.titleCaptionMargin}, 0);
 
     font-family: var(${tokens.titleCaptionFontFamily});
     font-size: var(${tokens.titleCaptionFontSize});

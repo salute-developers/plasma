@@ -20,6 +20,7 @@ export const InformationWrapperUI = styled(InformationWrapper)`
     ${informationWrapperTokens.labelColor}: var(${tokens.labelColor});
     ${informationWrapperTokens.contentGap}: var(${tokens.contentGap});
     ${informationWrapperTokens.titleCaptionOffset}: var(${tokens.titleCaptionOffset});
+    ${informationWrapperTokens.titleCaptionMargin}: var(${tokens.titleCaptionMargin});
     ${informationWrapperTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});
     ${informationWrapperTokens.titleCaptionFontFamily}: var(${tokens.titleCaptionFontFamily});
     ${informationWrapperTokens.titleCaptionFontStyle}: var(${tokens.titleCaptionFontStyle});

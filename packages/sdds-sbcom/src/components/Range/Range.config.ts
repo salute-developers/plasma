@@ -142,6 +142,7 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.813rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -218,6 +219,7 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.563rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -306,6 +308,7 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.313rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionMargin}: 0.25rem;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -394,6 +397,7 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.063rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionMargin}: 0.188rem;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -500,6 +504,7 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 -0.188rem 0 -0.688rem;
 
                 ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionMargin}: 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */

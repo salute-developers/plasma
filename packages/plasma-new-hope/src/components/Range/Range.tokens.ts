@@ -168,6 +168,8 @@ export const tokens = {
 
     /** @styleType dimension */
     titleCaptionOffset: '--plasma-range-info-wrapper-title-caption-offset',
+    /** @styleType dimension */
+    titleCaptionMargin: '--plasma-range-info-wrapper-title-caption-margin',
     /** @styleType color */
     titleCaptionColor: '--plasma-range-info-wrapper-title-caption-color',
     /** @styleType typography @styleProp titleCaptionStyle @stylePart fontFamily */

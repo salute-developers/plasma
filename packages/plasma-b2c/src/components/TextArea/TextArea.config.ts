@@ -289,6 +289,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.751rem -2.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -362,6 +363,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -437,6 +439,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.813rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -510,6 +513,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.188rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -583,6 +587,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
