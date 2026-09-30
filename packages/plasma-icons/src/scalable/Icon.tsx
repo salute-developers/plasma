@@ -1212,6 +1212,11 @@ export const iconSectionsSet = {
         cameraVideoAddOutline: 'CameraVideoAddOutline',
         cameraVideoRecOffOutline: 'CameraVideoRecOffOutline',
         cameraVideoRecOffFill: 'CameraVideoRecOffFill',
+        noiseCancellationOutline: 'NoiseCancellationOutline',
+        noiseCancellationFill: 'NoiseCancellationFill',
+        transparencyOutline: 'TransparencyOutline',
+        transparencyFill: 'TransparencyFill',
+        soundNoiseOutline: 'SoundNoiseOutline',
     },
     Navigation: {
         arrowsMove: 'ArrowsMove',

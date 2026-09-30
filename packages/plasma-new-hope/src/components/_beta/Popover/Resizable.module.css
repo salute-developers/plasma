@@ -1,0 +1,48 @@
+.containerNoSelect {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.resizeIcon {
+    display: inline-flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    flex: 0 0 1.5rem;
+    color: var(--text-secondary);
+}
+
+.resizeIcon[data-size='xs'] {
+    width: 1rem;
+    height: 1rem;
+    flex-basis: 1rem;
+}
+
+.resizeIcon[data-size='m'] {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-basis: 2.25rem;
+}
+
+.resizeIcon:hover {
+    color: var(--text-secondary-hover);
+}
+
+.resizeIcon:active {
+    color: var(--text-secondary-active);
+}
+
+.topRightIcon {
+    transform: rotate(-90deg);
+}
+
+.bottomRightIcon {
+    transform: rotate(0);
+}
+
+.bottomLeftIcon {
+    transform: rotate(90deg);
+}
+
+.topLeftIcon {
+    transform: rotate(180deg);
+}

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import type { HTMLAttributes } from 'react';
-import { component, imageConfig, ImageProps, RootProps } from '@salutejs/plasma-new-hope';
+import { component, imageConfig, ImageProps, RootProps } from '@salutejs/plasma-new-hope/styled-components';
 
 import { classes } from '../../Header.tokens';
 

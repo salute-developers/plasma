@@ -1,6 +1,22 @@
-import { _beta_tooltipConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/emotion';
+import React, { forwardRef } from 'react';
+import cls from 'classnames';
+import { Tooltip as CoreTooltip } from '@salutejs/plasma-new-hope/beta';
+import type { TooltipProps as CoreTooltipProps } from '@salutejs/plasma-new-hope/beta';
 
-import { config } from './Tooltip.config';
+import sizeStyles from './config/Size.module.css';
+import viewStyles from './config/View.module.css';
 
-const mergedConfig = mergeConfig(_beta_tooltipConfig, config);
-export const Tooltip = component(mergedConfig);
+type TooltipView = 'default' | 'secondary';
+type TooltipSize = 'm' | 's';
+
+export type TooltipProps = CoreTooltipProps & {
+    view?: TooltipView;
+    size?: TooltipSize;
+};
+
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(({ view = 'default', size = 's', ...rest }, ref) => {
+    const configClassName = cls(viewStyles[view], sizeStyles[size]);
+
+    // @ts-expect-error _configClassName is an internal runtime property.
+    return <CoreTooltip ref={ref} _configClassName={configClassName} {...rest} />;
+});

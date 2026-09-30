@@ -3,7 +3,7 @@ import type { StoryObj, Meta } from '@storybook/react-vite';
 import { sdds_finai__dark, sdds_finai__light } from '@salutejs/sdds-themes/es/themes';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
 import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
-import { cx } from '@salutejs/plasma-new-hope';
+import { cx } from '@salutejs/plasma-new-hope/styled-components';
 
 import { Accordion } from '../../Accordion/Accordion';
 import { ToastProvider, useToast } from '../../Toast/Toast';

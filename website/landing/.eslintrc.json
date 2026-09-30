@@ -1,0 +1,7 @@
+{
+    "extends": "../../.eslintrc.js",
+    "rules": {
+        "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }],
+        "react/react-in-jsx-scope": "off"
+    }
+}

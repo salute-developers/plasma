@@ -1,0 +1,9 @@
+.default {
+    --plasma-popover-background-color: var(--surface-solid-card);
+    --plasma-popover-box-shadow: var(--shadow-down-hard-m);
+}
+
+.info {
+    --plasma-popover-background-color: var(--surface-accent);
+    --plasma-popover-box-shadow: var(--shadow-down-hard-m);
+}

@@ -1,213 +1,172 @@
-# SDDS-INSOL-NEXT
+# Библиотека компонентов для вертикали SDDS INSOL NEXT
 
-Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+[![license](https://img.shields.io/github/license/salute-developers/plasma)](https://github.com/salute-developers/plasma/blob/master/LICENSE.txt)
+[![npm version](https://img.shields.io/npm/v/@salutejs/sdds-insol-next.svg)](https://www.npmjs.com/package/@salutejs/sdds-insol-next)
+[![typescript](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/dev/typescript)](https://www.typescriptlang.org/)
+[![sdds-themes](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/@salutejs/sdds-themes?filename=packages%2Fsdds-insol-next%2Fpackage.json)](https://www.npmjs.com/package/@salutejs/sdds-themes)
 
-## Использование
+Реализация компонентов для создания веб-приложений.
 
-Библиотека реализована с помощью:
+Компоненты реализованы с помощью [React](https://react.dev/) и поставляются в двух вариантах:
 
--   [typescript](https://www.typescriptlang.org/)
--   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+-   на предсобранном CSS,
+-   на [styled-components](https://styled-components.com/).
 
-Однако их использование **необязательно**!
+## Ссылки
 
-### Установка зависимостей
+-   [Документация](https://plasma.sberdevices.ru/sdds-insol-next/) — гайды, список компонентов с примерами и API
+-   [Подключение в Next.js](https://plasma.sberdevices.ru/sdds-insol-next/next/)
+-   [Changelog](https://plasma.sberdevices.ru/changelog/?vertical=SDDSInsolNext&platform=React&version=0.363.0)
+-   [Задать вопрос или сообщить о проблеме](https://github.com/salute-developers/plasma/issues)
+
+## Установка
+
+Требуются `react` и `react-dom` версии `16.13.1` или выше:
 
 ```bash
+$ npm install --save react react-dom
 $ npm install --save @salutejs/sdds-insol-next @salutejs/sdds-themes
 ```
 
-Для работы со `styled-components`, необходимо установить
+Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
+
+Для варианта на styled-components:
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-### Использование компонентов
+CSS-вариант дополнительных зависимостей не требует.
 
-Все компоненты доступны напрямую из пакета
+## Варианты поставки
+
+> **Примечание:** CSS-вариант является поставкой по умолчанию.
+
+Один и тот же набор компонентов доступен из двух точек входа:
+
+| Точка входа                                    | Реализация        | Дополнительные зависимости |
+| ----------------------------------------------- | ----------------- | --------------------------- |
+| `@salutejs/sdds-insol-next`                    | предсобранный CSS | нет                          |
+| `@salutejs/sdds-insol-next/styled-components`  | styled-components | `styled-components@5.3.1`    |
 
 ```jsx
-import styled from 'styled-components';
 import { Button } from '@salutejs/sdds-insol-next';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
-
-export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
-    return (
-        <>
-            <Button>Hello, SDDS!</Button>
-            <StyledP>Token usage example</StyledP>
-        </>
-    );
-};
+// или
+import { Button } from '@salutejs/sdds-insol-next/styled-components';
 ```
+
+Beta-компоненты доступны из точки входа `@salutejs/sdds-insol-next/beta`. Подробнее — в [документации](https://plasma.sberdevices.ru/sdds-insol-next/beta/embedded-button/).
 
 ## Подключение шрифтов
 
-Типографическая система основана на фирменных шрифтах.
+Типографическая система основана на фирменных шрифтах, они поставляются с CDN.
 
-Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
-
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
-
-### Create react app
-
-Добавить внутрь тега `head`.
+Добавьте три css-файла внутрь тега `<head>`.
 
 ```html
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-        />
-        <title>Wep App</title>
-    </head>
-    <body>
-        ...
-    </body>
-</html>
-```
-
-### NextJs
-
-```tsx
-import Head from 'next/head';
-
-import { H2, Button } from '@salutejs/sdds-insol-next';
-
-export default function Home() {
-    return (
-        <>
-            <Head>
-                <title>Create Next App with sdds-insol components</title>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-                />
-            </Head>
-            <div>
-                <main>
-                    <div>
-                        <H2> Salute </H2>
-                        <Button text="Hello" />
-                    </div>
-                </main>
-            </div>
-        </>
-    );
-}
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css" />
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansTextMono.0.2.0.css" />
 ```
 
 ## Подключение темы
 
-Точкой входа является корень приложения:
+Тема подключается один раз в корне приложения.
 
--   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
--   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+> **Примечание:** Для [Next.js](https://nextjs.org/) — в `pages/_app.tsx`.
 
-### Styled-components
+Тема включает в себя цветовые и типографические токены.
+
+Доступны светлая и тёмная темы — `sdds_insol_next__light` и `sdds_insol_next__dark`.
+
+### Через импорт css-файла
 
 ```jsx
-import React from 'react';
+import '@salutejs/sdds-themes/css/sdds_insol_next__light.css';
+```
+
+### Через styled-components
+
+```jsx
 import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/sdds-insol-next';
 import { sdds_insol_next__light } from '@salutejs/sdds-themes';
 
 const Theme = createGlobalStyle(sdds_insol_next__light);
 
-const App = () => {
+// вызовите <Theme /> в корне приложения
+```
+
+Переключение темы в рантайме и подключение через css-модули описаны в [документации](https://plasma.sberdevices.ru/sdds-insol-next/).
+
+## Использование компонентов
+
+```jsx
+// App.tsx
+import { Button, BodyL } from '@salutejs/sdds-insol-next';
+import '@salutejs/sdds-themes/css/sdds_insol_next__light.css';
+
+export const App = () => {
     return (
         <>
-            <Theme />
-            <BodyL>Hello SDDS</BodyL>
-            <Button text="This is themed button" />
+            <BodyL>Hello, SDDS INSOL NEXT!</BodyL>
+            <Button>Кнопка</Button>
         </>
     );
 };
-
-export default App;
 ```
 
-## Токены
+Дизайн-токены доступны в виде js-переменных:
 
-Все `css` токены завернуты в `js` переменные для более удобного доступа:
-
-```js
-/** Основной цвет текста */
-export const textPrimary = 'var(--text-primary, #F5F5F5)';
-/** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #000000)';
-```
-
-### Способы подключения
-
-Есть два пути импорта токенов:
-
--   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-insol-next` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
-
-### Использование
+-   базовый набор — из `@salutejs/sdds-themes/tokens`
+-   уникальные токены темы — из `@salutejs/sdds-themes/tokens/sdds_insol_next`.
 
 ```jsx
-import React from 'react';
-import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+import { textAccent } from '@salutejs/sdds-themes/tokens';
 
-const AppStyled = styled.div`
-    padding: 2rem;
-    color: ${textAccent};
-    background-color: ${backgroundPrimary};
-`;
+<p style={{ color: textAccent }}>Пример использования токена</p>;
+```
 
-const Container = styled.div`
-    ${textL};
-    margin: 1rem;
-`;
+## SSR и Next.js
 
-const App = () => {
-    return (
-        <AppStyled>
-            <Container>
-                <span>Hello SDDS</span>
-            </Container>
-        </AppStyled>
-    );
+-   Библиотека поддерживает React Server Components (App Router) **только** при **явном** использовании директивы `'use client'` в модулях, импортирующих компоненты.
+-   Для CSS-варианта поставки добавьте пакеты в `transpilePackages` в `next.config.js`:
+
+```js
+const nextConfig = {
+    transpilePackages: ['@salutejs/sdds-insol-next', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons'],
 };
-
-export default App;
 ```
 
-## Типографика
+Подробности — в [гайде по Next.js](https://plasma.sberdevices.ru/sdds-insol-next/next/).
 
-Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
+## MCP-сервер для AI-агентов
 
-```ts
-import { BodyL, DsplL, H3 } from '@salutejs/sdds-insol-next';
+> **Примечание**: Поддерживаются версии библиотеки начиная с `0.349.0` — нужная указывается параметром `--version`.
+
+Библиотека предоставляет [MCP-сервер](https://plasma.sberdevices.ru/sdds-insol-next/how-to-mcp/) `@salutejs/sdds-mcp` — через него LLM-агент (Claude Code, Cursor и др.) получает актуальную документацию:
+
+-   список компонентов
+-   описание props
+-   примеры использования
+-   токены и гайды.
+
+Сервер работает по `stdio`:
+
+```bash
+npx -y @salutejs/sdds-mcp@latest --lib sdds-insol-next
 ```
 
-### Токены типографики на примере компонента `DsplL`
+Если агент настраивается через конфигурацию, используйте шаблон:
 
-Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
-
-```tsx
-import { CSSObject } from 'styled-components';
-
-export const dsplL = ({
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
-} as unknown) as CSSObject;
+```json
+{
+    "mcpServers": {
+        "sdds-insol-next": {
+            "command": "npx",
+            "args": ["-y", "@salutejs/sdds-mcp@latest", "--lib", "sdds-insol-next"]
+        }
+    }
+}
 ```
+
+Подробности и список инструментов — в [гайде по MCP](https://plasma.sberdevices.ru/sdds-insol-next/how-to-mcp/).

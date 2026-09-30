@@ -277,6 +277,47 @@ module.exports = {
                 },
             };
         },
+        [
+            'docusaurus-plugin-llms',
+            {
+                excludeImports: true,
+                removeDuplicateHeadings: true,
+                generateLLMsTxt: true,
+                generateLLMsFullTxt: true,
+                // routeBasePath доков — '/', как в preset-classic; иначе плагин строит ссылки с /docs/
+                docsDir: [{ path: 'docs', routeBasePath: '/' }],
+                // .md-копии страниц в выдаче сборки: ссылки в llms.txt ведут на них (конвенция llmstxt.org)
+                generateMarkdownFiles: true,
+                // Docusaurus (_examples, components/_*) не имеют маршрутов
+                ignoreFiles: ['**/_*/**', '**/_*.md', '**/_*.mdx'],
+                title: 'Библиотека компонентов PLASMA WEB',
+                description: 'Два варианта поставки: styled-components (по умолчанию) и предсобранный CSS.',
+                version: pckgJson.dependencies['@salutejs/plasma-web'],
+                // страницы guides/* имеют абсолютный slug (/next, /how-to-mcp, ...) — плагин не учитывает
+                // его при сопоставлении с маршрутами, поэтому вычищаем служебные сегменты из URL вручную
+                pathTransformation: {
+                    ignorePaths: ['docs', 'guides'],
+                },
+                includeOrder: [
+                    'intro*',
+                    'guides/next*',
+                    'guides/how-to-mcp*',
+                    'guides/how-to-icons*',
+                    'guides/react_17*',
+                    'guides/FAQ*',
+                    'design/**',
+                    'components/**',
+                    'functions/**',
+                    'form/**',
+                ],
+                rootContent: [
+                    'Установка: `npm install @salutejs/plasma-web @salutejs/plasma-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше, styled-components версии 5.1.1 или выше — для поставки по умолчанию).',
+                    'Точки входа: `@salutejs/plasma-web` — styled-components (поставка по умолчанию), `@salutejs/plasma-web/css` — предсобранный CSS.',
+                    'Темы: `plasma_web__light`, `plasma_web__dark` из `@salutejs/plasma-themes`; дизайн-токены — из `@salutejs/plasma-themes/tokens`.',
+                    'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib plasma-web`; поддерживаются версии библиотеки начиная с `1.613.0`.',
+                ].join('\n\n'),
+            },
+        ],
     ],
     markdown: {
         format: 'detect',

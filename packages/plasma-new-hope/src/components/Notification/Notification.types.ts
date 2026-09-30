@@ -118,6 +118,21 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
     status?: string;
 }
 
+/**
+ * Дефолтные параметры оповещения, заданные на уровне NotificationsProvider.
+ * Применяются к каждому вызову addNotification и перекрываются переданными аргументами.
+ * Дженерик нужен конечным пакетам, где view/size/layout сужены до значений темы.
+ */
+export type NotificationDefaultArgs<T = NotificationProps> = Partial<Omit<T, 'id'>> & {
+    /**
+     * Время отображения оповещения в миллисекундах.
+     * `0` или `null` — оповещение висит, пока его не закроют.
+     * @default
+     * 2000
+     */
+    timeout?: number | null;
+};
+
 export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
     /**
      * Конфигурация компонента Notification.
@@ -140,4 +155,12 @@ export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElem
      * className для контейнера с нотификациями.
      */
     className?: string;
+}
+
+export interface NotificationsProviderProps extends NotificationPortalProps {
+    children: ReactNode;
+    /**
+     * Дефолтные параметры для всех оповещений провайдера.
+     */
+    defaultNotificationArgs?: NotificationDefaultArgs;
 }

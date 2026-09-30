@@ -12,16 +12,19 @@ import {
     surfaceAccent,
     surfaceAccentGradient,
     surfaceClear,
+    surfaceInfo,
     surfaceNegative,
     surfacePositive,
     surfaceSolidDefault,
     surfaceTransparentAccent,
+    surfaceTransparentInfo,
     surfaceTransparentNegative,
     surfaceTransparentPositive,
     surfaceTransparentSecondary,
     surfaceTransparentWarning,
     surfaceWarning,
     textAccent,
+    textInfo,
     textNegative,
     textPositive,
     textPrimary,
@@ -85,6 +88,15 @@ export const config = {
                 ${badgeTokens.backgroundTransparent}: ${surfaceTransparentNegative};
 
                 ${badgeTokens.colorClear}: ${textNegative};
+            `,
+            info: css`
+                ${badgeTokens.color}: ${onDarkTextPrimary};
+                ${badgeTokens.background}: ${surfaceInfo};
+
+                ${badgeTokens.colorTransparent}: ${textInfo};
+                ${badgeTokens.backgroundTransparent}: ${surfaceTransparentInfo};
+
+                ${badgeTokens.colorClear}: ${textInfo};
             `,
             dark: css`
                 ${badgeTokens.color}: ${onDarkTextPrimary};

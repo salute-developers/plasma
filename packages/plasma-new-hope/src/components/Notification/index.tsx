@@ -6,6 +6,8 @@ export { classes as notificationClasses, tokens as notificationTokens } from './
 export type {
     NotificationProps,
     NotificationPortalProps,
+    NotificationsProviderProps,
+    NotificationDefaultArgs,
     NotificationLayout,
     NotificationIconPlacement,
     NotificationPlacement,

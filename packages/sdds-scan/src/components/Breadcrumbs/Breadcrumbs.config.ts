@@ -1,5 +1,5 @@
 import { css, breadcrumbsTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyM, bodyMBold, bodyS, bodySBold, surfaceAccent, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_scan';
+import { bodyM, bodyS, surfaceAccent, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_scan';
 
 export const config = {
     defaults: {
@@ -23,7 +23,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyM.fontFamily};
                 ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyM.fontSize};
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyM.fontStyle};
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyMBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyM.fontWeight};
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyM.letterSpacing};
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyM.lineHeight};
             `,
@@ -33,7 +33,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: ${bodyS.fontFamily};
                 ${breadcrumbsTokens.breadcrumbsFontSize}: ${bodyS.fontSize};
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: ${bodyS.fontStyle};
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodySBold.fontWeight};
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: ${bodyS.fontWeight};
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: ${bodyS.letterSpacing};
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: ${bodyS.lineHeight};
             `,

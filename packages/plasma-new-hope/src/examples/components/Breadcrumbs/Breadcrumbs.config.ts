@@ -24,7 +24,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: var(--plasma-typo-body-l-font-family);
                 ${breadcrumbsTokens.breadcrumbsFontSize}: var(--plasma-typo-body-l-font-size);
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: var(--plasma-typo-body-l-font-style);
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-l-bold-weight);
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-l-font-weight);
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: var(--plasma-typo-body-l-letter-spacing);
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
@@ -34,7 +34,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${breadcrumbsTokens.breadcrumbsFontSize}: var(--plasma-typo-body-m-font-size);
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: var(--plasma-typo-body-m-font-style);
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-m-bold-weight);
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
@@ -44,7 +44,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${breadcrumbsTokens.breadcrumbsFontSize}: var(--plasma-typo-body-s-font-size);
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: var(--plasma-typo-body-s-font-style);
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-s-bold-weight);
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
@@ -54,7 +54,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${breadcrumbsTokens.breadcrumbsFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${breadcrumbsTokens.breadcrumbsFontStyle}: var(--plasma-typo-body-xs-font-style);
-                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-xs-bold-weight);
+                ${breadcrumbsTokens.breadcrumbsFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${breadcrumbsTokens.breadcrumbsLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${breadcrumbsTokens.breadcrumbsLineHeight}: var(--plasma-typo-body-xs-line-height);
             `,

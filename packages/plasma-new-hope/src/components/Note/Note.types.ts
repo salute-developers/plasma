@@ -19,6 +19,10 @@ export type NoteProps = {
      */
     contentBeforeSizing?: 'fixed' | 'scalable';
     /**
+     * Слот под иконку справа от контента.
+     */
+    contentAfter?: ReactNode;
+    /**
      * Компонент растягивается на всю доступную ширину и высоту.
      */
     stretch?: boolean;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconPlasma } from '@salutejs/plasma-icons';
+import { IconDisclosureRight, IconPlasma } from '@salutejs/plasma-icons';
 
 import { getIconSize as defaultGetIconSize } from './fixtures';
 
@@ -15,7 +15,7 @@ export const createDefaultStory = (
 ) => {
     const { LinkButton } = Components;
 
-    return ({ enableContentBefore, enableHeightControl, hasActionContent, ...args }: any) => {
+    return ({ enableContentBefore, enableContentAfter, enableHeightControl, hasActionContent, ...args }: any) => {
         return (
             <div style={{ height: '100vh' }}>
                 <NoteComponent
@@ -27,6 +27,7 @@ export const createDefaultStory = (
                             />
                         ) : undefined
                     }
+                    contentAfter={enableContentAfter ? <IconDisclosureRight size="s" color="inherit" /> : undefined}
                     height={enableHeightControl ? args.height : undefined}
                     actionContent={
                         hasActionContent ? (

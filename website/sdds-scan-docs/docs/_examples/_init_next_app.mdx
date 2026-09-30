@@ -1,5 +1,5 @@
 :::info
-Если в качестве основы web-приложения вы используете Next, вам необходимо изменить файл `./pages/index.html`.
+Если в качестве основы web-приложения вы используете [Next.js](https://nextjs.org/), добавьте ссылки на шрифты через `next/head` — например, в `./pages/index.tsx`.
 :::
 
 ```tsx
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App with SDDS CRM components</title>
+        <title>Create Next App with sdds-scan components</title>
         <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
         <link
             rel="stylesheet"
@@ -25,7 +25,7 @@ export default function Home() {
       <div>
         <main>
             <div>
-                <H2> Salute </H2>
+                <H2> SDDS SCAN </H2>
                 <Button text="Hello" />
             </div>
         </main>

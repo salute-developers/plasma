@@ -86,9 +86,9 @@ export const BulletSlot = styled.div`
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-
-    .${classes.hasIndicator} & {
-    }
+    position: relative;
+    z-index: 1;
+    overflow: visible;
 `;
 
 export const BulletIndicator = styled.button`
@@ -341,16 +341,36 @@ export const base = css`
         flex-direction: row;
         align-items: stretch;
 
+        ${BulletSlot} {
+            box-sizing: border-box;
+        }
+
         &.${classes.hasIndicator} {
-            ${BulletIndicator}.${classes.active},
-            ${SpinnerStyled} {
-                margin-top: calc((var(${tokens.indicatorSize}) - var(${tokens.activeIndicatorSize})) / 2);
+            ${BulletSlot} {
+                height: var(${tokens.indicatorSize});
+                min-height: var(${tokens.indicatorSize});
             }
 
-            
+            &.${classes.active} ${StepItemDivider} {
+                margin-top: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+            }
+
+            &.${classes.firstItem}.${classes.active} {
+                ${BulletSlot} {
+                    align-items: flex-start;
+                }
+
+                ${StepItemDivider} {
+                    margin-top: calc(var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize}));
+                }
+
+                ${StepItemTitle} {
+                    padding-top: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.titleLineHeight})) / 2);
+                }
+            }
+
             & ${StepItemDivider}.${classes.nextActive} {
-                flex: unset;
-                height: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2 - var(${tokens.indicatorSize}));
+                clip-path: inset(0 0 calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2) 0);
             }
 
             & ${StepItemTitle} {
@@ -359,15 +379,31 @@ export const base = css`
         }
 
         &:not(.${classes.hasIndicator}) {
-            ${Bullet}.${classes.active},
-            ${SpinnerStyled} {
-                margin-top: calc((var(${tokens.bulletSize}) - var(${tokens.activeBulletSize})) / 2);
+            ${BulletSlot} {
+                height: var(${tokens.bulletSize});
+                min-height: var(${tokens.bulletSize});
             }
 
-            
+            &.${classes.active} ${StepItemDivider} {
+                margin-top: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
+            }
+
+            &.${classes.firstItem}.${classes.active} {
+                ${BulletSlot} {
+                    align-items: flex-start;
+                }
+
+                ${StepItemDivider} {
+                    margin-top: calc(var(${tokens.activeBulletSize}) - var(${tokens.bulletSize}));
+                }
+
+                ${StepItemTitle} {
+                    margin-top: calc((var(${tokens.activeBulletSize}) - var(${tokens.titleLineHeight})) / 2);
+                }
+            }
+
             & ${StepItemDivider}.${classes.nextActive} {
-                flex: unset;
-                height: calc(100% - (var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2 - var(${tokens.bulletSize}));
+                clip-path: inset(0 0 calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2) 0);
             }
 
             & ${StepItemTitle} {
@@ -400,16 +436,33 @@ export const base = css`
     }
 
     &:not(.${classes.simple}):not(.${classes.verticalOrientation}) {
-        &:not(.${classes.centered}).isNextActive {
-            ${BulletIndicatorWrapper} {
-                width: calc(100% - (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
-            }
+        &.${classes.hasIndicator}:not(.${classes.centered}) ${StepItemDivider}.${classes.nextActive} {
+            clip-path: inset(0 calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2) 0 0);
         }
 
-        &.${classes.active} {
+        &:not(.${classes.hasIndicator}):not(.${classes.centered}) ${StepItemDivider}.${classes.nextActive} {
+            clip-path: inset(0 calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2) 0 0);
+        }
+
+        &.${classes.hasIndicator}.${classes.active} {
             ${BulletIndicatorWrapper} {
                 margin-left: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / -2);
                 width: calc(100% + (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+            }
+        }
+
+        &:not(.${classes.hasIndicator}).${classes.active} {
+            ${BulletIndicatorWrapper} {
+                margin-left: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / -2);
+                width: calc(100% + (var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
+            }
+        }
+
+        &.${classes.hasIndicator}.${classes.active}.${classes.firstItem},
+        &:not(.${classes.hasIndicator}).${classes.active}.${classes.firstItem} {
+            ${BulletIndicatorWrapper} {
+                margin-left: 0;
+                width: 100%;
             }
         }
     }
@@ -436,7 +489,7 @@ export const base = css`
                 );
 
                 border: var(${tokens.bulletBorderThickness}, var(${tokens.dividerThickness})) solid
-                        var(${tokens.completedBulletBorderHover}, var(${tokens.completedIndicatorBorderHover}, transparent));            
+                    var(${tokens.completedBulletBorderHover}, var(${tokens.completedIndicatorBorderHover}, transparent));
             }
         }
 
@@ -445,18 +498,21 @@ export const base = css`
                 color: var(${tokens.inactiveTitleColorHover});
             }
 
-            > ${BulletIndicatorWrapper} ${BulletIndicator} {            
+            > ${BulletIndicatorWrapper} ${BulletIndicator} {
                 color: var(${tokens.inactiveIndicatorColorHover});
                 background: var(${tokens.inactiveIndicatorBackgroundHover});
                 border: none;
             }
 
-            > ${BulletIndicatorWrapper} ${Bullet} {   
+            > ${BulletIndicatorWrapper} ${Bullet} {
                 color: var(${tokens.inactiveIndicatorColorHover});
-                background: var(${tokens.inactiveBulletBackgroundHover}, var(${tokens.inactiveIndicatorBackgroundHover}));
+                background: var(
+                    ${tokens.inactiveBulletBackgroundHover},
+                    var(${tokens.inactiveIndicatorBackgroundHover})
+                );
 
                 border: var(${tokens.bulletBorderThickness}, var(${tokens.dividerThickness})) solid
-                        var(${tokens.inactiveBulletBorder}, transparent);
+                    var(${tokens.inactiveBulletBorder}, transparent);
             }
         }
 

@@ -1,0 +1,6 @@
+.default {
+    --plasma-popover-background-color: var(--surface-solid-tertiary);
+    --plasma-popover-box-shadow: none;
+    --plasma-popover-drop-shadow: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.16))
+        drop-shadow(0 1px 4px rgba(0, 0, 0, 0.08));
+}

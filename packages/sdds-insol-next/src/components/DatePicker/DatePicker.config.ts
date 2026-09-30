@@ -151,8 +151,8 @@ export const config = {
                 ${tokens.calendarHoveredItemColor}: ${textPrimary};
                 ${tokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
                 ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
-                ${tokens.calendarContentPrimaryColor}: ${surfaceSolidDefault};
-                ${tokens.calendarContentPrimaryDisabledColor}: ${surfaceSolidDefault};
+                ${tokens.calendarContentPrimaryColor}: ${textPrimary};
+                ${tokens.calendarContentPrimaryDisabledColor}: ${textPrimary};
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
                 ${tokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${tokens.calendarContentSecondaryDisabledColor}: ${textSecondary};

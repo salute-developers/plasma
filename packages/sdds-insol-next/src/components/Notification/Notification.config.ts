@@ -89,7 +89,7 @@ export const config = {
             xs: css`
                 ${notificationTokens.borderRadius}: 0.75rem;
 
-                ${notificationTokens.contentPaddingTopWithoutIcon}: 0.25rem;
+                ${notificationTokens.contentPaddingTopWithoutIcon}: 0.3125rem;
                 ${notificationTokens.horizontalLayoutRightPaddingWithoutCloseIcon}: 1rem;
 
                 ${notificationTokens.textboxPaddingTop}: 0.1875rem;
@@ -139,7 +139,7 @@ export const config = {
             xxs: css`
                 ${notificationTokens.borderRadius}: 0.75rem;
 
-                ${notificationTokens.contentPaddingTopWithoutIcon}: 0.25rem;
+                ${notificationTokens.contentPaddingTopWithoutIcon}: 0.125rem;
                 ${notificationTokens.horizontalLayoutRightPaddingWithoutCloseIcon}: 1rem;
 
                 ${notificationTokens.textboxPaddingTop}: 0.1875rem;
@@ -173,13 +173,13 @@ export const config = {
                 ${notificationTokens.horizontalLayoutLeftIconMargin}: 0.75rem;
                 ${notificationTokens.paddingOneLineTextbox}: 0.8125rem 0.5rem 0.8125rem 0.875rem;
 
-                ${notificationTokens.closeIconTop}: 0.8125rem;
+                ${notificationTokens.closeIconTop}: 0.6875rem;
                 ${notificationTokens.closeIconRight}: 1rem;
 
                 ${notificationTokens.padding}: 0.5625rem 1rem 1rem 1rem;
                 ${notificationTokens.textboxPaddingTopWithTopIcon}: 0.1875rem;
 
-                ${notificationTokens.contentPaddingTop}: 0.25rem;
+                ${notificationTokens.contentPaddingTop}: 0.125rem;
                 ${notificationTokens.contentPaddingRight}: 0rem;
                 ${notificationTokens.contentPaddingBottom}: 0rem;
                 ${notificationTokens.contentPaddingLeft}: 0rem;

@@ -1,0 +1,30 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ThemeTurnOnCss from './theme-turn-on-css.mdx';
+import ThemeTurnOnCssModule from './theme-turn-on-css-module.mdx';
+import ThemeTurnOnSC from './theme-turn-on-sc.mdx';
+
+## Подключение темы
+
+Тема включает в себя цветовые и типографические токены и подключается один раз в корне приложения.
+
+:::info
+Точкой входа является корень приложения:
+
+-   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
+-   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+:::
+
+Доступны светлая и тёмная темы — `sdds_insol__light` и `sdds_insol__dark`.
+
+<Tabs>
+    <TabItem value="css" label="css" default>
+        <ThemeTurnOnCss />
+    </TabItem>
+    <TabItem value="css-module" label="css-module">
+        <ThemeTurnOnCssModule />
+    </TabItem>
+    <TabItem value="sc" label="styled-components">
+        <ThemeTurnOnSC />
+    </TabItem>
+</Tabs>

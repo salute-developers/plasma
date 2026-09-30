@@ -24,8 +24,8 @@ export const config = {
                 ${calendarDoubleTokens.calendarHoveredItemColor}: var(--text-primary);
                 ${calendarDoubleTokens.calendarRangeBackground}: var(--surface-solid-secondary);
                 ${calendarDoubleTokens.calendarOutlineFocusColor}: var(--surface-accent);
-                ${calendarDoubleTokens.calendarContentPrimaryColor}: var(--surface-solid-default);
-                ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: var(--surface-solid-default);
+                ${calendarDoubleTokens.calendarContentPrimaryColor}: var(--text-primary);
+                ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: var(--text-primary);
                 ${calendarDoubleTokens.calendarHeaderArrowColor}: ${calendarDoubleTokens.calendarContentPrimaryColor};
                 ${calendarDoubleTokens.calendarContentSecondaryColor}: var(--text-secondary);
                 ${calendarDoubleTokens.calendarContentSecondaryDisabledColor}: var(--text-secondary);

@@ -1,5 +1,4 @@
-import { buttonConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
-import { makePolymorphic } from '@salutejs/plasma-new-hope';
+import { buttonConfig, component, mergeConfig, makePolymorphic } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './Button.config';
 

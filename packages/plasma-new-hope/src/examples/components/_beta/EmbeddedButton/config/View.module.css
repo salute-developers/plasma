@@ -1,0 +1,69 @@
+.default {
+    --plasma-embedded-button-color: var(--text-primary);
+    --plasma-embedded-button-color-hover: var(--text-primary-hover);
+    --plasma-embedded-button-color-active: var(--text-primary-active);
+    --plasma-embedded-button-background-color: transparent;
+    --plasma-embedded-button-spinner-color: var(--text-primary);
+    --plasma-embedded-button-focus-color: var(--surface-accent);
+    --plasma-embedded-button-loading-icon-opacity: 0.06;
+}
+
+.secondary {
+    --plasma-embedded-button-color: var(--text-secondary);
+    --plasma-embedded-button-color-hover: var(--text-secondary-hover);
+    --plasma-embedded-button-color-active: var(--text-secondary-active);
+    --plasma-embedded-button-background-color: transparent;
+    --plasma-embedded-button-spinner-color: var(--text-secondary);
+    --plasma-embedded-button-focus-color: var(--surface-accent);
+    --plasma-embedded-button-loading-icon-opacity: 0.06;
+}
+
+.accent {
+    --plasma-embedded-button-color: var(--text-accent);
+    --plasma-embedded-button-color-hover: var(--text-accent-hover);
+    --plasma-embedded-button-color-active: var(--text-accent-active);
+    --plasma-embedded-button-background-color: transparent;
+    --plasma-embedded-button-spinner-color: var(--text-accent);
+    --plasma-embedded-button-focus-color: var(--surface-accent);
+    --plasma-embedded-button-loading-icon-opacity: 0.06;
+}
+
+.positive {
+    --plasma-embedded-button-color: var(--text-positive);
+    --plasma-embedded-button-color-hover: var(--text-positive-hover);
+    --plasma-embedded-button-color-active: var(--text-positive-active);
+    --plasma-embedded-button-background-color: transparent;
+    --plasma-embedded-button-spinner-color: var(--text-positive);
+    --plasma-embedded-button-focus-color: var(--surface-accent);
+    --plasma-embedded-button-loading-icon-opacity: 0.06;
+}
+
+.warning {
+    --plasma-embedded-button-color: var(--text-warning);
+    --plasma-embedded-button-color-hover: var(--text-warning-hover);
+    --plasma-embedded-button-color-active: var(--text-warning-active);
+    --plasma-embedded-button-background-color: transparent;
+    --plasma-embedded-button-spinner-color: var(--text-warning);
+    --plasma-embedded-button-focus-color: var(--surface-accent);
+    --plasma-embedded-button-loading-icon-opacity: 0.06;
+}
+
+.negative {
+    --plasma-embedded-button-color: var(--text-negative);
+    --plasma-embedded-button-color-hover: var(--text-negative-hover);
+    --plasma-embedded-button-color-active: var(--text-negative-active);
+    --plasma-embedded-button-background-color: transparent;
+    --plasma-embedded-button-spinner-color: var(--text-negative);
+    --plasma-embedded-button-focus-color: var(--surface-accent);
+    --plasma-embedded-button-loading-icon-opacity: 0.06;
+}
+
+.info {
+    --plasma-embedded-button-color: var(--text-info);
+    --plasma-embedded-button-color-hover: var(--text-info-hover);
+    --plasma-embedded-button-color-active: var(--text-info-active);
+    --plasma-embedded-button-background-color: transparent;
+    --plasma-embedded-button-spinner-color: var(--text-info);
+    --plasma-embedded-button-focus-color: var(--surface-accent);
+    --plasma-embedded-button-loading-icon-opacity: 0.06;
+}

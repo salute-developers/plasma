@@ -99,7 +99,3 @@ export * from './components/_ai/Answer';
 export * from './components/_ai/Container';
 export * from './components/_ai/Header';
 export * from './components/_ai/UserMessage';
-
-export * from './components/_beta/Popover';
-export * from './components/_beta/Tooltip';
-export * from './components/_beta/EmbeddedButton';

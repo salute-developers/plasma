@@ -4,9 +4,7 @@ import { useFloating, offset, flip, shift, autoUpdate, arrow, FloatingArrow, Pla
 import { RootProps } from 'src/engines';
 import { canUseDOM, safeUseId } from 'src/utils';
 
-import { ARROW_HEIGHT, ARROW_PADDING, ARROW_POLYGON, ARROW_WIDTH } from '../_beta/Popover/Popover';
-
-import { getHTMLElement } from './utils';
+import { ARROW_HEIGHT, ARROW_PADDING, ARROW_POLYGON, ARROW_WIDTH, getHTMLElement } from './utils';
 import type { TourProps, RootTourProps } from './Tour.types';
 import { MaskContainer, Mask, Highlight, TourPortal } from './Tour.styles';
 import { base as viewCSS } from './variatoins/_view/base';

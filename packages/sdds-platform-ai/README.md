@@ -1,256 +1,169 @@
-# SDDS-PLATFORM-AI
+# Библиотека компонентов для вертикали SDDS PLATFORM AI
 
-Набор компонентов и утилит для создания web-приложений на базе [ReactJS](https://reactjs.org/).
+[![license](https://img.shields.io/github/license/salute-developers/plasma)](https://github.com/salute-developers/plasma/blob/master/LICENSE.txt)
+[![npm version](https://img.shields.io/npm/v/@salutejs/sdds-platform-ai.svg)](https://www.npmjs.com/package/@salutejs/sdds-platform-ai)
+[![typescript](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/dev/typescript)](https://www.typescriptlang.org/)
+[![sdds-themes](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/@salutejs/sdds-themes?filename=packages%2Fsdds-platform-ai%2Fpackage.json)](https://www.npmjs.com/package/@salutejs/sdds-themes)
 
-## Использование
+Реализация компонентов для создания веб-приложений.
 
-Библиотека реализована с помощью:
+Компоненты реализованы с помощью [React](https://react.dev/) и поставляются в двух вариантах:
 
--   [typescript](https://www.typescriptlang.org/)
--   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+-   на предсобранном CSS,
+-   на [styled-components](https://styled-components.com/).
 
-Однако их использование **необязательно**!
+## Ссылки
 
-### Установка зависимостей
+-   [Документация](https://plasma.sberdevices.ru/sdds-platform-ai/) — гайды, список компонентов с примерами и API
+-   [Подключение в Next.js](https://plasma.sberdevices.ru/sdds-platform-ai/next/)
+-   [Changelog](https://plasma.sberdevices.ru/changelog/?vertical=SDDSPlatformAI&platform=React&version=0.368.0)
+-   [Задать вопрос или сообщить о проблеме](https://github.com/salute-developers/plasma/issues)
+
+## Установка
+
+Требуются `react` и `react-dom` версии `16.13.1` или выше:
 
 ```bash
+$ npm install --save react react-dom
 $ npm install --save @salutejs/sdds-platform-ai @salutejs/sdds-themes
 ```
 
-Для работы со `styled-components`, необходимо установить
+Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
+
+Для варианта на styled-components:
 
 ```bash
 $ npm install --save styled-components@5.3.1
 ```
 
-### Использование компонентов
+CSS-вариант дополнительных зависимостей не требует.
 
-Все компоненты доступны напрямую из пакета
+## Варианты поставки
+
+> **Примечание:** CSS-вариант является поставкой по умолчанию.
+
+Один и тот же набор компонентов доступен из двух точек входа:
+
+| Точка входа                                     | Реализация        | Дополнительные зависимости |
+| ------------------------------------------------ | ----------------- | --------------------------- |
+| `@salutejs/sdds-platform-ai`                     | предсобранный CSS | нет                          |
+| `@salutejs/sdds-platform-ai/styled-components`   | styled-components | `styled-components@5.3.1`    |
 
 ```jsx
-import styled from 'styled-components';
 import { Button } from '@salutejs/sdds-platform-ai';
-import { textAccent } from '@salutejs/sdds-themes/tokens';
-
-export const App = () => {
-    const StyledP = styled.p`
-        color: ${textAccent};
-    `;
-
-    return (
-        <>
-            <Button>Hello, Platform-AI!</Button>
-            <StyledP>Token usage example</StyledP>
-        </>
-    );
-};
-```
-
-Так же библиотека поставляет компоненты собранные с помощью `styled-components`
-
-```js
+// или
 import { Button } from '@salutejs/sdds-platform-ai/styled-components';
 ```
 
 ## Подключение шрифтов
 
-Типографическая система основана на фирменных шрифтах.
+Типографическая система основана на фирменных шрифтах, они поставляются с CDN.
 
-Для того чтобы шрифт было удобно поставлять в web-приложения, шрифт был загружен на **CDN**
-
-Для использования типографической системы необходимо загрузить два `css` файла в зависимости от используемых шрифтов в теме.
-
-### Create react app
-
-Добавить внутрь тега `head`.
+Добавьте два css-файла внутрь тега `<head>`.
 
 ```html
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-        />
-        <title>Wep App</title>
-    </head>
-    <body>
-        ...
-    </body>
-</html>
-```
-
-### NextJs
-
-```tsx
-import Head from 'next/head';
-
-import { H2, Button } from '@salutejs/sdds-platform-ai';
-
-export default function Home() {
-    return (
-        <>
-            <Head>
-                <title>Create Next App with sdds-platform-ai components</title>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
-                />
-                <link
-                    rel="stylesheet"
-                    href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css"
-                />
-            </Head>
-            <div>
-                <main>
-                    <div>
-                        <H2> Salute </H2>
-                        <Button text="Hello" />
-                    </div>
-                </main>
-            </div>
-        </>
-    );
-}
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css" />
+<link rel="stylesheet" href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansDisplay.0.2.0.css" />
 ```
 
 ## Подключение темы
 
-Точкой входа является корень приложения:
+Тема подключается один раз в корне приложения.
 
--   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
--   Если вы используете [Next.js](https://nextjs.org/), создайте файл `pages/_app.tsx` и подключите стили в нем.
+> **Примечание:** Для [Next.js](https://nextjs.org/) — в `pages/_app.tsx`.
 
-### CSS
+Тема включает в себя цветовые и типографические токены.
 
-Возможные дополнительные настройки bundle tools для проекта:
+Доступны светлая и тёмная темы — `sdds_platform_ai__light` и `sdds_platform_ai__dark`.
 
-<ul>
-    <li>
-        <a href="https://webpack.js.org/loaders/css-loader/">webpack + css</a>
-    </li>
-    <li>
-        <a href="https://vite.dev/guide/features.html#css-pre-processors">vite</a>
-    </li>
-</ul>
-
-В файле, где происходит подключение всех стилей, например `index.css`
-
-```css
-@import '@salutejs/sdss-themes/css/sdds_platform_ai__light.css';
-```
+### Через импорт css-файла
 
 ```jsx
-import React from 'react';
-import { Button, BodyL } from '@salutejs/sdds-platform-ai';
-
-import 'index.css';
-
-const App = () => {
-    return (
-        <>
-            <BodyL>Hello world</BodyL>
-            <Button text="This is themed button" />
-        </>
-    );
-};
-
-export default App;
+import '@salutejs/sdds-themes/css/sdds_platform_ai__light.css';
 ```
 
-### Styled-components
+### Через styled-components
 
 ```jsx
-import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import { Button, BodyL } from '@salutejs/sdds-platform-ai/styled-components';
 import { sdds_platform_ai__light } from '@salutejs/sdds-themes';
 
 const Theme = createGlobalStyle(sdds_platform_ai__light);
 
-const App = () => {
+// вызовите <Theme /> в корне приложения
+```
+
+Переключение темы в рантайме и подключение через css-модули описаны в [документации](https://plasma.sberdevices.ru/sdds-platform-ai/).
+
+## Использование компонентов
+
+```jsx
+// App.tsx
+import { Button, BodyL } from '@salutejs/sdds-platform-ai';
+import '@salutejs/sdds-themes/css/sdds_platform_ai__light.css';
+
+export const App = () => {
     return (
         <>
-            <Theme />
-            <BodyL>Hello Platform-AI</BodyL>
-            <Button text="This is themed button" />
+            <BodyL>Hello, SDDS PLATFORM AI!</BodyL>
+            <Button>Кнопка</Button>
         </>
     );
 };
-
-export default App;
 ```
 
-## Токены
+Дизайн-токены доступны в виде js-переменных:
 
-Все `css` токены завернуты в `js` переменные для более удобного доступа:
-
-```js
-/** Основной цвет текста */
-export const textPrimary = 'var(--text-primary, #F5F5F5)';
-/** Основной фон */
-export const backgroundPrimary = 'var(--background-primary, #000000)';
-```
-
-### Способы подключения
-
-Есть два пути импорта токенов:
-
--   Из вертикали `@salutejs/sdds-themes/tokens` (подходит в большинстве случаев, т.к там лежит весь базовый набор токенов)
--   Непосредственно из темы `@salutejs/sdds-themes/tokens/sdds-platform-ai` (следует использовать, когда необходимо импортировать уникальные токены, которые используются только в этой теме)
-
-### Использование
+-   базовый набор — из `@salutejs/sdds-themes/tokens`
+-   уникальные токены темы — из `@salutejs/sdds-themes/tokens/sdds_platform_ai`.
 
 ```jsx
-import React from 'react';
-import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+import { textAccent } from '@salutejs/sdds-themes/tokens';
 
-const AppStyled = styled.div`
-    padding: 2rem;
-    color: ${textAccent};
-    background-color: ${backgroundPrimary};
-`;
+<p style={{ color: textAccent }}>Пример использования токена</p>;
+```
 
-const Container = styled.div`
-    ${textL};
-    margin: 1rem;
-`;
+## SSR и Next.js
 
-const App = () => {
-    return (
-        <AppStyled>
-            <Container>
-                <span>Hello world</span>
-            </Container>
-        </AppStyled>
-    );
+-   Библиотека поддерживает React Server Components (App Router) **только** при **явном** использовании директивы `'use client'` в модулях, импортирующих компоненты.
+-   Для CSS-варианта поставки добавьте пакеты в `transpilePackages` в `next.config.js`:
+
+```js
+const nextConfig = {
+    transpilePackages: ['@salutejs/sdds-platform-ai', '@salutejs/plasma-new-hope', '@salutejs/plasma-icons'],
 };
-
-export default App;
 ```
 
-## Типографика
+Подробности — в [гайде по Next.js](https://plasma.sberdevices.ru/sdds-platform-ai/next/).
 
-Рекомендуем использовать типографические компоненты, которые поставляет библиотека.
+## MCP-сервер для AI-агентов
 
-```ts
-import { BodyL, DsplL, H3 } from '@salutejs/sdds-platform-ai';
+> **Примечание**: Поддерживаются версии библиотеки начиная с `0.343.0` — нужная указывается параметром `--version`.
+
+Библиотека предоставляет [MCP-сервер](https://plasma.sberdevices.ru/sdds-platform-ai/how-to-mcp/) `@salutejs/sdds-mcp` — через него LLM-агент (Claude Code, Cursor и др.) получает актуальную документацию:
+
+-   список компонентов
+-   описание props
+-   примеры использования
+-   токены и гайды.
+
+Сервер работает по `stdio`:
+
+```bash
+npx -y @salutejs/sdds-mcp@latest --lib sdds-platform-ai
 ```
 
-### Токены типографики на примере компонента `DsplL`
+Если агент настраивается через конфигурацию, используйте шаблон:
 
-Так же в пакете есть типографические токены, для случаев, когда необходимо точечно применить типографику к контейнеру.
-
-```tsx
-import { CSSObject } from 'styled-components';
-
-export const dsplL = ({
-    fontFamily: 'var(--plasma-typo-dspl-l-font-family)',
-    fontSize: 'var(--plasma-typo-dspl-l-font-size)',
-    fontStyle: 'var(--plasma-typo-dspl-l-font-style)',
-    fontWeight: 'var(--plasma-typo-dspl-l-font-weight)',
-    letterSpacing: 'var(--plasma-typo-dspl-l-letter-spacing)',
-    lineHeight: 'var(--plasma-typo-dspl-l-line-height)',
-} as unknown) as CSSObject;
+```json
+{
+    "mcpServers": {
+        "sdds-platform-ai": {
+            "command": "npx",
+            "args": ["-y", "@salutejs/sdds-mcp@latest", "--lib", "sdds-platform-ai"]
+        }
+    }
+}
 ```
+
+Подробности и список инструментов — в [гайде по MCP](https://plasma.sberdevices.ru/sdds-platform-ai/how-to-mcp/).

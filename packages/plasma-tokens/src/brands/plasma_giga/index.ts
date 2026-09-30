@@ -855,6 +855,12 @@ export const surfaceAccentMinor = 'var(--surface-accent-minor, #D8D8D8)';
 /** Прозрачный акцентный фон поверхности/контрола */
 export const surfaceTransparentAccent = 'var(--surface-transparent-accent, #FFFFFF33)';
 
+export const surfaceSolidContrastHover = 'var(--surface-solid-contrast-hover, #FFFFFFFF)';
+
+export const surfaceSolidContrastActive = 'var(--surface-solid-contrast-active, #FFFFFFFF)';
+
+export const surfaceSolidContrast = 'var(--surface-solid-contrast, #ffffff)';
+
 /** Основной непрозрачный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceSolidPrimaryHover = 'var(--on-dark-surface-solid-primary-hover, #121212FF)';
 
@@ -1098,6 +1104,12 @@ export const onDarkSurfaceAccentMinor = 'var(--on-dark-surface-accent-minor, #D8
 
 /** Прозрачный акцентный фон поверхности/контрола на темном фоне */
 export const onDarkSurfaceTransparentAccent = 'var(--on-dark-surface-transparent-accent, #FFFFFF33)';
+
+export const onDarkSurfaceSolidContrast = 'var(--on-dark-surface-solid-contrast, #ffffff)';
+
+export const onDarkSurfaceSolidContrastHover = 'var(--on-dark-surface-solid-contrast-hover, #FFFFFFFF)';
+
+export const onDarkSurfaceSolidContrastActive = 'var(--on-dark-surface-solid-contrast-active, #FFFFFFFF)';
 
 /** Основной непрозрачный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceSolidPrimaryHover = 'var(--on-light-surface-solid-primary-hover, #F7F7F7FF)';
@@ -1344,6 +1356,12 @@ export const onLightSurfaceAccentMinor = 'var(--on-light-surface-accent-minor, #
 /** Прозрачный акцентный фон поверхности/контрола на светлом фоне */
 export const onLightSurfaceTransparentAccent = 'var(--on-light-surface-transparent-accent, #1226541F)';
 
+export const onLightSurfaceSolidContrast = 'var(--on-light-surface-solid-contrast, #080808)';
+
+export const onLightSurfaceSolidContrastHover = 'var(--on-light-surface-solid-contrast-hover, #262626FF)';
+
+export const onLightSurfaceSolidContrastActive = 'var(--on-light-surface-solid-contrast-active, #030303FF)';
+
 /** Инвертированный основной непрозрачный фон поверхности/контрола */
 export const inverseSurfaceSolidPrimaryHover = 'var(--inverse-surface-solid-primary-hover, #F7F7F7FF)';
 
@@ -1588,6 +1606,12 @@ export const inverseSurfaceAccentMinor = 'var(--inverse-surface-accent-minor, #3
 
 /** Прозрачный инвертированный акцентный фон поверхности/контрола */
 export const inverseSurfaceTransparentAccent = 'var(--inverse-surface-transparent-accent, #1226541F)';
+
+export const inverseSurfaceSolidContrast = 'var(--inverse-surface-solid-contrast, #080808)';
+
+export const inverseSurfaceSolidContrastHover = 'var(--inverse-surface-solid-contrast-hover, #262626FF)';
+
+export const inverseSurfaceSolidContrastActive = 'var(--inverse-surface-solid-contrast-active, #030303FF)';
 
 /** Основной фон */
 export const backgroundPrimary = 'var(--background-primary, #171717)';
