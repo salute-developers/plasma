@@ -132,6 +132,16 @@ module.exports = {
                 ],
             },
         },
+        {
+            files: [
+                'packages/plasma-new-hope/src/components/**/*.tokens.ts',
+                'packages/plasma-new-hope/src/components/**/tokens.ts',
+            ],
+            plugins: ['@salutejs/plasma'],
+            rules: {
+                '@salutejs/plasma/style-api-annotations': 'error',
+            },
+        },
     ],
     settings: {
         react: {
