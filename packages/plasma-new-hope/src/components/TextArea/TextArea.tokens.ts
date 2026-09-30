@@ -281,6 +281,7 @@ export const tokens = {
     titleCaptionColorReadOnly: '--plasma-textarea__title-caption-color-readonly',
     /** @styleType dimension */
     titleCaptionInnerLabelOffset: '--plasma-textarea__title-caption-label-inner-offset',
+    titleCaptionMargin: '--plasma-textarea__title-caption-margin',
 
     /** @styleType typography @styleProp titleCaptionStyle @stylePart fontFamily */
     titleCaptionFontFamily: '--plasma-textarea__title-caption-font-family',

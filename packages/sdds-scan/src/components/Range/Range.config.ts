@@ -141,6 +141,7 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.313rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionMargin}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -217,6 +218,7 @@ export const config = {
                 ${tokens.hintPlacementInnerMargin}: 0 0.063rem 0 -0.438rem;
 
                 ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionMargin}: 0.188rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};

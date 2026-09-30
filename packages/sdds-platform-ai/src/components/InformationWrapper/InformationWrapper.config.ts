@@ -76,6 +76,7 @@ export const config = {
                 ${tokens.hintWithoutLabelPlacementOffset}: 0.438rem -2.813rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionMargin}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
