@@ -156,6 +156,8 @@ padding: '--sdds-core-component-name-padding' // MyComponent.config.ts (верт
 `${tokens.padding}: 0.75rem;`;
 ```
 
+Над каждым токеном словаря `tokens` пишется аннотация Style API (`/** @styleType color */`), из которой генерируется описание стилей компонента. Подробнее — в разделе [Аннотации Style API](#аннотации-style-api).
+
 ---
 
 ### 2. Определите типы
@@ -579,6 +581,50 @@ export const privateTokens = {
 -   Не переопределяются в вертикалях
 -   Используются для динамических значений, вычисляемых в runtime
 
+### Аннотации Style API
+
+По токенам строится машиночитаемое описание стилей компонентов (`api-meta.json`): какой тип у каждого токена, к какому свойству общего конфига он относится, в каком состоянии применяется и не устарел ли. Источник этого описания — JSDoc-аннотации над токенами в `*.tokens.ts`.
+
+```typescript
+export const tokens = {
+    /** @styleType color */
+    color: '--sdds-core-component-color',
+    /** @styleType color @styleProp color @styleState hovered */
+    colorHover: '--sdds-core-component-color-hover',
+    /** @styleType dimension */
+    padding: '--sdds-core-component-padding',
+
+    /** @styleType typography @styleProp titleStyle @stylePart fontFamily */
+    titleFontFamily: '--sdds-core-component-title-font-family',
+    /** @styleType typography @styleProp titleStyle @stylePart fontSize */
+    titleFontSize: '--sdds-core-component-title-font-size',
+
+    /** @styleType color @deprecated {@link color} */
+    textColor: '--sdds-core-component-text-color',
+};
+```
+
+| Тег                             | Когда нужен                                                                                                                                                                                                                                                        |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `@styleType <тип>`              | Всегда. Один из типов: `value`, `boolean`, `integer`, `float`, `dimension`, `color`, `typography`, `shape`, `shadow`, `icon`, `component_style`.                                                                                                                   |
+| `@styleProp <id>`               | Если имя свойства отличается от ключа токена: у токенов состояний и у частей типографики. Без тега свойство называется так же, как токен.                                                                                                                          |
+| `@stylePart <часть>`            | Только для `typography` (`fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `letterSpacing`, `lineHeight`) и `component_style`.                                                                                                                                  |
+| `@styleState <состояние>`       | Для токена состояния (`hovered`, `pressed`, …). У свойства должен быть базовый токен без состояния.                                                                                                                                                                |
+| `@styleComponent <A> [<B> ...]` | Если словарь обслуживает несколько компонентов (например, `Tabs/tokens.ts` — Tabs, TabItem и IconTabItem): компоненты, к которым относится токен, через пробел. Без тега токен относится к компоненту файла: `Button.tokens.ts` → Button, `Tabs/tokens.ts` → Tabs. |
+| `@deprecated {@link <токен>}`   | Токен устарел, замена — указанный токен. Редактор зачёркивает использования такого токена.                                                                                                                                                                         |
+
+Правила:
+
+-   Аннотация пишется одной строкой над токеном.
+-   Если в словаре размечен хотя бы один токен, размечены должны быть все. Словари без единой аннотации пока пропускаются.
+-   Состояния одного свойства (`colorHover`, `colorActive`) ссылаются на базовый токен через `@styleProp` и задают `@styleState`.
+-   Шесть токенов типографики одного текстового элемента объединяются в одно свойство через общий `@styleProp`.
+-   Одно свойство может задаваться несколькими токенами (например, отступы слева и справа через один `@styleProp`).
+-   Аннотации читаются из `<Имя>.tokens.ts` и из `tokens.ts` в папке компонента.
+-   `privateTokens` не аннотируются.
+
+При сборке ядра аннотации вырезаются из JS (`dist`, скрипт `scripts/stripAnnotations.mjs`) и остаются в `.d.ts`. Аннотации проверяет правило ESLint `@salutejs/plasma/style-api-annotations` (`utils/eslint-plugin-plasma`): ошибки подсвечиваются в редакторе и роняют `npm run lint` с файлом, строкой и токеном. Правило также следит, чтобы каждый компонент был объявлен только в одном файле токенов. По опубликованным `.d.ts` внешний инструмент генерирует описание стилей `api-meta.json`.
+
 ---
 
 ## Variations (вариации)
@@ -923,6 +969,7 @@ export const myComponentConfig = {
 -   [ ] Созданы все файлы компонента
 -   [ ] Токены именованы по конвенции `--sdds-core-{component}-{element}-{property}`
 -   [ ] Приватные токены начинаются с `--sdds-core_private-`
+-   [ ] Над каждым токеном в `tokens` есть аннотация Style API (`@styleType` и при необходимости `@styleProp`, `@stylePart`, `@styleState`)
 -   [ ] Типы описаны с JSDoc-комментариями
 -   [ ] Базовые стили используют токены
 -   [ ] Вложенные элементы стилизуются через styled-компоненты
@@ -990,6 +1037,9 @@ npm run storybook
 
 # Генерация типов
 npm run generate:typings
+
+# Линтинг, включая проверку аннотаций Style API
+npm run lint
 ```
 
 ---
@@ -1033,6 +1083,18 @@ Engine выбирает CSS-класс по значению пропса. Ес�
 -   Токен из `tokens.ts` не экспортирован через `index.ts`
 -   Тип пропсов не экспортирован или экспортирован неправильно (не через `export type`)
 -   В вертикали импортируется из `@salutejs/plasma-new-hope` вместо `@salutejs/plasma-new-hope/styled-components`
+
+### Линтер падает на `@salutejs/plasma/style-api-annotations`
+
+В аннотациях токенов ошибки; у каждой ошибки указаны файл, строка и токен. Частые причины:
+
+-   В размеченный словарь добавлен токен без `@styleType`
+-   У токена состояния нет базового токена с тем же `@styleProp`
+-   У `typography` не указан `@stylePart` или часть названа неверно
+-   `@deprecated {@link ...}` ссылается на несуществующий токен
+-   Компонент объявлен в нескольких файлах токенов (например, через `@styleComponent`)
+
+Правила разметки — в разделе [Аннотации Style API](#аннотации-style-api).
 
 ### Где найти доступные CSS-переменные темы?
 

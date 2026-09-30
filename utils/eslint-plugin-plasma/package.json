@@ -1,0 +1,17 @@
+{
+  "name": "@salutejs/eslint-plugin-plasma",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Локальные правила ESLint для репозитория plasma.",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "@typescript-eslint/parser": ">= 5.48.2",
+    "eslint": ">= 8.32.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": ">= 5.48.2",
+    "eslint": ">= 8.32.0"
+  }
+}
