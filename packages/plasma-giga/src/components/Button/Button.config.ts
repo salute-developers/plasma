@@ -292,7 +292,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${buttonTokens.buttonFocusColor}: ${surfaceAccent};
+                ${buttonTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
         stretching: {

@@ -63,7 +63,7 @@ export const config = {
 
                 ${paginationTokens.paginationColor}: ${textPrimary};
                 ${paginationTokens.paginationHelperTextColor}: ${textSecondary};
-                ${paginationTokens.buttonFocusColor}: ${surfaceAccent};
+                ${paginationTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
             secondary: css`
                 ${paginationTokens.buttonColor}: ${textPrimary};
@@ -86,7 +86,7 @@ export const config = {
 
                 ${paginationTokens.paginationColor}: ${textPrimary};
                 ${paginationTokens.paginationHelperTextColor}: ${textSecondary};
-                ${paginationTokens.buttonFocusColor}: ${surfaceAccent};
+                ${paginationTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
             clear: css`
                 ${paginationTokens.buttonColor}: ${textPrimary};
@@ -109,7 +109,7 @@ export const config = {
 
                 ${paginationTokens.paginationColor}: ${textPrimary};
                 ${paginationTokens.paginationHelperTextColor}: ${textSecondary};
-                ${paginationTokens.buttonFocusColor}: ${surfaceAccent};
+                ${paginationTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
         viewCurrentPage: {

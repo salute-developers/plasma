@@ -19,7 +19,7 @@ export const config = {
                 ${tabsTokens.arrowColorHover}: ${textSecondaryHover};
                 ${tabsTokens.arrowColorActive}: ${textSecondaryActive};
                 ${tabsTokens.tabsBackgroundColor}: transparent;
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tabsTokens.tabsDividerWidth}: 0.0625rem;
                 ${tabsTokens.tabsDividerHeight}: 0.0625rem;

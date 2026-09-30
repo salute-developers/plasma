@@ -37,7 +37,7 @@ export const config = {
                 ${tokens.closeButtonBackgroundColor}: ${surfaceSolidDefault};
                 ${tokens.closeButtonColorHover}: ${inverseTextPrimaryHover};
                 ${tokens.closeButtonColorActive}: ${inverseTextPrimaryActive};
-                ${tokens.closeButtonFocusColor}: ${surfaceAccent};
+                ${tokens.closeButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
         size: {

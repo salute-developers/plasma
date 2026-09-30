@@ -68,7 +68,7 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
@@ -120,7 +120,7 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textPositive};
                 ${tokens.textFieldContentSlotColorHover}: ${textPositiveHover};
@@ -172,7 +172,7 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
@@ -224,7 +224,7 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};

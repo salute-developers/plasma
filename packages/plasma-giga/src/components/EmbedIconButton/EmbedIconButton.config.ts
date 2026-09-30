@@ -143,7 +143,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${embedIconButtonTokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                ${embedIconButtonTokens.embedIconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
     },

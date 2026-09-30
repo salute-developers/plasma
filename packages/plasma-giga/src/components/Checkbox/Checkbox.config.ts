@@ -177,7 +177,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${checkboxTokens.focusColor}: ${textAccent};
+                ${checkboxTokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
             `,
         },
     },

@@ -119,7 +119,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${switchTokens.trackFocusColor}: ${surfaceAccent};
+                ${switchTokens.trackFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
     },

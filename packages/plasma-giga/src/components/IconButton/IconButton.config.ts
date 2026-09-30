@@ -204,7 +204,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${iconButtonTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${iconButtonTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
     },

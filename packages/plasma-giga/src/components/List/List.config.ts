@@ -23,7 +23,7 @@ export const config = {
                 ${listTokens.listItemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${listTokens.listItemBorderColor}: transparent;
                 ${listTokens.listItemBorderColorHover}: transparent;
-                ${listTokens.listItemFocusColor}: ${surfaceAccent};
+                ${listTokens.listItemFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${listTokens.listDisabledOpacity}: 0.4;
             `,
         },

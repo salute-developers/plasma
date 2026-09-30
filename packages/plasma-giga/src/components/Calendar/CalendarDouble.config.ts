@@ -49,7 +49,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarHoveredItemBackground}: ${surfaceAccent};
                 ${calendarDoubleTokens.calendarHoveredItemColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
-                ${calendarDoubleTokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${calendarDoubleTokens.calendarOutlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${calendarDoubleTokens.calendarContentPrimaryColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarContentPrimaryDisabledColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarHeaderArrowColor}: ${calendarDoubleTokens.calendarContentPrimaryColor};
@@ -63,7 +63,7 @@ export const config = {
                 ${calendarDoubleTokens.iconButtonBackgroundColorHover}: ${surfaceClear};
                 ${calendarDoubleTokens.iconButtonColorActive}: ${textPrimaryHover};
                 ${calendarDoubleTokens.iconButtonBackgroundColorActive}: ${surfaceClear};
-                ${calendarDoubleTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${calendarDoubleTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${calendarDoubleTokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
                 ${calendarDoubleTokens.tooltipBoxShadow}: ${shadowDownHardS};

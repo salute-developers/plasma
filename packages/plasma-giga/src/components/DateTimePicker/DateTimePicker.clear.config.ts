@@ -48,7 +48,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.outlineFocusColor}: ${surfaceAccent};
+                ${tokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
@@ -119,7 +119,7 @@ export const config = {
                 ${tokens.calendarHoveredItemBackground}: ${surfaceAccent};
                 ${tokens.calendarHoveredItemColor}: ${textPrimary};
                 ${tokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
-                ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${tokens.calendarOutlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${tokens.calendarContentPrimaryColor}: ${textPrimary};
                 ${tokens.calendarContentPrimaryDisabledColor}: ${textPrimary};
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
@@ -134,7 +134,7 @@ export const config = {
                 ${tokens.iconButtonBackgroundColorHover}: ${surfaceClear};
                 ${tokens.iconButtonColorActive}: ${textPrimaryHover};
                 ${tokens.iconButtonBackgroundColorActive}: ${surfaceClear};
-                ${tokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
                 ${tokens.tooltipBoxShadow}: ${shadowDownHardS};
