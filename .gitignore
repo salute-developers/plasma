@@ -1,4 +1,5 @@
 node_modules/
+packages/components-style-dsl/dist/
 .idea/
 .nx/
 tsconfig.tsbuildinfo

@@ -1,0 +1,153 @@
+[
+  {
+    "componentName": "Button",
+    "source": {
+      "packageName": "@salutejs/plasma-new-hope/styled-components"
+    },
+    "params": [
+      {
+        "paramName": "buttonAdditionalContentMargin"
+      },
+      {
+        "paramName": "buttonAdditionalContentMarginRightWidthValue"
+      },
+      {
+        "paramName": "buttonBackgroundColor",
+        "type": "color",
+        "id": "backgroundColor"
+      },
+      {
+        "paramName": "buttonBackgroundColorActive",
+        "type": "color",
+        "id": "backgroundColor",
+        "state": "pressed"
+      },
+      {
+        "paramName": "buttonBackgroundColorHover",
+        "type": "color",
+        "id": "backgroundColor",
+        "state": "hovered"
+      },
+      {
+        "paramName": "buttonBorderColor"
+      },
+      {
+        "paramName": "buttonBorderColorActive"
+      },
+      {
+        "paramName": "buttonBorderColorHover"
+      },
+      {
+        "paramName": "buttonBorderWidth"
+      },
+      {
+        "paramName": "buttonColor"
+      },
+      {
+        "paramName": "buttonColorActive"
+      },
+      {
+        "paramName": "buttonColorHover"
+      },
+      {
+        "paramName": "buttonDisabledOpacity"
+      },
+      {
+        "paramName": "buttonFocusColor"
+      },
+      {
+        "paramName": "buttonFontFamily",
+        "type": "typography",
+        "id": "labelStyle",
+        "part": "fontFamily"
+      },
+      {
+        "paramName": "buttonFontSize",
+        "type": "typography",
+        "id": "labelStyle",
+        "part": "fontSize"
+      },
+      {
+        "paramName": "buttonFontStyle",
+        "type": "typography",
+        "id": "labelStyle",
+        "part": "fontStyle"
+      },
+      {
+        "paramName": "buttonFontWeight",
+        "type": "typography",
+        "id": "labelStyle",
+        "part": "fontWeight"
+      },
+      {
+        "paramName": "buttonHeight"
+      },
+      {
+        "paramName": "buttonIconColor"
+      },
+      {
+        "paramName": "buttonLeftContentAlignSelf"
+      },
+      {
+        "paramName": "buttonLeftContentMargin"
+      },
+      {
+        "paramName": "buttonLetterSpacing",
+        "type": "typography",
+        "id": "labelStyle",
+        "part": "letterSpacing"
+      },
+      {
+        "paramName": "buttonLineHeight",
+        "type": "typography",
+        "id": "labelStyle",
+        "part": "lineHeight"
+      },
+      {
+        "paramName": "buttonLoadingBackgroundColor"
+      },
+      {
+        "paramName": "buttonPadding"
+      },
+      {
+        "paramName": "buttonRadius"
+      },
+      {
+        "paramName": "buttonRadiusCircle"
+      },
+      {
+        "paramName": "buttonRightContentAlignSelf"
+      },
+      {
+        "paramName": "buttonRightContentMargin"
+      },
+      {
+        "paramName": "buttonScaleActive"
+      },
+      {
+        "paramName": "buttonScaleHover"
+      },
+      {
+        "paramName": "buttonSpinnerColor"
+      },
+      {
+        "paramName": "buttonSpinnerSize"
+      },
+      {
+        "paramName": "buttonTextColor"
+      },
+      {
+        "paramName": "buttonValueColor"
+      },
+      {
+        "paramName": "buttonValueFontWeight"
+      },
+      {
+        "paramName": "buttonValueMargin"
+      },
+      {
+        "paramName": "buttonWidth"
+      }
+    ]
+  }
+]

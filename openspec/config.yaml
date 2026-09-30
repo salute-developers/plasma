@@ -1,0 +1,51 @@
+schema: spec-driven
+
+context: |
+  Plasma is the Salute design-system monorepo. It contains React component libraries for B2B and B2C applications,
+  design-token packages, icons, documentation sites, and SDDS product-specific packages.
+
+  The repository uses TypeScript, React, npm workspaces, and Lerna. Component implementations can be built for
+  styled-components, emotion, and linaria/CSS targets. Public component behavior, DOM, tokens, generated package
+  configs, and engine parity are compatibility-sensitive.
+
+  Important areas:
+  - packages/plasma-new-hope: shared React component implementations, ComponentConfig definitions, styling engines,
+    token dictionaries, and the React style API consumed by generated design-system packages.
+  - packages/sdds-*: product design-system packages that normally create components by merging package configs with
+    plasma-new-hope core configs.
+  - packages/themes and token packages: theme and CSS custom-property sources.
+  - website/*-docs and website/plasma-website: documentation and Storybook-based component presentation.
+
+  This repository is part of the wider /Users/alex/Projects/Plasma workspace:
+  - design-system-builder contains the current TypeScript DS Builder, its component configuration domain model, and the
+    React component-config generator described by its architecture ADRs.
+  - theme-converter contains source component configs and theme/token conversion tooling; components/sdds_serv is an
+    important reference when mapping component identities, appearances, properties, and variation bindings.
+  - design-system-builder-kt contains the emerging Kotlin/Gradle architecture and future multiplatform frontend.
+  - plasma-android is the Android/Compose side of the same component ecosystem and can provide semantic analogies, but
+    React-specific contracts must remain explicit.
+
+  Configuration data and executable rendering are separate concerns. Component work may need to account for component
+  appearance, variation/style defaults, invariant and state-specific values, platform adjustments, component reuse,
+  theme/token context, and the renderer supported by the selected React styling engine.
+
+  Preserve existing consumers and generated packages by default. New cross-cutting runtime or metadata capabilities
+  must be additive or explicitly opted into, with a gradual migration path and a documented rollback.
+
+rules:
+  proposal:
+    - Identify affected packages and cross-repository dependencies when a change touches DS Builder or theme-converter contracts.
+    - Include explicit non-goals for migrations, generated artifacts, public APIs, or styling engines that are outside scope.
+    - Call out breaking behavior and compatibility risks for existing plasma-new-hope and sdds-* consumers.
+  specs:
+    - Define testable backward-compatibility scenarios for existing component configs whenever runtime behavior changes.
+    - Require equivalent observable behavior across every affected styling engine unless an engine is explicitly out of scope.
+    - Distinguish source component identities from React export names when they differ.
+  design:
+    - Describe the boundary between core component behavior, generated configuration, theme/token values, and rendering.
+    - Prefer opt-in capabilities and incremental package migration for changes to shared component engines or ComponentConfig.
+    - Document rollout, rollback, generated-artifact ownership, and validation across affected repositories.
+  tasks:
+    - Separate source changes, generated artifacts, and cross-repository follow-up work into distinct tasks.
+    - Include focused unit/type checks and relevant component, screenshot, SSR, and engine-parity verification.
+    - Include a regression task proving that unmigrated sdds-* packages retain existing behavior.

@@ -23,9 +23,10 @@
       "require": "./dist/css/cjs/index.js",
       "types": "./types/index.d.ts"
     },
+    "./style-api-meta.json": "./resources/style-api-meta.json",
     "./types/*": "./types/*"
   },
-  "files": ["dist", "types"],
+  "files": ["dist", "types", "resources/style-api-meta.json"],
   "publishConfig": {
     "access": "public"
   },
@@ -34,17 +35,18 @@
     "build": "npm run build:css && npm run build:styled-components && npm run build:emotion",
     "postbuild": "npm run generate:typings",
     "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
-    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --ignore '**/examples/**' --config-file ./swc-sc.config.json -C module.type=commonjs",
-    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --ignore '**/examples/**' --config-file ./swc-sc.config.json -C module.type=es6",
+    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --ignore '**/examples/**' --ignore '**/*.style-api.ts' --config-file ./swc-sc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --ignore '**/examples/**' --ignore '**/*.style-api.ts' --config-file ./swc-sc.config.json -C module.type=es6",
     "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && node ./scripts/replaceImports.mjs --mode emotion",
     "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
-    "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --ignore '**/examples/**' --config-file ./swc-emotion.config.json -C module.type=commonjs",
-    "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --ignore '**/examples/**' --config-file ./swc-emotion.config.json -C module.type=es6",
+    "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --ignore '**/examples/**' --ignore '**/*.style-api.ts' --config-file ./swc-emotion.config.json -C module.type=commonjs",
+    "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --ignore '**/examples/**' --ignore '**/*.style-api.ts' --config-file ./swc-emotion.config.json -C module.type=es6",
     "postbuild:emotion": "rm -rf src-emotion",
     "prebuild:css": "rm -rf src-css && cp -R src src-css && node ./scripts/replaceImports.mjs --mode css",
     "build:css": "rm -rf dist/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
     "generate:typings": "rm -rf types && tsc && tsc-alias",
+    "generate:style-api-meta": "npm --prefix ../components-style-dsl run build && node ../components-style-dsl/scripts/generate-style-api-meta.mjs --source ./src/components --out ./resources/style-api-meta.json",
     "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:ai-components": "USE_AI_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
@@ -109,6 +111,7 @@
     "tsc-alias": "1.8.16"
   },
   "dependencies": {
+    "@sdds/components-style-dsl": "0.1.0",
     "@floating-ui/dom": "1.7.4",
     "@floating-ui/react": "0.27.16",
     "@floating-ui/react-dom": "2.1.6",

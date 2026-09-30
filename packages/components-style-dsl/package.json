@@ -1,0 +1,39 @@
+{
+  "name": "@sdds/components-style-dsl",
+  "version": "0.1.0",
+  "description": "Runtime-transparent DSL for SDDS component style API metadata",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/components-style-dsl"
+  },
+  "type": "module",
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "npm run build && node --test test/*.test.mjs",
+    "prepack": "npm run build",
+    "prebuild": "rm -rf dist",
+    "build": "tsc --project tsconfig.json && tsc --project tsconfig.cjs.json && cp cjs.package.json dist/cjs/package.json"
+  },
+  "devDependencies": {
+    "tsx": "4.21.0",
+    "typescript": "5.6.3"
+  },
+  "sideEffects": false
+}
