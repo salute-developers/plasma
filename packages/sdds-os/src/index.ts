@@ -58,6 +58,7 @@ export * from './components/Spinner';
 // Technical
 export * from './components/EmptyState';
 export * from './components/Flow';
+export * from './components/Form';
 export * from './components/Grid';
 export * from './components/Overlay';
 export * from './components/Popover';
