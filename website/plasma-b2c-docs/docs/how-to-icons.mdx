@@ -5,124 +5,102 @@ title: Как работать с иконками
 
 # Как работать с иконками
 
-Иконки поставляются отдельным пакетом `@salutejs/plasma-icons` и используются как обычные React-компоненты.
+React-иконки поставляются в пакете `@salutejs/sdds-icons` с поддержкой tree-shaking. Иконки доступны в размерах `16`, `24` и `36`.
 
 ## Установка
 
-```bash
-npm install --save @salutejs/plasma-icons
+```sh
+npm install @salutejs/sdds-icons
 ```
 
-## Импорт иконок
+## Совместимость
 
-Для иконок по возможности используйте размерные точки входа: `@salutejs/plasma-icons/16`, `@salutejs/plasma-icons/24` или `@salutejs/plasma-icons/36`.
-Так в итоговый бандл попадут только импортированные компоненты.
+Пакет поставляется только в формате ES Modules. Для его использования необходимы:
 
-Однако если иконка не представлена во всех размерах, то ее можно импортировать стандартным способом напрямую из `@salutejs/plasma-icons`.
+-   синтаксис `import`;
+-   сборщик с поддержкой поля `exports` в `package.json`;
+-   TypeScript с `moduleResolution`, равным `bundler`, `node16` или `nodenext`.
 
-```tsx live
-import React from 'react';
-import { IconSearch } from '@salutejs/plasma-icons/24';
+CommonJS и `require()` не поддерживаются:
 
-export function App() {
-    return <IconSearch />;
-}
+```js
+// Не поддерживается
+const icons = require('@salutejs/sdds-icons/24');
 ```
 
-Размерная точка входа задает базовый SVG-ассет:
+## Использование
 
-- `@salutejs/plasma-icons/16` - иконки с базовым размером `16px`;
-- `@salutejs/plasma-icons/24` - иконки с базовым размером `24px`;
-- `@salutejs/plasma-icons/36` - иконки с базовым размером `36px`.
-
-## Размер
-
-Иконки поддерживают свойство `size`:
-
-- `xs` - `16px`;
-- `s` - `24px`;
-- `m` - `36px`.
-
-```tsx live
-import React from 'react';
-import { IconSearch } from '@salutejs/plasma-icons/24';
-
-export function App() {
-    return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <IconSearch size="xs" />
-            <IconSearch size="s" />
-            <IconSearch size="m" />
-        </div>
-    );
-}
-```
-
-Если иконка импортирована из размерной точки входа, у нее уже есть размер по умолчанию: `xs` для `16`, `s` для `24`, `m` для `36`.
-
-## Цвет
-
-Цвет задается свойством `color`. По умолчанию используется `var(--plasma-colors-primary)`.
-В `color` можно передать CSS-переменную, `currentColor`, `inherit`, обычный цвет или CSS-градиент.
-
-```tsx live
-import React from 'react';
-import { IconSearch, IconStarFill } from '@salutejs/plasma-icons/24';
-
-export function App() {
-    return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <IconSearch color="var(--plasma-colors-accent)" />
-            <IconStarFill color="linear-gradient(90deg, #2af598 0%, #009efd 100%)" />
-        </div>
-    );
-}
-```
-
-## Классы и стили
-
-Иконкам можно передавать `className` и `style`. Это удобно, если нужно настроить отступы, выравнивание или анимацию.
+Выберите размер иконки в пути импорта. Пакет поддерживает именованный импорт из общего файла размера:
 
 ```tsx
-import { IconSearch } from '@salutejs/plasma-icons/24';
+import { AddFill } from '@salutejs/sdds-icons/24';
 
-export const SearchIcon = () => (
-    <IconSearch
-        className="search-icon"
-        style={{ marginRight: '0.5rem' }}
-    />
-);
+export const AddButton = () => <AddFill />;
 ```
 
-## Задание пользовательского размера иконки
+Также доступен прямой импорт конкретной иконки. Он позволяет сборщику не обрабатывать общий файл со всеми иконками выбранного размера:
 
-Если стандартные размеры (`xs`, `s`, `m`) не подходят, задайте размер иконки напрямую через `style`:
+```tsx
+import AddFill from '@salutejs/sdds-icons/24/AddFill';
 
-```tsx live
-import React from 'react';
-import { IconPlasma } from '@salutejs/plasma-icons';
-
-export function App() {
-    return (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <IconPlasma color="inherit" style={{ width: '1.5rem', height: '1.5rem' }} />
-            <IconPlasma color="inherit" style={{ width: '2rem', height: '2rem' }} />
-            <IconPlasma color="inherit" style={{ width: '3rem', height: '3rem' }} />
-        </div>
-    );
-}
+export const AddButton = () => <AddFill />;
 ```
 
-Это удобно при встраивании иконки в компоненты, где размер определяется родительским контейнером, а не дизайн-токеном.
+У пакета нет экспорта из корня, поэтому размер необходимо указывать всегда. Доступны размеры `16`, `24` и `36`:
+
+```tsx
+import { AddFill as AddFill16 } from '@salutejs/sdds-icons/16';
+import { AddFill as AddFill24 } from '@salutejs/sdds-icons/24';
+import { AddFill as AddFill36 } from '@salutejs/sdds-icons/36';
+```
+
+Каждая точка входа содержит только SVG-иконки соответствующего размера. Компоненты создают один элемент `svg`, наследуют цвет через `currentColor`, поддерживают `ref` и принимают стандартные свойства SVG.
+
+Размер по умолчанию соответствует выбранному варианту. Отображаемые ширину и высоту можно переопределить стандартными SVG-свойствами:
+
+```tsx
+<AddFill width={32} height={32} color="tomato" />
+```
+
+Через свойство `gradient` можно передать CSS-градиент. В этом случае оптимизированный SVG используется как CSS-маска, а градиент заполняет всю область иконки:
+
+```tsx
+<AddFill gradient="linear-gradient(135deg, #00d6ff 0%, #9b51e0 100%)" />
+```
+
+Для отображения градиентов Content Security Policy приложения должна разрешать `data:` в директиве `img-src`.
+
+## Динамические иконки
+
+Если имя иконки приходит во время выполнения, например из CMS или с сервера, используйте отдельную динамическую точку входа нужного размера:
+
+```tsx
+import { DynamicIcon } from '@salutejs/sdds-icons/24/dynamic';
+
+export const ServerIcon = () => <DynamicIcon name="AddFill" />;
+```
+
+Иконка загружается отдельным модулем только после появления компонента в браузере. Пока модуль загружается, можно показать fallback-компонент:
+
+```tsx
+import { DynamicIcon } from '@salutejs/sdds-icons/24/dynamic';
+
+export const ServerIcon = () => <DynamicIcon name="AddFill" fallback={<span>Загрузка…</span>} />;
+```
+
+Для произвольной строки доступна проверка, которая одновременно сужает TypeScript-тип:
+
+```tsx
+import { DynamicIcon, isIconName } from '@salutejs/sdds-icons/24/dynamic';
+
+export const ServerIcon = ({ iconName }: { iconName: string }) =>
+    isIconName(iconName) ? <DynamicIcon name={iconName} /> : null;
+```
+
+Также динамическая точка входа экспортирует `IconName`, `iconNames` и `isIconName`. Реестр загрузчиков остается внутренней деталью реализации `DynamicIcon`.
+
+Динамический API предназначен только для случаев, когда имя заранее неизвестно. Он заставляет сборщик обработать весь реестр и создать отдельный модуль для каждой иконки на каждый размер. Для обычного интерфейса статические импорты быстрее при сборке и не требуют дополнительного запроса в браузере.
 
 :::danger
-В пакете есть переиспользуемый компонент `Icon`, которому можно передать имя иконки:
-
-```tsx
-import { Icon } from '@salutejs/plasma-icons';
-
-export const AppsIcon = () => <Icon icon="iconApps" />;
-```
-
-Такой способ **не рекомендуется** для пользовательского интерфейса: при сборке в бандл могут попасть все иконки. Используйте прямой импорт конкретного компонента.
+Старый пакет `@salutejs/plasma-icons` будет поддерживаться до 31 декабря 2026.
 :::
