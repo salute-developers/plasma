@@ -90,6 +90,7 @@ export * from './components/Pagination';
 export * from './components/EmptyState';
 export * from './components/Grid';
 export * from './components/Flow';
+export * from './components/Form';
 export * from './components/Overlay';
 export * from './components/Popover';
 export * from './components/Portal';

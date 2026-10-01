@@ -14,6 +14,7 @@ export * from './components/ChipGroup';
 export * from './components/Cell';
 export * from './components/Card';
 export * from './components/Flow';
+export * from './components/Form';
 export * from './components/Link';
 export * from './components/Spinner';
 export * from './components/Checkbox';

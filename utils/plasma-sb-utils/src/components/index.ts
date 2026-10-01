@@ -29,6 +29,7 @@ export * from './NumberFormat';
 export * from './Chip';
 export * from './Note';
 export * from './Carousel';
+export * from './Form';
 export * from './Tour';
 export * from './Link';
 export * from './Slider';
