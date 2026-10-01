@@ -4,11 +4,15 @@ import { initHome } from './legacy-effects/home';
 import { initInternal } from './legacy-effects/internal';
 import { initIcons } from './legacy-effects/icons';
 import { initReveal } from './legacy-effects/reveal';
+import { initTeamsLoom } from './legacy-effects/teams-loom';
 
 export function PageEffects({ page }) {
     useEffect(() => {
         const cleanup = [];
-        if (page === 'index') cleanup.push(initHome());
+        if (page === 'index') {
+            cleanup.push(initHome());
+            cleanup.push(initTeamsLoom());
+        }
         else cleanup.push(initInternal());
         if (page === 'doc-icons') cleanup.push(initIcons());
         cleanup.push(initReveal());

@@ -2710,3 +2710,16 @@ a.comp-card:hover .comp-card-art{background:var(--surface-transparent-2)}
   #theme .seg button{height:40px; font-size:12.5px}
   #theme .props-foot{font-size:9.5px}
 }
+
+/* ---------- лента команд на WebGL ----------
+   Холст занимает всю ширину окна, а не колонку: карточки должны уходить за край
+   экрана, там и начинается расплетание. Ширину и центрирование холст получает от
+   скрипта. Сетка остаётся в разметке и служит запасным видом — без WebGL и до
+   инициализации.
+
+   Секцию специально не обрезаем: overflow-x:clip заставил бы браузер считать
+   overflow-y как auto и срезал бы низ карточек. */
+.section.has-loom .teams-grid{display:none}
+.teams-loom-stage{position:relative; width:100%}
+.teams-loom{display:block; width:100%; cursor:grab; touch-action:pan-y}
+.teams-loom.is-dragging{cursor:grabbing}
