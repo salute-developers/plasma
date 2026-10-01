@@ -24,6 +24,11 @@ const { meta: META, Line, Text, Rect, Button } = getSkeletonStories({
 const meta: Meta = {
     ...META,
     title: 'Data Display/Skeleton',
+    argTypes: {
+        animationType: {
+            table: { disable: true },
+        },
+    },
 };
 
 export default meta;
