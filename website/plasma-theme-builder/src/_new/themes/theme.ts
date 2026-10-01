@@ -1,4 +1,5 @@
 import { Platforms, PlatformsByVariationsMap, PlatformsVariations, TokenVariations, VariationsClasses } from '../types';
+import { Token } from '../tokens/token';
 
 export class Theme {
     private name: string;
@@ -44,12 +45,15 @@ export class Theme {
         (this.tokens[type] as Array<K>).push(token);
     }
 
-    public removeToken<U extends keyof PlatformsVariations, K extends VariationsClasses[U]>(name: string, type: U) {
-        this.tokens[type] = this.tokens[type].filter((item) => item.getName() !== name) as K;
+    public removeToken<U extends keyof PlatformsVariations>(name: string, type: U) {
+        const tokens = this.tokens[type] as Array<TokenVariations[U]>;
+
+        this.tokens[type] = tokens.filter((item) => item.getName() !== name) as VariationsClasses[U];
     }
 
     public getToken<U extends keyof PlatformsVariations>(name: string, type: U): TokenVariations[U] | undefined {
-        const token = this.tokens[type].find((item) => item.getName() === name);
+        const tokens = this.tokens[type] as Array<TokenVariations[U]>;
+        const token = tokens.find((item) => item.getName() === name);
 
         if (!token) {
             return;
@@ -72,7 +76,7 @@ export class Theme {
         type: U,
         platform?: T,
     ): PlatformsVariations[U] | PlatformsVariations[U][T][string] | undefined {
-        const token = this.getToken(name, type);
+        const token = this.getToken(name, type) as Token<PlatformsVariations[U]> | undefined;
 
         if (!token) {
             return;
@@ -84,7 +88,8 @@ export class Theme {
 
         const platforms = token.getPlatforms();
 
-        return Object.keys(platforms).reduce(
+        const platformKeys = Object.keys(platforms) as Array<keyof Platforms<PlatformsVariations[U]>>;
+        return platformKeys.reduce(
             (acc, platform) => ({
                 ...acc,
                 [platform]: token.getValue(platform),
@@ -110,7 +115,7 @@ export class Theme {
         platform: PlatformsByVariationsMap<U, T> | T,
         value?: PlatformsVariations[U][T][string],
     ): void {
-        const token = this.getToken(name, type);
+        const token = this.getToken(name, type) as Token<PlatformsVariations[U]> | undefined;
 
         if (!token || !value) {
             return;

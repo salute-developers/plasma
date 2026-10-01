@@ -1,4 +1,4 @@
-import { MetaTupleVariations, MetaVariations, ThemeMeta, TokenType, Variation } from '../types';
+import { MetaTupleVariations, MetaVariations, ThemeMeta, TokenType, TokenVariations, Variation } from '../types';
 import { Theme } from '../themes';
 
 export type ExtraMetaTokensGetters = Partial<Record<Variation, (data: TokenType) => Array<TokenType>>>;
@@ -6,7 +6,9 @@ export type ExtraMetaTokensGetters = Partial<Record<Variation, (data: TokenType)
 const getMetaTokens = (theme: Theme, extraMetaTokenGetters?: ExtraMetaTokensGetters) => {
     const tokens: Array<TokenType> = [];
 
-    Object.values(theme.getTokens()).forEach((variation) => {
+    const variations = Object.values(theme.getTokens()) as Array<Array<TokenVariations[keyof TokenVariations]>>;
+
+    variations.forEach((variation) => {
         variation.forEach((token) => {
             const data = token.getTokenData();
 
@@ -34,16 +36,17 @@ const getMetaTokenKinds = <K extends Variation>(
         return {} as MetaVariations[K];
     }
 
-    const sets = fields.map(() => new Set<string>());
+    const metaFields = fields as readonly string[];
+    const sets = metaFields.map(() => new Set<string>());
 
     tokens.forEach((token) => {
-        fields.forEach((_, index) => {
+        metaFields.forEach((_, index) => {
             const tag = token.getTags()[index];
             sets[index].add(tag);
         });
     });
 
-    return fields.reduce(
+    return metaFields.reduce(
         (acc, field, index) => ({
             ...acc,
             [field]: Array.from(sets[index]),
