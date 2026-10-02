@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { cx } from 'src/utils';
 
 import type { RootProps } from '../../../engines';
-import { getRoundness, getSkeletonColor } from '../../../mixins';
+import { getRoundness } from '../../../mixins';
 import { classes } from '../tokens';
 
 import { base as sizeCSS } from './variations/_size/base';
@@ -18,7 +18,6 @@ export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonPro
         (
             {
                 size,
-                lighter,
                 customGradientColor,
                 roundness = '16',
                 animationType = 'shimmer',
@@ -34,14 +33,13 @@ export const lineSkeletonRoot = (Root: RootProps<HTMLDivElement, LineSkeletonPro
             const animationClass = classes[`${animationType}Animation` as keyof typeof classes];
 
             const roundnessValue = getRoundness({ roundness });
-            const skeletonGradientColor = getSkeletonColor({ lighter, customGradientColor });
 
             return (
                 <Root ref={outerRootRef} size={size} view={view} {...rest}>
                     <StyledVisibleLine
                         className={cx(className, animationClass)}
                         roundness={roundnessValue}
-                        gradientColor={skeletonGradientColor}
+                        gradientColor={customGradientColor?.trim()}
                         customFadeInColor={customFadeInColor}
                         customFadeOutColor={customFadeOutColor}
                         animationDuration={animationDuration}
