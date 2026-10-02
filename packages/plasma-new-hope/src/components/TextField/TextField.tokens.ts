@@ -82,7 +82,7 @@ export const tokens = {
     placeholderColor: '--plasma-textfield__placeholder-color',
     /** @styleType color @styleProp placeholderColor @styleState hovered */
     placeholderColorHover: '--plasma-textfield__placeholder-color-hover',
-    /** @styleType color */
+    /** @styleType color @styleProp placeholderColor @styleState focused */
     placeholderColorFocus: '--plasma-textfield__placeholder-color-focus',
     /** @styleType color */
     clearPlaceholderColor: '--plasma-textfield__clear-placeholder-color',

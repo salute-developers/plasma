@@ -39,6 +39,8 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             keepPlaceholder,
             requiredProps,
             hintProps,
+            appearance,
+            hasDivider,
         },
         ref,
     ) => {
@@ -107,6 +109,8 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 keepPlaceholder={keepPlaceholder}
                 requiredProps={requiredProps}
                 hintProps={hintProps}
+                appearance={appearance}
+                hasDivider={hasDivider}
             />
         );
     },
