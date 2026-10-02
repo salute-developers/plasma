@@ -1,5 +1,6 @@
 import type { ChangeEvent, HTMLAttributes } from 'react';
 import type { DateShortcutItemBase } from 'src/components/DateTimePicker/DateTimePicker.types';
+import type { CalendarBaseProps } from 'src/components/Calendar';
 
 import type { RangeInnerProps } from '../../Range/Range.types';
 import type { DatePickerCalendarProps, DatePickerVariationProps, FormattedDateValues } from '../DatePickerBase.types';
@@ -145,6 +146,7 @@ export type DatePickerDoublePopoverProps = Omit<DatePickerPopoverProps, 'placeme
 };
 
 export type DatePickerRangeProps = DatePickerVariationProps &
+    Pick<CalendarBaseProps, 'periodSelectorAlign'> &
     DatePickerRangeFieldProps &
     DatePickerCalendarProps &
     DatePickerDoublePopoverProps &

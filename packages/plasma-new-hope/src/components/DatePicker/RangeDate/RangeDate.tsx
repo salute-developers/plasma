@@ -134,6 +134,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 eventYearList,
                 disabledYearList,
                 type = 'Days',
+                periodSelectorAlign,
 
                 calendarContainerWidth,
                 calendarContainerHeight,
@@ -729,6 +730,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         calendarContainerWidth={calendarContainerWidth}
                         calendarContainerHeight={calendarContainerHeight}
                         type={type}
+                        periodSelectorAlign={periodSelectorAlign}
                         onChangeVisibleDate={onChangeVisibleDate}
                         onToggle={handleToggle}
                         lang={lang}

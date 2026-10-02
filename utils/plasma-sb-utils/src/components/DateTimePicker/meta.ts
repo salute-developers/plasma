@@ -12,6 +12,7 @@ import {
     hintTriggers,
     hintTargetPlacements,
     placements,
+    periodSelectorAligns,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -56,6 +57,7 @@ export const createMeta = ({
             size: 'l',
             view: 'default',
             isDouble: false,
+            periodSelectorAlign: 'start',
             labelPlacement: 'outer',
             preserveInvalidOnBlur: false,
             defaultDate: new Date(2024, 11, 14),
@@ -96,6 +98,11 @@ export const createMeta = ({
             ...defaultArgs,
         },
         argTypes: {
+            periodSelectorAlign: {
+                options: periodSelectorAligns,
+                control: { type: 'select' },
+                if: { arg: 'isDouble', eq: false },
+            },
             appearance: {
                 options: appearances,
                 control: {
