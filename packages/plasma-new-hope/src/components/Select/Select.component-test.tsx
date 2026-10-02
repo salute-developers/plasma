@@ -256,6 +256,21 @@ getBaseVisualTests({
     component: 'Select',
     componentProps: {
         ...componentProps,
+        appearance: 'clear',
+        hasDivider: true,
+    },
+    propsForName: ['appearance=clear', 'hasDivider=true'],
+    configPropsForMatrix: ['view', 'size', 'labelPlacement'],
+    excludePropsValues: {
+        view: ['accent', 'secondary', 'clear', 'dark', 'black', 'white'],
+    },
+    packagesForSkip: ['sdds-os', 'sdds-scan', 'sdds-platform-ai', 'sdds-sbcom', 'plasma-homeds'],
+});
+
+getBaseVisualTests({
+    component: 'Select',
+    componentProps: {
+        ...componentProps,
         target: 'button-like',
     },
     configPropsForMatrix: ['view', 'size'],

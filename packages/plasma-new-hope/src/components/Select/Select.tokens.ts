@@ -94,14 +94,21 @@ export const tokens = {
     textFieldBorderColorHover: '--plasma-select-textfield-border-color-hover',
     textFieldBorderColorFocus: '--plasma-select-textfield-border-color-focus',
 
+    textFieldDividerColor: '--plasma-select-textfield-divider-color',
+    textFieldDividerColorHover: '--plasma-select-textfield-divider-color-hover',
+    textFieldDividerColorFocus: '--plasma-select-textfield-divider-color-focus',
+
     textFieldPlaceholderColor: '--plasma-select-textfield-placeholder-color',
     textFieldPlaceholderColorFocus: '--plasma-select-textfield-placeholder-color-focus',
+    textFieldClearPlaceholderColor: '--plasma-select-textfield-clear-placeholder-color',
+    textFieldClearPlaceholderColorFocus: '--plasma-select-textfield-clear-placeholder-color-focus',
 
     /** Цвета для read-only состояния */
     textFieldColorReadOnly: '--plasma-select-textfield-color-readonly',
     textFieldBackgroundColorReadOnly: '--plasma-select-textfield-bg-color-readonly',
     textFieldBorderColorReadOnly: '--plasma-select-textfield-border-color-readonly',
     textFieldPlaceholderColorReadOnly: '--plasma-select-textfield__placeholder-color-readonly',
+    textFieldDividerColorReadOnly: '--plasma-select-textfield-divider-color-readonly',
 
     textFieldHeight: '--plasma-select-textfield-height',
     textFieldBorderWidth: '--plasma-select-textfield-border-width',
