@@ -1,0 +1,78 @@
+---
+id: form
+slug: /components/form
+title: Form
+description: "Нативная форма с общим размером и отступами между элементами."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Form
+<Description name="Form" />
+<PropsTable name="Form" />
+
+## Использование
+
+`Form` рендерит нативный `<form>` и задаёт отступ между прямыми потомками. Свойство `size` передаётся контролам внутри и заменяет их собственный размер. Направление задаётся свойством `orientation`.
+
+```tsx live
+import React from 'react';
+import { Checkbox, Form, TextField } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <Form size="m" orientation="vertical" onSubmit={(event) => event.preventDefault()}>
+            <TextField name="name" label="Имя" placeholder="Имя" />
+            <TextField name="email" label="Почта" placeholder="Почта" />
+            <Checkbox name="agreement" label="Согласен с условиями" />
+            <button type="submit">Отправить</button>
+        </Form>
+    );
+}
+```
+
+## Ориентация
+
+`vertical` выстраивает элементы в колонку на всю ширину. `horizontal` ставит их в ряд и делит ширину поровну. Отступ между элементами — `1.5rem` для любого размера и обеих ориентаций.
+
+```tsx live
+import React from 'react';
+import { Form, TextField } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <Form size="xs" orientation="horizontal" onSubmit={(event) => event.preventDefault()}>
+            <TextField name="name" label="Имя" placeholder="Имя" />
+            <TextField name="email" label="Почта" placeholder="Почта" />
+        </Form>
+    );
+}
+```
+
+## Размер
+
+Размер формы задаёт `size` вложенных контролов: `xs`, `s`, `m`, `l`. На отступ между элементами размер не влияет.
+
+```tsx live
+import React from 'react';
+import { Form, TextField } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <Form size="xs">
+                <TextField name="name" label="Имя" placeholder="xs" />
+            </Form>
+            <Form size="s">
+                <TextField name="name" label="Имя" placeholder="s" />
+            </Form>
+            <Form size="m">
+                <TextField name="name" label="Имя" placeholder="m" />
+            </Form>
+            <Form size="l">
+                <TextField name="name" label="Имя" placeholder="l" />
+            </Form>
+        </div>
+    );
+}
+```
