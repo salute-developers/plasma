@@ -37,16 +37,12 @@ export const flowRoot = (Root: RootProps<HTMLDivElement, TempFlowTypes>) =>
             const hasMinWidth = Boolean(minColWidth && minColWidth !== 'auto');
             const needGrid = Boolean(Number(itemsPerLine) > 0 || hasMinWidth);
 
-            let innerMainAxisGap =
+            const innerMainAxisGap =
                 typeof mainAxisGap === 'number' || !Number.isNaN(+mainAxisGap) ? `${mainAxisGap || 0}px` : mainAxisGap;
             const innerCrossAxisGap =
                 typeof crossAxisGap === 'number' || !Number.isNaN(+crossAxisGap)
                     ? `${crossAxisGap || 0}px`
                     : crossAxisGap;
-
-            if (arrangement === 'spaceBetween' || arrangement === 'spaceAround') {
-                innerMainAxisGap = '0';
-            }
 
             const hasChunks = Number(itemsPerLine) > 0;
             const chunks: React.ReactNode[] = hasChunks ? chunk(React.Children.toArray(children), itemsPerLine) : [];
