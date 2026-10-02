@@ -23,15 +23,10 @@ import type {
     OverlayName,
     DataName,
 } from './themeTokenGetters';
-import type { Theme, TokenData } from '../types';
+import type { Theme } from '../types';
 import { sectionToFormulaMap, getStateToken, getBrightnessTokens } from '../utils';
 
-export const getStateTokens = (
-    section: string,
-    name: string,
-    mode: ThemeMode,
-    tokens?: Record<ThemeMode, Record<string, TokenData<{}>>>,
-) => {
+export const getStateTokens = (section: string, name: string, mode: ThemeMode, tokens?: ReturnType<TokensGetterFn>) => {
     let defaultStateTokens = undefined;
     let onDarkStateTokens = undefined;
     let onLightStateTokens = undefined;
@@ -45,7 +40,7 @@ export const getStateTokens = (
     }
 
     let newMode = mode;
-    const getDefaultStateToken = getStateToken(sectionName, newMode, tokens[mode].default);
+    const getDefaultStateToken = getStateToken(sectionName, newMode, tokens[mode].default!);
     defaultStateTokens = {
         [`${name}Hover`]: getDefaultStateToken('hover'),
         [`${name}Active`]: getDefaultStateToken('active'),
@@ -53,7 +48,7 @@ export const getStateTokens = (
     };
 
     newMode = 'dark';
-    const getOnDarkStateToken = getStateToken(sectionName, newMode, tokens[mode].onDark);
+    const getOnDarkStateToken = getStateToken(sectionName, newMode, tokens[mode].onDark!);
     onDarkStateTokens = {
         [`${name}Hover`]: getOnDarkStateToken('hover'),
         [`${name}Active`]: getOnDarkStateToken('active'),
@@ -61,7 +56,7 @@ export const getStateTokens = (
     };
 
     newMode = 'light';
-    const getOnLightStateToken = getStateToken(sectionName, newMode, tokens[mode].onLight);
+    const getOnLightStateToken = getStateToken(sectionName, newMode, tokens[mode].onLight!);
     onLightStateTokens = {
         [`${name}Hover`]: getOnLightStateToken('hover'),
         [`${name}Active`]: getOnLightStateToken('active'),
@@ -69,7 +64,7 @@ export const getStateTokens = (
     };
 
     newMode = mode === 'light' ? 'dark' : 'light';
-    const getInverseStateToken = getStateToken(sectionName, newMode, tokens[mode].inverse);
+    const getInverseStateToken = getStateToken(sectionName, newMode, tokens[mode].inverse!);
     inverseStateTokens = {
         [`${name}Hover`]: getInverseStateToken('hover'),
         [`${name}Active`]: getInverseStateToken('active'),

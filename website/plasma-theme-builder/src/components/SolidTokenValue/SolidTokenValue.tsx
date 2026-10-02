@@ -58,26 +58,34 @@ export const SolidTokenValue = forwardRef<HTMLInputElement, SolidTokenValueProps
     const saturations = useMemo(() => getSaturations(selectedColor), [selectedColor]);
 
     const onChangeSelectedColor = useCallback(
-        (color: GeneralColor) => {
+        (value: unknown) => {
+            if (typeof value !== 'string') {
+                return;
+            }
+
+            const color = value as GeneralColor;
             const saturation500 = 7;
             const saturation: PlasmaSaturation = selectedSaturation || getSaturations()[saturation500].value;
 
             setSelectedColor(color);
             setSelectedSaturation(saturation);
-
             onChangeValue(`[general.${color}.${saturation}]`);
         },
         [onChangeValue, selectedSaturation],
     );
 
     const onChangeSelectedSaturation = useCallback(
-        (saturation: PlasmaSaturation) => {
+        (value: unknown) => {
+            if (typeof value !== 'number') {
+                return;
+            }
+
+            const saturation = value as PlasmaSaturation;
             const colorRed = 0;
             const color: GeneralColor = selectedColor || getAccentColors()[colorRed].value;
 
             setSelectedColor(color);
             setSelectedSaturation(saturation);
-
             onChangeValue(`[general.${color}.${saturation}]`);
         },
         [onChangeValue, selectedColor],

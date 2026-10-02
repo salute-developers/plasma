@@ -39,13 +39,11 @@ jobs:
         run: |
           npm install --prefix="./website/plasma-theme-builder"
 
-      # TODO: https://github.com/salute-developers/plasma/issues/603
       - name: Build Theme Builder
         env:
           REACT_APP_APPLICATION_CLIENT_ID: ${{ secrets.REACT_APP_APPLICATION_CLIENT_ID }}
           REACT_APP_AUTH_SERVER_URL: ${{ vars.REACT_APP_AUTH_SERVER_URL }}
         run: |
-          export NODE_OPTIONS=--openssl-legacy-provider
           npm run build --prefix="./website/plasma-theme-builder"
           cp -R ./website/plasma-theme-builder/build ./s3_build/plasma-theme-builder-${PR_NAME}
 
