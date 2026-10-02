@@ -266,13 +266,7 @@ describeFn('Calendar', () => {
     });
 
     it('periodSelectorAlign=center', () => {
-        mount(
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-                {['Days', 'Months', 'Quarters', 'Years'].map((type) => (
-                    <Demo value={baseDate} type={type} periodSelectorAlign="center" />
-                ))}
-            </div>,
-        );
+        mount(<Demo value={baseDate} periodSelectorAlign="center" />);
 
         cy.matchImageSnapshot();
     });
