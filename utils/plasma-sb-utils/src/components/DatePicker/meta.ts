@@ -294,6 +294,7 @@ export const createMeta = ({
         args: {
             ...commonArgs,
             inputView: 'default',
+            periodSelectorAlign: 'start',
             placeholder: '30.05.2024',
             labelPlacement: 'outer',
             defaultDate: new Date(2024, 5, 14),
@@ -303,6 +304,10 @@ export const createMeta = ({
         },
         argTypes: {
             ...getCommonArgTypes(componentConfig),
+            periodSelectorAlign: {
+                options: ['start', 'center'],
+                control: { type: 'select' },
+            },
             defaultDate: {
                 control: {
                     type: 'date',

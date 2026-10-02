@@ -219,6 +219,49 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
+### Выравнивание переключателя периода
+
+Свойство `periodSelectorAlign` управляет выравниванием переключателя периода в календаре `DatePicker`: `start` (по умолчанию) — слева, `center` — по центру между стрелками навигации.
+
+<Tabs>
+    <TabItem value="center" label="Center" default>
+        ```tsx live
+        import React from 'react';
+        import { DatePicker } from '@salutejs/sdds-insol';
+
+        export function App() {
+            return (
+                <DatePicker
+                    defaultDate={new Date(2024, 8, 14)}
+                    label="Выберите дату"
+                    periodSelectorAlign="center"
+                    placement="bottom"
+                    usePortal
+                />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="start" label="Start">
+        ```tsx live
+        import React from 'react';
+        import { DatePicker } from '@salutejs/sdds-insol';
+
+        export function App() {
+            return (
+                <DatePicker
+                    defaultDate={new Date(2024, 8, 14)}
+                    label="Выберите дату"
+                    periodSelectorAlign="start"
+                    placement="bottom"
+                    usePortal
+                />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ### Формат даты
 
 Формат даты задается с помощью свойства `format`.
