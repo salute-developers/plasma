@@ -79,6 +79,11 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
      * @default false
      */
     virtual?: boolean;
+    /**
+     * Слайд занимает всю ширину карусели.
+     * @default false
+     */
+    fullWidth?: boolean;
 
     /**
      * Размер контрола.

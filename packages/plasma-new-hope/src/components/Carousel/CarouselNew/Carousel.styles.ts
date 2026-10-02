@@ -19,6 +19,7 @@ export const CarouselWrapper = styled.div<{ isSwipeEnabled?: boolean }>`
 
     -ms-overflow-style: none;
     scrollbar-width: none;
+
     ::-webkit-scrollbar {
         display: none;
     }
@@ -39,21 +40,50 @@ export const CarouselWrapper = styled.div<{ isSwipeEnabled?: boolean }>`
     }
 `;
 
+// Трек в fullWidth имеет определённую ширину, поэтому 100% — это ширина вьюпорта, а не сумма слайдов.
+// Обычная строка, а не css``: Linaria в build:css подставляет результат css`` как имя класса.
+const fullWidthSlideCss = `
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+
+    & > * {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+`;
+
+export const CarouselSlide = styled.div`
+    ${fullWidthSlideCss}
+`;
+
 export const CarouselTrack = styled.div<{ gap: Exclude<CarouselProps['gap'], undefined> }>`
     display: inline-flex;
     flex-direction: row;
     gap: ${({ gap }) => gap};
     vertical-align: top;
 
-    // TODO: станет неактуально после удаления CarouselOld.
+    /* TODO: станет неактуально после удаления CarouselOld. */
     & > div {
         scroll-snap-align: none;
     }
 `;
 
+export const CarouselFullWidthTrack = styled(CarouselTrack)`
+    display: flex;
+    width: 100%;
+`;
+
 export const CarouselVirtualItem = styled.div`
     display: flex;
     flex: 0 0 auto;
+`;
+
+export const CarouselFullWidthVirtualItem = styled(CarouselVirtualItem)`
+    ${fullWidthSlideCss}
 `;
 
 export const IconButton = styled(IconButtonComponent)`

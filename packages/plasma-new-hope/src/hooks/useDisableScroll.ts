@@ -6,17 +6,20 @@ export function useDisableScroll(ref: RefObject<HTMLElement>, enabled = true) {
 
         const el = ref.current;
 
-        const preventScroll = (e: Event) => {
-            e.preventDefault();
-            e.stopPropagation();
+        // Вертикальный wheel оставляем странице. Горизонтальный жест не должен прокручивать предка.
+        const preventHorizontalWheel = (event: WheelEvent) => {
+            if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopPropagation();
         };
 
-        el.addEventListener('wheel', preventScroll, { passive: false });
-        el.addEventListener('touchmove', preventScroll, { passive: false });
+        el.addEventListener('wheel', preventHorizontalWheel, { passive: false });
 
         return () => {
-            el.removeEventListener('wheel', preventScroll);
-            el.removeEventListener('touchmove', preventScroll);
+            el.removeEventListener('wheel', preventHorizontalWheel);
         };
     }, [ref, enabled]);
 }
