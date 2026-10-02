@@ -40,7 +40,7 @@ export const config = {
                 ${accordionTokens.accordionItemTitleColor}: ${textPrimary};
                 ${accordionTokens.accordionItemTextColor}: ${textPrimary};
                 ${accordionTokens.accordionItemIconColor}: ${textPrimary};
-                ${accordionTokens.accordionItemFocus}: ${surfaceAccent};
+                ${accordionTokens.accordionItemFocus}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${accordionTokens.accordionBackground}: ${surfaceClear};
                 ${accordionTokens.accordionItemBorderBottom}: 0;
                 ${accordionTokens.accordionItemPaddingHorizontalLeft}: var(${accordionTokens.accordionItemPaddingHorizontal});
@@ -53,7 +53,7 @@ export const config = {
                 ${accordionTokens.accordionItemTitleColor}: ${textPrimary};
                 ${accordionTokens.accordionItemTextColor}: ${textPrimary};
                 ${accordionTokens.accordionItemIconColor}: ${textPrimary};
-                ${accordionTokens.accordionItemFocus}: ${surfaceAccent};
+                ${accordionTokens.accordionItemFocus}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${accordionTokens.accordionItemViewBorderRadius}: 0rem;
                 ${accordionTokens.accordionBackground}: ${surfaceClear};
                 ${accordionTokens.accordionItemBorderBottom}: 0.063rem solid ${surfaceSolidTertiary};

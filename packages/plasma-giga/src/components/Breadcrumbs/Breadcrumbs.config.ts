@@ -13,7 +13,7 @@ export const config = {
                 ${breadcrumbsTokens.breadcrumbsColorText}: ${textPrimary};
                 ${breadcrumbsTokens.breadcrumbsColorSeparator}: ${textPrimary};
                 ${breadcrumbsTokens.breadcrumbsOpacity}: 0.4;
-                ${breadcrumbsTokens.breadcrumbsFocusOutlineColor}: ${surfaceAccent};
+                ${breadcrumbsTokens.breadcrumbsFocusOutlineColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
         size: {

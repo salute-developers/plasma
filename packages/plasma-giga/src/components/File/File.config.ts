@@ -27,7 +27,7 @@ export const config = {
                 ${tokens.embedIconButtonColor}: ${textPrimary};
                 ${tokens.embedIconButtonColorHover}: ${textPrimaryHover};
                 ${tokens.embedIconButtonColorActive}: ${textPrimaryActive};
-                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.embedIconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tokens.cellTitleColor}: ${textPrimary};
                 ${tokens.cellSubtitleColor}: ${textSecondary};
@@ -43,7 +43,7 @@ export const config = {
                 ${tokens.embedIconButtonColor}: ${textPrimary};
                 ${tokens.embedIconButtonColorHover}: ${textPrimaryHover};
                 ${tokens.embedIconButtonColorActive}: ${textPrimaryActive};
-                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.embedIconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tokens.cellTitleColor}: ${textPrimary};
                 ${tokens.cellSubtitleColor}: ${textNegative};

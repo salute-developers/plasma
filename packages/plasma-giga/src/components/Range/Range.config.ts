@@ -61,7 +61,7 @@ export const config = {
                 ${tokens.contentSlotColorHover}: ${textPrimaryHover};
                 ${tokens.contentSlotColorActive}: ${textPrimaryActive};
 
-                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.embedIconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${tokens.contentSlotRightColor}: ${textPrimary};
                 ${tokens.contentSlotRightColorHover}: ${textPrimaryHover};
                 ${tokens.contentSlotRightColorActive}: ${textPrimaryActive};
@@ -98,7 +98,7 @@ export const config = {
 
                 ${tokens.indicatorColor}: ${surfaceNegative};
 
-                ${tokens.focusColor}: ${textAccent};
+                ${tokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
             `,
         },

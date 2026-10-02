@@ -253,7 +253,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${chipTokens.focusColor}: ${textAccent};
+                ${chipTokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
             `,
         },
         pilled: {

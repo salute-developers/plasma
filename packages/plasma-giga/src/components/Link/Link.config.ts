@@ -141,7 +141,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${tokens.linkColorFocus}: ${textPrimary};
+                ${tokens.linkColorFocus}: var(--plasma-outline-focus-color, ${textPrimary});
             `,
         },
     },
