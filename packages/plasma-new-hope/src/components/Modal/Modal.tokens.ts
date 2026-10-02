@@ -49,14 +49,24 @@ export const tokens = {
     modalFooterPadding: '--plasma-modal-footer-padding',
     /** @styleType dimension */
     modalFooterGap: '--plasma-modal-footer-gap',
+    /** @styleType value */
     modalFooterTextAlign: '--plasma-modal-footer-text-align',
+    /** @styleType color */
     modalFooterTextColor: '--plasma-modal-footer-text-color',
+    /** @styleType typography @styleProp footerTextStyle @stylePart fontFamily */
     modalFooterTextFontFamily: '--plasma-modal-footer-text-font-family',
+    /** @styleType typography @styleProp footerTextStyle @stylePart fontSize */
     modalFooterTextFontSize: '--plasma-modal-footer-text-font-size',
+    /** @styleType typography @styleProp footerTextStyle @stylePart fontStyle */
     modalFooterTextFontStyle: '--plasma-modal-footer-text-font-style',
+    /** @styleType typography @styleProp footerTextStyle @stylePart fontWeight */
     modalFooterTextFontWeight: '--plasma-modal-footer-text-font-weight',
+    /** @styleType typography @styleProp footerTextStyle @stylePart letterSpacing */
     modalFooterTextLetterSpacing: '--plasma-modal-footer-text-letter-spacing',
+    /** @styleType typography @styleProp footerTextStyle @stylePart lineHeight */
     modalFooterTextLineHeight: '--plasma-modal-footer-text-line-height',
+    /** @styleType dimension */
     modalFooterTextMarginTop: '--plasma-modal-footer-text-margin-top',
+    /** @styleType dimension */
     modalFooterTextPaddingBottom: '--plasma-modal-footer-text-padding-bottom',
 };

@@ -17,7 +17,6 @@ export const base = css`
         box-sizing: border-box;
         width: 100%;
         min-width: 100%;
-        flex: none;
         margin: var(${tokens.modalFooterTextMarginTop}) 0 0;
         padding: 0 0 var(${tokens.modalFooterTextPaddingBottom});
         text-align: var(${tokens.modalFooterTextAlign});

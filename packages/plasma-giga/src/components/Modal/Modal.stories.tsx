@@ -56,6 +56,11 @@ const meta: Meta<ModalProps> = {
                 type: 'text',
             },
         },
+        footerText: {
+            control: {
+                type: 'text',
+            },
+        },
         absoluteHeader: {
             control: {
                 type: 'boolean',
@@ -162,6 +167,7 @@ type StoryModalProps = ComponentProps<typeof Modal> & {
     showImage?: boolean;
     absoluteHeader?: boolean;
     content?: string;
+    footerText?: string;
     draggableDisabled: boolean;
     resizableDisabled: boolean;
     resizableDirections: string[];
@@ -205,9 +211,11 @@ const ImagePlaceholder = styled.div`
     width: 100%;
     height: 12.5rem;
     background-color: #e8e8e8;
+    /* stylelint-disable value-list-comma-space-after, value-list-comma-newline-after */
     background-image: linear-gradient(45deg, #d0d0d0 25%, transparent 25%),
         linear-gradient(-45deg, #d0d0d0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #d0d0d0 75%),
         linear-gradient(-45deg, transparent 75%, #d0d0d0 75%);
+    /* stylelint-enable value-list-comma-space-after, value-list-comma-newline-after */
     background-size: 1.25rem 1.25rem;
     background-position: 0 0, 0 0.625rem, 0.625rem -0.625rem, -0.625rem 0;
 `;
@@ -268,6 +276,7 @@ const StoryModalDemo = ({
     showImage = true,
     absoluteHeader = false,
     content = 'Content',
+    footerText,
     size,
     hasClose,
     ...rest
@@ -305,7 +314,7 @@ const StoryModalDemo = ({
                         {showHeader && absoluteHeader && <ModalHeader isAbsolute>{title}</ModalHeader>}
                         <BodyContent>{content}</BodyContent>
                         {showFooter && (
-                            <Footer>
+                            <Footer text={footerText}>
                                 <Button
                                     view="default"
                                     size="m"
@@ -412,6 +421,7 @@ export const Default: StoryObj<StoryModalProps> = {
         absoluteHeader: false,
         footerColumn: false,
         content: 'Content',
+        footerText: 'Text',
     },
     argTypes: {
         hasClose: {
