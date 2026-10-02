@@ -8,6 +8,7 @@ export const hintViews = ['default'];
 export const hintSizes = ['m', 's'];
 export const hintTriggers = ['hover', 'click'];
 export const hintTargetPlacements = ['outer', 'inner'];
+export const periodSelectorAligns = ['start', 'center'];
 export const placements = [
     'top',
     'top-start',

@@ -7,6 +7,8 @@ import { iconButtonConfig, iconButtonTokens } from '../../../IconButton';
 import { flexCenter } from '../../mixins';
 import { IconDisclosureDownFill } from '../../../_Icon';
 
+import type { CalendarHeaderProps } from './CalendarHeader.types';
+
 const mergedIconButtonConfig = mergeConfig(iconButtonConfig);
 const IconButton = component(mergedIconButtonConfig);
 
@@ -17,7 +19,7 @@ export const StyledCalendarHeader = styled.div`
     padding: var(${tokens.calendarHeaderWrapperPadding});
 `;
 
-export const StyledHeader = styled.button`
+export const StyledHeader = styled.button<{ periodSelectorAlign: CalendarHeaderProps['periodSelectorAlign'] }>`
     border: none;
     background-color: transparent;
     padding: 0;
@@ -37,6 +39,14 @@ export const StyledHeader = styled.button`
     gap: var(${tokens.calendarHeaderDateGap});
     justify-content: space-between;
     align-items: center;
+
+    ${({ periodSelectorAlign }) =>
+        periodSelectorAlign === 'center' &&
+        `
+            flex: 1;
+            min-width: 0;
+            justify-content: center;
+        `}
 
     &:hover,
     &:active {
