@@ -29,12 +29,19 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
     ${textFieldTokens.placeholderColorFocus}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.clearPlaceholderColor}: var(${tokens.textFieldClearPlaceholderColor});
+    ${textFieldTokens.clearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
 
     ${textFieldTokens.backgroundColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColorHover})`};
     ${textFieldTokens.borderColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+
+    ${textFieldTokens.dividerColor}: var(${tokens.textFieldDividerColor});
+    ${textFieldTokens.dividerColorHover}: var(${tokens.textFieldDividerColorHover});
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
 
     ${textFieldTokens.optionalColor}: var(${tokens.textFieldOptionalColor});
 

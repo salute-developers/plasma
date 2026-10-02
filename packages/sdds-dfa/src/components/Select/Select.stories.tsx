@@ -10,6 +10,23 @@ type SelectProps = ComponentProps<typeof Select>;
 const { meta: META, Single, Multiselect, Predefined, Common, SelectAll } = getSelectStories({
     component: Select,
     componentConfig: config,
+    defaultArgs: {
+        appearance: 'default',
+        hasDivider: false,
+    },
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'clear'],
+            control: { type: 'select' },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: {
+                arg: 'appearance',
+                eq: 'clear',
+            },
+        },
+    },
 });
 
 const meta: Meta<SelectProps> = {

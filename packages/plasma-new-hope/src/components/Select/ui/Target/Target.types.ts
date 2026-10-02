@@ -33,4 +33,6 @@ export type TargetProps = {
     handleChange: (newValue: SelectValue, item: ItemOption | null) => void;
     requiredProps: RequiredProps | undefined;
     hintProps: HintProps | undefined;
+    appearance: SelectProps['appearance'];
+    hasDivider: SelectProps['hasDivider'];
 };
