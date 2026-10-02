@@ -58,6 +58,7 @@ export const tokens = {
     /** Цвет каретки */
     caretColor: '--plasma-textfield__caret-color',
     placeholderColor: '--plasma-textfield__placeholder-color',
+    placeholderColorHover: '--plasma-textfield__placeholder-color-hover',
     placeholderColorFocus: '--plasma-textfield__placeholder-color-focus',
     clearPlaceholderColor: '--plasma-textfield__clear-placeholder-color',
     clearPlaceholderColorFocus: '--plasma-textfield__clear-placeholder-color-focus',

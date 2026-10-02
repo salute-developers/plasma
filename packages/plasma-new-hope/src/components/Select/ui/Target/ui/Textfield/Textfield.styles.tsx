@@ -7,9 +7,11 @@ import { tokens, classes } from '../../../../Select.tokens';
 
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
+const placeholderColorHover = `var(${tokens.textFieldPlaceholderColorHover}, var(${tokens.textFieldPlaceholderColor}))`;
 
 export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.color}: var(${tokens.textFieldColor});
+    ${textFieldTokens.colorFocus}: var(${tokens.textFieldColorFocus});
     ${textFieldTokens.backgroundColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
     ${textFieldTokens.borderColor}: ${({ opened }) =>
@@ -27,14 +29,24 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.placeholderColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.placeholderColorHover}: ${placeholderColorHover};
     ${textFieldTokens.placeholderColorFocus}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.clearPlaceholderColor}: var(${tokens.textFieldClearPlaceholderColor});
+    ${textFieldTokens.clearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
 
     ${textFieldTokens.backgroundColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColorHover})`};
     ${textFieldTokens.borderColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+
+    ${textFieldTokens.dividerColor}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldDividerColorFocus})` : `var(${tokens.textFieldDividerColor})`};
+    ${textFieldTokens.dividerColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldDividerColorFocus})` : `var(${tokens.textFieldDividerColorHover})`};
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
 
     ${textFieldTokens.optionalColor}: var(${tokens.textFieldOptionalColor});
 

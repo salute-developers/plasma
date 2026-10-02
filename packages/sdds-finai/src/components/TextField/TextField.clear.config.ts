@@ -93,6 +93,7 @@ export const config = {
                 ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textPositive};
+                ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
@@ -131,6 +132,7 @@ export const config = {
                 ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textWarning};
+                ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
@@ -169,6 +171,7 @@ export const config = {
                 ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
