@@ -1043,7 +1043,9 @@ body{margin:0; background:var(--bg-tertiary); color:var(--text-primary); font-fa
 .kn-note{margin:10px 0 0; font-size:12.5px; line-height:1.45; color:var(--text-tertiary)}
 /* «параметры» узла — декоративные ползунки, как в редакторе эффектов */
 .kn-params{display:grid; gap:8px}
-.kn-params label{display:grid; gap:6px; font-size:13px; color:var(--text-secondary)}
+/* строка параметра — div, а не label: по тегу правило не находило разметку,
+   и подпись ложилась прямо на полосу, а на светлом холсте ещё и не читалась */
+.kn-params > div{display:grid; gap:6px; font-size:13px; color:var(--text-secondary)}
 .kn-params i{display:block; height:4px; border-radius:2px; background:var(--surface-transparent-2)}
 .kn-params u{display:block; height:100%; border-radius:2px; background:rgba(255,255,255,.55); text-decoration:none}
 .kn-chips{display:flex; flex-wrap:wrap; gap:6px}
@@ -1161,7 +1163,7 @@ body{margin:0; background:var(--bg-tertiary); color:var(--text-primary); font-fa
 .is-light .kn-card header b{color:#16181c}
 .is-light .kn-card header span{color:#8a8f97}
 .is-light .kn-note{color:#8a8f97}
-.is-light .kn-params label,
+.is-light .kn-params > div,
 .is-light .kn-edit-row,
 .is-light .kn-rows span{color:#5b6068}
 .is-light .kn-edit-row b,
