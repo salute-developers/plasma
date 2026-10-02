@@ -1,11 +1,13 @@
 import { css, modalTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
+    bodyXXS,
     overlaySoft,
     surfaceAccent,
     surfaceSolidCard,
     textPrimary,
     textPrimaryActive,
     textPrimaryHover,
+    textSecondary,
 } from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
@@ -24,6 +26,16 @@ export const config = {
                 ${modalTokens.modalCloseButtonHoverColor}: ${textPrimaryHover};
                 ${modalTokens.modalCloseButtonActiveColor}: ${textPrimaryActive};
                 ${modalTokens.modalOutlineFocusColor}: ${surfaceAccent};
+                ${modalTokens.modalFooterTextAlign}: left;
+                ${modalTokens.modalFooterTextColor}: ${textSecondary};
+                ${modalTokens.modalFooterTextFontFamily}: ${bodyXXS.fontFamily};
+                ${modalTokens.modalFooterTextFontSize}: ${bodyXXS.fontSize};
+                ${modalTokens.modalFooterTextFontStyle}: ${bodyXXS.fontStyle};
+                ${modalTokens.modalFooterTextFontWeight}: ${bodyXXS.fontWeight};
+                ${modalTokens.modalFooterTextLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${modalTokens.modalFooterTextLineHeight}: ${bodyXXS.lineHeight};
+                ${modalTokens.modalFooterTextMarginTop}: 0.5rem;
+                ${modalTokens.modalFooterTextPaddingBottom}: 0.5rem;
             `,
         },
         size: {
