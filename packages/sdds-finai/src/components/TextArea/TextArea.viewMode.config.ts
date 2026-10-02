@@ -2,6 +2,7 @@ import { css, textAreaTokens } from '@salutejs/plasma-new-hope/styled-components
 import {
     bodyS,
     bodyXS,
+    bodyXXS,
     shadowDownHardM,
     surfaceAccent,
     surfaceNegative,
@@ -179,42 +180,51 @@ export const config = {
                 ${textAreaTokens.borderSize}: 0.125rem;
                 ${textAreaTokens.borderRadius}: 0.625rem;
                 ${textAreaTokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0.625rem 0.625rem;
+
                 ${textAreaTokens.inputPaddingTop}: 0.25rem;
                 ${textAreaTokens.inputPaddingRight}: 0rem;
                 ${textAreaTokens.inputPaddingRightWithRightContent}: 3.125rem;
                 ${textAreaTokens.inputPaddingBottom}: 0.25rem;
                 ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.25rem;
                 ${textAreaTokens.inputPaddingLeft}: 0rem;
+
                 ${textAreaTokens.helpersPaddingTop}: 0.125rem;
-                ${textAreaTokens.outsideHelpersPaddingTop}: 0.125rem;
                 ${textAreaTokens.helpersPaddingRight}: 0rem;
                 ${textAreaTokens.helpersPaddingBottom}: 0rem;
                 ${textAreaTokens.helpersPaddingLeft}: 0rem;
                 ${textAreaTokens.helpersOffset}: 0rem;
+                ${textAreaTokens.outsideHelpersPaddingTop}: 0.125rem;
+
                 ${textAreaTokens.rightContentTop}: 0.125rem;
                 ${textAreaTokens.rightContentRight}: 0rem;
                 ${textAreaTokens.rightContentHeight}: 1.25rem;
+
                 ${textAreaTokens.labelMarginBottom}: 0.25rem;
+
                 ${textAreaTokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${textAreaTokens.labelInnerFontSize}: ${bodyXS.fontSize};
                 ${textAreaTokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
                 ${textAreaTokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
                 ${textAreaTokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
                 ${textAreaTokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
                 ${textAreaTokens.labelInnerTop}: 0.375rem;
                 ${textAreaTokens.labelInnerMarginBottom}: 0.125rem;
+
                 ${textAreaTokens.inputFontFamily}: ${bodyS.fontFamily};
                 ${textAreaTokens.inputFontSize}: ${bodyS.fontSize};
                 ${textAreaTokens.inputFontStyle}: ${bodyS.fontStyle};
                 ${textAreaTokens.inputFontWeight}: ${bodyS.fontWeight};
                 ${textAreaTokens.inputLetterSpacing}: ${bodyS.letterSpacing};
                 ${textAreaTokens.inputLineHeight}: ${bodyS.lineHeight};
+
                 ${textAreaTokens.helpersFontFamily}: ${bodyXS.fontFamily};
                 ${textAreaTokens.helpersFontSize}: ${bodyXS.fontSize};
                 ${textAreaTokens.helpersFontStyle}: ${bodyXS.fontStyle};
                 ${textAreaTokens.helpersFontWeight}: ${bodyXS.fontWeight};
                 ${textAreaTokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
                 ${textAreaTokens.helpersLineHeight}: ${bodyXS.lineHeight};
+
                 ${textAreaTokens.indicatorSizeInner}: 0.375rem;
                 ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
                 ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
@@ -230,6 +240,84 @@ export const config = {
                 ${textAreaTokens.hintMargin}: -0.688rem -0.5rem;
                 ${textAreaTokens.hintTargetSize}: 2.375rem;
                 ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+
+                ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+            `,
+            xs: css`
+                ${textAreaTokens.inputWidth}: 100%;
+                ${textAreaTokens.inputHeight}: 7.312rem;
+                ${textAreaTokens.inputMinHeight}: 0.625rem;
+                ${textAreaTokens.borderSize}: 0.125rem;
+                ${textAreaTokens.borderRadius}: 0.5rem;
+                ${textAreaTokens.borderRadiusWithHelpers}: 0.5rem 0.5rem 0 0;
+
+                ${textAreaTokens.inputPaddingTop}: 0.125rem;
+                ${textAreaTokens.inputPaddingRight}: 0rem;
+                ${textAreaTokens.inputPaddingRightWithRightContent}: 2.125rem;
+                ${textAreaTokens.inputPaddingBottom}: 0.125rem;
+                ${textAreaTokens.inputPaddingBottomWithHelpers}: 0.125rem;
+                ${textAreaTokens.inputPaddingLeft}: 0rem;
+
+                ${textAreaTokens.helpersPaddingTop}: 0.125rem;
+                ${textAreaTokens.helpersPaddingRight}: 0rem;
+                ${textAreaTokens.helpersPaddingBottom}: 0rem;
+                ${textAreaTokens.helpersPaddingLeft}: 0rem;
+                ${textAreaTokens.helpersOffset}: 0rem;
+                ${textAreaTokens.outsideHelpersPaddingTop}: 0.125rem;
+
+                ${textAreaTokens.rightContentTop}: 0.125rem;
+                ${textAreaTokens.rightContentRight}: 0rem;
+                ${textAreaTokens.rightContentHeight}: 1rem;
+
+                ${textAreaTokens.labelMarginBottom}: 0.25rem;
+
+                ${textAreaTokens.labelInnerFontFamily}: ${bodyXXS.fontFamily};
+                ${textAreaTokens.labelInnerFontSize}: ${bodyXXS.fontSize};
+                ${textAreaTokens.labelInnerFontStyle}: ${bodyXXS.fontStyle};
+                ${textAreaTokens.labelInnerFontWeight}: ${bodyXXS.fontWeight};
+                ${textAreaTokens.labelInnerLetterSpacing}: ${bodyXXS.letterSpacing};
+                ${textAreaTokens.labelInnerLineHeight}: ${bodyXXS.lineHeight};
+
+                ${textAreaTokens.labelInnerTop}: 0rem;
+                ${textAreaTokens.labelInnerTopHelper}: -0.313rem;
+                ${textAreaTokens.labelInnerMarginBottom}: 0rem;
+
+                ${textAreaTokens.inputFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.inputFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.inputFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.inputFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.inputLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.inputLineHeight}: ${bodyXS.lineHeight};
+
+                ${textAreaTokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${textAreaTokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${textAreaTokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${textAreaTokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${textAreaTokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${textAreaTokens.helpersLineHeight}: ${bodyXS.lineHeight};
+
+                ${textAreaTokens.indicatorSizeInner}: 0.375rem;
+                ${textAreaTokens.indicatorSizeOuter}: 0.375rem;
+                ${textAreaTokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${textAreaTokens.indicatorLabelPlacementOuter}: 0.25rem auto auto -0.625rem;
+                ${textAreaTokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${textAreaTokens.indicatorLabelPlacementOuterRight}: 0.125rem -0.675rem auto auto;
+                ${textAreaTokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+
+                ${textAreaTokens.clearIndicatorHintInnerRight}: 0.813rem -1.875rem auto auto;
+
+                ${textAreaTokens.scrollbarWidth}: 0.188rem;
+                ${textAreaTokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${textAreaTokens.hintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
+                ${textAreaTokens.hintTargetSize}: 2.375rem;
+                ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
