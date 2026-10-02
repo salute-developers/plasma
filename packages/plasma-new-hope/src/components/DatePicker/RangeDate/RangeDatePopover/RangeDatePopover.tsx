@@ -35,6 +35,7 @@ export const RangeDatePopover = ({
     quarterNames,
     eventYearList,
     disabledYearList,
+    periodSelectorAlign,
 
     frame = 'document',
     usePortal = false,
@@ -235,6 +236,7 @@ export const RangeDatePopover = ({
                         type={type}
                         locale={lang}
                         includeEdgeDates={includeEdgeDates}
+                        periodSelectorAlign={periodSelectorAlign}
                         onChangeValue={onChangeValue}
                         onChangeStartOfRange={onChangeStartOfRange}
                         onChangeSingleValue={onChangeSingleValue}

@@ -32,11 +32,17 @@ export const createMeta = ({
             displayDouble: false,
             locale: 'ru',
             stretched: false,
+            periodSelectorAlign: 'start',
             enableEventTooltip: true,
             eventTooltipSize: 'm',
             ...defaultArgs,
         },
         argTypes: {
+            periodSelectorAlign: {
+                options: ['start', 'center'],
+                control: { type: 'select' },
+                if: { arg: 'displayDouble', eq: false },
+            },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },

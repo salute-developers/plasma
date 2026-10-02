@@ -42,5 +42,6 @@ export type RangeDatePopoverProps = DatePickerCalendarProps &
         dateShortcuts?: DateShortcutItem[];
         dateShortcutsWidth?: CSSProperties['width'];
         dateShortcutsPlacement?: 'right' | 'left';
+        periodSelectorAlign?: 'start' | 'center';
         onShortcutDateSelect?: (shortcutDate: [Date?, Date?]) => void;
     };

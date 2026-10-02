@@ -15,6 +15,7 @@ import {
     hintViews,
     shortcutsPlacements,
     datePickerRangePlacements,
+    periodSelectorAligns,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -225,7 +226,11 @@ const getCommonArgTypes = (componentConfig: any) => ({
             truthy: true,
         },
     },
-
+    periodSelectorAlign: {
+        options: periodSelectorAligns,
+        control: { type: 'select' },
+        if: { arg: 'isDoubleCalendar', truthy: false },
+    },
     disableFlip: {
         control: { type: 'boolean' },
     },
@@ -300,6 +305,7 @@ export const createMeta = ({
         args: {
             ...commonArgs,
             inputView: 'default',
+            periodSelectorAlign: 'start',
             placeholder: '30.05.2024',
             labelPlacement: 'outer',
             defaultDate: new Date(2024, 5, 14),
@@ -359,6 +365,7 @@ export const createRangeMeta = ({
             secondInputView: 'default',
             firstPlaceholder: '30.05.2024',
             secondPlaceholder: '04.06.2024',
+            periodSelectorAlign: 'start',
             firstTextfieldTextBefore: '',
             secondTextfieldTextBefore: '',
             firstTextfieldTextAfter: '',

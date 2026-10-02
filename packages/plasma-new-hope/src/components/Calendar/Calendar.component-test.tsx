@@ -171,6 +171,7 @@ describeFn('Calendar', () => {
             renderFromDate,
             onChangeVisibleDate,
             quarterNames,
+            periodSelectorAlign,
         } = args;
         const [value, setValue] = useState(baseValue);
 
@@ -211,6 +212,7 @@ describeFn('Calendar', () => {
                     stretched={stretched}
                     onChangeValue={handleOnChange}
                     onChangeVisibleDate={onChangeVisibleDate}
+                    periodSelectorAlign={periodSelectorAlign}
                 />
             );
         };
@@ -261,6 +263,18 @@ describeFn('Calendar', () => {
         quarterNames.forEach((quarterName) => {
             cy.contains('[role="gridcell"]', quarterName).should('be.visible');
         });
+    });
+
+    it('periodSelectorAlign=center', () => {
+        mount(
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+                {['Days', 'Months', 'Quarters', 'Years'].map((type) => (
+                    <Demo value={baseDate} type={type} periodSelectorAlign="center" />
+                ))}
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
     });
 
     itSkipForWebkit('default: double calendar', () => {
