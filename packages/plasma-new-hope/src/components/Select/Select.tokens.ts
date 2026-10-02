@@ -145,6 +145,8 @@ export const tokens = {
     // Токены для TextField
     /** @styleType color */
     textFieldColor: '--plasma-select-textfield-color',
+    /** @styleType color @styleProp textFieldColor @styleState focused */
+    textFieldColorFocus: '--plasma-select-textfield-color-focus',
 
     /** @styleType color */
     textFieldBackgroundColor: '--plasma-select-textfield-background-color',
@@ -161,9 +163,22 @@ export const tokens = {
     textFieldBorderColorFocus: '--plasma-select-textfield-border-color-focus',
 
     /** @styleType color */
-    textFieldPlaceholderColor: '--plasma-select-textfield-placeholder-color',
+    textFieldDividerColor: '--plasma-select-textfield-divider-color',
+    /** @styleType color @styleProp textFieldDividerColor @styleState hovered */
+    textFieldDividerColorHover: '--plasma-select-textfield-divider-color-hover',
+    /** @styleType color @styleProp textFieldDividerColor @styleState focused */
+    textFieldDividerColorFocus: '--plasma-select-textfield-divider-color-focus',
+
     /** @styleType color */
+    textFieldPlaceholderColor: '--plasma-select-textfield-placeholder-color',
+    /** @styleType color @styleProp textFieldPlaceholderColor @styleState hovered */
+    textFieldPlaceholderColorHover: '--plasma-select-textfield-placeholder-color-hover',
+    /** @styleType color @styleProp textFieldPlaceholderColor @styleState focused */
     textFieldPlaceholderColorFocus: '--plasma-select-textfield-placeholder-color-focus',
+    /** @styleType color */
+    textFieldClearPlaceholderColor: '--plasma-select-textfield-clear-placeholder-color',
+    /** @styleType color @styleProp textFieldClearPlaceholderColor @styleState focused */
+    textFieldClearPlaceholderColorFocus: '--plasma-select-textfield-clear-placeholder-color-focus',
 
     /** Цвета для read-only состояния */
     /** @styleType color */
@@ -174,6 +189,8 @@ export const tokens = {
     textFieldBorderColorReadOnly: '--plasma-select-textfield-border-color-readonly',
     /** @styleType color */
     textFieldPlaceholderColorReadOnly: '--plasma-select-textfield__placeholder-color-readonly',
+    /** @styleType color */
+    textFieldDividerColorReadOnly: '--plasma-select-textfield-divider-color-readonly',
 
     /** @styleType dimension */
     textFieldHeight: '--plasma-select-textfield-height',
