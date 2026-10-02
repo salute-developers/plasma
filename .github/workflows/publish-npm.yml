@@ -6,41 +6,41 @@ on:
     push:
         branches:
             - master
-    pull_request:
-        branches:
-            - master
-            - dev
-            - next-sbcom
     workflow_dispatch:
         inputs:
             release:
-                description: "Release type: dev, next-branch"
+                description: "Release type: rc, next-branch, canary"
                 required: true
                 type: choice
                 options:
                     - rc
                     - next-sbcom
+                    - canary
+            pull-request-number:
+                description: "Pull request number (required for canary)"
+                type: string
+                default: ''
+            expected-head-sha:
+                description: "Expected PR head SHA (optional for a manual canary)"
+                type: string
+                default: ''
 
 concurrency:
-    # PR и dispatch next-*: новый прогон отменяет предыдущий в той же группе.
-    # rc и push в master: группа уникальна (run_id) — прогоны не отменяются и не сливаются.
-    group: ${{ github.workflow }}-${{ github.head_ref || inputs.release || github.run_id }}
-    cancel-in-progress: ${{ github.event_name == 'pull_request' || startsWith(inputs.release, 'next-') }}
+    # Canary группируются по номеру PR, остальные ручные публикации — по типу релиза.
+    group: ${{ github.workflow }}-${{ inputs.release == 'canary' && inputs.pull-request-number || inputs.release || github.run_id }}
+    cancel-in-progress: ${{ startsWith(inputs.release, 'next-') }}
 
 jobs:
     publish-canary:
         name: Publish canary version
-        # Только PR из этого же репозитория: у fork-PR нет ни секретов, ни id-token.
-        # pull_request_target не обрабатываем, поэтому canary для внешних PR не публикуется.
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        if: github.event_name == 'workflow_dispatch' && inputs.release == 'canary'
         permissions:
             id-token: write # выдать OIDC-токен для npm trusted publishing
             contents: read
         uses: ./.github/workflows/publish-common.yml
         with:
-            ref: refs/pull/${{ github.event.pull_request.number }}/merge
-            auto-options: '--no-changelog'
-            prepare-since: ${{ github.event.pull_request.base.sha }}
+            pull-request-number: ${{ inputs.pull-request-number }}
+            expected-head-sha: ${{ inputs.expected-head-sha }}
         secrets:
             gh_token: ${{ secrets.GH_TOKEN }}
             npm_registry_token: ${{ secrets.NPM_REGISTRY_TOKEN }}

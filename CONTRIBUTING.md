@@ -179,7 +179,7 @@ git commit -m "fix(plasma-web): Fix component Y"
 ## Pull request
 
 -   Создаем PR в ветку `dev`, дожидаемся успешного завершения работы CI.
--   Canary-публикация предусмотрена для PR из этого же репозитория в ветки, перечисленные в `.github/workflows/publish-npm.yml`. Для PR из форков она отключена.
+-   Для canary-публикации оставьте комментарий `/release-canary` в открытом PR из этого же репозитория. Команда доступна пользователям с правами `write`, `maintain` или `admin`; PR из форков не публикуются.
 -   Дописываем в главный коммент описание того, что было сделано и для чего.
 -   Дожидаемся аппрува от всех ревьюеров ПРа.
 -   Добавляем PR в очередь на мёрж.
@@ -190,9 +190,11 @@ git commit -m "fix(plasma-web): Fix component Y"
 
 Публикацией управляет [.github/workflows/publish-npm.yml](./.github/workflows/publish-npm.yml):
 
--   PR из этого репозитория в `master`, `dev` и `next-sbcom` запускают canary-публикацию;
+-   комментарий `/release-canary` обрабатывает отдельный workflow [Request canary publication](./.github/workflows/publish-canary-request.yml): после проверки прав автора и PR он запускает `Publish npm` через `workflow_dispatch`;
 -   push в `master` запускает публикацию `latest`, после которой обновляется changelog;
--   ручной запуск поддерживает `rc` и `next-sbcom`.
+-   ручной запуск поддерживает `rc`, `next-sbcom` и `canary`. Для canary выберите workflow из `dev` и укажите `pull-request-number`. Необязательный `expected-head-sha` позволяет потребовать конкретный head SHA; без него собирается merge ref PR.
+
+Точка входа trusted publishing остаётся `publish-npm.yml`. После комментария в Actions появятся два запуска: `Request canary publication` для проверки запроса и `Publish npm` для публикации. Обработчик комментария использует `GITHUB_TOKEN` с `actions: write` и передаёт head SHA PR; общий workflow проверяет, что PR не изменился. Если проверка не прошла, повторите `/release-canary` для новой ревизии.
 
 Версии и публикация выполняются через общий workflow `publish-common.yml`. Документация, Storybook и Cypress имеют отдельные workflows; состав выполненных проверок и публикаций смотрите в конкретном запуске CI.
 
