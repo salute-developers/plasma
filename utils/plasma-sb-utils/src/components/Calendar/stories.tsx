@@ -86,6 +86,7 @@ export const createDefaultStory = (_: any, Components: any) => {
         includeEdgeDates,
         size,
         displayDouble,
+        periodSelectorAlign,
         locale,
         eventTooltipSize,
         enableEventTooltip,
@@ -126,6 +127,7 @@ export const createDefaultStory = (_: any, Components: any) => {
                 />
             ) : (
                 <CalendarBase
+                    periodSelectorAlign={periodSelectorAlign}
                     size={size}
                     value={value}
                     includeEdgeDates={includeEdgeDates}
@@ -182,6 +184,7 @@ export const createRangeStory = (_: any, Components: any) => {
         includeEdgeDates,
         size,
         displayDouble,
+        periodSelectorAlign,
         locale,
         eventTooltipSize,
         enableEventTooltip,
@@ -222,6 +225,7 @@ export const createRangeStory = (_: any, Components: any) => {
                 />
             ) : (
                 <CalendarBaseRange
+                    periodSelectorAlign={periodSelectorAlign}
                     size={size}
                     includeEdgeDates={includeEdgeDates}
                     locale={locale}

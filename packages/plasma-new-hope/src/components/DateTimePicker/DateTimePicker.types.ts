@@ -8,6 +8,7 @@ import type {
 } from 'react';
 
 import type { DateInfo } from '../Calendar/Calendar.types';
+import type { CalendarBaseProps } from '../Calendar/CalendarBase/CalendarBase';
 import type { DatePickerPopoverProps, DatePickerTextFieldProps } from '../DatePicker/SingleDate/SingleDate.types';
 import type { HintProps, LabelProps } from '../TextField/TextField.types';
 import type { DatePickerCalendarProps } from '../DatePicker/DatePickerBase.types';
@@ -137,7 +138,8 @@ export type CalendarProps = {
      * @default 'left'
      */
     dateShortcutsPlacement?: 'right' | 'left';
-} & Omit<DatePickerCalendarProps, 'format' | 'maskWithFormat' | 'calendarContainerWidth' | 'calendarContainerHeight'>;
+} & Omit<DatePickerCalendarProps, 'format' | 'maskWithFormat' | 'calendarContainerWidth' | 'calendarContainerHeight'> &
+    Pick<CalendarBaseProps, 'periodSelectorAlign'>;
 
 type VariationProps = {
     /**

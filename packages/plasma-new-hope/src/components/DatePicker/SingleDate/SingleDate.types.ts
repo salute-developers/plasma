@@ -3,6 +3,7 @@ import type { DateShortcutItem } from 'src/components/DateTimePicker/DateTimePic
 
 import type { DatePickerCalendarProps, DatePickerVariationProps, OnCommitDateCallback } from '../DatePickerBase.types';
 import type { DateType } from '../../Calendar/Calendar.types';
+import type { CalendarBaseProps } from '../../Calendar/CalendarBase/CalendarBase';
 import type { HintProps, LabelProps } from '../../TextField/TextField.types';
 
 export type DatePickerPlacementBasic = 'top' | 'bottom' | 'right' | 'left';
@@ -189,6 +190,7 @@ export type DatePickerPopoverProps = {
 export type DatePickerProps = DatePickerVariationProps &
     DatePickerTextFieldProps &
     DatePickerCalendarProps &
+    Pick<CalendarBaseProps, 'periodSelectorAlign'> &
     DatePickerPopoverProps &
     HintProps &
     Omit<HTMLAttributes<HTMLDivElement>, 'defaultValue'>;
