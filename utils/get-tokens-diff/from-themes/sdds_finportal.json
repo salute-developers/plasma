@@ -1,0 +1,1790 @@
+[
+    {
+        "name": "🌑 Text&Icons Default/textPrimary"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textParagraph"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textAccent"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textAccentMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textPositive"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textWarning"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textNegative"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textInfo"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textPositiveMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textWarningMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textNegativeMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textInfoMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textSecondary"
+    },
+    {
+        "name": "🌑 Text&Icons Default/textTertiary"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextPrimary"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextParagraph"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextAccent"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextAccentMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextPositive"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextWarning"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextNegative"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextInfo"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextPositiveMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextWarningMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextNegativeMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextInfoMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextSecondary"
+    },
+    {
+        "name": "🌑 Text&Icons onDark/onDarkTextTertiary"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextPrimary"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextParagraph"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextAccent"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextAccentMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextPositive"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextInfo"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextPositiveMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextWarningMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextNegativeMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextInfoMinor"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextSecondary"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextTertiary"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextWarning"
+    },
+    {
+        "name": "🌑 Text&Icons onLight/onLightTextNegative"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextPrimary"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextParagraph"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextAccent"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextAccentMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextPositive"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextInfo"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextPositiveMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextWarningMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextNegativeMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextInfoMinor"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextSecondary"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextTertiary"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextWarning"
+    },
+    {
+        "name": "🌑 Text&Icons Inverse/inverseTextNegative"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSolidPrimary"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSolidSecondary"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSolidTertiary"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSolidDefault"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentCard"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentPrimary"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceClear"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceAccent"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceAccentMinor"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentAccent"
+    },
+    {
+        "name": "🌑 Surface Default/surfacePositive"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceWarning"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceNegative"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceInfo"
+    },
+    {
+        "name": "🌑 Surface Default/surfacePositiveMinor"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceWarningMinor"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceNegativeMinor"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceInfoMinor"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentPositive"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentWarning"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentNegative"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentInfo"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSolidCard"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentSecondary"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentTertiary"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceTransparentDeep"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceAccentMinor"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentAccent"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfacePositive"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceWarning"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceNegative"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceInfo"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfacePositiveMinor"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceWarningMinor"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceNegativeMinor"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceInfoMinor"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentPositive"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentWarning"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentNegative"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentInfo"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSolidPrimary"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSolidSecondary"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSolidTertiary"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSolidDefault"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentPrimary"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentCard"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceAccent"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceClear"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSolidCard"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentSecondary"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentTertiary"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceTransparentDeep"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceClear"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSolidPrimary"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSolidSecondary"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSolidTertiary"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSolidCard"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSolidDefault"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentCard"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceAccent"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceAccentMinor"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentAccent"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfacePositive"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceWarning"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceNegative"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceInfo"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfacePositiveMinor"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceWarningMinor"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceNegativeMinor"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceInfoMinor"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentPositive"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentWarning"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentNegative"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentInfo"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentPrimary"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentSecondary"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentTertiary"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceTransparentDeep"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceClear"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSolidPrimary"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSolidSecondary"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSolidTertiary"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSolidDefault"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSolidCard"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentCard"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceAccent"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceAccentMinor"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentAccent"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfacePositive"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceWarning"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceNegative"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceInfo"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfacePositiveMinor"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceWarningMinor"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceNegativeMinor"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceInfoMinor"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentPositive"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentWarning"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentNegative"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentInfo"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentPrimary"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentSecondary"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentTertiary"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceTransparentDeep"
+    },
+    {
+        "name": "🌑 Background Default/backgroundPrimary"
+    },
+    {
+        "name": "🌑 Background Default/backgroundPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Background Dark/darkBackgroundPrimary"
+    },
+    {
+        "name": "🌑 Light Default/lightBackgroundPrimary"
+    },
+    {
+        "name": "🌑 Background Inverse/inverseBackgroundPrimary"
+    },
+    {
+        "name": "🌑 Background Inverse/inverseBackgroundPrimaryBrightness"
+    },
+    {
+        "name": "🌑 Overlay Default/overlayHard"
+    },
+    {
+        "name": "🌑 Overlay Default/overlaySoft"
+    },
+    {
+        "name": "🌑 Overlay Default/overlayBlur"
+    },
+    {
+        "name": "🌑 Overlay onDark/onDarkOverlayHard"
+    },
+    {
+        "name": "🌑 Overlay onDark/onDarkOverlaySoft"
+    },
+    {
+        "name": "🌑 Overlay onDark/onDarkOverlayBlur"
+    },
+    {
+        "name": "🌑 Overlay onLight/onLightOverlayHard"
+    },
+    {
+        "name": "🌑 Overlay onLight/onLightOverlaySoft"
+    },
+    {
+        "name": "🌑 Overlay onLight/onLightOverlayBlur"
+    },
+    {
+        "name": "🌑 Overlay Inverse/inverseOverlayHard"
+    },
+    {
+        "name": "🌑 Overlay Inverse/inverseOverlaySoft"
+    },
+    {
+        "name": "🌑 Overlay Inverse/inverseOverlayBlur"
+    },
+    {
+        "name": "🌑 Outline Default/outlineSolidPrimary"
+    },
+    {
+        "name": "🌑 Outline Default/outlineSolidSecondary"
+    },
+    {
+        "name": "🌑 Outline Default/outlineSolidTertiary"
+    },
+    {
+        "name": "🌑 Outline Default/outlineAccent"
+    },
+    {
+        "name": "🌑 Outline Default/outlineAccentMinor"
+    },
+    {
+        "name": "🌑 Outline Default/outlineTransparentAccent"
+    },
+    {
+        "name": "🌑 Outline Default/outlinePositive"
+    },
+    {
+        "name": "🌑 Outline Default/outlineWarning"
+    },
+    {
+        "name": "🌑 Outline Default/outlineNegative"
+    },
+    {
+        "name": "🌑 Outline Default/outlineInfo"
+    },
+    {
+        "name": "🌑 Outline Default/outlinePositiveMinor"
+    },
+    {
+        "name": "🌑 Outline Default/outlineWarningMinor"
+    },
+    {
+        "name": "🌑 Outline Default/outlineNegativeMinor"
+    },
+    {
+        "name": "🌑 Outline Default/outlineInfoMinor"
+    },
+    {
+        "name": "🌑 Outline Default/outlineTransparentPositive"
+    },
+    {
+        "name": "🌑 Outline Default/outlineTransparentWarning"
+    },
+    {
+        "name": "🌑 Outline Default/outlineTransparentNegative"
+    },
+    {
+        "name": "🌑 Outline Default/outlineTransparentInfo"
+    },
+    {
+        "name": "🌑 Outline Default/outlineSolidDefault"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineSolidPrimary"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineSolidSecondary"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineSolidTertiary"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineAccent"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineTransparentAccent"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineAccentMinor"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlinePositive"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineWarning"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineNegative"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineInfo"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlinePositiveMinor"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineWarningMinor"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineNegativeMinor"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineInfoMinor"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineTransparentPositive"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineTransparentWarning"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineTransparentNegative"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineTransparentInfo"
+    },
+    {
+        "name": "🌑 Outline onDark/onDarkOutlineSolidDefault"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineSolidPrimary"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineSolidSecondary"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineSolidTertiary"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineAccent"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineAccentMinor"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineTransparentAccent"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlinePositive"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineInfo"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlinePositiveMinor"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineWarningMinor"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineNegativeMinor"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineInfoMinor"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineTransparentPositive"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineTransparentWarning"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineTransparentNegative"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineTransparentInfo"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineSolidDefault"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineWarning"
+    },
+    {
+        "name": "🌑 Outline onLight/onLightOutlineNegative"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineSolidPrimary"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineSolidSecondary"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineAccent"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineAccentMinor"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineTransparentAccent"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlinePositive"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineInfo"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlinePositiveMinor"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineWarningMinor"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineNegativeMinor"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineInfoMinor"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineTransparentPositive"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineTransparentWarning"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineTransparentNegative"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineTransparentInfo"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineSolidDefault"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineWarning"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineNegative"
+    },
+    {
+        "name": "🌑 Outline Inverse/inverseOutlineSolidTertiary"
+    },
+    {
+        "name": "🌑 Data Default/dataYellow"
+    },
+    {
+        "name": "🌑 Data Default/dataYellowMinor"
+    },
+    {
+        "name": "🌑 Data Default/dataYellowTransparent"
+    },
+    {
+        "name": "🌑 Data Default/dataYellowLight"
+    },
+    {
+        "name": "🌑 Data Default/dataSkyBlueLight"
+    },
+    {
+        "name": "🌑 Data onDark/onDarkDataYellow"
+    },
+    {
+        "name": "🌑 Data onDark/onDarkDataYellowMinor"
+    },
+    {
+        "name": "🌑 Data onDark/onDarkDataYellowTransparent"
+    },
+    {
+        "name": "🌑 Data onDark/onDarkDataYellowLight"
+    },
+    {
+        "name": "🌑 Data onDark/onDarkDataSkyBlueLight"
+    },
+    {
+        "name": "🌑 Data onLight/onLightDataYellow"
+    },
+    {
+        "name": "🌑 Data onLight/onLightDataYellowMinor"
+    },
+    {
+        "name": "🌑 Data onLight/onLightDataYellowTransparent"
+    },
+    {
+        "name": "🌑 Data onLight/onLightDataYellowLight"
+    },
+    {
+        "name": "🌑 Data onLight/onLightDataSkyBlueLight"
+    },
+    {
+        "name": "🌑 Data Inverse/inverseDataYellow"
+    },
+    {
+        "name": "🌑 Data Inverse/inverseDataYellowMinor"
+    },
+    {
+        "name": "🌑 Data Inverse/inverseDataYellowTransparent"
+    },
+    {
+        "name": "🌑 Data Inverse/inverseDataYellowLight"
+    },
+    {
+        "name": "🌑 Data Inverse/inverseDataSkyBlueLight"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSkeletonGradient"
+    },
+    {
+        "name": "🌑 Surface Default/surfaceSkeletonDeepGradient"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSkeletonGradient"
+    },
+    {
+        "name": "🌑 Surface onDark/onDarkSurfaceSkeletonDeepGradient"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSkeletonGradient"
+    },
+    {
+        "name": "🌑 Surface onLight/onLightSurfaceSkeletonDeepGradient"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSkeletonGradient"
+    },
+    {
+        "name": "🌑 Surface Inverse/inverseSurfaceSkeletonDeepGradient"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textPrimary"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textParagraph"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textAccent"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textAccentMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textPositive"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textInfo"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textPositiveMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textWarningMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textNegativeMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textInfoMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textSecondary"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textTertiary"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textWarning"
+    },
+    {
+        "name": "🌕 Text&Icons Default/textNegative"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextPrimary"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextParagraph"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextAccent"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextAccentMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextPositive"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextWarning"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextNegative"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextInfo"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextPositiveMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextWarningMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextNegativeMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextInfoMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextSecondary"
+    },
+    {
+        "name": "🌕 Text&Icons onDark/onDarkTextTertiary"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextPrimary"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextParagraph"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextAccent"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextAccentMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextPositive"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextInfo"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextPositiveMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextWarningMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextNegativeMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextInfoMinor"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextSecondary"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextTertiary"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextWarning"
+    },
+    {
+        "name": "🌕 Text&Icons onLight/onLightTextNegative"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextPrimary"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextParagraph"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextAccent"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextAccentMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextPositive"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextWarning"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextNegative"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextInfo"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextPositiveMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextWarningMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextNegativeMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextInfoMinor"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextSecondary"
+    },
+    {
+        "name": "🌕 Text&Icons Inverse/inverseTextTertiary"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSolidCard"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSolidPrimary"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSolidSecondary"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSolidTertiary"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSolidDefault"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentCard"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceClear"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceAccent"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentAccent"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceAccentMinor"
+    },
+    {
+        "name": "🌕 Surface Default/surfacePositive"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceWarning"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceNegative"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceInfo"
+    },
+    {
+        "name": "🌕 Surface Default/surfacePositiveMinor"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceWarningMinor"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceNegativeMinor"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceInfoMinor"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentPositive"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentWarning"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentNegative"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentInfo"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentPrimary"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentSecondary"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentTertiary"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceTransparentDeep"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceClear"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSolidPrimary"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSolidSecondary"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSolidTertiary"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSolidDefault"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentPrimary"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentCard"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceAccent"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentAccent"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceAccentMinor"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfacePositive"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceWarning"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceNegative"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceInfo"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfacePositiveMinor"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceWarningMinor"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceNegativeMinor"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceInfoMinor"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentPositive"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentWarning"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentNegative"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentInfo"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSolidCard"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentSecondary"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentTertiary"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceTransparentDeep"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceClear"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSolidCard"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSolidPrimary"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSolidSecondary"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSolidTertiary"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSolidDefault"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentCard"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceAccent"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceAccentMinor"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentAccent"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfacePositive"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceWarning"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceNegative"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceInfo"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfacePositiveMinor"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceWarningMinor"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceNegativeMinor"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceInfoMinor"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentPositive"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentWarning"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentNegative"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentInfo"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentPrimary"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentSecondary"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentTertiary"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceTransparentDeep"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceClear"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSolidCardBrightness"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSolidPrimary"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSolidPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSolidSecondary"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSolidTertiary"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSolidDefault"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentPrimary"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentCard"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentCardBrightness"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceAccent"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceAccentMinor"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentAccent"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfacePositive"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceWarning"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceNegative"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceInfo"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfacePositiveMinor"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceWarningMinor"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceNegativeMinor"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceInfoMinor"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentPositive"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentWarning"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentNegative"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentInfo"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSolidCard"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentSecondary"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentTertiary"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceTransparentDeep"
+    },
+    {
+        "name": "🌕 Background Default/backgroundPrimary"
+    },
+    {
+        "name": "🌕 Background Default/backgroundPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Background Dark/darkBackgroundPrimary"
+    },
+    {
+        "name": "🌕 Light Default/lightBackgroundPrimary"
+    },
+    {
+        "name": "🌕 Background Inverse/inverseBackgroundPrimaryBrightness"
+    },
+    {
+        "name": "🌕 Background Inverse/inverseBackgroundPrimary"
+    },
+    {
+        "name": "🌕 Overlay Default/overlayHard"
+    },
+    {
+        "name": "🌕 Overlay Default/overlaySoft"
+    },
+    {
+        "name": "🌕 Overlay Default/overlayBlur"
+    },
+    {
+        "name": "🌕 Overlay onDark/onDarkOverlayHard"
+    },
+    {
+        "name": "🌕 Overlay onDark/onDarkOverlaySoft"
+    },
+    {
+        "name": "🌕 Overlay onDark/onDarkOverlayBlur"
+    },
+    {
+        "name": "🌕 Overlay onLight/onLightOverlaySoft"
+    },
+    {
+        "name": "🌕 Overlay onLight/onLightOverlayBlur"
+    },
+    {
+        "name": "🌕 Overlay onLight/onLightOverlayHard"
+    },
+    {
+        "name": "🌕 Overlay Inverse/inverseOverlayHard"
+    },
+    {
+        "name": "🌕 Overlay Inverse/inverseOverlaySoft"
+    },
+    {
+        "name": "🌕 Overlay Inverse/inverseOverlayBlur"
+    },
+    {
+        "name": "🌕 Outline Default/outlineSolidPrimary"
+    },
+    {
+        "name": "🌕 Outline Default/outlineSolidSecondary"
+    },
+    {
+        "name": "🌕 Outline Default/outlineSolidTertiary"
+    },
+    {
+        "name": "🌕 Outline Default/outlineAccent"
+    },
+    {
+        "name": "🌕 Outline Default/outlineTransparentAccent"
+    },
+    {
+        "name": "🌕 Outline Default/outlineAccentMinor"
+    },
+    {
+        "name": "🌕 Outline Default/outlinePositive"
+    },
+    {
+        "name": "🌕 Outline Default/outlineInfo"
+    },
+    {
+        "name": "🌕 Outline Default/outlinePositiveMinor"
+    },
+    {
+        "name": "🌕 Outline Default/outlineWarningMinor"
+    },
+    {
+        "name": "🌕 Outline Default/outlineNegativeMinor"
+    },
+    {
+        "name": "🌕 Outline Default/outlineInfoMinor"
+    },
+    {
+        "name": "🌕 Outline Default/outlineTransparentPositive"
+    },
+    {
+        "name": "🌕 Outline Default/outlineTransparentWarning"
+    },
+    {
+        "name": "🌕 Outline Default/outlineTransparentNegative"
+    },
+    {
+        "name": "🌕 Outline Default/outlineTransparentInfo"
+    },
+    {
+        "name": "🌕 Outline Default/outlineWarning"
+    },
+    {
+        "name": "🌕 Outline Default/outlineNegative"
+    },
+    {
+        "name": "🌕 Outline Default/outlineSolidDefault"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineSolidPrimary"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineSolidSecondary"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineSolidTertiary"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineAccent"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineAccentMinor"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineTransparentAccent"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlinePositive"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineWarning"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineNegative"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineInfo"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlinePositiveMinor"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineWarningMinor"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineNegativeMinor"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineInfoMinor"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineTransparentPositive"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineTransparentWarning"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineTransparentNegative"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineTransparentInfo"
+    },
+    {
+        "name": "🌕 Outline onDark/onDarkOutlineSolidDefault"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineSolidPrimary"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineSolidSecondary"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineSolidTertiary"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineAccent"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineTransparentAccent"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineAccentMinor"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlinePositive"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineInfo"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlinePositiveMinor"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineWarningMinor"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineNegativeMinor"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineInfoMinor"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineTransparentPositive"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineTransparentWarning"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineTransparentNegative"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineTransparentInfo"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineWarning"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineNegative"
+    },
+    {
+        "name": "🌕 Outline onLight/onLightOutlineSolidDefault"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineSolidPrimary"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineSolidSecondary"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineSolidTertiary"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineAccent"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineAccentMinor"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineTransparentAccent"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlinePositive"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineWarning"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineNegative"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineInfo"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlinePositiveMinor"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineWarningMinor"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineNegativeMinor"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineInfoMinor"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineTransparentPositive"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineTransparentWarning"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineTransparentNegative"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineTransparentInfo"
+    },
+    {
+        "name": "🌕 Outline Inverse/inverseOutlineSolidDefault"
+    },
+    {
+        "name": "🌕 Data Default/dataYellow"
+    },
+    {
+        "name": "🌕 Data Default/dataYellowMinor"
+    },
+    {
+        "name": "🌕 Data Default/dataYellowTransparent"
+    },
+    {
+        "name": "🌕 Data Default/dataYellowLight"
+    },
+    {
+        "name": "🌕 Data Default/dataSkyBlueLight"
+    },
+    {
+        "name": "🌕 Data onDark/onDarkDataYellow"
+    },
+    {
+        "name": "🌕 Data onDark/onDarkDataYellowMinor"
+    },
+    {
+        "name": "🌕 Data onDark/onDarkDataYellowTransparent"
+    },
+    {
+        "name": "🌕 Data onDark/onDarkDataYellowLight"
+    },
+    {
+        "name": "🌕 Data onDark/onDarkDataSkyBlueLight"
+    },
+    {
+        "name": "🌕 Data onLight/onLightDataYellow"
+    },
+    {
+        "name": "🌕 Data onLight/onLightDataYellowMinor"
+    },
+    {
+        "name": "🌕 Data onLight/onLightDataYellowTransparent"
+    },
+    {
+        "name": "🌕 Data onLight/onLightDataYellowLight"
+    },
+    {
+        "name": "🌕 Data onLight/onLightDataSkyBlueLight"
+    },
+    {
+        "name": "🌕 Data Inverse/inverseDataYellow"
+    },
+    {
+        "name": "🌕 Data Inverse/inverseDataYellowMinor"
+    },
+    {
+        "name": "🌕 Data Inverse/inverseDataYellowTransparent"
+    },
+    {
+        "name": "🌕 Data Inverse/inverseDataYellowLight"
+    },
+    {
+        "name": "🌕 Data Inverse/inverseDataSkyBlueLight"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSkeletonGradient"
+    },
+    {
+        "name": "🌕 Surface Default/surfaceSkeletonDeepGradient"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSkeletonGradient"
+    },
+    {
+        "name": "🌕 Surface onDark/onDarkSurfaceSkeletonDeepGradient"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSkeletonGradient"
+    },
+    {
+        "name": "🌕 Surface onLight/onLightSurfaceSkeletonDeepGradient"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSkeletonGradient"
+    },
+    {
+        "name": "🌕 Surface Inverse/inverseSurfaceSkeletonDeepGradient"
+    }
+]
