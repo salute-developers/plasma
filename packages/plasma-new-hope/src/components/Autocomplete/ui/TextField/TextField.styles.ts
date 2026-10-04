@@ -10,6 +10,7 @@ const TextField = component(mergedConfig);
 export const StyledTextField = styled(TextField)`
     ${textFieldTokens.color}: var(${autocompleteTokens.textFieldColor});
     ${textFieldTokens.clearColor}: var(${autocompleteTokens.textFieldClearColor});
+    ${textFieldTokens.colorFocus}: var(${autocompleteTokens.textFieldColorFocus});
     ${textFieldTokens.placeholderColor}: var(${autocompleteTokens.textFieldPlaceholderColor});
     ${textFieldTokens.placeholderColorFocus}: var(${autocompleteTokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.clearPlaceholderColor}: var(${autocompleteTokens.textFieldClearPlaceholderColor});
@@ -24,6 +25,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.dividerColor}: var(${autocompleteTokens.textFieldDividerColor});
     ${textFieldTokens.dividerColorHover}: var(${autocompleteTokens.textFieldDividerColorHover});
     ${textFieldTokens.dividerColorFocus}: var(${autocompleteTokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerWidth}: var(${autocompleteTokens.textFieldDividerWidth});
     ${textFieldTokens.colorReadOnly}: var(${autocompleteTokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${autocompleteTokens.textFieldBackgroundColorReadOnly});
     ${textFieldTokens.borderColorReadOnly}: var(${autocompleteTokens.textFieldBorderColorReadOnly});
@@ -82,6 +84,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.contentSlotColor}: var(${autocompleteTokens.textFieldContentSlotColor});
     ${textFieldTokens.contentSlotColorHover}: var(${autocompleteTokens.textFieldContentSlotColorHover});
     ${textFieldTokens.contentSlotColorActive}: var(${autocompleteTokens.textFieldContentSlotColorActive});
+    ${textFieldTokens.contentSlotColorFocus}: var(${autocompleteTokens.textFieldContentSlotColorFocus});
     ${textFieldTokens.contentSlotRightColor}: var(${autocompleteTokens.textFieldContentSlotRightColor});
     ${textFieldTokens.contentSlotRightColorHover}: var(${autocompleteTokens.textFieldContentSlotRightColorHover});
     ${textFieldTokens.contentSlotRightColorActive}: var(${autocompleteTokens.textFieldContentSlotRightColorActive});

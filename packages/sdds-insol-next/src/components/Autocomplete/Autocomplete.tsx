@@ -2,6 +2,7 @@ import React, { ComponentProps } from 'react';
 import {
     autocompleteConfig,
     component,
+    createConditionalComponent,
     mergeConfig,
     DistributiveOmit,
     fixedForwardRef,
@@ -11,6 +12,7 @@ import {
 } from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './Autocomplete.config';
+import { config as clearConfig } from './Autocomplete.clear.config';
 
 // TODO: #2087
 export const mapSizesToOffset = (size?: string): number => {
@@ -30,12 +32,22 @@ export const mapSizesToOffset = (size?: string): number => {
 };
 
 const mergedConfig = mergeConfig(autocompleteConfig, config);
-export const AutocompleteComponent = component(mergedConfig);
+export const AutocompleteDefault = component(mergedConfig);
+
+const mergedClearConfig = mergeConfig(autocompleteConfig, clearConfig);
+export const AutocompleteClear = component(mergedClearConfig);
+
+export const AutocompleteComponent = createConditionalComponent({
+    default: AutocompleteDefault,
+    clear: AutocompleteClear,
+});
 
 type PropsFromConfig = keyof typeof config['variations'];
 
-type Props<T extends SuggestionItemType> = DistributiveOmit<AutocompleteProps<T>, PropsFromConfig> &
-    DistributivePick<ComponentProps<typeof AutocompleteComponent>, PropsFromConfig | 'hintTargetPlacement'>;
+type Props<T extends SuggestionItemType> = DistributiveOmit<AutocompleteProps<T>, PropsFromConfig | 'appearance'> &
+    DistributivePick<ComponentProps<typeof AutocompleteDefault>, PropsFromConfig | 'hintTargetPlacement'> & {
+        appearance?: 'default' | 'clear';
+    };
 
 const AutocompleteWithoutRef = <T extends SuggestionItemType>(
     props: Props<T>,

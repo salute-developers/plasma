@@ -100,10 +100,14 @@ const meta: Meta<StoryProps> = {
     component: Autocomplete,
     argTypes: {
         appearance: {
-            options: ['default', 'viewMode'],
+            options: ['default', 'clear', 'viewMode'],
             control: {
                 type: 'select',
             },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: { arg: 'appearance', eq: 'clear' },
         },
         view: {
             options: views,
@@ -220,6 +224,7 @@ const meta: Meta<StoryProps> = {
     },
     args: {
         appearance: 'default',
+        hasDivider: false,
         view: 'default',
         size: 's',
         labelPlacement: 'outer',
