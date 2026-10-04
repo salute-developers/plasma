@@ -59,6 +59,14 @@ export const config = {
                 ${checkboxTokens.triggerBackgroundColor}: ${surfaceTransparentSecondary};
                 ${checkboxTokens.triggerBorderColor}: ${textParagraph};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
+
+                ${checkboxTokens.triggerTransition}: background 0.1s ease-in-out, border-color 0.1s ease-in-out;
+                ${checkboxTokens.iconTransform}: none;
+                ${checkboxTokens.iconOpacity}: 0;
+                ${checkboxTokens.iconTransition}: opacity 0.1s ease-in-out;
+                ${checkboxTokens.iconStrokeDasharray}: 1;
+                ${checkboxTokens.iconStrokeDashoffset}: 1;
+                ${checkboxTokens.iconStrokeTransition}: stroke-dashoffset 0.1s ease-in-out;
             `,
         },
         disabled: {
