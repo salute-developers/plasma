@@ -53,14 +53,30 @@ export const StyledTrigger = styled.div`
     flex-shrink: 0;
     flex-grow: 0;
 
-    // TODO: allow controlling animation via tokens [PLASMA-7283]
+    transition: var(${tokens.triggerTransition}, none);
+
     input:not(:indeterminate) + label & div {
-        transform: scale(0);
-        transition: transform 0.15s ease-in-out;
+        transform: var(${tokens.iconTransform}, scale(0));
+        opacity: var(${tokens.iconOpacity}, 1);
+        transition: var(${tokens.iconTransition}, transform 0.15s ease-in-out);
     }
 
     input:checked + label & div {
         transform: scale(1);
+        opacity: 1;
+    }
+
+    svg path[stroke] {
+        stroke-dasharray: var(${tokens.iconStrokeDasharray}, none);
+    }
+
+    input:not(:checked):not(:indeterminate) + label & svg path[stroke] {
+        stroke-dashoffset: var(${tokens.iconStrokeDashoffset}, 0);
+    }
+
+    input:is(:checked, :indeterminate) + label & svg path[stroke] {
+        stroke-dashoffset: 0;
+        transition: var(${tokens.iconStrokeTransition}, none);
     }
 `;
 
