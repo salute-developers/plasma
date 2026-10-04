@@ -14,6 +14,14 @@ export const tokens = {
     triggerBorderColor: '--plasma-checkbox-trigger-border-color',
     triggerBorderCheckedColor: '--plasma-checkbox-trigger-border-checked-color',
     triggerBackgroundColor: '--plasma-checkbox-trigger-background-color',
+    triggerTransition: '--plasma-checkbox-trigger-transition',
+
+    iconTransform: '--plasma-checkbox-icon-transform',
+    iconOpacity: '--plasma-checkbox-icon-opacity',
+    iconTransition: '--plasma-checkbox-icon-transition',
+    iconStrokeDasharray: '--plasma-checkbox-icon-stroke-dasharray',
+    iconStrokeDashoffset: '--plasma-checkbox-icon-stroke-dashoffset',
+    iconStrokeTransition: '--plasma-checkbox-icon-stroke-transition',
 
     fillColor: '--plasma-checkbox-fill-color',
     fillColorHover: '--plasma-checkbox-fill-color-hover',
