@@ -24,6 +24,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             {
                 items,
                 trigger = 'click',
+                longPressDelay,
                 placement = 'bottom',
                 children,
                 variant = 'normal',
@@ -112,6 +113,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         closeOnSelect,
                         onHover,
                         onItemSelect,
+                        longPressDelay,
                         treeId,
                         renderItem,
                     }}
@@ -124,6 +126,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         offset={offset}
                         portal={portal}
                         trigger={trigger}
+                        longPressDelay={longPressDelay}
                         target={childrenWithProps(children, {
                             role: 'combobox',
                             'aria-controls': `${treeId}_tree_level_1`,

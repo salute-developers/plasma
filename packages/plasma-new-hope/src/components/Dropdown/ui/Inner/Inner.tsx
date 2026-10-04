@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import type { FC } from 'react';
 import { safeUseId } from 'src/utils';
 
+import { Context } from '../../Dropdown.context';
 import { Ul, ListWrapper } from '../../Dropdown.styles';
 import { FloatingPopover } from '../../FloatingPopover';
 import { getPlacement } from '../../utils';
@@ -27,6 +28,8 @@ const Inner: FC<DropdownInnerProps> = ({
         }
     };
 
+    const { longPressDelay } = useContext(Context);
+
     const listWrapperRef = useRef<HTMLDivElement>(null);
 
     const isCurrentListOpen = path[currentLevel + 1] === item.value.toString();
@@ -42,6 +45,7 @@ const Inner: FC<DropdownInnerProps> = ({
                 opened={isCurrentListOpen}
                 onToggle={handleToggle}
                 trigger={item.trigger || trigger}
+                longPressDelay={longPressDelay}
                 target={
                     <Item
                         item={item}

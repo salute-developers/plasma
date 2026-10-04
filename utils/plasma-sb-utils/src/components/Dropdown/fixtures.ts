@@ -1,5 +1,5 @@
 export const placements = ['auto', 'top', 'right', 'bottom', 'left'];
-export const triggers = ['click', 'hover'];
+export const triggers = ['click', 'hover', 'longPress'];
 export const variant = ['normal', 'tight'];
 
 export const items = [

@@ -397,6 +397,24 @@ describeFn('Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
+    it('trigger: longPress', () => {
+        mount(
+            <Dropdown items={items} trigger="longPress" longPressDelay={300}>
+                <Button id="long-press" text="longPress" />
+            </Dropdown>,
+        );
+
+        // Короткое нажатие не открывает список
+        cy.get('#long-press').trigger('pointerdown', { button: 0, pointerType: 'mouse' });
+        cy.get('#long-press').trigger('pointerup', { button: 0, pointerType: 'mouse' });
+        cy.get('[id$="south_america"]').should('not.exist');
+
+        // Удержание дольше longPressDelay открывает список
+        cy.get('#long-press').trigger('pointerdown', { button: 0, pointerType: 'mouse' });
+        cy.get('[id$="south_america"]').should('exist');
+        cy.get('#long-press').trigger('pointerup', { button: 0, pointerType: 'mouse' });
+    });
+
     it('prop: onHover', () => {
         mount(
             <Dropdown
