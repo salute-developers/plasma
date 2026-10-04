@@ -71,6 +71,14 @@ const meta: Meta<StoryProps> = {
     decorators: [InSpacingDecorator],
     component: Autocomplete,
     argTypes: {
+        appearance: {
+            options: ['default', 'clear'],
+            control: { type: 'select' },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: { arg: 'appearance', eq: 'clear' },
+        },
         view: {
             options: views,
             control: {
@@ -135,6 +143,8 @@ const meta: Meta<StoryProps> = {
         ]),
     },
     args: {
+        appearance: 'default',
+        hasDivider: false,
         view: 'default',
         disabled: false,
         readOnly: false,
