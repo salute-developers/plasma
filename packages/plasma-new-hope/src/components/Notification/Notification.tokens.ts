@@ -5,6 +5,9 @@ export const classes = {
     text: 'notification-text',
     wrapper: 'notification-wrapper',
     icon: 'notification-icon',
+    image: 'notification-image',
+    withImage: 'notification-with-image',
+    fullWidthImage: 'notification-full-width-image',
     closeIcon: 'notification-close-icon',
     buttonsWrapper: 'notification-buttons-wrapper',
 
@@ -63,6 +66,12 @@ export const tokens = {
     contentLeftIconSize: '--plasma-notification-content-left-icon-size',
     contentLeftIconMargin: '--plasma-notification-content-left-icon-margin',
     contentTopIconMargin: '--plasma-notification-content-top-icon-margin',
+
+    imageWidth: '--plasma-notification-image-width',
+    imageHeight: '--plasma-notification-image-height',
+    imageFullWidthHeight: '--plasma-notification-image-full-width-height',
+    imageMarginBottom: '--plasma-notification-image-margin-bottom',
+    imageContentPadding: '--plasma-notification-image-content-padding',
 
     contentColor: '--plasma-notification-content-color',
     contentFontFamily: '--plasma-notification-content-font-family',
