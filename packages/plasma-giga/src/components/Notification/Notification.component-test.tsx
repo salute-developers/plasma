@@ -11,28 +11,34 @@ const Actions = styled.div`
     gap: 0.125rem;
 `;
 
-const readImage = () => cy.readFile('packages/plasma-giga/.storybook/public/images/320_320_0.jpg', 'base64');
+const src = 'https://bit.ly/3xRatFGimages/320_320_0.jpg';
 
 describe('Notification image', () => {
+    beforeEach(() => {
+        cy.intercept(src, (req) => {
+            req.reply({
+                fixture: 'images/320_320_0.jpg',
+            });
+        });
+    });
+
     (['small', 'fullWidth'] as const).forEach((imageSize) => {
         it(`vertical, imageSize=${imageSize}`, () => {
-            readImage().then((image) =>
-                mount(
-                    <Notification
-                        title="Title"
-                        size="xs"
-                        image={{ src: `data:image/jpeg;base64,${image}`, alt: 'Artwork' }}
-                        imageSize={imageSize}
-                        actions={
-                            <Actions>
-                                <Button text="Label" size="xs" stretch />
-                                <Button text="Label" size="xs" stretch />
-                            </Actions>
-                        }
-                    >
-                        Text
-                    </Notification>,
-                ),
+            mount(
+                <Notification
+                    title="Title"
+                    size="xs"
+                    image={{ src, alt: 'Artwork' }}
+                    imageSize={imageSize}
+                    actions={
+                        <Actions>
+                            <Button text="Label" size="xs" stretch />
+                            <Button text="Label" size="xs" stretch />
+                        </Actions>
+                    }
+                >
+                    Text
+                </Notification>,
             );
 
             cy.get('.notification-image').should('have.css', 'width', imageSize === 'small' ? '72px' : '240px');
@@ -48,19 +54,17 @@ describe('Notification image', () => {
     });
 
     it('full-width image follows a custom notification width without actions or close icon', () => {
-        readImage().then((image) =>
-            mount(
-                <Notification
-                    title="Title"
-                    image={{ src: `data:image/jpeg;base64,${image}`, alt: 'Artwork' }}
-                    imageSize="fullWidth"
-                    width="20rem"
-                    maxWidth="18rem"
-                    showCloseIcon={false}
-                >
-                    Text
-                </Notification>,
-            ),
+        mount(
+            <Notification
+                title="Title"
+                image={{ src, alt: 'Artwork' }}
+                imageSize="fullWidth"
+                width="20rem"
+                maxWidth="18rem"
+                showCloseIcon={false}
+            >
+                Text
+            </Notification>,
         );
 
         cy.get('.notification-image').should('have.css', 'width', '288px').and('have.css', 'height', '200px');
