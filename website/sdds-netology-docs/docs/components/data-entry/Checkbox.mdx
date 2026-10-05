@@ -63,6 +63,62 @@ export function App() {
 }
 ```
 
+## Группа чекбоксов
+
+Для группы чекбоксов, в том числе с вложенностью, используйте `List` и `ListItem`.
+
+```tsx live
+import { useState } from 'react';
+import { Checkbox, List, ListItem } from '@salutejs/sdds-netology';
+
+export function App() {
+    const items = [
+        { value: 'russian', label: 'Русский', description: 'Родной язык для 150 млн человек' },
+        { value: 'english', label: 'Английский', description: 'Самый распространённый язык в мире' },
+        { value: 'french', label: 'Французский' },
+        { value: 'chinese', label: 'Китайский' },
+    ];
+
+    const [values, setValues] = useState({ russian: true, english: true });
+
+    const checkedCount = items.filter((item) => values[item.value]).length;
+    const isAllChecked = checkedCount === items.length;
+    const isIndeterminate = checkedCount > 0 && !isAllChecked;
+
+    const onParentChange = (event) => {
+        const { checked } = event.target;
+
+        setValues(items.reduce((acc, item) => ({ ...acc, [item.value]: checked }), values));
+    };
+
+    const onChildChange = (value) => (event) => setValues({ ...values, [value]: event.target.checked });
+
+    return (
+        <List role="group" aria-label="Языки" variant="tight">
+            <ListItem tabIndex={-1}>
+                <Checkbox
+                    label="Языки"
+                    description={`Выбрано: ${checkedCount} из ${items.length}`}
+                    checked={isAllChecked}
+                    indeterminate={isIndeterminate}
+                    onChange={onParentChange}
+                />
+            </ListItem>
+            {items.map((item) => (
+                <ListItem key={item.value} tabIndex={-1} style={{ paddingLeft: 36 }}>
+                    <Checkbox
+                        label={item.label}
+                        description={item.description}
+                        checked={Boolean(values[item.value])}
+                        onChange={onChildChange(item.value)}
+                    />
+                </ListItem>
+            ))}
+        </List>
+    );
+}
+```
+
 ## API
 
 <PropsTable name="Checkbox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />
