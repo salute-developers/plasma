@@ -3,6 +3,7 @@ import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 
 import { ComponentConfig, PropsType, Variants } from '../../engines/types';
 import type { PopupPlacement } from '../Popup';
+import type { ImageProps } from '../Image';
 
 export const layouts = {
     horizontal: 'horizontal',
@@ -52,6 +53,16 @@ export interface NotificationProps extends AsProps, Omit<HTMLAttributes<HTMLDivE
      * Иконка слева.
      */
     icon?: ReactNode;
+    /**
+     * Свойства компонента Image для картинки сверху в вертикальном уведомлении. Заменяет иконку.
+     * Размеры картинки задаются через imageSize и токены Notification.
+     */
+    image?: ImageProps;
+    /**
+     * Размер картинки: маленькая или на всю ширину уведомления.
+     * @default small
+     */
+    imageSize?: 'small' | 'fullWidth';
     /**
      * Расположение иконки слева внутри Textbox.
      */

@@ -52,6 +52,7 @@ const ButtonsWrapper = styled.div`
 `;
 
 const textContent = 'JavaScript frameworks are an essential part of modern front-end web development!';
+const imageSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
 const componentProps = {
     title: 'Title',
@@ -525,5 +526,67 @@ describeFn('Notification', () => {
     it('renders notification component', () => {
         mount(<Notification title="Title">Text</Notification>);
         cy.contains('Title').should('be.visible');
+    });
+
+    it('renders an image above the text instead of the icon', () => {
+        const onClose = cy.stub().as('onClose');
+        mount(
+            <Notification
+                title="Title"
+                image={{
+                    src: imageSrc,
+                    alt: 'Artwork',
+                    sizes: '72px',
+                    srcSet: `${imageSrc} 1x, ${imageSrc} 2x`,
+                }}
+                icon={<IconPlasma />}
+                iconPlacement="left"
+                actions={renderActions()}
+                onCloseButtonClick={onClose}
+            >
+                Text
+            </Notification>,
+        );
+
+        cy.get(`.${classes.image} img`).should('be.visible').and('have.attr', 'alt', 'Artwork');
+        cy.matchImageSnapshot();
+    });
+
+    it('ignores the image in a horizontal notification', () => {
+        mount(
+            <Notification
+                title="Title"
+                layout="horizontal"
+                image={{ alt: 'Artwork' }}
+                imageSize="fullWidth"
+                icon={<IconPlasma />}
+            >
+                Text
+            </Notification>,
+        );
+
+        cy.get(`.${classes.image}`).should('not.exist');
+        cy.get(`.${classes.withImage}`).should('not.exist');
+        cy.get(`.${classes.icon}`).should('be.visible');
+    });
+
+    it('uses image defaults from NotificationsProvider', () => {
+        mount(
+            <NotificationsProvider
+                defaultNotificationArgs={{
+                    title: 'Image notification',
+                    image: { alt: 'Default artwork' },
+                    imageSize: 'fullWidth',
+                    timeout: null,
+                }}
+            >
+                <DefaultArgsControls />
+            </NotificationsProvider>,
+        );
+
+        cy.get('#open-default').click();
+        cy.get(`.${classes.fullWidthImage} img`).should('have.attr', 'alt', 'Default artwork');
+        cy.get(`.${classes.closeIcon}`).click();
+        cy.contains('Image notification').should('not.exist');
     });
 });
