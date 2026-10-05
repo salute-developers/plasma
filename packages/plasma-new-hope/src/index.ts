@@ -1,5 +1,7 @@
 // TODO: #723 Добавить collectPackageInfo
 
+export * as plasmaCore from './plasmaCore';
+
 export * from './mixins';
 export * from './engines';
 export * from './hooks';
