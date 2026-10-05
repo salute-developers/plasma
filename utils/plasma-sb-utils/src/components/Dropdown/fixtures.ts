@@ -1,4 +1,22 @@
-export const placements = ['auto', 'top', 'right', 'bottom', 'left'];
+export const placements = [
+    'auto',
+    'top',
+    'top-start',
+    'top-center',
+    'top-end',
+    'right',
+    'right-start',
+    'right-center',
+    'right-end',
+    'bottom',
+    'bottom-start',
+    'bottom-center',
+    'bottom-end',
+    'left',
+    'left-start',
+    'left-center',
+    'left-end',
+];
 export const triggers = ['click', 'hover'];
 export const variant = ['normal', 'tight'];
 

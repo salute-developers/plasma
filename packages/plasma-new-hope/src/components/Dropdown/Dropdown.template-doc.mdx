@@ -210,7 +210,8 @@ type ItemOption = {
     </TabItem>
 
     <TabItem value="placement" label="Placement">
-        Параметр `placement` может принимать следующие значения : `"top"`,  `"right"`, `"bottom"`, `"left"`, `"auto"`.<br />
+        Параметр `placement` может принимать следующие значения : `"top"`, `"top-start"`, `"top-center"`, `"top-end"`, `"right"`, `"right-start"`, `"right-center"`, `"right-end"`, `"bottom"`, `"bottom-start"`, `"bottom-center"`, `"bottom-end"`, `"left"`, `"left-start"`, `"left-center"`, `"left-end"`, `"auto"`.<br />
+        Значения без суффикса выравнивают список по start: `"bottom"` совпадает с `"bottom-start"`. Значения с суффиксом `center`, например `"bottom-center"`, выравнивают список по центру стороны.<br />
         Default value для placement - `"bottom"`.
 
         ```tsx live
