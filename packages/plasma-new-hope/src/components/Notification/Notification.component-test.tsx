@@ -52,7 +52,7 @@ const ButtonsWrapper = styled.div`
 `;
 
 const textContent = 'JavaScript frameworks are an essential part of modern front-end web development!';
-const imageSrc = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+const src = 'https://bit.ly/3xRatFGimages/320_320_0.jpg';
 
 const componentProps = {
     title: 'Title',
@@ -78,6 +78,14 @@ describeFn('Notification', () => {
         ? ((getComponent('useNotifications') as unknown) as UseNotifications)
         : () => ({ addNotification: () => '', closeNotification: () => undefined });
     const Button = buttonExists ? getComponent<ButtonProps>('Button') : () => null;
+
+    beforeEach(() => {
+        cy.intercept(src, (req) => {
+            req.reply({
+                fixture: 'images/320_320_0.jpg',
+            });
+        });
+    });
 
     const ScopedNotificationControls = () => {
         const {
@@ -534,10 +542,10 @@ describeFn('Notification', () => {
             <Notification
                 title="Title"
                 image={{
-                    src: imageSrc,
+                    src,
                     alt: 'Artwork',
                     sizes: '72px',
-                    srcSet: `${imageSrc} 1x, ${imageSrc} 2x`,
+                    srcSet: `${src} 1x, ${src} 2x`,
                 }}
                 icon={<IconPlasma />}
                 iconPlacement="left"
@@ -549,6 +557,9 @@ describeFn('Notification', () => {
         );
 
         cy.get(`.${classes.image} img`).should('be.visible').and('have.attr', 'alt', 'Artwork');
+        cy.get(`.${classes.image} img`).should(($image) => {
+            expect(($image[0] as HTMLImageElement).naturalWidth).to.be.greaterThan(0);
+        });
         cy.matchImageSnapshot();
     });
 
@@ -557,7 +568,7 @@ describeFn('Notification', () => {
             <Notification
                 title="Title"
                 layout="horizontal"
-                image={{ alt: 'Artwork' }}
+                image={{ src, alt: 'Artwork' }}
                 imageSize="fullWidth"
                 icon={<IconPlasma />}
             >
@@ -575,7 +586,7 @@ describeFn('Notification', () => {
             <NotificationsProvider
                 defaultNotificationArgs={{
                     title: 'Image notification',
-                    image: { alt: 'Default artwork' },
+                    image: { src, alt: 'Default artwork' },
                     imageSize: 'fullWidth',
                     timeout: null,
                 }}
@@ -586,6 +597,9 @@ describeFn('Notification', () => {
 
         cy.get('#open-default').click();
         cy.get(`.${classes.fullWidthImage} img`).should('have.attr', 'alt', 'Default artwork');
+        cy.get(`.${classes.fullWidthImage} img`).should(($image) => {
+            expect(($image[0] as HTMLImageElement).naturalWidth).to.be.greaterThan(0);
+        });
         cy.get(`.${classes.closeIcon}`).click();
         cy.contains('Image notification').should('not.exist');
     });
