@@ -2,10 +2,40 @@ import type { HTMLAttributes, ReactNode, SyntheticEvent, CSSProperties, RefObjec
 
 import { FocusedPathState } from './reducers/focusedPathReducer';
 
-export type DropdownPlacement = 'auto' | 'top' | 'right' | 'bottom' | 'left';
+export type DropdownPlacement =
+    | 'auto'
+    | 'top'
+    | 'top-start'
+    | 'top-center'
+    | 'top-end'
+    | 'right'
+    | 'right-start'
+    | 'right-center'
+    | 'right-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-center'
+    | 'bottom-end'
+    | 'left'
+    | 'left-start'
+    | 'left-center'
+    | 'left-end';
 export type DropdownTrigger = 'hover' | 'click';
 export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
-export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
+export type PlacementType =
+    | 'auto'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
 
 export type ItemOption = {
     /**
