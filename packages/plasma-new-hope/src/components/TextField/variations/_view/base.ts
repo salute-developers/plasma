@@ -5,6 +5,7 @@ import {
     Input,
     InputPlaceholder,
     InputWrapper,
+    StyledContentLeft,
     StyledHelpers,
     StyledHintWrapper,
     StyledLeftHelper,
@@ -32,6 +33,10 @@ export const base = css`
         &:not([readonly]) ${InputWrapper}:hover:not(:has(${StyledHintWrapper}:hover)):not(:focus-within) {
             ${privateTokens.borderColor}: var(${tokens.borderColorHover}, var(${tokens.borderColor}));
             ${privateTokens.backgroundColor}: var(${tokens.backgroundColorHover}, var(${tokens.backgroundColor}));
+
+            ${InputPlaceholder} {
+                color: var(${tokens.placeholderColorHover}, var(${tokens.placeholderColor}));
+            }
         }
     }
 
@@ -60,6 +65,10 @@ export const base = css`
 
         ${InputPlaceholder} {
             color: var(${tokens.placeholderColorFocus});
+        }
+
+        ${StyledContentLeft} {
+            color: var(${tokens.contentSlotColorFocus}, var(${tokens.contentSlotColor}));
         }
     }
 
@@ -128,7 +137,7 @@ export const base = css`
             );
 
             ${InputPlaceholder} {
-                color: var(${tokens.clearPlaceholderColorFocus});
+                color: var(${tokens.clearPlaceholderColorFocus}, var(${tokens.placeholderColorFocus}));
             }
         }
     }

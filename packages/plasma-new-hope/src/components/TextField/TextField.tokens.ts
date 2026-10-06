@@ -80,6 +80,8 @@ export const tokens = {
     caretColor: '--plasma-textfield__caret-color',
     /** @styleType color */
     placeholderColor: '--plasma-textfield__placeholder-color',
+    /** @styleType color @styleProp placeholderColor @styleState hovered */
+    placeholderColorHover: '--plasma-textfield__placeholder-color-hover',
     /** @styleType color */
     placeholderColorFocus: '--plasma-textfield__placeholder-color-focus',
     /** @styleType color */
