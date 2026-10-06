@@ -396,10 +396,11 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             listWidth={listWidth}
                             offset={_offset}
                             target={(referenceRef) => (
-                                <div onClick={handleTargetClick}>
+                                <div>
                                     <StyledTextField
                                         ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
                                         inputWrapperRef={referenceRef}
+                                        _onFieldClick={handleTargetClick}
                                         opened={isListOpened}
                                         value={textValue}
                                         onChange={handleTextValueChange}

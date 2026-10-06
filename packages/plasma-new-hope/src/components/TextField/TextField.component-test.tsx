@@ -367,6 +367,36 @@ describeFn('TextField', () => {
         cy.get('@onChange').its('firstCall.args.0.target.value').should('eq', 't');
     });
 
+    itSkip('click targets: only field and label focus the input', () => {
+        const onLinkClick = cy.stub().as('onLinkClick');
+
+        mount(
+            <TextField
+                label="Field label"
+                labelPlacement="outer"
+                titleCaption="Title caption"
+                leftHelper={
+                    <a href="#instructions" onClick={onLinkClick}>
+                        Instructions
+                    </a>
+                }
+                hintText="Field hint"
+                hintTargetIcon={<span data-testid="hint-icon">?</span>}
+            />,
+        );
+
+        cy.contains('Title caption').click();
+        cy.get('input').should('not.be.focused');
+        cy.contains('Instructions').click();
+        cy.get('@onLinkClick').should('have.been.calledOnce');
+        cy.get('input').should('not.be.focused');
+        cy.get('[data-testid="hint-icon"]').click();
+        cy.get('input').should('not.be.focused');
+
+        cy.contains('label', 'Field label').click();
+        cy.get('input').should('be.focused');
+    });
+
     it('prop: onClick', () => {
         const onClick = cy.stub().as('onClick');
 

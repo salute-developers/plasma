@@ -293,6 +293,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                 readOnly={readOnly}
                                 renderValue={renderValue}
                                 inputWrapperRef={referenceRef}
+                                onClick={() => handleListToggle(!isListOpened)}
                                 multiselect={multiselect}
                                 helperText={helperText}
                                 treeId={treeId}
