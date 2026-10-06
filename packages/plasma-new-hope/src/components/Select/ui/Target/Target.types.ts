@@ -27,6 +27,7 @@ export type TargetProps = {
     opened: boolean;
     valueToItemMap: ValueToItemMapType;
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
+    onClick: () => void;
     inputWrapperRef: Ref<HTMLElement>;
     treeId: string;
     activeDescendantItemValue: string;

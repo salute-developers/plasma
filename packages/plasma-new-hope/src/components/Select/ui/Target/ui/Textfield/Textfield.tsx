@@ -18,6 +18,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             keepPlaceholder,
             placeholder,
             onKeyDown,
+            onClick,
             size,
             view,
             contentLeft,
@@ -111,6 +112,7 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 view={view}
                 ref={ref}
                 inputWrapperRef={inputWrapperRef}
+                _onFieldClick={onClick}
                 readOnly={readOnly}
                 className={readOnly ? classes.readOnly : undefined}
                 value={getValue()}

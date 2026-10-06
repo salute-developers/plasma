@@ -11,6 +11,7 @@ export type TextfieldProps = Pick<
     | 'keepPlaceholder'
     | 'placeholder'
     | 'onKeyDown'
+    | 'onClick'
     | 'size'
     | 'view'
     | 'contentLeft'

@@ -1,7 +1,7 @@
 import React, { forwardRef, MouseEventHandler, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { useOutsideClick, useForkRef } from 'src/hooks';
 import type { RootProps } from 'src/engines';
-import { cx } from 'src/utils';
+import { cx, safeUseId } from 'src/utils';
 
 import type { RangeInputRefs, RangeProps, RangeRootProps } from './Range.types';
 import { base as sizeCSS } from './variations/_size/base';
@@ -95,6 +95,12 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                 onBlurFirstTextfield,
                 onBlurSecondTextfield,
 
+                // Пропсы для внутреннего использования, не отдается наружу.
+                // @ts-ignore
+                _onFieldClick,
+                // @ts-ignore
+                _onContentClick,
+
                 ...rest
             },
             ref,
@@ -105,6 +111,8 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                 secondTextfieldInputWrapperRef,
                 ...rootProps
             } = rest;
+
+            const firstInputId = safeUseId();
 
             const rangeRef = useRef<HTMLDivElement>(null);
             const firstTextFieldRef = useRef<HTMLInputElement>(null);
@@ -221,6 +229,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                         )}
                         size={size}
                         label={label}
+                        labelHtmlFor={firstInputId}
                         leftHelper={leftHelper}
                         titleCaption={titleCaption}
                         required={required}
@@ -252,9 +261,13 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                                 rangeEditedClass,
                             )}
                         >
-                            {contentLeft && <StyledContentLeft>{contentLeft}</StyledContentLeft>}
+                            {contentLeft && (
+                                <StyledContentLeft onClick={_onContentClick}>{contentLeft}</StyledContentLeft>
+                            )}
                             <StyledInput
+                                id={firstInputId}
                                 ref={firstTextFieldRef}
+                                _onFieldClick={_onFieldClick}
                                 inputWrapperRef={firstTextfieldInputWrapperRef}
                                 className={cx(firstValueErrorClass, firstValueSuccessClass, firstValueEditedClass)}
                                 value={firstValue}
@@ -277,6 +290,7 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                             {Divider}
                             <StyledInput
                                 ref={secondTextFieldRef}
+                                _onFieldClick={_onFieldClick}
                                 inputWrapperRef={secondTextfieldInputWrapperRef}
                                 className={cx(secondValueErrorClass, secondValueSuccessClass, secondValueEditedClass)}
                                 value={secondValue}
@@ -314,7 +328,9 @@ export const rangeRoot = (Root: RootProps<HTMLDivElement, RangeRootProps>) =>
                                         withoutLabel
                                     />
                                 )}
-                                {contentRight && <StyledContentRight>{contentRight}</StyledContentRight>}
+                                {contentRight && (
+                                    <StyledContentRight onClick={_onContentClick}>{contentRight}</StyledContentRight>
+                                )}
                             </StyledContentRightWrapper>
                         </ContentWrapper>
                     </InformationWrapperUI>

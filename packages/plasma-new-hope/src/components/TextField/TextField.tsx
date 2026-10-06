@@ -137,6 +137,8 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                 // @ts-ignore
                 _onEnterDisabled,
                 // @ts-ignore
+                _onFieldClick,
+                // @ts-ignore
                 _forceChipManipulationWithReadonly,
                 /** Внутреннее свойство _interaction_disabled нужно для компонента Select,
                  * в режиме textfield-like, чтобы запретить взаимодействие с компонентом. */
@@ -331,7 +333,14 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
 
             const onChipClick = (event: React.MouseEvent<HTMLButtonElement>) => event.stopPropagation();
 
-            const handleInputFocus = () => {
+            const handleInputFocus = (event: React.MouseEvent<HTMLDivElement>) => {
+                const targetLabel = (event.target as Element).closest('label');
+                if (targetLabel && event.currentTarget.contains(targetLabel)) {
+                    return;
+                }
+
+                _onFieldClick?.(event);
+
                 if (readOnly || disabled || !inputRef?.current || _interaction_disabled) {
                     return;
                 }
@@ -412,7 +421,6 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     disabled={disabled}
                     readOnly={!disabled && readOnly}
                     labelPlacement={innerLabelPlacementValue}
-                    onClick={handleInputFocus}
                     data-root
                     className={cx(
                         labelPlacementClass,
@@ -429,7 +437,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                         <OuterLabelWrapper isInnerLabel={labelPlacement === 'inner'}>
                             {hasOuterLabel && (
                                 <StyledIndicatorWrapper>
-                                    <Label id={labelId} htmlFor={id}>
+                                    <Label id={labelId} htmlFor={innerId}>
                                         {innerLabelValue}
                                     </Label>
 
@@ -474,6 +482,7 @@ export const textFieldRoot = (Root: RootProps<HTMLDivElement, TextFieldRootProps
                     )}
 
                     <InputWrapper
+                        onClick={handleInputFocus}
                         // Ref для внутреннего использования. Не отдается наружу.
                         ref={(rest as any).inputWrapperRef}
                         className={cx(

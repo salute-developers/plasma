@@ -16,6 +16,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             label,
             placeholder,
             onKeyDown,
+            onClick,
             labelPlacement,
             size,
             view,
@@ -45,6 +46,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
         if (renderTarget) {
             return (
                 <RenderTarget
+                    onClick={onClick}
                     inputWrapperRef={inputWrapperRef}
                     multiselect={multiselect}
                     value={value}
@@ -57,6 +59,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
 
         return target === 'button-like' ? (
             <Button
+                onClick={onClick}
                 ref={buttonRef as Ref<HTMLButtonElement>}
                 opened={opened}
                 value={value}
@@ -73,6 +76,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             />
         ) : (
             <Textfield
+                onClick={onClick}
                 ref={ref as Ref<HTMLInputElement>}
                 inputWrapperRef={inputWrapperRef}
                 opened={opened}
