@@ -12,6 +12,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.clearColor}: var(${autocompleteTokens.textFieldClearColor});
     ${textFieldTokens.colorFocus}: var(${autocompleteTokens.textFieldColorFocus});
     ${textFieldTokens.placeholderColor}: var(${autocompleteTokens.textFieldPlaceholderColor});
+    ${textFieldTokens.placeholderColorHover}: var(${autocompleteTokens.textFieldPlaceholderColorHover});
     ${textFieldTokens.placeholderColorFocus}: var(${autocompleteTokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.clearPlaceholderColor}: var(${autocompleteTokens.textFieldClearPlaceholderColor});
     ${textFieldTokens.clearPlaceholderColorFocus}: var(${autocompleteTokens.textFieldClearPlaceholderColorFocus});
