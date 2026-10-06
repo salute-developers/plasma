@@ -8,214 +8,178 @@ description: "Всплывающее уведомление (toast) поверх
 import { PropsTable, Description } from '@site/src/components';
 
 # Toast
-<Description name="Toast" />
 
-:::caution Устаревшие значения свойства `view`
-Значения `dark` и `light` являются устаревшими.<br/>
-Для изменения фона `Toast` используйте компонент `ViewContainer` (см. <a href="#пример-использования">пример использования</a>)
+:::info
+Обновлённая версия компонента Toast с поддержкой управления отдельными тостами, настакивания, кастомного рендера и анимации.
 :::
 
-## Система подсказок
-Существует готовая система текстовых подсказок, для использования которой необходимо обернуть приложение в `ToastProvider`:
+## Использование
 
-```jsx title="App.tsx"
+Вставьте `ToastContainer` один раз в дерево приложения, затем вызывайте `showToast` там, где нужно показать уведомление.
+На этой странице все интерактивные примеры используют контейнер из первого примера.
+
+```tsx live
 import React from 'react';
-import { ToastProvider } from '@salutejs/plasma-giga';
-
-export const App = () => (
-    <ToastProvider>
-        <div className="App">Hello, world!</div>
-    </ToastProvider>
-);
-```
-
-После этого, с помощью хука `useToast` можно получить доступ к управлению подсказками.
-
-```jsx title="MyComponent.tsx"
-import React from 'react'
-import { useToast, Button } from '@salutejs/plasma-giga'
-
-export const MyComponent = () => {
-    const { showToast, hideToast } = useToast()
-
-    const onHide = () => {}
-
-    return (
-        <Button onClick={() => showToast({ text, position, timeout, fade, contentLeft, role, onHide })} />
-    )
-}
-```
-
-`showToast` имеет необязательный аргумент `position`, отвечающий за позиционирование подсказки.
-
-```ts
-type Position = 'top' | 'bottom';
-```
-
-`showToast` имеет необязательный аргумент `timeout`, отвечающий за время отображения подсказки.
-Если аргумент не передается, по умолчанию подсказка отображается пока пользователь ее не закроет.
-
-Скрыть текущую подсказку в любой момент можно с помощью функции `hideToast`.
-
-## Аргументы функции `showToast`
-| Название | Тип             | Значение | Описание           |
-|----------|-----------------|----------|--------------------|
-| `args`   | `ShowToastArgs` |          | Конфигурация toast |
-
-```ts
-import type { ReactNode } from 'react';
-
-export interface ShowToastArgs {
-    /**
-     * Текстовая надпись
-     */
-    text?: string;
-    /**
-     * Слот для контента слева, например `Icon`
-     */
-    contentLeft?: ReactNode;
-    /**
-     * Место отображения подсказки
-     */
-    position?: ToastPosition;
-    /**
-     * WAI-ARIA роль
-     */
-    role?: ToastRole;
-    /**
-     * Отображать ли подложку блока подсказки
-     */
-    fade?: boolean;
-    /**
-     * Значение для дополнительно отступа блока подсказки, считается в rem.
-     */
-    offset?: number;
-    /**
-     * Блок подсказки c округлым border-radius
-     */
-    pilled?: boolean;
-    /**
-     * Отображать ли иконку закрытия
-     */
-    hasClose?: boolean;
-    /**
-     * Размер блока подсказки
-     */
-    size?: string;
-    /**
-     * Вид блока подсказки
-     */
-    view?: string;
-    /**
-     * Время отображения подсказки. Если не передать значение, подсказка будет отображаться пока ее не закроют.
-     */
-    timeout?: number;
-    /**
-     * Цвет текста (по умолчанию берётся цвет из view)
-     */
-    textColor?: string;
-    /**
-     * callback срабатывающий в момент события hideToast
-     */
-    onHide?: () => void;
-    /**
-     * callback срабатывающий в момент события showToast
-     */
-    onShow?: () => void;
-}
-```
-
-## Пример использования
-Для изменения цветовой темы компонента `Toast` используйте свойство `view` компонента `ViewContainer`.
-
-```jsx live
-import React from 'react'
-import { useToast, ToastProvider, Button, ViewContainer } from '@salutejs/plasma-giga'
+import { Button, ToastContainer, showToast } from '@salutejs/plasma-giga';
 
 export function App() {
-
-    const ToastExample = () => {
-        const { showToast } = useToast()
-
-        const onShow = () => {}
-        const onHide = () => {}
-        const toastData = {
-            text: 'Подсказка вызванная showToast',
-            textColor: 'cyan',
-            position: 'bottom',
-            role: 'status',
-            hasClose: true,
-            fade: false,
-            size: 'm',
-            view: 'default',
-            timeout: 3000,
-            onShow,
-            onHide
-        }
-
-        return <Button onClick={() => showToast(toastData)} text="Вызвать подсказку" />
-    }
-
     return (
-        <div style={{ display: 'flex', gap: '1rem' }}>
-            <ViewContainer view="onLight">
-                <ToastProvider>
-                    <ToastExample />
-                </ToastProvider>
-            </ViewContainer>
-
-            <ViewContainer view="onDark">
-                <ToastProvider>
-                    <ToastExample />
-                </ToastProvider>
-            </ViewContainer>
-        </div>
-    )
+        <>
+            <ToastContainer />
+            <Button
+                text="Показать уведомление"
+                onClick={() => showToast('Изменения сохранены')}
+            />
+        </>
+    );
 }
 ```
 
-## Вид иконки
-Значения `positive` и `negative` свойства `view` изменяют цвет иконки.<br/>
-Чтобы цвет применился, установите в иконке свойство `color` со значением `inherit`:
+По умолчанию повторный вызов `showToast` заменяет текущий тост. Чтобы показывать несколько уведомлений одновременно, передайте `stacking: true`. Тосты складываются отдельно для каждой позиции, например `top-center` и `bottom-right`. Расстояние между тостами настраивается в пикселях через `gap` у `ToastContainer`; по умолчанию оно равно `8`.
 
-```jsx live
-import React from 'react'
-import { IconBell } from '@salutejs/plasma-icons';
-import { useToast, ToastProvider, Button } from '@salutejs/plasma-giga'
+```tsx live
+import React from 'react';
+import { Button, showToast } from '@salutejs/plasma-giga';
 
 export function App() {
-    const Icon = () => <IconBell color="inherit" size="xs" />;
-
-    const ToastExample = () => {
-        const { showToast } = useToast()
-
-        const onShow = () => {}
-        const onHide = () => {}
-        const toastData = {
-            contentLeft: <Icon />,
-            text: 'Подсказка c иконкой',
-            position: 'bottom',
-            role: 'status',
-            hasClose: true,
-            fade: false,
-            size: 'm',
-            view: 'positive',
-            timeout: 3000,
-            onShow,
-            onHide
-        }
-
-        return <Button onClick={() => showToast(toastData)} text="Вызвать подсказку" />
-    }
+    const showAtTop = () =>
+        showToast('Уведомление сверху', { stacking: true, position: 'top-center', duration: 3000 });
+    const showAtBottomRight = () =>
+        showToast('Уведомление справа снизу', { stacking: true, position: 'bottom-right', duration: 3000 });
 
     return (
-        <ToastProvider>
-            <ToastExample />
-        </ToastProvider>
-    )
+        <>
+            <Button text="Показать сверху" onClick={showAtTop} />
+            <Button text="Показать справа снизу" onClick={showAtBottomRight} />
+        </>
+    );
+}
+```
+
+`showToast` возвращает ID тоста. Его можно использовать, чтобы закрыть именно это уведомление с помощью `hideToast(id)`. Если передать собственный `id`, повторный вызов с тем же ID обновит этот тост. При `stacking: true` и без заданного ID он генерируется библиотекой.
+
+```tsx
+const id = showToast('Загрузка завершена', { stacking: true });
+hideToast(id);
+```
+
+### Кастомный рендер
+
+Для отдельного тоста можно передать `renderToast`. Callback получает опции этого тоста, включая итоговый ID. Текст можно использовать из замыкания:
+
+```tsx live
+import React from 'react';
+import { Button, showToast } from '@salutejs/plasma-giga';
+
+export function App() {
+    const message = 'Профиль обновлён';
+
+    return (
+        <>
+            <Button
+                text="Показать кастомный тост"
+                onClick={() =>
+                    showToast(message, {
+                        stacking: true,
+                        position: 'bottom-right',
+                        duration: 3000,
+                        renderToast: (options) => (
+                            <div style={{ padding: '12px 16px', borderRadius: 12, background: '#252525', color: '#fff' }}>
+                                <strong>{message}</strong>
+                                <div>ID: {options?.id}</div>
+                            </div>
+                        ),
+                    })
+                }
+            />
+        </>
+    );
+}
+```
+
+### Анимация
+
+Задайте CSS keyframes в стилях приложения. Общую анимацию можно передать в `ToastContainer` через `animation`, а анимацию отдельного тоста — через `showToast`.
+
+```tsx live
+import React from 'react';
+import { Button, showToast } from '@salutejs/plasma-giga';
+
+export function App() {
+    return (
+        <>
+            <style>{`
+                @keyframes toast-enter-from-right {
+                    from { opacity: 0; transform: translateX(1.5rem); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+
+                @keyframes toast-exit-to-right {
+                    from { opacity: 1; transform: translateX(0); }
+                    to { opacity: 0; transform: translateX(1.5rem); }
+                }
+
+                @keyframes toast-enter-from-bottom {
+                    from { opacity: 0; transform: translateY(1.5rem); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+
+                @keyframes toast-exit-to-bottom {
+                    from { opacity: 1; transform: translateY(0); }
+                    to { opacity: 0; transform: translateY(1.5rem); }
+                }
+            `}</style>
+            <Button
+                text="Выезд справа"
+                onClick={() =>
+                    showToast('Тост въезжает справа', {
+                        stacking: true,
+                        position: 'bottom-right',
+                        duration: 3000,
+                        animation: {
+                            enter: 'toast-enter-from-right 300ms ease-out both',
+                            exit: 'toast-exit-to-right 200ms ease-in both',
+                        },
+                    })
+                }
+            />
+            <Button
+                text="Выезд снизу"
+                onClick={() =>
+                    showToast('Тост въезжает снизу', {
+                        stacking: true,
+                        position: 'bottom-right',
+                        duration: 3000,
+                        animation: {
+                            enter: 'toast-enter-from-bottom 300ms ease-out both',
+                            exit: 'toast-exit-to-bottom 200ms ease-in both',
+                        },
+                    })
+                }
+            />
+        </>
+    );
 }
 ```
 
 ## API
 
-<PropsTable name="Toast" />
+### Свойства `ToastContainer`
+
+<PropsTable name="ToastContainer" />
+
+### Свойства `showToast`
+
+| Свойство | Тип | По умолчанию | Описание |
+| --- | --- | --- | --- |
+| `stacking` | `boolean` | `false` | Разрешает показывать несколько тостов одновременно. |
+| `id` | `string` | Автоматический при `stacking: true` | ID тоста. Возвращается из `showToast`; используется в `hideToast`. |
+| `position` | `ToastPosition` | `bottom-center` | Позиция тоста. Для каждой позиции создаётся отдельная стопка. |
+| `duration` | `number` | `Infinity` | Время отображения в миллисекундах. |
+| `animation` | `{ enter?: CSSProperties['animation']; exit?: CSSProperties['animation'] }` | Анимация `react-hot-toast` | CSS-анимации появления и скрытия. Настройка в опциях `showToast` переопределяет значение `ToastContainer`. |
+| `renderToast` | `(options?: Omit<ShowToastPlasmaOptions, 'renderToast'>) => ReactNode` | — | Функция для кастомного рендера тоста. |
+| `hasClose` | `boolean` | `true` | Показывает кнопку закрытия стандартного тоста. |
+| `contentLeft` | `ReactNode` | — | Контент слева от текста стандартного тоста. |
+| `width` | `CSSProperties['width']` | `auto` | Ширина стандартного тоста. |
+| `textColor` | `CSSProperties['color']` | Из `view` | Цвет текста стандартного тоста. |
+| `view`, `size`, `pilled` | `string`, `string`, `boolean` | Из конфига темы | Вариант, размер и скруглённая форма стандартного тоста. |

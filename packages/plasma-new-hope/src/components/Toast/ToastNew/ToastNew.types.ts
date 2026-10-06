@@ -12,6 +12,15 @@ export interface ToastContainerProps extends HTMLAttributes<HTMLDivElement> {
      * Если не передать значение, подсказка будет отображаться пока ее не закроют.
      */
     duration?: number;
+    /** Расстояние между тостами в пикселях.
+     * @default 8
+     */
+    gap?: number;
+    /** CSS-анимация появления и скрытия тостов. */
+    animation?: {
+        enter?: CSSProperties['animation'];
+        exit?: CSSProperties['animation'];
+    };
     /**
      * Отображать ли иконку закрытия
      * @default true
@@ -29,7 +38,6 @@ export interface ToastContainerProps extends HTMLAttributes<HTMLDivElement> {
      * Цвет текста
      */
     textColor?: CSSProperties['color'];
-
     /**
      * Вид блока подсказки
      */
@@ -50,17 +58,30 @@ export interface ToastContainerProps extends HTMLAttributes<HTMLDivElement> {
     onCloseButtonClick?: () => void;
 }
 
-export type ShowToastProps = (text: string, options?: {} & ShowToastPlasmaOptions) => void;
+export type ShowToastProps = (text: string, options?: ShowToastPlasmaOptions) => string;
 
-export type ShowToastPlasmaOptions = {
+export interface ShowToastPlasmaOptions {
+    /**
+     * Позволяет показывать несколько тостов одновременно.
+     * @default false
+     */
+    stacking?: boolean;
+    /** Идентификатор тоста для последующего закрытия или обновления. */
+    id?: string;
     hasClose?: boolean;
     contentLeft?: ReactNode;
     width?: CSSProperties['width'];
     textColor?: CSSProperties['color'];
     position?: ToastPosition;
     duration?: number;
+    /** CSS-анимация появления и скрытия тоста. Переопределяет значение ToastContainer. */
+    animation?: {
+        enter?: CSSProperties['animation'];
+        exit?: CSSProperties['animation'];
+    };
 
     view?: string;
     size?: string;
     pilled?: boolean;
-};
+    renderToast?: (options?: Omit<ShowToastPlasmaOptions, 'renderToast'>) => ReactNode;
+}
