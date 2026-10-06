@@ -5,3 +5,5 @@ export * from './Price';
 export * from './SSRProvider';
 export * from './Typography';
 export * from './Badge';
+export * from './Button';
+export * from './Spinner';
