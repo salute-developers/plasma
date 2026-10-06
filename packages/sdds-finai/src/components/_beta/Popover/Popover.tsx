@@ -29,15 +29,13 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>(
         const viewStyles = appearance === 'default' ? closeNoneViewStyles : closeInnerViewStyles;
         const sizeStyles = appearance === 'default' ? closeNoneSizeStyles : closeInnerSizeStyles;
         const configClassName = cls(viewStyles[view], sizeStyles[size]);
+        // Runtime configuration is omitted from the public core declarations.
+        const coreProps: CorePopoverProps & { appearance: string; _configClassName: string } = {
+            appearance,
+            _configClassName: configClassName,
+            ...rest,
+        };
 
-        return (
-            <CorePopover
-                ref={ref}
-                appearance={appearance}
-                // @ts-expect-error _configClassName is an internal runtime property.
-                _configClassName={configClassName}
-                {...rest}
-            />
-        );
+        return <CorePopover ref={ref} {...coreProps} />;
     },
 );

@@ -18,11 +18,9 @@ export type Placement =
 
 export type BasicPopoverProps = {
     /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default default
+     * @internal
      */
-    appearance?: 'default' | 'closeInner';
+    appearance?: string;
     /**
      * Контент всплывающего окна.
      */
