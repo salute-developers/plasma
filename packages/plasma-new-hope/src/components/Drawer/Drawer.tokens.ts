@@ -23,12 +23,20 @@ export const privateTokens = {
 };
 
 export const tokens = {
+    /** @styleType color */
     drawerOverlayWithBlurColor: '--plasma-drawer-overlay-with-blur-color',
+    /** @styleType color */
     drawerOverlayColor: '--plasma-drawer-overlay-color',
+    /** @styleType color */
     background: '--plasma-drawer-background',
+    /** @styleType value */
     shadow: '--plasma-drawer-shadow',
+    /** @styleType color */
     contentBackgroundColor: '--plasma-drawer-content-background-color',
+    /** @styleType dimension */
     padding: '--plasma-drawer-padding',
+    /** @styleType dimension */
     borderRadius: '--plasma-drawer-border-radius',
+    /** @styleType color */
     closeIconColor: '--plasma-drawer-close-icon-color',
 };
