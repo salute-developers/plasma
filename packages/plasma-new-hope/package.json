@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.382.0",
+  "version": "0.383.0",
   "description": "Salute Design System blueprint",
   "exports": {
     ".": {

@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-sbcom",
-  "version": "0.370.0",
+  "version": "0.371.0",
   "description": "Salute Design System / React UI kit for SDDS SBCOM web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@salutejs-ds/sdds_sbcom": "0.1.20",
-    "@salutejs/plasma-new-hope": "0.382.0",
+    "@salutejs/plasma-new-hope": "0.383.0",
     "classnames": "2.5.1"
   },
   "devDependencies": {
