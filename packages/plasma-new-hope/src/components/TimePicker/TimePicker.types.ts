@@ -156,6 +156,10 @@ export type TimePickerPopoverProps = {
 
 type BasicProps = {
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Выравнивание выпадающего списка
      * @deprecated использовать `placement="bottom-right"`
      */
@@ -194,12 +198,6 @@ type BasicProps = {
      * Максимальное время (в формате HH:mm:ss или Date)
      */
     max?: string | Date;
-    /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default 'default'
-     */
-    appearance?: 'default' | 'clear' | 'viewMode';
     /**
      * Флаг наличия разделителя для clear appearance
      * @default false

@@ -20,6 +20,11 @@ type BuildProps<T extends ConditionalMap> =
     | Merge<
           PropsOf<T['default']>,
           {
+              /**
+               * Стиль для UI конфигурации
+               * Влияет на выбор предустановленного набора токенов
+               * @default default
+               */
               appearance?: 'default';
           }
       >

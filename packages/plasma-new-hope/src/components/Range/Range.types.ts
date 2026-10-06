@@ -47,27 +47,16 @@ export type RangeInputRefs = {
     secondTextField: () => MutableRefObject<HTMLInputElement | null>;
 };
 
-type AppearanceProps =
-    | {
-          /**
-           * Стиль для UI конфигурации
-           * Влияет на выбор предустановленого набора токенов
-           * @default default
-           */
-          appearance?: 'default';
-          /**
-           * Отображение разделителя для `appearance='clear'`
-           */
-          hasClearDivider?: never;
-      }
-    | {
-          appearance?: 'clear';
-          hasClearDivider?: boolean;
-      }
-    | {
-          appearance?: 'viewMode';
-          hasClearDivider?: never;
-      };
+type AppearanceProps = {
+    /**
+     * @internal
+     */
+    appearance?: string;
+    /**
+     * Отображение разделителя для `appearance='clear'`
+     */
+    hasClearDivider?: boolean;
+};
 
 type HintProps =
     | {

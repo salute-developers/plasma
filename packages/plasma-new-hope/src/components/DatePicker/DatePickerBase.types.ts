@@ -174,9 +174,9 @@ export type DatePickerCalendarProps = {
 
 export type DatePickerVariationProps = {
     /**
-     * Вид компонента
+     * @internal
      */
-    appearance?: 'default' | 'clear' | 'viewMode';
+    appearance?: string;
     /**
      * Флаг наличия разделителя для clear appearance
      * @default false

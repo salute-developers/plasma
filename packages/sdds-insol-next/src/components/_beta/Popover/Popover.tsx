@@ -13,14 +13,12 @@ export type PopoverProps = Omit<CorePopoverProps, 'appearance'> & {
 
 export const Popover = forwardRef<HTMLDivElement, PopoverProps>(({ view = 'default', size = 'm', ...rest }, ref) => {
     const configClassName = cls(viewStyles[view], sizeStyles[size]);
+    // Runtime configuration is omitted from the public core declarations.
+    const coreProps: CorePopoverProps & { appearance: string; _configClassName: string } = {
+        appearance: 'default',
+        _configClassName: configClassName,
+        ...rest,
+    };
 
-    return (
-        <CorePopover
-            ref={ref}
-            appearance="default"
-            // @ts-expect-error _configClassName is an internal runtime property.
-            _configClassName={configClassName}
-            {...rest}
-        />
-    );
+    return <CorePopover ref={ref} {...coreProps} />;
 });

@@ -150,9 +150,9 @@ export type DatePickerRangeProps = DatePickerVariationProps &
     DatePickerDoublePopoverProps &
     HTMLAttributes<HTMLDivElement> & {
         /**
-         * Вид компонента
+         * @internal
          */
-        appearance?: 'default' | 'clear';
+        appearance?: string;
         /**
          * Флаг наличия разделителя для clear appearance
          * @default false

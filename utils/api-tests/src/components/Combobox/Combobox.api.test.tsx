@@ -69,6 +69,7 @@ describe('Basics', () => {
         expectTypeOf<ComboboxProps>().toHaveProperty('readOnly').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('disabled').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('alwaysOpened').toEqualTypeOf<boolean | undefined>();
+        expectTypeOf<ComboboxProps>().toHaveProperty('hasDivider').toEqualTypeOf<boolean | undefined>();
 
         expectTypeOf<ComboboxProps>().toHaveProperty('placeholder').toEqualTypeOf<string | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('helperText').toEqualTypeOf<string | undefined>();
