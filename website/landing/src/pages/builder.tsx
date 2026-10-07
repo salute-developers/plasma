@@ -1,4 +1,5 @@
 import { Header, SiteFooter, SiteLink } from '../shared';
+import { publicPath } from '../paths';
 
 export default function BuilderPage() {
     return (
@@ -36,7 +37,7 @@ export default function BuilderPage() {
                     <div className="shell">
                         <figure>
                             <img
-                                src="/media/builder/palette.webp"
+                                src={publicPath('/media/builder/palette.webp')}
                                 alt="Экран палитры в DS Builder: дерево семейств, рампы ступеней и инспектор со связанными токенами"
                                 width="2880"
                                 height="1600"
@@ -107,7 +108,7 @@ export default function BuilderPage() {
 
                     <figure className="shot">
                         <img
-                            src="/media/builder/color-tokens.webp"
+                            src={publicPath('/media/builder/color-tokens.webp')}
                             alt="Экран цветовых токенов: дерево семантических токенов, превью пар Light и Dark, инспектор с темами по умолчанию и подтемами"
                             loading="lazy"
                         />

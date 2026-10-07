@@ -1,4 +1,5 @@
 import { Header, SiteFooter, SiteLink } from '../shared';
+import { publicPath } from '../paths';
 
 export default function ArticlePage() {
     return (
@@ -34,7 +35,7 @@ export default function ArticlePage() {
 
                             <figure className="article-figure">
                                 <img
-                                    src="/media/news/cover-sizes.svg"
+                                    src={publicPath('/media/news/cover-sizes.svg')}
                                     alt="Размерная шкала от XS до XL"
                                     loading="lazy"
                                 />
@@ -68,7 +69,7 @@ export default function ArticlePage() {
 
                             <figure className="article-figure">
                                 <img
-                                    src="/media/news/fig-sizes.svg"
+                                    src={publicPath('/media/news/fig-sizes.svg')}
                                     alt="Высота контролов по ступеням"
                                     loading="lazy"
                                 />
@@ -104,7 +105,7 @@ export default function ArticlePage() {
 
                             <figure className="article-figure">
                                 <img
-                                    src="/media/news/fig-states.svg"
+                                    src={publicPath('/media/news/fig-states.svg')}
                                     alt="Матрица компонентов и состояний"
                                     loading="lazy"
                                 />
@@ -132,7 +133,7 @@ export default function ArticlePage() {
 
                             <figure className="article-figure">
                                 <img
-                                    src="/media/news/fig-density.svg"
+                                    src={publicPath('/media/news/fig-density.svg')}
                                     alt="Одна тема в плотном и десятифутовом интерфейсе"
                                     loading="lazy"
                                 />

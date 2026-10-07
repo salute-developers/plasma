@@ -1,4 +1,5 @@
 import { Header, SiteFooter, SiteLink } from '../shared';
+import { publicPath } from '../paths';
 
 export default function NewsPage() {
     return (
@@ -41,7 +42,7 @@ export default function NewsPage() {
                             <div className="posts">
                                 <SiteLink className="post" href="/news/article" data-kind="release">
                                     <span className="post-cover">
-                                        <img src="/media/news/cover-sizes.svg" alt="" loading="lazy" />
+                                        <img src={publicPath('/media/news/cover-sizes.svg')} alt="" loading="lazy" />
                                         <span className="post-kind">Релиз</span>
                                     </span>
 
@@ -72,7 +73,7 @@ export default function NewsPage() {
 
                                 <SiteLink className="post" href="#" data-kind="component">
                                     <span className="post-cover">
-                                        <img src="/media/news/cover-table.svg" alt="" loading="lazy" />
+                                        <img src={publicPath('/media/news/cover-table.svg')} alt="" loading="lazy" />
                                         <span className="post-kind">Компонент</span>
                                     </span>
 
@@ -101,7 +102,7 @@ export default function NewsPage() {
 
                                 <SiteLink className="post" href="#" data-kind="ai">
                                     <span className="post-cover">
-                                        <img src="/media/news/cover-mcp.svg" alt="" loading="lazy" />
+                                        <img src={publicPath('/media/news/cover-mcp.svg')} alt="" loading="lazy" />
                                         <span className="post-kind">AI и MCP</span>
                                     </span>
 
@@ -130,7 +131,7 @@ export default function NewsPage() {
 
                                 <SiteLink className="post" href="#" data-kind="guide">
                                     <span className="post-cover">
-                                        <img src="/media/news/cover-forms.svg" alt="" loading="lazy" />
+                                        <img src={publicPath('/media/news/cover-forms.svg')} alt="" loading="lazy" />
                                         <span className="post-kind">Гайдлайн</span>
                                     </span>
 
@@ -159,7 +160,7 @@ export default function NewsPage() {
 
                                 <SiteLink className="post" href="#" data-kind="component">
                                     <span className="post-cover">
-                                        <img src="/media/news/cover-toast.svg" alt="" loading="lazy" />
+                                        <img src={publicPath('/media/news/cover-toast.svg')} alt="" loading="lazy" />
                                         <span className="post-kind">Компонент</span>
                                     </span>
 
@@ -188,7 +189,7 @@ export default function NewsPage() {
 
                                 <SiteLink className="post" href="#" data-kind="release">
                                     <span className="post-cover">
-                                        <img src="/media/news/cover-icons.svg" alt="" loading="lazy" />
+                                        <img src={publicPath('/media/news/cover-icons.svg')} alt="" loading="lazy" />
                                         <span className="post-kind">Релиз</span>
                                     </span>
 
@@ -217,7 +218,7 @@ export default function NewsPage() {
 
                                 <SiteLink className="post" href="#" data-kind="guide">
                                     <span className="post-cover">
-                                        <img src="/media/news/cover-contrast.svg" alt="" loading="lazy" />
+                                        <img src={publicPath('/media/news/cover-contrast.svg')} alt="" loading="lazy" />
                                         <span className="post-kind">Гайдлайн</span>
                                     </span>
 

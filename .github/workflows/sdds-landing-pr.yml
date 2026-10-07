@@ -1,0 +1,91 @@
+name: Publish SDDS landing [PR]
+
+on:
+    pull_request_target:
+        types: [opened, reopened, synchronize]
+
+permissions:
+    contents: read
+
+concurrency:
+    group: pr-artifacts-${{ github.event.pull_request.number }}
+    cancel-in-progress: true
+
+jobs:
+    authorize:
+        uses: ./.github/workflows/authorize-external-pr.yml
+
+    build:
+        needs: authorize
+        runs-on: ubuntu-22.04
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: refs/pull/${{ github.event.pull_request.number }}/merge
+                  show-progress: false
+                  persist-credentials: false
+
+            - name: Prepare Node.js
+              uses: salute-developers/plasma/.github/actions/prepare-environment@dev
+
+            - name: Install dependencies
+              run: npm ci --no-audit --no-progress --ignore-scripts
+
+            - name: Build landing
+              env:
+                  LANDING_BASE_PATH: /pr/pr-${{ github.event.pull_request.number }}/landing/
+              run: npm run build --workspace=@salutejs/sdds-landing
+
+            - name: Save landing build
+              uses: actions/upload-artifact@v4
+              with:
+                  name: sdds-landing
+                  path: website/landing/dist/
+                  if-no-files-found: error
+                  include-hidden-files: true
+
+    publish:
+        needs: build
+        runs-on: ubuntu-22.04
+        steps:
+            - name: Download landing build
+              uses: actions/download-artifact@v4
+              with:
+                  name: sdds-landing
+                  path: landing-dist
+
+            - name: Install s3cmd
+              run: pip3 install s3cmd
+
+            - name: Publish landing to S3
+              env:
+                  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  AWS_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
+                  AWS_REGION: ${{ secrets.AWS_REGION }}
+                  AWS_S3_BUCKET_2: ${{ secrets.AWS_S3_BUCKET_2 }}
+                  PR_NUMBER: ${{ github.event.pull_request.number }}
+              run: |
+                  destination="s3://${AWS_S3_BUCKET_2}/pr/pr-${PR_NUMBER}/landing/"
+                  s3_options=(
+                    --access_key "$AWS_ACCESS_KEY_ID"
+                    --secret_key "$AWS_SECRET_ACCESS_KEY"
+                    --host "$AWS_ENDPOINT"
+                    --host-bucket "$AWS_ENDPOINT"
+                    --bucket-location "$AWS_REGION"
+                    --signature-v2
+                    --no-mime-magic
+                  )
+
+                  s3cmd "${s3_options[@]}" --delete-removed sync ./landing-dist/ "$destination"
+
+                  # The static host serves clean URLs from exact object keys.
+                  while IFS= read -r -d '' page; do
+                    relative="${page#./landing-dist/}"
+                    key="${relative%/index.html}"
+                    if [ "$key" = "$relative" ]; then key=index.html; fi
+                    s3cmd "${s3_options[@]}" \
+                      --mime-type='text/html; charset=utf-8' \
+                      --add-header='Cache-Control:no-cache' \
+                      put "$page" "${destination}${key}"
+                  done < <(find ./landing-dist -type f -name index.html -print0)

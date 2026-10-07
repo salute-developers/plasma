@@ -1,4 +1,5 @@
 import { Header, SiteFooter, SiteLink } from '../shared';
+import { publicPath } from '../paths';
 
 export default function DocsPage() {
     return (
@@ -16,7 +17,7 @@ export default function DocsPage() {
                     </p>
 
                     <div className="doc-search">
-                        <img src="/media/icon-search-20.svg" alt="" />
+                        <img src={publicPath('/media/icon-search-20.svg')} alt="" />
 
                         <input
                             id="docSearch"
