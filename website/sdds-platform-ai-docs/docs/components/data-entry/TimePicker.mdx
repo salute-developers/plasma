@@ -153,7 +153,7 @@ export function App() {
 ### Подсказки
 
 Для вывода подсказки снизу от поля используйте свойство `leftHelper`,
-для подсказки в виде Tooltip - `hintText`:
+для подсказки в виде Tooltip - `hintText`, для подсказки сверху справа - `titleCaption`:
 
 ```tsx live
 import React from 'react';
@@ -165,6 +165,7 @@ export function App() {
             <TimePicker
                 placeholder="00:00:00"
                 leftHelper="Подсказка снизу"
+                titleCaption="Подпись сверху"
                 hintText="Подсказка в виде Tooltip"
                 hintView="default"
                 hintSize="m"

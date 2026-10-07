@@ -46,6 +46,16 @@ export const tokens = {
     labelLetterSpacing: '--sdds-core-time-picker__label-letter-spacing',
     labelLineHeight: '--sdds-core-time-picker__label-line-height',
 
+    titleCaptionMargin: '--sdds-core-time-picker__title-caption-margin',
+    titleCaptionColor: '--sdds-core-time-picker__title-caption-color',
+    titleCaptionColorReadOnly: '--sdds-core-time-picker__title-caption-color-readonly',
+    titleCaptionFontFamily: '--sdds-core-time-picker__title-caption-font-family',
+    titleCaptionFontStyle: '--sdds-core-time-picker__title-caption-font-style',
+    titleCaptionFontSize: '--sdds-core-time-picker__title-caption-font-size',
+    titleCaptionFontWeight: '--sdds-core-time-picker__title-caption-font-weight',
+    titleCaptionLetterSpacing: '--sdds-core-time-picker__title-caption-letter-spacing',
+    titleCaptionLineHeight: '--sdds-core-time-picker__title-caption-line-height',
+
     labelInnerFontFamily: '--sdds-core-time-picker-placement_inner__label-font-family',
     labelInnerFontStyle: '--sdds-core-time-picker-placement_inner__label-font-style',
     labelInnerFontSize: '--sdds-core-time-picker-placement_inner__label-font-size',
