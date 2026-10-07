@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { publicPath } from './paths';
 import { routeManifest } from './routeManifest';
+import { newsEnabled } from './features';
 
 export function parseStyle(value) {
     return Object.fromEntries(
@@ -61,7 +62,7 @@ const navigation = [
     { name: 'Дизайн система', href: '/' },
     { name: 'Документация', href: '/docs' },
     { name: 'Builder', href: '/builder' },
-    { name: 'Новости', href: '/news' },
+    ...(newsEnabled ? [{ name: 'Новости', href: '/news' }] : []),
     { name: 'Контакты', href: '/contacts' },
 ];
 
@@ -84,14 +85,18 @@ const menus = {
                 ['Библиотека в Figma', 'https://www.figma.com/design/0FxQGHmGUOCjtHM3N9j4Oq/'],
             ],
         },
-        {
-            title: 'Что нового',
-            links: [
-                ['Новости системы', '/news'],
-                ['Разбор релиза', '/news/article'],
-                ['Контакты команды', '/contacts'],
-            ],
-        },
+        ...(newsEnabled
+            ? [
+                  {
+                      title: 'Что нового',
+                      links: [
+                          ['Новости системы', '/news'],
+                          ['Разбор релиза', '/news/article'],
+                          ['Контакты команды', '/contacts'],
+                      ],
+                  },
+              ]
+            : []),
     ],
     '/docs': [
         {
@@ -163,7 +168,11 @@ function Search({ close }) {
                             setQuery(event.target.value);
                             setActive(0);
                         }}
-                        placeholder="Поиск по документации, компонентам и новостям"
+                        placeholder={
+                            newsEnabled
+                                ? 'Поиск по документации, компонентам и новостям'
+                                : 'Поиск по документации и компонентам'
+                        }
                         aria-label="Поисковый запрос"
                     />
                     <button className="gsearch-esc" type="button" onClick={close}>

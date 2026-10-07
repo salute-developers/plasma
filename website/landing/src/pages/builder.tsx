@@ -1,5 +1,6 @@
 import { Header, SiteFooter, SiteLink } from '../shared';
 import { publicPath } from '../paths';
+import { newsEnabled } from '../features';
 
 export default function BuilderPage() {
     return (
@@ -613,24 +614,26 @@ export default function BuilderPage() {
                             </span>
                         </SiteLink>
 
-                        <SiteLink className="doc-card" href="/news">
-                            <span className="doc-card-media">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M6 3h8l4 4v14H6zM14 3v4h4" />
-                                    <path d="M9 12h6M9 16h4" />
-                                </svg>
-                            </span>
-
-                            <span className="doc-card-body">
-                                <span className="doc-card-head">
-                                    <b>Что меняется</b>
+                        {newsEnabled && (
+                            <SiteLink className="doc-card" href="/news">
+                                <span className="doc-card-media">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M6 3h8l4 4v14H6zM14 3v4h4" />
+                                        <path d="M9 12h6M9 16h4" />
+                                    </svg>
                                 </span>
 
-                                <p>Релизы системы и билдера: новые возможности, исправления и правила миграции.</p>
+                                <span className="doc-card-body">
+                                    <span className="doc-card-head">
+                                        <b>Что меняется</b>
+                                    </span>
 
-                                <span className="doc-card-foot">Новости портала</span>
-                            </span>
-                        </SiteLink>
+                                    <p>Релизы системы и билдера: новые возможности, исправления и правила миграции.</p>
+
+                                    <span className="doc-card-foot">Новости портала</span>
+                                </span>
+                            </SiteLink>
+                        )}
                     </div>
                 </div>
             </section>

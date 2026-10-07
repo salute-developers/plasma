@@ -39,7 +39,7 @@ for (const { route } of routeManifest) {
 // Extensionless route objects are restored below with an explicit HTML MIME type.
 s3cmd('--delete-removed', 'sync', `${dist}/`, base);
 
-// Nginx forwards /news to the exact object key sdds.sberdevices.ru/news.
+// Nginx forwards routes such as /builder to the matching object key.
 // Upload every pre-rendered HTML document under that key, with an explicit MIME type.
 for (const { route } of routeManifest) {
     const path = route === '/' ? join(dist, 'index.html') : join(dist, route.slice(1), 'index.html');
