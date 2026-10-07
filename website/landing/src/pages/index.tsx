@@ -1457,14 +1457,7 @@ export default function IndexPage() {
                             </div>
 
                             <div className="bento-links">
-                                <SiteLink href="#">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 6l6 6-6 6" />
-                                    </svg>
-                                    Сообщество в Telegram
-                                </SiteLink>
-
-                                <SiteLink href="#">
+                                <SiteLink href="/contacts">
                                     <svg viewBox="0 0 24 24">
                                         <path d="M9 6l6 6-6 6" />
                                     </svg>
