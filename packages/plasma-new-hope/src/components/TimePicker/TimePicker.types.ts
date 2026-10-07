@@ -1,4 +1,4 @@
-import type { ChangeEvent, CSSProperties, HTMLAttributes, RefObject, SyntheticEvent } from 'react';
+import type { ChangeEvent, CSSProperties, HTMLAttributes, ReactNode, RefObject, SyntheticEvent } from 'react';
 
 import type { HintProps, LabelProps } from '../TextField/TextField.types';
 import type { TimePickerMultiplicity } from '../TimePickerGrid/TimePickerGrid.types';
@@ -75,6 +75,10 @@ export type TextFieldProps = {
      * Флаг отредактированного значения
      */
     valueEdited?: boolean;
+    /**
+     * Метка-подпись к элементу справа.
+     */
+    titleCaption?: ReactNode;
     /**
      * Вспомогательный текст снизу слева
      */
