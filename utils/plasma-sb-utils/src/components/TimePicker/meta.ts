@@ -45,6 +45,7 @@ export const createMeta = ({
             valueError: false,
             valueSuccess: false,
             label: 'Лейбл',
+            titleCaption: 'Подпись к полю',
             labelPlacement: 'outer',
             leftHelper: 'Подсказка к полю',
             textBefore: '',
@@ -109,6 +110,10 @@ export const createMeta = ({
             },
             label: {
                 control: { type: 'text' },
+            },
+            titleCaption: {
+                control: { type: 'text' },
+                table: { category: 'layout' },
             },
             labelPlacement: {
                 options: labelPlacements,
