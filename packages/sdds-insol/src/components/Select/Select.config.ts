@@ -23,6 +23,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-secondary);
+                ${tokens.textFieldTitleCaptionColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -77,6 +78,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: color-mix(in oklab, var(--text-positive) 70%, transparent);
+                ${tokens.textFieldTitleCaptionColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -131,6 +133,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: color-mix(in oklab, var(--text-warning) 70%, transparent);
+                ${tokens.textFieldTitleCaptionColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -185,6 +188,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-primary);
                 ${tokens.textFieldLeftHelperColor}: color-mix(in oklab, var(--text-negative) 70%, transparent);
+                ${tokens.textFieldTitleCaptionColor}: var(--text-secondary);
                 ${tokens.textFieldFocusColor}: var(--text-accent);
 
                 ${tokens.textFieldContentSlotColor}: var(--text-secondary);
@@ -412,6 +416,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
+                ${tokens.textFieldTitleCaptionMargin}: 0.25rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -550,6 +561,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
+                ${tokens.textFieldTitleCaptionMargin}: 0.188rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -688,6 +706,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldTitleCaptionMargin}: 0;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
@@ -826,6 +851,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldTitleCaptionMargin}: 0;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);
@@ -967,6 +999,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-xs-font-weight);
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldTitleCaptionMargin}: 0;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldLabelInnerFontFamily}: var(--plasma-typo-body-xxs-font-family);
                 ${tokens.textFieldLabelInnerFontSize}: var(--plasma-typo-body-xxs-font-size);

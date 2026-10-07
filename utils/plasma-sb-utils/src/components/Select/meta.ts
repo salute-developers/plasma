@@ -38,6 +38,7 @@ export const createMeta = ({
         args: {
             target: 'textfield-like',
             label: 'Label',
+            titleCaption: 'Подпись к полю',
             labelPlacement: 'outer',
             placeholder: 'Placeholder',
             helperText: 'Helper text',
@@ -115,6 +116,13 @@ export const createMeta = ({
             },
             listMaxHeight: {
                 control: 'text',
+            },
+            titleCaption: {
+                control: 'text',
+                if: {
+                    arg: 'target',
+                    eq: 'textfield-like',
+                },
             },
             helperText: {
                 control: 'text',

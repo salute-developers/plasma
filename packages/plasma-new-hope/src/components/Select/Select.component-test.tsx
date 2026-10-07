@@ -245,7 +245,10 @@ const componentProps = {
 
 getBaseVisualTests({
     component: 'Select',
-    componentProps,
+    componentProps: {
+        ...componentProps,
+        titleCaption: 'Подпись к полю',
+    },
     configPropsForMatrix: ['view', 'size', 'labelPlacement'],
     excludePropsValues: {
         view: ['accent', 'secondary', 'clear', 'dark', 'black', 'white'],
@@ -266,6 +269,7 @@ const multiSelectComponentProps = {
     items,
     id: 'select',
     label: 'Label',
+    titleCaption: 'Подпись к полю',
     multiselect: true,
 };
 
@@ -315,6 +319,7 @@ describeFn('Select', () => {
                     label="Label"
                     placeholder="Placeholder"
                     helperText="Helper text"
+                    titleCaption="Подпись к полю"
                     {...props}
                 />
                 <Select
@@ -325,6 +330,7 @@ describeFn('Select', () => {
                     label="Label"
                     placeholder="Placeholder"
                     helperText="Helper text"
+                    titleCaption="Подпись к полю"
                     {...props}
                 />
             </div>

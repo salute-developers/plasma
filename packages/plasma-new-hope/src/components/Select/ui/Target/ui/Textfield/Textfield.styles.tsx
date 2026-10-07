@@ -87,6 +87,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.textFieldContentLabelInnerPadding});
 
     ${textFieldTokens.titleCaptionColor}: var(${tokens.textFieldTitleCaptionColor});
+    ${textFieldTokens.titleCaptionMargin}: var(${tokens.textFieldTitleCaptionMargin});
     ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.textFieldTitleCaptionInnerLabelOffset});
 
     ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.textFieldTitleCaptionFontFamily});

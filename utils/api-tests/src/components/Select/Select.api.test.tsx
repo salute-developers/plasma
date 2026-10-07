@@ -88,6 +88,7 @@ describe('Basics', () => {
         expectTypeOf<SelectProps>().toHaveProperty('chipType').toEqualTypeOf<'default' | 'text' | undefined>();
         expectTypeOf<SelectProps>().toHaveProperty('chipClickArea').toEqualTypeOf<'full' | 'close-icon' | undefined>();
         expectTypeOf<SelectProps>().toHaveProperty('label').toEqualTypeOf<string | undefined>();
+        expectTypeOf<SelectProps>().toHaveProperty('titleCaption').toEqualTypeOf<ReactNode | undefined>();
         expectTypeOf<SelectProps>().toHaveProperty('keepPlaceholder').toEqualTypeOf<boolean | undefined>();
 
         expectTypeOf<SelectProps>().toHaveProperty('required').toEqualTypeOf<boolean | undefined>();
@@ -192,6 +193,8 @@ describe('Unions', () => {
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', contentRight: <div /> });
         // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', helperText: 'helper' });
+        // @ts-expect-error
+        expectTypeOf<SelectProps>({ items: [], target: 'button-like', titleCaption: 'Caption' });
         // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', required: true });
         // @ts-expect-error
@@ -344,6 +347,7 @@ describe('Examples', () => {
                         value={singleValue}
                         onChange={setSingleValue}
                         label="Single"
+                        titleCaption="Подпись к полю"
                         placeholder="Placeholder"
                         helperText="Helper text"
                     />
