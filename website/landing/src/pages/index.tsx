@@ -60,20 +60,6 @@ export default function IndexPage() {
                     </div>
 
                     <div>
-                        <div className="resume" id="resume">
-                            <p>Вы уже начинали работу в билдере</p>
-
-                            <div className="spacer" />
-
-                            <SiteLink href="https://plasma.sberdevices.ru/design-system-builder/">
-                                Продолжить в билдере
-                            </SiteLink>
-
-                            <button type="button" id="resumeReset">
-                                Сбросить
-                            </button>
-                        </div>
-
                         <div className="hero-cards">
                             <div className="hero-card">
                                 <span className="hero-card-glass" aria-hidden="true" />
