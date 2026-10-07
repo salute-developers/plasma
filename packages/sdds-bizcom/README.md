@@ -123,6 +123,16 @@ import { textAccent } from '@salutejs/sdds-themes/tokens';
 <p style={{ color: textAccent }}>Пример использования токена</p>;
 ```
 
+## AI-kit
+
+Компоненты для построения AI-интерфейсов доступны из отдельных точек входа с теми же двумя вариантами поставки:
+
+```jsx
+import { Answer } from '@salutejs/sdds-bizcom/ai';
+// или
+import { Answer } from '@salutejs/sdds-bizcom/ai/styled-components';
+```
+
 ## SSR и Next.js
 
 -   Библиотека поддерживает React Server Components (App Router) **только** при **явном** использовании директивы `'use client'` в модулях, импортирующих компоненты.
