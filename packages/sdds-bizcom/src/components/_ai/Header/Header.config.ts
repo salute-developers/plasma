@@ -91,7 +91,7 @@ export const config = {
                 ${tokens.padding}: 0.5rem 0;
                 ${tokens.gap}: 0;
                 ${tokens.borderRadius}: 0;
-                ${tokens.contentGap}: 0.5rem;
+                ${tokens.contentGap}: 0.375rem;
                 ${tokens.contentPadding}: 0.625rem 0.5rem;
 
                 ${tokens.titleFontFamily}: ${bodyMBold.fontFamily};
@@ -162,7 +162,7 @@ export const config = {
                 ${tokens.titleFontStyle}: ${h2Bold.fontStyle};
                 ${tokens.titleFontWeight}: ${h2Bold.fontWeight};
                 ${tokens.titleLetterSpacing}: ${h2Bold.letterSpacing};
-                ${tokens.titleLineHeight}: ${h2Bold.lineHeight};
+                ${tokens.titleLineHeight}: 2.25rem;
 
                 ${tokens.descriptionFontFamily}: ${bodyL.fontFamily};
                 ${tokens.descriptionFontSize}: ${bodyL.fontSize};
