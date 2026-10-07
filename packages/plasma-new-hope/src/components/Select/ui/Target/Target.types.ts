@@ -9,6 +9,7 @@ export type TargetProps = {
     size: SelectProps['size'];
     view: SelectProps['view'];
     label: SelectProps['label'];
+    titleCaption: SelectProps['titleCaption'];
     labelPlacement: SelectProps['labelPlacement'];
     keepPlaceholder: SelectProps['keepPlaceholder'];
     placeholder: SelectProps['placeholder'];

@@ -109,6 +109,11 @@ type TextfieldLikeTargetProps = {
      * @default full
      */
     chipClickArea?: 'full' | 'close-icon';
+    /**
+     * Метка-подпись к элементу справа.
+     * Доступна только для `textfield-like` и передаётся во внутренний TextField.
+     */
+    titleCaption?: ReactNode;
 } & RequiredProps &
     HintProps &
     LabelProps;
@@ -126,6 +131,7 @@ type ButtonLikeTargetProps = {
     keepPlaceholder?: never;
     chipType?: never;
     chipClickArea?: never;
+    titleCaption?: never;
 } & NeverProps<RequiredProps & HintProps & Omit<LabelProps, 'label'>>;
 
 type Target = TextfieldLikeTargetProps | ButtonLikeTargetProps;

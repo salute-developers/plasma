@@ -46,6 +46,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textSecondary};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldBorderColor}: ${outlineSolidPrimary};
                 ${tokens.textFieldBorderColorHover}: ${outlineSolidPrimaryHover};
@@ -89,6 +90,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldBorderColor}: ${outlineNegative};
                 ${tokens.textFieldBorderColorHover}: ${outlineNegativeHover};
@@ -154,6 +156,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0.188rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldTitleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldTitleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldTitleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyS.fontFamily};
