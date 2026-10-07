@@ -184,6 +184,7 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionMargin}: 0.1875rem;
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -355,6 +356,7 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionMargin}: 0.1875rem;
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -526,6 +528,7 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionMargin}: 0.1875rem;
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -697,6 +700,7 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionMargin}: 0.188rem;
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -880,6 +884,7 @@ export const config = {
                 ${tokens.labelInnerLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.labelInnerLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.titleCaptionMargin}: 0;
 
                 ${tokens.indicatorSize}: 0.375rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
