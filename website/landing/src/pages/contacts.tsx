@@ -173,7 +173,7 @@ export default function ContactsPage() {
 
                                 <span className="scenario-step">
                                     <i>3</i>
-                                    Исправление выходит с ближайшим релизом, о чём пишем в новостях
+                                    Исправление выходит с ближайшим релизом
                                 </span>
                             </div>
                         </div>
@@ -191,7 +191,7 @@ export default function ContactsPage() {
 
                                 <span className="scenario-step">
                                     <i>2</i>
-                                    Изменения по версиям публикуем в новостях
+                                    Изменения по версиям можно уточнить в сообществе
                                 </span>
 
                                 <span className="scenario-step">
@@ -240,7 +240,7 @@ export default function ContactsPage() {
                 </div>
             </section>
 
-            <SiteFooter contactHref="/news" contactLabel="Новости" />
+            <SiteFooter />
         </>
     );
 }

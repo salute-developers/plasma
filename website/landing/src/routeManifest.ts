@@ -1,3 +1,5 @@
+import { newsEnabled } from './features.ts';
+
 export const routeManifest = [
     {
         name: 'article',
@@ -314,4 +316,4 @@ export const routeManifest = [
         title: 'SDDS — новости системы',
         description: 'Новости SDDS: релизы системы, изменения в компонентах, гайдлайны и подключение по MCP.',
     },
-];
+].filter(({ route }) => newsEnabled || !route.startsWith('/news'));
