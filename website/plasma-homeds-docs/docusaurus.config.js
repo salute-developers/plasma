@@ -224,7 +224,7 @@ const config = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/plasma-homeds @salutejs/plasma-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/plasma-homeds` — единственная поставка, styled-components@5.3.1.',
+                    'Точки входа: `@salutejs/plasma-homeds` — единственная поставка, styled-components@5.3.11.',
                     'Темы: `plasma_homeds__light`, `plasma_homeds__dark` из `@salutejs/plasma-themes`; дизайн-токены — из `@salutejs/plasma-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib plasma-homeds`.',
                 ].join('\n\n'),

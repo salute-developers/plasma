@@ -252,7 +252,7 @@ module.exports = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-insol @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/sdds-insol` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-insol/styled-components` — нужен styled-components@5.3.1.',
+                    'Точки входа: `@salutejs/sdds-insol` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-insol/styled-components` — нужен styled-components@5.3.11.',
                     'Темы: `sdds_insol__light`, `sdds_insol__dark` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-insol`.',
                 ].join('\n\n'),

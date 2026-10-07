@@ -33,7 +33,7 @@ $ npm install --save @salutejs/plasma-giga @salutejs/plasma-themes
 Для варианта на styled-components:
 
 ```bash
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 CSS-вариант дополнительных зависимостей не требует.
@@ -47,7 +47,7 @@ CSS-вариант дополнительных зависимостей не т
 | Точка входа                               | Реализация        | Дополнительные зависимости |
 | ----------------------------------------- | ----------------- | -------------------------- |
 | `@salutejs/plasma-giga`                   | предсобранный CSS | нет                        |
-| `@salutejs/plasma-giga/styled-components` | styled-components | `styled-components@5.3.1`  |
+| `@salutejs/plasma-giga/styled-components` | styled-components | `styled-components@5.3.11` |
 
 ```jsx
 import { Button } from '@salutejs/plasma-giga';

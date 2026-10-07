@@ -249,7 +249,7 @@ const config = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-dfa @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/sdds-dfa` — единственная поставка, styled-components@5.3.1.',
+                    'Точки входа: `@salutejs/sdds-dfa` — единственная поставка, styled-components@5.3.11.',
                     'Темы: `sdds_dfa__light`, `sdds_dfa__dark` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-dfa`.',
                 ].join('\n\n'),

@@ -249,7 +249,7 @@ const config = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/plasma-giga @salutejs/plasma-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/plasma-giga` — предсобранный CSS (поставка по умолчанию), `@salutejs/plasma-giga/styled-components` — нужен styled-components@5.3.1.',
+                    'Точки входа: `@salutejs/plasma-giga` — предсобранный CSS (поставка по умолчанию), `@salutejs/plasma-giga/styled-components` — нужен styled-components@5.3.11.',
                     'Темы: `plasma_giga__light`, `plasma_giga__dark` из `@salutejs/plasma-themes`; дизайн-токены — из `@salutejs/plasma-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib plasma-giga`.',
                 ].join('\n\n'),

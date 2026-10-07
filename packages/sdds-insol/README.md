@@ -33,7 +33,7 @@ $ npm install --save @salutejs/sdds-insol @salutejs/sdds-themes
 Для варианта на styled-components:
 
 ```bash
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 CSS-вариант дополнительных зависимостей не требует.
@@ -45,9 +45,9 @@ CSS-вариант дополнительных зависимостей не т
 Один и тот же набор компонентов доступен из двух точек входа:
 
 | Точка входа                              | Реализация        | Дополнительные зависимости |
-| ----------------------------------------- | ----------------- | --------------------------- |
-| `@salutejs/sdds-insol`                    | предсобранный CSS | нет                          |
-| `@salutejs/sdds-insol/styled-components`  | styled-components | `styled-components@5.3.1`    |
+| ---------------------------------------- | ----------------- | -------------------------- |
+| `@salutejs/sdds-insol`                   | предсобранный CSS | нет                        |
+| `@salutejs/sdds-insol/styled-components` | styled-components | `styled-components@5.3.11` |
 
 ```jsx
 import { Button } from '@salutejs/sdds-insol';

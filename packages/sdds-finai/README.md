@@ -34,7 +34,7 @@ $ npm install --save @salutejs/sdds-finai @salutejs/sdds-themes
 Для варианта на styled-components:
 
 ```bash
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 Для варианта на emotion:
@@ -51,11 +51,11 @@ CSS-вариант дополнительных зависимостей не т
 
 Один и тот же набор компонентов доступен из трёх точек входа:
 
-| Точка входа                     | Реализация         | Дополнительные зависимости          |
-| -------------------------------- | ------------------ | ------------------------------------ |
-| `@salutejs/sdds-finai`           | styled-components  | `styled-components@5.3.1`            |
-| `@salutejs/sdds-finai/css`       | предсобранный CSS  | нет                                   |
-| `@salutejs/sdds-finai/emotion`   | emotion            | `@emotion/styled`, `@emotion/react`  |
+| Точка входа                    | Реализация        | Дополнительные зависимости          |
+| ------------------------------ | ----------------- | ----------------------------------- |
+| `@salutejs/sdds-finai`         | styled-components | `styled-components@5.3.11`          |
+| `@salutejs/sdds-finai/css`     | предсобранный CSS | нет                                 |
+| `@salutejs/sdds-finai/emotion` | emotion           | `@emotion/styled`, `@emotion/react` |
 
 ```jsx
 import { Button } from '@salutejs/sdds-finai';
