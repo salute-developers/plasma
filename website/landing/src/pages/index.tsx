@@ -1,4 +1,5 @@
 import { Header, SiteFooter, SiteLink, parseStyle } from '../shared';
+import { publicPath } from '../paths';
 
 export default function IndexPage() {
     return (
@@ -13,8 +14,8 @@ export default function IndexPage() {
                 <div className="hero-media">
                     <video
                         id="heroVideo"
-                        src="/media/hero-loop.mp4"
-                        poster="/media/hero-frame.webp"
+                        src={publicPath('/media/hero-loop.mp4')}
+                        poster={publicPath('/media/hero-frame.webp')}
                         autoPlay
                         muted
                         loop
@@ -664,7 +665,7 @@ export default function IndexPage() {
                                     </div>
 
                                     <img
-                                        src="/assets/giga.webp"
+                                        src={publicPath('/assets/giga.webp')}
                                         alt="Интерфейс GigaChat"
                                         width="1280"
                                         height="800"
@@ -694,7 +695,7 @@ export default function IndexPage() {
                                     </div>
 
                                     <img
-                                        src="/assets/homeos.webp"
+                                        src={publicPath('/assets/homeos.webp')}
                                         alt="Интерфейс HomeOS"
                                         width="1280"
                                         height="800"
@@ -724,7 +725,7 @@ export default function IndexPage() {
                                     </div>
 
                                     <img
-                                        src="/assets/sberdevices.jpg"
+                                        src={publicPath('/assets/sberdevices.jpg')}
                                         alt="Интерфейс SberDevices"
                                         width="1280"
                                         height="800"
@@ -752,7 +753,7 @@ export default function IndexPage() {
 
                                     <video
                                         preload="none"
-                                        data-src="/assets/finai.webm"
+                                        data-src={publicPath('/assets/finai.webm')}
                                         autoPlay
                                         muted
                                         loop
@@ -783,7 +784,7 @@ export default function IndexPage() {
 
                                     <video
                                         preload="none"
-                                        data-src="/assets/platformai.webm"
+                                        data-src={publicPath('/assets/platformai.webm')}
                                         autoPlay
                                         muted
                                         loop
@@ -811,7 +812,7 @@ export default function IndexPage() {
                                     </div>
 
                                     <img
-                                        src="/assets/sberscan.webp"
+                                        src={publicPath('/assets/sberscan.webp')}
                                         alt="Интерфейс SberScan"
                                         width="1280"
                                         height="800"

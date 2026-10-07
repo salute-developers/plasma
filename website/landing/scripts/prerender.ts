@@ -7,6 +7,7 @@ const ssrServerUrl = new URL('../.ssr/server.js', import.meta.url);
 const { render } = (await import(ssrServerUrl.href)) as { render: (route: string) => string };
 
 const template = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
+const basePath = process.env.LANDING_BASE_PATH || '/';
 await Promise.all(
     routeManifest.map(async (entry) => {
         const title = entry.title.replaceAll('&', '&amp;').replaceAll('<', '&lt;');
@@ -20,11 +21,14 @@ await Promise.all(
                 '</head>',
                 `${
                     entry.name === 'doc-actions-button'
-                        ? '<link rel="stylesheet" href="/sandbox.css" data-sandbox-style />'
+                        ? `<link rel="stylesheet" href="${basePath}sandbox.css" data-sandbox-style />`
                         : ''
                 }</head>`,
             )
-            .replace('<div id="root"></div>', `<div id="root">${render(entry.route)}</div>`);
+            .replace(
+                '<div id="root"></div>',
+                `<div id="root">${render(`${basePath.slice(0, -1)}${entry.route}`)}</div>`,
+            );
         const output = entry.route === '/' ? 'dist/index.html' : join('dist', entry.route.slice(1), 'index.html');
         await mkdir(join(output, '..'), { recursive: true });
         await writeFile(output, html);

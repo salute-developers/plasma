@@ -1,4 +1,5 @@
 import { byId, select, selectAll } from '../dom';
+import { publicPath } from '../paths';
 
 import { createEffectScope } from './lifecycle';
 
@@ -197,7 +198,7 @@ export function initIcons() {
         const ensure = async () => {
             if (svg[key()]) return;
             say('загружаем…');
-            svg[key()] = await load(`/data/icons-${state.set}-${state.size}.json`);
+            svg[key()] = await load(publicPath(`/data/icons-${state.set}-${state.size}.json`));
             syncStyles();
         };
 
@@ -213,7 +214,7 @@ export function initIcons() {
                 meta = {};
                 return;
             }
-            const info: any = await load('/data/icons-sdds-meta.json');
+            const info: any = await load(publicPath('/data/icons-sdds-meta.json'));
             metas.sdds = info.icons;
             meta = info.icons;
             if (version && info.version) version.textContent = `SDDS Icons ${info.version}`;

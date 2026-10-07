@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { routeManifest } from '../src/routeManifest.ts';
 
 const dist = fileURLToPath(new URL('../dist/', import.meta.url));
+const basePath = process.env.LANDING_BASE_PATH || '/';
 const routes = new Set(routeManifest.map(({ route }) => route));
 const problems = [];
 
@@ -20,7 +21,12 @@ routeManifest.forEach(({ route, title }) => {
     Array.from(html.matchAll(/(?:href|src|poster|data-src)="(\/[^"]*)"/g)).forEach(([, raw]) => {
         if (raw.startsWith('//')) return;
         const target = raw.split(/[?#]/, 1)[0];
-        if (routes.has(target) || existsSync(join(dist, target.slice(1)))) return;
+        if (!target.startsWith(basePath)) {
+            problems.push(`Outside build base: ${raw} on ${route}`);
+            return;
+        }
+        const localTarget = `/${target.slice(basePath.length)}`;
+        if (routes.has(localTarget) || existsSync(join(dist, localTarget.slice(1)))) return;
         problems.push(`Unresolved ${raw} on ${route}`);
     });
 });

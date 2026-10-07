@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+import { publicPath } from './paths';
 import { routeManifest } from './routeManifest';
 
 export function parseStyle(value) {
@@ -153,7 +154,7 @@ function Search({ close }) {
             <div className="gsearch-backdrop" onClick={close} />
             <div className="gsearch-window" role="dialog" aria-modal="true" aria-label="Поиск по порталу">
                 <div className="gsearch-field">
-                    <img src="/media/icon-search-20.svg" alt="" />
+                    <img src={publicPath('/media/icon-search-20.svg')} alt="" />
                     <input
                         ref={input}
                         type="search"
@@ -320,7 +321,7 @@ export function Header() {
                 </div>
                 <div className="panel-side right">
                     <button className="panel-control" type="button" aria-label="Поиск" onClick={() => setSearch(true)}>
-                        <img src="/media/icon-search-20.svg" alt="" />
+                        <img src={publicPath('/media/icon-search-20.svg')} alt="" />
                     </button>
                     <SiteLink
                         className="panel-cta"

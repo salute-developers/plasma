@@ -1,4 +1,5 @@
 import { DocsPageLayout } from '../DocsPageLayout';
+import { publicPath } from '../paths';
 import { SiteLink } from '../shared';
 
 export default function DocSizesPage() {
@@ -124,7 +125,11 @@ export default function DocSizesPage() {
             </p>
 
             <figure className="article-figure">
-                <img src="/media/news/fig-sizes.svg" alt="Высота контролов по ступеням размера" loading="lazy" />
+                <img
+                    src={publicPath('/media/news/fig-sizes.svg')}
+                    alt="Высота контролов по ступеням размера"
+                    loading="lazy"
+                />
 
                 <figcaption>Ступени размера и высота самостоятельных компонентов на каждой из них</figcaption>
             </figure>
@@ -309,7 +314,7 @@ export default function DocSizesPage() {
 
             <figure className="article-figure">
                 <img
-                    src="/media/news/fig-density.svg"
+                    src={publicPath('/media/news/fig-density.svg')}
                     alt="Одна тема в плотном и в десятифутовом интерфейсе"
                     loading="lazy"
                 />
