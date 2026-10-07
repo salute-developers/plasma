@@ -14,6 +14,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             opened,
             valueToItemMap,
             label,
+            titleCaption,
             placeholder,
             onKeyDown,
             labelPlacement,
@@ -79,6 +80,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 multiselect={multiselect}
                 value={value}
                 label={label}
+                titleCaption={titleCaption}
                 placeholder={placeholder}
                 onKeyDown={onKeyDown}
                 labelPlacement={labelPlacement}
