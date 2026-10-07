@@ -50,8 +50,6 @@ export function SiteFooter({ contactHref = '/contacts', contactLabel = 'Почт
                 {' · '}
                 <SiteLink href="#">Changelog</SiteLink>
                 {' · '}
-                <SiteLink href="#">Telegram</SiteLink>
-                {' · '}
                 <SiteLink href={contactHref}>{contactLabel}</SiteLink>
             </span>
         </footer>
