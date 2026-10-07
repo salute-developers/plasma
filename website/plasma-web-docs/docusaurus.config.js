@@ -311,7 +311,7 @@ module.exports = {
                     'form/**',
                 ],
                 rootContent: [
-                    'Установка: `npm install @salutejs/plasma-web @salutejs/plasma-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше, styled-components версии 5.1.1 или выше — для поставки по умолчанию).',
+                    'Установка: `npm install @salutejs/plasma-web @salutejs/plasma-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше, styled-components версии 5.3.11 или выше — для поставки по умолчанию).',
                     'Точки входа: `@salutejs/plasma-web` — styled-components (поставка по умолчанию), `@salutejs/plasma-web/css` — предсобранный CSS.',
                     'Темы: `plasma_web__light`, `plasma_web__dark` из `@salutejs/plasma-themes`; дизайн-токены — из `@salutejs/plasma-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib plasma-web`; поддерживаются версии библиотеки начиная с `1.613.0`.',

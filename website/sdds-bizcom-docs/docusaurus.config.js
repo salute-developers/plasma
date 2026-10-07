@@ -252,7 +252,7 @@ module.exports = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-bizcom @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/sdds-bizcom` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-bizcom/styled-components` — нужен styled-components@5.3.1.',
+                    'Точки входа: `@salutejs/sdds-bizcom` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-bizcom/styled-components` — нужен styled-components@5.3.11.',
                     'Темы: `sdds_bizcom__light`, `sdds_bizcom__dark` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-bizcom`.',
                 ].join('\n\n'),

@@ -254,7 +254,7 @@ module.exports = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-serv @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/sdds-serv` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-serv/styled-components` — нужен styled-components@5.3.1, `@salutejs/sdds-serv/emotion` — нужны пакеты @emotion/*. AI-компоненты — из `@salutejs/sdds-serv/ai`.',
+                    'Точки входа: `@salutejs/sdds-serv` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-serv/styled-components` — нужен styled-components@5.3.11, `@salutejs/sdds-serv/emotion` — нужны пакеты @emotion/*. AI-компоненты — из `@salutejs/sdds-serv/ai`.',
                     'Темы: `sdds_serv__light`, `sdds_serv__dark`, `sdds_serv_malachite__light` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-serv`.',
                 ].join('\n\n'),
