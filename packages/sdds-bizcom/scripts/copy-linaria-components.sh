@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Example: Calendar
-components=$(grep -R plasma-new-hope src/components | cut -d / -f 3 | sort -u)
+components=$(grep -R plasma-new-hope src/components | cut -d / -f 3 | grep -v '^_ai$' | sort -u)
 
 mkdir -p src-css/components/
 touch src-css/index.ts
@@ -12,6 +12,9 @@ for component in $components; do
     echo "export * from '../components/$component';" >> src-css/index.d.ts;
 
 done;
+
+cp -R src/components/_ai src-css/components/_ai;
+cp src/ai.ts src-css/ai.ts;
 
 # remove unused tests
 rm -rf src-css/components/**/*.component-test.tsx
