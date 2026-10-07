@@ -323,11 +323,7 @@ export function Header() {
                     <button className="panel-control" type="button" aria-label="Поиск" onClick={() => setSearch(true)}>
                         <img src={publicPath('/media/icon-search-20.svg')} alt="" />
                     </button>
-                    <SiteLink
-                        className="panel-cta"
-                        href="https://plasma.sberdevices.ru/design-system-builder/"
-                        id="builderCta"
-                    >
+                    <SiteLink className="panel-cta" href="https://plasma.sberdevices.ru/design-system-builder/">
                         Войти в билдер
                     </SiteLink>
                     <button
