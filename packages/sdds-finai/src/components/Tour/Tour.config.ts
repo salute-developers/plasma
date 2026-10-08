@@ -1,5 +1,5 @@
 import { tourTokens as tokens, css } from '@salutejs/plasma-new-hope/styled-components';
-import { inverseOverlaySoft, surfaceSolidCard } from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { inverseOverlaySoft, surfaceSolidCard } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
