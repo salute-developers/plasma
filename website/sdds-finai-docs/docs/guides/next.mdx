@@ -33,7 +33,7 @@ import { Button } from '@salutejs/sdds-finai';
 
 ```tsx
 import type { AppProps } from "next/app";
-import { sdds_finai__light } from '@salutejs/sdds-themes';
+import { sdds_finai__light } from '@sddsjs/sdds_finai';
 import { createGlobalStyle } from "styled-components";
 
 const PlasmaTheme = createGlobalStyle(sdds_finai__light);
@@ -53,7 +53,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ```tsx
 import type { AppProps } from "next/app";
-import '@salutejs/sdds-themes/css/sdds_finai__light.css';
+import '@sddsjs/sdds_finai/css/sdds_finai__light.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;
