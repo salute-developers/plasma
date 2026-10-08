@@ -264,7 +264,7 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${tokens.textFieldTitleCaptionMargin}: 0.25rem;
+                ${tokens.textFieldTitleCaptionMargin}: 0.3125rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -397,7 +397,7 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.textFieldTitleCaptionMargin}: 0.188rem;
+                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);

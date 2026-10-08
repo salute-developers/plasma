@@ -472,7 +472,7 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyM.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyM.lineHeight};
-                ${tokens.textFieldTitleCaptionMargin}: 0.25rem;
+                ${tokens.textFieldTitleCaptionMargin}: 0.3125rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};

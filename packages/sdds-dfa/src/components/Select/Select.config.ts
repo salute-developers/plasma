@@ -462,7 +462,7 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyL.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyL.lineHeight};
-                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionMargin}: 0.375rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -594,7 +594,7 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyL.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyL.lineHeight};
-                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionMargin}: 0.375rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -726,7 +726,7 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyM.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyM.lineHeight};
-                ${tokens.textFieldTitleCaptionMargin}: 0.25rem;
+                ${tokens.textFieldTitleCaptionMargin}: 0.3125rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -858,7 +858,7 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
-                ${tokens.textFieldTitleCaptionMargin}: 0.188rem;
+                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
