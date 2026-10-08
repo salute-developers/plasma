@@ -32,7 +32,7 @@ import WepAppExample from './_examples/_init_web_app.mdx';
 
 ```bash
 $ npm install --save react react-dom
-$ npm install --save @salutejs/sdds-finai @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-finai @sddsjs/sdds_finai
 ```
 
 Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
@@ -140,21 +140,14 @@ export const dsplL = ({
 } as unknown) as CSSObject;
 ```
 
-Есть два пути импорта токенов:
-
-:::tip
-Путь `@salutejs/sdds-themes/tokens/sdds_finai` следует использовать, когда нужны токены, которые есть только в этой теме.
-:::
-
--   базовый набор — из `@salutejs/sdds-themes/tokens`
--   уникальные токены темы — из `@salutejs/sdds-themes/tokens/sdds_finai`
+Все токены темы импортируются из `@sddsjs/sdds_finai`.
 
 Пример использования:
 
 ```jsx
 import React from 'react';
 import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs/sdds-themes/tokens';
+import { textAccent, backgroundPrimary, textL } from '@sddsjs/sdds_finai';
 
 const AppStyled = styled.div`
     padding: 2rem;

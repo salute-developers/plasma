@@ -38,6 +38,7 @@
     "@salutejs/plasma-typo": "0.57.0-dev.0",
     "@salutejs/sdds-finai": "0.363.0-dev.0",
     "@salutejs/sdds-themes": "0.84.0-dev.0",
+    "@sddsjs/sdds_finai": "0.1.1",
     "@svgr/webpack": "8.1.0",
     "clsx": "1.1.1",
     "docusaurus-theme-search-typesense": "0.25.0",
