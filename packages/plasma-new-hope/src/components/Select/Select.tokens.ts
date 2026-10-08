@@ -270,6 +270,7 @@ export const tokens = {
     textFieldTitleCaptionColorReadOnly: '--plasma-select-textfield__title-caption-color-readonly',
     /** @styleType dimension */
     textFieldTitleCaptionInnerLabelOffset: '--plasma-select-textfield-title-caption-label-inner-offset',
+    /** @styleType dimension */
     textFieldTitleCaptionMargin: '--plasma-select-textfield-title-caption-margin',
 
     /** @styleType typography @styleProp textFieldTitleCaptionTypography @stylePart fontFamily */

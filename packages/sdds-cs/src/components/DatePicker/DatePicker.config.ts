@@ -193,6 +193,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyS.fontStyle};
