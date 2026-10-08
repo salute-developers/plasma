@@ -12,7 +12,7 @@ export const Hint = styled(Tooltip)``;
 
 export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelMarginBottom})`};
@@ -33,7 +33,6 @@ export const StyledLabel = styled.div`
 
 export const TitleCaption = styled.div`
     display: inline-block;
-    align-self: auto;
     margin-left: auto;
     margin-top: var(${tokens.titleCaptionMargin}, 0);
 

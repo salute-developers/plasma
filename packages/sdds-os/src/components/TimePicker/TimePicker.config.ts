@@ -96,7 +96,7 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-m-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
-                ${tokens.titleCaptionMargin}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.3125rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -188,7 +188,7 @@ export const config = {
                 ${tokens.labelFontWeight}: var(--plasma-typo-body-s-font-weight);
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
-                ${tokens.titleCaptionMargin}: 0.188rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);

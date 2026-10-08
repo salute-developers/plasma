@@ -135,7 +135,7 @@ export const config = {
                 ${tokens.labelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyS.lineHeight};
-                ${tokens.titleCaptionMargin}: 0.188rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};

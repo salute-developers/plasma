@@ -28,7 +28,7 @@ export const ContentChildrenWrapper = styled.div`
 
 export const LabelWrapper = styled.div<{ hasLabel: boolean; hasCaption: boolean }>`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
     white-space: ${({ hasLabel }) => (hasLabel ? 'nowrap' : 'normal')};
     margin-bottom: ${({ hasLabel }) =>
@@ -138,7 +138,6 @@ export const OptionalText = styled.span`
 
 export const TitleCaption = styled.div<{ hasLabel: boolean }>`
     display: inline-block;
-    align-self: auto;
     margin-left: auto;
     margin-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionMargin}, 0)` : 'unset')};
 `;

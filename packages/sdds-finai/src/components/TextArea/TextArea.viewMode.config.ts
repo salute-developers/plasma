@@ -232,7 +232,7 @@ export const config = {
                 ${textAreaTokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
-                ${textAreaTokens.titleCaptionMargin}: 0.188rem;
+                ${textAreaTokens.titleCaptionMargin}: 0.1875rem;
                 ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};

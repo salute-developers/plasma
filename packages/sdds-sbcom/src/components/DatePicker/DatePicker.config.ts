@@ -205,6 +205,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.813rem -2.938rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionMargin}: 0.375rem;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -387,6 +388,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.375rem;
+                ${tokens.titleCaptionMargin}: 0.375rem;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -569,6 +571,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.313rem;
+                ${tokens.titleCaptionMargin}: 0.3125rem;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -751,6 +754,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0.188rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
@@ -945,6 +949,7 @@ export const config = {
                 ${tokens.clearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionMargin}: 0;
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
