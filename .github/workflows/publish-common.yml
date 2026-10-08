@@ -130,7 +130,7 @@ jobs:
             npx auto canary \
               --pr "$PULL_REQUEST_NUMBER" \
               --build "$GITHUB_RUN_ID" \
-              --target pr-body \
+              --target comment \
               --force \
               -vv
           else
