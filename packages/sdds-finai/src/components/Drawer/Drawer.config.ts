@@ -1,10 +1,5 @@
 import { css, drawerTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    overlayBlur,
-    overlaySoft,
-    surfaceSolidCard,
-    surfaceTransparentPrimary,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { overlayBlur, overlaySoft, surfaceSolidCard, surfaceTransparentPrimary } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {

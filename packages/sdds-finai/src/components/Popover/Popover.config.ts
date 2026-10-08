@@ -1,5 +1,5 @@
 import { css, popoverTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { shadowDownHardM, surfaceSolidTertiary } from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { shadowDownHardM, surfaceSolidTertiary } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
