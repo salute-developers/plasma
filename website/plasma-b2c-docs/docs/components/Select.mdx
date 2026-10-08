@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 В single-режиме можно использовать `mode="radio"`, если нужно запретить снятие выбора повторным кликом. В multiselect-режиме доступны `selectAllOptions` и `isTargetAmount`.
 
-Select поддерживает два вида target-элемента: `textfield-like` по умолчанию и `button-like`. Для кастомизации доступны:
+Select поддерживает два вида target-элемента: `textfield-like` по умолчанию и `button-like`. Проп `titleCaption` доступен только для `textfield-like` и передаётся во внутренний TextField. В режиме `button-like` он не применяется. Для кастомизации доступны:
 
 - `renderValue` для текста выбранного значения;
 - `renderTarget` для полного переопределения target;
@@ -74,7 +74,7 @@ type Items = Array<{
 
 <Tabs>
     <TabItem value="textfield" label="Textfield" default>
-        В режиме `textfield-like` target внешне мимикрирует под компонент <b>TextField</b> и наследует все его свойства.
+        В режиме `textfield-like` target внешне мимикрирует под компонент <b>TextField</b> и наследует все его свойства, включая `titleCaption`.
 
         ```tsx live
         import React from 'react';
@@ -107,16 +107,16 @@ type Items = Array<{
 
             return (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '350px', height: '300px'}}>
-                    <Select items={items} value={singleValue} onChange={setSingleValue} label="Single" placeholder="Placeholder" helperText="Helper text" />
+                    <Select items={items} value={singleValue} onChange={setSingleValue} label="Single" placeholder="Placeholder" helperText="Helper text" titleCaption="Подпись" />
 
-                    <Select multiselect items={items} value={multipleValue} onChange={setMultipleValue} label="Multiselect" placeholder="Placeholder" helperText="Helper text" />
+                    <Select multiselect items={items} value={multipleValue} onChange={setMultipleValue} label="Multiselect" placeholder="Placeholder" helperText="Helper text" titleCaption="Подпись" />
                 </div>
             );
         }
         ```
     </TabItem>
     <TabItem value="button" label="Button">
-        В режиме `button-like` target внешне мимикрирует под компонент <b>Button</b>. Свойства из `TextField`, например `contentLeft`, `contentRight`, `helperText`, `labelPlacement`, `keepPlaceholder`, `chipType` и `chipClickArea` и тд., в этом режиме не применяются.
+        В режиме `button-like` target внешне мимикрирует под компонент <b>Button</b>. Свойства из `TextField`, например `contentLeft`, `contentRight`, `helperText`, `titleCaption`, `labelPlacement`, `keepPlaceholder`, `chipType` и `chipClickArea` и тд., в этом режиме не применяются.
 
         ```tsx live
         import React from 'react';

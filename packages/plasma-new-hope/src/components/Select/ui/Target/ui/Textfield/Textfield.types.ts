@@ -7,6 +7,7 @@ export type TextfieldProps = Pick<
     | 'multiselect'
     | 'value'
     | 'label'
+    | 'titleCaption'
     | 'labelPlacement'
     | 'keepPlaceholder'
     | 'placeholder'

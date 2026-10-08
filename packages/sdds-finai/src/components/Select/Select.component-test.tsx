@@ -22,6 +22,7 @@ describe('sdds-finai: Select', () => {
             value="north_america"
             label="Label"
             helperText="Helper text"
+            titleCaption="Подпись к полю"
             items={items}
             {...props}
         />

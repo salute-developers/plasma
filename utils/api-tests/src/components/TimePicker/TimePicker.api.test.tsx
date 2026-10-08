@@ -18,6 +18,7 @@ describe('Basics', () => {
         expectTypeOf<Props>().toHaveProperty('size').toEqualTypeOf<string | undefined>();
         expectTypeOf<Props>().toHaveProperty('view').toEqualTypeOf<string | undefined>();
         expectTypeOf<Props>().toHaveProperty('label').toEqualTypeOf<string | undefined>();
+        expectTypeOf<Props>().toHaveProperty('titleCaption').toEqualTypeOf<ReactNode | undefined>();
         expectTypeOf<Props>().toHaveProperty('placeholder').toEqualTypeOf<string | undefined>();
         expectTypeOf<Props>().toHaveProperty('contentLeft').toEqualTypeOf<ReactNode>();
         expectTypeOf<Props>().toHaveProperty('contentRight').toEqualTypeOf<ReactNode>();
@@ -37,7 +38,7 @@ describe('Basics', () => {
 describe('Examples', () => {
     it('Basic', () => {
         () => {
-            void (<TimePicker value="00:00" size="m" />);
+            void (<TimePicker value="00:00" size="m" label="Лейбл" titleCaption="Подпись к полю" />);
             void (<TimePicker value="00:00:00" columnsQuantity={3} />);
         };
     });

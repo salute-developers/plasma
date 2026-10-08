@@ -72,6 +72,19 @@ describeFn('TimePicker', () => {
         cy.matchImageSnapshot();
     });
 
+    it('label, leftHelper, placeholder, titleCaption', () => {
+        mount(
+            <TimePicker
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="00:00:00"
+                titleCaption="Подпись к полю"
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('contentLeft, contentRight', () => {
         mount(
             <TimePicker

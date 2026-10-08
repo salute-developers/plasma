@@ -49,6 +49,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
             hintWidth,
             hintContentLeft,
             label,
+            titleCaption,
             labelPlacement,
             keepPlaceholder,
 
@@ -281,6 +282,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                 opened={isListOpened}
                                 valueToItemMap={valueToItemMap}
                                 label={label}
+                                titleCaption={titleCaption}
                                 placeholder={placeholder}
                                 onKeyDown={onKeyDown}
                                 labelPlacement={labelPlacement}
