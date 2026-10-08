@@ -89,3 +89,33 @@ jobs:
                       --add-header='Cache-Control:no-cache' \
                       put "$page" "${destination}${key}"
                   done < <(find ./landing-dist -type f -name index.html -print0)
+
+    comment:
+        needs: publish
+        runs-on: ubuntu-22.04
+        permissions:
+            contents: read
+            pull-requests: write
+        concurrency:
+            group: preview-links-${{ github.event.pull_request.number }}
+            cancel-in-progress: false
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.event.pull_request.base.sha }}
+                  show-progress: false
+                  persist-credentials: false
+
+            - name: Attach landing preview link
+              uses: actions/github-script@v7
+              env:
+                  BASE_URL: ${{ vars.STAGE_STABLE_URL }}/pr/pr-${{ github.event.pull_request.number }}
+              with:
+                  script: |
+                      const updatePreviewComment = require('./.github/update-preview-comment.js');
+                      await updatePreviewComment({
+                        github,
+                        context,
+                        section: 'landing',
+                        lines: [`landing: ${process.env.BASE_URL}/landing/`],
+                      });
