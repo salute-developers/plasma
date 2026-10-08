@@ -40,9 +40,11 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: var(--text-positive);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-positive);
-                ${tokens.placeholderColorFocus}: var(--text-positive);
+                ${tokens.placeholderColorHover}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -74,9 +76,11 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: var(--text-warning);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-warning);
-                ${tokens.placeholderColorFocus}: var(--text-warning);
+                ${tokens.placeholderColorHover}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -108,9 +112,11 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: var(--text-negative);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-negative);
-                ${tokens.placeholderColorFocus}: var(--text-negative);
+                ${tokens.placeholderColorHover}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;

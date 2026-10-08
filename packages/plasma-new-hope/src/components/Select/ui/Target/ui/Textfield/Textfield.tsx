@@ -36,6 +36,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             chipClickArea,
             requiredProps,
             hintProps,
+            appearance,
+            hasDivider,
         },
         ref,
     ) => {
@@ -150,6 +152,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     : { enumerationType: 'plain' })}
                 _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                 opened={opened}
+                appearance={appearance}
+                hasDivider={hasDivider}
                 // TODO: #1547
                 _forceChipManipulationWithReadonly={!readOnly}
                 _interaction_disabled

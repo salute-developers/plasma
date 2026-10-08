@@ -14,8 +14,21 @@ const { meta: META, Single, Multiselect, Predefined, SelectAll } = getSelectStor
     defaultArgs: {
         size: 's',
         chipView: 'default',
+        appearance: 'default',
+        hasDivider: false,
     },
     additionalArgTypes: {
+        appearance: {
+            options: ['default', 'clear'],
+            control: { type: 'select' },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: {
+                arg: 'appearance',
+                eq: 'clear',
+            },
+        },
         chipView: {
             options: ['default'],
             control: { type: 'select' },
