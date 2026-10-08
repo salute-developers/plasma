@@ -15,10 +15,10 @@ import {
     sdds_serv__light,
     sdds_scan__light,
     sdds_platform_ai__light,
-    sdds_finai__light,
     sdds_dfa__light,
 } from '@salutejs/sdds-themes';
 import { sdds_os__light } from '@salutejs-ds/sdds_os';
+import { sdds_finai__light } from '@sddsjs/sdds_finai';
 // plasma-b2c
 import { dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';

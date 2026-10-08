@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
-import { sdds_finai__light, sdds_finai__dark } from '@salutejs/sdds-themes';
+import { sdds_finai__light, sdds_finai__dark } from '@sddsjs/sdds_finai';
 
 import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
 

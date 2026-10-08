@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/salute-developers/plasma)](https://github.com/salute-developers/plasma/blob/master/LICENSE.txt)
 [![npm version](https://img.shields.io/npm/v/@salutejs/sdds-finai.svg)](https://www.npmjs.com/package/@salutejs/sdds-finai)
 [![typescript](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/dev/typescript)](https://www.typescriptlang.org/)
-[![sdds-themes](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/@salutejs/sdds-themes?filename=packages%2Fsdds-finai%2Fpackage.json)](https://www.npmjs.com/package/@salutejs/sdds-themes)
+[![sdds_finai](https://img.shields.io/github/package-json/dependency-version/salute-developers/plasma/@sddsjs/sdds_finai?filename=packages%2Fsdds-finai%2Fpackage.json)](https://www.npmjs.com/package/@sddsjs/sdds_finai)
 
 Реализация компонентов для создания веб-приложений.
 
@@ -26,7 +26,7 @@
 
 ```bash
 $ npm install --save react react-dom
-$ npm install --save @salutejs/sdds-finai @salutejs/sdds-themes
+$ npm install --save @salutejs/sdds-finai @sddsjs/sdds_finai
 ```
 
 Дальнейшие шаги зависят от выбранного [варианта поставки](#варианты-поставки).
@@ -51,11 +51,11 @@ CSS-вариант дополнительных зависимостей не т
 
 Один и тот же набор компонентов доступен из трёх точек входа:
 
-| Точка входа                     | Реализация         | Дополнительные зависимости          |
-| -------------------------------- | ------------------ | ------------------------------------ |
-| `@salutejs/sdds-finai`           | styled-components  | `styled-components@5.3.1`            |
-| `@salutejs/sdds-finai/css`       | предсобранный CSS  | нет                                   |
-| `@salutejs/sdds-finai/emotion`   | emotion            | `@emotion/styled`, `@emotion/react`  |
+| Точка входа                    | Реализация        | Дополнительные зависимости          |
+| ------------------------------ | ----------------- | ----------------------------------- |
+| `@salutejs/sdds-finai`         | styled-components | `styled-components@5.3.1`           |
+| `@salutejs/sdds-finai/css`     | предсобранный CSS | нет                                 |
+| `@salutejs/sdds-finai/emotion` | emotion           | `@emotion/styled`, `@emotion/react` |
 
 ```jsx
 import { Button } from '@salutejs/sdds-finai';
@@ -92,14 +92,14 @@ Beta-компоненты доступны из точки входа `@salutejs
 ### Через импорт css-файла
 
 ```jsx
-import '@salutejs/sdds-themes/css/sdds_finai__light.css';
+import '@sddsjs/sdds_finai/css/sdds_finai__light.css';
 ```
 
 ### Через styled-components
 
 ```jsx
 import { createGlobalStyle } from 'styled-components';
-import { sdds_finai__light } from '@salutejs/sdds-themes';
+import { sdds_finai__light } from '@sddsjs/sdds_finai';
 
 const Theme = createGlobalStyle(sdds_finai__light);
 
@@ -110,7 +110,7 @@ const Theme = createGlobalStyle(sdds_finai__light);
 
 ```jsx
 import { Global, css } from '@emotion/react';
-import { sdds_finai__light } from '@salutejs/sdds-themes';
+import { sdds_finai__light } from '@sddsjs/sdds_finai';
 
 const themeStyle = css(sdds_finai__light);
 
@@ -124,7 +124,7 @@ const themeStyle = css(sdds_finai__light);
 ```jsx
 // App.tsx
 import { Button, BodyL } from '@salutejs/sdds-finai';
-import '@salutejs/sdds-themes/css/sdds_finai__light.css';
+import '@sddsjs/sdds_finai/css/sdds_finai__light.css';
 
 export const App = () => {
     return (
@@ -136,13 +136,10 @@ export const App = () => {
 };
 ```
 
-Дизайн-токены доступны в виде js-переменных:
-
--   базовый набор — из `@salutejs/sdds-themes/tokens`
--   уникальные токены темы — из `@salutejs/sdds-themes/tokens/sdds_finai`.
+Дизайн-токены доступны в виде js-переменных из `@sddsjs/sdds_finai`.
 
 ```jsx
-import { textAccent } from '@salutejs/sdds-themes/tokens';
+import { textAccent } from '@sddsjs/sdds_finai';
 
 <p style={{ color: textAccent }}>Пример использования токена</p>;
 ```

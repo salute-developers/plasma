@@ -281,9 +281,9 @@ const config = {
                     'form/**',
                 ],
                 rootContent: [
-                    'Установка: `npm install @salutejs/sdds-finai @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше, styled-components версии 5.3.1 или @emotion/react и @emotion/styled версии 11 или выше — в зависимости от точки входа).',
+                    'Установка: `npm install @salutejs/sdds-finai @sddsjs/sdds_finai` (peer-зависимости: react и react-dom версии 16.13.1 или выше, styled-components версии 5.3.1 или @emotion/react и @emotion/styled версии 11 или выше — в зависимости от точки входа).',
                     'Точки входа: `@salutejs/sdds-finai` — styled-components (поставка по умолчанию), `@salutejs/sdds-finai/css` — предсобранный CSS, `@salutejs/sdds-finai/emotion` — нужны пакеты @emotion/*. Beta-компоненты — из `@salutejs/sdds-finai/beta` (варианты `/beta/css` и `/beta/emotion`).',
-                    'Темы: `sdds_finai__light`, `sdds_finai__dark` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
+                    'Темы: `sdds_finai__light`, `sdds_finai__dark` из `@sddsjs/sdds_finai`; дизайн-токены — из `@sddsjs/sdds_finai`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-finai`.',
                 ].join('\n\n'),
             },
