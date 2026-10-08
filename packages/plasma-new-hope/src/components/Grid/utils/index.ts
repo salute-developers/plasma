@@ -56,11 +56,12 @@ export const getGridViewClass = (view: string) => {
 const gridMediaQueryTemplate = (breakpoints: BreakpointTokens): string => {
     return gridSizes
         .map((size) => {
-            if (!String(breakpoints[`${tokenPrefix}${size}-min-width`])) {
+            const minWidth = breakpoints[`${tokenPrefix}${size}-min-width` as keyof typeof breakpoints];
+
+            if (minWidth === undefined || minWidth === '') {
                 return;
             }
 
-            const minWidth = breakpoints[`${tokenPrefix}${size}-min-width` as keyof typeof breakpoints];
             const gap = tokens[`${size}Gap` as TokensType];
             const colsCount = tokens[`${size}ColsCount` as TokensType];
             const margin = tokens[`${size}Margin` as TokensType];
