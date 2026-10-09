@@ -2,6 +2,7 @@ import React, { forwardRef, useCallback, useMemo, useState, useRef, KeyboardEven
 import type { MutableRefObject } from 'react';
 import cls from 'classnames';
 import { safeUseId } from 'src/utils';
+import { useResizeObserver } from 'src/hooks';
 import type { RootProps } from 'src/engines/types';
 
 import { IconDisclosureLeft, IconDisclosureRight } from '../../../../_Icon';
@@ -162,22 +163,46 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
             [onNext, size, disabled, isFilled],
         );
 
+        const updateArrowVisibility = useCallback(() => {
+            const scrollElement = scrollRef.current;
+            const trackElement = trackRef.current;
+            const rootElement = scrollElement?.parentElement;
+
+            if (!scrollElement || !trackElement || !rootElement) {
+                return;
+            }
+
+            const scrollElStyle = getComputedStyle(scrollElement);
+            const rootStyle = getComputedStyle(rootElement);
+            const paddingLeft = parseFloat(scrollElStyle.paddingLeft);
+            const paddingRight = parseFloat(scrollElStyle.paddingRight);
+            const availableWidth =
+                rootElement.clientWidth - parseFloat(rootStyle.paddingLeft) - parseFloat(rootStyle.paddingRight);
+
+            // Стрелки занимают место: проверяем, помещаются ли табы без них.
+            if (trackElement.scrollWidth + paddingLeft + paddingRight <= availableWidth) {
+                setFirstItemVisible(true);
+                setLastItemVisible(true);
+                return;
+            }
+
+            const maxScrollLeft = scrollElement.scrollWidth - scrollElement.clientWidth - paddingRight;
+            const scrollLeft = Math.round(scrollElement.scrollLeft);
+
+            setFirstItemVisible(scrollLeft <= paddingLeft);
+            setLastItemVisible(scrollLeft >= maxScrollLeft);
+        }, []);
+
         const handleScroll = useCallback(
             (event: React.UIEvent<HTMLElement>): void => {
                 event.stopPropagation();
-                const scrollElStyle = getComputedStyle(event.currentTarget);
-                const minScrollLeft = parseInt(scrollElStyle.paddingLeft, 10);
-                const maxScrollLeft =
-                    event.currentTarget.scrollWidth -
-                    event.currentTarget.clientWidth -
-                    parseInt(scrollElStyle.paddingRight, 10);
-                const scrollLeft = Math.round(event.currentTarget.scrollLeft);
-
-                setFirstItemVisible(scrollLeft <= minScrollLeft);
-                setLastItemVisible(scrollLeft >= maxScrollLeft);
+                updateArrowVisibility();
             },
-            [setFirstItemVisible, setLastItemVisible],
+            [updateArrowVisibility],
         );
+
+        useResizeObserver(scrollRef, updateArrowVisibility);
+        useResizeObserver(trackRef, updateArrowVisibility);
 
         const onKeyDown = useCallback(
             (event: KeyboardEvent<HTMLDivElement>) => {
@@ -220,8 +245,8 @@ export const horizontalTabsRoot = (Root: RootProps<HTMLDivElement, HorizontalTab
         );
 
         useLayoutEffect(() => {
-            setLastItemVisible(scrollRef.current?.scrollWidth === scrollRef.current?.clientWidth);
-        }, [clip]);
+            updateArrowVisibility();
+        }, [clip, updateArrowVisibility]);
 
         // Этот хук компенсирует появление левой стрелки при прокрутке
         useLayoutEffect(() => {

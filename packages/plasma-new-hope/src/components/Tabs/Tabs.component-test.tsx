@@ -162,6 +162,68 @@ describeFn('Tabs', () => {
         cy.get('button').contains('Joy').should('not.be.visible');
     });
 
+    it('horizontal: arrows update when the container width changes', () => {
+        mount(
+            <div data-testid="tabs-container" style={{ width: '100px' }}>
+                <Tabs clip="scroll" style={{ width: '100%' }}>
+                    {items.map((item, i) => (
+                        <TabItem key={i} style={{ width: '100px', flexShrink: 0 }}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </div>,
+        );
+
+        cy.get('[aria-label="Следующий таб"]').should('be.visible');
+        cy.get('[aria-label="Предыдущий таб"]').should('not.exist');
+
+        cy.get('[data-testid="tabs-container"]').invoke('css', 'width', '400px');
+        cy.get('[aria-label="Следующий таб"]').should('not.exist');
+        cy.get('[aria-label="Предыдущий таб"]').should('not.exist');
+
+        cy.get('[data-testid="tabs-container"]').invoke('css', 'width', '100px');
+        cy.get('[aria-label="Следующий таб"]').should('be.visible');
+    });
+
+    it('horizontal: arrows disappear when the scrolled content fits exactly', () => {
+        mount(
+            <div data-testid="tabs-container" style={{ width: '200px' }}>
+                <Tabs clip="scroll" style={{ width: '100%' }}>
+                    {items.map((item, i) => (
+                        <TabItem key={i} style={{ width: '100px', flexShrink: 0 }}>
+                            {item.label}
+                        </TabItem>
+                    ))}
+                </Tabs>
+            </div>,
+        );
+
+        cy.get('[aria-label="Следующий таб"]').click();
+        cy.get('[aria-label="Предыдущий таб"]').should('be.visible');
+
+        cy.get('[role="tablist"]').then(($tabs) => {
+            const tabs = $tabs[0];
+            const scroll = tabs.querySelector(':scope > div') as HTMLDivElement;
+            const track = scroll.firstElementChild as HTMLDivElement;
+            const tabsStyle = getComputedStyle(tabs);
+            const scrollStyle = getComputedStyle(scroll);
+            const width =
+                track.scrollWidth +
+                parseFloat(tabsStyle.paddingLeft) +
+                parseFloat(tabsStyle.paddingRight) +
+                parseFloat(scrollStyle.paddingLeft) +
+                parseFloat(scrollStyle.paddingRight);
+
+            cy.get('[data-testid="tabs-container"]').invoke('css', 'width', `${width}px`);
+        });
+
+        cy.get('[aria-label="Следующий таб"]').should('not.exist');
+        cy.get('[aria-label="Предыдущий таб"]').should('not.exist');
+        cy.contains('button', 'Joy').should('be.visible');
+        cy.contains('button', 'Athena').should('be.visible');
+    });
+
     itSkipCs('vertical: clicking on arrows scrolls to prev/next tab', () => {
         mount(
             <Tabs clip="scroll" orientation="vertical" size="m" style={{ height: '8rem' }}>
