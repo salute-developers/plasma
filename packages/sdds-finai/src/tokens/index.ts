@@ -33,6 +33,6 @@ export {
     textSBold,
     textXS,
     textXSBold,
-} from '@salutejs/sdds-themes/tokens';
+} from '@sddsjs/sdds_finai';
 
-export * from '@salutejs/sdds-themes/tokens/sdds_finai';
+export * from '@sddsjs/sdds_finai/theme/tokens';

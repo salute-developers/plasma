@@ -1,11 +1,5 @@
 import { css, dropdownTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    bodyM,
-    bodyS,
-    bodyXS,
-    surfaceTransparentSecondary,
-    surfaceTransparentTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { bodyM, bodyS, bodyXS, surfaceTransparentSecondary, surfaceTransparentTertiary } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {

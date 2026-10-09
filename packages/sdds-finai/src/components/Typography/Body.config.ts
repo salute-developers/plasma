@@ -15,7 +15,7 @@ import {
     bodyXXS,
     bodyXXSBold,
     bodyXXSMedium,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const configL = {
     defaults: {

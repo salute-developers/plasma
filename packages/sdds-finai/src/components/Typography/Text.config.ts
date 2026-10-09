@@ -12,7 +12,7 @@ import {
     textXS,
     textXSBold,
     textXSMedium,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const configL = {
     defaults: {

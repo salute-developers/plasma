@@ -9,7 +9,7 @@ import {
     dsplS,
     dsplSBold,
     dsplSMedium,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const configL = {
     defaults: {

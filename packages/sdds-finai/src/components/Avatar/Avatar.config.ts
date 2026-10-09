@@ -27,7 +27,7 @@ import {
     textPositive,
     textPrimary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {

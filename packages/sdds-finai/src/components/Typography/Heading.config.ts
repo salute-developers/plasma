@@ -18,7 +18,7 @@ import {
     h6,
     h6Bold,
     h6Medium,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const configH1 = {
     defaults: {

@@ -1,5 +1,5 @@
 import type { Meta } from '@storybook/react-vite';
-import { sdds_finai__light } from '@salutejs/sdds-themes/es/themes';
+import { sdds_finai__light } from '@sddsjs/sdds_finai';
 import { createToastNotify, getTokenUsageStories } from '@salutejs/plasma-sb-utils';
 
 import { Accordion, AccordionItem } from '../../Accordion';
