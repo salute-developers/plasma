@@ -28,7 +28,14 @@ import { base as sizeCSS } from './variations/_size/base';
 import { base as eventTooltipSizeCSS } from './variations/_tooltip-size/base';
 import { IsOutOfRange, StyledCalendar } from './CalendarBase.styles';
 
-export type CalendarBaseProps = Calendar & CalendarConfigProps;
+export type CalendarBaseProps = Calendar &
+    CalendarConfigProps & {
+        /**
+         * Выравнивание переключателя периода в одиночном календаре.
+         * @default start
+         */
+        periodSelectorAlign?: 'start' | 'center';
+    };
 
 /**
  * Компонент календаря.
@@ -58,6 +65,7 @@ export const calendarBaseRoot = (
                 eventYearList,
                 disabledYearList,
                 locale = 'ru',
+                periodSelectorAlign = 'start',
                 stretched,
                 onChangeValue,
                 onChangeVisibleDate,
@@ -258,6 +266,7 @@ export const calendarBaseRoot = (
                         onNext={handleNext}
                         onUpdateCalendarState={handleUpdateCalendarState}
                         locale={locale}
+                        periodSelectorAlign={periodSelectorAlign}
                     />
                     {calendarState === CalendarState.Days && (
                         <CalendarDays

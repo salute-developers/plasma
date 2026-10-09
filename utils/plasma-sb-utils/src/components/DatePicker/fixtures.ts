@@ -30,6 +30,7 @@ export const placements = [
 ];
 export const datePickerRangePlacements = ['top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end'];
 export const shortcutsPlacements = ['left', 'right'];
+export const periodSelectorAligns = ['start', 'center'];
 
 export const dateShortcuts = [
     {

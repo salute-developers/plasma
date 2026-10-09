@@ -100,6 +100,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 // calendar
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
+                periodSelectorAlign,
                 maskWithFormat,
                 min,
                 max,
@@ -440,6 +441,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                                     includeEdgeDates={includeEdgeDates}
                                     isRange={false}
                                     locale={lang}
+                                    periodSelectorAlign={periodSelectorAlign}
                                     onChangeValue={handleCalendarPick}
                                     onChangeVisibleDate={onChangeVisibleDate}
                                 />

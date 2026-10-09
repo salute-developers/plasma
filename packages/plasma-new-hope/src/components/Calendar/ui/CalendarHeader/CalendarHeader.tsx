@@ -36,6 +36,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
     onNext,
     onUpdateCalendarState,
     locale,
+    periodSelectorAlign = 'start',
 }) => {
     const handleCalendarState = () => {
         const newSize: [number, number] = isDouble ? sizeMap.Months.double : sizeMap.Months.single;
@@ -141,7 +142,13 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                 </StyledNavigation>
             ) : (
                 <>
+                    {periodSelectorAlign === 'center' && (
+                        <StyledArrows>
+                            <PreviousButton />
+                        </StyledArrows>
+                    )}
                     <StyledHeader
+                        periodSelectorAlign={periodSelectorAlign}
                         type="button"
                         aria-live="polite"
                         id="id-grid-label"
@@ -151,7 +158,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
                         {getHeaderContent(firstDate)}
                     </StyledHeader>
                     <StyledArrows>
-                        <PreviousButton />
+                        {periodSelectorAlign === 'start' && <PreviousButton />}
                         <NextButton />
                     </StyledArrows>
                 </>

@@ -16,6 +16,7 @@ export const CalendarGrid = ({
     isDouble,
     value,
     lang,
+    periodSelectorAlign,
     calendarContainerWidth,
     calendarContainerHeight,
     handleCalendarPick,
@@ -34,5 +35,5 @@ export const CalendarGrid = ({
         return <StyledCalendarDouble {...commonProps} {...rest} />;
     }
 
-    return <StyledCalendar {...commonProps} {...rest} />;
+    return <StyledCalendar {...commonProps} {...rest} periodSelectorAlign={periodSelectorAlign} />;
 };
