@@ -80,7 +80,7 @@ export const config = {
                 ${tokens.timePickerBackground}: ${surfaceSolidCard};
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.itemBackgroundActive}: ${surfaceTransparentSecondary};
-                ${tokens.itemFocusColor}: ${surfaceAccent};
+                ${tokens.itemFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tokens.scrollbarColor}: ${surfaceTransparentTertiary};
                 ${tokens.scrollbarTrackColor}: ${surfaceTransparentPrimary};

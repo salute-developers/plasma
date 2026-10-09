@@ -46,7 +46,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textPrimaryHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textPrimaryActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textPrimaryHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textPrimaryActive};
             `,
@@ -56,7 +56,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textAccentActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textAccentHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textAccentActive};
             `,
@@ -66,7 +66,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textSecondaryHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textSecondaryActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textSecondaryHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textSecondaryActive};
             `,
@@ -76,7 +76,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textPositiveHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textPositiveActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textPositiveHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textPositiveActive};
             `,
@@ -86,7 +86,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textWarningHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textWarningActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textWarningHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textWarningActive};
             `,
@@ -96,7 +96,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textNegativeActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textNegativeHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textNegativeActive};
             `,
@@ -106,7 +106,7 @@ export const config = {
                 ${linkButtonTokens.linkButtonBackgroundColor}: ${surfaceClear};
                 ${linkButtonTokens.linkButtonIconColorHover}: ${textInfoHover};
                 ${linkButtonTokens.linkButtonIconColorActive}: ${textInfoActive};
-                ${linkButtonTokens.linkButtonFocusColor}: ${surfaceAccent};
+                ${linkButtonTokens.linkButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${linkButtonTokens.linkButtonTextColorHover}: ${textInfoHover};
                 ${linkButtonTokens.linkButtonTextColorActive}: ${textInfoActive};
             `,

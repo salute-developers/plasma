@@ -23,7 +23,7 @@ export const config = {
                 ${modalTokens.modalCloseButtonColor}: ${textPrimary};
                 ${modalTokens.modalCloseButtonHoverColor}: ${textPrimaryHover};
                 ${modalTokens.modalCloseButtonActiveColor}: ${textPrimaryActive};
-                ${modalTokens.modalOutlineFocusColor}: ${surfaceAccent};
+                ${modalTokens.modalOutlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
             `,
         },
         size: {

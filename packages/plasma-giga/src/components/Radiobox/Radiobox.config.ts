@@ -181,7 +181,7 @@ export const config = {
         },
         focused: {
             true: css`
-                ${radioboxTokens.focusColor}: ${textAccent};
+                ${radioboxTokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
             `,
         },
     },

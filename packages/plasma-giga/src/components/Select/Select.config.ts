@@ -106,7 +106,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textSecondary};
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
@@ -157,7 +157,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textPositive};
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
@@ -208,7 +208,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textWarning};
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
@@ -259,7 +259,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textNegative};
-                ${tokens.textFieldFocusColor}: ${textAccent};
+                ${tokens.textFieldFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};

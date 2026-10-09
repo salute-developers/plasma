@@ -92,7 +92,7 @@ export const config = {
                 ${tokens.dividerColorHover}: ${textSecondary};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.focusColor}: ${textAccent};
+                ${tokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
                 ${tokens.indicatorColor}: ${surfaceNegative};
                 ${tokens.optionalColor}: ${textTertiary};
             `,
@@ -124,7 +124,7 @@ export const config = {
                 ${tokens.dividerColorHover}: ${surfacePositive};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.focusColor}: ${textAccent};
+                ${tokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
                 ${tokens.indicatorColor}: ${surfaceNegative};
                 ${tokens.optionalColor}: ${textTertiary};
             `,
@@ -156,7 +156,7 @@ export const config = {
                 ${tokens.dividerColorHover}: ${surfaceWarning};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.focusColor}: ${textAccent};
+                ${tokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
                 ${tokens.indicatorColor}: ${surfaceNegative};
                 ${tokens.optionalColor}: ${textTertiary};
             `,
@@ -188,7 +188,7 @@ export const config = {
                 ${tokens.dividerColorHover}: ${surfaceNegative};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
-                ${tokens.focusColor}: ${textAccent};
+                ${tokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
                 ${tokens.indicatorColor}: ${surfaceNegative};
                 ${tokens.optionalColor}: ${textTertiary};
             `,

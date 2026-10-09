@@ -29,7 +29,7 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 
@@ -49,7 +49,7 @@ export const config = {
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 
@@ -67,7 +67,7 @@ export const config = {
                 ${tabsTokens.itemSelectedBackgroundColorHover}: transparent;
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0.125rem;
                 ${tabsTokens.itemSelectedDividerColor}: ${textPrimary};
@@ -89,7 +89,7 @@ export const config = {
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;
 
-                ${tabsTokens.outlineFocusColor}: ${surfaceAccent};
+                ${tabsTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tabsTokens.itemSelectedDividerHeight}: 0;
 

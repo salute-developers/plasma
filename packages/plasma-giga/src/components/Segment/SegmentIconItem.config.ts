@@ -29,7 +29,7 @@ export const config = {
                 ${segmentTokens.itemSelectedColorHover}: ${textPrimary};
                 ${segmentTokens.itemSelectedBackgroundColorHover}: transparent;
 
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
             `,
             secondary: css`
                 ${segmentTokens.itemColor}: ${textPrimary};
@@ -41,7 +41,7 @@ export const config = {
                 ${segmentTokens.itemSelectedColorHover}: ${textPrimaryHover};
                 ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceTransparentCard};
 
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
             `,
             default: css`
                 ${segmentTokens.itemColor}: ${textPrimary};
@@ -53,7 +53,7 @@ export const config = {
                 ${segmentTokens.itemSelectedColorHover}: ${inverseTextPrimaryHover};
                 ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidDefault};
 
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
             `,
             accent: css`
                 ${segmentTokens.itemColor}: ${textPrimary};
@@ -65,7 +65,7 @@ export const config = {
                 ${segmentTokens.itemSelectedColorHover}: ${onDarkTextPrimaryHover};
                 ${segmentTokens.itemSelectedBackgroundColorHover}: ${surfaceAccent};
 
-                ${segmentTokens.outlineFocusColor}: ${textAccent};
+                ${segmentTokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${textAccent});
             `,
         },
         size: {

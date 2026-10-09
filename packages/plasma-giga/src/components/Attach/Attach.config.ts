@@ -74,7 +74,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -91,7 +91,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -102,7 +102,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -117,7 +117,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -134,7 +134,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceAccentActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -145,7 +145,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -160,7 +160,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -177,7 +177,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -188,7 +188,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -203,7 +203,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -220,7 +220,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -231,7 +231,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -246,7 +246,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfacePositiveActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -263,7 +263,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfacePositiveActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -274,7 +274,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -289,7 +289,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${surfaceWarningActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -306,7 +306,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceWarningActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -317,7 +317,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -346,7 +346,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${surfaceNegativeActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -357,7 +357,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -372,7 +372,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${onLightSurfaceTransparentDeepActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -389,7 +389,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${onLightSurfaceTransparentDeepActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -400,7 +400,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -415,7 +415,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -432,7 +432,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${onLightSurfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -443,7 +443,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,
@@ -458,7 +458,7 @@ export const config = {
                 ${attachTokens.buttonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
 
                 ${attachTokens.buttonDisabledOpacity}: 0.4;
-                ${attachTokens.buttonFocusColor}: ${surfaceAccent};
+                ${attachTokens.buttonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.cellColor}: ${textPrimary};
                 ${attachTokens.cellLabelColor}: ${textSecondary};
@@ -475,7 +475,7 @@ export const config = {
                 ${attachTokens.iconButtonBackgroundColorActive}: ${onDarkSurfaceSolidDefaultActive};
 
                 ${attachTokens.iconButtonDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.iconButtonCancelColor}: ${textSecondary};
                 ${attachTokens.iconButtonCancelBackgroundColor}: ${surfaceClear};
@@ -486,7 +486,7 @@ export const config = {
                 ${attachTokens.iconButtonCancelBackgroundColorActive}: ${surfaceClear};
 
                 ${attachTokens.iconButtonCancelDisabledOpacity}: 0.4;
-                ${attachTokens.iconButtonCancelFocusColor}: ${surfaceAccent};
+                ${attachTokens.iconButtonCancelFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${attachTokens.moreIconColor}: ${textPrimary};
             `,

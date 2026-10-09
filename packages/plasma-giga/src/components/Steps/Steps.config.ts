@@ -50,7 +50,7 @@ const baseItemView = `
     ${tokens.inactiveIndicatorBackgroundHover}: ${surfaceTransparentSecondaryHover};
 
     ${tokens.contentColor}: ${textSecondary};
-    ${tokens.focusColor}: ${surfaceAccent};
+    ${tokens.focusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
     ${tokens.disabledOpacity}: 0.4;
 `;

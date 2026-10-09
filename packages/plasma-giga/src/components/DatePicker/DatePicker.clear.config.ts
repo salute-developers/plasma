@@ -51,7 +51,7 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.outlineFocusColor}: ${surfaceAccent};
+                ${tokens.outlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tokens.background}: transparent;
                 ${tokens.backgroundError}: transparent;
@@ -72,7 +72,7 @@ export const config = {
                 ${tokens.contentSlotColorHover}: ${textPrimaryHover};
                 ${tokens.contentSlotColorActive}: ${textPrimaryActive};
 
-                ${tokens.embedIconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.embedIconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${tokens.contentSlotRightColor}: ${textPrimary};
                 ${tokens.contentSlotRightColorHover}: ${textPrimaryHover};
                 ${tokens.contentSlotRightColorActive}: ${textPrimaryActive};
@@ -108,7 +108,7 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
                 ${tokens.textFieldCaretColor}: ${textAccent};
-                ${tokens.focusColor}: ${textAccent};
+                ${tokens.focusColor}: var(--plasma-outline-focus-color, ${textAccent});
 
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
@@ -165,7 +165,7 @@ export const config = {
                 ${tokens.calendarHoveredItemBackground}: ${surfaceAccent};
                 ${tokens.calendarHoveredItemColor}: ${textPrimary};
                 ${tokens.calendarRangeBackground}: ${surfaceTransparentSecondary};
-                ${tokens.calendarOutlineFocusColor}: ${surfaceAccent};
+                ${tokens.calendarOutlineFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
                 ${tokens.calendarContentPrimaryColor}: ${textPrimary};
                 ${tokens.calendarContentPrimaryDisabledColor}: ${textPrimary};
                 ${tokens.calendarHeaderArrowColor}: ${tokens.calendarContentPrimaryColor};
@@ -179,7 +179,7 @@ export const config = {
                 ${tokens.iconButtonBackgroundColorHover}: ${surfaceClear};
                 ${tokens.iconButtonColorActive}: ${textPrimaryHover};
                 ${tokens.iconButtonBackgroundColorActive}: ${surfaceClear};
-                ${tokens.iconButtonFocusColor}: ${surfaceAccent};
+                ${tokens.iconButtonFocusColor}: var(--plasma-outline-focus-color, ${surfaceAccent});
 
                 ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
                 ${tokens.tooltipBoxShadow}: ${shadowDownHardS};
