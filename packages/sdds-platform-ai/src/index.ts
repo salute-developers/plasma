@@ -28,6 +28,7 @@ export * from './components/Rating';
 export * from './components/ButtonBase';
 export * from './components/Button';
 export * from './components/ButtonGroup';
+export * from './components/GroupIconButton';
 export * from './components/Checkbox';
 export * from './components/EmbedIconButton';
 export * from './components/Link';
