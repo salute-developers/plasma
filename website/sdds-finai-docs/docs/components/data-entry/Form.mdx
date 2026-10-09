@@ -1,0 +1,51 @@
+---
+id: form
+slug: /components/form
+title: Form
+description: "Нативная форма с отступами между элементами."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Form
+<Description name="Form" />
+<PropsTable name="Form" />
+
+## Использование
+
+`Form` рендерит нативный `<form>` и задаёт отступ между прямыми потомками. Направление задаётся свойством `orientation`.
+
+```tsx live
+import React from 'react';
+import { Checkbox, Form, TextField } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <Form orientation="vertical" onSubmit={(event) => event.preventDefault()}>
+            <TextField name="name" label="Имя" placeholder="Имя" />
+            <TextField name="email" label="Почта" placeholder="Почта" />
+            <Checkbox name="agreement" label="Согласен с условиями" />
+            <button type="submit">Отправить</button>
+        </Form>
+    );
+}
+```
+
+## Ориентация
+
+`vertical` выстраивает элементы в колонку на всю ширину. `horizontal` ставит их в ряд и делит ширину поровну. Отступ между элементами — `1.5rem`.
+
+```tsx live
+import React from 'react';
+import { Form, TextField } from '@salutejs/sdds-finai';
+
+export function App() {
+    return (
+        <Form orientation="horizontal" onSubmit={(event) => event.preventDefault()}>
+            <TextField name="name" label="Имя" placeholder="Имя" />
+            <TextField name="email" label="Почта" placeholder="Почта" />
+        </Form>
+    );
+}
+```
+
