@@ -473,6 +473,132 @@ describeFn('Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: placement alignment', () => {
+        cy.viewport(1280, 2300);
+
+        const placementItems = [{ value: 'item', label: 'Item' }];
+
+        mount(
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '30px',
+                }}
+            >
+                <div style={{ width: '200px', padding: '60px 60px 0 60px', boxSizing: 'content-box' }}>
+                    <Dropdown
+                        placement="top-start"
+                        alwaysOpened
+                        items={placementItems}
+                        listWidth="150px"
+                        closeOnOverlayClick={false}
+                    >
+                        <Button text="Top-start" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '60px 60px 0 60px', boxSizing: 'content-box' }}>
+                    <Dropdown
+                        placement="top-center"
+                        alwaysOpened
+                        items={placementItems}
+                        listWidth="150px"
+                        closeOnOverlayClick={false}
+                    >
+                        <Button text="Top-center" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '60px 60px 0 60px', boxSizing: 'content-box' }}>
+                    <Dropdown
+                        placement="top-end"
+                        alwaysOpened
+                        items={placementItems}
+                        listWidth="150px"
+                        closeOnOverlayClick={false}
+                    >
+                        <Button text="Top-end" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '20px 300px 20px 0', boxSizing: 'content-box' }}>
+                    <Dropdown placement="right-start" alwaysOpened items={placementItems} closeOnOverlayClick={false}>
+                        <Button text="Right-start" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '20px 300px 20px 0', boxSizing: 'content-box' }}>
+                    <Dropdown placement="right-center" alwaysOpened items={placementItems} closeOnOverlayClick={false}>
+                        <Button text="Right-center" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '20px 300px 20px 0', boxSizing: 'content-box' }}>
+                    <Dropdown placement="right-end" alwaysOpened items={placementItems} closeOnOverlayClick={false}>
+                        <Button text="Right-end" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '0 60px 60px 60px', boxSizing: 'content-box' }}>
+                    <Dropdown
+                        placement="bottom-start"
+                        alwaysOpened
+                        items={placementItems}
+                        listWidth="150px"
+                        closeOnOverlayClick={false}
+                    >
+                        <Button text="Bottom-start" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '0 60px 60px 60px', boxSizing: 'content-box' }}>
+                    <Dropdown
+                        placement="bottom-center"
+                        alwaysOpened
+                        items={placementItems}
+                        listWidth="150px"
+                        closeOnOverlayClick={false}
+                    >
+                        <Button text="Bottom-center" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '0 60px 60px 60px', boxSizing: 'content-box' }}>
+                    <Dropdown
+                        placement="bottom-end"
+                        alwaysOpened
+                        items={placementItems}
+                        listWidth="150px"
+                        closeOnOverlayClick={false}
+                    >
+                        <Button text="Bottom-end" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '20px 0 20px 300px', boxSizing: 'content-box' }}>
+                    <Dropdown placement="left-start" alwaysOpened items={placementItems} closeOnOverlayClick={false}>
+                        <Button text="Left-start" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '20px 0 20px 300px', boxSizing: 'content-box' }}>
+                    <Dropdown placement="left-center" alwaysOpened items={placementItems} closeOnOverlayClick={false}>
+                        <Button text="Left-center" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+
+                <div style={{ width: '200px', padding: '20px 0 20px 300px', boxSizing: 'content-box' }}>
+                    <Dropdown placement="left-end" alwaysOpened items={placementItems} closeOnOverlayClick={false}>
+                        <Button text="Left-end" style={{ width: '200px' }} />
+                    </Dropdown>
+                </div>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: nested dropdown placement', () => {
         cy.viewport(1280, 599);
 

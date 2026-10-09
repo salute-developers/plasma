@@ -210,8 +210,9 @@ type ItemOption = {
     </TabItem>
 
     <TabItem value="placement" label="Placement">
-        Параметр `placement` может принимать следующие значения : `"top"`,  `"right"`, `"bottom"`, `"left"`, `"auto"`.<br />
-        Default value для placement - `"bottom"`.
+        Параметр `placement` может принимать следующие значения : `"top-start"`, `"top-center"`, `"top-end"`, `"right-start"`, `"right-center"`, `"right-end"`, `"bottom-start"`, `"bottom-center"`, `"bottom-end"`, `"left-start"`, `"left-center"`, `"left-end"`, `"auto"`.<br />
+        Суффикс `start` выравнивает список по началу стороны, `end` — по концу, `center` — по центру.<br />
+        Default value для placement - `"bottom-start"`.
 
         ```tsx live
         import React from 'react';
@@ -219,70 +220,29 @@ type ItemOption = {
 
         export function App() {
             const items = [
-                {
-                    value: 'north_america',
-                    label: 'Северная Америка',
-                },
-                {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                            items: [
-                                {
-                                    value: 'rio_de_janeiro',
-                                    label: 'Рио-де-Жанейро',
-                                },
-                                {
-                                    value: 'sao_paulo',
-                                    label: 'Сан-Паулу',
-                                },
-                            ],
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
-                },
+                { value: 'north_america', label: 'Северная Америка' },
+                { value: 'south_america', label: 'Южная Америка' },
+            ];
+            const placements = [
+                ['top-start', 'top-center', 'top-end'],
+                ['right-start', 'right-center', 'right-end'],
+                ['bottom-start', 'bottom-center', 'bottom-end'],
+                ['left-start', 'left-center', 'left-end'],
             ];
 
             return (
-                <div style=\{{ height: "300px", display: "flex", gap: "50px" }}>
-                    <Dropdown
-                        items={items}
-                    >
-                        <Button text="Default (bottom)" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        placement="right"
-                    >
-                        <Button text="Right" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        placement="left"
-                    >
-                        <Button text="Left" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        placement="top"
-                    >
-                        <Button text="Top" />
-                    </Dropdown>
-
-                    <Dropdown
-                        items={items}
-                        placement="auto"
-                    >
-                        <Button text="Auto" />
+                <div style=\{{ display: "flex", flexDirection: "column", gap: "56px", padding: "180px 320px" }}>
+                    {placements.map((row) => (
+                        <div key={row[0]} style=\{{ display: "flex", gap: "24px" }}>
+                            {row.map((placement) => (
+                                <Dropdown key={placement} items={items} placement={placement} listWidth="140px">
+                                    <Button text={placement} style=\{{ width: "200px" }} />
+                                </Dropdown>
+                            ))}
+                        </div>
+                    ))}
+                    <Dropdown items={items} placement="auto" listWidth="140px">
+                        <Button text="auto" style=\{{ width: "200px" }} />
                     </Dropdown>
                 </div>
             );

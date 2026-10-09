@@ -38,7 +38,7 @@ const Inner: FC<DropdownInnerProps> = ({
     if (item?.items?.length) {
         return (
             <FloatingPopover
-                placement={getPlacement(item?.placement || 'right')}
+                placement={getPlacement(item?.placement || 'right-start')}
                 opened={isCurrentListOpen}
                 onToggle={handleToggle}
                 trigger={item.trigger || trigger}
