@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, ReactNode, CSSProperties } from 'react';
 import { DistributiveOmit } from 'src/types';
 
-import { TextFieldPropsBase } from '../TextField/TextField.types';
+import type { TextFieldPropsBase, TextFieldProps } from '../TextField/TextField.types';
 
 export type SuggestionItemType = {
     /**
@@ -128,10 +128,11 @@ export type AutocompleteProps<T extends SuggestionItemType = SuggestionItemType>
      * @default default
      */
     view?: string;
-} & DistributiveOmit<
-    TextFieldPropsBase,
-    'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
-> &
+} & Pick<TextFieldProps, 'appearance' | 'hasDivider'> &
+    DistributiveOmit<
+        TextFieldPropsBase,
+        'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
+    > &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required' | 'value' | 'defaultValue' | 'onScroll'>;
 
 export type FloatingPopoverProps = {

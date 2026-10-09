@@ -88,9 +88,10 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: ${textPositive};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textPositive};
-                ${tokens.placeholderColorFocus}: ${textPositive};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -101,12 +102,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textPositive};
                 ${tokens.rightHelperColor}: ${textPositive};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textPositive};
                 ${tokens.contentSlotColorHover}: ${textPositiveHover};
                 ${tokens.contentSlotColorActive}: ${textPositiveActive};
+                ${tokens.contentSlotColorFocus}: ${textPrimary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -122,9 +126,10 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: ${textWarning};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textWarning};
-                ${tokens.placeholderColorFocus}: ${textWarning};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -135,12 +140,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textWarning};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textWarning};
                 ${tokens.contentSlotColorHover}: ${textWarningHover};
                 ${tokens.contentSlotColorActive}: ${textWarningActive};
+                ${tokens.contentSlotColorFocus}: ${textPrimary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -156,9 +164,10 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: ${textNegative};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textNegative};
-                ${tokens.placeholderColorFocus}: ${textNegative};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -169,12 +178,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textNegative};
                 ${tokens.contentSlotColorHover}: ${textNegativeHover};
                 ${tokens.contentSlotColorActive}: ${textNegativeActive};
+                ${tokens.contentSlotColorFocus}: ${textPrimary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};

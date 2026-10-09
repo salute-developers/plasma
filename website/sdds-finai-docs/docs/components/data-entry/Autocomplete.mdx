@@ -18,6 +18,8 @@ import AutocompleteExampleClear from '../../_examples/_autocomplete/_autocomplet
 
 ## Appearance
 
+`appearance="clear"` — вариант без фона и рамки, для него можно включить разделитель через `hasDivider`.
+
 `appearance="viewMode"` — режим просмотра.
 
 ```tsx live
@@ -28,8 +30,10 @@ export function App() {
     const suggestions = [{ label: 'Алексей Смирнов' }, { label: 'Екатерина Иванова' }];
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '200px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '300px' }}>
             <Autocomplete suggestions={suggestions} appearance="default" label="Default" placeholder="Placeholder" />
+            <Autocomplete suggestions={suggestions} appearance="clear" label="Clear" placeholder="Placeholder" />
+            <Autocomplete suggestions={suggestions} appearance="clear" hasDivider label="Clear с разделителем" placeholder="Placeholder" />
             <Autocomplete suggestions={suggestions} appearance="viewMode" value="Алексей Смирнов" readOnly label="ViewMode" placeholder="Placeholder" />
         </div>
     );

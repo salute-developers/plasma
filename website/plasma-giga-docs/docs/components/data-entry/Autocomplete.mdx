@@ -109,6 +109,34 @@ type SuggestionItem = {
         }
         ```
     </TabItem>
+    <TabItem value="appearance" label="Appearance">
+        :::tip
+        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`.
+        :::
+
+        ```tsx live
+        import React from 'react';
+        import { Autocomplete } from '@salutejs/plasma-giga';
+
+        export function App() {
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+                { label: 'Ольга Васильева' },
+                { label: 'Сергей Сидоров' },
+            ];
+
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '350px', height: '400px' }}>
+                    <Autocomplete suggestions={mockData} appearance="default" label="Appearance default" placeholder="Placeholder" />
+                    <Autocomplete suggestions={mockData} appearance="clear" label="Appearance clear" placeholder="Placeholder" />
+                    <Autocomplete suggestions={mockData} appearance="clear" hasDivider label="Appearance clear с разделителем" placeholder="Placeholder" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
     <TabItem value="controlled" label="Controlled">
         ```tsx live
         import React from 'react';
