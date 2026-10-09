@@ -324,9 +324,11 @@ type ItemOption = {
     </TabItem>
 
     <TabItem value="trigger" label="Trigger">
-        Параметр `trigger` принимает строку: `"click"` или `"hover"`.<br />
+        Параметр `trigger` принимает строку: `"click"`, `"hover"` или `"longPress"`.<br />
         Default value - `"click"`.<br />
-        Для примера показано значение `"hover"`.
+
+        При `"longPress"` список открывается после удержания нажатия на target.  
+        Время удержания задаётся свойством `longPressDelay` в миллисекундах, по умолчанию `500`.  
 
         ```tsx live
         import React from 'react';
@@ -365,12 +367,20 @@ type ItemOption = {
             ];
 
             return (
-                <div style={{ height:"300px" }}>
+                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
                     <Dropdown
                         items={items}
                         trigger="hover"
                     >
-                        <Button text="Список стран" />
+                        <Button text="Hover" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        trigger="longPress"
+                        longPressDelay={700}
+                    >
+                        <Button text="Long press" />
                     </Dropdown>
                 </div>
             );

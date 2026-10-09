@@ -15,12 +15,16 @@ import React, { forwardRef } from 'react';
 import { safeUseId } from 'src/utils';
 
 import { FloatingPopoverProps } from './Dropdown.types';
+import { useLongPress } from './hooks/useLongPress';
 
 // TODO: #2003
 const LIST_PADDING = 2;
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, offset, isInner, trigger, zIndex }, ref) => {
+    (
+        { target, children, opened, onToggle, placement, portal, offset, isInner, trigger, longPressDelay, zIndex },
+        ref,
+    ) => {
         const { refs, floatingStyles, context } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -56,7 +60,16 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         });
         const click = useClick(context, {
             stickIfOpen: false,
+            enabled: trigger !== 'longPress',
             ignoreMouse: trigger === 'hover',
+        });
+
+        const longPressProps = useLongPress({
+            enabled: trigger === 'longPress',
+            delay: longPressDelay,
+            onLongPress: (event) => onToggle(true, event),
+            opened,
+            onClickWhenOpened: (event) => onToggle(false, event),
         });
 
         const { getReferenceProps } = useInteractions([hover, click]);
@@ -70,7 +83,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     display: isInner ? 'block' : 'inline-block',
                 }}
             >
-                <div ref={refs.setReference} {...getReferenceProps()}>
+                <div ref={refs.setReference} {...getReferenceProps(longPressProps)}>
                     {target}
                 </div>
 

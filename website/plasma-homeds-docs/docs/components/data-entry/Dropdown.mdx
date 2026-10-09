@@ -270,9 +270,11 @@ type ItemOption = {
     </TabItem>
 
     <TabItem value="trigger" label="Trigger">
-        Параметр `trigger` принимает строку: `"click"` или `"hover"`.<br />
+        Параметр `trigger` принимает строку: `"click"`, `"hover"` или `"longPress"`.<br />
         Default value - `"click"`.<br />
-        Для примера показано значение `"hover"`.
+
+        При `"longPress"` список открывается после удержания нажатия на target.  
+        Время удержания задаётся свойством `longPressDelay` в миллисекундах, по умолчанию `500`.  
 
         ```tsx live
         import React from 'react';
@@ -311,14 +313,69 @@ type ItemOption = {
             ];
 
             return (
-                <div style={{ height:"300px" }}>
+                <div style={{ height: "300px", display: "flex", gap: "50px" }}>
                     <Dropdown
                         items={items}
                         trigger="hover"
                     >
-                        <Button text="Список стран" />
+                        <Button text="Hover" />
+                    </Dropdown>
+
+                    <Dropdown
+                        items={items}
+                        trigger="longPress"
+                        longPressDelay={700}
+                    >
+                        <Button text="Long press" />
                     </Dropdown>
                 </div>
+            );
+        }
+        ```
+    </TabItem>
+
+    <TabItem value="item-color" label="Цвет элемента">
+        Чтобы изменить цвет отдельного элемента, передайте ему `className` в массиве `items`.
+
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/plasma-homeds';
+
+        export function App() {
+            const items = [
+                {
+                    value: 'edit',
+                    label: 'Редактировать',
+                },
+                {
+                    value: 'approve',
+                    label: 'Подтвердить',
+                    className: 'dropdown-item-positive',
+                },
+                {
+                    value: 'delete',
+                    label: 'Удалить',
+                    className: 'dropdown-item-negative',
+                },
+            ];
+
+            return (
+                <>
+                    <style>{`
+                        .dropdown-item-positive .cell-textbox-title {
+                            color: var(--text-positive);
+                        }
+                        .dropdown-item-negative .cell-textbox-title {
+                            color: var(--text-negative);
+                        }
+                    `}</style>
+
+                    <div style={{ height: "180px" }}>
+                        <Dropdown items={items}>
+                            <Button text="Действия" />
+                        </Dropdown>
+                    </div>
+                </>
             );
         }
         ```

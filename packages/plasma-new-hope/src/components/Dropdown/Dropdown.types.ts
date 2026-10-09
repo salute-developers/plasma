@@ -3,7 +3,7 @@ import type { HTMLAttributes, ReactNode, SyntheticEvent, CSSProperties, RefObjec
 import { FocusedPathState } from './reducers/focusedPathReducer';
 
 export type DropdownPlacement = 'auto' | 'top' | 'right' | 'bottom' | 'left';
-export type DropdownTrigger = 'hover' | 'click';
+export type DropdownTrigger = 'hover' | 'click' | 'longPress';
 export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
 export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
 
@@ -72,10 +72,15 @@ export type DropdownProps<T extends ItemOption = ItemOption> = {
      */
     items: T[];
     /**
-     * Способ открытия Dropdown окна - наведение или клик мышью.
+     * Способ открытия Dropdown окна - наведение, клик или долгое нажатие.
      * @default click
      */
     trigger?: DropdownTrigger;
+    /**
+     * Время удержания (мс) для срабатывания trigger="longPress".
+     * @default 500
+     */
+    longPressDelay?: number;
     /**
      * Сторона открытия Dropdown относительно target элемента.
      * @default bottom
@@ -184,6 +189,7 @@ export type FloatingPopoverProps = {
     onToggle: (opened: boolean, event?: SyntheticEvent | Event) => void;
     placement: PlacementType;
     trigger: DropdownProps['trigger'];
+    longPressDelay?: DropdownProps['longPressDelay'];
     isInner: boolean;
     portal?: DropdownProps['portal'];
     offset?: [number, number];
@@ -199,6 +205,7 @@ export type ItemContext = {
     closeOnSelect: DropdownProps['closeOnSelect'];
     onHover: DropdownProps['onHover'];
     onItemSelect: DropdownProps['onItemSelect'];
+    longPressDelay: DropdownProps['longPressDelay'];
     treeId: string;
     renderItem: DropdownProps['renderItem'];
 };
