@@ -60,20 +60,6 @@ export default function IndexPage() {
                     </div>
 
                     <div>
-                        <div className="resume" id="resume">
-                            <p>Вы уже начинали работу в билдере</p>
-
-                            <div className="spacer" />
-
-                            <SiteLink href="https://plasma.sberdevices.ru/design-system-builder/">
-                                Продолжить в билдере
-                            </SiteLink>
-
-                            <button type="button" id="resumeReset">
-                                Сбросить
-                            </button>
-                        </div>
-
                         <div className="hero-cards">
                             <div className="hero-card">
                                 <span className="hero-card-glass" aria-hidden="true" />
@@ -1471,14 +1457,7 @@ export default function IndexPage() {
                             </div>
 
                             <div className="bento-links">
-                                <SiteLink href="#">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 6l6 6-6 6" />
-                                    </svg>
-                                    Сообщество в Telegram
-                                </SiteLink>
-
-                                <SiteLink href="#">
+                                <SiteLink href="/contacts">
                                     <svg viewBox="0 0 24 24">
                                         <path d="M9 6l6 6-6 6" />
                                     </svg>
