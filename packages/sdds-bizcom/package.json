@@ -24,6 +24,16 @@
       "import": "./dist/styled-components/es/index.js",
       "require": "./dist/styled-components/cjs/index.js",
       "types": "./types/index.d.ts"
+    },
+    "./ai": {
+      "import": "./dist/ai/css/es/index.js",
+      "require": "./dist/ai/css/cjs/index.js",
+      "types": "./types/ai.d.ts"
+    },
+    "./ai/styled-components": {
+      "import": "./dist/ai/styled-components/es/index.js",
+      "require": "./dist/ai/styled-components/cjs/index.js",
+      "types": "./types/ai.d.ts"
     }
   },
   "peerDependencies": {
@@ -74,11 +84,13 @@
     "build": "npm run build:css && npm run build:styled-components",
     "postbuild": "npm run generate:typings",
     "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
-    "build:css": "rm -rf dist/css && rollup -c",
+    "build:css": "rm -rf dist/css dist/ai/css && rollup -c",
     "postbuild:css": "rm -rf src-css",
-    "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
-    "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
-    "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "prebuild:styled-components": "rm -rf src-styled-components src-ai && cp -R src src-styled-components && rm -rf src-styled-components/components/_ai && mkdir -p src-ai/components && cp -R src/components/_ai src-ai/components/_ai && cp src/ai.ts src-ai/index.ts",
+    "build:styled-components": "rm -rf dist/styled-components dist/ai/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
+    "build:styled-components:cjs": "swc ./src-styled-components -d ./dist/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs && swc ./src-ai -d ./dist/ai/styled-components/cjs --strip-leading-paths --config-file ../../swc.config.json -C module.type=commonjs",
+    "build:styled-components:esm": "swc ./src-styled-components -d ./dist/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6 && swc ./src-ai -d ./dist/ai/styled-components/es --strip-leading-paths --config-file ../../swc.config.json -C module.type=es6",
+    "postbuild:styled-components": "rm -rf src-styled-components src-ai",
     "generate:typings": "rm -rf types && tsc",
     "storybook": "npm run storybook:sc",
     "storybook:sc": "USE_STYLED_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",

@@ -9,15 +9,17 @@ import styles from '@ironkinoko/rollup-plugin-styles';
 const inputDir = 'src-css';
 const require = createRequire(import.meta.url);
 
-export default {
-    input: path.join(inputDir, 'index.ts'),
+const createConfig = (inputFile, outputDir) => ({
+    input: {
+        index: path.join(inputDir, inputFile),
+    },
     treeshake: {
         propertyReadSideEffects: false,
     },
     output: [
         {
             preserveModules: true,
-            dir: 'dist/css/es',
+            dir: `${outputDir}/es`,
             format: 'es',
             freeze: false,
             esModule: true,
@@ -27,7 +29,7 @@ export default {
         },
         {
             preserveModules: true,
-            dir: 'dist/css/cjs',
+            dir: `${outputDir}/cjs`,
             format: 'cjs',
             freeze: false,
             esModule: true,
@@ -74,7 +76,9 @@ export default {
         }),
         babel({ babelHelpers: 'bundled', extensions: ['.ts', '.tsx'] }),
     ],
-};
+});
+
+export default [createConfig('index.ts', 'dist/css'), createConfig('ai.ts', 'dist/ai/css')];
 
 function importCssPlugin() {
     const filter = createFilter(['**/*.css']);
