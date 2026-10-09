@@ -321,6 +321,42 @@ describeFn('Combobox', () => {
         });
     });
 
+    it('multiple: stays within grid and flex containers', () => {
+        const overflowItems = [
+            { value: 'north_america', label: 'Северная Америка' },
+            { value: 'rio_de_janeiro', label: 'Рио-де-Жанейро' },
+            { value: 'sao_paulo', label: 'Сан-Паулу' },
+            { value: 'buenos_aires', label: 'Буэнос-Айрес' },
+            { value: 'paris', label: 'Париж' },
+            { value: 'london', label: 'Лондон' },
+        ];
+        const value = overflowItems.map((item) => item.value);
+
+        const assertNoOverflow = (selector: string) => {
+            cy.get(selector).should(($container) => {
+                expect($container[0].scrollWidth).to.be.lte($container[0].clientWidth);
+            });
+        };
+
+        mount(
+            <div id="grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', width: 320, gap: 8 }}>
+                <Combobox multiple items={overflowItems} value={value} />
+                <div>neighbor</div>
+            </div>,
+        );
+        assertNoOverflow('#grid');
+
+        mount(
+            <div id="flex" style={{ display: 'flex', width: 320, gap: 8 }}>
+                <div style={{ flex: 1 }}>
+                    <Combobox multiple items={overflowItems} value={value} />
+                </div>
+                <div style={{ flex: 1 }}>neighbor</div>
+            </div>,
+        );
+        assertNoOverflow('#flex');
+    });
+
     const ComboboxGroup = (props: any) => {
         const [singleValue, setSingleValue] = useState('paris');
         const [valueMultiple, setValueMultiple] = useState<Array<string>>(['london', 'madrid']);
