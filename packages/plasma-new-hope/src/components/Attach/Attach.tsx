@@ -347,7 +347,7 @@ export const attachRoot = (Root: RootProps<HTMLDivElement, AttachProps>) =>
                         customIcon={customIcon}
                         handleClear={handleClear}
                         {...dropdownOptions}
-                        placement={dropdownOptions?.placement ?? 'bottom'}
+                        placement={dropdownOptions?.placement ?? 'bottom-start'}
                     />
                 )}
 

@@ -24,7 +24,7 @@ export type DropdownOptions = {
     trigger?: DropdownTrigger;
     /**
      * Сторона открытия Dropdown относительно элемента, у которого оно вызвано.
-     * @default bottom
+     * @default bottom-start
      */
     placement?: DropdownPlacement;
     /**

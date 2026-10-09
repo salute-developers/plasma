@@ -596,7 +596,7 @@ describeFn('Dropdown', () => {
             </div>,
         );
 
-        cy.matchImageSnapshot();
+        cy.matchImageSnapshot(Cypress.browser.family === 'webkit' ? { capture: 'fullPage' } : {});
     });
 
     it('prop: nested dropdown placement', () => {
