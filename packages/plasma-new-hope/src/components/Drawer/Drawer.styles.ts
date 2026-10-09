@@ -100,6 +100,12 @@ const getAnimationStyles = () => {
 
 export const StyledPanel = styled(Panel)`
     ${panelTokens.closeColor}: var(${tokens.closeIconColor});
+    ${panelTokens.scrollbarWidth}: var(${tokens.scrollbarWidth});
+    ${panelTokens.scrollbarOffsetRight}: var(${tokens.scrollbarOffsetRight});
+    ${panelTokens.scrollbarThumbBackgroundColor}: var(${tokens.scrollbarThumbBackgroundColor});
+    ${panelTokens.scrollbarThumbBackgroundColorHover}: var(${tokens.scrollbarThumbBackgroundColorHover});
+    ${panelTokens.scrollbarThumbBackgroundColorActive}: var(${tokens.scrollbarThumbBackgroundColorActive});
+    ${panelTokens.scrollbarTrackBackgroundColor}: var(${tokens.scrollbarTrackBackgroundColor});
 `;
 
 export const StyledPopup = styled(Popup)<{
