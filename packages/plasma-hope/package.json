@@ -34,7 +34,7 @@
     "@salutejs/plasma-icons": "^1.0.0",
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.3.11"
   },
   "dependencies": {
     "@popperjs/core": "2.9.2",
@@ -72,7 +72,7 @@
     "jest": "27.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "5.3.1",
+    "styled-components": "5.3.11",
     "ts-jest": "27.0.6",
     "typescript-coverage-report": "0.7.0"
   },

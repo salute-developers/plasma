@@ -32,7 +32,7 @@
     "next": "14.2.33",
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "styled-components": "5.3.1"
+    "styled-components": "5.3.11"
   },
   "devDependencies": {
     "@types/babel__core": "7.1.19",

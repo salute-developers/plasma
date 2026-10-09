@@ -33,7 +33,7 @@ $ npm install --save @salutejs/sdds-netology @salutejs/plasma-themes
 Для варианта на styled-components:
 
 ```bash
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 CSS-вариант дополнительных зависимостей не требует.
@@ -44,10 +44,10 @@ CSS-вариант дополнительных зависимостей не т
 
 Один и тот же набор компонентов доступен из двух точек входа:
 
-| Точка входа                                  | Реализация        | Дополнительные зависимости |
-| ----------------------------------------------- | ----------------- | --------------------------- |
-| `@salutejs/sdds-netology`                     | предсобранный CSS | нет                          |
-| `@salutejs/sdds-netology/styled-components`   | styled-components | `styled-components@5.3.1`    |
+| Точка входа                                 | Реализация        | Дополнительные зависимости |
+| ------------------------------------------- | ----------------- | -------------------------- |
+| `@salutejs/sdds-netology`                   | предсобранный CSS | нет                        |
+| `@salutejs/sdds-netology/styled-components` | styled-components | `styled-components@5.3.11` |
 
 ```jsx
 import { Button } from '@salutejs/sdds-netology';

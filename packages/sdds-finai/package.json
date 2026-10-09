@@ -41,7 +41,7 @@
     "@emotion/styled": ">=11",
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.11"
   },
   "dependencies": {
     "@salutejs/plasma-new-hope": "0.383.0",
@@ -82,7 +82,7 @@
     "default-browser-id": "2.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "5.3.1",
+    "styled-components": "5.3.11",
     "typescript-coverage-report": "0.7.0"
   },
   "scripts": {

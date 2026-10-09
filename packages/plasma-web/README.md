@@ -32,7 +32,7 @@ $ npm install --save @salutejs/plasma-web @salutejs/plasma-themes
 Для варианта на styled-components:
 
 ```bash
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 CSS-вариант дополнительных зависимостей не требует.
@@ -43,10 +43,10 @@ CSS-вариант дополнительных зависимостей не т
 
 Один и тот же набор компонентов доступен из двух точек входа:
 
-| Точка входа                | Реализация         | Дополнительные зависимости |
-| --------------------------- | ------------------ | --------------------------- |
-| `@salutejs/plasma-web`      | styled-components  | `styled-components@5.3.1`  |
-| `@salutejs/plasma-web/css`  | предсобранный CSS  | нет                          |
+| Точка входа                | Реализация        | Дополнительные зависимости |
+| -------------------------- | ----------------- | -------------------------- |
+| `@salutejs/plasma-web`     | styled-components | `styled-components@5.3.11` |
+| `@salutejs/plasma-web/css` | предсобранный CSS | нет                        |
 
 ```jsx
 import { Button } from '@salutejs/plasma-web';

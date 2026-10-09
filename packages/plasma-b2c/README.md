@@ -7,7 +7,7 @@
 Библиотека реализована с помощью:
 
 -   [typescript](https://www.typescriptlang.org/)
--   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.1`)
+-   [styled-components](https://styled-components.com/) (рекомендуем использовать версию `5.3.11`)
 
 Однако их использование **необязательно**!
 
@@ -20,7 +20,7 @@ $ npm install --save @salutejs/plasma-b2c @salutejs/plasma-themes
 Для работы со `styled-components`, необходимо установить
 
 ```bash
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 ### Использование компонентов
