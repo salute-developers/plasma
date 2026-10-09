@@ -1,17 +1,25 @@
 import { css } from 'styled-components';
 
-export const base = css`
-    overflow-y: scroll;
+import { addScrollbar } from '../../../../../../mixins';
+import { tokens } from '../../../../Panel.tokens';
 
-    /* TODO заменить на кастомный скроллбар */
-    /* stylelint-disable-next-line selector-max-empty-lines, selector-nested-pattern, selector-type-no-unknown */
-    ::-webkit-scrollbar {
-        display: none;
-    }
-    scrollbar-width: none;
+export const base = css`
+    overflow-y: auto;
+    scrollbar-width: auto;
+
+    ${addScrollbar({
+        scrollWidth: `var(${tokens.scrollbarWidth}, 0)`,
+        trackColor: `var(${tokens.scrollbarTrackBackgroundColor})`,
+        thumbColor: `var(${tokens.scrollbarThumbBackgroundColor})`,
+        thumbHoverColor: `var(${tokens.scrollbarThumbBackgroundColorHover}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+        thumbActiveColor: `var(${tokens.scrollbarThumbBackgroundColorActive}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+    })}
 
     flex-grow: 1;
 
+    margin-right: calc(
+        (var(${tokens.padding}, 0rem) - var(${tokens.scrollbarOffsetRight}, var(${tokens.padding}, 0rem))) * -1
+    );
     padding-right: 20px;
     box-sizing: border-box;
 `;

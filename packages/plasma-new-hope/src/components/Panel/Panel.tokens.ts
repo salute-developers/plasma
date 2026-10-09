@@ -20,4 +20,11 @@ export const tokens = {
     padding: '--plasma-panel-padding',
     borderRadius: '--plasma-panel-border-radius',
     closeColor: '--plasma-panel-close-color',
+
+    scrollbarWidth: '--plasma-panel-scrollbar-width',
+    scrollbarOffsetRight: '--plasma-panel-scrollbar-offset-right',
+    scrollbarThumbBackgroundColor: '--plasma-panel-scrollbar-thumb-background-color',
+    scrollbarThumbBackgroundColorHover: '--plasma-panel-scrollbar-thumb-background-color-hover',
+    scrollbarThumbBackgroundColorActive: '--plasma-panel-scrollbar-thumb-background-color-active',
+    scrollbarTrackBackgroundColor: '--plasma-panel-scrollbar-track-background-color',
 };

@@ -39,4 +39,16 @@ export const tokens = {
     borderRadius: '--plasma-drawer-border-radius',
     /** @styleType color */
     closeIconColor: '--plasma-drawer-close-icon-color',
+    /** @styleType dimension */
+    scrollbarWidth: '--plasma-drawer-scrollbar-width',
+    /** @styleType dimension */
+    scrollbarOffsetRight: '--plasma-drawer-scrollbar-offset-right',
+    /** @styleType color */
+    scrollbarThumbBackgroundColor: '--plasma-drawer-scrollbar-thumb-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorHover: '--plasma-drawer-scrollbar-thumb-background-color-hover',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorActive: '--plasma-drawer-scrollbar-thumb-background-color-active',
+    /** @styleType color */
+    scrollbarTrackBackgroundColor: '--plasma-drawer-scrollbar-track-background-color',
 };
