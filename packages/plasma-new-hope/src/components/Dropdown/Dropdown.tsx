@@ -24,6 +24,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             {
                 items,
                 trigger = 'click',
+                useTargetInteraction,
                 placement = 'bottom',
                 children,
                 variant = 'normal',
@@ -124,6 +125,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         offset={offset}
                         portal={portal}
                         trigger={trigger}
+                        useTargetInteraction={useTargetInteraction}
                         target={childrenWithProps(children, {
                             role: 'combobox',
                             'aria-controls': `${treeId}_tree_level_1`,

@@ -14,13 +14,33 @@ import {
 import React, { forwardRef } from 'react';
 import { safeUseId } from 'src/utils';
 
-import { FloatingPopoverProps } from './Dropdown.types';
+import { FloatingPopoverProps, TargetInteraction } from './Dropdown.types';
 
 // TODO: #2003
 const LIST_PADDING = 2;
 
+const useNoTargetInteraction = (): TargetInteraction => ({});
+
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, offset, isInner, trigger, zIndex }, ref) => {
+    (
+        {
+            target,
+            children,
+            opened,
+            onToggle,
+            placement,
+            portal,
+            offset,
+            isInner,
+            trigger,
+            useTargetInteraction,
+            zIndex,
+        },
+        ref,
+    ) => {
+        const useInteraction = useTargetInteraction || useNoTargetInteraction;
+        const interaction = useInteraction({ opened, onToggle });
+
         const { refs, floatingStyles, context } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -56,6 +76,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
         });
         const click = useClick(context, {
             stickIfOpen: false,
+            enabled: !interaction.replaceClick,
             ignoreMouse: trigger === 'hover',
         });
 
@@ -70,7 +91,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     display: isInner ? 'block' : 'inline-block',
                 }}
             >
-                <div ref={refs.setReference} {...getReferenceProps()}>
+                <div ref={refs.setReference} {...getReferenceProps(interaction.props)}>
                     {target}
                 </div>
 

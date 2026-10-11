@@ -66,6 +66,22 @@ export type ItemOption = {
     hidden?: boolean;
 };
 
+export type TargetInteractionContext = {
+    opened: boolean;
+    onToggle: (opened: boolean, event?: SyntheticEvent | Event) => void;
+};
+
+export type TargetInteraction = {
+    /**
+     * Дополнительные пропсы для target элемента.
+     */
+    props?: HTMLAttributes<HTMLElement>;
+    /**
+     * Отключить открытие по клику, если его заменяет собственный trigger.
+     */
+    replaceClick?: boolean;
+};
+
 export type DropdownProps<T extends ItemOption = ItemOption> = {
     /**
      * Список элементов.
@@ -76,6 +92,11 @@ export type DropdownProps<T extends ItemOption = ItemOption> = {
      * @default click
      */
     trigger?: DropdownTrigger;
+    /**
+     * Хук для подмены или расширения способа открытия Dropdown (например, долгое нажатие).
+     * Вызывается как хук: ссылка на функцию должна быть стабильной по набору внутренних хуков.
+     */
+    useTargetInteraction?: (context: TargetInteractionContext) => TargetInteraction;
     /**
      * Сторона открытия Dropdown относительно target элемента.
      * @default bottom
@@ -185,6 +206,7 @@ export type FloatingPopoverProps = {
     placement: PlacementType;
     trigger: DropdownProps['trigger'];
     isInner: boolean;
+    useTargetInteraction?: DropdownProps['useTargetInteraction'];
     portal?: DropdownProps['portal'];
     offset?: [number, number];
     zIndex?: DropdownProps['zIndex'];
