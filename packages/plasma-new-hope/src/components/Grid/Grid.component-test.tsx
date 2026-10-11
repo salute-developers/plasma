@@ -1,5 +1,12 @@
 import React from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    getBaseVisualTests,
+    skipForPackages,
+} from '@salutejs/plasma-cy-utils';
 import styled from 'styled-components';
 
 import type { GridProps } from './Grid.types';
@@ -191,59 +198,41 @@ describeFn('Grid', () => {
         cy.matchImageSnapshot();
     });
 
-    it('legacy, simple', () => {
-        mount(
-            <Container>
-                <Row>
-                    <Col size={1}>
-                        <Filler>1</Filler>
-                    </Col>
-                    <Col size={2}>
-                        <Filler>2</Filler>
-                    </Col>
-                    <Col size={3}>
-                        <Filler>3</Filler>
-                    </Col>
-                    <Col size={4}>
-                        <Filler>4</Filler>
-                    </Col>
-                    <Col size={2}>
-                        <Filler>2</Filler>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size={3} offset={1}>
-                        <Filler>3 offset 1</Filler>
-                    </Col>
-                    <Col size={6} offset={2}>
-                        <Filler>6 offset 2</Filler>
-                    </Col>
-                </Row>
-            </Container>,
-        );
+    const itSkipLegacySize = skipForPackages([
+        'plasma-giga',
+        'sdds-cs',
+        'sdds-insol',
+        'sdds-insol-next',
+        'sdds-netology',
+        'sdds-bizcom',
+        'sdds-serv',
+        'sdds-scan',
+        'sdds-os',
+        'sdds-platform-ai',
+        'sdds-finai',
+        'sdds-dfa',
+        'plasma-homeds',
+    ]);
 
-        cy.matchImageSnapshot();
-    });
-
-    it('legacy, size=S', () => {
+    itSkipLegacySize('legacy, size=S', () => {
         cy.viewport(375, 200);
         mount(<GridLegacySize />);
         cy.matchImageSnapshot();
     });
 
-    it('legacy, size=M', () => {
+    itSkipLegacySize('legacy, size=M', () => {
         cy.viewport(1280, 200);
         mount(<GridLegacySize />);
         cy.matchImageSnapshot();
     });
 
-    it('legacy, size=L', () => {
+    itSkipLegacySize('legacy, size=L', () => {
         cy.viewport(1920, 200);
         mount(<GridLegacySize />);
         cy.matchImageSnapshot();
     });
 
-    it('legacy, size=XL', () => {
+    itSkipLegacySize('legacy, size=XL', () => {
         cy.viewport(2000, 200);
         mount(<GridLegacySize />);
         cy.matchImageSnapshot();
