@@ -77,6 +77,9 @@ const meta: Meta<StoryProps> = {
                 type: 'select',
             },
         },
+        titleCaption: {
+            control: { type: 'text' },
+        },
         requiredPlacement: {
             options: ['left', 'right'],
             control: {
@@ -136,6 +139,7 @@ const meta: Meta<StoryProps> = {
         disabled: false,
         readOnly: false,
         label: 'Label',
+        titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',

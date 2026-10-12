@@ -74,6 +74,16 @@ export const tokens = {
     textFieldLabelLetterSpacing: '--plasma-autocomplete-textfield-label-letter-spacing',
     textFieldLabelLineHeight: '--plasma-autocomplete-textfield-label-line-height',
 
+    textFieldTitleCaptionMargin: '--plasma-autocomplete-textfield-title-caption-margin',
+    textFieldTitleCaptionColor: '--plasma-autocomplete-textfield-title-caption-color',
+    textFieldTitleCaptionColorReadOnly: '--plasma-autocomplete-textfield-title-caption-color-readonly',
+    textFieldTitleCaptionFontFamily: '--plasma-autocomplete-textfield-title-caption-font-family',
+    textFieldTitleCaptionFontStyle: '--plasma-autocomplete-textfield-title-caption-font-style',
+    textFieldTitleCaptionFontSize: '--plasma-autocomplete-textfield-title-caption-font-size',
+    textFieldTitleCaptionFontWeight: '--plasma-autocomplete-textfield-title-caption-font-weight',
+    textFieldTitleCaptionLetterSpacing: '--plasma-autocomplete-textfield-title-caption-letter-spacing',
+    textFieldTitleCaptionLineHeight: '--plasma-autocomplete-textfield-title-caption-line-height',
+
     textFieldLabelInnerFontFamily: '--plasma-autocomplete-textfield-placement-inner-label-font-family',
     textFieldLabelInnerFontStyle: '--plasma-autocomplete-textfield-placement-inner-label-font-style',
     textFieldLabelInnerFontSize: '--plasma-autocomplete-textfield-placement-inner-label-font-size',

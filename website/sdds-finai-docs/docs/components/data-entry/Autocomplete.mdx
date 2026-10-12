@@ -40,6 +40,7 @@ export function App() {
 Расширенная версия компонента `TextField`. Добавилась возможность использования выпадающего списка с подсказками.\
 По умолчанию подсказки фильтруются вне зависимости от регистра. Но это можно изменить, прокинув свой коллбэк `filter`.\
 Все пропсы, которые поддерживает компонент `TextField` также поддерживаются и здесь.
+Подпись справа от заголовка задаётся пропом `titleCaption` и передаётся во внутреннее поле.
 Формат подсказок `suggestions` следующий:
 
 ```tsx
@@ -123,7 +124,7 @@ type SuggestionItem = {
 
             return (
                 <div style={{ display: 'block', height:"400px" }}>
-                    <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
+                    <Autocomplete suggestions={mockData} listMaxHeight="250px" label="Label" titleCaption="Подпись к полю" placeholder="Placeholder" leftHelper="Введите имя Алексей" />
                 </div>
             );
         }
