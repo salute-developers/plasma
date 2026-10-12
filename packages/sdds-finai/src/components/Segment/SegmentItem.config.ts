@@ -76,7 +76,7 @@ export const config = {
             xs: css`
                 ${segmentTokens.itemBorderRadius}: 0.5rem;
                 ${segmentTokens.itemWidth}: auto;
-                ${segmentTokens.itemHeight}: 2rem;
+                ${segmentTokens.itemHeight}: 1.75rem;
                 ${segmentTokens.itemPadding}: 0.5rem 0.75rem;
                 ${segmentTokens.itemPilledPadding}: 0.5rem 0.5rem;
                 ${segmentTokens.itemContentPadding}: 0.0625rem 0.125rem;
@@ -93,7 +93,7 @@ export const config = {
             s: css`
                 ${segmentTokens.itemBorderRadius}: 0.625rem;
                 ${segmentTokens.itemWidth}: auto;
-                ${segmentTokens.itemHeight}: 2.5rem;
+                ${segmentTokens.itemHeight}: 2.25rem;
                 ${segmentTokens.itemPadding}: 0.5rem 1rem;
                 ${segmentTokens.itemPilledPadding}: 0.5rem 0.5rem;
                 ${segmentTokens.itemContentPadding}: 0.1875rem 0.125rem;
