@@ -117,6 +117,9 @@ const meta: Meta<StoryProps> = {
                 type: 'inline-radio',
             },
         },
+        titleCaption: {
+            control: { type: 'text' },
+        },
         keepPlaceholder: {
             control: {
                 type: 'boolean',
@@ -219,6 +222,7 @@ const meta: Meta<StoryProps> = {
         disabled: false,
         readOnly: false,
         label: 'Label',
+        titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',

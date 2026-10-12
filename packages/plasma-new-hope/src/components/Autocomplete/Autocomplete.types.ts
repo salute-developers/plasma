@@ -128,6 +128,10 @@ export type AutocompleteProps<T extends SuggestionItemType = SuggestionItemType>
      * @default default
      */
     view?: string;
+    /**
+     * Метка-подпись к элементу справа. Передаётся во внутренний TextField.
+     */
+    titleCaption?: ReactNode;
 } & DistributiveOmit<
     TextFieldPropsBase,
     'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'

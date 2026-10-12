@@ -28,6 +28,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 disabled,
                 readOnly,
                 label,
+                titleCaption,
                 leftHelper,
                 contentLeft,
                 contentRight,
@@ -193,6 +194,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                 disabled={disabled}
                                 readOnly={readOnly}
                                 label={label}
+                                titleCaption={titleCaption}
                                 contentLeft={contentLeft}
                                 contentRight={contentRight}
                                 textBefore={textBefore}

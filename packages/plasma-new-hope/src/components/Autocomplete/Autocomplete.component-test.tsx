@@ -75,6 +75,20 @@ getBaseVisualTests({
 describeFn('Autocomplete', () => {
     const Autocomplete = componentExists ? getComponent<AutocompleteProps>('Autocomplete') : () => null;
 
+    it('label, leftHelper, placeholder, titleCaption', () => {
+        mount(
+            <Autocomplete
+                label="Лейбл"
+                leftHelper="Подсказка к полю"
+                placeholder="Начните вводить"
+                titleCaption="Подпись к полю"
+                suggestions={suggestions}
+            />,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     function DemoWithPortal() {
         const portalRef = useRef(null);
 
