@@ -19,6 +19,16 @@ const { meta: META, Default } = getDropdownStories({
 
 const meta: Meta<SelectProps> = {
     ...META,
+    argTypes: {
+        ...META.argTypes,
+        trigger: {
+            options: ['click', 'hover', 'longPress'],
+            control: { type: 'select' },
+        },
+        longPressDelay: {
+            control: { type: 'number' },
+        },
+    },
     title: 'Data Entry/Dropdown',
 };
 
