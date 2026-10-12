@@ -4,7 +4,7 @@ export * from './components/Badge';
 export * from './components/Breadcrumbs';
 export * from './components/Button';
 export * from './components/ButtonGroup';
-export * from './components/GroupIconButton';
+export * from './components/IconButtonGroup';
 export * from './components/Divider';
 export * from './components/Drawer';
 export * from './components/Flow';
