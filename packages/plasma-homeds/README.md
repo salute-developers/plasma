@@ -17,19 +17,19 @@
 
 ## Установка
 
-Требуются `react` и `react-dom` версии `16.13.1` или выше, а также `styled-components` версии `5.3.1`:
+Требуются `react` и `react-dom` версии `16.13.1` или выше, а также `styled-components` версии `5.3.11`:
 
 ```bash
 $ npm install --save react react-dom
 $ npm install --save @salutejs/plasma-homeds @salutejs/plasma-themes
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 ## Варианты поставки
 
-| Точка входа               | Реализация         | Дополнительные зависимости |
-| -------------------------- | ------------------ | --------------------------- |
-| `@salutejs/plasma-homeds` | styled-components  | `styled-components@5.3.1`  |
+| Точка входа               | Реализация        | Дополнительные зависимости |
+| ------------------------- | ----------------- | -------------------------- |
+| `@salutejs/plasma-homeds` | styled-components | `styled-components@5.3.11` |
 
 ```jsx
 import { Button } from '@salutejs/plasma-homeds';

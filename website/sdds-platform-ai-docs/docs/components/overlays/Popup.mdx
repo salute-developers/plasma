@@ -270,6 +270,10 @@ resizable?: {
        */
       defaultSize?: { width?: number; height?: number };
       /**
+       * Размер окна в контролируемом режиме в px. Имеет приоритет над defaultSize.
+       */
+      size?: { width?: number; height?: number };
+      /**
        * Минимальная ширина ресайза в px.
        */
       minWidth?: number;
@@ -304,7 +308,43 @@ resizable?: {
        * @default false
        */
       hiddenIcons?: PopupPlacementMixed[];
+      /**
+       * Обработчики начала, изменения размера и окончания ресайза.
+       * Текущий размер доступен в resizableContainer.current.size.
+       */
+      onResizeStart?: (resizableContainer?: RefObject<ResizableType>) => void;
+      onResize?: (resizableContainer?: RefObject<ResizableType>) => void;
+      onResizeEnd?: (resizableContainer?: RefObject<ResizableType>) => void;
 };
+```
+
+### Контролируемый размер
+
+Передайте `resizable.size`, чтобы управлять размером Popup из состояния родителя.
+Для обновления размера во время перетаскивания используйте `resizable.onResize`,
+а для сохранения только после отпускания указателя — `resizable.onResizeEnd`.
+Если родитель не обновит `size`, после окончания ресайза окно вернётся к переданному размеру.
+`resizable.defaultSize` задаёт начальный размер в неконтролируемом режиме.
+
+```tsx
+const [size, setSize] = React.useState({ width: 200, height: 100 });
+
+return (
+    <Popup
+        opened
+        resizable={{
+            size,
+            directions: ['bottom-right'],
+            onResize: (container) => {
+                if (container?.current) {
+                    setSize(container.current.size);
+                }
+            },
+        }}
+    >
+        <div style={{ height: '100%' }}>Content</div>
+    </Popup>
+);
 ```
 
 Пример:

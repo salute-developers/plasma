@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
+import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { IconDisclosureRight, IconTrash } from '@salutejs/plasma-icons';
 import { getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
@@ -163,6 +164,71 @@ export const Default: StoryObj<StoryDefaultProps> = {
         size: 'xs',
     },
     render: (args) => <StoryDefault {...args} />,
+};
+
+const ImageActions = styled.div`
+    display: flex;
+    gap: 0.125rem;
+`;
+
+type StoryWithImageProps = ComponentProps<typeof Notification> & {
+    imageSrc: string;
+};
+
+export const WithImage: StoryObj<StoryWithImageProps> = {
+    argTypes: {
+        imageSrc: { control: 'text' },
+        imageSize: {
+            options: ['small', 'fullWidth'],
+            control: 'select',
+        },
+        size: {
+            options: sizes,
+            control: {
+                type: 'select',
+            },
+        },
+        view: {
+            options: views,
+            control: 'select',
+        },
+        layout: {
+            table: {
+                disable: true,
+            },
+        },
+    },
+    args: {
+        title: 'Title',
+        children: 'Text',
+        layout: 'vertical',
+        size: 'xs',
+        view: 'default',
+        imageSrc: 'images/320_320_0.jpg',
+        imageSize: 'small',
+        showCloseIcon: true,
+    },
+    render: ({ imageSrc, size, ...args }) => (
+        <Notification
+            {...args}
+            size={size}
+            image={{ src: imageSrc, alt: 'Иллюстрация уведомления' }}
+            actions={
+                <ImageActions>
+                    <Button text="Label" size="xs" stretch />
+                    <Button text="Label" size="xs" stretch />
+                </ImageActions>
+            }
+        />
+    ),
+};
+
+export const WithFullWidthImage: StoryObj<StoryWithImageProps> = {
+    ...WithImage,
+    args: {
+        ...WithImage.args,
+        imageSize: 'fullWidth',
+    },
 };
 
 type StoryLiveDemoProps = ComponentProps<typeof Notification> & {

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { applyHyphens } from '../../mixins';
 import { buttonConfig } from '../Button';
+import { imageConfig } from '../Image';
 import { component, mergeConfig } from '../../engines';
 
 import { classes, tokens } from './Notification.tokens';
@@ -14,6 +15,7 @@ export const StyledNotification = css`
 
 const mergedButtonConfig = mergeConfig(buttonConfig);
 const Button = component(mergedButtonConfig);
+const Image = component(mergeConfig(imageConfig));
 
 export const CloseIconWrapper = styled(Button)`
     position: absolute;
@@ -116,6 +118,14 @@ export const ContentBox = styled.div<IconPlacementType>`
         align-items: center;
         flex-grow: 1;
     }
+`;
+
+// NOTE: fallbacks for other packages (tokens are defined in giga only)
+export const StyledImage = styled(Image)`
+    width: var(${tokens.imageWidth}, 4.5rem);
+    height: var(${tokens.imageHeight}, 4.5rem);
+    margin-bottom: var(${tokens.imageMarginBottom}, 1rem);
+    padding-bottom: 0;
 `;
 
 export const TextBox = styled.div<CloseIconType & IconPlacementType>`

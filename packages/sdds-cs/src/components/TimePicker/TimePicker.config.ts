@@ -54,8 +54,8 @@ export const config = {
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceSolidCard};
-                ${tokens.textFieldBackgroundErrorColor}: var--surface-solid-card);
-                ${tokens.textFieldBackgroundErrorColorFocus}: var--surface-solid-card);
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceSolidCard};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceSolidCard};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceSolidCard};
 
@@ -90,11 +90,12 @@ export const config = {
                 ${tokens.itemFocusColor}: ${surfaceAccent};
 
                 ${tokens.scrollbarColor}: ${surfaceSolidTertiary};
-                ${tokens.scrollbarTrackColor}: var(--surface-transparent-primary);
+                ${tokens.scrollbarTrackColor}: ${surfaceSolidPrimary};
 
                 ${tokens.disabledOpacity}: 0.4;
 
                 ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
             `,
@@ -112,6 +113,13 @@ export const config = {
                 ${tokens.labelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.labelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyS.lineHeight};
+                ${tokens.titleCaptionMargin}: 0.1875rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
                 ${tokens.textFieldBorderWidth}: 0.0625rem;
 
                 ${tokens.indicatorSize}: 0.375rem;
@@ -184,6 +192,7 @@ export const config = {
             true: css`
                 ${tokens.labelColorReadOnly}: ${textSecondary};
                 ${tokens.leftHelperColorReadOnly}: ${textSecondary};
+                ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
 
                 ${tokens.textFieldColorReadOnly}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};

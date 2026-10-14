@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import { handlePlacements } from './fixtures';
 
@@ -54,44 +54,36 @@ export const createMeta = ({
                 control: {
                     type: 'inline-radio',
                 },
-                table: { category: 'layout' },
             },
             maxHeight: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             hasClose: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             hasHandle: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             withOverlay: {
                 control: { type: 'boolean' },
-                table: { category: 'overlay' },
             },
             withBlur: {
                 control: { type: 'boolean' },
-                table: { category: 'overlay' },
             },
             withTransition: {
                 control: { type: 'boolean' },
-                table: { category: 'animation' },
             },
-            showContentBeforeHeader: {
-                control: { type: 'boolean' },
-                table: { category: 'story' },
-            },
-            showContentHeader: {
-                control: { type: 'boolean' },
-                table: { category: 'story' },
-            },
-            showContentFooter: {
-                control: { type: 'boolean' },
-                table: { category: 'story' },
-            },
+            ...exampleOnly({
+                showContentBeforeHeader: {
+                    control: { type: 'boolean' },
+                },
+                showContentHeader: {
+                    control: { type: 'boolean' },
+                },
+                showContentFooter: {
+                    control: { type: 'boolean' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },

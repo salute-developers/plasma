@@ -289,6 +289,41 @@ describe('plasma-giga: Modal', () => {
         cy.matchImageSnapshot();
     });
 
+    function DemoWithFooterText() {
+        const [isOpen, setIsOpen] = React.useState(true);
+
+        return (
+            <PopupProvider>
+                <Modal opened={isOpen} onClose={() => setIsOpen(false)} hasBody hasClose size="m">
+                    <ModalHeader>
+                        <H2>Заголовок</H2>
+                    </ModalHeader>
+                    <ModalImage>
+                        <div style={{ height: '12.5rem', background: '#d0d0d0' }} />
+                    </ModalImage>
+                    <div style={{ minHeight: '4.875rem' }} />
+                    <ModalFooter text="Text" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
+                        <Button size="m" text="Label" stretching="filled" />
+                        <Button size="m" view="secondary" text="Label" stretching="filled" />
+                    </ModalFooter>
+                </Modal>
+            </PopupProvider>
+        );
+    }
+
+    it('hasBody: footer text', () => {
+        cy.viewport(SIZE_M_VIEWPORT.width, 720);
+
+        mount(
+            <CypressTestDecorator>
+                <DemoWithFooterText />
+            </CypressTestDecorator>,
+        );
+
+        cy.contains('Text').should('be.visible');
+        cy.matchImageSnapshot();
+    });
+
     it('hasBody: slots size=s', () => {
         mount(
             <CypressTestDecorator>

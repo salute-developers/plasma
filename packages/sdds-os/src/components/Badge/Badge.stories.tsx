@@ -14,7 +14,6 @@ const { meta: META, Default } = getBadgeStories({
         appearance: {
             options: ['default', 'clear'],
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
     },
 });

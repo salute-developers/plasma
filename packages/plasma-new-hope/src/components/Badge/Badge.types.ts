@@ -18,6 +18,10 @@ type IconContentProps =
 
 export type CustomBadgeProps = {
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Текстовая надпись
      */
     text?: string;
@@ -52,12 +56,6 @@ export type CustomBadgeProps = {
      * default
      */
     view?: string;
-    /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default default
-     */
-    appearance?: 'default' | 'transparent' | 'clear';
     /**
      * @deprecated Используйте `appearance="clear"`
      */

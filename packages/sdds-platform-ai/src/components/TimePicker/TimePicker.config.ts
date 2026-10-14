@@ -86,6 +86,7 @@ export const config = {
                 ${tokens.disabledOpacity}: 0.4;
 
                 ${tokens.leftHelperColor}: ${textSecondary};
+                ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.leftHelperColorError}: ${textNegative};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
 
@@ -112,6 +113,13 @@ export const config = {
                 ${tokens.labelFontWeight}: ${bodyM.fontWeight};
                 ${tokens.labelLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.labelLineHeight}: ${bodyM.lineHeight};
+                ${tokens.titleCaptionMargin}: 0.3125rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.indicatorSize}: 0.5rem;
                 ${tokens.indicatorSizeOuter}: 0.375rem;
@@ -247,6 +255,7 @@ export const config = {
                 ${tokens.backgroundReadOnly}: ${surfaceTransparentCard};
                 ${tokens.labelColorReadOnly}: ${textSecondary};
                 ${tokens.leftHelperColorReadOnly}: ${textSecondary};
+                ${tokens.titleCaptionColorReadOnly}: ${textSecondary};
 
                 ${tokens.textFieldColorReadOnly}: ${textSecondary};
                 ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceTransparentCard};

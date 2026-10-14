@@ -49,8 +49,11 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
             hintWidth,
             hintContentLeft,
             label,
+            titleCaption,
             labelPlacement,
             keepPlaceholder,
+            appearance,
+            hasDivider,
 
             // IsMultiselect
             multiselect,
@@ -281,6 +284,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                 opened={isListOpened}
                                 valueToItemMap={valueToItemMap}
                                 label={label}
+                                titleCaption={titleCaption}
                                 placeholder={placeholder}
                                 onKeyDown={onKeyDown}
                                 labelPlacement={labelPlacement}
@@ -293,6 +297,7 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                 readOnly={readOnly}
                                 renderValue={renderValue}
                                 inputWrapperRef={referenceRef}
+                                onClick={() => handleListToggle(!isListOpened)}
                                 multiselect={multiselect}
                                 helperText={helperText}
                                 treeId={treeId}
@@ -304,6 +309,8 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                 chipClickArea={chipClickArea}
                                 requiredProps={requiredProps}
                                 hintProps={hintProps}
+                                appearance={appearance}
+                                hasDivider={hasDivider}
                             />
                         )}
                         zIndex={zIndex}

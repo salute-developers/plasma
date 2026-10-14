@@ -15,11 +15,19 @@ const { meta: META, Single, Multiselect, Predefined, Common, SelectAll } = getSe
     defaultArgs: {
         ...config.defaults,
         appearance: 'default',
+        hasDivider: false,
     },
     additionalArgTypes: {
         appearance: {
-            options: ['default', 'viewMode'],
+            options: ['default', 'clear', 'viewMode'],
             control: { type: 'select' },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: {
+                arg: 'appearance',
+                eq: 'clear',
+            },
         },
     },
     customGetContentRight: (size, disabled) => {

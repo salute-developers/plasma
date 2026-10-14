@@ -2,9 +2,6 @@ import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
     inverseTextPrimary,
     inverseTextSecondary,
     inverseTextSecondaryHover,
@@ -34,6 +31,9 @@ import {
     surfaceWarningActive,
     surfaceWarningHover,
     textAccent,
+    textInfo,
+    textInfoActive,
+    textInfoHover,
     textNegative,
     textNegativeActive,
     textNegativeHover,
@@ -48,7 +48,7 @@ import {
     textWarning,
     textWarningActive,
     textWarningHover,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
@@ -93,6 +93,7 @@ export const config = {
                 ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textPositive};
+                ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
@@ -112,7 +113,7 @@ export const config = {
                 ${tokens.contentSlotColor}: ${textPositive};
                 ${tokens.contentSlotColorHover}: ${textPositiveHover};
                 ${tokens.contentSlotColorActive}: ${textPositiveActive};
-                ${tokens.contentSlotColorFocus}: ${textPrimary};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -131,6 +132,7 @@ export const config = {
                 ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textWarning};
+                ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
@@ -150,7 +152,7 @@ export const config = {
                 ${tokens.contentSlotColor}: ${textWarning};
                 ${tokens.contentSlotColorHover}: ${textWarningHover};
                 ${tokens.contentSlotColorActive}: ${textWarningActive};
-                ${tokens.contentSlotColorFocus}: ${textPrimary};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -169,6 +171,7 @@ export const config = {
                 ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
@@ -188,7 +191,7 @@ export const config = {
                 ${tokens.contentSlotColor}: ${textNegative};
                 ${tokens.contentSlotColorHover}: ${textNegativeHover};
                 ${tokens.contentSlotColorActive}: ${textNegativeActive};
-                ${tokens.contentSlotColorFocus}: ${textPrimary};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -203,27 +206,35 @@ export const config = {
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             edited: css`
-                ${tokens.color}: ${textPrimary};
+                ${tokens.color}: ${textInfo};
+                ${tokens.colorFocus}: ${textPrimary};
 
-                ${tokens.placeholderColor}: ${textSecondary};
+                ${tokens.placeholderColor}: ${textInfo};
+                ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${dataBlueLight};
-                ${tokens.backgroundColorHover}: ${dataBlueLightHover};
-                ${tokens.backgroundColorFocus}: ${dataBlueLightActive};
+                ${tokens.backgroundColor}: transparent;
+                ${tokens.backgroundColorHover}: transparent;
+                ${tokens.backgroundColorFocus}: transparent;
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textSecondary};
-                ${tokens.leftHelperColor}: ${textSecondary};
-                ${tokens.rightHelperColor}: ${textSecondary};
+                ${tokens.leftHelperColor}: ${textInfo};
+                ${tokens.rightHelperColor}: ${textInfo};
                 ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: ${textSecondary};
-                ${tokens.contentSlotColorHover}: ${textSecondaryHover};
-                ${tokens.contentSlotColorActive}: ${textSecondaryActive};
+                ${tokens.contentSlotColor}: ${textInfo};
+                ${tokens.contentSlotColorHover}: ${textInfoHover};
+                ${tokens.contentSlotColorActive}: ${textInfoActive};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
+
+                ${tokens.contentSlotRightColor}: ${textSecondary};
+                ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
+                ${tokens.contentSlotRightColorActive}: ${textSecondaryActive};
 
                 ${tokens.dividerColor}: ${outlineTransparentInfo};
                 ${tokens.dividerColorHover}: ${outlineTransparentInfo};
@@ -268,6 +279,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -354,6 +366,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};

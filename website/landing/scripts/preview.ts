@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { routeManifest } from '../src/routeManifest.ts';
 
 const root = fileURLToPath(new URL('../dist/', import.meta.url));
+const basePath = process.env.LANDING_BASE_PATH || '/';
 const routes = new Set(routeManifest.map(({ route }) => route));
 const types = {
     '.html': 'text/html; charset=utf-8',
@@ -30,9 +31,14 @@ createServer(async (request, response) => {
         response.writeHead(400).end();
         return;
     }
-    let relative = pathname.slice(1);
-    if (routes.has(pathname)) {
-        relative = pathname === '/' ? 'index.html' : `${pathname.slice(1)}/index.html`;
+    if (!pathname.startsWith(basePath)) {
+        response.writeHead(404).end();
+        return;
+    }
+    const localPath = `/${pathname.slice(basePath.length)}`;
+    let relative = localPath.slice(1);
+    if (routes.has(localPath)) {
+        relative = localPath === '/' ? 'index.html' : `${localPath.slice(1)}/index.html`;
     }
     const safe = normalize(relative).replace(/^([/\\]|\.\.(?:[/\\]|$))+/, '');
     if (safe !== relative || !safe) {
@@ -71,4 +77,4 @@ createServer(async (request, response) => {
     } catch {
         response.writeHead(404).end();
     }
-}).listen(port, '127.0.0.1', () => console.log(`Landing preview: http://127.0.0.1:${port}/`));
+}).listen(port, '127.0.0.1', () => console.log(`Landing preview: http://127.0.0.1:${port}${basePath}`));

@@ -6,6 +6,7 @@ export type ButtonProps = Pick<
     | 'value'
     | 'valueToItemMap'
     | 'onKeyDown'
+    | 'onClick'
     | 'label'
     | 'size'
     | 'disabled'

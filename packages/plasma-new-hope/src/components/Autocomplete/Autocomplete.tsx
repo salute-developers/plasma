@@ -21,6 +21,8 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 defaultValue,
                 onChange,
                 suggestions,
+                appearance,
+                hasDivider,
                 view,
                 size,
                 labelPlacement,
@@ -28,6 +30,7 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                 disabled,
                 readOnly,
                 label,
+                titleCaption,
                 leftHelper,
                 contentLeft,
                 contentRight,
@@ -190,9 +193,12 @@ export const autocompleteRoot = (Root: RootProps<HTMLInputElement, Omit<Autocomp
                                 onSearch={focused === null ? onSearch : undefined}
                                 size={size}
                                 view={view}
+                                appearance={appearance}
+                                hasDivider={hasDivider}
                                 disabled={disabled}
                                 readOnly={readOnly}
                                 label={label}
+                                titleCaption={titleCaption}
                                 contentLeft={contentLeft}
                                 contentRight={contentRight}
                                 textBefore={textBefore}

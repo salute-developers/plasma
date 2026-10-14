@@ -25,6 +25,10 @@ export const Resizable: FC<PropsWithChildren<{
         }
     };
 
+    const handleResize = () => {
+        resizable?.onResize?.(resizableContainer);
+    };
+
     const handleResizeStop = () => {
         if (resizableContainer?.current && resizableContainer.current.resizable) {
             resizableContainer.current.resizable.classList.toggle(classes.resizableContainerNoSelect);
@@ -45,11 +49,13 @@ export const Resizable: FC<PropsWithChildren<{
             enable={resizable && !resizable.disabled ? getResizeDirections(resizable.directions) : false}
             resizeRatio={getRatioBasedOnPlacement(placement)}
             defaultSize={resizable?.defaultSize}
+            size={resizable?.size}
             minWidth={resizable?.minWidth}
             minHeight={resizable?.minHeight}
             maxWidth={resizable?.maxWidth}
             maxHeight={resizable?.maxHeight}
             onResizeStart={handleResizeStart}
+            onResize={handleResize}
             onResizeStop={handleResizeStop}
             handleComponent={{
                 topRight: resizable?.hiddenIcons?.includes('top-right') ? undefined : (

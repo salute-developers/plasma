@@ -70,7 +70,7 @@ export const CodeSandbox: FC<CodeSandboxProps> = ({ source, sandboxName, depende
                             dependencies: {
                                 react: '17.0.1',
                                 'react-dom': '17.0.1',
-                                'styled-components': '^5.3.1',
+                                'styled-components': '^5.3.11',
                                 ...dependencies,
                             },
                         },

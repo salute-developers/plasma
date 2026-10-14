@@ -98,6 +98,14 @@ const meta: Meta<StoryProps> = {
     decorators: [InSpacingDecorator],
     component: Autocomplete,
     argTypes: {
+        appearance: {
+            options: ['default', 'clear'],
+            control: { type: 'select' },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: { arg: 'appearance', eq: 'clear' },
+        },
         view: {
             options: views,
             control: {
@@ -115,6 +123,9 @@ const meta: Meta<StoryProps> = {
             control: {
                 type: 'inline-radio',
             },
+        },
+        titleCaption: {
+            control: { type: 'text' },
         },
         keepPlaceholder: {
             control: {
@@ -212,12 +223,15 @@ const meta: Meta<StoryProps> = {
         },
     },
     args: {
+        appearance: 'default',
+        hasDivider: false,
         view: 'default',
         size: 'l',
         labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
         label: 'Label',
+        titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',

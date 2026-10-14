@@ -12,24 +12,29 @@ import {
 import React, { ComponentProps } from 'react';
 
 import { config } from './Autocomplete.config';
+import { config as clearConfig } from './Autocomplete.clear.config';
 import { config as viewModeConfig } from './Autocomplete.viewMode.config';
 
 const mergedConfig = mergeConfig(autocompleteConfig, config);
 export const AutocompleteDefault = component(mergedConfig);
+
+const mergedClearConfig = mergeConfig(autocompleteConfig, clearConfig);
+export const AutocompleteClear = component(mergedClearConfig);
 
 const mergedConfigViewMode = mergeConfig(autocompleteConfig, viewModeConfig);
 export const AutocompleteViewMode = component(mergedConfigViewMode);
 
 export const AutocompleteComponent = createConditionalComponent({
     default: AutocompleteDefault,
+    clear: AutocompleteClear,
     viewMode: AutocompleteViewMode,
 });
 
 type PropsFromConfig = keyof typeof config['variations'];
 
-type Props<T extends SuggestionItemType> = DistributiveOmit<AutocompleteProps<T>, PropsFromConfig> &
+type Props<T extends SuggestionItemType> = DistributiveOmit<AutocompleteProps<T>, PropsFromConfig | 'appearance'> &
     DistributivePick<ComponentProps<typeof AutocompleteDefault>, PropsFromConfig> & {
-        appearance?: 'default' | 'viewMode';
+        appearance?: 'default' | 'clear' | 'viewMode';
     };
 
 const AutocompleteWithoutRef = <T extends SuggestionItemType>(

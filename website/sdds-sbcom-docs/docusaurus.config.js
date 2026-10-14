@@ -272,7 +272,7 @@ module.exports = {
                     'form/**',
                 ],
                 rootContent: [
-                    'Установка: `npm install @salutejs/sdds-sbcom @salutejs-ds/sdds_sbcom` (peer-зависимости: react и react-dom версии 16.13.1 или выше, styled-components@5.3.1).',
+                    'Установка: `npm install @salutejs/sdds-sbcom @salutejs-ds/sdds_sbcom` (peer-зависимости: react и react-dom версии 16.13.1 или выше, styled-components@5.3.11).',
                     'Точки входа: `@salutejs/sdds-sbcom` — предсобранный CSS (единственный вариант поставки), `@salutejs/sdds-sbcom/beta` — экспериментальные компоненты.',
                     'Тема: `sdds_sbcom__light`, `sdds_sbcom__dark` из `@salutejs-ds/sdds_sbcom`; дизайн-токены — из `@salutejs-ds/sdds_sbcom/theme/tokens`.',
                 ].join('\n\n'),

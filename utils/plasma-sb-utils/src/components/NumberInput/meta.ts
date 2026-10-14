@@ -65,108 +65,84 @@ export const createMeta = ({
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             shape: {
                 options: shapes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             segmentation: {
                 options: segmentations,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             inputBackgroundType: {
                 options: inputBackgroundTypes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             min: {
                 control: { type: 'number' },
-                table: { category: 'value-related' },
             },
             max: {
                 control: { type: 'number' },
-                table: { category: 'value-related' },
             },
             step: {
                 control: { type: 'number' },
-                table: { category: 'value-related' },
             },
             precision: {
                 control: { type: 'number', min: 0 },
-                table: { category: 'value-related' },
             },
             thousandSeparator: {
                 options: thousandSeparators,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             decimalSeparator: {
                 options: decimalSeparators,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             thousandsGroupStyle: {
                 options: thousandsGroupStyles,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             decimalScale: {
                 control: { type: 'number', min: 0 },
-                table: { category: 'value-related' },
             },
             fixedDecimalScale: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             allowNegative: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             allowLeadingZeros: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             limitBehavior: {
                 options: limitBehaviorOptions,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             displayWithoutValue: {
                 options: displayWithoutValueOptions,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             isManualInput: {
                 control: { type: 'boolean' },
-                table: { category: 'layout' },
             },
             textBefore: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             textAfter: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             width: {
                 control: { type: 'number' },
-                table: { category: 'layout' },
             },
             isLoading: {
                 control: { type: 'boolean' },
-                table: { category: 'state' },
             },
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),

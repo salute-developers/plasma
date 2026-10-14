@@ -134,6 +134,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                 eventYearList,
                 disabledYearList,
                 type = 'Days',
+                periodSelectorAlign,
 
                 calendarContainerWidth,
                 calendarContainerHeight,
@@ -559,9 +560,17 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                     <StyledRange
                         size={size}
                         ref={rangeRef}
-                        inputWrapperRef={
-                            shouldPositionCalendarByInput ? undefined : (inputWrapperRef as Ref<HTMLDivElement>)
-                        }
+                        _onFieldClick={(event: React.MouseEvent<HTMLDivElement>) => handleToggle(true, event)}
+                        _onContentClick={(event: React.MouseEvent<HTMLDivElement>) => {
+                            if (disabled || readOnly) {
+                                return;
+                            }
+
+                            firstInputRef?.current?.focus();
+                            setSecondTextFieldClicked(false);
+                            handleToggle(true, event);
+                        }}
+                        inputWrapperRef={inputWrapperRef as Ref<HTMLDivElement>}
                         firstTextfieldInputWrapperRef={
                             shouldPositionCalendarByInput ? firstTextfieldInputWrapperRef : undefined
                         }
@@ -721,6 +730,7 @@ export const datePickerRangeRoot = (Root: RootProps<HTMLDivElement, RootDatePick
                         calendarContainerWidth={calendarContainerWidth}
                         calendarContainerHeight={calendarContainerHeight}
                         type={type}
+                        periodSelectorAlign={periodSelectorAlign}
                         onChangeVisibleDate={onChangeVisibleDate}
                         onToggle={handleToggle}
                         lang={lang}

@@ -69,7 +69,6 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
         ref,
     ) => {
         const { refs, floatingStyles, context } = useFloating({
-            elements: referenceRef?.current ? { reference: referenceRef.current } : undefined,
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
                     ancestorScroll: false,
@@ -107,16 +106,11 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
         const { getReferenceProps, getFloatingProps } = useInteractions([dismiss]);
 
         useLayoutEffect(() => {
-            if (referenceRef?.current) {
-                refs.setReference(referenceRef.current);
-            }
+            // Активный инпут задаёт положение календаря; весь target остаётся областью взаимодействия.
+            refs.setPositionReference(referenceRef?.current ?? refs.domReference.current);
         }, [referenceRef, refs]);
 
         const wrappedId = safeUseId();
-
-        const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-            onToggle(!opened, event);
-        };
 
         // Проверка на target. Это может быть как ReactNode, так и функция, в которую пробрасывается ref.
         // Это нужно для более тонкой настройки reference-элемента, вокруг которого и будет позиционироваться выпадашка.
@@ -126,10 +120,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, DatePickerFloatingPopoverProp
 
         return (
             <FloatingWrapper ref={ref} id={wrappedId}>
-                <FloatingTarget
-                    ref={isTargetAsFunction ? undefined : refs.setReference}
-                    {...getReferenceProps({ onClick: handleClick })}
-                >
+                <FloatingTarget ref={isTargetAsFunction ? undefined : refs.setReference} {...getReferenceProps()}>
                     {typeof target === 'function' ? target(refs.setReference) : target}
                 </FloatingTarget>
 

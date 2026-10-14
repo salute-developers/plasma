@@ -344,28 +344,6 @@ body{margin:0; background:var(--bg-tertiary); color:var(--text-primary); font-fa
   color:var(--text-secondary); font-weight:400; max-width:70ch;
 }
 
-.resume{
-  display:none; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:12px;
-  padding:12px 12px 12px 18px; border-radius:16px; border:1px solid var(--accent-line);
-  background:linear-gradient(0deg,var(--accent-soft),var(--accent-soft)),rgba(20,22,24,.6);
-  -webkit-backdrop-filter:blur(20px); backdrop-filter:blur(20px);
-}
-.resume.is-on{display:flex}
-.resume p{margin:0; font-size:14px; color:var(--text-secondary)}
-.resume p b{color:var(--text-primary); font-weight:600}
-.resume .spacer{flex:1}
-.resume a{
-  display:inline-flex; align-items:center; height:36px; padding:0 16px; border-radius:8px;
-  background:var(--accent); color:var(--accent-on); font-size:13px; font-weight:500; text-decoration:none;
-  transition:background var(--dur) var(--ease);
-}
-.resume a:hover{background:#fff}
-.resume button{
-  height:36px; padding:0 12px; border-radius:8px; border:1px solid var(--outline-transparent);
-  background:transparent; color:var(--text-tertiary); font-size:12px; font-family:var(--mono); cursor:pointer;
-}
-.resume button:hover{color:var(--text-primary); background:var(--surface-transparent-1)}
-
 /* метрики первого экрана (6078:99) */
 .hero-cards{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; align-items:stretch}
 

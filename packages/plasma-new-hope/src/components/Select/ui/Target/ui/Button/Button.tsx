@@ -14,6 +14,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             value,
             valueToItemMap,
             onKeyDown,
+            onClick,
             label,
             size,
             disabled,
@@ -33,6 +34,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                     ref={ref}
                     stretching="filled"
                     onKeyDown={onKeyDown}
+                    onClick={onClick}
                     className={opened ? classes.selectWithoutBoxShadow : undefined}
                     disabled={disabled}
                     contentRight={

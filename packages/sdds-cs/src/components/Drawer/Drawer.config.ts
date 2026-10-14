@@ -1,4 +1,11 @@
-import { surfaceSolidCard, textAccent } from '@salutejs/sdds-themes/tokens/sdds_cs';
+import {
+    surfaceSolidCard,
+    surfaceSolidPrimary,
+    surfaceSolidTertiary,
+    surfaceSolidTertiaryActive,
+    surfaceSolidTertiaryHover,
+    textAccent,
+} from '@salutejs/sdds-themes/tokens/sdds_cs';
 import { css, drawerTokens } from '@salutejs/plasma-new-hope/emotion';
 
 export const config = {
@@ -11,10 +18,15 @@ export const config = {
             default: css`
                 ${drawerTokens.background}: ${surfaceSolidCard};
                 ${drawerTokens.shadow}: 0 3.75rem 7rem -0.5rem rgba(0, 0, 0, 0.08);
-                ${drawerTokens.contentBackgroundColor}: var(--surface-transparent-primary);
-                ${drawerTokens.drawerOverlayWithBlurColor}: var(--overlay-blur);
-                ${drawerTokens.drawerOverlayColor}: var(--overlay-soft);
+                ${drawerTokens.contentBackgroundColor}: ${surfaceSolidCard};
                 ${drawerTokens.closeIconColor}: ${textAccent};
+
+                ${drawerTokens.scrollbarWidth}: 0.25rem;
+                ${drawerTokens.scrollbarOffsetRight}: 0.25rem;
+                ${drawerTokens.scrollbarThumbBackgroundColor}: ${surfaceSolidTertiary};
+                ${drawerTokens.scrollbarThumbBackgroundColorHover}: ${surfaceSolidTertiaryHover};
+                ${drawerTokens.scrollbarThumbBackgroundColorActive}: ${surfaceSolidTertiaryActive};
+                ${drawerTokens.scrollbarTrackBackgroundColor}: ${surfaceSolidPrimary};
             `,
         },
         size: {
@@ -43,7 +55,7 @@ export const contentConfig = {
     variations: {
         view: {
             default: css`
-                padding-right: 0;
+                padding-right: 1rem;
             `,
         },
     },

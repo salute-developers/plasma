@@ -321,6 +321,42 @@ describeFn('Combobox', () => {
         });
     });
 
+    it('multiple: stays within grid and flex containers', () => {
+        const overflowItems = [
+            { value: 'north_america', label: 'Северная Америка' },
+            { value: 'rio_de_janeiro', label: 'Рио-де-Жанейро' },
+            { value: 'sao_paulo', label: 'Сан-Паулу' },
+            { value: 'buenos_aires', label: 'Буэнос-Айрес' },
+            { value: 'paris', label: 'Париж' },
+            { value: 'london', label: 'Лондон' },
+        ];
+        const value = overflowItems.map((item) => item.value);
+
+        const assertNoOverflow = (selector: string) => {
+            cy.get(selector).should(($container) => {
+                expect($container[0].scrollWidth).to.be.lte($container[0].clientWidth);
+            });
+        };
+
+        mount(
+            <div id="grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', width: 320, gap: 8 }}>
+                <Combobox multiple items={overflowItems} value={value} />
+                <div>neighbor</div>
+            </div>,
+        );
+        assertNoOverflow('#grid');
+
+        mount(
+            <div id="flex" style={{ display: 'flex', width: 320, gap: 8 }}>
+                <div style={{ flex: 1 }}>
+                    <Combobox multiple items={overflowItems} value={value} />
+                </div>
+                <div style={{ flex: 1 }}>neighbor</div>
+            </div>,
+        );
+        assertNoOverflow('#flex');
+    });
+
     const ComboboxGroup = (props: any) => {
         const [singleValue, setSingleValue] = useState('paris');
         const [valueMultiple, setValueMultiple] = useState<Array<string>>(['london', 'madrid']);
@@ -1149,6 +1185,52 @@ describeFn('Combobox', () => {
             .pressKey('Enter');
         cy.get('[id$="tree_level_1"]').should('not.exist');
         cy.get('#single').should('have.value', 'Рио-де-Жанейро');
+    });
+
+    (['outer', 'inner'] as const).forEach((labelPlacement) => {
+        (['hover', 'click'] as const).forEach((hintTrigger) => {
+            it(`click targets: labelPlacement=${labelPlacement}, hintTrigger=${hintTrigger}`, () => {
+                const onToggle = cy.stub().as('onToggle');
+                const onLinkClick = cy.stub().as('onLinkClick');
+
+                mount(
+                    <Combobox
+                        items={items}
+                        label="Field label"
+                        labelPlacement={labelPlacement}
+                        helperText={
+                            <a href="#instructions" onClick={onLinkClick}>
+                                Instructions
+                            </a>
+                        }
+                        hintText="Field hint"
+                        hintTrigger={hintTrigger}
+                        hintTargetPlacement={labelPlacement}
+                        hintTargetIcon={<span data-testid="hint-icon">?</span>}
+                        onToggle={onToggle}
+                    />,
+                );
+
+                cy.contains('Instructions').click();
+                cy.get('@onLinkClick').should('have.been.calledOnce');
+                cy.get('[data-testid="hint-icon"]').click();
+                if (hintTrigger === 'hover') {
+                    cy.get('[data-testid="hint-icon"]').trigger('mouseover');
+                }
+                cy.contains('Field hint').should('be.visible').click({ force: true });
+                cy.get('@onToggle').should('not.have.been.called');
+                cy.get('[id$="tree_level_1"]').should('not.exist');
+
+                cy.contains('label', 'Field label').click({ force: labelPlacement === 'inner' });
+                cy.get('[id$="tree_level_1"]').should('be.visible');
+                cy.get('@onToggle').should('have.been.calledOnce');
+
+                cy.get('input').first().focus().pressKey('Escape');
+                cy.get('.input-wrapper').click(8, 8);
+                cy.get('[id$="tree_level_1"]').should('be.visible');
+                cy.get('@onToggle').its('callCount').should('equal', 3);
+            });
+        });
     });
 
     it('onToggle', () => {

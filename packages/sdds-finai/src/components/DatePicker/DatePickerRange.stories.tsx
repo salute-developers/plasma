@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
-import { getDatePickerRangeStories } from '@salutejs/plasma-sb-utils';
+import { getDatePickerRangeStories, exampleOnly } from '@salutejs/plasma-sb-utils';
 import { IconCalendarOutline, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { DatePickerRange } from './DatePicker';
@@ -13,8 +13,10 @@ const { meta: META, Range } = getDatePickerRangeStories({
     component: DatePickerRange,
     componentConfig: config,
     additionalArgTypes: {
-        firstInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
-        secondInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        ...exampleOnly({
+            firstInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+            secondInputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        }),
         appearance: {
             options: ['default', 'viewMode'],
             control: { type: 'select' },

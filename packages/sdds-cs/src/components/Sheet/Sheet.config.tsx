@@ -8,8 +8,6 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${sheetTokens.sheetOverlayColor}: var(--overlay-soft);
-                ${sheetTokens.sheetOverlayWithBlurColor}: var(--overlay-blur);
                 ${sheetTokens.contentBackgroundColor}: ${surfaceSolidCard};
                 ${sheetTokens.handleBackgroundColor}: ${surfaceSolidTertiary};
             `,

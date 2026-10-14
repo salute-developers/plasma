@@ -9,6 +9,7 @@ export type TargetProps = {
     size: SelectProps['size'];
     view: SelectProps['view'];
     label: SelectProps['label'];
+    titleCaption: SelectProps['titleCaption'];
     labelPlacement: SelectProps['labelPlacement'];
     keepPlaceholder: SelectProps['keepPlaceholder'];
     placeholder: SelectProps['placeholder'];
@@ -27,10 +28,13 @@ export type TargetProps = {
     opened: boolean;
     valueToItemMap: ValueToItemMapType;
     onKeyDown: (event: KeyboardEvent<HTMLElement>) => void;
+    onClick: () => void;
     inputWrapperRef: Ref<HTMLElement>;
     treeId: string;
     activeDescendantItemValue: string;
     handleChange: (newValue: SelectValue, item: ItemOption | null) => void;
     requiredProps: RequiredProps | undefined;
     hintProps: HintProps | undefined;
+    appearance: SelectProps['appearance'];
+    hasDivider: SelectProps['hasDivider'];
 };

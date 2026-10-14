@@ -3,9 +3,7 @@ import type { ReactNode } from 'react';
 
 export interface BaseboxProps {
     /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default default
+     * @internal
      */
     appearance?: string;
     /**

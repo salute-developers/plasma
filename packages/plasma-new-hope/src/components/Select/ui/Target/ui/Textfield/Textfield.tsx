@@ -14,10 +14,12 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             multiselect,
             value,
             label,
+            titleCaption,
             labelPlacement,
             keepPlaceholder,
             placeholder,
             onKeyDown,
+            onClick,
             size,
             view,
             contentLeft,
@@ -36,6 +38,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
             chipClickArea,
             requiredProps,
             hintProps,
+            appearance,
+            hasDivider,
         },
         ref,
     ) => {
@@ -111,12 +115,14 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                 view={view}
                 ref={ref}
                 inputWrapperRef={inputWrapperRef}
+                _onFieldClick={onClick}
                 readOnly={readOnly}
                 className={readOnly ? classes.readOnly : undefined}
                 value={getValue()}
                 labelPlacement={labelPlacement}
                 disabled={disabled}
                 label={label}
+                titleCaption={titleCaption}
                 keepPlaceholder={keepPlaceholder}
                 placeholder={value instanceof Array && value.length ? '' : placeholder}
                 contentLeft={contentLeft as React.ReactElement}
@@ -150,6 +156,8 @@ export const Textfield = forwardRef<HTMLInputElement, TextfieldProps>(
                     : { enumerationType: 'plain' })}
                 _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
                 opened={opened}
+                appearance={appearance}
+                hasDivider={hasDivider}
                 // TODO: #1547
                 _forceChipManipulationWithReadonly={!readOnly}
                 _interaction_disabled

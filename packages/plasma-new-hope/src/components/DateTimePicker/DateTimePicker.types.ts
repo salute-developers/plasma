@@ -8,6 +8,7 @@ import type {
 } from 'react';
 
 import type { DateInfo } from '../Calendar/Calendar.types';
+import type { CalendarBaseProps } from '../Calendar/CalendarBase/CalendarBase';
 import type { DatePickerPopoverProps, DatePickerTextFieldProps } from '../DatePicker/SingleDate/SingleDate.types';
 import type { HintProps, LabelProps } from '../TextField/TextField.types';
 import type { DatePickerCalendarProps } from '../DatePicker/DatePickerBase.types';
@@ -48,6 +49,10 @@ export type DateShortcutItem = DateShortcutItemBase & {
 
 export type InputProps = {
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Обработчик вызывается при вводе корректной даты, выборе дня на календаре или по нажатию Enter в поле ввода.
      * @param value - значение даты с временем
      * @param {Object} formattedValues - набор дат в разных форматах
@@ -83,7 +88,7 @@ export type InputProps = {
 } & Omit<DatePickerTextFieldProps, 'onChange' | 'onChangeValue' | 'onCommitDate'> &
     LabelProps &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'defaultValue' | 'value' | 'size'> &
-    Pick<VariationProps, 'appearance' | 'hasClearDivider'>;
+    Pick<VariationProps, 'hasClearDivider'>;
 
 export type PopoverProps = Omit<DatePickerPopoverProps, 'isOpen' | 'closeAfterDateSelect'> &
     Pick<DatePickerCalendarProps, 'calendarContainerWidth' | 'calendarContainerHeight'>;
@@ -137,15 +142,14 @@ export type CalendarProps = {
      * @default 'left'
      */
     dateShortcutsPlacement?: 'right' | 'left';
-} & Omit<DatePickerCalendarProps, 'format' | 'maskWithFormat' | 'calendarContainerWidth' | 'calendarContainerHeight'>;
+} & Omit<DatePickerCalendarProps, 'format' | 'maskWithFormat' | 'calendarContainerWidth' | 'calendarContainerHeight'> &
+    Pick<CalendarBaseProps, 'periodSelectorAlign'>;
 
 type VariationProps = {
     /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default 'default'
+     * @internal
      */
-    appearance?: 'default' | 'clear';
+    appearance?: string;
     /**
      * Флаг наличия разделителя для clear appearance
      * @default false

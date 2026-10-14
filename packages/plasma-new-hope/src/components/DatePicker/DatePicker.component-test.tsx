@@ -75,6 +75,56 @@ describeFn('DatePicker', () => {
         );
     };
 
+    (['outer', 'inner'] as const).forEach((labelPlacement) => {
+        (['hover', 'click'] as const).forEach((hintTrigger) => {
+            it(`click targets: labelPlacement=${labelPlacement}, hintTrigger=${hintTrigger}`, () => {
+                const onToggle = cy.stub().as('onToggle');
+                const onLinkClick = cy.stub().as('onLinkClick');
+
+                mount(
+                    <Demo
+                        label="Date label"
+                        labelPlacement={labelPlacement}
+                        titleCaption="Title caption"
+                        leftHelper={
+                            <a href="#instructions" onClick={onLinkClick}>
+                                Instructions
+                            </a>
+                        }
+                        hintText="Date hint"
+                        hintTrigger={hintTrigger}
+                        hintTargetPlacement={labelPlacement}
+                        hintTargetIcon={<span data-testid="hint-icon">?</span>}
+                        onToggle={onToggle}
+                    />,
+                );
+
+                cy.contains('Title caption').click();
+                cy.contains('Instructions').click();
+                cy.get('@onLinkClick').should('have.been.calledOnce');
+                cy.get('[data-testid="hint-icon"]').click();
+                if (hintTrigger === 'hover') {
+                    cy.get('[data-testid="hint-icon"]').trigger('mouseover');
+                }
+                cy.contains('Date hint').should('be.visible').click({ force: true });
+                cy.get('@onToggle').should('not.have.been.called');
+                cy.get('[data-floating-ui-portal] .date-picker-root').should('not.exist');
+
+                cy.contains('label', 'Date label').click({ force: labelPlacement === 'inner' });
+                cy.get('input:not([type="hidden"])').should('be.focused');
+                assertDatePickerPopoverOpen();
+                cy.get('@onToggle').should('have.been.calledOnce');
+
+                cy.get('input:not([type="hidden"])').pressKey('Escape');
+                cy.get('@onToggle').invoke('resetHistory');
+                cy.get('.input-wrapper').click(8, 8);
+                assertDatePickerPopoverOpen();
+                cy.get('input:not([type="hidden"])').should('be.focused');
+                cy.get('@onToggle').should('have.been.calledOnce');
+            });
+        });
+    });
+
     it('calendar size priority', () => {
         expect(getCalendarContainerSize()).to.equal(undefined);
         expect(getCalendarContainerSize(0)).to.equal(undefined);
@@ -686,6 +736,72 @@ describeFnRange('DatePickerRange', () => {
         );
     };
 
+    [
+        { isDoubleCalendar: false, isCalendarPositionedByInput: false },
+        { isDoubleCalendar: false, isCalendarPositionedByInput: true },
+        { isDoubleCalendar: true, isCalendarPositionedByInput: false },
+    ].forEach((calendarProps) => {
+        it(`click targets: range ${JSON.stringify(calendarProps)}`, () => {
+            const onToggle = cy.stub().as('onToggle');
+            const onLinkClick = cy.stub().as('onLinkClick');
+
+            mount(
+                <Demo
+                    {...calendarProps}
+                    label="Range label"
+                    titleCaption="Range title caption"
+                    leftHelper={
+                        <a href="#instructions" onClick={onLinkClick}>
+                            Instructions
+                        </a>
+                    }
+                    dividerVariant="icon"
+                    dividerIcon={<span data-testid="range-divider">–</span>}
+                    hintText="Range hint"
+                    hintTargetIcon={<span data-testid="hint-icon">?</span>}
+                    contentRight={
+                        <button type="button" data-testid="calendar-icon">
+                            <IconPlasma size="s" />
+                        </button>
+                    }
+                    onToggle={onToggle}
+                />,
+            );
+
+            cy.contains('Range title caption').click();
+            cy.contains('Instructions').click();
+            cy.get('@onLinkClick').should('have.been.calledOnce');
+            cy.get('[data-testid="range-divider"]').click();
+            cy.get('[data-testid="hint-icon"]').click().trigger('mouseover');
+            cy.contains('Range hint').should('be.visible').click({ force: true });
+            cy.get('@onToggle').should('not.have.been.called');
+            cy.get('[data-floating-ui-portal] .date-picker-root').should('not.exist');
+
+            cy.contains('label', 'Range label').click();
+            cy.get('input:not([type="hidden"])').first().should('be.focused');
+            assertDatePickerPopoverOpen();
+            cy.get('@onToggle').should('have.been.calledOnce');
+
+            cy.get('@onToggle').invoke('resetHistory');
+            cy.get('input:not([type="hidden"])').eq(1).click().should('be.focused');
+            assertDatePickerPopoverOpen();
+            cy.get('@onToggle').should('have.been.calledOnce').and('have.been.calledWith', true);
+
+            cy.get('@onToggle').invoke('resetHistory');
+            cy.get('[data-testid="calendar-icon"]').click();
+            cy.get('input:not([type="hidden"])').first().should('be.focused');
+            assertDatePickerPopoverOpen();
+            cy.get('@onToggle').should('have.been.calledOnce').and('have.been.calledWith', true);
+
+            cy.get('input:not([type="hidden"])').first().pressKey('Escape');
+            cy.get('@onToggle').invoke('resetHistory');
+            cy.get('.input-wrapper').eq(1).click(8, 8);
+            cy.get('input:not([type="hidden"])').eq(1).should('be.focused');
+            assertDatePickerPopoverOpen();
+            cy.get('@onToggle').should('have.been.calledOnce');
+        });
+    });
+
     const ControlledDemo = () => {
         const [date, setDate] = useState<[Date | string | null, Date | string | null] | undefined>();
 
@@ -854,7 +970,19 @@ describeFnRange('DatePickerRange', () => {
     it('popover is positioned at the active input when isCalendarPositionedByInput is set', () => {
         cy.viewport(900, 500);
 
-        mount(<Demo isCalendarPositionedByInput calendarContainerWidth="20rem" placement="bottom-start" disableFlip />);
+        mount(
+            <Demo
+                isCalendarPositionedByInput
+                contentRight={
+                    <span data-testid="calendar-icon">
+                        <IconPlasma size="s" />
+                    </span>
+                }
+                calendarContainerWidth="20rem"
+                placement="bottom-start"
+                disableFlip
+            />,
+        );
 
         cy.get('.text-field-group-item')
             .first()
@@ -875,6 +1003,18 @@ describeFnRange('DatePickerRange', () => {
                 cy.wrap($secondTextField).find('input').click();
                 cy.get('[data-floating-ui-portal] > div').should(($popover) => {
                     expect($popover[0].getBoundingClientRect().left).to.be.closeTo(secondTextFieldLeft, 1);
+                });
+            });
+
+        cy.get('[data-testid="calendar-icon"]').click();
+        cy.get('.text-field-group-item')
+            .first()
+            .then(($firstTextField) => {
+                const firstTextFieldLeft = $firstTextField[0].getBoundingClientRect().left;
+
+                cy.wrap($firstTextField).find('input').should('be.focused');
+                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
+                    expect($popover[0].getBoundingClientRect().left).to.be.closeTo(firstTextFieldLeft, 1);
                 });
             });
     });
@@ -937,22 +1077,27 @@ describeFnRange('DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
-    it('onToggle, outside click', () => {
-        mount(
-            <>
-                <span id="outer">outer text</span>
-                <Demo
-                    defaultFirstDate={new Date(2023, 5, 14)}
-                    onToggle={(isOpen: boolean, event: any) => {
-                        expect(isOpen).to.be.oneOf([true, false]);
-                        expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
-                    }}
-                />
-            </>,
-        );
+    [false, true].forEach((isCalendarPositionedByInput) => {
+        it(`onToggle, outside click: isCalendarPositionedByInput=${isCalendarPositionedByInput}`, () => {
+            mount(
+                <>
+                    <span id="outer">outer text</span>
+                    <Demo
+                        isCalendarPositionedByInput={isCalendarPositionedByInput}
+                        defaultFirstDate={new Date(2023, 5, 14)}
+                        onToggle={(isOpen: boolean, event: any) => {
+                            expect(isOpen).to.be.oneOf([true, false]);
+                            expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
+                        }}
+                    />
+                </>,
+            );
 
-        cy.get('input').first().click();
-        cy.get('#outer').click();
+            cy.get('input').first().click();
+            assertDatePickerPopoverOpen();
+            cy.get('#outer').click();
+            cy.get('[data-floating-ui-portal] .date-picker-root').should('not.exist');
+        });
     });
 
     it('input date', () => {

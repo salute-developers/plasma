@@ -17,7 +17,7 @@ export const InputWrapper = styled.div`
     align-items: center;
     box-sizing: border-box;
 
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         z-index: -2;
@@ -114,7 +114,7 @@ export const InputPlaceholderValue = styled.div`
 
 export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
     margin-bottom: ${({ isInnerLabel }) =>
         isInnerLabel ? `var(${tokens.titleCaptionInnerLabelOffset})` : `var(${tokens.labelOffset})`};
@@ -123,10 +123,10 @@ export const OuterLabelWrapper = styled.div<{ isInnerLabel: boolean }>`
     white-space: ${({ isInnerLabel }) => (isInnerLabel ? 'nowrap' : 'normal')};
 `;
 
-export const TitleCaption = styled.div<{ hasLabel: boolean }>`
+export const TitleCaption = styled.div`
     display: inline-block;
     margin-left: auto;
-    margin-top: ${({ hasLabel }) => (hasLabel ? `var(${tokens.titleCaptionOffset}, 0)` : 'unset')};
+    margin-top: var(${tokens.titleCaptionMargin}, 0);
 `;
 
 export const StyledIndicatorWrapper = styled.div`

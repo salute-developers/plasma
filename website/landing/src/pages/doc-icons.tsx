@@ -1,4 +1,5 @@
 import { DocsPageLayout } from '../DocsPageLayout';
+import { publicPath } from '../paths';
 import { SiteLink } from '../shared';
 
 export default function DocIconsPage() {
@@ -27,7 +28,7 @@ export default function DocIconsPage() {
             </p>
 
             <div className="doc-search" id="p-icons">
-                <img src="/media/icon-search-20.svg" alt="" />
+                <img src={publicPath('/media/icon-search-20.svg')} alt="" />
 
                 <input
                     type="search"

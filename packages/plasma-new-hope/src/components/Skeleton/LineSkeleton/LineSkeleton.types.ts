@@ -16,4 +16,4 @@ export type StyledVisibleLineProps = {
 export type LineSkeletonProps = HTMLAttributes<HTMLDivElement> &
     SkeletonSizeProps &
     CustomSkeletonLineProps &
-    SkeletonGradientProps;
+    Omit<SkeletonGradientProps, 'lighter'>;

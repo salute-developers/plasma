@@ -210,6 +210,51 @@ import TabItem from '@theme/TabItem';
     </TabItem>
 </Tabs>
 
+## Выравнивание переключателя периода
+
+В одиночном календаре `periodSelectorAlign="start"` (по умолчанию) размещает переключатель периода слева, а стрелки навигации справа. При `periodSelectorAlign="center"` переключатель расположен между стрелками по центру. Свойство также доступно в `CalendarBase` и `CalendarBaseRange`.
+
+<Tabs>
+    <TabItem value="center" label="Center" default>
+        ```tsx live
+        import React from 'react';
+        import { Calendar } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [value, setValue] = React.useState(new Date(2024, 8, 14));
+
+            return (
+                <Calendar
+                    isDouble={false}
+                    value={value}
+                    periodSelectorAlign="center"
+                    onChangeValue={setValue}
+                />
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="start" label="Start">
+        ```tsx live
+        import React from 'react';
+        import { Calendar } from '@salutejs/sdds-sbcom';
+
+        export function App() {
+            const [value, setValue] = React.useState(new Date(2024, 8, 14));
+
+            return (
+                <Calendar
+                    isDouble={false}
+                    value={value}
+                    periodSelectorAlign="start"
+                    onChangeValue={setValue}
+                />
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ## Размер календаря.
 Размер календаря задается с помощью свойства `size`.
 

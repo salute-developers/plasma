@@ -10,7 +10,9 @@ const TextField = component(mergedConfig);
 export const StyledTextField = styled(TextField)`
     ${textFieldTokens.color}: var(${autocompleteTokens.textFieldColor});
     ${textFieldTokens.clearColor}: var(${autocompleteTokens.textFieldClearColor});
+    ${textFieldTokens.colorFocus}: var(${autocompleteTokens.textFieldColorFocus});
     ${textFieldTokens.placeholderColor}: var(${autocompleteTokens.textFieldPlaceholderColor});
+    ${textFieldTokens.placeholderColorHover}: var(${autocompleteTokens.textFieldPlaceholderColorHover});
     ${textFieldTokens.placeholderColorFocus}: var(${autocompleteTokens.textFieldPlaceholderColorFocus});
     ${textFieldTokens.clearPlaceholderColor}: var(${autocompleteTokens.textFieldClearPlaceholderColor});
     ${textFieldTokens.clearPlaceholderColorFocus}: var(${autocompleteTokens.textFieldClearPlaceholderColorFocus});
@@ -24,6 +26,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.dividerColor}: var(${autocompleteTokens.textFieldDividerColor});
     ${textFieldTokens.dividerColorHover}: var(${autocompleteTokens.textFieldDividerColorHover});
     ${textFieldTokens.dividerColorFocus}: var(${autocompleteTokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerWidth}: var(${autocompleteTokens.textFieldDividerWidth});
     ${textFieldTokens.colorReadOnly}: var(${autocompleteTokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${autocompleteTokens.textFieldBackgroundColorReadOnly});
     ${textFieldTokens.borderColorReadOnly}: var(${autocompleteTokens.textFieldBorderColorReadOnly});
@@ -53,6 +56,15 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.labelFontWeight}: var(${autocompleteTokens.textFieldLabelFontWeight});
     ${textFieldTokens.labelLetterSpacing}: var(${autocompleteTokens.textFieldLabelLetterSpacing});
     ${textFieldTokens.labelLineHeight}: var(${autocompleteTokens.textFieldLabelLineHeight});
+    ${textFieldTokens.titleCaptionMargin}: var(${autocompleteTokens.textFieldTitleCaptionMargin});
+    ${textFieldTokens.titleCaptionColor}: var(${autocompleteTokens.textFieldTitleCaptionColor});
+    ${textFieldTokens.titleCaptionColorReadOnly}: var(${autocompleteTokens.textFieldTitleCaptionColorReadOnly});
+    ${textFieldTokens.titleCaptionFontFamily}: var(${autocompleteTokens.textFieldTitleCaptionFontFamily});
+    ${textFieldTokens.titleCaptionFontStyle}: var(${autocompleteTokens.textFieldTitleCaptionFontStyle});
+    ${textFieldTokens.titleCaptionFontSize}: var(${autocompleteTokens.textFieldTitleCaptionFontSize});
+    ${textFieldTokens.titleCaptionFontWeight}: var(${autocompleteTokens.textFieldTitleCaptionFontWeight});
+    ${textFieldTokens.titleCaptionLetterSpacing}: var(${autocompleteTokens.textFieldTitleCaptionLetterSpacing});
+    ${textFieldTokens.titleCaptionLineHeight}: var(${autocompleteTokens.textFieldTitleCaptionLineHeight});
     ${textFieldTokens.labelInnerFontFamily}: var(${autocompleteTokens.textFieldLabelInnerFontFamily});
     ${textFieldTokens.labelInnerFontStyle}: var(${autocompleteTokens.textFieldLabelInnerFontStyle});
     ${textFieldTokens.labelInnerFontSize}: var(${autocompleteTokens.textFieldLabelInnerFontSize});
@@ -82,6 +94,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.contentSlotColor}: var(${autocompleteTokens.textFieldContentSlotColor});
     ${textFieldTokens.contentSlotColorHover}: var(${autocompleteTokens.textFieldContentSlotColorHover});
     ${textFieldTokens.contentSlotColorActive}: var(${autocompleteTokens.textFieldContentSlotColorActive});
+    ${textFieldTokens.contentSlotColorFocus}: var(${autocompleteTokens.textFieldContentSlotColorFocus});
     ${textFieldTokens.contentSlotRightColor}: var(${autocompleteTokens.textFieldContentSlotRightColor});
     ${textFieldTokens.contentSlotRightColorHover}: var(${autocompleteTokens.textFieldContentSlotRightColorHover});
     ${textFieldTokens.contentSlotRightColorActive}: var(${autocompleteTokens.textFieldContentSlotRightColorActive});

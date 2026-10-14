@@ -4,6 +4,7 @@ import {
     bodyXS,
     outlineSolidPrimary,
     outlineSolidSecondary,
+    shadowDownHardM,
     surfaceAccent,
     surfaceClear,
     surfaceNegative,
@@ -66,9 +67,11 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: ${textNegative};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textNegative};
-                ${tokens.placeholderColorFocus}: ${textNegative};
+                ${tokens.placeholderColorHover}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -79,12 +82,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textNegative};
                 ${tokens.contentSlotColorHover}: ${textNegativeHover};
                 ${tokens.contentSlotColorActive}: ${textNegativeActive};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -129,6 +135,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.1063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -186,7 +193,7 @@ export const config = {
         hintView: {
             default: css`
                 ${tokens.tooltipBackgroundColor}: ${surfaceSolidCardBrightness};
-                ${tokens.tooltipBoxShadow}: var(--shadow-down-hard-m, 0px 4px 12px 0px rgba(0, 0, 0, 0.16),0px 1px 4px 0px rgba(0, 0, 0, 0.08));
+                ${tokens.tooltipBoxShadow}: ${shadowDownHardM};
                 ${tokens.tooltipColor}: ${textPrimary};
                 ${tokens.tooltipArrowBackground}: ${surfaceSolidCardBrightness};
             `,

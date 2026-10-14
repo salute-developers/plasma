@@ -14,8 +14,10 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             opened,
             valueToItemMap,
             label,
+            titleCaption,
             placeholder,
             onKeyDown,
+            onClick,
             labelPlacement,
             size,
             view,
@@ -37,6 +39,8 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             keepPlaceholder,
             requiredProps,
             hintProps,
+            appearance,
+            hasDivider,
         },
         ref,
     ) => {
@@ -45,6 +49,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
         if (renderTarget) {
             return (
                 <RenderTarget
+                    onClick={onClick}
                     inputWrapperRef={inputWrapperRef}
                     multiselect={multiselect}
                     value={value}
@@ -57,6 +62,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
 
         return target === 'button-like' ? (
             <Button
+                onClick={onClick}
                 ref={buttonRef as Ref<HTMLButtonElement>}
                 opened={opened}
                 value={value}
@@ -73,12 +79,14 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             />
         ) : (
             <Textfield
+                onClick={onClick}
                 ref={ref as Ref<HTMLInputElement>}
                 inputWrapperRef={inputWrapperRef}
                 opened={opened}
                 multiselect={multiselect}
                 value={value}
                 label={label}
+                titleCaption={titleCaption}
                 placeholder={placeholder}
                 onKeyDown={onKeyDown}
                 labelPlacement={labelPlacement}
@@ -101,6 +109,8 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 keepPlaceholder={keepPlaceholder}
                 requiredProps={requiredProps}
                 hintProps={hintProps}
+                appearance={appearance}
+                hasDivider={hasDivider}
             />
         );
     },

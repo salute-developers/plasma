@@ -53,6 +53,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                 // calendar props
                 type = 'Days',
                 lang = 'ru',
+                periodSelectorAlign,
                 dateFormat = 'DD.MM.YYYY',
                 timeFormat = 'HH:mm:ss',
                 dateTimeSeparator = ' ',
@@ -365,6 +366,7 @@ export const dateTimePickerRoot = (Root: RootProps<HTMLDivElement, DateTimePicke
                                 renderFromDate={renderFromDate}
                                 includeEdgeDates={includeEdgeDates}
                                 lang={lang}
+                                periodSelectorAlign={periodSelectorAlign}
                                 handleCalendarPick={handleCalendarPick}
                                 onChangeVisibleDate={onChangeVisibleDate}
                             />

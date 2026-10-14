@@ -13,7 +13,7 @@ import {
     textPositive,
     textPrimary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 import { pilled, sizeL, sizeM, sizeS, sizeXS } from './Badge.config.common';
 

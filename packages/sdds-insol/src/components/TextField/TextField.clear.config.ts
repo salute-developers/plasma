@@ -40,9 +40,11 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: var(--text-positive);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-positive);
-                ${tokens.placeholderColorFocus}: var(--text-positive);
+                ${tokens.placeholderColorHover}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -53,12 +55,15 @@ export const config = {
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-positive);
                 ${tokens.rightHelperColor}: var(--text-positive);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-positive);
                 ${tokens.contentSlotColorHover}: var(--text-positive-hover);
                 ${tokens.contentSlotColorActive}: var(--text-positive-active);
+                ${tokens.contentSlotColorFocus}: var(--text-secondary);
 
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
@@ -74,9 +79,11 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: var(--text-warning);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-warning);
-                ${tokens.placeholderColorFocus}: var(--text-warning);
+                ${tokens.placeholderColorHover}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -87,12 +94,15 @@ export const config = {
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-warning);
                 ${tokens.rightHelperColor}: var(--text-warning);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-warning);
                 ${tokens.contentSlotColorHover}: var(--text-warning-hover);
                 ${tokens.contentSlotColorActive}: var(--text-warning-active);
+                ${tokens.contentSlotColorFocus}: var(--text-secondary);
 
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
@@ -108,9 +118,11 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: var(--text-negative);
+                ${tokens.colorFocus}: var(--text-primary);
 
                 ${tokens.placeholderColor}: var(--text-negative);
-                ${tokens.placeholderColorFocus}: var(--text-negative);
+                ${tokens.placeholderColorHover}: var(--text-secondary);
+                ${tokens.placeholderColorFocus}: var(--text-tertiary);
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -121,12 +133,15 @@ export const config = {
                 ${tokens.labelColor}: var(--text-primary);
                 ${tokens.leftHelperColor}: var(--text-negative);
                 ${tokens.rightHelperColor}: var(--text-negative);
+                ${tokens.leftHelperColorFocus}: var(--text-secondary);
+                ${tokens.rightHelperColorFocus}: var(--text-secondary);
                 ${tokens.titleCaptionColor}: var(--text-secondary);
                 ${tokens.hintIconColor}: var(--text-secondary);
 
                 ${tokens.contentSlotColor}: var(--text-negative);
                 ${tokens.contentSlotColorHover}: var(--text-negative-hover);
                 ${tokens.contentSlotColorActive}: var(--text-negative-active);
+                ${tokens.contentSlotColorFocus}: var(--text-secondary);
 
                 ${tokens.contentSlotRightColor}: var(--text-secondary);
                 ${tokens.contentSlotRightColorHover}: var(--text-secondary-hover);
@@ -171,6 +186,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -259,6 +275,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -339,6 +356,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.3125rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -419,6 +437,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -499,6 +518,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -2.1875rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);

@@ -88,9 +88,11 @@ export const config = {
             `,
             positive: css`
                 ${tokens.color}: ${textPositive};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textPositive};
-                ${tokens.placeholderColorFocus}: ${textPositive};
+                ${tokens.placeholderColorHover}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -101,12 +103,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textPositive};
                 ${tokens.rightHelperColor}: ${textPositive};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textPositive};
                 ${tokens.contentSlotColorHover}: ${textPositiveHover};
                 ${tokens.contentSlotColorActive}: ${textPositiveActive};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -122,9 +127,11 @@ export const config = {
             `,
             warning: css`
                 ${tokens.color}: ${textWarning};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textWarning};
-                ${tokens.placeholderColorFocus}: ${textWarning};
+                ${tokens.placeholderColorHover}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -135,12 +142,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textWarning};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textWarning};
                 ${tokens.contentSlotColorHover}: ${textWarningHover};
                 ${tokens.contentSlotColorActive}: ${textWarningActive};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -156,9 +166,11 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: ${textNegative};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textNegative};
-                ${tokens.placeholderColorFocus}: ${textNegative};
+                ${tokens.placeholderColorHover}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -169,12 +181,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textNegative};
                 ${tokens.contentSlotColorHover}: ${textNegativeHover};
                 ${tokens.contentSlotColorActive}: ${textNegativeActive};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
@@ -223,6 +238,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.82rem -2.063rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -315,6 +331,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.375rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -399,6 +416,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.3125rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -483,6 +501,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -567,6 +586,7 @@ export const config = {
                 ${tokens.hintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0;
                 ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};

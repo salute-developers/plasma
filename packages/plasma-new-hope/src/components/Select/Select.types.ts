@@ -12,7 +12,7 @@ import type {
 } from 'react';
 import type { SafeExtract, NeverProps } from 'src/types';
 
-import type { RequiredProps, LabelProps, HintProps } from '../TextField/TextField.types';
+import type { RequiredProps, LabelProps, HintProps, TextFieldProps } from '../TextField/TextField.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import type { ValueToCheckedMapType } from './hooks/usePathMaps';
@@ -109,12 +109,18 @@ type TextfieldLikeTargetProps = {
      * @default full
      */
     chipClickArea?: 'full' | 'close-icon';
+    /**
+     * Метка-подпись к элементу справа.
+     */
+    titleCaption?: ReactNode;
 } & RequiredProps &
     HintProps &
-    LabelProps;
+    LabelProps &
+    Pick<TextFieldProps, 'hasDivider'>;
 
 type ButtonLikeTargetProps = {
     target: 'button-like';
+    hasDivider?: never;
     /**
      * Метка-подпись к элементу
      */
@@ -126,6 +132,7 @@ type ButtonLikeTargetProps = {
     keepPlaceholder?: never;
     chipType?: never;
     chipClickArea?: never;
+    titleCaption?: never;
 } & NeverProps<RequiredProps & HintProps & Omit<LabelProps, 'label'>>;
 
 type Target = TextfieldLikeTargetProps | ButtonLikeTargetProps;
@@ -322,7 +329,10 @@ export interface BasicProps<K extends ItemOption> {
      * Текст выпадающего списка при пустом массиве items.
      */
     emptyStateDescription?: ReactNode;
-
+    /**
+     * @internal
+     */
+    appearance?: TextFieldProps['appearance'];
     /**
      * Размер компонента.
      */
