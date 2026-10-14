@@ -36,8 +36,10 @@ jobs:
               run: |
                   npm run lint:scripts
 
+                  # plasma-colors/src is generated and linted during build:colors.
                   npx lerna run lint \
                     --since="$BASE_SHA" \
+                    --ignore=@salutejs/plasma-colors \
                     --exclude-dependents \
                     --concurrency=4
 

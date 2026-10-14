@@ -84,6 +84,8 @@ npm run lint --workspace=@salutejs/plasma-new-hope
 
 Общий `npm run lint` также проверяет скрипты и структуру пакетов. Его Lerna-часть выбирает изменения относительно `origin/dev`, поэтому эта ссылка должна быть доступна локально.
 
+CI запускает lint изменённых пакетов относительно SHA базы PR или merge group без предварительной сборки workspace-пакетов. `@salutejs/plasma-colors` исключён из этой проверки: его `src` генерируется при сборке и проверяется командой `build:colors`.
+
 При изменении публичных props, generic-типов или экспортов компонентов обновите API-тесты в `utils/api-tests/src/components/` и выполните:
 
 ```sh
@@ -197,6 +199,8 @@ git commit -m "fix(plasma-web): Fix component Y"
 Точка входа trusted publishing остаётся `publish-npm.yml`. После комментария в Actions появятся два запуска: `Request canary publication` для проверки запроса и `Publish npm` для публикации. Обработчик комментария использует `GITHUB_TOKEN` с `actions: write` и передаёт head SHA PR; общий workflow проверяет, что PR не изменился. Если проверка не прошла, повторите `/release-canary` для новой ревизии.
 
 Версии и публикация выполняются через общий workflow `publish-common.yml`. Документация, Storybook и Cypress имеют отдельные workflows; состав выполненных проверок и публикаций смотрите в конкретном запуске CI.
+
+Jobs добавления preview-комментариев в `sdds-landing-pr.yml` и `documentation-deploy-pr.yml` загружают helper-скрипты из `github.workflow_sha`, чтобы их версия совпадала с workflow. Для `pull_request_target` это ревизия default-ветки `dev`; база релизного PR (`master`) может ещё не содержать новых helper-скриптов.
 
 ### HotFix
 

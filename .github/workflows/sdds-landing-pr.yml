@@ -102,7 +102,8 @@ jobs:
         steps:
             - uses: actions/checkout@v4
               with:
-                  ref: ${{ github.event.pull_request.base.sha }}
+                  # Load helpers from the same revision as this workflow.
+                  ref: ${{ github.workflow_sha }}
                   show-progress: false
                   persist-credentials: false
 
