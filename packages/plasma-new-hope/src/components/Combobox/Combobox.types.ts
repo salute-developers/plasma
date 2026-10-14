@@ -132,6 +132,10 @@ type IsMultiple<T extends ItemOption> =
 
 type BasicProps<T extends ItemOption = ItemOption> = {
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Список элементов.
      */
     items: T[];
@@ -321,7 +325,7 @@ type PrivateProps = {
 
 export type ComboboxProps<T extends ItemOption = ItemOption> = BasicProps<T> &
     LabelProps &
-    Pick<TextFieldProps, 'appearance' | 'hasDivider'> &
+    Pick<TextFieldProps, 'hasDivider'> &
     IsMultiple<T> &
     RequiredProps &
     HintProps &

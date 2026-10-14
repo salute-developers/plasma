@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import {
     labelPlacements,
@@ -15,6 +15,7 @@ import {
     hintViews,
     shortcutsPlacements,
     datePickerRangePlacements,
+    periodSelectorAligns,
 } from './fixtures';
 
 type CreateMetaProps = {
@@ -152,16 +153,6 @@ const getCommonArgTypes = (componentConfig: any) => ({
             type: 'select',
         },
     },
-    eventTooltipSize: {
-        options: eventTooltipSizes,
-        control: {
-            type: 'select',
-        },
-        if: {
-            arg: 'enableEventTooltip',
-            truthy: true,
-        },
-    },
 
     hintText: {
         control: { type: 'text' },
@@ -235,24 +226,44 @@ const getCommonArgTypes = (componentConfig: any) => ({
             truthy: true,
         },
     },
-
-    shortcutsWidth: {
-        control: {
-            type: 'text',
-        },
-        if: { arg: 'hasShortcuts', truthy: true },
-    },
-    shortcutsPlacement: {
-        options: shortcutsPlacements,
-        control: {
-            type: 'select',
-        },
-        if: { arg: 'hasShortcuts', truthy: true },
+    periodSelectorAlign: {
+        options: periodSelectorAligns,
+        control: { type: 'select' },
+        if: { arg: 'isDoubleCalendar', truthy: false },
     },
     disableFlip: {
         control: { type: 'boolean' },
-        table: { category: 'dropdown' },
     },
+    ...exampleOnly({
+        enableContentLeft: { control: { type: 'boolean' } },
+        enableContentRight: { control: { type: 'boolean' } },
+        enableEventTooltip: { control: { type: 'boolean' } },
+        hasHint: { control: { type: 'boolean' } },
+        hasShortcuts: { control: { type: 'boolean' } },
+        eventTooltipSize: {
+            options: eventTooltipSizes,
+            control: {
+                type: 'select',
+            },
+            if: {
+                arg: 'enableEventTooltip',
+                truthy: true,
+            },
+        },
+        shortcutsWidth: {
+            control: {
+                type: 'text',
+            },
+            if: { arg: 'hasShortcuts', truthy: true },
+        },
+        shortcutsPlacement: {
+            options: shortcutsPlacements,
+            control: {
+                type: 'select',
+            },
+            if: { arg: 'hasShortcuts', truthy: true },
+        },
+    }),
 });
 
 const commonDisabledArgs = [
@@ -294,6 +305,7 @@ export const createMeta = ({
         args: {
             ...commonArgs,
             inputView: 'default',
+            periodSelectorAlign: 'start',
             placeholder: '30.05.2024',
             labelPlacement: 'outer',
             defaultDate: new Date(2024, 5, 14),
@@ -314,15 +326,16 @@ export const createMeta = ({
                     type: 'select',
                 },
             },
-            inputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
             placement: {
                 options: placements,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
+            ...exampleOnly({
+                inputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },
@@ -352,6 +365,7 @@ export const createRangeMeta = ({
             secondInputView: 'default',
             firstPlaceholder: '30.05.2024',
             secondPlaceholder: '04.06.2024',
+            periodSelectorAlign: 'start',
             firstTextfieldTextBefore: '',
             secondTextfieldTextBefore: '',
             firstTextfieldTextAfter: '',
@@ -373,24 +387,28 @@ export const createRangeMeta = ({
                     type: 'select',
                 },
             },
-            firstInputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
-            secondInputView: {
-                options: inputViews,
-                control: { type: 'select' },
-            },
             placement: {
                 options: datePickerRangePlacements,
                 control: { type: 'select' },
-                table: { category: 'dropdown' },
             },
             isCalendarPositionedByInput: {
                 control: { type: 'boolean' },
-                table: { category: 'dropdown' },
                 if: { arg: 'isDoubleCalendar', truthy: false },
             },
+            ...exampleOnly({
+                firstInputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+                secondInputView: {
+                    options: inputViews,
+                    control: { type: 'select' },
+                },
+                enableFirstTextfieldContentLeft: { control: { type: 'boolean' } },
+                enableFirstTextfieldContentRight: { control: { type: 'boolean' } },
+                enableSecondTextfieldContentLeft: { control: { type: 'boolean' } },
+                enableSecondTextfieldContentRight: { control: { type: 'boolean' } },
+            }),
             ...additionalArgTypes,
             ...disableProps([...commonDisabledArgs, ...disablePropsList]),
         },

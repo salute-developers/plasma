@@ -6,6 +6,7 @@ export const tokens = {
     // Токены для TextField
     textFieldColor: '--plasma-autocomplete-textfield-color',
     textFieldClearColor: '--plasma-autocomplete-textfield-clear-color',
+    textFieldColorFocus: '--plasma-autocomplete-textfield-color-focus',
 
     textFieldBackgroundColor: '--plasma-autocomplete-textfield-background-color',
     textFieldBackgroundColorHover: '--plasma-autocomplete-textfield-background-color-hover',
@@ -18,6 +19,7 @@ export const tokens = {
     textFieldDividerColor: '--plasma-autocomplete-textfield-divider-color',
     textFieldDividerColorHover: '--plasma-autocomplete-textfield-divider-color-hover',
     textFieldDividerColorFocus: '--plasma-autocomplete-textfield-divider-color-focus',
+    textFieldDividerWidth: '--plasma-autocomplete-textfield-divider-width',
 
     textFieldColorReadOnly: '--plasma-autocomplete-textfield-color-readonly',
     textFieldBackgroundColorReadOnly: '--plasma-autocomplete-textfield-bg-color-readonly',
@@ -27,6 +29,7 @@ export const tokens = {
 
     textFieldCaretColor: '--plasma-autocomplete-textfield-caret-color',
     textFieldPlaceholderColor: '--plasma-autocomplete-textfield-placeholder-color',
+    textFieldPlaceholderColorHover: '--plasma-autocomplete-textfield-placeholder-color-hover',
     textFieldPlaceholderColorFocus: '--plasma-autocomplete-textfield-placeholder-color-focus',
     textFieldClearPlaceholderColor: '--plasma-autocomplete-textfield-clear-placeholder-color',
     textFieldClearPlaceholderColorFocus: '--plasma-autocomplete-textfield-clear-placeholder-color-focus',
@@ -55,6 +58,7 @@ export const tokens = {
     textFieldContentSlotColor: '--plasma-autocomplete-textfield-content-slot-color',
     textFieldContentSlotColorHover: '--plasma-autocomplete-textfield-content-slot-color-hover',
     textFieldContentSlotColorActive: '--plasma-autocomplete-textfield-content-slot-color-active',
+    textFieldContentSlotColorFocus: '--plasma-autocomplete-textfield-content-slot-color-focus',
 
     textFieldContentSlotRightColor: '--plasma-autocomplete-textfield-content-right-slot-color', //
     textFieldContentSlotRightColorHover: '--plasma-autocomplete-textfield-content-right-slot-color-hover', //
@@ -73,6 +77,16 @@ export const tokens = {
     textFieldLabelFontWeight: '--plasma-autocomplete-textfield-label-font-weight',
     textFieldLabelLetterSpacing: '--plasma-autocomplete-textfield-label-letter-spacing',
     textFieldLabelLineHeight: '--plasma-autocomplete-textfield-label-line-height',
+
+    textFieldTitleCaptionMargin: '--plasma-autocomplete-textfield-title-caption-margin',
+    textFieldTitleCaptionColor: '--plasma-autocomplete-textfield-title-caption-color',
+    textFieldTitleCaptionColorReadOnly: '--plasma-autocomplete-textfield-title-caption-color-readonly',
+    textFieldTitleCaptionFontFamily: '--plasma-autocomplete-textfield-title-caption-font-family',
+    textFieldTitleCaptionFontStyle: '--plasma-autocomplete-textfield-title-caption-font-style',
+    textFieldTitleCaptionFontSize: '--plasma-autocomplete-textfield-title-caption-font-size',
+    textFieldTitleCaptionFontWeight: '--plasma-autocomplete-textfield-title-caption-font-weight',
+    textFieldTitleCaptionLetterSpacing: '--plasma-autocomplete-textfield-title-caption-letter-spacing',
+    textFieldTitleCaptionLineHeight: '--plasma-autocomplete-textfield-title-caption-line-height',
 
     textFieldLabelInnerFontFamily: '--plasma-autocomplete-textfield-placement-inner-label-font-family',
     textFieldLabelInnerFontStyle: '--plasma-autocomplete-textfield-placement-inner-label-font-style',

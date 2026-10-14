@@ -94,7 +94,7 @@ export const base = css`
     }
 
     ${StyledLeftHelper} {
-        padding: var(${tokens.leftHelperPadding});
+        padding: var(${tokens.leftHelperOffset});
 
         font-family: var(${tokens.leftHelperFontFamily});
         font-size: var(${tokens.leftHelperFontSize});

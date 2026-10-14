@@ -5,6 +5,7 @@ import {
     outlineNegative,
     outlineNegativeHover,
     outlineSolidPrimary,
+    outlineSolidSecondary,
     surfaceAccent,
     surfaceClear,
     surfaceSolidCardBrightness,
@@ -144,7 +145,7 @@ export const config = {
 
                 ${textAreaTokens.dividerColor}: ${outlineNegative};
                 ${textAreaTokens.dividerColorHover}: ${outlineNegativeHover};
-                ${textAreaTokens.dividerColorFocus}: var(--outline-negative-focus);
+                ${textAreaTokens.dividerColorFocus}: ${outlineNegative};
                 ${textAreaTokens.titleCaptionColor}: ${textSecondary};
                 ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,
@@ -218,6 +219,7 @@ export const config = {
                 ${textAreaTokens.hintInnerLabelPlacementOffset}: -0.751rem -2rem auto auto;
 
                 ${textAreaTokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${textAreaTokens.titleCaptionMargin}: 0.1875rem;
                 ${textAreaTokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
                 ${textAreaTokens.titleCaptionFontSize}: ${bodyXS.fontSize};
                 ${textAreaTokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
@@ -309,7 +311,7 @@ export const config = {
                 ${textAreaTokens.readOnlyOpacity}: 0.1;
                 ${textAreaTokens.labelOuterColor}: ${textSecondary};
                 ${textAreaTokens.inputColorReadOnly}: ${textPrimary};
-                ${textAreaTokens.dividerColorReadOnly}: var(--surface-transparent-primary);
+                ${textAreaTokens.dividerColorReadOnly}: ${outlineSolidSecondary};
                 ${textAreaTokens.contentSlotRightOpacityReadOnly}: 0.4;
                 ${textAreaTokens.backgroundColor}: ${surfaceClear};
                 ${textAreaTokens.borderColor}: ${surfaceClear};

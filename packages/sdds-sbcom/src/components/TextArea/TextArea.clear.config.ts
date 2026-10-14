@@ -294,8 +294,6 @@ export const config = {
                 ${tokens.outsideHelpersPaddingLeft}: 1rem;
                 ${tokens.outsideHelpersPaddingRight}: 1rem;
                 ${tokens.helpersOffset}: 0rem;
-                ${tokens.helpersGap}: 0.5rem;
-                ${tokens.helpersAlignItems}: center;
 
                 ${tokens.rightContentTop}: 0.5rem;
                 ${tokens.rightContentRight}: 0.5rem;

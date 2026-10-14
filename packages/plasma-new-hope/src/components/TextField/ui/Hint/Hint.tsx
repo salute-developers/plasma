@@ -41,10 +41,11 @@ export const HintComponent = forwardRef<HTMLDivElement, TextFieldHintProps>(
         return (
             <Hint
                 ref={ref}
+                onClick={(event: React.MouseEvent<HTMLDivElement>) => event.stopPropagation()}
                 text={String(hintText)}
                 opened={isHintVisible}
                 target={
-                    <HintTargetWrapper>
+                    <HintTargetWrapper onClick={(event) => event.stopPropagation()}>
                         <HintIconWrapper
                             id={hintId}
                             {...(hintTrigger === 'hover'

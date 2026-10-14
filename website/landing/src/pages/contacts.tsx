@@ -24,15 +24,15 @@ export default function ContactsPage() {
                         </div>
 
                         <div className="reach-primary-act">
-                            <span className="reach-mail">sdds@sber.ru</span>
+                            <span className="reach-mail">sdds@sberdevices.ru</span>
 
-                            <button className="copy-btn" type="button" data-copy="sdds@sber.ru">
+                            <button className="copy-btn" type="button" data-copy="sdds@sberdevices.ru">
                                 <span className="copy-label">Скопировать</span>
                             </button>
 
                             <SiteLink
                                 className="copy-btn is-solid"
-                                href="mailto:sdds@sber.ru?subject=Запрос%20доступа%20в%20SDDS%20Builder&body=Продукт%3A%0AВладелец%20проекта%3A%0AУчастники%20и%20роли%3A%0A"
+                                href="mailto:sdds@sberdevices.ru?subject=Запрос%20доступа%20в%20SDDS%20Builder&body=Продукт%3A%0AВладелец%20проекта%3A%0AУчастники%20и%20роли%3A%0A"
                             >
                                 Написать письмо
                             </SiteLink>
@@ -40,19 +40,6 @@ export default function ContactsPage() {
                     </div>
 
                     <div className="reach-list">
-                        <SiteLink className="reach-line" href="https://t.me/kenymook">
-                            <span className="reach-line-name">Сообщество в Telegram</span>
-
-                            <span className="reach-line-note">
-                                Вопросы по компонентам и сценариям. Отвечает команда системы и коллеги из продуктов
-                            </span>
-
-                            <span className="reach-line-go">
-                                @kenymook
-                                <i>↗</i>
-                            </span>
-                        </SiteLink>
-
                         <SiteLink className="reach-line" href="https://sberchat.sberbank.ru/@emmitrokhin">
                             <span className="reach-line-name">СберЧат</span>
 
@@ -117,7 +104,7 @@ export default function ContactsPage() {
                             <div className="scenario-steps">
                                 <span className="scenario-step">
                                     <i>1</i>
-                                    Пишете в сообщество с описанием задачи
+                                    Пишете команде с описанием задачи
                                 </span>
 
                                 <span className="scenario-step">
@@ -173,7 +160,7 @@ export default function ContactsPage() {
 
                                 <span className="scenario-step">
                                     <i>3</i>
-                                    Исправление выходит с ближайшим релизом, о чём пишем в новостях
+                                    Исправление выходит с ближайшим релизом
                                 </span>
                             </div>
                         </div>
@@ -191,12 +178,12 @@ export default function ContactsPage() {
 
                                 <span className="scenario-step">
                                     <i>2</i>
-                                    Изменения по версиям публикуем в новостях
+                                    Изменения по версиям можно уточнить у команды
                                 </span>
 
                                 <span className="scenario-step">
                                     <i>3</i>
-                                    Если заявка зависла — напоминайте в сообществе, это нормально
+                                    Если заявка зависла — напомните команде
                                 </span>
                             </div>
                         </div>
@@ -213,7 +200,7 @@ export default function ContactsPage() {
                             <span className="dim">команда системы</span>
                         </h2>
 
-                        <p>Роли в команде SDDS: к кому идти с каким вопросом. Имена и контакты — в сообществе.</p>
+                        <p>Роли в команде SDDS: к кому идти с каким вопросом. Контакты указаны выше.</p>
                     </div>
 
                     <div className="owners">
@@ -240,7 +227,7 @@ export default function ContactsPage() {
                 </div>
             </section>
 
-            <SiteFooter contactHref="/news" contactLabel="Новости" />
+            <SiteFooter />
         </>
     );
 }

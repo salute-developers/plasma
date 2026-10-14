@@ -201,6 +201,28 @@ export function App() {
 }
 ```
 
+### Картинка в вертикальном уведомлении
+
+Свойство `image` принимает объект свойств компонента `Image` (`src`, `srcSet`, `sizes`, `alt` и другие)
+и заменяет `icon` при `layout="vertical"`. Размеры картинки задаются через `imageSize` и токены `Notification`.
+По умолчанию используется маленькая картинка сверху. Для картинки на всю ширину задайте `imageSize="fullWidth"`.
+В горизонтальном уведомлении свойства `image` и `imageSize` не влияют на отображение.
+
+```tsx
+import { Notification } from '@salutejs/plasma-giga';
+
+<Notification
+    title="Обновление"
+    layout="vertical"
+    image={{ src: '/images/notification.png', alt: 'Иллюстрация обновления' }}
+    imageSize="fullWidth"
+>
+    Доступна новая версия.
+</Notification>
+```
+
+Эти свойства также можно передать в `addNotification` и `defaultNotificationArgs`.
+
 ### Управление шириной уведомления
 
 Для управления шириной компонента доступны следующие свойства:

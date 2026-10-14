@@ -9,6 +9,7 @@ var styled_components_1 = require("styled-components");
 var plasma_themes_1 = require("@salutejs/plasma-themes");
 var sdds_themes_1 = require("@salutejs/sdds-themes");
 var sdds_os_1 = require("@salutejs-ds/sdds_os");
+var sdds_finai_1 = require("@sddsjs/sdds_finai");
 // plasma-b2c
 var themes_1 = require("@salutejs/plasma-tokens-b2c/themes");
 var plasma_typo_1 = require("@salutejs/plasma-typo");
@@ -25,7 +26,7 @@ var ThemeSERV = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_se
 var ThemeSCAN = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_scan__light);
 var ThemeOS = (0, styled_components_1.createGlobalStyle)(sdds_os_1.sdds_os__light);
 var ThemePLATFORMAI = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_platform_ai__light);
-var ThemeFINAI = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_finai__light);
+var ThemeFINAI = (0, styled_components_1.createGlobalStyle)(sdds_finai_1.sdds_finai__light);
 var ThemeDFA = (0, styled_components_1.createGlobalStyle)(sdds_themes_1.sdds_dfa__light);
 var ThemeHOMEDS = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_homeds__light);
 var ThemeWEB = (0, styled_components_1.createGlobalStyle)(plasma_themes_1.plasma_web__light);

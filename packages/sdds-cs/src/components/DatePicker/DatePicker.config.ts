@@ -16,6 +16,8 @@ import {
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidPrimary,
+    surfaceSolidSecondary,
+    surfaceSolidTertiary,
     surfaceTransparentAccent,
     textAccent,
     textAccentActive,
@@ -91,7 +93,7 @@ export const config = {
                 ${tokens.focusColor}: ${textAccent};
 
                 ${tokens.popoverShadow}: ${shadowDownSoftS};
-                ${tokens.popoverSeparatorBackground}: var(--surface-transparent-secondary);
+                ${tokens.popoverSeparatorBackground}: ${surfaceSolidTertiary};
                 ${tokens.popoverBackgroundColor}: ${surfaceSolidCard};
 
                 ${tokens.calendarSelectedItemBackground}: ${surfaceAccent};
@@ -128,7 +130,7 @@ export const config = {
                 ${tokens.textFieldContentRightSlotColorHover}: ${textAccentMinor};
 
                 ${tokens.shortcutColor}: ${textPrimary};
-                ${tokens.shortcutBackgroundHover}: var(--surface-transparent-secondary);
+                ${tokens.shortcutBackgroundHover}: ${surfaceSolidSecondary};
             `,
         },
         size: {
@@ -191,6 +193,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
 
                 ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
                 ${tokens.titleCaptionFontFamily}: ${bodyS.fontFamily};
                 ${tokens.titleCaptionFontSize}: ${bodyS.fontSize};
                 ${tokens.titleCaptionFontStyle}: ${bodyS.fontStyle};

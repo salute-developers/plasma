@@ -38,7 +38,7 @@ import {
     textSecondaryHover,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
@@ -66,6 +66,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColor}: ${textSecondary};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
@@ -116,6 +117,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColor}: ${textPositive};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColorFocus}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
@@ -167,6 +169,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColor}: ${textWarning};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColorFocus}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
@@ -218,6 +221,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColorFocus}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
@@ -448,13 +452,20 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldTitleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldTitleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldTitleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.125rem;
+                ${tokens.textFieldLeftHelperOffset}: 0.125rem;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -580,6 +591,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyXS.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyXS.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0;
+                ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldTitleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldTitleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldTitleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -587,7 +605,7 @@ export const config = {
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
                 ${tokens.textFieldBorderWidth}: 0.125rem;
-                ${tokens.textFieldLeftHelperPadding}: 0.125rem;
+                ${tokens.textFieldLeftHelperOffset}: 0.125rem;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};

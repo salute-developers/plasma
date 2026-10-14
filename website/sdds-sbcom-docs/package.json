@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-sbcom-docs",
-  "version": "0.18.0-next-sbcom.0",
+  "version": "0.20.0",
   "description": "SDDS SBCOM documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -34,9 +34,9 @@
     "@docusaurus/theme-live-codeblock": "3.6.1",
     "@mdx-js/react": "3.0.0",
     "@salutejs-ds/sdds_sbcom": "latest",
-    "@salutejs/plasma-docs-ui": "0.552.0-next-sbcom.0",
-    "@salutejs/plasma-icons": "1.253.0-next-sbcom.0",
-    "@salutejs/sdds-sbcom": "0.371.0-next-sbcom.0",
+    "@salutejs/plasma-docs-ui": "0.554.0",
+    "@salutejs/plasma-icons": "1.254.0",
+    "@salutejs/sdds-sbcom": "0.373.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",
     "docusaurus-theme-search-typesense": "0.25.0",
@@ -45,7 +45,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.53.0",
-    "styled-components": "^5.3.1",
+    "styled-components": "^5.3.11",
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
@@ -62,15 +62,7 @@
     "typescript": "5.2.2"
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }

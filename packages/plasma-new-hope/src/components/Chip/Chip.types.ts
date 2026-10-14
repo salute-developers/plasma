@@ -4,6 +4,10 @@ import type { Pin } from '../../utils/roundness';
 
 type CustomChipProps = {
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Текстовая надпись
      */
     text?: string;
@@ -63,7 +67,6 @@ type CustomChipProps = {
      *  Коллбек при нажатии на крестик
      */
     onClickClose?: (event: MouseEvent<HTMLDivElement>) => void;
-    appearance?: string;
 } & PropsWithChildren;
 
 export interface ChipProps extends ButtonHTMLAttributes<HTMLButtonElement>, CustomChipProps {}

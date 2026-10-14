@@ -8,7 +8,14 @@ describe('sdds-finai: TimePicker', () => {
     const TimePicker = getComponent<TimePickerProps>('TimePicker');
 
     const Demo = (props: any) => (
-        <TimePicker value="00:00:00" columnsQuantity={3} label="Label" leftHelper="Helper text" {...props} />
+        <TimePicker
+            value="00:00:00"
+            columnsQuantity={3}
+            label="Label"
+            leftHelper="Helper text"
+            titleCaption="Подпись к полю"
+            {...props}
+        />
     );
 
     it('valueEdited', () => {

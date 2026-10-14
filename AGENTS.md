@@ -36,6 +36,7 @@
 
 -   [api-test](.agents/skills/api-test/SKILL.md) — создание API type-check тестов компонента.
 -   [create-core-component](.agents/skills/create-core-component/SKILL.md) — создание компонента с нуля в ядре и его подключение к пакетам вертикалей.
+-   [add-ai-kit](.agents/skills/add-ai-kit/SKILL.md) — подключение AI-kit к пакету вертикали: исходники, точка входа `/ai`, сборка, Storybook, документация.
 -   [migrate-test](.agents/skills/migrate-test/SKILL.md) — перенос Cypress-тестов на паттерн `plasma-new-hope`.
 -   [migrate-stories](.agents/skills/migrate-stories/SKILL.md) — миграция stories на общую фабрику из `plasma-sb-utils`.
 -   [remove-old-test](.agents/skills/remove-old-test/SKILL.md) — удаление старых тестов и снимков по запросу.

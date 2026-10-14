@@ -249,7 +249,7 @@ const config = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-netology @salutejs/plasma-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/sdds-netology` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-netology/styled-components` — нужен styled-components@5.3.1.',
+                    'Точки входа: `@salutejs/sdds-netology` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-netology/styled-components` — нужен styled-components@5.3.11.',
                     'Темы: `plasma_b2c__light`, `plasma_b2c__dark` из `@salutejs/plasma-themes`; дизайн-токены — из `@salutejs/plasma-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-netology`.',
                 ].join('\n\n'),

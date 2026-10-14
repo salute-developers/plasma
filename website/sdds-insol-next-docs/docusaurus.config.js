@@ -279,7 +279,7 @@ module.exports = {
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-insol-next @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/sdds-insol-next` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-insol-next/styled-components` — нужен styled-components@5.3.1. Beta-компоненты — из `@salutejs/sdds-insol-next/beta`.',
+                    'Точки входа: `@salutejs/sdds-insol-next` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-insol-next/styled-components` — нужен styled-components@5.3.11. Beta-компоненты — из `@salutejs/sdds-insol-next/beta`.',
                     'Темы: `sdds_insol_next__light`, `sdds_insol_next__dark` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-insol-next`.',
                 ].join('\n\n'),

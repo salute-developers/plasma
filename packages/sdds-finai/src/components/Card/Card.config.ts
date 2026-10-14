@@ -1,5 +1,5 @@
 import { css, cardTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import { surfaceSolidCard } from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { surfaceSolidCard } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {

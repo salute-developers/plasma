@@ -14,16 +14,21 @@ import type {
 import React, { ComponentProps, ForwardedRef } from 'react';
 
 import { config } from './Select.config';
+import { config as clearConfig } from './Select.clear.config';
 import { config as viewModeConfig } from './Select.viewMode.config';
 
 const mergedConfig = mergeConfig(selectConfig, config);
 const SelectDefault = component(mergedConfig);
+
+const mergedConfigClear = mergeConfig(selectConfig, clearConfig);
+const SelectClear = component(mergedConfigClear);
 
 const mergedConfigViewMode = mergeConfig(selectConfig, viewModeConfig);
 const SelectViewMode = component(mergedConfigViewMode);
 
 const SelectNewHope = createConditionalComponent({
     default: SelectDefault,
+    clear: SelectClear,
     viewMode: SelectViewMode,
 });
 
@@ -35,7 +40,7 @@ export type SelectProps<K extends SelectItemOption> = DistributiveOmit<
         ComponentProps<typeof SelectDefault>,
         'size' | 'view' | 'chipView' | 'hintView' | 'hintSize' | 'labelPlacement'
     > & {
-        appearance?: 'default' | 'viewMode';
+        appearance?: 'default' | 'clear' | 'viewMode';
     };
 
 const SelectComponent = <K extends SelectItemOption>(props: SelectProps<K>, ref: ForwardedRef<HTMLButtonElement>) => {

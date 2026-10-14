@@ -24,15 +24,10 @@ export const useResizeObserver = <T extends HTMLElement>(
             });
         });
 
-        resizeObserver.observe(ref.current);
+        resizeObserver.observe(current);
 
         return () => {
-            /* istanbul ignore if: убираем проверку на рефы из покрытия */
-            if (!ref?.current) {
-                return;
-            }
-
-            resizeObserver.unobserve(ref.current);
+            resizeObserver.disconnect();
         };
     }, [ref]);
 };

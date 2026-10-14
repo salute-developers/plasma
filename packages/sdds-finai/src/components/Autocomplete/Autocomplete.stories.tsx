@@ -100,10 +100,14 @@ const meta: Meta<StoryProps> = {
     component: Autocomplete,
     argTypes: {
         appearance: {
-            options: ['default', 'viewMode'],
+            options: ['default', 'clear', 'viewMode'],
             control: {
                 type: 'select',
             },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: { arg: 'appearance', eq: 'clear' },
         },
         view: {
             options: views,
@@ -122,6 +126,9 @@ const meta: Meta<StoryProps> = {
             control: {
                 type: 'inline-radio',
             },
+        },
+        titleCaption: {
+            control: { type: 'text' },
         },
         keepPlaceholder: {
             control: {
@@ -220,12 +227,14 @@ const meta: Meta<StoryProps> = {
     },
     args: {
         appearance: 'default',
+        hasDivider: false,
         view: 'default',
         size: 's',
         labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
         label: 'Label',
+        titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',

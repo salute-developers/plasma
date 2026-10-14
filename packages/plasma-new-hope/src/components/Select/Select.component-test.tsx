@@ -245,11 +245,29 @@ const componentProps = {
 
 getBaseVisualTests({
     component: 'Select',
-    componentProps,
+    componentProps: {
+        ...componentProps,
+        titleCaption: 'Подпись к полю',
+    },
     configPropsForMatrix: ['view', 'size', 'labelPlacement'],
     excludePropsValues: {
         view: ['accent', 'secondary', 'clear', 'dark', 'black', 'white'],
     },
+});
+
+getBaseVisualTests({
+    component: 'Select',
+    componentProps: {
+        ...componentProps,
+        appearance: 'clear',
+        hasDivider: true,
+    },
+    propsForName: ['appearance=clear', 'hasDivider=true'],
+    configPropsForMatrix: ['view', 'size', 'labelPlacement'],
+    excludePropsValues: {
+        view: ['accent', 'secondary', 'clear', 'dark', 'black', 'white'],
+    },
+    packagesForSkip: ['sdds-os', 'sdds-scan', 'sdds-platform-ai', 'sdds-sbcom', 'plasma-homeds'],
 });
 
 getBaseVisualTests({
@@ -266,6 +284,7 @@ const multiSelectComponentProps = {
     items,
     id: 'select',
     label: 'Label',
+    titleCaption: 'Подпись к полю',
     multiselect: true,
 };
 
@@ -315,6 +334,7 @@ describeFn('Select', () => {
                     label="Label"
                     placeholder="Placeholder"
                     helperText="Helper text"
+                    titleCaption="Подпись к полю"
                     {...props}
                 />
                 <Select
@@ -325,6 +345,7 @@ describeFn('Select', () => {
                     label="Label"
                     placeholder="Placeholder"
                     helperText="Helper text"
+                    titleCaption="Подпись к полю"
                     {...props}
                 />
             </div>
@@ -676,6 +697,52 @@ describeFn('Select', () => {
         cy.get('#single input').should('have.value', 'Рио-де-Жанейро');
     });
 
+    (['outer', 'inner'] as const).forEach((labelPlacement) => {
+        (['hover', 'click'] as const).forEach((hintTrigger) => {
+            it(`click targets: labelPlacement=${labelPlacement}, hintTrigger=${hintTrigger}`, () => {
+                const onToggle = cy.stub().as('onToggle');
+                const onLinkClick = cy.stub().as('onLinkClick');
+
+                mount(
+                    <Select
+                        items={items}
+                        label="Field label"
+                        labelPlacement={labelPlacement}
+                        helperText={
+                            <a href="#instructions" onClick={onLinkClick}>
+                                Instructions
+                            </a>
+                        }
+                        hintText="Field hint"
+                        hintTrigger={hintTrigger}
+                        hintTargetPlacement={labelPlacement}
+                        hintTargetIcon={<span data-testid="hint-icon">?</span>}
+                        onToggle={onToggle}
+                    />,
+                );
+
+                cy.contains('Instructions').click();
+                cy.get('@onLinkClick').should('have.been.calledOnce');
+                cy.get('[data-testid="hint-icon"]').click();
+                if (hintTrigger === 'hover') {
+                    cy.get('[data-testid="hint-icon"]').trigger('mouseover');
+                }
+                cy.contains('Field hint').should('be.visible').click({ force: true });
+                cy.get('@onToggle').should('not.have.been.called');
+                cy.get('[id$="tree_level_1"]').should('not.exist');
+
+                cy.contains('label', 'Field label').click({ force: labelPlacement === 'inner' });
+                cy.get('[id$="tree_level_1"]').should('be.visible');
+                cy.get('@onToggle').should('have.been.calledOnce');
+
+                cy.get('input').first().focus().pressKey('Escape');
+                cy.get('.input-wrapper').click(8, 8);
+                cy.get('[id$="tree_level_1"]').should('be.visible');
+                cy.get('@onToggle').its('callCount').should('equal', 3);
+            });
+        });
+    });
+
     it('onToggle', () => {
         cy.viewport(400, 300);
 
@@ -833,7 +900,7 @@ describeFn('Select', () => {
 
         mount(<Component />);
 
-        cy.get('#select').click('bottomRight');
+        cy.get('#select .input-wrapper').click('right');
         cy.contains('div', 'Южная Америка').click();
         cy.contains('div', 'Бразилия').click();
 
@@ -864,7 +931,7 @@ describeFn('Select', () => {
 
         mount(<Component />);
 
-        cy.get('#select').click('bottomRight');
+        cy.get('#select .input-wrapper').click('right');
         cy.contains('div', 'Южная Америка').click();
         cy.contains('div', 'Бразилия').click();
 
@@ -921,11 +988,11 @@ describeFn('Select', () => {
 
         mount(<Component />);
 
-        cy.get('#select').click('bottomRight');
+        cy.get('#select .input-wrapper').click('right');
         cy.get('[id$="item1"]').click();
         cy.get('[id$="item2"]').click();
         cy.get('#list2').click();
-        cy.get('#select').click('bottomRight');
+        cy.get('#select .input-wrapper').click('right');
         cy.get('[id$="item4"]').click();
         cy.get('button').contains('Item 2').click();
         cy.get('@onChange').its('lastCall.args.0').should('deep.equal', ['item4', 'item1']);
@@ -1302,7 +1369,7 @@ describeFn('Select', () => {
 
         mount(<Component />);
 
-        cy.get('#select').click('bottomRight');
+        cy.get('#select .input-wrapper').click('right');
         cy.get('[id$="brazil"]').click();
         cy.get('[id$="brazil"] .checkbox-trigger').click();
 
@@ -1355,7 +1422,7 @@ describeFn('Select', () => {
 
         mount(<Component />);
 
-        cy.get('#select').click('bottomRight');
+        cy.get('#select .input-wrapper').click('right');
         cy.get('[id$="brazil"]').should('have.attr', 'aria-selected', 'true');
 
         cy.get('[id$="brazil"]').click();
@@ -1768,9 +1835,9 @@ describeFn('Select', () => {
         cy.get('#textfield-single').click();
         cy.get('ul[role="tree"]').should('not.exist');
 
-        cy.get('#textfield-multiple').click({ position: 'topLeft' });
+        cy.get('#textfield-multiple .input-wrapper').click('right');
         cy.get('ul[role="tree"]').should('be.visible');
-        cy.get('#textfield-multiple').click({ position: 'topLeft' });
+        cy.get('#textfield-multiple .input-wrapper').click('right');
         cy.get('ul[role="tree"]').should('not.exist');
         cy.get('#textfield-multiple').click({ position: 'center' });
         cy.get('ul[role="tree"]').should('not.exist');
@@ -2073,7 +2140,7 @@ describeFn('Select', () => {
         );
 
         cy.get('#uncontrolled-single input').should('have.value', 'Северная Америка');
-        cy.get('#uncontrolled-single').click('bottomRight');
+        cy.get('#uncontrolled-single .input-wrapper').click('right');
         cy.contains('li', 'Южная Америка').click();
         cy.contains('li', 'Бразилия').click();
         cy.contains('li', 'Сан-Паулу').click();
@@ -2084,7 +2151,7 @@ describeFn('Select', () => {
         });
 
         cy.get('#uncontrolled-multiple .chips-wrapper').contains('Северная Америка').should('exist');
-        cy.get('#uncontrolled-multiple').click('bottomRight');
+        cy.get('#uncontrolled-multiple .input-wrapper').click('right');
         cy.contains('li', 'Южная Америка').click();
         cy.contains('li', 'Бразилия').click();
         cy.contains('li', 'Сан-Паулу').click();

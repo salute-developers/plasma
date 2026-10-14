@@ -36,6 +36,10 @@ type RightContent =
 
 type CustomButtonProps = {
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Текстовая надпись
      */
     text?: string;
@@ -91,12 +95,6 @@ type CustomButtonProps = {
      * Свойство задает скругление border-radius
      */
     pin?: Pin;
-    /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default default
-     */
-    appearance?: 'default' | 'outline';
     /**
      * Вид кнопки
      */

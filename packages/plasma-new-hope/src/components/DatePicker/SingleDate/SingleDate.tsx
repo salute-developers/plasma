@@ -100,6 +100,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                 // calendar
                 format = 'DD.MM.YYYY',
                 lang = 'ru',
+                periodSelectorAlign,
                 maskWithFormat,
                 min,
                 max,
@@ -348,6 +349,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                             <StyledInput
                                 ref={inputForkRef}
                                 inputWrapperRef={referenceRef as Ref<HTMLDivElement>}
+                                _onFieldClick={(event: MouseEvent<HTMLDivElement>) => handleToggle(true, event)}
                                 className={cls(datePickerErrorClass, datePickerSuccessClass, datePickerEditedClass)}
                                 value={inputValue}
                                 size={size}
@@ -440,6 +442,7 @@ export const datePickerRoot = (Root: RootProps<HTMLDivElement, RootDatePickerPro
                                     includeEdgeDates={includeEdgeDates}
                                     isRange={false}
                                     locale={lang}
+                                    periodSelectorAlign={periodSelectorAlign}
                                     onChangeValue={handleCalendarPick}
                                     onChangeVisibleDate={onChangeVisibleDate}
                                 />

@@ -58,6 +58,7 @@ export const timePickerRoot = (
                 // layout
                 label,
                 labelPlacement = 'outer',
+                titleCaption,
                 keepPlaceholder,
                 required = false,
                 requiredPlacement = 'right',
@@ -416,6 +417,7 @@ export const timePickerRoot = (
                                 hasRequiredIndicator={hasRequiredIndicator}
                                 label={label}
                                 labelPlacement={labelPlacement}
+                                titleCaption={titleCaption}
                                 keepPlaceholder={keepPlaceholder}
                                 {...(hintText
                                     ? {

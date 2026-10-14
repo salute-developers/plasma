@@ -35,20 +35,16 @@ export const createMeta = ({
         view: {
             options: componentConfig.views,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         size: {
             options: componentConfig.sizes,
             control: { type: 'select' },
-            table: { category: 'variation' },
         },
         showItems: {
             control: { type: 'number' },
-            table: { category: 'content' },
         },
         items: {
             control: { type: 'object' },
-            table: { category: 'content' },
         },
         ...additionalArgTypes,
         ...disableProps([...commonDisabledArgs, ...disablePropsList]),

@@ -7,9 +7,12 @@ import { tokens, classes } from '../../../../Select.tokens';
 
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
+const placeholderColorHover = `var(${tokens.textFieldPlaceholderColorHover}, var(${tokens.textFieldPlaceholderColor}))`;
+const openedValueColor = `var(${tokens.textFieldColorFocus}, var(${tokens.textFieldColor}))`;
 
 export const StyledTextField = styled(TextField)<{ opened: boolean }>`
-    ${textFieldTokens.color}: var(${tokens.textFieldColor});
+    ${textFieldTokens.color}: ${({ opened }) => (opened ? openedValueColor : `var(${tokens.textFieldColor})`)};
+    ${textFieldTokens.colorFocus}: var(${tokens.textFieldColorFocus});
     ${textFieldTokens.backgroundColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
     ${textFieldTokens.borderColor}: ${({ opened }) =>
@@ -27,14 +30,24 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.placeholderColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.placeholderColorHover}: ${placeholderColorHover};
     ${textFieldTokens.placeholderColorFocus}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.clearPlaceholderColor}: var(${tokens.textFieldClearPlaceholderColor});
+    ${textFieldTokens.clearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
 
     ${textFieldTokens.backgroundColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColorHover})`};
     ${textFieldTokens.borderColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+
+    ${textFieldTokens.dividerColor}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldDividerColorFocus})` : `var(${tokens.textFieldDividerColor})`};
+    ${textFieldTokens.dividerColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldDividerColorFocus})` : `var(${tokens.textFieldDividerColorHover})`};
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
 
     ${textFieldTokens.optionalColor}: var(${tokens.textFieldOptionalColor});
 
@@ -87,6 +100,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.contentLabelInnerPadding}: var(${tokens.textFieldContentLabelInnerPadding});
 
     ${textFieldTokens.titleCaptionColor}: var(${tokens.textFieldTitleCaptionColor});
+    ${textFieldTokens.titleCaptionMargin}: var(${tokens.textFieldTitleCaptionMargin});
     ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.textFieldTitleCaptionInnerLabelOffset});
 
     ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.textFieldTitleCaptionFontFamily});
@@ -96,7 +110,7 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.titleCaptionLetterSpacing}: var(${tokens.textFieldTitleCaptionLetterSpacing});
     ${textFieldTokens.titleCaptionLineHeight}: var(${tokens.textFieldTitleCaptionLineHeight});
 
-    ${textFieldTokens.leftHelperPadding}: var(${tokens.textFieldLeftHelperPadding});
+    ${textFieldTokens.leftHelperOffset}: var(${tokens.textFieldLeftHelperOffset});
 
     ${textFieldTokens.leftHelperFontFamily}: var(${tokens.textFieldLeftHelperFontFamily});
     ${textFieldTokens.leftHelperFontStyle}: var(${tokens.textFieldLeftHelperFontStyle});

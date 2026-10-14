@@ -3,7 +3,6 @@ name: PR theme-builder
 on:
   pull_request:
     branches:
-      - dev
       - master
 
 concurrency:

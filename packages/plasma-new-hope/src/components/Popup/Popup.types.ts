@@ -92,6 +92,10 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
                */
               defaultSize?: { width?: number; height?: number };
               /**
+               * Размер окна в контролируемом режиме в px.
+               */
+              size?: { width?: number; height?: number };
+              /**
                * Минимальная ширина ресайза в px.
                */
               minWidth?: number;
@@ -130,6 +134,10 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
                * Обработчик начала ресайза.
                */
               onResizeStart?: (resizableContainer?: RefObject<ResizableType>) => void;
+              /**
+               * Обработчик изменения размера. Текущий размер доступен в resizableContainer.current.size.
+               */
+              onResize?: (resizableContainer?: RefObject<ResizableType>) => void;
               /**
                * Обработчик остановки ресайза.
                */

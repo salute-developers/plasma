@@ -88,6 +88,7 @@ describe('Basics', () => {
         expectTypeOf<SelectProps>().toHaveProperty('chipType').toEqualTypeOf<'default' | 'text' | undefined>();
         expectTypeOf<SelectProps>().toHaveProperty('chipClickArea').toEqualTypeOf<'full' | 'close-icon' | undefined>();
         expectTypeOf<SelectProps>().toHaveProperty('label').toEqualTypeOf<string | undefined>();
+        expectTypeOf<SelectProps>().toHaveProperty('titleCaption').toEqualTypeOf<ReactNode | undefined>();
         expectTypeOf<SelectProps>().toHaveProperty('keepPlaceholder').toEqualTypeOf<boolean | undefined>();
 
         expectTypeOf<SelectProps>().toHaveProperty('required').toEqualTypeOf<boolean | undefined>();
@@ -152,6 +153,8 @@ describe('Basics', () => {
         type HintSize = NonNullable<SelectProps['hintSize']>;
         expectTypeOf<HintSize>().toExtend<string>();
         expectTypeOf<string>().not.toExtend<HintSize>();
+
+        expectTypeOf<'clear'>().toExtend<NonNullable<SelectProps['appearance']>>();
     });
 
     it('HTMLButtonElement', () => {
@@ -185,6 +188,8 @@ describe('Unions', () => {
     it('Target', () => {
         expectTypeOf<SelectProps>({ items: [], target: 'textfield-like', contentLeft: null, helperText: 'helper' });
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', label: 'Label', placeholder: 'Choose value' });
+        expectTypeOf<SelectProps>({ items: [], appearance: 'clear', hasDivider: true });
+        expectTypeOf<SelectProps>({ items: [], appearance: 'default' });
 
         // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', contentLeft: null });
@@ -193,9 +198,13 @@ describe('Unions', () => {
         // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', helperText: 'helper' });
         // @ts-expect-error
+        expectTypeOf<SelectProps>({ items: [], target: 'button-like', titleCaption: 'Caption' });
+        // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', required: true });
         // @ts-expect-error
         expectTypeOf<SelectProps>({ items: [], target: 'button-like', hintText: 'hint' });
+        // @ts-expect-error
+        expectTypeOf<SelectProps>({ items: [], target: 'button-like', hasDivider: true });
     });
 
     it('IsMultiselect', () => {
@@ -344,6 +353,7 @@ describe('Examples', () => {
                         value={singleValue}
                         onChange={setSingleValue}
                         label="Single"
+                        titleCaption="Подпись к полю"
                         placeholder="Placeholder"
                         helperText="Helper text"
                     />

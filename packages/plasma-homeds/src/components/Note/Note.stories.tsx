@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
-import { getNoteStories } from '@salutejs/plasma-sb-utils';
+import { getNoteStories, exampleOnly } from '@salutejs/plasma-sb-utils';
 
 import { LinkButton } from '../LinkButton/LinkButton';
 
@@ -20,10 +20,9 @@ const { meta: META, Default } = getNoteStories({
         enableContentAfter: false,
     },
     additionalArgTypes: {
-        enableContentAfter: {
-            control: { type: 'boolean' },
-            table: { category: 'layout' },
-        },
+        ...exampleOnly({
+            enableContentAfter: { control: { type: 'boolean' } },
+        }),
     },
     disablePropsList: ['size'],
     getIconSize: (_size, isScalable) => (isScalable ? 's' : 'xs'),

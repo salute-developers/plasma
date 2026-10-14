@@ -1,0 +1,70 @@
+name: Request canary publication
+
+on:
+    issue_comment:
+        types:
+            - created
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.issue.number }}
+    cancel-in-progress: false
+
+jobs:
+    authorize-canary:
+        name: Authorize and dispatch canary publication
+        if: |
+            github.event.issue.pull_request &&
+            github.event.comment.body == '/release-canary'
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write # запустить Publish npm через workflow_dispatch
+            contents: read
+            pull-requests: read
+        steps:
+            - name: Check author permission and dispatch canary
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const allowedPermissions = new Set(['write', 'maintain', 'admin']);
+                      const pullNumber = context.issue.number;
+                      const username = context.payload.comment.user.login;
+
+                      const { data: access } = await github.rest.repos.getCollaboratorPermissionLevel({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          username,
+                      });
+
+                      if (!allowedPermissions.has(access.permission)) {
+                          core.setFailed(`@${username} does not have permission to publish canary versions.`);
+                          return;
+                      }
+
+                      const { data: pull } = await github.rest.pulls.get({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          pull_number: pullNumber,
+                      });
+
+                      if (pull.state !== 'open') {
+                          core.setFailed(`Pull request #${pullNumber} is not open.`);
+                          return;
+                      }
+
+                      if (pull.head.repo?.full_name !== `${context.repo.owner}/${context.repo.repo}`) {
+                          core.setFailed('Canary publication is allowed only for pull requests from this repository.');
+                          return;
+                      }
+
+                      // Публикуем в новом workflow_dispatch: workflow_call сохранил бы issue_comment.
+                      await github.rest.actions.createWorkflowDispatch({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          workflow_id: 'publish-npm.yml',
+                          ref: context.payload.repository.default_branch,
+                          inputs: {
+                              release: 'canary',
+                              'pull-request-number': String(pullNumber),
+                              'expected-head-sha': pull.head.sha,
+                          },
+                      });

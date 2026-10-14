@@ -1,32 +1,42 @@
 import React, { forwardRef } from 'react';
+import { safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines/types';
 
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { SpinnerRing, BodyWrapper, base } from './Spinner.styles';
-import { classes } from './Spinner.tokens';
+import { SpinnerSvg } from './SpinnerSvg';
+import { SpinnerWrapper, base } from './Spinner.styles';
 import type { SpinnerProps } from './Spinner.types';
-
-const scalingPixelBasis = 16;
+import { useInnerProps } from './hooks';
 
 export const spinnerRoot = (Root: RootProps<HTMLDivElement, SpinnerProps>) =>
     forwardRef<HTMLDivElement, SpinnerProps>((props, ref) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { size, width, height, color, deviceScale, strokeSize, children, style, ...rest } = props;
+        const { id, width, height, style, ...rest } = props;
 
-        const legacySize = typeof size === 'number' ? `${size / scalingPixelBasis}rem` : undefined;
-        const legacyWidth = width ?? legacySize;
-        const legacyHeight = height ?? legacySize;
+        const innerProps = useInnerProps(props, {
+            wrapperWidth: 'auto',
+            wrapperHeight: 'auto',
+            svgWidth: 'var(--plasma-spinner-size)',
+            svgHeight: 'var(--plasma-spinner-size)',
+            color: 'currentColor',
+        });
+
+        const uniqId = safeUseId;
+        const innerId = id || uniqId();
+
+        const rootStyle =
+            width && height ? { ...style, width: innerProps.wrapperWidth, height: innerProps.wrapperHeight } : style;
 
         return (
-            <Root
-                ref={ref}
-                size={legacyWidth || legacyHeight ? undefined : size}
-                {...rest}
-                style={{ width: legacyWidth, height: legacyHeight, color, ...style }}
-            >
-                {strokeSize !== 0 && <SpinnerRing className={classes.spinnerRing} customStrokeSize={strokeSize} />}
-                {children && <BodyWrapper>{children}</BodyWrapper>}
+            <Root ref={ref} id={innerId} {...rest} style={rootStyle}>
+                <SpinnerWrapper width={innerProps.wrapperWidth} height={innerProps.wrapperHeight}>
+                    <SpinnerSvg
+                        id={innerId}
+                        width={innerProps.svgWidth}
+                        height={innerProps.svgHeight}
+                        color={innerProps.color}
+                    />
+                </SpinnerWrapper>
             </Root>
         );
     });

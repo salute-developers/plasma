@@ -1,4 +1,6 @@
 import { Header, SiteFooter, SiteLink } from '../shared';
+import { publicPath } from '../paths';
+import { newsEnabled } from '../features';
 
 export default function BuilderPage() {
     return (
@@ -36,7 +38,7 @@ export default function BuilderPage() {
                     <div className="shell">
                         <figure>
                             <img
-                                src="/media/builder/palette.webp"
+                                src={publicPath('/media/builder/palette.webp')}
                                 alt="Экран палитры в DS Builder: дерево семейств, рампы ступеней и инспектор со связанными токенами"
                                 width="2880"
                                 height="1600"
@@ -107,7 +109,7 @@ export default function BuilderPage() {
 
                     <figure className="shot">
                         <img
-                            src="/media/builder/color-tokens.webp"
+                            src={publicPath('/media/builder/color-tokens.webp')}
                             alt="Экран цветовых токенов: дерево семантических токенов, превью пар Light и Dark, инспектор с темами по умолчанию и подтемами"
                             loading="lazy"
                         />
@@ -612,24 +614,26 @@ export default function BuilderPage() {
                             </span>
                         </SiteLink>
 
-                        <SiteLink className="doc-card" href="/news">
-                            <span className="doc-card-media">
-                                <svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <path d="M6 3h8l4 4v14H6zM14 3v4h4" />
-                                    <path d="M9 12h6M9 16h4" />
-                                </svg>
-                            </span>
-
-                            <span className="doc-card-body">
-                                <span className="doc-card-head">
-                                    <b>Что меняется</b>
+                        {newsEnabled && (
+                            <SiteLink className="doc-card" href="/news">
+                                <span className="doc-card-media">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M6 3h8l4 4v14H6zM14 3v4h4" />
+                                        <path d="M9 12h6M9 16h4" />
+                                    </svg>
                                 </span>
 
-                                <p>Релизы системы и билдера: новые возможности, исправления и правила миграции.</p>
+                                <span className="doc-card-body">
+                                    <span className="doc-card-head">
+                                        <b>Что меняется</b>
+                                    </span>
 
-                                <span className="doc-card-foot">Новости портала</span>
-                            </span>
-                        </SiteLink>
+                                    <p>Релизы системы и билдера: новые возможности, исправления и правила миграции.</p>
+
+                                    <span className="doc-card-foot">Новости портала</span>
+                                </span>
+                            </SiteLink>
+                        )}
                     </div>
                 </div>
             </section>

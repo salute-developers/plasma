@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import {
     hintViews,
@@ -85,52 +85,38 @@ export const createMeta = ({
             appearance: {
                 options: appearances,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             size: {
                 options: componentConfig.sizes,
                 control: { type: 'select' },
-                table: { category: 'variation' },
             },
             disabled: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
             },
             readOnly: {
                 control: { type: 'boolean' },
-                table: { category: 'variation' },
-            },
-            initialValue: {
-                control: { type: 'number' },
-                table: { category: 'value-related' },
             },
             thousandsGroupStyle: {
                 options: thousandsGroupStyles,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             thousandSeparator: {
                 options: thousandSeparators,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             decimalScale: {
                 control: { type: 'number' },
-                table: { category: 'value-related' },
             },
             decimalSeparator: {
                 options: decimalSeparators,
                 control: { type: 'select' },
-                table: { category: 'value-related' },
             },
             fixedDecimalScale: {
                 control: { type: 'boolean' },
-                table: { category: 'value-related' },
             },
             requiredPlacement: {
                 options: requiredPlacements,
@@ -139,7 +125,6 @@ export const createMeta = ({
                     arg: 'optional',
                     truthy: false,
                 },
-                table: { category: 'form-related' },
             },
             required: {
                 control: { type: 'boolean' },
@@ -147,7 +132,6 @@ export const createMeta = ({
                     arg: 'optional',
                     truthy: false,
                 },
-                table: { category: 'form-related' },
             },
             hasRequiredIndicator: {
                 control: { type: 'boolean' },
@@ -155,7 +139,6 @@ export const createMeta = ({
                     arg: 'required',
                     truthy: true,
                 },
-                table: { category: 'form-related' },
             },
             optional: {
                 control: { type: 'boolean' },
@@ -163,7 +146,6 @@ export const createMeta = ({
                     arg: 'required',
                     truthy: false,
                 },
-                table: { category: 'form-related' },
             },
             optionalText: {
                 control: { type: 'text' },
@@ -171,28 +153,22 @@ export const createMeta = ({
                     arg: 'required',
                     truthy: false,
                 },
-                table: { category: 'layout' },
             },
             textBefore: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             textAfter: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             placeholder: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             label: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
             },
             labelPlacement: {
                 options: labelPlacements,
                 control: { type: 'inline-radio' },
-                table: { category: 'layout' },
             },
             keepPlaceholder: {
                 control: { type: 'boolean' },
@@ -200,23 +176,9 @@ export const createMeta = ({
                     arg: 'labelPlacement',
                     eq: 'inner',
                 },
-                table: { category: 'layout' },
             },
             titleCaption: {
                 control: { type: 'text' },
-                table: { category: 'layout' },
-            },
-            enableContentLeft: {
-                control: { type: 'boolean' },
-                table: { category: 'layout' },
-            },
-            enableContentRight: {
-                control: { type: 'boolean' },
-                table: { category: 'layout' },
-            },
-            hasHint: {
-                control: { type: 'boolean' },
-                table: { category: 'hint' },
             },
             hintText: {
                 control: { type: 'text' },
@@ -224,7 +186,6 @@ export const createMeta = ({
                     arg: 'hasHint',
                     truthy: true,
                 },
-                table: { category: 'hint' },
             },
             hintView: {
                 options: hintViews,
@@ -233,7 +194,6 @@ export const createMeta = ({
                     arg: 'hasHint',
                     truthy: true,
                 },
-                table: { category: 'hint' },
             },
             hintSize: {
                 options: hintSizes,
@@ -242,7 +202,6 @@ export const createMeta = ({
                     arg: 'hasHint',
                     truthy: true,
                 },
-                table: { category: 'hint' },
             },
             hintTargetPlacement: {
                 options: hintTargetPlacements,
@@ -251,7 +210,6 @@ export const createMeta = ({
                     arg: 'hasHint',
                     truthy: true,
                 },
-                table: { category: 'hint' },
             },
             hintTrigger: {
                 options: hintTriggers,
@@ -260,7 +218,6 @@ export const createMeta = ({
                     arg: 'hasHint',
                     truthy: true,
                 },
-                table: { category: 'hint' },
             },
             hintPlacement: {
                 options: placements,
@@ -270,7 +227,6 @@ export const createMeta = ({
                     truthy: true,
                 },
                 mappers: placements,
-                table: { category: 'hint' },
             },
             hintHasArrow: {
                 control: { type: 'boolean' },
@@ -278,7 +234,6 @@ export const createMeta = ({
                     arg: 'hasHint',
                     truthy: true,
                 },
-                table: { category: 'hint' },
             },
             hintWidth: {
                 control: { type: 'text' },
@@ -286,37 +241,43 @@ export const createMeta = ({
                     arg: 'hasHint',
                     truthy: true,
                 },
-                table: { category: 'hint' },
             },
             sliderView: {
                 options: sliderViews,
                 control: { type: 'select' },
-                table: { category: 'slider' },
             },
             min: {
                 control: { type: 'number' },
-                table: { category: 'slider' },
             },
             max: {
                 control: { type: 'number' },
-                table: { category: 'slider' },
             },
             step: {
                 control: { type: 'number' },
-                table: { category: 'slider' },
             },
             hasScale: {
                 control: { type: 'boolean' },
-                table: { category: 'slider' },
-            },
-            enableScaleTicks: {
-                control: { type: 'boolean' },
-                table: { category: 'slider' },
             },
             hasPointer: {
                 control: { type: 'boolean' },
-                table: { category: 'slider' },
             },
+            ...exampleOnly({
+                initialValue: {
+                    control: { type: 'number' },
+                },
+                enableContentLeft: {
+                    control: { type: 'boolean' },
+                },
+                enableContentRight: {
+                    control: { type: 'boolean' },
+                },
+                hasHint: {
+                    control: { type: 'boolean' },
+                },
+                enableScaleTicks: {
+                    control: { type: 'boolean' },
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),
         },

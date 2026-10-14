@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import { defaultMaxDate, defaultMinDate, eventTooltipSizes, locales } from './fixtures';
 
@@ -32,21 +32,23 @@ export const createMeta = ({
             displayDouble: false,
             locale: 'ru',
             stretched: false,
+            periodSelectorAlign: 'start',
             enableEventTooltip: true,
             eventTooltipSize: 'm',
             ...defaultArgs,
         },
         argTypes: {
+            periodSelectorAlign: {
+                options: ['start', 'center'],
+                control: { type: 'select' },
+                if: { arg: 'displayDouble', eq: false },
+            },
             view: {
                 options: componentConfig.views,
                 control: { type: 'select' },
             },
             size: {
                 options: componentConfig.sizes,
-                control: { type: 'select' },
-            },
-            eventTooltipSize: {
-                options: eventTooltipSizes,
                 control: { type: 'select' },
             },
             min: {
@@ -59,6 +61,14 @@ export const createMeta = ({
                 options: locales,
                 control: { type: 'select' },
             },
+            ...exampleOnly({
+                eventTooltipSize: {
+                    options: eventTooltipSizes,
+                    control: { type: 'select' },
+                },
+                displayDouble: { control: { type: 'boolean' } },
+                enableEventTooltip: { control: { type: 'boolean' } },
+            }),
             ...additionalArgTypes,
             ...disableProps(disablePropsList),
         },

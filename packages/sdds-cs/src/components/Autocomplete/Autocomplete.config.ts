@@ -49,6 +49,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textSecondary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textSecondary};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
@@ -68,7 +69,7 @@ export const config = {
 
                 ${tokens.background}: ${surfaceSolidCard};
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.itemBackground}: var(--plasma-colors-transparent);
+                ${tokens.itemBackground}: ${surfaceClear};
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentAccent};
                 ${tokens.itemColor}: ${textPrimary};
 
@@ -92,6 +93,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textSecondary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
@@ -111,7 +113,7 @@ export const config = {
 
                 ${tokens.background}: ${surfaceSolidCard};
                 ${tokens.boxShadow}: 0px 4px 14px -4px rgba(8, 8, 8, 0.08), 0px 1px 4px -1px rgba(0, 0, 0, 0.04);
-                ${tokens.itemBackground}: var(--plasma-colors-transparent);
+                ${tokens.itemBackground}: ${surfaceClear};
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentAccent};
                 ${tokens.itemColor}: ${textPrimary};
 
@@ -147,6 +149,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldTitleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldTitleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldTitleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyS.fontFamily};
@@ -192,7 +201,7 @@ export const config = {
         },
         labelPlacement: {
             inner: css`
-                ${tokens.textFieldPlaceholderColor}: var(--plasma-input-label-color, var(--plasma-input-placeholder-color, var(--plasma-colors-secondary)));
+                ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldLabelInnerFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLabelInnerFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLabelInnerFontStyle}: ${bodyXS.fontStyle};
@@ -223,6 +232,7 @@ export const config = {
                 ${tokens.textFieldBorderColorReadOnly}: ${surfaceClear};
                 ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColorReadOnly}: ${textSecondary};
+                ${tokens.textFieldTitleCaptionColorReadOnly}: ${textSecondary};
                 ${tokens.textFieldLabelColorReadOnly}: ${textSecondary};
                 ${tokens.textFieldBorderColor}: transparent;
                 ${tokens.textFieldBorderWidth}: 0;

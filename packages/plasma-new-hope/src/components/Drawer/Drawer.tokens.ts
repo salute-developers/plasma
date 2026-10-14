@@ -23,12 +23,32 @@ export const privateTokens = {
 };
 
 export const tokens = {
+    /** @styleType color */
     drawerOverlayWithBlurColor: '--plasma-drawer-overlay-with-blur-color',
+    /** @styleType color */
     drawerOverlayColor: '--plasma-drawer-overlay-color',
+    /** @styleType color */
     background: '--plasma-drawer-background',
+    /** @styleType value */
     shadow: '--plasma-drawer-shadow',
+    /** @styleType color */
     contentBackgroundColor: '--plasma-drawer-content-background-color',
+    /** @styleType dimension */
     padding: '--plasma-drawer-padding',
+    /** @styleType dimension */
     borderRadius: '--plasma-drawer-border-radius',
+    /** @styleType color */
     closeIconColor: '--plasma-drawer-close-icon-color',
+    /** @styleType dimension */
+    scrollbarWidth: '--plasma-drawer-scrollbar-width',
+    /** @styleType dimension */
+    scrollbarOffsetRight: '--plasma-drawer-scrollbar-offset-right',
+    /** @styleType color */
+    scrollbarThumbBackgroundColor: '--plasma-drawer-scrollbar-thumb-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorHover: '--plasma-drawer-scrollbar-thumb-background-color-hover',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorActive: '--plasma-drawer-scrollbar-thumb-background-color-active',
+    /** @styleType color */
+    scrollbarTrackBackgroundColor: '--plasma-drawer-scrollbar-track-background-color',
 };

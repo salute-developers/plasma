@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_finai__dark, sdds_finai__light } from '@salutejs/sdds-themes';
+import { sdds_finai__dark, sdds_finai__light } from '@sddsjs/sdds_finai';
 import {
     InSpacingDecorator,
     getGroupedTypographyTokens,

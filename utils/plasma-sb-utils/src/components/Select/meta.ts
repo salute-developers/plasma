@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 import {
     variant,
@@ -38,6 +38,7 @@ export const createMeta = ({
         args: {
             target: 'textfield-like',
             label: 'Label',
+            titleCaption: 'Подпись к полю',
             labelPlacement: 'outer',
             placeholder: 'Placeholder',
             helperText: 'Helper text',
@@ -116,15 +117,15 @@ export const createMeta = ({
             listMaxHeight: {
                 control: 'text',
             },
-            helperText: {
+            titleCaption: {
                 control: 'text',
                 if: {
                     arg: 'target',
                     eq: 'textfield-like',
                 },
             },
-            enableContentLeft: {
-                control: 'boolean',
+            helperText: {
+                control: 'text',
                 if: {
                     arg: 'target',
                     eq: 'textfield-like',
@@ -249,6 +250,16 @@ export const createMeta = ({
             emptyStateDescription: {
                 control: 'text',
             },
+            ...exampleOnly({
+                enableContentLeft: {
+                    control: 'boolean',
+                    if: {
+                        arg: 'target',
+                        eq: 'textfield-like',
+                    },
+                },
+                hasHint: { control: { type: 'boolean' } },
+            }),
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),
         },

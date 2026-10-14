@@ -56,6 +56,11 @@ const meta: Meta<ModalProps> = {
                 type: 'text',
             },
         },
+        footerText: {
+            control: {
+                type: 'text',
+            },
+        },
         absoluteHeader: {
             control: {
                 type: 'boolean',
@@ -162,6 +167,7 @@ type StoryModalProps = ComponentProps<typeof Modal> & {
     showImage?: boolean;
     absoluteHeader?: boolean;
     content?: string;
+    footerText?: string;
     draggableDisabled: boolean;
     resizableDisabled: boolean;
     resizableDirections: string[];
@@ -270,6 +276,7 @@ const StoryModalDemo = ({
     showImage = true,
     absoluteHeader = false,
     content = 'Content',
+    footerText,
     size,
     hasClose,
     ...rest
@@ -307,7 +314,7 @@ const StoryModalDemo = ({
                         {showHeader && absoluteHeader && <ModalHeader isAbsolute>{title}</ModalHeader>}
                         <BodyContent>{content}</BodyContent>
                         {showFooter && (
-                            <Footer>
+                            <Footer text={footerText}>
                                 <Button
                                     view="default"
                                     size="m"
@@ -414,6 +421,7 @@ export const Default: StoryObj<StoryModalProps> = {
         absoluteHeader: false,
         footerColumn: false,
         content: 'Content',
+        footerText: 'Text',
     },
     argTypes: {
         hasClose: {

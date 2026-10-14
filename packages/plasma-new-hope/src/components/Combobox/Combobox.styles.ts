@@ -65,7 +65,13 @@ export const StyledArrow = styled(IconDisclosureDownCentered)`
     height: ${({ size = 'xs' }) => `var(${tokens.disclosureIconSize}, ${sizeMap[size]})`};
 `;
 
-export const base = css``;
+// Чипы не сжимаются и раздувают min-content, из-за этого Combobox вылезает из grid/flex.
+// minmax(0, 1fr) и min-width: 0 позволяют сжаться и корню, и внешней ячейке, не обрезая список.
+export const base = css`
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+`;
 
 export const StyledEmptyState = styled(EmptyState)`
     ${emptyStateTokens.borderRadius}: var(${tokens.textFieldBorderRadius});

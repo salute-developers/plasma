@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 
 import { routeManifest } from './routeManifest';
 import { PageEffects } from './effects';
+import { SiteLink } from './shared';
 
 const pages = import.meta.glob<{ default: React.ComponentType }>('./pages/*.tsx', { eager: true });
 
@@ -44,7 +45,7 @@ export default function App() {
                         <main className="section screen page-top">
                             <div className="shell">
                                 <h1>Страница не найдена</h1>
-                                <a href="/">На главную</a>
+                                <SiteLink href="/">На главную</SiteLink>
                             </div>
                         </main>
                     }

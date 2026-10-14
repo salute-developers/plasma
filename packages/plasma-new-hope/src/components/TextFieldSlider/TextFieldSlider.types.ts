@@ -76,6 +76,10 @@ type TextFieldProps = {
 
 export type TextFieldSliderProps = {
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Значение (контролируемый вариант компонента)
      */
     value?: number | string;
@@ -113,12 +117,6 @@ export type TextFieldSliderProps = {
      * Фиксирует количество знаков после запятой, даже если число их не содержит (добавляет нули).
      */
     fixedDecimalScale?: boolean;
-    /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default default
-     */
-    appearance?: 'default' | 'clear';
     /**
      * Размер контрола.
      */

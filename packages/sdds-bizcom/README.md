@@ -33,7 +33,7 @@ $ npm install --save @salutejs/sdds-bizcom @salutejs/sdds-themes
 Для варианта на styled-components:
 
 ```bash
-$ npm install --save styled-components@5.3.1
+$ npm install --save styled-components@5.3.11
 ```
 
 CSS-вариант дополнительных зависимостей не требует.
@@ -47,7 +47,7 @@ CSS-вариант дополнительных зависимостей не т
 | Точка входа                               | Реализация        | Дополнительные зависимости |
 | ----------------------------------------- | ----------------- | -------------------------- |
 | `@salutejs/sdds-bizcom`                   | предсобранный CSS | нет                        |
-| `@salutejs/sdds-bizcom/styled-components` | styled-components | `styled-components@5.3.1`  |
+| `@salutejs/sdds-bizcom/styled-components` | styled-components | `styled-components@5.3.11` |
 
 ```jsx
 import { Button } from '@salutejs/sdds-bizcom';
@@ -121,6 +121,16 @@ export const App = () => {
 import { textAccent } from '@salutejs/sdds-themes/tokens';
 
 <p style={{ color: textAccent }}>Пример использования токена</p>;
+```
+
+## AI-kit
+
+Компоненты для построения AI-интерфейсов доступны из отдельных точек входа с теми же двумя вариантами поставки:
+
+```jsx
+import { Answer } from '@salutejs/sdds-bizcom/ai';
+// или
+import { Answer } from '@salutejs/sdds-bizcom/ai/styled-components';
 ```
 
 ## SSR и Next.js

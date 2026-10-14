@@ -4,6 +4,7 @@ import {
     inverseTextPrimary,
     onDarkTextSecondary,
     surfaceAccent,
+    surfaceSolidCard,
     surfaceSolidDefault,
     surfaceSolidDefaultHover,
     textAccent,
@@ -61,10 +62,10 @@ export const config = {
                 ${tabsTokens.itemBackgroundColorHover}: transparent;
                 ${tabsTokens.itemSelectedColor}: ${textPrimary};
                 ${tabsTokens.itemSelectedValueColor}: ${textSecondary};
-                ${tabsTokens.itemSelectedBackgroundColor}: var(--surface-transparent-card);
+                ${tabsTokens.itemSelectedBackgroundColor}: ${surfaceSolidCard};
                 ${tabsTokens.itemSelectedColorHover}: ${textPrimary};
                 ${tabsTokens.itemSelectedValueColorHover}: ${textSecondary};
-                ${tabsTokens.itemSelectedBackgroundColorHover}: var(--surface-transparent-card);
+                ${tabsTokens.itemSelectedBackgroundColorHover}: ${surfaceSolidCard};
                 ${tabsTokens.itemBackgroundTransition}: background-color 0.3s ease-in-out;
 
                 ${tabsTokens.itemMarginLeftFilled}: 0.125rem;

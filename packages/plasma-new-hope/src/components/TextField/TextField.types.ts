@@ -270,11 +270,9 @@ export type TextFieldPropsBase = {
 
 export type TextFieldProps = {
     /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default default
+     * @internal
      */
-    appearance?: 'default' | 'clear' | 'viewMode';
+    appearance?: string;
     /**
      * Размер контрола.
      */

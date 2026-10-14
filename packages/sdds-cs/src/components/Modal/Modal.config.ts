@@ -15,7 +15,6 @@ export const config = {
         view: {
             default: css`
                 ${modalTokens.modalOverlayWithBlurColor}: rgba(35, 35, 35, 0.2);
-                ${modalTokens.modalOverlayColor}: var(--overlay-soft);
                 ${modalTokens.modalBodyBackground}: ${surfaceSolidCard};
                 ${modalTokens.modalBodyBorderRadius}: 1.25rem;
                 ${modalTokens.modalBodyPadding}: 2rem;

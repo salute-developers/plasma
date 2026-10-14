@@ -61,7 +61,6 @@ export const config = {
         },
         view: {
             default: css`
-                ${tokens.dividerColor}: var(--surface-transparent-tertiary);
                 ${tokens.disabledOpacity}: 0.4;
                 ${tokens.borderColor}: ${outlineSolidPrimary};
                 ${tokens.focusColor}: ${surfaceAccent};

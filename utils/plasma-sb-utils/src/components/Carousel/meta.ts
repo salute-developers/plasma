@@ -1,4 +1,4 @@
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
 type CreateMetaProps = {
     component: any;
@@ -36,6 +36,7 @@ export const createMeta = ({
             paginationCentered: false,
             gap: '20px',
             virtual: false,
+            fullWidth: false,
             ...defaultArgs,
         },
         argTypes: {
@@ -60,12 +61,6 @@ export const createMeta = ({
                     type: 'inline-radio',
                 },
             },
-            slides: {
-                control: 'number',
-            },
-            visibleDots: {
-                control: 'number',
-            },
             controlArrowsDisabled: {
                 control: 'boolean',
             },
@@ -81,18 +76,29 @@ export const createMeta = ({
             swipeEnabled: {
                 control: 'boolean',
             },
-            paginationDisabled: {
-                control: 'boolean',
-            },
-            paginationCentered: {
-                control: 'boolean',
-            },
             gap: {
                 control: 'text',
             },
             virtual: {
                 control: 'boolean',
             },
+            fullWidth: {
+                control: 'boolean',
+            },
+            ...exampleOnly({
+                slides: {
+                    control: 'number',
+                },
+                visibleDots: {
+                    control: 'number',
+                },
+                paginationDisabled: {
+                    control: 'boolean',
+                },
+                paginationCentered: {
+                    control: 'boolean',
+                },
+            }),
             ...additionalArgTypes,
             ...disableProps([...disablePropsList]),
         },

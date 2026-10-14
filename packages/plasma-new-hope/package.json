@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-new-hope",
-  "version": "0.383.0-next-sbcom.0",
+  "version": "0.385.0",
   "description": "Salute Design System blueprint",
   "exports": {
     ".": {
@@ -30,10 +30,7 @@
     },
     "./types/*": "./types/*"
   },
-  "files": [
-    "dist",
-    "types"
-  ],
+  "files": ["dist", "types"],
   "publishConfig": {
     "access": "public"
   },
@@ -44,14 +41,15 @@
     "build:styled-components": "rm -rf dist/styled-components && npm run build:styled-components:esm && npm run build:styled-components:cjs",
     "build:styled-components:cjs": "swc ./src -d ./dist/styled-components/cjs --strip-leading-paths --ignore '**/examples/**,**/components/_beta/**' --config-file ./swc-sc.config.json -C module.type=commonjs",
     "build:styled-components:esm": "swc ./src -d ./dist/styled-components/es --strip-leading-paths --ignore '**/examples/**,**/components/_beta/**' --config-file ./swc-sc.config.json -C module.type=es6",
+    "postbuild:styled-components": "node ./scripts/stripAnnotations.mjs dist/styled-components",
     "prebuild:emotion": "rm -rf src-emotion && cp -R src src-emotion && node ./scripts/replaceImports.mjs --mode emotion",
     "build:emotion": "rm -rf dist/emotion && npm run build:emotion:esm && npm run build:emotion:cjs",
     "build:emotion:cjs": "swc ./src-emotion -d ./dist/emotion/cjs --strip-leading-paths --ignore '**/examples/**,**/components/_beta/**' --config-file ./swc-emotion.config.json -C module.type=commonjs",
     "build:emotion:esm": "swc ./src-emotion -d ./dist/emotion/es --strip-leading-paths --ignore '**/examples/**,**/components/_beta/**' --config-file ./swc-emotion.config.json -C module.type=es6",
-    "postbuild:emotion": "rm -rf src-emotion",
+    "postbuild:emotion": "rm -rf src-emotion && node ./scripts/stripAnnotations.mjs dist/emotion",
     "prebuild:css": "rm -rf src-css && cp -R src src-css && node ./scripts/replaceImports.mjs --mode css",
     "build:css": "rm -rf dist/css && rollup -c",
-    "postbuild:css": "rm -rf src-css",
+    "postbuild:css": "rm -rf src-css && node ./scripts/stripAnnotations.mjs dist/css",
     "build:beta": "rm -rf dist/beta && rollup -c rollup.beta.config.mjs",
     "generate:typings": "tsc && tsc-alias && tsc -p src/components/_beta/tsconfig.json",
     "storybook": "storybook dev -p ${PORT:-7002} -c .storybook",
@@ -65,11 +63,7 @@
     "url": "git+https://github.com/salute-developers/plasma.git",
     "directory": "packages/plasma-new-hope"
   },
-  "keywords": [
-    "design-system",
-    "ui-kit",
-    "react"
-  ],
+  "keywords": ["design-system", "ui-kit", "react"],
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
   "bugs": {
@@ -96,9 +90,9 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-node-resolve": "^15.1.0",
-    "@salutejs/plasma-cy-utils": "0.176.0-next-sbcom.0",
-    "@salutejs/plasma-sb-utils": "0.247.0-next-sbcom.0",
-    "@salutejs/plasma-themes": "0.67.0-next-sbcom.0",
+    "@salutejs/plasma-cy-utils": "0.177.0",
+    "@salutejs/plasma-sb-utils": "0.248.0",
+    "@salutejs/plasma-themes": "0.68.0",
     "@types/lodash": "^4.14.191",
     "@types/lodash.chunk": "4.2.9",
     "@types/lodash.throttle": "4.1.6",
@@ -118,7 +112,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "^3.28.0",
-    "styled-components": "5.3.1",
+    "styled-components": "5.3.11",
     "tsc-alias": "1.8.16"
   },
   "dependencies": {
@@ -129,12 +123,13 @@
     "@linaria/react": "5.0.3",
     "@popperjs/core": "2.11.8",
     "@salutejs/input-core": "2.2.0",
+    "@salutejs/plasma-typo": "0.58.0",
     "@salutejs/react-maskinput": "3.4.0",
     "@tanstack/react-table": "8.21.2",
     "@tanstack/react-virtual": "3.13.2",
     "classnames": "2.5.1",
     "dayjs": "1.11.11",
-    "dompurify": "3.3.3",
+    "dompurify": "3.4.16",
     "focus-visible": "5.2.0",
     "lodash.chunk": "4.2.0",
     "lodash.throttle": "4.1.1",
@@ -148,7 +143,5 @@
     "react-syntax-highlighter": "16.1.1",
     "storeon": "3.1.5"
   },
-  "sideEffects": [
-    "*.css"
-  ]
+  "sideEffects": ["*.css"]
 }

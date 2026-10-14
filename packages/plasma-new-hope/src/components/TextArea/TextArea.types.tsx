@@ -232,11 +232,9 @@ export type TextAreaPropsBase = {
 
 type TextAreaPropsExtends = TextAreaPropsBase & {
     /**
-     * Стиль для UI конфигурации
-     * Влияет на выбор предустановленного набора токенов
-     * @default default
+     * @internal
      */
-    appearance?: 'default' | 'clear' | 'viewMode';
+    appearance?: string;
     /**
      * Размер контрола.
      */

@@ -6,7 +6,7 @@ import App from './App';
 
 export function render(url) {
     return renderToString(
-        <StaticRouter location={url}>
+        <StaticRouter basename={import.meta.env.BASE_URL} location={url}>
             <App />
         </StaticRouter>,
     );

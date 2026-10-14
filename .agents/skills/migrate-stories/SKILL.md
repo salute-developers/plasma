@@ -44,7 +44,7 @@ export const requiredPlacements = ['left', 'right'];
 Exports `createMeta(props)`. Pattern:
 
 ```ts
-import { disableProps, InSpacingDecorator } from '../../index';
+import { disableProps, exampleOnly, InSpacingDecorator } from '../../index';
 import { labelPlacements, ... } from './fixtures';
 
 type CreateMetaProps = {
@@ -69,21 +69,22 @@ export const createMeta = ({
         ...defaultArgs,
     },
     argTypes: {
-        // all argType definitions, each with table: { category: '...' }
-        // categories: 'variation' | 'layout' | 'form-related' | and component-specific ones
-        // add explicit boolean/text/number argTypes for args that had no argType before
+        // argTypes of the component's own props — no `table.category`
+        view: { options: componentConfig.views, control: { type: 'select' } },
+        // story-only controls (see "Story-only controls" below)
+        ...exampleOnly({
+            enableContentLeft: { control: { type: 'boolean' } },
+            hasHint: { control: { type: 'boolean' } },
+        }),
         ...additionalArgTypes,
         ...disableProps([.../* internal disabled list */, ...disablePropsList]),
     },
 });
 ```
 
-**Category guide** (follow TextFieldSlider/meta.ts):
+**Story-only controls** (follow TextField/meta.ts):
 
--   `variation` — view, size, disabled, readOnly, appearance/state props
--   `layout` — label, placeholder, labelPlacement, textBefore/After, enableContentLeft/Right, stretched
--   `form-related` — required, requiredPlacement, hasRequiredIndicator
--   Component-specific categories for logical prop groups (e.g. `date-related`, `calendar`, `shortcuts`, `hint`, `slider`)
+Controls that aren't props of the component (`{Name}Props` + config variations) go into `...exampleOnly({...})` — e.g. `enableContentLeft`, `hasHint`, `inputView`, wrapper `width`, `initialValue`. Args that are only in `args` need an entry too. Component props get no `table.category`.
 
 ### `stories.tsx`
 
@@ -305,7 +306,8 @@ Write identical packages in bulk with a bash loop. Write per-package exceptions 
 ## Key rules
 
 -   Use `InSpacingDecorator` (from plasma-sb-utils), never `WithTheme` (package-specific)
--   Add `table: { category: '…' }` to **every** argType entry in `meta.ts`
--   Add explicit argType entries (with category) for booleans/text that are only in `args` in the original
+-   Story-only controls go into `...exampleOnly({...})`; the component's own props get no `table.category`
+-   Story-only args that are only in `args` still need an entry with a `control` in `exampleOnly`
+-   A final package that overrides a story-only argType through `additionalArgTypes` wraps it in `exampleOnly` too — otherwise the override drops it back into component props
 -   Props controlled by the story component (`opened`, `contentLeft`, `onToggle`, etc.) go into the internal `commonDisabledArgs` list in `meta.ts`
 -   Always rebuild `plasma-sb-utils` after any change to its source

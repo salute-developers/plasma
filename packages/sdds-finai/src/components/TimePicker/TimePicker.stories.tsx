@@ -10,7 +10,7 @@ const { meta: META, Default } = getTimePickerStories({
     componentConfig: config,
     defaultArgs: { ...config.defaults, enableContentLeft: false, valueEdited: false },
     additionalArgTypes: {
-        valueEdited: { control: { type: 'boolean' }, table: { category: 'variation' } },
+        valueEdited: { control: { type: 'boolean' } },
         appearance: {
             options: ['default', 'clear', 'viewMode'],
             control: { type: 'select' },

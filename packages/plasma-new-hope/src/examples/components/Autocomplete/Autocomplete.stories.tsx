@@ -1,8 +1,8 @@
 import type { ComponentProps } from 'react';
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { IconPlaceholder } from '@salutejs/plasma-sb-utils';
 
+import { IconPlasma } from '../../../components/_Icon';
 import { WithTheme } from '../../_helpers';
 import type { PopoverPlacement } from '../../../components/Popover';
 
@@ -99,6 +99,14 @@ const meta: Meta<StoryProps> = {
     decorators: [WithTheme],
     component: Autocomplete,
     argTypes: {
+        appearance: {
+            options: ['default', 'clear'],
+            control: { type: 'select' },
+        },
+        hasDivider: {
+            control: { type: 'boolean' },
+            if: { arg: 'appearance', eq: 'clear' },
+        },
         view: {
             options: views,
             control: {
@@ -116,6 +124,9 @@ const meta: Meta<StoryProps> = {
             control: {
                 type: 'inline-radio',
             },
+        },
+        titleCaption: {
+            control: { type: 'text' },
         },
         keepPlaceholder: {
             control: {
@@ -213,12 +224,15 @@ const meta: Meta<StoryProps> = {
         },
     },
     args: {
+        appearance: 'default',
+        hasDivider: false,
         view: 'default',
         size: 'l',
         labelPlacement: 'outer',
         disabled: false,
         readOnly: false,
         label: 'Label',
+        titleCaption: 'Подпись к полю',
         textBefore: '',
         textAfter: '',
         placeholder: 'Заполните поле',
@@ -257,8 +271,8 @@ const DefaultStory = (args: StoryProps) => {
             <Autocomplete
                 {...args}
                 suggestions={suggestions}
-                contentLeft={enableContentLeft ? <IconPlaceholder size={iconSize} /> : undefined}
-                contentRight={enableContentRight ? <IconPlaceholder size={iconSize} /> : undefined}
+                contentLeft={enableContentLeft ? <IconPlasma color="inherit" size={iconSize} /> : undefined}
+                contentRight={enableContentRight ? <IconPlasma color="inherit" size={iconSize} /> : undefined}
             />
         </div>
     );

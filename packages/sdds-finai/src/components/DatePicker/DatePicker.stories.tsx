@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta } from '@storybook/react-vite';
-import { getDatePickerStories } from '@salutejs/plasma-sb-utils';
+import { getDatePickerStories, exampleOnly } from '@salutejs/plasma-sb-utils';
 import { IconCalendarOutline, IconLockOutline } from '@salutejs/plasma-icons';
 
 import { DatePicker } from './DatePicker';
@@ -13,7 +13,9 @@ const { meta: META, Default } = getDatePickerStories({
     component: DatePicker,
     componentConfig: config,
     additionalArgTypes: {
-        inputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        ...exampleOnly({
+            inputView: { options: ['default', 'positive', 'negative', 'edited'], control: { type: 'select' } },
+        }),
         appearance: {
             options: ['default', 'viewMode'],
             control: { type: 'select' },

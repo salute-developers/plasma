@@ -24,7 +24,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
             {
                 items,
                 trigger = 'click',
-                placement = 'bottom',
+                placement = 'bottom-start',
                 children,
                 variant = 'normal',
                 zIndex = 1000,

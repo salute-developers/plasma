@@ -6,7 +6,7 @@ import { tokens } from 'src/components/Toast/Toast.tokens';
 
 import { IconCrossThin } from '../../_Icon/Icons/IconCrossThin';
 
-import { base, Toast, CloseIconWrapper, StyledContentLeft } from './ToastNew.styles';
+import { base, Toast, ToastAnimationWrapper, CloseIconWrapper, StyledContentLeft } from './ToastNew.styles';
 import { ToastContainerProps, ShowToastProps, ShowToastPlasmaOptions } from './ToastNew.types';
 
 export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContainerProps>) =>
@@ -21,6 +21,8 @@ export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContaine
             textColor,
             position = 'bottom-center',
             duration = Infinity,
+            gap = 8,
+            animation,
             onCloseButtonClick,
             ...rest
         } = props;
@@ -32,12 +34,42 @@ export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContaine
                         duration,
                         position,
                     }}
+                    gutter={gap}
                 >
-                    {(
-                        options: ToastInterface & {
-                            plasmaOptions?: ShowToastPlasmaOptions;
-                        },
-                    ) => {
+                    {(options: ToastInterface & { plasmaOptions?: ShowToastPlasmaOptions }) => {
+                        const removeDismissedToast = (event: React.AnimationEvent<HTMLDivElement>) => {
+                            if (!options.visible && event.target === event.currentTarget) {
+                                toast.remove(options.id);
+                            }
+                        };
+
+                        if (options.plasmaOptions?.renderToast) {
+                            const { renderToast, ...plasmaOptions } = options.plasmaOptions;
+                            const toastAnimation = plasmaOptions.animation ?? animation;
+                            const customAnimation = options.visible ? toastAnimation?.enter : toastAnimation?.exit;
+
+                            return (
+                                <ToastAnimationWrapper
+                                    data-position={options.position ?? position}
+                                    data-visible={options.visible}
+                                    data-custom-animation={customAnimation ? 'true' : undefined}
+                                    style={
+                                        customAnimation
+                                            ? ({
+                                                  '--plasma-private-toast-animation': customAnimation,
+                                              } as React.CSSProperties)
+                                            : undefined
+                                    }
+                                    onAnimationEnd={removeDismissedToast}
+                                >
+                                    {renderToast({ ...plasmaOptions, id: plasmaOptions.id ?? options.id })}
+                                </ToastAnimationWrapper>
+                            );
+                        }
+
+                        const toastAnimation = options.plasmaOptions?.animation ?? animation;
+                        const customAnimation = options.visible ? toastAnimation?.enter : toastAnimation?.exit;
+
                         return (
                             <Root
                                 view={options.plasmaOptions?.view}
@@ -45,9 +77,19 @@ export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContaine
                                 pilled={options.plasmaOptions?.pilled}
                             >
                                 <Toast
-                                    style={{ opacity: options.visible ? 1 : 0 }}
                                     width={options.plasmaOptions?.width || width}
                                     textColor={options.plasmaOptions?.textColor || textColor}
+                                    data-position={options.position ?? position}
+                                    data-visible={options.visible}
+                                    data-custom-animation={customAnimation ? 'true' : undefined}
+                                    style={
+                                        customAnimation
+                                            ? ({
+                                                  '--plasma-private-toast-animation': customAnimation,
+                                              } as React.CSSProperties)
+                                            : undefined
+                                    }
+                                    onAnimationEnd={removeDismissedToast}
                                 >
                                     {(options.plasmaOptions?.contentLeft || contentLeft) && (
                                         <StyledContentLeft>
@@ -88,23 +130,20 @@ export const toastContainerRoot = (Root: RootProps<HTMLDivElement, ToastContaine
     });
 
 export const showToast: ShowToastProps = (text, options) => {
-    toast(text, {
-        // INFO: id всегда одинаковый для отключения стекирования
-        id: 'toast',
-        ...(options?.position ? { position: options?.position } : undefined),
-        ...(options?.duration ? { duration: options?.duration } : undefined),
+    const id = options?.id ?? (options?.stacking !== true ? 'toast' : undefined);
+
+    return toast(text, {
+        ...(id !== undefined ? { id } : undefined),
+        ...(options?.position ? { position: options.position } : undefined),
+        ...(options?.duration !== undefined ? { duration: options.duration } : undefined),
         // @ts-ignore
         plasmaOptions: {
-            view: options?.view,
-            size: options?.size,
-            pilled: options?.pilled,
-            contentLeft: options?.contentLeft,
-            hasClose: options?.hasClose,
-            width: options?.width,
-            textColor: options?.textColor,
+            ...options,
         },
     });
 };
+
+export const hideToast = (id: string) => toast.dismiss(id);
 
 export const toastContainerConfig = {
     name: 'ToastContainer',

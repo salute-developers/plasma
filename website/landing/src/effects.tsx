@@ -4,6 +4,7 @@ import { initHome } from './legacy-effects/home';
 import { initInternal } from './legacy-effects/internal';
 import { initIcons } from './legacy-effects/icons';
 import { initReveal } from './legacy-effects/reveal';
+import { publicPath } from './paths';
 
 export function PageEffects({ page }) {
     useEffect(() => {
@@ -22,12 +23,12 @@ export function PageEffects({ page }) {
             if (!sandboxStyle) {
                 sandboxStyle = document.createElement('link');
                 sandboxStyle.rel = 'stylesheet';
-                sandboxStyle.href = '/sandbox.css';
+                sandboxStyle.href = publicPath('/sandbox.css');
                 sandboxStyle.dataset.sandboxStyle = '';
                 document.head.append(sandboxStyle);
             }
             sandboxScript = document.createElement('script');
-            sandboxScript.src = '/sandbox.js';
+            sandboxScript.src = publicPath('/sandbox.js');
             document.body.append(sandboxScript);
         }
         return () => {

@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
+import cls from 'classnames';
 
 import { RootProps } from '../../engines';
-import { cx } from '../../utils';
 import { IconCross } from '../_Icon/Icons/IconCross';
 import { IconCrossThin } from '../_Icon/Icons/IconCrossThin';
 
@@ -16,6 +16,7 @@ import {
     CloseIconWrapper,
     ContentBox,
     IconWrapper,
+    StyledImage,
     StyledContent,
     StyledNotification,
     StyledTitle,
@@ -39,6 +40,8 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
             iconPlacement,
             layout = layouts.vertical as NotificationLayout,
             icon,
+            image,
+            imageSize = 'small',
             showCloseIcon = true,
             closeIconType,
             customCloseIcon,
@@ -62,10 +65,14 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
 
         const isOneLine = !content || !title;
         const oneLineClass = isOneLine ? classes.oneLine : undefined;
-        const withoutIconClass = icon ? undefined : classes.withoutIcon;
+        const hasImage = layout === layouts.vertical && Boolean(image);
+        const withImageClass = hasImage ? classes.withImage : undefined;
+        const fullWidthImageClass = hasImage && imageSize === 'fullWidth' ? classes.fullWidthImage : undefined;
+        const withoutIconClass = icon || hasImage ? undefined : classes.withoutIcon;
         const withoutCloseIconClass = showCloseIcon ? undefined : classes.withoutCloseIcon;
 
         const IconPlacementInternal = useMemo(() => (icon ? iconPlacement : undefined), [icon, iconPlacement]);
+        const contentPlacement = hasImage ? 'top' : IconPlacementInternal;
 
         return (
             <Root
@@ -83,24 +90,32 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                     backgroundColor={backgroundColor}
                     width={width}
                     maxWidth={maxWidth}
-                    className={cx(classes.wrapper, getLayoutClass(layout), oneLineClass, withoutCloseIconClass)}
+                    className={cls(
+                        classes.wrapper,
+                        getLayoutClass(layout),
+                        oneLineClass,
+                        withoutCloseIconClass,
+                        withImageClass,
+                        fullWidthImageClass,
+                    )}
                 >
                     <ContentBox
-                        iconPlacement={IconPlacementInternal}
-                        className={cx(classes.contentBox, getLayoutClass(layout), withoutIconClass)}
+                        iconPlacement={contentPlacement}
+                        className={cls(classes.contentBox, getLayoutClass(layout), withoutIconClass)}
                     >
-                        {icon && (
+                        {hasImage && <StyledImage {...image} className={cls(classes.image, image?.className)} />}
+                        {!hasImage && icon && (
                             <IconWrapper
                                 iconPlacement={IconPlacementInternal}
-                                className={cx(classes.icon, getLayoutClass(layout))}
+                                className={cls(classes.icon, getLayoutClass(layout))}
                             >
                                 {icon}
                             </IconWrapper>
                         )}
                         <TextBox
-                            iconPlacement={IconPlacementInternal}
+                            iconPlacement={contentPlacement}
                             showCloseIcon={showCloseIcon}
-                            className={cx(classes.textbox, getLayoutClass(layout))}
+                            className={cls(classes.textbox, getLayoutClass(layout))}
                         >
                             {title && (
                                 <StyledTitle className={classes.title} textColor={titleColor}>
@@ -116,8 +131,8 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                     </ContentBox>
                     {actions && (
                         <ButtonsWrapper
-                            iconPlacement={IconPlacementInternal}
-                            className={cx(classes.buttonsWrapper, getLayoutClass(layout))}
+                            iconPlacement={contentPlacement}
+                            className={cls(classes.buttonsWrapper, getLayoutClass(layout))}
                         >
                             {actions}
                         </ButtonsWrapper>
@@ -128,7 +143,7 @@ export const notificationRoot = (Root: RootProps<HTMLDivElement, Omit<Notificati
                             view="clear"
                             size="s"
                             onClick={onCloseButtonClick}
-                            className={cx(classes.closeIcon, getLayoutClass(layout))}
+                            className={cls(classes.closeIcon, getLayoutClass(layout))}
                         >
                             {customCloseIcon ||
                                 (closeIconType === 'default' ? (

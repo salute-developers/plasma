@@ -54,6 +54,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textSecondary};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
@@ -96,6 +97,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textPositive};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
@@ -138,6 +140,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textWarning};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
@@ -181,6 +184,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
                 ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
@@ -239,6 +243,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyL.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyL.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyL.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0.375rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -320,6 +331,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyM.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyM.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0.3125rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -401,6 +419,13 @@ export const config = {
                 ${tokens.textFieldLabelFontWeight}: ${bodyS.fontWeight};
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -494,6 +519,13 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
                 /* NOTE: no token bodyXs in @salutejs/sdds-themes/tokens */
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-xs-line-height);
+                ${tokens.textFieldTitleCaptionMargin}: 0;
+                ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
+                ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
+                ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
+                ${tokens.textFieldTitleCaptionFontWeight}: var(--plasma-typo-body-xs-font-weight);
+                ${tokens.textFieldTitleCaptionLetterSpacing}: var(--plasma-typo-body-xs-letter-spacing);
+                ${tokens.textFieldTitleCaptionLineHeight}: var(--plasma-typo-body-xs-line-height);
 
                 ${tokens.textFieldHintMargin}: -0.75rem -0.625rem -0.75rem -0.5rem;
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
@@ -647,6 +679,7 @@ export const config = {
                 ${tokens.textFieldBackgroundColorReadOnly}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldPlaceholderColorReadOnly}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColorReadOnly}: ${textSecondary};
+                ${tokens.textFieldTitleCaptionColorReadOnly}: ${textSecondary};
                 ${tokens.textFieldLabelColorReadOnly}: ${textPrimary};
                 ${tokens.textFieldDividerColorReadOnly}: ${surfaceTransparentPrimary};
             `,

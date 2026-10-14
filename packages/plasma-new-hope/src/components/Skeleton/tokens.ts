@@ -13,11 +13,18 @@ export const privateTokens = {
 };
 
 export const tokens = {
+    /** @styleType typography @stylePart lineHeight */
     lineHeight: '--plasma-skeleton-line-height',
+    /** @styleType dimension */
     visibleLineHeight: '--plasma-skeleton-visible-line-height',
+    /** @styleType color */
     gradientColor: '--plasma-skeleton-gradient-color',
+    /** @styleType color */
     fadeInColor: '--plasma-skeleton-fade-in-color',
+    /** @styleType color */
     fadeOutColor: '--plasma-skeleton-fade-out-color',
+    /** @styleType float */
     shimmerDuration: '--plasma-skeleton-shimmer-duration',
+    /** @styleType float */
     pulseDuration: '--plasma-skeleton-pulse-duration',
 };
