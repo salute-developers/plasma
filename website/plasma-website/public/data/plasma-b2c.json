@@ -1,4 +1,190 @@
 {
+  "1.641.0": {
+    "date": "2026-10-14",
+    "core": [
+      {
+        "component": "Flow",
+        "children": [
+          {
+            "text": "убрано условие, обнуляющие отступы по главной оси",
+            "link": "https://github.com/salute-developers/plasma/pull/3223",
+            "id": 3223
+          }
+        ]
+      },
+      {
+        "component": "Skeleton",
+        "children": [
+          {
+            "text": "исправлено наследование токена из `view`",
+            "link": "https://github.com/salute-developers/plasma/pull/3214",
+            "id": 3214
+          }
+        ]
+      },
+      {
+        "component": "Popup",
+        "children": [
+          {
+            "text": "добавлен контролируемый режим для `resize`",
+            "link": "https://github.com/salute-developers/plasma/pull/3233",
+            "id": 3233
+          }
+        ]
+      },
+      {
+        "component": "Grid",
+        "children": [
+          {
+            "text": "исправлено ложно-отрицательное условие, при котором создавались медиа-запросы с пустым условием",
+            "link": "https://github.com/salute-developers/plasma/pull/3249",
+            "id": 3249
+          }
+        ]
+      },
+      {
+        "component": "Types",
+        "children": [
+          {
+            "text": "исправлена хардкод типизация для `appearance`",
+            "link": "https://github.com/salute-developers/plasma/pull/3236",
+            "id": 3236
+          }
+        ]
+      },
+      {
+        "component": "Combobox, DatePicker, Select",
+        "children": [
+          {
+            "text": "открытие выпадающего элемента происходит по нажатию на поле ввода или лейбл",
+            "link": "https://github.com/salute-developers/plasma/pull/3240",
+            "id": 3240
+          }
+        ]
+      },
+      {
+        "component": "Combobox",
+        "children": [
+          {
+            "text": "исправлено поведение при переполнении с множественным выбором (chips) в контейнерах с grid или flex-сеткой",
+            "link": "https://github.com/salute-developers/plasma/pull/3237",
+            "id": 3237
+          }
+        ]
+      },
+      {
+        "component": "Carousel",
+        "children": [
+          {
+            "text": "исправлена блокировка вертикального скролла\n\nдобавлен fullWidth для слайдов на всю ширину",
+            "link": "https://github.com/salute-developers/plasma/pull/3204",
+            "id": 3204
+          }
+        ]
+      },
+      {
+        "component": "Calenda, DatePicker, DateTimePicker",
+        "children": [
+          {
+            "text": "добавлено свойство `periodSelectorAlign` для центрирования выбора типа календарной сетки",
+            "link": "https://github.com/salute-developers/plasma/pull/3225",
+            "id": 3225
+          }
+        ]
+      },
+      {
+        "component": "Infra",
+        "children": [
+          {
+            "text": "обновлена версия `styled-components` с `5.3.1` до `5.3.11`. Обратная совместимость не нарушена.",
+            "link": "https://github.com/salute-developers/plasma/pull/3246",
+            "id": 3246
+          }
+        ]
+      },
+      {
+        "component": "TextField, TextArea, InformationWrapper, TextFieldSlider, DatePicker, DatePickerRange",
+        "children": [
+          {
+            "text": "выравние titleCaption относительно label собственным отступом, а не align-items",
+            "link": "https://github.com/salute-developers/plasma/pull/3211",
+            "id": 3211
+          }
+        ]
+      },
+      {
+        "component": "DateTimePicker, Select, Autocomplete",
+        "children": [
+          {
+            "text": "добавлен titleCaption",
+            "link": "https://github.com/salute-developers/plasma/pull/3211",
+            "id": 3211
+          }
+        ]
+      },
+      {
+        "component": "Tabs",
+        "children": [
+          {
+            "text": "добавлено динамическое отслеживание ширины в вертикальном режиме , чтобы управлять отображением стрелочек",
+            "link": "https://github.com/salute-developers/plasma/pull/3253",
+            "id": 3253
+          }
+        ]
+      },
+      {
+        "component": "Checkbox, Radiobox",
+        "children": [
+          {
+            "text": "Добавлены примеры группы на List и ListItem в документацию",
+            "link": "https://github.com/salute-developers/plasma/pull/3235",
+            "id": 3235
+          }
+        ]
+      },
+      {
+        "component": "Dropdown",
+        "children": [
+          {
+            "text": "Добавлены `placement` для выравнивания `Dropdown`",
+            "link": "https://github.com/salute-developers/plasma/pull/3231",
+            "id": 3231
+          }
+        ]
+      },
+      {
+        "component": "Modal",
+        "children": [
+          {
+            "text": "ModalFooter добавлено свойство для отображения текста под контентом",
+            "link": "https://github.com/salute-developers/plasma/pull/3221",
+            "id": 3221
+          }
+        ]
+      },
+      {
+        "component": "Autocomplete",
+        "children": [
+          {
+            "text": "добавлен appearance `clear`",
+            "link": "https://github.com/salute-developers/plasma/pull/3227",
+            "id": 3227
+          }
+        ]
+      },
+      {
+        "component": "Select",
+        "children": [
+          {
+            "text": "добавлены `appearance clear` и `hasDivider` как у `TextField`",
+            "link": "https://github.com/salute-developers/plasma/pull/3226",
+            "id": 3226
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "1.638.0": {
     "date": "2026-09-30",
     "core": [
