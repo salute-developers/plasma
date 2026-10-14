@@ -60,6 +60,7 @@ export const base = css`
 
     &.${classes.backgroundSolid} {
         padding: var(${tokens.outlineWidth});
+        border-radius: var(${tokens.borderRadius});
 
         &.${classes.selected} {
             :after {
