@@ -17,6 +17,7 @@ export * from './components/Cell';
 export * from './components/Counter';
 export * from './components/Combobox';
 export * from './components/DatePicker';
+export * from './components/DateTimePicker';
 export * from './components/Dropdown';
 export * from './components/IconButton';
 export * from './components/Image';
