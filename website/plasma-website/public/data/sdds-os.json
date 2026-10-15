@@ -1,4 +1,26 @@
 {
+  "0.44.0": {
+    "date": "2026-10-15",
+    "core": [
+      {
+        "component": "plasma-icons",
+        "children": [
+          {
+            "text": "изменен вектор в иконках типа `Brain`"
+          }
+        ]
+      },
+      {
+        "component": "sdds-icons",
+        "children": [
+          {
+            "text": "добавлены иконки `Brain`"
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.43.0": {
     "date": "2026-10-14",
     "core": [
