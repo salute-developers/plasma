@@ -1,4 +1,6 @@
-export {
+import { plasmaCore } from '@salutejs/plasma-new-hope/styled-components';
+
+export const {
     animatedScrollToX,
     animatedScrollToY,
     canUseDOM,
@@ -11,13 +13,21 @@ export {
     setRef,
     toCssSize,
     transformStyles,
-} from '@salutejs/plasma-core';
+} = plasmaCore;
 
-export type { TimingFunction, PinProps } from '@salutejs/plasma-core';
+export type TimingFunction = plasmaCore.TimingFunction;
+export type PinProps = plasmaCore.PinProps;
 
-export { mediaQuery, gridBreakpoints, gridColumns, gridMargins, gridGutters, gridSizes } from '@salutejs/plasma-hope';
+export {
+    mediaQuery,
+    breakpoints as gridBreakpoints,
+    columns as gridColumns,
+    margins as gridMargins,
+    gutters as gridGutters,
+    sizes as gridSizes,
+} from './mediaQuery';
 
-export type { Breakpoint, MediaQueryFunction } from '@salutejs/plasma-hope';
+export type { Breakpoint, MediaQueryFunction } from './mediaQuery';
 
-export { clearSelection } from '@salutejs/plasma-hope';
-export { selectText } from '@salutejs/plasma-hope';
+export { clearSelection } from './clearSelection';
+export { selectText } from './selectText';
