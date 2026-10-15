@@ -1,6 +1,7 @@
 import { css, chipTokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
     bodyM,
+    bodyS,
     bodyXXS,
     inverseTextPrimary,
     inverseTextSecondary,
@@ -153,6 +154,28 @@ export const config = {
                 ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
                 ${chipTokens.closeIconSize}: 1.25rem;
+            `,
+            s: css`
+                ${chipTokens.borderRadius}: 0.5rem;
+                ${chipTokens.pilledBorderRadius}: 1rem;
+                ${chipTokens.width}: auto;
+                ${chipTokens.height}: 2rem;
+                ${chipTokens.padding}: 0 0.875rem;
+
+                ${chipTokens.fontFamily}: ${bodyS.fontFamily};
+                ${chipTokens.fontSize}: ${bodyS.fontSize};
+                ${chipTokens.fontStyle}: ${bodyS.fontStyle};
+                ${chipTokens.fontWeight}: ${bodyS.fontWeight};
+                ${chipTokens.letterSpacing}: ${bodyS.letterSpacing};
+                ${chipTokens.lineHeight}: ${bodyS.lineHeight};
+
+                ${chipTokens.leftContentMarginLeft}: -0.125rem;
+                ${chipTokens.leftContentMarginRight}: 0.25rem;
+                ${chipTokens.rightContentMarginLeft}: 0.25rem;
+                ${chipTokens.rightContentMarginRight}: -0.125rem;
+                ${chipTokens.clearContentMarginLeft}: 0.375rem;
+                ${chipTokens.clearContentMarginRight}: -0.25rem;
+                ${chipTokens.closeIconSize}: 1rem;
             `,
             xxs: css`
                 ${chipTokens.borderRadius}: 0.375rem;
