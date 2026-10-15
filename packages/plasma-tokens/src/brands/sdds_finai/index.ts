@@ -2399,10 +2399,10 @@ export const dataDefaultDataYellowTransparentHover = 'var(--data-default-data-ye
 export const dataDefaultDataYellowTransparentActive = 'var(--data-default-data-yellow-transparent-active, #F3A81280)';
 
 /** Светлый желтый цвет для данных */
-export const dataDefaultDataYellowLightHover = 'var(--data-default-data-yellow-light-hover, #473000FF)';
+export const dataDefaultDataYellowLightHover = 'var(--data-default-data-yellow-light-hover, #2A1E09FF)';
 
 /** Светлый желтый цвет для данных */
-export const dataDefaultDataYellowLightActive = 'var(--data-default-data-yellow-light-active, #291B00FF)';
+export const dataDefaultDataYellowLightActive = 'var(--data-default-data-yellow-light-active, #191205FF)';
 
 /** Светлый голубой цвет для данных */
 export const dataDefaultDataSkyBlueLightHover = 'var(--data-default-data-sky-blue-light-hover, #E0F8FFFF)';
@@ -2638,9 +2638,6 @@ export const dataDefaultDataArcticLightHover = 'var(--data-default-data-arctic-l
 
 export const dataDefaultDataArcticLightActive = 'var(--data-default-data-arctic-light-active, #06231BFF)';
 
-/** Светлый желтый цвет для данных */
-export const dataDefaultDataYellowLight = 'var(--data-default-data-yellow-light, #332200)';
-
 export const dataDefaultDataPinkLightHover = 'var(--data-default-data-pink-light-hover, #3A0E1FFF)';
 
 export const dataDefaultDataPinkLightActive = 'var(--data-default-data-pink-light-active, #210812FF)';
@@ -2658,6 +2655,9 @@ export const dataDefaultDataPinkLight = 'var(--data-default-data-pink-light, #2B
 export const dataDefaultDataSpringLight = 'var(--data-default-data-spring-light, #151C08)';
 
 export const dataDefaultDataMalachiteLight = 'var(--data-default-data-malachite-light, #0A1C1C)';
+
+/** Светлый желтый цвет для данных */
+export const dataDefaultDataYellowLight = 'var(--data-default-data-yellow-light, #211807)';
 
 /** Цвет успеха с градиентом */
 export const dataOnDarkDataPositiveGradient =
@@ -2721,10 +2721,10 @@ export const dataOnDarkDataYellowTransparentHover = 'var(--data-on-dark-data-yel
 export const dataOnDarkDataYellowTransparentActive = 'var(--data-on-dark-data-yellow-transparent-active, #F3A81280)';
 
 /** Светлый желтый цвет для данных на темном фоне */
-export const dataOnDarkDataYellowLightHover = 'var(--data-on-dark-data-yellow-light-hover, #473000FF)';
+export const dataOnDarkDataYellowLightHover = 'var(--data-on-dark-data-yellow-light-hover, #2A1E09FF)';
 
 /** Светлый желтый цвет для данных на темном фоне */
-export const dataOnDarkDataYellowLightActive = 'var(--data-on-dark-data-yellow-light-active, #291B00FF)';
+export const dataOnDarkDataYellowLightActive = 'var(--data-on-dark-data-yellow-light-active, #191205FF)';
 
 /** Cветлый голубой цвет для данных на темном фоне */
 export const dataOnDarkDataSkyBlueLightHover = 'var(--data-on-dark-data-sky-blue-light-hover, #E0F8FFFF)';
@@ -2957,9 +2957,6 @@ export const dataOnDarkDataArcticLightHover = 'var(--data-on-dark-data-arctic-li
 
 export const dataOnDarkDataArcticLightActive = 'var(--data-on-dark-data-arctic-light-active, #06231BFF)';
 
-/** Светлый желтый цвет для данных на темном фоне */
-export const dataOnDarkDataYellowLight = 'var(--data-on-dark-data-yellow-light, #332200)';
-
 export const dataOnDarkDataPinkLight = 'var(--data-on-dark-data-pink-light, #2B0A17)';
 
 export const dataOnDarkDataPinkLightHover = 'var(--data-on-dark-data-pink-light-hover, #3A0E1FFF)';
@@ -2977,6 +2974,9 @@ export const dataOnDarkDataMalachiteLight = 'var(--data-on-dark-data-malachite-l
 export const dataOnDarkDataMalachiteLightHover = 'var(--data-on-dark-data-malachite-light-hover, #0C2222FF)';
 
 export const dataOnDarkDataMalachiteLightActive = 'var(--data-on-dark-data-malachite-light-active, #071313FF)';
+
+/** Светлый желтый цвет для данных на темном фоне */
+export const dataOnDarkDataYellowLight = 'var(--data-on-dark-data-yellow-light, #211807)';
 
 /** Цвет успеха с градиентом */
 export const dataOnLightDataPositiveGradient =

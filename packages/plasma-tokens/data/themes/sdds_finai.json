@@ -5336,11 +5336,11 @@
                     "comment": "Прозрачный желтый цвет для данных"
                 },
                 "dataYellowLightHover": {
-                    "value": "#473000FF",
+                    "value": "#2A1E09FF",
                     "comment": "Светлый желтый цвет для данных"
                 },
                 "dataYellowLightActive": {
-                    "value": "#291B00FF",
+                    "value": "#191205FF",
                     "comment": "Светлый желтый цвет для данных"
                 },
                 "dataSkyBlueLightHover": {
@@ -5795,10 +5795,6 @@
                     "value": "#06231BFF",
                     "comment": ""
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": "Светлый желтый цвет для данных"
-                },
                 "dataPinkLightHover": {
                     "value": "#3A0E1FFF",
                     "comment": ""
@@ -5834,6 +5830,10 @@
                 "dataMalachiteLight": {
                     "value": "[general.malachite.950]",
                     "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
+                    "comment": "Светлый желтый цвет для данных"
                 }
             },
             "onDark": {
@@ -5914,11 +5914,11 @@
                     "comment": "Прозрачный желтый цвет для данных на темном фоне"
                 },
                 "dataYellowLightHover": {
-                    "value": "#473000FF",
+                    "value": "#2A1E09FF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
                 "dataYellowLightActive": {
-                    "value": "#291B00FF",
+                    "value": "#191205FF",
                     "comment": "Светлый желтый цвет для данных на темном фоне"
                 },
                 "dataSkyBlueLightHover": {
@@ -6369,10 +6369,6 @@
                     "value": "#06231BFF",
                     "comment": ""
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": "Светлый желтый цвет для данных на темном фоне"
-                },
                 "dataPinkLight": {
                     "value": "[general.pink.950]",
                     "comment": ""
@@ -6408,6 +6404,10 @@
                 "dataMalachiteLightActive": {
                     "value": "#071313FF",
                     "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
+                    "comment": "Светлый желтый цвет для данных на темном фоне"
                 }
             },
             "onLight": {
@@ -13464,11 +13464,11 @@
                     "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#473000FF",
+                    "value": "#2A1E09FF",
                     "comment": ""
                 },
                 "dataYellowLightActive": {
-                    "value": "#291B00FF",
+                    "value": "#191205FF",
                     "comment": ""
                 },
                 "dataSkyBlueLightHover": {
@@ -13919,10 +13919,6 @@
                     "value": "#06231BFF",
                     "comment": ""
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": ""
-                },
                 "dataPinkLight": {
                     "value": "[general.pink.950]",
                     "comment": ""
@@ -13957,6 +13953,10 @@
                 },
                 "dataMalachiteLightActive": {
                     "value": "#071313FF",
+                    "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
                     "comment": ""
                 }
             },
@@ -14620,11 +14620,11 @@
                     "comment": ""
                 },
                 "dataYellowLightHover": {
-                    "value": "#473000FF",
+                    "value": "#2A1E09FF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
                 "dataYellowLightActive": {
-                    "value": "#291B00FF",
+                    "value": "#191205FF",
                     "comment": "Инвертированный светлый желтый цвет для данных"
                 },
                 "dataSkyBlueLightHover": {
@@ -15067,10 +15067,6 @@
                     "value": "[general.arctic.900]",
                     "comment": ""
                 },
-                "dataYellowLight": {
-                    "value": "[general.amber.900]",
-                    "comment": "Инвертированный светлый желтый цвет для данных"
-                },
                 "dataPinkLight": {
                     "value": "[general.pink.950]",
                     "comment": ""
@@ -15106,6 +15102,10 @@
                 "dataMalachiteLightActive": {
                     "value": "#071313FF",
                     "comment": ""
+                },
+                "dataYellowLight": {
+                    "value": "[general.amber.950]",
+                    "comment": "Инвертированный светлый желтый цвет для данных"
                 }
             }
         }
