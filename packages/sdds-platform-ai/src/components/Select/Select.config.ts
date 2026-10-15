@@ -629,6 +629,139 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.375rem;
                 ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
+            s: css`
+                ${tokens.textFieldHeight}: 2.5rem;
+                ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
+                ${tokens.textFieldPaddingWithChips}: 0.375rem;
+                ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderWidth}: 0.0625rem;
+
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.125rem -0.1875rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.438rem -0.1875rem 0.75rem;
+
+                ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
+                ${tokens.textFieldContentRightWrapperMargin}: -0.438rem -0.438rem -0.438rem 0;
+
+                ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
+                ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
+
+                ${tokens.textFieldFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.textFieldLabelOffset}: 0.125rem;
+                ${tokens.textFieldLabelFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldLabelFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldLabelFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldLabelFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
+                ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldTitleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldTitleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldTitleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldTitleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldTitleCaptionLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.textFieldHintMargin}: -0.688rem -0.5rem;
+                ${tokens.textFieldHintTargetSize}: 2.375rem;
+                ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+                ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
+
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
+                ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.textFieldLeftHelperFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.textFieldLeftHelperLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.textFieldLeftHelperLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.textFieldLabelInnerPadding}: 0.3125rem 0 0 0;
+                ${tokens.textFieldContentLabelInnerPadding}: 1.0625rem 0 0.3125rem 0;
+
+                ${tokens.textFieldIndicatorSizeInner}: 0.375rem;
+                ${tokens.textFieldIndicatorSizeOuter}: 0.375rem;
+                ${tokens.textFieldIndicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.textFieldIndicatorLabelPlacementOuter}: 0.3125rem auto auto -0.6875rem;
+                ${tokens.textFieldIndicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.textFieldIndicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.textFieldClearIndicatorLabelPlacementInner}: 1.063rem auto auto -0.75rem;
+                ${tokens.textFieldClearIndicatorLabelPlacementInnerRight}: 1.063rem -0.75rem auto auto;
+                ${tokens.textFieldClearIndicatorHintInnerRight}: 1.063rem -2.238rem auto auto;
+
+                ${tokens.textFieldChipGap}: 0.25rem;
+                ${tokens.textFieldChipBorderRadius}: 0.25rem;
+                ${tokens.textFieldChipWidth}: auto;
+                ${tokens.textFieldChipHeight}: 1.75rem;
+                ${tokens.textFieldChipPadding}: 0 0.5rem 0 0.75rem;
+                ${tokens.textFieldChipClearContentMarginLeft}: 0.375rem;
+                ${tokens.textFieldChipClearContentMarginRight}: 0rem;
+                ${tokens.textFieldChipCloseIconSize}: 1rem;
+                ${tokens.textFieldChipFontFamily}: ${bodyS.fontFamily};
+                ${tokens.textFieldChipFontSize}: ${bodyS.fontSize};
+                ${tokens.textFieldChipFontStyle}: ${bodyS.fontStyle};
+                ${tokens.textFieldChipFontWeight}: ${bodyS.fontWeight};
+                ${tokens.textFieldChipLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.textFieldChipLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.buttonArrowMargin}: 0 -0.125rem 0 0.25rem;
+                ${tokens.targetHeight}: 2.5rem;
+                ${tokens.buttonPadding}: 1rem 0 1rem;
+
+                ${tokens.emptyStatePadding}: 0.625rem 0.875rem 0.625rem 0.875rem;
+                ${tokens.padding}: 0.125rem;
+                ${tokens.borderRadius}: 0.625rem;
+
+                ${tokens.itemHeight}: 1.5rem;
+                ${tokens.itemPadding}: 0.5rem 0.625rem;
+                ${tokens.itemPaddingTight}: 0.25rem 0.75rem;
+                ${tokens.itemBorderRadius}: 0.5rem;
+                ${tokens.itemIconSize}: 1.5rem;
+                ${tokens.itemIconSizeTight}: 1rem;
+                ${tokens.itemIconMargin}: 0 0.375rem 0 0;
+                ${tokens.itemGap}: 0.375rem;
+                ${tokens.itemTreeOffsetWidth}: 1.875rem;
+
+                ${tokens.cellPadding}: 0rem;
+                ${tokens.cellPaddingLeftContent}: 0rem;
+                ${tokens.cellPaddingContent}: 0rem;
+                ${tokens.cellPaddingRightContent}: 0rem;
+                ${tokens.cellTextboxGap}: 0.125rem;
+                ${tokens.cellGap}: 0.375rem;
+                ${tokens.cellTitleFontFamily}: ${bodyS.fontFamily};
+                ${tokens.cellTitleFontSize}: ${bodyS.fontSize};
+                ${tokens.cellTitleFontStyle}: ${bodyS.fontStyle};
+                ${tokens.cellTitleFontWeight}: ${bodyS.fontWeight};
+                ${tokens.cellTitleLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.cellTitleLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.fontFamily}: ${bodyS.fontFamily};
+                ${tokens.fontSize}: ${bodyS.fontSize};
+                ${tokens.fontStyle}: ${bodyS.fontStyle};
+                ${tokens.fontWeight}: ${bodyS.fontWeight};
+                ${tokens.fontLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.fontLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.checkboxTriggerSize}: 1.25rem;
+                ${tokens.checkboxTriggerSizeTight}: 0.875rem;
+                ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
+                ${tokens.checkboxTriggerBorderRadiusTight}: 0.25rem;
+                ${tokens.checkboxTriggerBorderWidth}: 0.125rem;
+
+                ${tokens.indicatorSize}: 0.375rem;
+
+                ${tokens.dividerMarginTop}: 0.375rem;
+                ${tokens.dividerMarginRight}: 0.75rem;
+                ${tokens.dividerMarginBottom}: 0.375rem;
+                ${tokens.dividerMarginLeft}: 0.75rem;
+                ${tokens.dividerMarginTopTight}: 0.25rem;
+                ${tokens.dividerMarginBottomTight}: 0.25rem;
+            `,
         },
         labelPlacement: {
             inner: css`

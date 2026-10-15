@@ -248,6 +248,81 @@ export const config = {
                 ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
             `,
+            s: css`
+                ${tokens.inputWidth}: 100%;
+                ${tokens.inputHeight}: 7.187rem;
+                ${tokens.inputMinHeight}: 0.625rem;
+                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderRadiusWithHelpers}: 0.625rem 0.625rem 0 0;
+                ${tokens.borderSize}: 0.0625rem;
+
+                ${tokens.inputPaddingTop}: 0.688rem;
+                ${tokens.inputPaddingRight}: 0.875rem;
+                ${tokens.inputPaddingRightWithRightContent}: 3.125rem;
+                ${tokens.inputPaddingBottom}: 0.75rem;
+                ${tokens.inputPaddingLeft}: 0.875rem;
+
+                ${tokens.helpersPaddingTop}: 0.75rem;
+                ${tokens.helpersPaddingRight}: 0.875rem;
+                ${tokens.helpersPaddingBottom}: 0.75rem;
+                ${tokens.helpersPaddingLeft}: 0.875rem;
+                ${tokens.helpersOffset}: 0rem;
+
+                ${tokens.rightContentTop}: 0.688rem;
+                ${tokens.rightContentRight}: 0.75rem;
+                ${tokens.rightContentHeight}: 1.25rem;
+
+                ${tokens.labelMarginBottom}: 0.125rem;
+
+                ${tokens.labelInnerFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.labelInnerFontSize}: ${bodyXS.fontSize};
+                ${tokens.labelInnerFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.labelInnerFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.labelInnerLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.labelInnerLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.labelInnerTop}: 0.375rem;
+                ${tokens.labelInnerTopHelper}: -0.313rem;
+                ${tokens.labelInnerMarginBottom}: 0.125rem;
+
+                ${tokens.inputFontFamily}: ${bodyS.fontFamily};
+                ${tokens.inputFontSize}: ${bodyS.fontSize};
+                ${tokens.inputFontStyle}: ${bodyS.fontStyle};
+                ${tokens.inputFontWeight}: ${bodyS.fontWeight};
+                ${tokens.inputLetterSpacing}: ${bodyS.letterSpacing};
+                ${tokens.inputLineHeight}: ${bodyS.lineHeight};
+
+                ${tokens.helpersFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.helpersFontSize}: ${bodyXS.fontSize};
+                ${tokens.helpersFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.helpersFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.helpersLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.helpersLineHeight}: ${bodyXS.lineHeight};
+
+                ${tokens.indicatorSizeInner}: 0.375rem;
+                ${tokens.indicatorSizeOuter}: 0.375rem;
+                ${tokens.indicatorLabelPlacementInner}: 0 0 0 0;
+                ${tokens.indicatorLabelPlacementOuter}: 0.375rem auto auto -0.675rem;
+                ${tokens.indicatorLabelPlacementInnerRight}: 0 0 auto auto;
+                ${tokens.indicatorLabelPlacementOuterRight}: 0.25rem -0.625rem auto auto;
+                ${tokens.indicatorLabelPlacementHintOuterRight}: -0.25rem;
+
+                ${tokens.scrollbarWidth}: 0.188rem;
+                ${tokens.scrollbarBorderWidth}: 0.063rem;
+
+                ${tokens.hintMargin}: -0.688rem -0.5rem;
+                ${tokens.hintTargetSize}: 2.375rem;
+                ${tokens.hintInnerLabelPlacementOffset}: 0.062rem -2.688rem auto auto;
+
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
+                ${tokens.titleCaptionMargin}: 0.1875rem;
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
+            `,
         },
         hintView: {
             default: css`

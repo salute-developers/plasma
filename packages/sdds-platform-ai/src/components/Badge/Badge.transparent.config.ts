@@ -15,7 +15,7 @@ import {
     textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 
-import { pilled, sizeL, sizeM, sizeXS } from './Badge.config.common';
+import { pilled, sizeL, sizeM, sizeS, sizeXS } from './Badge.config.common';
 
 export const config = {
     defaults: {
@@ -59,6 +59,9 @@ export const config = {
             `,
             m: css`
                 ${sizeM}
+            `,
+            s: css`
+                ${sizeS}
             `,
             xs: css`
                 ${sizeXS}
