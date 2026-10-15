@@ -40,7 +40,7 @@ export const StyledTrashButton = styled.button`
     }
 `;
 
-export const StyledIconDrag = styled(IconDrag)`
+export const StyledIconDrag: typeof IconDrag = styled(IconDrag)`
     ${buttonMixin('left', 'transparent', 'var(--on-dark-text-primary)')};
 
     svg {
