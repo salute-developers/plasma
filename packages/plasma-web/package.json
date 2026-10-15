@@ -40,7 +40,8 @@
     "@salutejs/plasma-tokens-b2b": "1.70.0",
     "@salutejs/plasma-tokens-b2c": "0.81.0",
     "@salutejs/plasma-tokens-web": "1.85.0",
-    "@salutejs/plasma-typo": "0.58.0"
+    "@salutejs/plasma-typo": "0.58.0",
+    "react-sortable-hoc": "2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.24.1",
