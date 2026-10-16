@@ -20,6 +20,16 @@ type CustomChipProps = {
      */
     contentRight?: ReactNode;
     /**
+     * Пользовательский цвет текста. Не меняется в состояниях hover и active
+     */
+    customColor?: string;
+    /**
+     * Пользовательский цвет фона.
+     * Для токена вида `var(--surface-solid-default)` в состояниях hover и active
+     * используются токены `--surface-solid-default-hover` и `--surface-solid-default-active`
+     */
+    customBackgroundColor?: string;
+    /**
      * Есть ли иконка закрытия
      * @default 'true'
      */
