@@ -157,6 +157,47 @@ export function App() {
 }
 ```
 
+### Сумма с выбором валюты
+
+```tsx live
+import React, { useState } from 'react';
+import { NumberFormat, Select } from '@salutejs/sdds-scan';
+import { IconDisclosureDown } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [amount, setAmount] = useState('500000');
+    const [currency, setCurrency] = useState('rub');
+
+    const currencies = [
+        { value: 'rub', label: 'RUB', symbol: '₽' },
+        { value: 'usd', label: 'USD', symbol: '$' },
+        { value: 'eur', label: 'EUR', symbol: '€' },
+    ];
+
+    return (
+        <div style={{ height: '240px' }}>
+            <NumberFormat
+                label="Сумма вклада"
+                placeholder="0"
+                suffix={` ${currencies.find((item) => item.value === currency)?.symbol}`}
+                value={amount}
+                onChange={(_, values) => setAmount(values?.value ?? '')}
+                contentRight={
+                    <Select
+                        target="button-like"
+                        view="clear"
+                        items={currencies}
+                        mode="radio"
+                        value={currency}
+                        onChange={setCurrency}
+                    />
+                }
+            />
+        </div>
+    );
+}
+```
+
 ### Функция форматирования
 Для приведения числа к нужному формату можно использовать функцию `numberFormatter`.
 Она принимает два параметра:
