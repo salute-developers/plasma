@@ -9,6 +9,11 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-primary);
 
@@ -57,6 +62,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             positive: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-positive);
 
@@ -105,6 +115,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             warning: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-warning);
 
@@ -153,6 +168,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             negative: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-negative);
 
@@ -203,6 +223,8 @@ export const config = {
         },
         size: {
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
@@ -286,6 +308,8 @@ export const config = {
                 ${tokens.infiniteLoaderGap}: 0.375rem;
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;

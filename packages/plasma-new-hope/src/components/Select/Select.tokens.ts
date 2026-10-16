@@ -15,6 +15,17 @@ export const classes = {
 
 export const tokens = {
     /** @styleType dimension */
+    scrollbarWidth: '--plasma-select-scrollbar-width',
+    /** @styleType color */
+    scrollbarTrackBackgroundColor: '--plasma-select-scrollbar-track-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColor: '--plasma-select-scrollbar-thumb-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorHover: '--plasma-select-scrollbar-thumb-background-color-hover',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorActive: '--plasma-select-scrollbar-thumb-background-color-active',
+
+    /** @styleType dimension */
     borderRadius: '--plasma-select-border-radius',
     /** @styleType dimension */
     padding: '--plasma-select-padding',

@@ -1,10 +1,27 @@
 import styled, { css } from 'styled-components';
+import { addScrollbar } from 'src/mixins';
 import { component, mergeConfig } from 'src/engines';
 import { emptyStateConfig, emptyStateTokens } from 'src/components/EmptyState';
 
 import { getCorrectHeight } from './utils';
 import { SelectProps } from './Select.types';
 import { tokens, constants, classes } from './Select.tokens';
+
+export const scrollbar = `
+    scrollbar-width: auto;
+
+    ${addScrollbar({
+        scrollWidth: `var(${tokens.scrollbarWidth}, 0)`,
+        trackColor: `var(${tokens.scrollbarTrackBackgroundColor})`,
+        thumbColor: `var(${tokens.scrollbarThumbBackgroundColor})`,
+        thumbHoverColor: `var(${tokens.scrollbarThumbBackgroundColorHover}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+        thumbActiveColor: `var(${tokens.scrollbarThumbBackgroundColorActive}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+    })}
+`;
+
+export const VirtualScrollContainer = styled.div`
+    ${scrollbar}
+`;
 
 const mergedConfig = mergeConfig(emptyStateConfig);
 const EmptyState = component(mergedConfig);
@@ -30,6 +47,7 @@ export const Ul = styled.ul<{
         virtual ? 'auto' : listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto'};
     overflow-x: hidden;
     overflow-y: ${({ virtual }) => (virtual ? 'visible' : 'auto')};
+    ${scrollbar}
     border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
     margin: 0;
     padding: 0;
