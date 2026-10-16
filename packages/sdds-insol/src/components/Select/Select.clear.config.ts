@@ -12,6 +12,11 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
 
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
@@ -70,6 +75,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             positive: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-positive);
                 ${tokens.textFieldColorFocus}: var(--text-primary);
 
@@ -130,6 +140,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             warning: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-warning);
                 ${tokens.textFieldColorFocus}: var(--text-primary);
 
@@ -190,6 +205,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             negative: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-negative);
                 ${tokens.textFieldColorFocus}: var(--text-primary);
 
@@ -250,6 +270,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             accent: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorHover}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
@@ -284,6 +309,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             secondary: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorHover}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
@@ -318,6 +348,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             clear: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorHover}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
@@ -352,6 +387,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             dark: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorHover}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
@@ -386,6 +426,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             black: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorHover}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
@@ -420,6 +465,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: var(--outline-transparent-tertiary);
             `,
             white: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorHover}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
@@ -456,6 +506,8 @@ export const config = {
         },
         size: {
             xl: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 4rem;
                 ${tokens.textFieldPadding}: 1.375rem 0;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem 0;
@@ -601,6 +653,8 @@ export const config = {
                 ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             l: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldPadding}: 1rem 0;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem 0;
@@ -746,6 +800,8 @@ export const config = {
                 ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldPadding}: 0.875rem 0;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem 0;
@@ -891,6 +947,8 @@ export const config = {
                 ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.75rem 0;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem 0;
@@ -1039,6 +1097,8 @@ export const config = {
                 ${tokens.dividerMarginBottomTight}: 0.25rem;
             `,
             xs: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldPadding}: 0.5rem 0;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem 0;

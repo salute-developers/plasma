@@ -3,8 +3,11 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
 } from '@salutejs/sdds-themes/tokens/sdds_insol_next';
 
 export const config = {
@@ -15,6 +18,8 @@ export const config = {
     variations: {
         size: {
             xl: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 1rem;
@@ -54,6 +59,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyM.lineHeight};
             `,
             l: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 0.875rem;
@@ -93,6 +100,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyS.lineHeight};
             `,
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 15rem;
                 ${tokens.borderRadius}: 0.75rem;
@@ -132,6 +141,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyXS.lineHeight};
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
@@ -171,6 +182,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyXS.lineHeight};
             `,
             xs: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 10rem;
                 ${tokens.borderRadius}: 0.5rem;
@@ -212,6 +225,11 @@ export const config = {
         },
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
             `,

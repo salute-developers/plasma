@@ -14,6 +14,7 @@ import {
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidDefault,
+    surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
     surfaceSolidPrimary,
     surfaceSolidPrimaryActive,
@@ -40,6 +41,11 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceSolidDefault};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceSolidDefaultHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceSolidDefaultActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceSolidPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
@@ -84,6 +90,11 @@ export const config = {
                 ${tokens.checkboxTriggerBorderColor}: ${outlineAccent};
             `,
             negative: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceSolidDefault};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceSolidDefaultHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceSolidDefaultActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceSolidPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldBackgroundColor}: ${surfaceSolidCard};
@@ -130,6 +141,8 @@ export const config = {
         },
         size: {
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
