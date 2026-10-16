@@ -10,6 +10,8 @@ export const config = {
     variations: {
         size: {
             xl: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 1rem;
@@ -47,6 +49,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             l: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 0.875rem;
@@ -84,6 +88,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 15rem;
                 ${tokens.borderRadius}: 0.75rem;
@@ -121,6 +127,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
@@ -158,6 +166,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-s-line-height);
             `,
             xs: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 10rem;
                 ${tokens.borderRadius}: 0.5rem;
@@ -197,6 +207,11 @@ export const config = {
         },
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
             `,

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber } from 'src/utils';
 
+import { VirtualScrollContainer } from '../../Autocomplete.styles';
 import { SuggestionItem } from '../SuggestionItem/SuggestionItem';
 import type { SuggestionItemType } from '../../Autocomplete.types';
 
@@ -26,7 +27,7 @@ export const VirtualList: React.FC<Props> = ({ items, onClick, listId, listMaxHe
     const virtualItems = virtualizer.getVirtualItems();
 
     return (
-        <div
+        <VirtualScrollContainer
             ref={parentRef}
             style={{
                 height: 'auto',
@@ -68,6 +69,6 @@ export const VirtualList: React.FC<Props> = ({ items, onClick, listId, listMaxHe
                     ))}
                 </div>
             </div>
-        </div>
+        </VirtualScrollContainer>
     );
 };
