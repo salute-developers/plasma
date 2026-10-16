@@ -84,6 +84,7 @@ export * from './components/ViewContainer';
 export * from './components/Loader';
 export * from './components/Skeleton';
 export * from './components/Flow';
+export * from './components/Form';
 
 // INFO: Disabled components
 // export * from './components/Grid';
