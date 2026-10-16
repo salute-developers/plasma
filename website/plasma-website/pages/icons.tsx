@@ -9,6 +9,7 @@ import dynamic from 'next/dynamic';
 import { multipleMediaQuery } from '../mixins';
 import { Header, Main, SearchForm, IconsList, Footer, IconsToolbar } from '../components/roster';
 import { StyledActionIcon } from '../components/roster/StyledActionIcon';
+import { useSearchQueryParam } from '../hooks/useSearchQueryParam';
 import { defaultIconStyle } from '../utils/iconStyle';
 import type { IconStyle } from '../utils/iconStyle';
 
@@ -81,7 +82,7 @@ const StyledMain = styled(Main)`
 `;
 
 function Home() {
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useSearchQueryParam();
     const [isScrolling, setIsScrolling] = useState(false);
     const [showDeprecated, setShowDeprecated] = useState(false);
     const [iconStyle, setIconStyle] = useState<IconStyle>(defaultIconStyle);
@@ -147,7 +148,12 @@ function Home() {
                 </StyledIconBackWrapper>
                 <Header />
                 <StyledMain>
-                    <IconsToolbar activeCollection="plasma" iconStyle={iconStyle} onIconStyleChange={setIconStyle} />
+                    <IconsToolbar
+                        activeCollection="plasma"
+                        searchQuery={searchQuery}
+                        iconStyle={iconStyle}
+                        onIconStyleChange={setIconStyle}
+                    />
                     <SearchForm
                         searchQuery={searchQuery}
                         onInput={onSearchInput}
