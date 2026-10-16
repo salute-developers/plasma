@@ -10,6 +10,14 @@ type ChipProps = ComponentProps<typeof Chip>;
 const { meta: META, Default } = getChipStories({
     component: Chip,
     componentConfig: config,
+    additionalArgTypes: {
+        customColor: {
+            control: 'color',
+        },
+        customBackgroundColor: {
+            control: 'color',
+        },
+    },
 });
 
 const meta: Meta<ChipProps> = {
