@@ -1,20 +1,20 @@
 import { css } from 'styled-components';
 
-import { tokens } from '../../Chip.tokens';
+import { privateTokens, tokens } from '../../Chip.tokens';
 
 export const base = css`
-    color: var(${tokens.color});
-    background-color: var(${tokens.background});
+    color: var(${privateTokens.customColor}, var(${tokens.color}));
+    background-color: var(${privateTokens.customBackground}, var(${tokens.background}));
 
     @media (hover: hover) and (pointer: fine) {
         :hover {
-            color: var(${tokens.colorHover});
-            background-color: var(${tokens.backgroundHover});
+            color: var(${privateTokens.customColor}, var(${tokens.colorHover}));
+            background-color: var(${privateTokens.customBackgroundHover}, var(${tokens.backgroundHover}));
         }
     }
 
     :active {
-        color: var(${tokens.colorActive});
-        background-color: var(${tokens.backgroundActive});
+        color: var(${privateTokens.customColor}, var(${tokens.colorActive}));
+        background-color: var(${privateTokens.customBackgroundActive}, var(${tokens.backgroundActive}));
     }
 `;

@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { tokens } from '../../Chip.tokens';
+import { privateTokens, tokens } from '../../Chip.tokens';
 import { StyledContentClear } from '../../Chip.styles';
 
 export const base = css`
@@ -12,8 +12,8 @@ export const base = css`
         :active {
             scale: none;
 
-            color: var(${tokens.color});
-            background-color: var(${tokens.background});
+            color: var(${privateTokens.customColor}, var(${tokens.color}));
+            background-color: var(${privateTokens.customBackground}, var(${tokens.background}));
         }
 
         ${StyledContentClear} {

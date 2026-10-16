@@ -114,4 +114,46 @@ describeFn('Chip', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('customBackgroundColor, customColor', () => {
+        mount(<Chip text="Chip_custom" customBackgroundColor="red" customColor="white" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('customBackgroundColor: hover and active tokens', () => {
+        mount(
+            <>
+                <Chip
+                    className="chip-token"
+                    text="Chip_token"
+                    customColor="var(--text-primary, #000)"
+                    customBackgroundColor="var(--surface-accent)"
+                />
+                <PadMe />
+                <Chip className="chip-color" text="Chip_color" customColor="white" customBackgroundColor="red" />
+            </>,
+        );
+
+        cy.get('.chip-token').should(($chip) => {
+            const { style } = $chip[0];
+
+            expect(style.getPropertyValue('--plasma-chip-custom-color')).to.eq('var(--text-primary, #000)');
+            expect(style.getPropertyValue('--plasma-chip-custom-color-hover')).to.eq('');
+            expect(style.getPropertyValue('--plasma-chip-custom-color-active')).to.eq('');
+            expect(style.getPropertyValue('--plasma-chip-custom-background-hover')).to.eq(
+                'var(--surface-accent-hover, var(--surface-accent))',
+            );
+            expect(style.getPropertyValue('--plasma-chip-custom-background-active')).to.eq(
+                'var(--surface-accent-active, var(--surface-accent))',
+            );
+        });
+
+        cy.get('.chip-color').should(($chip) => {
+            const { style } = $chip[0];
+
+            expect(style.getPropertyValue('--plasma-chip-custom-background-hover')).to.eq('red');
+            expect(style.getPropertyValue('--plasma-chip-custom-background-active')).to.eq('red');
+        });
+    });
 });

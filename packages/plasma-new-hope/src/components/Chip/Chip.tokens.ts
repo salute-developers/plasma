@@ -7,6 +7,10 @@ export const privateTokens = {
     computedBorderRadius: '--plasma_computed-chip-br',
     privateBorderRadius: '--plasma_private-chip-br',
     privateOutlineSize: '--plasma_private-chip-outline-size',
+    customColor: '--plasma-chip-custom-color',
+    customBackground: '--plasma-chip-custom-background',
+    customBackgroundHover: '--plasma-chip-custom-background-hover',
+    customBackgroundActive: '--plasma-chip-custom-background-active',
 };
 
 export const tokens = {
