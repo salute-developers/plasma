@@ -31,6 +31,24 @@ export function App() {
 }
 ```
 
+## Символ перед числом
+
+Проп `hasSymbolBefore` добавляет перед числом тильду.
+
+```tsx live
+import React from 'react';
+import { Numbers } from '@salutejs/plasma-homeds';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', padding: '2rem', background: 'var(--inverse-background-primary)' }}>
+            <Numbers value={22} unit="degree" size="m" hasSymbolBefore />
+            <Numbers value={-3.5} unit="degree" size="m" hasSymbolBefore />
+        </div>
+    );
+}
+```
+
 ## API
 
 <PropsTable name="Numbers" exclude={['css']} />
