@@ -42,6 +42,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     rootView,
     height,
     width,
+    renderItem,
 }: StepItemExtendedProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -65,7 +66,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
 
     const completedItemView = item?.completedItemView ?? rootView;
     const prevCompletedView = prevItem?.completedItemView ?? rootView;
-    const isSimple = !title && !content;
+    const isSimple = !renderItem && !title && !content;
     const clickable = Boolean(onClick);
     const isVertical = orientation === 'vertical';
     const isCentered = contentAlign === 'center';
@@ -117,7 +118,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
         <Root
             view={completedItemView}
             size={item?.size}
-            className={cls(classes.stepItem, {
+            className={cls(classes.stepItem, item?.className, {
                 [classes.simple]: isSimple,
                 [classes.active]: isActive,
                 [classes.hovered]: isHovered && !isActive,
@@ -131,7 +132,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 [classes.firstItem]: isFirst,
                 isNextActive,
             })}
-            style={customSizeStyle}
+            style={{ ...item?.style, ...customSizeStyle }}
         >
             <BulletIndicatorWrapper
                 className={cls({
@@ -177,10 +178,10 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                     })}
                 >
                     <StepItemTitle className={classes.stepItemTitle} {...interactiveHandlers}>
-                        {title}
+                        {renderItem ? renderItem(item, index) : title}
                     </StepItemTitle>
 
-                    {content && (
+                    {!renderItem && content && (
                         <StepItemContent>
                             {typeof content === 'function' ? content(status, index, items) : content}
                         </StepItemContent>

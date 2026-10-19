@@ -32,6 +32,7 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
             onChange,
             current,
             status,
+            renderItem,
             ...rest
         } = props;
 
@@ -40,7 +41,7 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
         const ref = useForkRef(outerRef, rootRef);
 
         const hasIndicator = items.some((item) => item.indicator != null);
-        const isSimple = items.every((item) => !item.title && !item.content);
+        const isSimple = !renderItem && items.every((item) => !item.title && !item.content);
 
         const innerItems = useMemo(() => {
             const isUncontrolled = current !== undefined;
@@ -151,6 +152,7 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
                             rootView={view}
                             height={item.height}
                             width={item.width}
+                            renderItem={renderItem}
                         />
                     );
                 })}
