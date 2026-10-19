@@ -1,9 +1,10 @@
-import React, { forwardRef, useState, useEffect, HTMLAttributes, useMemo, FC } from 'react';
+import React, { forwardRef, useState, useEffect, useLayoutEffect, useRef, HTMLAttributes, useMemo, FC } from 'react';
 import cls from 'classnames';
 
 import type { RootPropsOmitOnChange } from '../../engines/types';
+import { useForkRef } from '../../hooks';
 
-import { classes } from './Steps.tokens';
+import { classes, privateTokens } from './Steps.tokens';
 import { StepsProps as BaseStepsProps } from './Steps.types';
 import { base } from './Steps.styles';
 import { base as sizeCSS } from './variations/_size/base';
@@ -35,6 +36,8 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
         } = props;
 
         const [prevIndex, setPrevIndex] = useState<number | undefined>();
+        const rootRef = useRef<HTMLDivElement>(null);
+        const ref = useForkRef(outerRef, rootRef);
 
         const hasIndicator = items.some((item) => item.indicator != null);
         const isSimple = items.every((item) => !item.title && !item.content);
@@ -75,12 +78,45 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
             };
         }, [current, innerItems]);
 
+        /**
+         * Шаги со своим size отличаются диаметром индикатора, и чтобы круги стояли на общей оси,
+         * обёртке каждого индикатора нужен размер самого большого круга.
+         * CSS не умеет брать максимум по соседним элементам, а значения размеров задаются в конфигах вертикалей,
+         * поэтому максимум измеряется по DOM и передаётся в стили через приватный токен.
+         */
+        useLayoutEffect(() => {
+            const root = rootRef.current;
+
+            if (!root) {
+                return undefined;
+            }
+
+            if (!items.some((item) => item.size)) {
+                root.style.removeProperty(privateTokens.indicatorTrack);
+                return undefined;
+            }
+
+            const measure = () => {
+                const slots = root.querySelectorAll<HTMLElement>(`.${classes.bulletSlot}`);
+                const track = Math.max(...Array.from(slots, (slot) => slot.offsetWidth));
+
+                root.style.setProperty(privateTokens.indicatorTrack, `${track}px`);
+            };
+
+            measure();
+
+            // styled-components применяет классы вариаций после commit, поэтому повторный замер — на следующем кадре
+            const frame = requestAnimationFrame(measure);
+
+            return () => cancelAnimationFrame(frame);
+        }, [innerItems, size, orientation, hasLoader]);
+
         return (
             <Root
                 size={size}
                 view={view}
                 itemView={itemView}
-                ref={outerRef}
+                ref={ref}
                 className={cls({
                     [classes.verticalOrientation]: orientation === 'vertical',
                     [classes.simple]: isSimple,

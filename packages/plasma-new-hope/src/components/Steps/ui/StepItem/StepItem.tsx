@@ -19,9 +19,11 @@ import {
     StepItemCenteredDivider,
 } from './StepItem.styles';
 import { base as viewCSS } from './variations/_view/base';
+import { base as sizeCSS } from './variations/_size/base';
 
 type RootStepItemProps = {
     view?: string;
+    size?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>) => ({
@@ -101,7 +103,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
             className={cls({ [classes.active]: isActive, [classes.inactive]: isInactive })}
             disabled={isDisabled}
         >
-            {typeof indicator === 'function' ? indicator({ status, item, size }) : indicator}
+            {typeof indicator === 'function' ? indicator({ status, item, size: item?.size ?? size }) : indicator}
         </BulletNode>
     );
 
@@ -114,6 +116,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     return (
         <Root
             view={completedItemView}
+            size={item?.size}
             className={cls(classes.stepItem, {
                 [classes.simple]: isSimple,
                 [classes.active]: isActive,
@@ -152,9 +155,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                         />
                     </Root>
                 )}
-
-                <BulletSlot>{bulletContent}</BulletSlot>
-
+                <BulletSlot className={classes.bulletSlot}>{bulletContent}</BulletSlot>
                 <StepItemDivider
                     className={cls({
                         [classes.verticalOrientation]: isVertical,
@@ -165,7 +166,6 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                     })}
                 />
             </BulletIndicatorWrapper>
-
             {!isSimple && (
                 <StepItemContentWrapper
                     className={cls({
@@ -198,6 +198,7 @@ export const stepItemConfig = {
     base,
     variations: {
         view: viewCSS,
+        size: sizeCSS,
     },
     defaults: {
         view: 'default',

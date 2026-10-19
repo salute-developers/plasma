@@ -462,6 +462,45 @@ export function App() {
 }
 ```
 
+## Размер индикатора
+
+Свойство `size` задаётся на каждом шаге через `items[n].size` и переопределяет диаметр индикатора из `Steps.size`. Типографика и отступы остаются от размера компонента. Если `size` у шага не задан, шаг наследует `Steps.size`.
+
+Значения совпадают с `Steps.size` вертикали. Диаметр не зависит от статуса шага. У шага без `indicator` точка меньше, чем круг с числом или иконкой.
+
+```tsx live
+import React from 'react';
+import { Steps } from '@salutejs/{{ package }}';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Наследует size',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: 'l',
+        status: 'active',
+        size: 'l',
+    }, {
+        indicator: 3,
+        title: 'xs',
+        status: 'inactive',
+        size: 'xs',
+    }, {
+        title: 'bullet m',
+        status: 'inactive',
+        size: 'm',
+    }];
+
+    return (
+        <section>
+            <Steps size="s" items={items} />
+        </section>
+    );
+}
+```
+
 ## Кастомный размер шага
 
 Каждому шагу можно задать индивидуальный размер через свойство `height` (вертикальный режим) или `width` (горизонтальный режим).
