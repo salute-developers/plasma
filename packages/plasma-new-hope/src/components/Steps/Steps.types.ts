@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import { StepStatus, StepItemProps } from './ui';
 
 export type StepsContent = 'all' | 'active' | 'none';
@@ -65,4 +67,9 @@ export interface StepsProps {
      * Обработчик изменения шага, делает индикаторы и заголовки шагов кликабельными
      */
     onChange?: (item: StepItemProps, index: number, prevIndex?: number) => void;
+    /**
+     * Callback для кастомного рендера текстовой части шага, заменяет title и content.
+     * На результат не влияет hasContent.
+     */
+    renderItem?: (item: StepItemProps, index: number) => ReactNode;
 }
