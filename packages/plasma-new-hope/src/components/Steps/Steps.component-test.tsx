@@ -1,14 +1,26 @@
 import React from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    getBaseVisualTests,
+    getConfigMatrix,
+} from '@salutejs/plasma-cy-utils';
 import styled from 'styled-components';
 // @ts-ignore
 import { IconMic } from 'override/_Icon';
+// В Cypress алиас указывает на конфиг текущей вертикали
+import { config as stepsConfig } from 'src/examples/components/Steps/Steps.config';
 
 import type { StepsProps } from './Steps.types';
 import type { StepItemProps, StepStatus } from './ui';
 
 const componentExists = hasComponent('Steps');
 const describeFn = getDescribeFN('Steps');
+
+const itemSizes = getConfigMatrix(stepsConfig, ['size']).map(({ size }) => size);
+const parentSize = itemSizes.includes('s') ? 's' : itemSizes[0];
 
 const stepItems: StepItemProps[] = [
     { title: 'Title', content: 'Content', status: 'active', indicator: 1 },
@@ -454,6 +466,25 @@ describeFn('Steps', () => {
         ];
 
         mount(<Steps items={itemsWithWidth} />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('item size overrides parent size', () => {
+        const itemsWithSize: StepItemProps[] = [
+            { indicator: 1, title: 'Title', status: 'completed' },
+            { indicator: 2, title: 'Title', status: 'active', size: itemSizes[0] },
+            { indicator: 3, title: 'Title', status: 'inactive', size: itemSizes[1] ?? itemSizes[0] },
+            { title: 'Title', status: 'inactive', size: itemSizes[itemSizes.length - 1] },
+        ];
+
+        mount(
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', height: '450px' }}>
+                <Steps items={itemsWithSize} size={parentSize} />
+                <Steps items={itemsWithSize.map(({ title: _title, ...item }) => item)} size={parentSize} />
+                <Steps items={itemsWithSize} size={parentSize} orientation="vertical" />
+            </div>,
+        );
 
         cy.matchImageSnapshot();
     });
