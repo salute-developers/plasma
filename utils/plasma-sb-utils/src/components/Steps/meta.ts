@@ -1,6 +1,6 @@
 import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
-import { itemViews, orientations, contentAligns, indicatorTypes, hasContentOptions } from './fixtures';
+import { itemViews, itemSizes, orientations, contentAligns, indicatorTypes, hasContentOptions } from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -102,6 +102,10 @@ export const createMeta = ({
                 },
                 indicatorType: {
                     options: indicatorTypes,
+                    control: { type: 'select' },
+                },
+                itemSize: {
+                    options: itemSizes,
                     control: { type: 'select' },
                 },
                 simple: {

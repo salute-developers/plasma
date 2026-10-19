@@ -17,6 +17,11 @@ export const classes = {
     verticalLastItem: 'vertical-last-item',
     firstItem: 'first-item',
     noTitle: 'no-title',
+    bulletSlot: 'step-item-bullet-slot',
+};
+
+export const privateTokens = {
+    indicatorTrack: '--plasma_private-steps-indicator-track',
 };
 
 export const tokens = {

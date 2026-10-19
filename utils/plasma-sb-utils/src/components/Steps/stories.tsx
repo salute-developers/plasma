@@ -27,6 +27,7 @@ export const createDefaultStory = (Steps: any, stepItemViews: any) => {
         loading,
         disabled,
         simple,
+        itemSize,
         ...rest
     }: any) => {
         const innerTitle = title || 'Title';
@@ -74,6 +75,10 @@ export const createDefaultStory = (Steps: any, stepItemViews: any) => {
         useEffect(() => {
             setItems((curItems) => curItems.map((item) => ({ ...item, disabled })));
         }, [disabled]);
+
+        useEffect(() => {
+            setItems((curItems) => curItems.map((item) => ({ ...item, size: itemSize })));
+        }, [itemSize]);
 
         const onChange = (_item: any, index: number, prevIndex: number) => {
             if (prevIndex !== undefined) {

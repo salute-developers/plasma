@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { addFocus } from 'src/mixins';
 
-import { classes, tokens } from '../../Steps.tokens';
+import { classes, privateTokens, tokens } from '../../Steps.tokens';
 import { spinnerConfig, spinnerTokens } from '../../../Spinner';
 
 const mergedConfig = mergeConfig(spinnerConfig);
@@ -59,6 +59,14 @@ export const BulletIndicatorWrapper = styled.div`
         min-height: var(${tokens.activeBulletSize});
     }
 
+    &:not(.${classes.verticalOrientation}).${classes.hasIndicator} {
+        min-height: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeIndicatorSize}));
+    }
+
+    &:not(.${classes.verticalOrientation}):not(.${classes.hasIndicator}) {
+        min-height: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeBulletSize}));
+    }
+
     &:not(.${classes.simple}).${classes.verticalOrientation} {
         padding-right: var(${tokens.verticalContentPaddingLeft});
     }
@@ -68,11 +76,11 @@ export const BulletIndicatorWrapper = styled.div`
         align-items: center;
 
         &.${classes.hasIndicator} {
-            min-width: var(${tokens.activeIndicatorSize});
+            min-width: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeIndicatorSize}));
         }
 
         &:not(.${classes.hasIndicator}) {
-            min-width: var(${tokens.activeBulletSize});
+            min-width: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeBulletSize}));
         }
     }
 
