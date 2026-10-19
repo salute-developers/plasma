@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import {
     mount,
     getComponent,
@@ -13,6 +13,7 @@ import { IconMic } from 'override/_Icon';
 // В Cypress алиас указывает на конфиг текущей вертикали
 import { config as stepsConfig } from 'src/examples/components/Steps/Steps.config';
 
+import { tokens } from './Steps.tokens';
 import type { StepsProps } from './Steps.types';
 import type { StepItemProps, StepStatus } from './ui';
 
@@ -485,6 +486,45 @@ describeFn('Steps', () => {
                 <Steps items={itemsWithSize} size={parentSize} orientation="vertical" />
             </div>,
         );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: renderItem, item style', () => {
+        const itemsWithStyle: StepItemProps[] = [
+            { indicator: 1, title: 'Title 1', status: 'completed' },
+            {
+                indicator: 2,
+                title: 'Title 2',
+                status: 'active',
+                className: 'custom-step',
+                style: {
+                    [tokens.activeIndicatorBorder]: 'solid var(--surface-accent)',
+                    [tokens.activeIndicatorColor]: 'var(--text-accent)',
+                    [tokens.dividerActiveGradientColor]: 'var(--surface-accent)',
+                    [tokens.dividerActiveVerticalGradientColor]: 'var(--surface-accent)',
+                } as CSSProperties,
+            },
+            { indicator: 3, title: 'Title 3', status: 'inactive', style: { opacity: 0.4 } },
+        ];
+
+        const renderItem = (item: StepItemProps, index: number) => (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span>{item.title}</span>
+                <span>
+                    Step {index + 1}: {item.status}
+                </span>
+            </div>
+        );
+
+        mount(
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', height: '450px' }}>
+                <Steps items={itemsWithStyle} renderItem={renderItem} />
+                <Steps items={itemsWithStyle} renderItem={renderItem} orientation="vertical" />
+            </div>,
+        );
+
+        cy.get('.custom-step').should('have.length', 2);
 
         cy.matchImageSnapshot();
     });
