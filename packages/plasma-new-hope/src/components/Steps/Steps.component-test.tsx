@@ -20,8 +20,8 @@ import type { StepItemProps, StepStatus } from './ui';
 const componentExists = hasComponent('Steps');
 const describeFn = getDescribeFN('Steps');
 
-const itemSizes = getConfigMatrix(stepsConfig, ['size']).map(({ size }) => size);
-const parentSize = itemSizes.includes('s') ? 's' : itemSizes[0];
+const parentSizes = getConfigMatrix(stepsConfig, ['size']).map(({ size }) => size);
+const parentSize = parentSizes.includes('s') ? 's' : parentSizes[0];
 
 const stepItems: StepItemProps[] = [
     { title: 'Title', content: 'Content', status: 'active', indicator: 1 },
@@ -472,18 +472,41 @@ describeFn('Steps', () => {
     });
 
     it('item size overrides parent size', () => {
-        const itemsWithSize: StepItemProps[] = [
+        const titledMarkers: StepItemProps[] = [
             { indicator: 1, title: 'Title', status: 'completed' },
-            { indicator: 2, title: 'Title', status: 'active', size: itemSizes[0] },
-            { indicator: 3, title: 'Title', status: 'inactive', size: itemSizes[1] ?? itemSizes[0] },
-            { title: 'Title', status: 'inactive', size: itemSizes[itemSizes.length - 1] },
+            { indicator: 2, title: 'Title', status: 'active', indicatorSize: 36 },
+            { indicator: 3, title: 'Title', status: 'inactive', indicatorSize: 24 },
+        ];
+        const titledBullets: StepItemProps[] = [
+            { title: 'Title', status: 'completed' },
+            { title: 'Title', status: 'active', indicatorSize: 16 },
+            { title: 'Title', status: 'inactive', indicatorSize: 8 },
+        ];
+        const simpleMarkers: StepItemProps[] = [
+            { indicator: 1, status: 'completed' },
+            { indicator: 2, status: 'active', indicatorSize: 56 },
+            { indicator: 3, status: 'inactive', indicatorSize: 48 },
+            { indicator: 4, status: 'inactive', indicatorSize: 36 },
+            { indicator: 5, status: 'inactive', indicatorSize: 24 },
+        ];
+        const simpleBullets: StepItemProps[] = [
+            { status: 'completed' },
+            { status: 'active', indicatorSize: 36 },
+            { status: 'inactive', indicatorSize: 24 },
+            { status: 'inactive', indicatorSize: 16 },
+            { status: 'inactive', indicatorSize: 8 },
         ];
 
         mount(
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', height: '450px' }}>
-                <Steps items={itemsWithSize} size={parentSize} />
-                <Steps items={itemsWithSize.map(({ title: _title, ...item }) => item)} size={parentSize} />
-                <Steps items={itemsWithSize} size={parentSize} orientation="vertical" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', height: '470px' }}>
+                <Steps items={titledMarkers} size={parentSize} />
+                <Steps items={titledBullets} size={parentSize} />
+                <Steps items={simpleMarkers} size={parentSize} />
+                <Steps items={simpleBullets} size={parentSize} />
+                <div style={{ display: 'flex', gap: '1.5rem', flex: 1, minHeight: 0 }}>
+                    <Steps items={titledMarkers} size={parentSize} orientation="vertical" />
+                    <Steps items={simpleBullets} size={parentSize} orientation="vertical" />
+                </div>
             </div>,
         );
 
