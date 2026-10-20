@@ -30,7 +30,6 @@ export interface ColorPickerProps {
     hideGradientStop?: boolean;
     hideGradientAngle?: boolean;
     hideColorTypeControls?: boolean;
-    hideAdvancedSliders?: boolean;
     hideGradientControls?: boolean;
     dropperButtonSlot?: (onClick: VoidFunction) => React.ReactNode;
     degreePickerSlot?: (props: {
@@ -53,6 +52,8 @@ export const Picker = ({
     hideOpacity,
     hideEyeDrop,
     hideControls,
+    hideInputType,
+    hideColorGuide,
     hidePickerSquare,
     hideGradientType,
     hideGradientStop,
@@ -91,7 +92,7 @@ export const Picker = ({
             {!hidePickerSquare ? <Saturation /> : null}
 
             <Group mb={12} gap={12} align="center">
-                <ColorPreview />
+                {!hideColorGuide ? <ColorPreview /> : null}
                 <Stack gap={12}>
                     {isGradient ? <GradientBar /> : null}
                     {!hideHue ? <Hue /> : null}
@@ -100,7 +101,7 @@ export const Picker = ({
             </Group>
 
             <Stack gap={8}>
-                <InputTypeTab />
+                {!hideInputType ? <InputTypeTab /> : null}
                 <Group align="center" gap={4} mb={12}>
                     {!hideEyeDrop ? <Dropper dropperButtonSlot={dropperButtonSlot} onSelect={handleChange} /> : null}
 
@@ -108,8 +109,8 @@ export const Picker = ({
                 </Group>
             </Stack>
 
-            <Group mb={12}>
-                {!hideControls && isGradient && !hideGradientControls ? (
+            {!hideControls && isGradient && !hideGradientControls ? (
+                <Group mb={12}>
                     <GradientControls
                         hideGradientType={hideGradientType}
                         hideGradientAngle={hideGradientAngle}
@@ -118,8 +119,8 @@ export const Picker = ({
                         stopPickerSlot={stopPickerSlot}
                         degreePickerSlot={degreePickerSlot}
                     />
-                ) : null}
-            </Group>
+                </Group>
+            ) : null}
 
             {!hidePresets ? <Swatches presets={presets} /> : null}
         </div>

@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 import { CSSProperties } from 'react';
-import { isNumber } from 'lodash';
 
-import { tokens } from './ColorPicker.tokens';
+import { isNumber } from './lib/typeGuards';
 
 type FlexProps = {
     gap?: CSSProperties['gap'];
@@ -21,7 +20,6 @@ const flexMixin = {
 
 export const base = css`
     box-sizing: border-box;
-    background-color: var(${tokens.backgroundColor});
 `;
 
 export const Group = styled.div<FlexProps>`

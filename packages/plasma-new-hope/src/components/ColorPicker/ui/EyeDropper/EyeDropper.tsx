@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import html2canvas from 'html2canvas';
+import React, { useEffect, useRef, useState } from 'react';
 import tc from 'tinycolor2';
 
 import { Portal } from '../../../Portal';
@@ -29,28 +28,51 @@ interface DropperProps {
 export const Dropper = ({ onSelect, dropperButtonSlot }: DropperProps) => {
     const [pickerCanvas, setPickerCanvas] = useState<CanvasRenderingContext2D | null>(null);
     const [coverUp, setCoverUp] = useState(false);
+    const snapshotScale = useRef(1);
 
-    const takePick = () => {
-        const rootEl = document.getElementById('root') ?? document.body;
+    // Снимок страницы живёт только пока открыт оверлей — он весит два вьюпорта.
+    useEffect(() => {
+        if (!coverUp && pickerCanvas) {
+            setPickerCanvas(null);
+        }
+    }, [coverUp, pickerCanvas]);
+
+    const takePick = async () => {
+        const rootEl = document.body;
+        const scale = window.devicePixelRatio || 1;
+
         setCoverUp(true);
 
-        html2canvas(rootEl).then((canvas: HTMLCanvasElement) => {
-            const blankCanvas = document.createElement('canvas');
-            const ctx = blankCanvas.getContext('2d', { willReadFrequently: true });
-            if (!ctx) return;
+        try {
+            // html2canvas нужен только там, где нет нативного EyeDropper, — не тянем его в основной бандл.
+            const { default: html2canvas } = await import('html2canvas');
+            const canvas = await html2canvas(rootEl, { scale });
 
-            blankCanvas.width = rootEl.offsetWidth * 2;
-            blankCanvas.height = rootEl.offsetHeight * 2;
+            const blankCanvas = document.createElement('canvas');
+            blankCanvas.width = rootEl.offsetWidth * scale;
+            blankCanvas.height = rootEl.offsetHeight * scale;
+
+            const ctx = blankCanvas.getContext('2d', { willReadFrequently: true });
+            if (!ctx) {
+                setCoverUp(false);
+                return;
+            }
+
             ctx.drawImage(canvas, 0, 0);
+            snapshotScale.current = scale;
             setPickerCanvas(ctx);
-        });
+        } catch {
+            // Без снимка выбирать нечего — закрываем оверлей, иначе он навсегда перекроет страницу.
+            setCoverUp(false);
+        }
     };
 
     const getColorLegacy = (e: React.MouseEvent) => {
         e.stopPropagation();
         if (pickerCanvas) {
-            const x = e.pageX * 2;
-            const y = e.pageY * 2;
+            const scale = snapshotScale.current;
+            const x = e.pageX * scale;
+            const y = e.pageY * scale;
             const rgb = pickerCanvas.getImageData(x, y, 1, 1).data;
             onSelect(`rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 1)`);
         }
@@ -72,8 +94,8 @@ export const Dropper = ({ onSelect, dropperButtonSlot }: DropperProps) => {
                 const { r, g, b } = tc(result.sRGBHex).toRgb();
                 onSelect(`rgba(${r}, ${g}, ${b}, 1)`);
             })
-            .catch((e: unknown) => {
-                console.warn('EyeDropper отменён или не удался:', e);
+            .catch(() => {
+                /* Пользователь закрыл пипетку — ничего не делаем. */
             });
     };
 

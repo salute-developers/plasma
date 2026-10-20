@@ -36,11 +36,9 @@ const getClientXY = (e: MouseEvent | TouchEvent): { clientX: number; clientY: nu
 export const safeBounds = (e: MouseEvent | TouchEvent): Bounds => {
     const target = e.target as HTMLElement | null;
     const client = target?.parentElement?.getBoundingClientRect();
-    const className = target?.className ?? '';
-    const adjuster = className === 'c-resize ps-rl' ? 15 : 0;
 
     return {
-        offsetLeft: (client?.x ?? 0) + adjuster,
+        offsetLeft: client?.x ?? 0,
         offsetTop: client?.y ?? 0,
         clientWidth: client?.width ?? 0,
         clientHeight: client?.height ?? 0,

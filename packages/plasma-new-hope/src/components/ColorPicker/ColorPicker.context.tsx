@@ -101,18 +101,6 @@ export default function PickerContextWrapper({
     const [hc, setHc] = useState<ColorHC>({ ...rgba, ...hsv });
 
     useEffect(() => {
-        if (hsv.s === 0) {
-            setHc((prev) => ({ ...rgba, ...hsv, h: prev.h }));
-        } else {
-            setHc((prev) => ({
-                ...rgba,
-                ...hsv,
-                h: Math.abs(hsv.h - prev.h) < 1 ? prev.h : hsv.h,
-            }));
-        }
-    }, [currentColor]);
-
-    useEffect(() => {
         setHc((prev) => {
             const hueDiff = Math.min(Math.abs(hsv.h - prev.h), 360 - Math.abs(hsv.h - prev.h));
 

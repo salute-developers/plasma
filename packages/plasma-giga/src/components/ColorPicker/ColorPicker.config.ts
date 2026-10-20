@@ -14,8 +14,10 @@ export const config = {
                 ${tokens.buttonColor}: var(--text-primary);
                 ${tokens.buttonTextColor}: var(--inverse-text-primary);
                 ${tokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.buttonColorHover}: var(--inverse-text-primary-hover);
-                ${tokens.buttonColorActive}: var(--inverse-text-primary-active);
+                ${tokens.buttonColorHover}: var(--text-primary-hover);
+                ${tokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+                ${tokens.buttonColorActive}: var(--text-primary-active);
+                ${tokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
                 ${tokens.activeTabTextColor}: var(--inverse-text-primary);
             `,
         },

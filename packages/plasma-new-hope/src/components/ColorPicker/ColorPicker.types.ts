@@ -33,8 +33,6 @@ export type ColorPickerProps = {
     presets?: string[];
     /** Скрывает кнопку пипетки (EyeDropper). */
     hideEyeDrop?: boolean;
-    /** Скрывает расширенные слайдеры. */
-    hideAdvancedSliders?: boolean;
     /** Скрывает подсказку по цвету. */
     hideColorGuide?: boolean;
     /** Скрывает переключатель типа инпута (формата значения цвета). */

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 
 import type { RootProps } from '../../engines';
 
@@ -26,19 +26,67 @@ export const colorPicker = (Root: RootProps<HTMLDivElement, ColorPickerProps>) =
             disableLightMode = false,
             showHexAlpha = false,
             config = {},
+            // Пропсы пикера держим отдельно от HTML-атрибутов, иначе React отдаёт их в DOM.
+            hideControls,
+            hideInputs,
+            hideOpacity,
+            hidePresets,
+            hideHue,
+            hideEyeDrop,
+            hideColorGuide,
+            hideInputType,
+            hideColorTypeControls,
+            hideGradientType,
+            hideGradientAngle,
+            hideGradientStop,
+            hideGradientControls,
+            hidePickerSquare,
+            dropperButtonSlot,
+            degreePickerSlot,
+            stopPickerSlot,
+            removeGradientStopSlot,
             ...rest
         } = props;
 
-        const safeValue = objectToString(value);
-
-        const getIsDarkMode = (): boolean => {
-            if (typeof window === 'undefined') return false;
-            if (disableDarkMode) return false;
-            if (disableLightMode) return true;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const pickerProps = {
+            hideControls,
+            hideInputs,
+            hideOpacity,
+            hidePresets,
+            hideHue,
+            hideEyeDrop,
+            hideColorGuide,
+            hideInputType,
+            hideColorTypeControls,
+            hideGradientType,
+            hideGradientAngle,
+            hideGradientStop,
+            hideGradientControls,
+            hidePickerSquare,
+            dropperButtonSlot,
+            degreePickerSlot,
+            stopPickerSlot,
+            removeGradientStopSlot,
         };
 
-        const isDarkMode = getIsDarkMode();
+        const safeValue = objectToString(value);
+
+        // На сервере системной темы нет, поэтому первый рендер всегда светлый — иначе ломается гидрация.
+        const [prefersDark, setPrefersDark] = useState(false);
+
+        useEffect(() => {
+            if (disableDarkMode || disableLightMode) return undefined;
+
+            const query = window.matchMedia('(prefers-color-scheme: dark)');
+            const handleChange = (e: MediaQueryListEvent) => setPrefersDark(e.matches);
+
+            setPrefersDark(query.matches);
+            query.addEventListener('change', handleChange);
+
+            return () => query.removeEventListener('change', handleChange);
+        }, [disableDarkMode, disableLightMode]);
+
+        const isDarkMode = (!disableDarkMode && disableLightMode) || (!disableDarkMode && prefersDark);
 
         const buildPickerIdSuffix = (): string => {
             const suffix = idSuffix ? `-${idSuffix}` : '';
@@ -56,11 +104,11 @@ export const colorPicker = (Root: RootProps<HTMLDivElement, ColorPickerProps>) =
                     passedConfig={config}
                     squareHeight={height}
                     isDarkMode={isDarkMode}
-                    hideOpacity={rest.hideOpacity}
+                    hideOpacity={hideOpacity}
                     showHexAlpha={showHexAlpha}
                     pickerIdSuffix={pickerIdSuffix}
                 >
-                    <Picker locales={locales} presets={presets} {...rest} />
+                    <Picker locales={locales} presets={presets} {...pickerProps} />
                 </PickerContextWrapper>
             </Root>
         );

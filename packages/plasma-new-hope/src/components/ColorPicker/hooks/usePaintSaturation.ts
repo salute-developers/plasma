@@ -12,7 +12,7 @@ export const usePaintSaturation = (
     squareHeight: number,
 ): void => {
     useEffect(() => {
-        const ctx = canvas.current?.getContext('2d', { willReadFrequently: true });
+        const ctx = canvas.current?.getContext('2d');
         if (!ctx) return;
 
         ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;

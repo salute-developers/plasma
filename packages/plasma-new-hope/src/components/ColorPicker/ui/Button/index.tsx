@@ -8,7 +8,11 @@ const mergedConfig = mergeConfig(buttonConfig);
 const Button = component(mergedConfig);
 
 const buttonBackgroundColorVar = '--plasma-button-background-color';
-const buttonBackgroundColor = `var(${tokens.activeTabTextColor}, var(${buttonBackgroundColorVar}))`;
+const buttonTextColorVar = '--plasma-button-text-color';
+
+/* Активная вкладка: фон и текст берут разные токены, иначе текст сливается с фоном. */
+const activeTabBackgroundColor = `var(${tokens.activeTabColor}, var(${buttonBackgroundColorVar}))`;
+const activeTabTextColor = `var(${tokens.activeTabTextColor}, var(${tokens.buttonColor}))`;
 
 export const StyledButton = styled(Button)<{
     $active?: boolean;
@@ -32,16 +36,19 @@ export const StyledButton = styled(Button)<{
     ${buttonTokens.buttonLineHeight}: var(${tokens.buttonLineHeight});
     ${buttonTokens.buttonRadius}: var(${tokens.buttonRadius});
 
-    --plasma-button-text-color: ${(props) => (props.$active ? buttonBackgroundColor : `var(${tokens.buttonColor})`)};
+    ${buttonTextColorVar}: ${(props) => (props.$active ? activeTabTextColor : `var(${tokens.buttonColor})`)};
 
-    background-color: ${(props) => (props.$active ? buttonBackgroundColor : `var(${buttonBackgroundColorVar})`)};
+    background-color: ${(props) =>
+        props.$active ? activeTabBackgroundColor : `var(${tokens.buttonBackgroundColor}, transparent)`};
 
-    :is(:hover) {
-        background-color: ${(props) => (props.$active ? buttonBackgroundColor : `var(${buttonBackgroundColorVar})`)};
+    /* Выбранная вкладка не подсвечивается на наведении. */
+    &:hover {
+        ${buttonTextColorVar}: ${(props) =>
+    props.$active ? activeTabTextColor : `var(${tokens.buttonColorHover}, var(${tokens.buttonColor}))`};
 
-        --plasma-button-text-color: ${(props) =>
+        background-color: ${(props) =>
             props.$active
-                ? `var(${tokens.activeTabTextColor}, var(${buttonBackgroundColorVar}))`
-                : `var(${tokens.buttonColor})`};
+                ? activeTabBackgroundColor
+                : `var(${tokens.buttonBackgroundColorHover}, var(${tokens.buttonBackgroundColor}, transparent))`};
     }
 `;

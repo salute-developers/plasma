@@ -1,7 +1,7 @@
 import React, { ComponentProps, useEffect, useState } from 'react';
-import { isString } from 'lodash';
 
 import { formatInputValues } from '../../lib/formatters';
+import { isString } from '../../lib/typeGuards';
 import { IconPercent } from '../../../_Icon/Icons/IconPercent';
 import { usePicker } from '../../ColorPicker.context';
 

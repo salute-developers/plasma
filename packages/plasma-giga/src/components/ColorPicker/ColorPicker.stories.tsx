@@ -17,7 +17,7 @@ const meta: Meta<typeof ColorPicker> = {
         value: '#fff',
         locales: {
             CONTROLS: {
-                SOLID: 'Cплошной',
+                SOLID: 'Сплошной',
                 GRADIENT: 'Градиент',
             },
         },
@@ -201,7 +201,7 @@ const Paper = ({ children }: PropsWithChildren) => {
         <div
             style={{
                 width: 'fit-content',
-                boxShadow: '0 1px 4px -1px rgba(0 0 0 0.4), 0 4px 14px -4px rgba(8 8 8 0.08)',
+                boxShadow: '0 1px 4px -1px rgba(0, 0, 0, 0.4), 0 4px 14px -4px rgba(8, 8, 8, 0.08)',
                 backgroundColor: '#fff',
                 padding: '1rem',
                 borderRadius: '1.5rem',
@@ -236,9 +236,9 @@ const StoryWithCustomEyeDropperButton = (props: StoryPropsDefault) => {
     return (
         <Paper>
             <ColorPicker
+                {...props}
                 value={color}
                 onChange={setColor}
-                {...props}
                 dropperButtonSlot={(onClick) => (
                     <Button size="xs" view="secondary" onClick={onClick}>
                         C

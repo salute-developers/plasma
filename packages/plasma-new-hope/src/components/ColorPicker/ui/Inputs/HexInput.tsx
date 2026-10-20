@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import tc from 'tinycolor2';
-import { isNumber } from 'lodash';
 
 import { getHexAlpha } from '../../lib/converters';
+import { isNumber } from '../../lib/typeGuards';
 import { usePicker } from '../../ColorPicker.context';
 import { IconHash } from '../../../_Icon/Icons/IconHash';
 import { Group } from '../../ColorPicker.styles';
