@@ -130,7 +130,6 @@ export const segmentItemConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
     },
     defaults: {

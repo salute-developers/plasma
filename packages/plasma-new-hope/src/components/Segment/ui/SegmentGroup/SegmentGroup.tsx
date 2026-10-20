@@ -424,7 +424,6 @@ export const segmentGroupConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
         stretch: {
             css: stretchCSS,
@@ -435,7 +434,6 @@ export const segmentGroupConfig = {
         },
         filledBackground: {
             css: filledBackgroundCSS,
-            attrs: true,
         },
     },
     defaults: {
