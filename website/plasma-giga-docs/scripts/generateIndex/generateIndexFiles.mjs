@@ -25,6 +25,15 @@ function getMdxGroup(mdxPath) {
     return pathSegments.length > 1 ? pathSegments[0] : path.basename(mdxPath, '.mdx');
 }
 
+function getMdxName(frontmatter, mdxPath) {
+    const name =
+        getMdxGroup(mdxPath) === 'components'
+            ? frontmatter.title || path.basename(mdxPath, '.mdx')
+            : frontmatter.slug || path.basename(mdxPath, '.mdx');
+
+    return name.replace(/^\/+/, '');
+}
+
 async function extractContentWithCode(mdxContent) {
     try {
         const { content, data: frontmatter } = matter(mdxContent);
@@ -193,7 +202,7 @@ async function mdxToJson(mdxPath) {
             metadata: {
                 heading: {
                     depth: 1,
-                    text: frontmatter.slug || path.basename(mdxPath, '.mdx'),
+                    text: getMdxName(frontmatter, mdxPath),
                 },
                 source: {
                     url: generateMdxLink(mdxPath, componentName, config.baseUrl),
