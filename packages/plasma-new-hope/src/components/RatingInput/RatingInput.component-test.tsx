@@ -77,10 +77,11 @@ describeFn('plasma-new-hope: RatingInput', () => {
         mount(<RatingInput {...ratingInputProps} defaultValue={2} onChange={onChange} />);
 
         cy.get('input[value="2"]').should('be.checked');
-        cy.get('label').eq(3).click();
+        cy.get('input[value="4"]').parent('label').click();
         cy.get('input[value="4"]').should('be.checked');
         cy.get('@onChange').should('have.been.calledOnceWithExactly', 4);
-        cy.get('label').eq(3).click();
+        cy.get('input[value="4"]').parent('label').click();
+        cy.get('input[value="4"]').should('be.checked');
         cy.get('@onChange').should('have.been.calledOnce');
     });
 
@@ -88,7 +89,7 @@ describeFn('plasma-new-hope: RatingInput', () => {
         const onChange = cy.stub().as('onChange');
         mount(<RatingInput {...ratingInputProps} value={2} onChange={onChange} />);
 
-        cy.get('label').eq(3).click();
+        cy.get('input[value="4"]').parent('label').click();
         cy.get('@onChange').should('have.been.calledOnceWithExactly', 4);
         cy.get('input[value="2"]').should('be.checked');
         cy.get('input[value="4"]').should('not.be.checked');
