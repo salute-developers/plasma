@@ -80,9 +80,9 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
         }, [current, innerItems]);
 
         /**
-         * Шаги со своим size отличаются диаметром индикатора, и чтобы круги стояли на общей оси,
+         * Шаги со своим indicatorSize отличаются диаметром индикатора, и чтобы круги стояли на общей оси,
          * обёртке каждого индикатора нужен размер самого большого круга.
-         * CSS не умеет брать максимум по соседним элементам, а значения размеров задаются в конфигах вертикалей,
+         * CSS не умеет брать максимум по соседним элементам, а диаметр шага задаётся числом,
          * поэтому максимум измеряется по DOM и передаётся в стили через приватный токен.
          */
         useLayoutEffect(() => {
@@ -92,24 +92,17 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
                 return undefined;
             }
 
-            if (!items.some((item) => item.size)) {
+            if (!items.some((item) => item.indicatorSize != null)) {
                 root.style.removeProperty(privateTokens.indicatorTrack);
                 return undefined;
             }
 
-            const measure = () => {
-                const slots = root.querySelectorAll<HTMLElement>(`.${classes.bulletSlot}`);
-                const track = Math.max(...Array.from(slots, (slot) => slot.offsetWidth));
+            const slots = root.querySelectorAll<HTMLElement>(`.${classes.bulletSlot}`);
+            const track = Math.max(...Array.from(slots, (slot) => slot.offsetWidth));
 
-                root.style.setProperty(privateTokens.indicatorTrack, `${track}px`);
-            };
+            root.style.setProperty(privateTokens.indicatorTrack, `${track}px`);
 
-            measure();
-
-            // styled-components применяет классы вариаций после commit, поэтому повторный замер — на следующем кадре
-            const frame = requestAnimationFrame(measure);
-
-            return () => cancelAnimationFrame(frame);
+            return undefined;
         }, [innerItems, size, orientation, hasLoader]);
 
         return (
