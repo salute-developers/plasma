@@ -3,18 +3,28 @@ import { IconMic } from '@salutejs/plasma-icons';
 
 import { getIndicatorSizePreset, indicatorSizePresets } from './fixtures';
 
-const renderIndicator = ({ status, size }: { status: string; size: string }) => {
-    let iconSize: 'xs' | 's';
-    if (size === 'xs' || size === 's') {
-        iconSize = 'xs';
-    } else if (status === 'active') {
-        iconSize = 's';
-    } else {
-        iconSize = 'xs';
+const getIconSize = (status: string, size: string, indicatorSize?: number): 'xs' | 's' => {
+    // Свой диаметр один на все статусы: 24px — иконка 16px, любой другой — 24px.
+    if (indicatorSize != null) {
+        return indicatorSize === 24 ? 'xs' : 's';
     }
 
-    return <IconMic color="inherit" size={iconSize} />;
+    if (size === 'xs' || size === 's' || status !== 'active') {
+        return 'xs';
+    }
+
+    return 's';
 };
+
+const renderIndicator = ({
+    status,
+    size,
+    item,
+}: {
+    status: string;
+    size: string;
+    item?: { indicatorSize?: number };
+}) => <IconMic color="inherit" size={getIconSize(status, size, item?.indicatorSize)} />;
 
 export const createDefaultStory = (Steps: any, stepItemViews: any) => {
     return ({
