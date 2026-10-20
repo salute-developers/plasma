@@ -95,7 +95,7 @@
     "@salutejs/plasma-themes": "0.68.0",
     "@types/lodash": "^4.14.191",
     "@types/lodash.chunk": "4.2.9",
-    "@types/lodash.throttle": "4.1.6",
+    "@types/lodash.throttle": "4.1.9",
     "@types/node": "15.14.9",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
