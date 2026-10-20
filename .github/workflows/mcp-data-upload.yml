@@ -38,7 +38,7 @@ jobs:
             -   name: Checkout
                 uses: actions/checkout@v4
                 with:
-                    ref: master
+                    ref: ${{ github.ref }}
                     show-progress: false
 
             -   name: Prepare environment
@@ -144,7 +144,7 @@ jobs:
             -   name: Checkout
                 uses: actions/checkout@v4
                 with:
-                    ref: master
+                    ref: ${{ github.ref }}
                     show-progress: false
 
             -   name: Prepare environment
