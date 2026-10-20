@@ -184,3 +184,47 @@ jobs:
                     sync
                     ./packages/sdds-icons/mcpData/
                     s3://${{ secrets.AWS_S3_BUCKET_2 }}/mcp/sdds-icons/
+
+    test-mcp-data:
+        name: Test ${{ matrix.package_name }} MCP data
+        needs: [upload-mcp-data, upload-icons-manifest]
+        if: >-
+            ${{ needs.upload-mcp-data.result == 'success' &&
+                needs.upload-icons-manifest.result == 'success' }}
+        runs-on: ubuntu-22.04
+        strategy:
+            fail-fast: false
+            matrix:
+                include:
+                    -   package_name: plasma-web
+                    -   package_name: plasma-b2c
+                    -   package_name: plasma-giga
+                    -   package_name: plasma-homeds
+                    -   package_name: sdds-finai
+                    -   package_name: sdds-cs
+                    -   package_name: sdds-serv
+                    -   package_name: sdds-platform-ai
+                    -   package_name: sdds-netology
+                    -   package_name: sdds-bizcom
+                    -   package_name: sdds-dfa
+                    -   package_name: sdds-insol
+                    -   package_name: sdds-scan
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+                with:
+                    ref: ${{ github.ref }}
+                    show-progress: false
+
+            -   name: Read ${{ matrix.package_name }} version
+                run: |
+                    PACKAGE_VERSION=$(node -p "require('./packages/${{ matrix.package_name }}/package.json').version")
+                    echo "PACKAGE_VERSION=$PACKAGE_VERSION" >> $GITHUB_ENV
+
+            -   name: Run MCP tests
+                run: >
+                    npm run test
+                    --prefix=./utils/mcp-tests
+                    --
+                    --lib ${{ matrix.package_name }}
+                    --version ${{ env.PACKAGE_VERSION }}
