@@ -31,7 +31,9 @@ function getMdxName(frontmatter, mdxPath) {
             ? frontmatter.title || path.basename(mdxPath, '.mdx')
             : frontmatter.slug || path.basename(mdxPath, '.mdx');
 
-    return name.replace(/^\/+/, '');
+    const normalizedName = name.replace(/^\/+/, '');
+
+    return normalizedName || frontmatter.id || path.basename(mdxPath, '.mdx');
 }
 
 async function extractContentWithCode(mdxContent) {
