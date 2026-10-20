@@ -10,7 +10,7 @@ export type ColorSwatchProps = {
     /** Любое валидное CSS-значение для `border-radius`. */
     radius?: string | number;
 
-    /** Добавляет внутреннюю тень `box-shadow`. @default true */
+    /** Добавляет внутреннюю тень `box-shadow`. @default false */
     withShadow?: boolean;
 
     /** Контент внутри образца. */

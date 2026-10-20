@@ -10,16 +10,30 @@ import {
     ColorSwatchShadowOverlay,
 } from './ColorSwatch.styles';
 import { ColorSwatchProps } from './ColorSwatch.types';
+import { tokens } from './ColorSwatch.tokens';
 import { base as viewCSS } from './variations/_view/base';
+
+const sizeToken = tokens.colorSwatchSize;
+const radiusToken = tokens.colorSwatchRadius;
 
 export const colorSwatchRoot = (Root: RootProps<HTMLDivElement, ColorSwatchProps>) =>
     forwardRef<HTMLDivElement, ColorSwatchProps>((props, ref) => {
+        // color/size/radius/withShadow — пропсы компонента, в DOM их отдавать нельзя.
+        const { color, size, radius, withShadow, children, style, ...rest } = props;
+
+        const rootStyle = {
+            ...style,
+            ...(size !== undefined && { [sizeToken]: size }),
+            ...(radius !== undefined && { [radiusToken]: typeof radius === 'number' ? `${radius}px` : radius }),
+        } as React.CSSProperties;
+
         return (
-            <Root {...props} ref={ref}>
+            // Root типизирован полным набором пропсов компонента, но в DOM уходят только HTML-атрибуты.
+            <Root {...(rest as ColorSwatchProps)} style={rootStyle} ref={ref}>
                 <ColorSwatchAlphaOverlay />
-                {props.withShadow && <ColorSwatchShadowOverlay />}
-                <ColorSwatchColorOverlay style={{ backgroundColor: props.color }} />
-                <ColorSwatchChildrenOverlay>{props.children}</ColorSwatchChildrenOverlay>
+                {withShadow && <ColorSwatchShadowOverlay />}
+                <ColorSwatchColorOverlay style={{ backgroundColor: color }} />
+                <ColorSwatchChildrenOverlay>{children}</ColorSwatchChildrenOverlay>
             </Root>
         );
     });

@@ -23,10 +23,15 @@ const componentProps = {
     presets,
 };
 
+// Пикер выше дефолтного вьюпорта (500x500), иначе снапшот обрезается скроллом.
+const VIEWPORT_WIDTH = 500;
+const VIEWPORT_HEIGHT = 800;
+
 getBaseVisualTests({
     component: 'ColorPicker',
     componentProps,
     configPropsForMatrix: ['view', 'size'],
+    actionBeforeSnapshot: () => cy.viewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT),
 });
 
 describeFn('ColorPicker', () => {
@@ -91,5 +96,49 @@ describeFn('ColorPicker', () => {
             />,
         );
         cy.matchImageSnapshot();
+    });
+
+    const hideProps: Array<keyof ColorPickerProps> = [
+        'hideControls',
+        'hideInputs',
+        'hideOpacity',
+        'hidePresets',
+        'hideHue',
+        'hideEyeDrop',
+        'hideColorGuide',
+        'hideInputType',
+        'hideColorTypeControls',
+        'hidePickerSquare',
+    ];
+
+    hideProps.forEach((prop) => {
+        it(`solid, ${prop}`, () => {
+            cy.viewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
+
+            mount(<ColorPicker {...componentProps} {...{ [prop]: true }} />);
+            cy.matchImageSnapshot();
+        });
+    });
+
+    const gradientHideProps: Array<keyof ColorPickerProps> = [
+        'hideGradientType',
+        'hideGradientAngle',
+        'hideGradientStop',
+        'hideGradientControls',
+    ];
+
+    gradientHideProps.forEach((prop) => {
+        it(`gradient, ${prop}`, () => {
+            cy.viewport(VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
+
+            mount(
+                <ColorPicker
+                    {...componentProps}
+                    value="linear-gradient(45deg, #1A9E32FF 0%, #04C6C9FF 100%)"
+                    {...{ [prop]: true }}
+                />,
+            );
+            cy.matchImageSnapshot();
+        });
     });
 });
