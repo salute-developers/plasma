@@ -94,7 +94,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
             };
 
             return (
-                <Root opened={opened} onClose={onClose} view={view} handlePlacement={handlePlacement} ref={rootRef}>
+                <Root onClose={onClose} view={view} handlePlacement={handlePlacement} ref={rootRef}>
                     <StyledContentWrapper
                         opened={opened}
                         withTransition={withTransition}
