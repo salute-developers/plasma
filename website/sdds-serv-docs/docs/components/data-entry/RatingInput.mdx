@@ -1,0 +1,458 @@
+---
+id: RatingInput
+slug: /components/RatingInput
+title: RatingInput
+description: "Выбор оценки с помощью звёзд, дробных значений и собственных иконок."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# RatingInput
+
+<Description name="RatingInput" />
+
+Компонент для выбора оценки с помощью звёзд. Поддерживает дробные значения, сброс оценки, собственные иконки и управление с клавиатуры.
+
+## Быстрый старт
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return <RatingInput defaultValue={3} hasValue aria-label="Оцените качество обслуживания" />;
+}
+```
+
+## Управление внешним видом
+
+Свойство `view` задаёт цветовое оформление, `size` — типографику значения и отступы, а `iconSize` — размер иконок. По умолчанию используются `view="default"`, `size="l"` и `iconSize="m"`.
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        Доступны виды `default` и `accent`:
+
+        ```tsx live
+        import React from 'react';
+        import { RatingInput } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <RatingInput view="default" defaultValue={3} hasValue />
+                    <RatingInput view="accent" defaultValue={3} hasValue />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        Доступны размеры `s`, `m`, `l`, `h1`, `h2`, `h3`, `h4`, `h5`, `dsplS`, `dsplM` и `dsplL`. Размер значения можно выбирать независимо от размера иконок:
+
+        ```tsx live
+        import React from 'react';
+        import { RatingInput } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                    <RatingInput size="s" defaultValue={3} hasValue />
+                    <RatingInput size="m" defaultValue={3} hasValue />
+                    <RatingInput size="l" defaultValue={3} hasValue />
+                    <RatingInput size="h3" defaultValue={3} hasValue />
+                    <RatingInput size="dsplS" defaultValue={3} hasValue />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="iconSize" label="IconSize">
+        Свойство `iconSize` принимает значения `s`, `m` и `l`:
+
+        ```tsx live
+        import React from 'react';
+        import { RatingInput } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                    <RatingInput iconSize="s" defaultValue={3} hasValue />
+                    <RatingInput iconSize="m" defaultValue={3} hasValue />
+                    <RatingInput iconSize="l" defaultValue={3} hasValue />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+</Tabs>
+
+## Управление значением
+
+В неуправляемом режиме начальная оценка задаётся через `defaultValue`. В управляемом режиме передавайте `value` и обновляйте его в обработчике `onChange`.
+
+`onChange` получает выбранное число, а при сбросе — `null`. Значение `null` означает отсутствие оценки; значение `0` остаётся числовой оценкой.
+
+<Tabs>
+    <TabItem value="controlled" label="Управляемый" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { RatingInput } from '@salutejs/sdds-serv';
+
+        export function App() {
+            const [value, setValue] = useState<number | null>(3);
+
+            return (
+                <div>
+                    <RatingInput
+                        value={value}
+                        onChange={setValue}
+                        hasValue
+                        aria-label="Ваша оценка"
+                    />
+                    <p>Выбрано: {value ?? 'оценка не задана'}</p>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="uncontrolled" label="Неуправляемый">
+        ```tsx live
+        import React from 'react';
+        import { RatingInput } from '@salutejs/sdds-serv';
+
+        export function App() {
+            return (
+                <RatingInput
+                    defaultValue={3}
+                    onChange={(value) => console.log('Выбранная оценка:', value)}
+                    hasValue
+                    aria-label="Ваша оценка"
+                />
+            );
+        }
+        ```
+    </TabItem>
+
+</Tabs>
+
+## Сброс оценки
+
+При `allowClear` повторное нажатие на выбранную оценку сбрасывает её и вызывает `onChange(null)`. По умолчанию `allowClear` выключен. В управляемом режиме оценку также можно сбросить, передав `value={null}`.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <RatingInput
+            defaultValue={3}
+            allowClear
+            hasValue
+            renderValue={(value) => value ?? 'Выберите оценку'}
+            aria-label="Оценка с возможностью сброса"
+        />
+    );
+}
+```
+
+## Дробные значения
+
+Свойство `fractions` задаёт количество равных частей одной звезды. По умолчанию `fractions={1}`, шаг выбора равен `1 / fractions`: `2` — половины, `3` — трети, `4` — четверти. Значение округляется до ближайшего шага и ограничивается диапазоном от `0` до `iconQuantity`.
+
+Для стандартных звёзд при заполнении на половину используется готовая половинная иконка, в том числе при `fractions={4}`. Для остальных дробей применяется пропорциональное заполнение.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <RatingInput
+                fractions={2}
+                defaultValue={2.5}
+                hasValue
+                aria-label="Оценка с шагом в половину звезды"
+            />
+            <RatingInput
+                fractions={3}
+                defaultValue={8 / 3}
+                hasValue
+                renderValue={(value) => value === null ? 'Выберите оценку' : value.toFixed(2)}
+                aria-label="Оценка с шагом в треть звезды"
+            />
+            <RatingInput
+                fractions={4}
+                defaultValue={2.75}
+                hasValue
+                aria-label="Оценка с шагом в четверть звезды"
+            />
+        </div>
+    );
+}
+```
+
+## Количество звёзд
+
+Количество звёзд задаётся свойством `iconQuantity`. По умолчанию отображается пять звёзд. Свойства `iconQuantity` и `fractions` принимают положительные целые числа.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <RatingInput iconQuantity={3} defaultValue={2} hasValue aria-label="Оценка из трёх" />
+            <RatingInput iconQuantity={10} defaultValue={7} hasValue aria-label="Оценка из десяти" />
+        </div>
+    );
+}
+```
+
+## Отображение значения
+
+Свойство `hasValue` включает отображение выбранной оценки. По умолчанию выводится числовое значение `value` или внутреннее значение, заданное через `defaultValue` и изменённое пользователем. Когда оценка не выбрана, числовое значение не отображается.
+
+С помощью `renderValue` можно задать свой текст или React-элемент. Функция получает выбранное число или `null` и вызывается при `hasValue`.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <RatingInput
+            defaultValue={3}
+            allowClear
+            hasValue
+            renderValue={(value) => <strong>{value === null ? 'Выберите оценку' : `${value} из 5`}</strong>}
+            aria-label="Оценка качества"
+        />
+    );
+}
+```
+
+### Положение и выравнивание
+
+`valuePlacement` задаёт положение значения: `top` или `bottom`. `valueAlign` управляет выравниванием: `start` или `center`. По умолчанию значение находится снизу и центрируется относительно звёзд. Ширина боковых подписей на центрирование не влияет.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <RatingInput defaultValue={3} hasValue valuePlacement="top" valueAlign="start" />
+            <RatingInput defaultValue={3} hasValue valuePlacement="top" valueAlign="center" />
+            <RatingInput defaultValue={3} hasValue valuePlacement="bottom" valueAlign="start" />
+            <RatingInput defaultValue={3} hasValue valuePlacement="bottom" valueAlign="center" />
+        </div>
+    );
+}
+```
+
+## Подписи крайних значений
+
+Свойство `hasLimitLabels` включает подписи, заданные через `minLabel` и `maxLabel`. С помощью `limitLabelsPlacement` можно расположить их сбоку (`side`, по умолчанию) или под звёздами (`bottom`).
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <RatingInput
+                defaultValue={3}
+                hasValue
+                hasLimitLabels
+                minLabel="Плохо"
+                maxLabel="Отлично"
+                limitLabelsPlacement="side"
+            />
+            <RatingInput
+                defaultValue={3}
+                hasValue
+                hasLimitLabels
+                minLabel="Плохо"
+                maxLabel="Отлично"
+                limitLabelsPlacement="bottom"
+            />
+        </div>
+    );
+}
+```
+
+## Кастомные иконки
+
+С помощью `iconSlot` можно заменить заполненную звезду, а с помощью `iconSlotOutline` — пустую. Цвет иконок наследуется при `color="inherit"`.
+
+При дробных значениях заполненная иконка обрезается пропорционально выбранной доле поверх пустой. Собственную иконку для дроби можно задать через `renderFractionIcon`.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+import { IconPlasma } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <RatingInput
+            defaultValue={2.5}
+            fractions={2}
+            iconSize="s"
+            iconSlot={<IconPlasma size="s" color="inherit" />}
+            iconSlotOutline={<IconPlasma size="s" color="inherit" />}
+            hasValue
+            aria-label="Оценка с собственными иконками"
+        />
+    );
+}
+```
+
+### Иконки для дробных значений
+
+`renderFractionIcon` получает два аргумента: количество заполненных частей и количество частей одной звезды. Например, `(3, 4)` соответствует заполнению на три четверти.
+
+Функция вызывается для частично заполненной иконки. Пустые и полные иконки задаются через `iconSlotOutline` и `iconSlot`. Если функция возвращает `undefined`, используется стандартное отображение дроби; `null` оставляет место дробной иконки пустым.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    function FractionIcon({ filled = 0, total = 1 }) {
+        return (
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="2" fill="none" stroke="currentColor" />
+                <rect x="2" y="2" width={(20 * filled) / total} height="20" rx="2" fill="currentColor" />
+            </svg>
+        );
+    }
+
+    return (
+        <RatingInput
+            defaultValue={2.75}
+            fractions={4}
+            iconSlot={<FractionIcon filled={1} />}
+            iconSlotOutline={<FractionIcon />}
+            renderFractionIcon={(filled, total) => <FractionIcon filled={filled} total={total} />}
+            hasValue
+            aria-label="Оценка с собственными дробными иконками"
+        />
+    );
+}
+```
+
+## Наведение и события
+
+При наведении заливка иконок показывает предварительную оценку. Обработчик `onHoverChange` получает эту оценку, а при уходе указателя со звёзд — `null`.
+
+Выбранную оценку передаёт `onChange`. Для отображения выбранного значения в `renderValue` предварительная оценка не используется.
+
+```tsx live
+import React, { useState } from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    const [value, setValue] = useState<number | null>(3);
+    const [hoverValue, setHoverValue] = useState<number | null>(null);
+
+    return (
+        <div>
+            <RatingInput
+                value={value}
+                onChange={setValue}
+                onHoverChange={setHoverValue}
+                fractions={2}
+                hasValue
+                aria-label="Оценка с предварительным просмотром"
+            />
+            <p>При наведении: {hoverValue ?? '—'}</p>
+            <p>Выбрано: {value ?? 'оценка не задана'}</p>
+        </div>
+    );
+}
+```
+
+## Работа с формой
+
+Свойство `name` задаёт имя поля для отправки оценки в составе формы. Выбранное число передаётся строкой. При отсутствии выбранного значения поле не попадает в `FormData`.
+
+В неуправляемом режиме сброс формы восстанавливает `defaultValue`. В управляемом режиме приложение обновляет `value` через состояние.
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    const [submitted, setSubmitted] = useState('Оценка ещё не отправлена');
+
+    return (
+        <form
+            onSubmit={(event) => {
+                event.preventDefault();
+                const data = new FormData(event.currentTarget);
+                setSubmitted(String(data.get('rating') ?? 'Оценка не выбрана'));
+            }}
+        >
+            <RatingInput
+                name="rating"
+                defaultValue={3}
+                allowClear
+                hasValue
+                aria-label="Оценка для отправки"
+            />
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+                <Button type="submit">Отправить</Button>
+                <Button type="reset">Сбросить</Button>
+            </div>
+            <p>Результат: {submitted}</p>
+        </form>
+    );
+}
+```
+
+## Доступность и клавиатура
+
+С помощью `aria-label` или `aria-labelledby` задайте название группы оценок. `getLabelText` возвращает доступное название каждого варианта для скринридера. По умолчанию используется подпись вида «3 из 5».
+
+`getLabelText` задаёт только доступные названия вариантов. Видимое значение настраивается через `hasValue` и `renderValue`.
+
+```tsx live
+import React from 'react';
+import { RatingInput } from '@salutejs/sdds-serv';
+
+export function App() {
+    return (
+        <RatingInput
+            defaultValue={3}
+            fractions={2}
+            allowClear
+            hasValue
+            aria-label="Оцените качество обслуживания"
+            getLabelText={(value) => `${value} из 5 — оценка обслуживания`}
+        />
+    );
+}
+```
+
+| Клавиша  | Действие                                                                                   |
+| -------- | ------------------------------------------------------------------------------------------ |
+| `Tab`    | Переводит фокус на выбранную оценку или первый вариант, если оценка не задана.             |
+| `→`, `↑` | Выбирают следующий вариант с шагом `1 / fractions`.                                        |
+| `←`, `↓` | Выбирают предыдущий вариант с шагом `1 / fractions`.                                       |
+| `Home`   | Выбирает первый вариант: `1 / fractions`.                                                  |
+| `End`    | Выбирает максимальную оценку: `iconQuantity`.                                              |
+| `Пробел` | Выбирает вариант в фокусе. При `allowClear` повторное нажатие сбрасывает выбранную оценку. |
+
+Навигация стрелками не зацикливается. На максимальной оценке `→` и `↑` сохраняют текущее значение. На первом варианте `←` и `↓` сбрасывают оценку и вызывают `onChange(null)` независимо от `allowClear`; фокус остаётся на первом варианте. После сброса `→` или `↑` выбирают первое значение: `1 / fractions`.
+
+## Таблица свойств
+
+<PropsTable name="RatingInput" exclude={['css']} />
