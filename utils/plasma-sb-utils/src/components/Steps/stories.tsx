@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { IconMic } from '@salutejs/plasma-icons';
 
+import { getIndicatorSizePreset, indicatorSizePresets } from './fixtures';
+
 const renderIndicator = ({ status, size }: { status: string; size: string }) => {
     let iconSize: 'xs' | 's';
     if (size === 'xs' || size === 's') {
@@ -27,9 +29,23 @@ export const createDefaultStory = (Steps: any, stepItemViews: any) => {
         loading,
         disabled,
         simple,
-        itemSize,
+        indicatorSizeSimpleBullet,
+        indicatorSizeSimpleMarker,
+        indicatorSizeBullet,
+        indicatorSizeMarker,
+        indicatorSizePreset: _indicatorSizePreset,
         ...rest
     }: any) => {
+        const preset = getIndicatorSizePreset(simple, indicatorType);
+        const indicatorSize = {
+            'simple-bullet': indicatorSizeSimpleBullet,
+            'simple-marker': indicatorSizeSimpleMarker,
+            bullet: indicatorSizeBullet,
+            marker: indicatorSizeMarker,
+        }[preset];
+        const allowedSizes: readonly string[] = indicatorSizePresets[preset];
+        const stepIndicatorSize =
+            indicatorSize && allowedSizes.includes(String(indicatorSize)) ? Number(indicatorSize) : undefined;
         const innerTitle = title || 'Title';
 
         const [items, setItems] = useState<any[]>([]);
@@ -43,10 +59,17 @@ export const createDefaultStory = (Steps: any, stepItemViews: any) => {
                 const viewTitle = applyCustomCompletedItemView ? `${completedItemView} view` : innerTitle;
 
                 if (simple) {
-                    return { indicator, status, completedItemView };
+                    return { indicator, status, completedItemView, indicatorSize: stepIndicatorSize };
                 }
 
-                return { title: viewTitle, content, indicator, status, completedItemView };
+                return {
+                    title: viewTitle,
+                    content,
+                    indicator,
+                    status,
+                    completedItemView,
+                    indicatorSize: stepIndicatorSize,
+                };
             });
 
             setItems(newItems);
@@ -77,8 +100,8 @@ export const createDefaultStory = (Steps: any, stepItemViews: any) => {
         }, [disabled]);
 
         useEffect(() => {
-            setItems((curItems) => curItems.map((item) => ({ ...item, size: itemSize })));
-        }, [itemSize]);
+            setItems((curItems) => curItems.map((item) => ({ ...item, indicatorSize: stepIndicatorSize })));
+        }, [stepIndicatorSize]);
 
         const onChange = (_item: any, index: number, prevIndex: number) => {
             if (prevIndex !== undefined) {

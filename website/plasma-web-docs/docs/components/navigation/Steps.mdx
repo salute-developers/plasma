@@ -466,9 +466,7 @@ export function App() {
 
 ## Размер индикатора
 
-Свойство `size` задаётся на каждом шаге через `items[n].size` и переопределяет диаметр индикатора из `Steps.size`. Типографика и отступы остаются от размера компонента. Если `size` у шага не задан, шаг наследует `Steps.size`.
-
-Значения совпадают с `Steps.size` вертикали. Диаметр не зависит от статуса шага. У шага без `indicator` точка меньше, чем круг с числом или иконкой.
+Свойство `items[n].indicatorSize` задаёт диаметр индикатора шага в пикселях и перекрывает `Steps.size`. Значение одно для точки и для круга с числом или иконкой, от статуса шага не зависит. Типографика и отступы остаются от `Steps.size`. Если `indicatorSize` у шага не задан, шаг наследует `Steps.size`.
 
 ```tsx live
 import React from 'react';
@@ -481,18 +479,18 @@ export function App() {
         status: 'completed',
     }, {
         indicator: 2,
-        title: 'l',
+        title: '56',
         status: 'active',
-        size: 'l',
+        indicatorSize: 56,
     }, {
         indicator: 3,
-        title: 'xs',
+        title: '16',
         status: 'inactive',
-        size: 'xs',
+        indicatorSize: 16,
     }, {
-        title: 'bullet m',
+        title: 'точка 36',
         status: 'inactive',
-        size: 'm',
+        indicatorSize: 36,
     }];
 
     return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import cls from 'classnames';
 
 import type { RootProps } from '../../../../engines/types';
-import { classes } from '../../Steps.tokens';
+import { classes, privateTokens } from '../../Steps.tokens';
 
 import type { StepItemExtendedProps } from './StepItem.types';
 import {
@@ -19,11 +19,9 @@ import {
     StepItemCenteredDivider,
 } from './StepItem.styles';
 import { base as viewCSS } from './variations/_view/base';
-import { base as sizeCSS } from './variations/_size/base';
 
 type RootStepItemProps = {
     view?: string;
-    size?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>) => ({
@@ -86,6 +84,13 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
         return undefined;
     })();
 
+    // Диаметр в пикселях попадает в стили через приватную переменную,
+    // а расчёты линии и отступов берут её, если она задана, иначе остаются токены Steps.size.
+    const indicatorSizeStyle: React.CSSProperties | undefined =
+        item?.indicatorSize != null
+            ? ({ [privateTokens.indicatorSize]: `${item.indicatorSize}px` } as React.CSSProperties)
+            : undefined;
+
     const onMouseOver = clickable && !isDisabled ? () => setIsHovered(true) : undefined;
     const onMouseOut = clickable && !isDisabled ? () => setIsHovered(false) : undefined;
 
@@ -104,7 +109,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
             className={cls({ [classes.active]: isActive, [classes.inactive]: isInactive })}
             disabled={isDisabled}
         >
-            {typeof indicator === 'function' ? indicator({ status, item, size: item?.size ?? size }) : indicator}
+            {typeof indicator === 'function' ? indicator({ status, item, size }) : indicator}
         </BulletNode>
     );
 
@@ -117,7 +122,6 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     return (
         <Root
             view={completedItemView}
-            size={item?.size}
             className={cls(classes.stepItem, item?.className, {
                 [classes.simple]: isSimple,
                 [classes.active]: isActive,
@@ -130,9 +134,10 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 [classes.verticalOrientation]: isVertical,
                 [classes.verticalLastItem]: isVertical && isLast,
                 [classes.firstItem]: isFirst,
+                [classes.customIndicatorSize]: item?.indicatorSize != null,
                 isNextActive,
             })}
-            style={{ ...item?.style, ...customSizeStyle }}
+            style={{ ...item?.style, ...indicatorSizeStyle, ...customSizeStyle }}
         >
             <BulletIndicatorWrapper
                 className={cls({
@@ -199,7 +204,6 @@ export const stepItemConfig = {
     base,
     variations: {
         view: viewCSS,
-        size: sizeCSS,
     },
     defaults: {
         view: 'default',

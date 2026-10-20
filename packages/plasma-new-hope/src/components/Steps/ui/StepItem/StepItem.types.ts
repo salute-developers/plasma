@@ -20,9 +20,9 @@ export interface StepItemProps {
      */
     completedItemView?: string;
     /**
-     * Размер индикатора шага, перекрывает размер индикатора из Steps.size
+     * Диаметр индикатора шага в пикселях, перекрывает размер индикатора из Steps.size
      */
-    size?: string;
+    indicatorSize?: number;
     /**
      * Кастомная высота шага (применяется в вертикальной ориентации)
      */
