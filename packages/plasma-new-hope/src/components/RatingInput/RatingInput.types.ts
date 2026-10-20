@@ -6,7 +6,7 @@ export type RatingInputProps = {
      */
     value?: number | null;
     /**
-     * Начальная оценка в неуправляемом режиме.
+     * Начальная оценка в uncontrolled-режиме.
      */
     defaultValue?: number | null;
     /**
@@ -22,12 +22,6 @@ export type RatingInputProps = {
      * При уходе указателя со шкалы передается null.
      */
     onHoverChange?: (value: number | null) => void;
-    /**
-     * Разрешить выбор половин звезды, если fractions не задан.
-     * Явно заданный fractions имеет приоритет над allowHalf.
-     * @default false
-     */
-    allowHalf?: boolean;
     /**
      * Разрешить сброс оценки повторным нажатием на выбранное значение.
      * @default false
@@ -59,6 +53,11 @@ export type RatingInputProps = {
      */
     valueAlign?: 'start' | 'center';
     /**
+     * Размер предустановленной иконки.
+     * @default 'm'
+     */
+    iconSize?: 's' | 'm' | 'l';
+    /**
      * Слот для отображения иконки вместо закрашенной звезды по умолчанию.
      */
     iconSlot?: ReactNode;
@@ -67,25 +66,22 @@ export type RatingInputProps = {
      */
     iconSlotOutline?: ReactNode;
     /**
-     * Слот для отображения иконки вместо закрашенной наполовину звезды по умолчанию.
-     * Используется для заполнения на 1/2 при любом четном fractions.
-     * renderFractionIcon имеет приоритет над этим слотом.
-     */
-    iconSlotHalf?: ReactNode;
-    /**
      * Количество равных частей одной звезды. Целое число не меньше 1.
      * Шаг выбора равен 1 / fractions: 2 — половины, 3 — трети, 4 — четверти.
-     * Имеет приоритет над allowHalf.
-     * @default allowHalf ? 2 : 1
+     * Для стандартных звезд при заполнении на 1/2 автоматически используется
+     * предустановленная половинная иконка при любом четном fractions.
+     * Кастомные иконки для дробей, включая 1/2, задаются через renderFractionIcon.
+     * @default 1
      */
     fractions?: number;
     /**
      * Функция отображения частично закрашенной иконки.
      * filledFractions — количество заполненных частей от 1 до fractions - 1.
-     * fractions — итоговое число частей звезды с учетом allowHalf.
+     * fractions — количество равных частей звезды.
      * Например, аргументы (3, 4) соответствуют заполнению на 3/4.
-     * Если возвращает undefined, используется iconSlotHalf для половины
-     * или пропорциональное заполнение iconSlot поверх iconSlotOutline.
+     * Если возвращает undefined, используется предустановленная половинная иконка
+     * для стандартной звезды при заполнении на 1/2 или пропорциональное заполнение
+     * iconSlot поверх iconSlotOutline.
      * Для пустой и полной иконок используются iconSlotOutline и iconSlot.
      */
     renderFractionIcon?: (filledFractions: number, fractions: number) => ReactNode;
@@ -93,7 +89,7 @@ export type RatingInputProps = {
      * Количество звезд.
      * @default 5
      */
-    iconQuantity?: 1 | 5 | 10;
+    iconQuantity?: number;
     /**
      * Отобразить подписи минимальной и максимальной оценок.
      * @default false
