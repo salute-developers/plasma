@@ -68,6 +68,7 @@ export * from './components/Cell';
 export * from './components/Image';
 export * from './components/Divider';
 export * from './components/Rating';
+export * from './components/RatingInput';
 export * from './components/Note';
 export * from './components/List';
 
