@@ -27,7 +27,7 @@
   "devDependencies": {
     "@salutejs/plasma-tokens-utils": "0.66.0",
     "@types/node": "16.7.13",
-    "jszip": "3.10.1",
+    "jszip": "3.10.2",
     "ts-node": "10.2.1"
   },
   "contributors": ["salute.developers@gmail.com"],
