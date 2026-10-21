@@ -125,7 +125,7 @@
     "lerna": "9.0.7",
     "lint-staged": "13.1.2",
     "nyc": "15.1.0",
-    "postcss": "8.5.16",
+    "postcss": "8.5.31",
     "prettier": "2.0.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
