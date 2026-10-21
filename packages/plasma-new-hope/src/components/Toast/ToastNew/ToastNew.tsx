@@ -159,7 +159,6 @@ export const toastContainerConfig = {
         },
         pilled: {
             css: '',
-            attrs: true,
         },
     },
     defaults: {
