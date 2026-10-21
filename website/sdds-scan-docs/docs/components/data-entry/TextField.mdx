@@ -73,8 +73,6 @@ import CleaningLogicExample from '../../_examples/_textfield/_cleaning-logic.mdx
 
 <Tabs>
     <TabItem value="appearance" label="Appearance" default>
-        Для `appearance="clear"` есть возможность отобразить разделитель с помощью `hasDivider`
-
         ```tsx live
         import React, {useState} from 'react';
         import { TextField } from '@salutejs/sdds-scan';
@@ -93,17 +91,8 @@ import CleaningLogicExample from '../../_examples/_textfield/_cleaning-logic.mdx
                     />
                     <TextField
                         view="default"
-                        appearance="clear"
-                        label="Appearance clear"
-                        placeholder="Введите значение"
-                        contentLeft={<IconBellFill size="s" color="inherit" />}
-                        contentRight={<IconDone size="s" color="inherit" />}
-                    />
-                    <TextField
-                        view="positive"
-                        appearance="clear"
-                        hasDivider
-                        label="Appearance clear"
+                        appearance="white"
+                        label="Appearance white"
                         placeholder="Введите значение"
                         contentLeft={<IconBellFill size="s" color="inherit" />}
                         contentRight={<IconDone size="s" color="inherit" />}
