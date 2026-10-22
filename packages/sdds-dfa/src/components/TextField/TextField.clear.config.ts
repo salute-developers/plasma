@@ -32,9 +32,6 @@ import {
     surfaceWarningActive,
     surfaceWarningHover,
     textAccent,
-    textNegative,
-    textNegativeActive,
-    textNegativeHover,
     textPositive,
     textPositiveActive,
     textPositiveHover,
@@ -165,10 +162,10 @@ export const config = {
                 ${tokens.optionalColor}: ${textTertiary};
             `,
             negative: css`
-                ${tokens.color}: ${textNegative};
+                ${tokens.color}: ${textWarning};
                 ${tokens.colorFocus}: ${textPrimary};
 
-                ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColor}: ${textWarning};
                 ${tokens.placeholderColorHover}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
@@ -179,24 +176,24 @@ export const config = {
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
-                ${tokens.leftHelperColor}: ${textNegative};
-                ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColor}: ${textWarning};
+                ${tokens.rightHelperColor}: ${textWarning};
                 ${tokens.leftHelperColorFocus}: ${textSecondary};
                 ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
-                ${tokens.contentSlotColor}: ${textNegative};
-                ${tokens.contentSlotColorHover}: ${textNegativeHover};
-                ${tokens.contentSlotColorActive}: ${textNegativeActive};
+                ${tokens.contentSlotColor}: ${textWarning};
+                ${tokens.contentSlotColorHover}: ${textWarningHover};
+                ${tokens.contentSlotColorActive}: ${textWarningActive};
                 ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};
                 ${tokens.contentSlotRightColorActive}: ${textSecondaryActive};
 
-                ${tokens.dividerColor}: ${surfaceNegative};
-                ${tokens.dividerColorHover}: ${surfaceNegative};
+                ${tokens.dividerColor}: ${surfaceWarning};
+                ${tokens.dividerColorHover}: ${surfaceWarning};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.focusColor}: ${textAccent};

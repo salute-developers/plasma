@@ -16,9 +16,6 @@ import {
     surfaceTransparentTertiaryHover,
     surfaceWarning,
     textAccent,
-    textNegative,
-    textNegativeActive,
-    textNegativeHover,
     textPositive,
     textPositiveActive,
     textPositiveHover,
@@ -200,13 +197,13 @@ export const config = {
                 ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
                 ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
 
-                ${tokens.textFieldColor}: ${textNegative};
-                ${tokens.textFieldClearColor}: ${textNegative};
+                ${tokens.textFieldColor}: ${textWarning};
+                ${tokens.textFieldClearColor}: ${textWarning};
 
-                ${tokens.textFieldPlaceholderColor}: ${textNegative};
+                ${tokens.textFieldPlaceholderColor}: ${textWarning};
                 ${tokens.textFieldPlaceholderColorHover}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
+                ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.textFieldBackgroundColor}: transparent;
@@ -216,21 +213,21 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
-                ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldLeftHelperColor}: ${textWarning};
                 ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColorFocus}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
-                ${tokens.textFieldContentSlotColor}: ${textNegative};
-                ${tokens.textFieldContentSlotColorHover}: ${textNegativeHover};
-                ${tokens.textFieldContentSlotColorActive}: ${textNegativeActive};
+                ${tokens.textFieldContentSlotColor}: ${textWarning};
+                ${tokens.textFieldContentSlotColorHover}: ${textWarningHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textWarningActive};
 
                 ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
                 ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldDividerColor}: ${surfaceNegative};
-                ${tokens.textFieldDividerColorHover}: ${surfaceNegative};
+                ${tokens.textFieldDividerColor}: ${surfaceWarning};
+                ${tokens.textFieldDividerColorHover}: ${surfaceWarning};
                 ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.background}: ${surfaceSolidCard};

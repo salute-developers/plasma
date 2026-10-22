@@ -35,8 +35,6 @@ import {
     surfaceAccentHover,
     surfaceClear,
     surfaceNegative,
-    surfaceNegativeActive,
-    surfaceNegativeHover,
     surfacePositive,
     surfacePositiveActive,
     surfacePositiveHover,
@@ -44,8 +42,6 @@ import {
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
     surfaceSolidDefaultHover,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
@@ -61,7 +57,6 @@ import {
     surfaceWarningActive,
     surfaceWarningHover,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textPrimaryActive,
@@ -254,12 +249,12 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
-                ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldLeftHelperColor}: ${textWarning};
                 ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
@@ -276,9 +271,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: ${onDarkTextSecondary};
                 ${tokens.buttonArrowColorHover}: ${onDarkTextSecondaryHover};
                 ${tokens.buttonArrowColorActive}: ${onDarkTextSecondaryHover};
-                ${tokens.buttonBackgroundColor}:${surfaceNegative};
-                ${tokens.buttonBackgroundColorHover}: ${surfaceNegativeHover};
-                ${tokens.buttonBackgroundColorActive}:${surfaceNegativeActive};
+                ${tokens.buttonBackgroundColor}:${surfaceWarning};
+                ${tokens.buttonBackgroundColorHover}: ${surfaceWarningHover};
+                ${tokens.buttonBackgroundColorActive}:${surfaceWarningActive};
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};

@@ -10,19 +10,19 @@ import {
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidCardBrightness,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textSecondary,
     textTertiary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -36,7 +36,7 @@ export const config = {
         view: {
             default: css`
                 ${tokens.background}: ${surfaceTransparentPrimary};
-                ${tokens.backgroundError}: ${surfaceTransparentNegative};
+                ${tokens.backgroundError}: ${surfaceTransparentWarning};
                 ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
 
                 ${tokens.labelColor}: ${textPrimary};
@@ -51,8 +51,8 @@ export const config = {
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentWarningActive};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
 
@@ -73,7 +73,7 @@ export const config = {
 
                 ${tokens.leftHelperColor}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
-                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorError}: ${textWarning};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
 
                 ${tokens.hintIconColor}: ${textSecondary};

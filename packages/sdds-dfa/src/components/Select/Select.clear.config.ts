@@ -35,8 +35,6 @@ import {
     surfaceAccentHover,
     surfaceClear,
     surfaceNegative,
-    surfaceNegativeActive,
-    surfaceNegativeHover,
     surfacePositive,
     surfacePositiveActive,
     surfacePositiveHover,
@@ -55,7 +53,6 @@ import {
     surfaceWarningActive,
     surfaceWarningHover,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textPrimaryActive,
@@ -265,25 +262,25 @@ export const config = {
                 ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
                 ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
 
-                ${tokens.textFieldColor}: ${textNegative};
+                ${tokens.textFieldColor}: ${textWarning};
                 ${tokens.textFieldColorFocus}: ${textPrimary};
 
-                ${tokens.textFieldPlaceholderColor}: ${textNegative};
+                ${tokens.textFieldPlaceholderColor}: ${textWarning};
                 ${tokens.textFieldPlaceholderColorHover}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.textFieldBackgroundColor}: transparent;
                 ${tokens.textFieldBackgroundColorFocus}: transparent;
                 ${tokens.textFieldBackgroundColorHover}: transparent;
-                ${tokens.textFieldDividerColor}: ${surfaceNegative};
-                ${tokens.textFieldDividerColorHover}: ${surfaceNegative};
+                ${tokens.textFieldDividerColor}: ${surfaceWarning};
+                ${tokens.textFieldDividerColorHover}: ${surfaceWarning};
                 ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
-                ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
+                ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
-                ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldLeftHelperColor}: ${textWarning};
                 ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
@@ -300,9 +297,9 @@ export const config = {
                 ${tokens.buttonArrowColor}: ${onDarkTextSecondary};
                 ${tokens.buttonArrowColorHover}: ${onDarkTextSecondaryHover};
                 ${tokens.buttonArrowColorActive}: ${onDarkTextSecondaryHover};
-                ${tokens.buttonBackgroundColor}:${surfaceNegative};
-                ${tokens.buttonBackgroundColorHover}: ${surfaceNegativeHover};
-                ${tokens.buttonBackgroundColorActive}:${surfaceNegativeActive};
+                ${tokens.buttonBackgroundColor}:${surfaceWarning};
+                ${tokens.buttonBackgroundColorHover}: ${surfaceWarningHover};
+                ${tokens.buttonBackgroundColorActive}:${surfaceWarningActive};
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
