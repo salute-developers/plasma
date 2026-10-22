@@ -54,6 +54,7 @@ export * from './components/Progress';
 export * from './components/Select';
 export * from './components/Divider';
 export * from './components/Toolbar';
+export * from './components/TabBar';
 export * from './components/Sheet';
 export * from './components/BottomSheet';
 export * from './components/Slider';
