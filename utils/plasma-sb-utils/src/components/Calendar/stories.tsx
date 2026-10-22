@@ -252,14 +252,14 @@ export const createRangeStory = (_: any, Components: any) => {
         return (
             <>
                 <Heading size="h3">Тип календаря</Heading>
-                <Tabs view="default" size="m">
+                <Tabs view="divider" size="s">
                     {Object.keys(calendarMap).map((state, i) => (
                         <TabItem
                             key={`item:${i}`}
                             view="divider"
                             selected={state === currentState}
                             onClick={() => setCurrentState(state)}
-                            size="m"
+                            size="s"
                         >
                             {state}
                         </TabItem>
