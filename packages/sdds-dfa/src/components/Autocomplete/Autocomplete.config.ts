@@ -9,8 +9,6 @@ import {
     surfacePositive,
     surfaceSolidCard,
     surfaceSolidCardBrightness,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
@@ -22,7 +20,6 @@ import {
     surfaceTransparentWarningActive,
     surfaceWarning,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textSecondary,
@@ -191,20 +188,20 @@ export const config = {
                 ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
 
                 ${tokens.textFieldColor}: ${textPrimary};
-                ${tokens.textFieldClearColor}: ${textNegative};
+                ${tokens.textFieldClearColor}: ${textWarning};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
-                ${tokens.textFieldClearPlaceholderColorFocus}: ${textNegative};
+                ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textWarning};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
                 ${tokens.textFieldCaretColor}: ${textAccent};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
-                ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldLeftHelperColor}: ${textWarning};
                 ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
@@ -216,8 +213,8 @@ export const config = {
                 ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
                 ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldDividerColor}: ${surfaceNegative};
-                ${tokens.textFieldDividerColorHover}: ${surfaceNegative};
+                ${tokens.textFieldDividerColor}: ${surfaceWarning};
+                ${tokens.textFieldDividerColorHover}: ${surfaceWarning};
                 ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.background}: ${surfaceSolidCard};

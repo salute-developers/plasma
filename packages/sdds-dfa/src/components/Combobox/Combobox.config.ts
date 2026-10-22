@@ -15,8 +15,6 @@ import {
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
     surfaceSolidDefaultHover,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
@@ -29,7 +27,6 @@ import {
     surfaceTransparentWarning,
     surfaceTransparentWarningActive,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textSecondary,
@@ -234,21 +231,21 @@ export const config = {
                 ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
 
                 ${tokens.textFieldColor}: ${textPrimary};
-                ${tokens.textFieldClearColor}: ${textNegative};
+                ${tokens.textFieldClearColor}: ${textWarning};
 
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
-                ${tokens.textFieldClearPlaceholderColorFocus}: ${textNegative};
+                ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
+                ${tokens.textFieldClearPlaceholderColorFocus}: ${textWarning};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
 
                 ${tokens.textFieldCaretColor}: ${textAccent};
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
-                ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldLeftHelperColor}: ${textWarning};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
