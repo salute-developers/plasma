@@ -507,7 +507,8 @@ export function App() {
 
 ```tsx live
 import React from 'react';
-import { Steps } from '@salutejs/{{ package }}';
+import { Steps, stepsTokens } from '@salutejs/{{ package }}';
+import { textAccent, surfaceAccent } from '@salutejs/{{ vertical }}/tokens';
 
 export function App() {
     const items = [{
@@ -519,10 +520,10 @@ export function App() {
         title: 'Проверка',
         status: 'active',
         style: {
-            '--plasma-step-item-active-indicator-border': 'solid var(--surface-accent)',
-            '--plasma-step-item-active-indicator-color': 'var(--text-accent)',
-            '--plasma-step-item-active-divider-gradient-color': 'var(--surface-accent)',
-            '--plasma-step-item-active-divider-vertical-gradient-color': 'var(--surface-accent)',
+            [stepsTokens.activeIndicatorBorder]: `solid ${surfaceAccent}`,
+            [stepsTokens.activeIndicatorColor]: textAccent,
+            [stepsTokens.dividerActiveGradientColor]: surfaceAccent,
+            [stepsTokens.dividerActiveVerticalGradientColor]: surfaceAccent,
         },
     }, {
         indicator: 3,
