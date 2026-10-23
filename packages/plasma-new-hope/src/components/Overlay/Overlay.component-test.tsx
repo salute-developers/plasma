@@ -84,7 +84,7 @@ describeFn('Overlay', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Overlay: isClickable', () => {
+    it('isClickable', () => {
         const onOverlayClick = cy.stub().as('onOverlayClick');
 
         mount(<OverlayForTest transparent={false} isClickable onOverlayClick={onOverlayClick} />);
@@ -93,7 +93,7 @@ describeFn('Overlay', () => {
         cy.get('@onOverlayClick').should('have.been.calledOnce');
     });
 
-    it('Overlay: without isClickable', () => {
+    it('without isClickable', () => {
         const onOverlayClick = cy.stub().as('onOverlayClick');
 
         mount(<OverlayForTest transparent={false} isClickable={false} onOverlayClick={onOverlayClick} />);

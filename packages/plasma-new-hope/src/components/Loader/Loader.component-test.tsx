@@ -19,7 +19,7 @@ getBaseVisualTests({
 describeFn('Loader', () => {
     const Loader = componentExists ? getComponent<LoaderProps>('Loader') : () => null;
 
-    it('Loader: progress, strokeWidth', () => {
+    it('progress, strokeWidth', () => {
         mount(
             <>
                 <Loader type="progress" size="xxs" view="default" strokeSize={1} value={50} />
@@ -41,7 +41,7 @@ describeFn('Loader', () => {
         cy.matchImageSnapshot();
     });
 
-    it('Loader: customOverlayColor', () => {
+    it('customOverlayColor', () => {
         mount(<Loader type="progress" hasOverlay overlayColor="gray" value={50} />);
 
         cy.matchImageSnapshot();
