@@ -43,6 +43,8 @@ export type TabBarItemProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'chi
     icon?: ReactNode;
     /**
      * Подпись под иконкой. Длинный текст обрезается.
+     * Если подписи нет, передайте `aria-label` или `aria-labelledby`:
+     * иконка скрыта от скринридера, и без имени останется только число счётчика.
      */
     label?: ReactNode;
     /**

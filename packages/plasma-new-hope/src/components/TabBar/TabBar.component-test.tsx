@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
 // @ts-ignore
-import { IconStar } from 'override/_Icon';
+import { IconStar, IconStarFill } from 'override/_Icon';
 
 import type { TabBarItemProps, TabBarProps, TabBarSlotProps } from './TabBar.types';
 
@@ -12,10 +12,11 @@ const TabBarItem = hasComponent('TabBarItem') ? getComponent<TabBarItemProps>('T
 const TabBarSlot = hasComponent('TabBarSlot') ? getComponent<TabBarSlotProps>('TabBarSlot') : () => null;
 
 const icon = <IconStar size="s" color="inherit" />;
+const selectedIcon = <IconStarFill size="s" color="inherit" />;
 
 const items = (
     <>
-        <TabBarItem selected icon={icon} label="Label" />
+        <TabBarItem selected icon={selectedIcon} label="Label" />
         <TabBarItem icon={icon} label="Label" />
         <TabBarItem icon={icon} label="Очень длинная подпись элемента" />
         <TabBarItem icon={icon} label="Label" />
@@ -68,14 +69,58 @@ describeFn('TabBar', () => {
     });
 
     it('weight', () => {
+        const itemStyle = { background: 'rgba(8, 8, 8, 0.06)', borderRadius: 0 };
+
         mount(
             <Frame>
-                <TabBar>
-                    <TabBarItem weight={1} icon={icon} label="1" style={{ background: 'rgba(0, 0, 0, 0.06)' }} />
-                    <TabBarSlot style={{ width: 64 }}>
-                        <div style={{ width: 64, height: 48, background: 'rgba(0, 0, 0, 0.18)' }} />
+                <TabBar island>
+                    <TabBarItem selected weight={1} icon={selectedIcon} label="1" style={itemStyle} />
+                    <TabBarSlot>
+                        <div
+                            style={{
+                                width: '4rem',
+                                height: '4rem',
+                                background: 'var(--on-light-surface-positive-minor)',
+                                textAlign: 'center',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            Slot
+                        </div>
                     </TabBarSlot>
-                    <TabBarItem weight={0.5} icon={icon} label="0.5" style={{ background: 'rgba(0, 0, 0, 0.12)' }} />
+                    <TabBarItem weight={0.5} icon={icon} label="0.5" counter={1} style={itemStyle} />
+                </TabBar>
+            </Frame>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('selected background', () => {
+        mount(
+            <Frame>
+                <TabBar hasSelectedItemBackground>{items}</TabBar>
+                <PadMe />
+                <TabBar view="accent" hasSelectedItemBackground>
+                    {items}
+                </TabBar>
+                <PadMe />
+                <TabBar view="secondary" hasSelectedItemBackground>
+                    {items}
+                </TabBar>
+            </Frame>,
+        );
+        cy.matchImageSnapshot();
+    });
+
+    it('home indicator', () => {
+        mount(
+            <Frame>
+                <TabBar homeIndicator>{items}</TabBar>
+                <PadMe />
+                <TabBar island homeIndicator>
+                    {items}
                 </TabBar>
             </Frame>,
         );
@@ -86,7 +131,7 @@ describeFn('TabBar', () => {
         mount(
             <Frame>
                 <TabBar>
-                    <TabBarItem selected icon={icon} />
+                    <TabBarItem selected icon={selectedIcon} />
                     <TabBarItem icon={icon} />
                     <TabBarItem icon={icon} counter={1} />
                 </TabBar>
