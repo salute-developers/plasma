@@ -1,0 +1,103 @@
+---
+id: tab-bar
+title: TabBar
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# TabBar
+Нижняя панель навигации. Элементы делят ширину пропорционально `weight`, центральный слот может быть пустым и сохраняет ширину своего содержимого.
+
+## TabBar
+<Description name="TabBar" />
+<PropsTable name="TabBar" exclude={['css', 'focused']} />
+
+## TabBarItem
+<Description name="TabBarItem" />
+<PropsTable name="TabBarItem" exclude={['css', 'focused']} />
+
+## TabBarSlot
+<Description name="TabBarSlot" />
+<PropsTable name="TabBarSlot" exclude={['css', 'focused']} />
+
+## Использование
+`TabBarItem` растягивается с весом `1`. `TabBarSlot` по умолчанию имеет вес `0`: его ширина равна содержимому, и слот можно оставить пустым.
+
+`hasSelectedItemBackground` включает фон у выбранного пункта. Цвет фона и текста зависит от `view`.
+
+`homeIndicator` показывает нижний индикатор. У `island` он рисуется под карточкой.
+
+```tsx live
+import React from 'react';
+import { TabBar, TabBarItem, TabBarSlot } from '@salutejs/{{ package }}';
+import { IconStar, IconStarFill } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <TabBar island separation="shadow">
+            <TabBarItem selected icon={<IconStarFill size="s" color="inherit" />} label="Главная" />
+            <TabBarSlot>
+                <div style={{ width: '4rem', height: '4rem' }} />
+            </TabBarSlot>
+            <TabBarItem icon={<IconStar size="s" color="inherit" />} label="Сценарии" counter={1} />
+        </TabBar>
+    );
+}
+```
+
+## Примеры
+
+### Отделение от контента
+`separation` задаёт тень или верхний разделитель. Разделитель не показывается у `island`.
+
+```tsx live
+import React from 'react';
+import { TabBar, TabBarItem } from '@salutejs/{{ package }}';
+import { IconStar, IconStarFill } from '@salutejs/plasma-icons';
+
+const icon = <IconStar size="s" color="inherit" />;
+const selectedIcon = <IconStarFill size="s" color="inherit" />;
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <TabBar>
+                <TabBarItem selected icon={selectedIcon} label="Label" />
+                <TabBarItem icon={icon} label="Label" />
+                <TabBarItem icon={icon} label="Label" counter={1} />
+            </TabBar>
+            <TabBar separation="shadow">
+                <TabBarItem selected icon={selectedIcon} label="Label" />
+                <TabBarItem icon={icon} label="Label" />
+                <TabBarItem icon={icon} label="Label" counter={1} />
+            </TabBar>
+            <TabBar separation="divider">
+                <TabBarItem selected icon={selectedIcon} label="Label" />
+                <TabBarItem icon={icon} label="Label" />
+                <TabBarItem icon={icon} label="Label" counter={1} />
+            </TabBar>
+        </div>
+    );
+}
+```
+
+### Вес элементов
+Свободное место делится между элементами с `weight` больше 0. Слот с весом `0` занимает ширину содержимого.
+
+```tsx live
+import React from 'react';
+import { TabBar, TabBarItem, TabBarSlot } from '@salutejs/{{ package }}';
+import { IconStar } from '@salutejs/plasma-icons';
+
+const icon = <IconStar size="s" color="inherit" />;
+
+export function App() {
+    return (
+        <TabBar>
+            <TabBarItem weight={1} icon={icon} label="1" />
+            <TabBarSlot style={{ width: '4rem' }} />
+            <TabBarItem weight={0.5} icon={icon} label="0.5" />
+        </TabBar>
+    );
+}
+```

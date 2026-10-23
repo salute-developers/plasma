@@ -47,6 +47,7 @@ export * from './components/TextField';
 export * from './components/TextFieldGroup';
 export * from './components/Toast';
 export * from './components/Toolbar';
+export * from './components/TabBar';
 export * from './components/Tooltip';
 export * from './components/Bubble';
 export * from './components/Typography';
