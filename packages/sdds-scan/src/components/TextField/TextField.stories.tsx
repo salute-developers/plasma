@@ -10,6 +10,12 @@ type TextFieldProps = ComponentProps<typeof TextField>;
 const { meta: META, Default, Chips } = getTextFieldStories({
     component: TextField,
     componentConfig: config,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: { type: 'select' },
+        },
+    },
 });
 
 const meta: Meta<TextFieldProps> = {
