@@ -54,6 +54,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.6.1",
     "@docusaurus/types": "3.6.1",
+    "@salutejs/docusaurus-plugin-yandex-metrika": "0.1.0",
     "@tsconfig/docusaurus": "2.0.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",

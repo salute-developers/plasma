@@ -125,6 +125,7 @@ module.exports = {
         ],
     ],
     plugins: [
+        ['@salutejs/docusaurus-plugin-yandex-metrika', { counterID: 113706427 }],
         function docgenPlugin() {
             // Плагин генерации документации
             return {
