@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
+import cls from 'classnames';
 
 import type { RootProps } from '../../../../engines';
-import { cx } from '../../../../utils';
 import type { TabBarSlotProps } from '../../TabBar.types';
 import { classes } from '../../TabBar.tokens';
 import { getWeightStyle, isFixedWeight } from '../../weight';
@@ -16,7 +16,7 @@ export const tabBarSlotRoot = (Root: RootProps<HTMLDivElement, TabBarSlotProps>)
             <Root
                 ref={ref}
                 {...rest}
-                className={cx(className, isFixedWeight(weight) && classes.fixed)}
+                className={cls(className, isFixedWeight(weight) && classes.fixed)}
                 style={getWeightStyle(weight, style)}
             >
                 {children}

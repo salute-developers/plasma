@@ -19,7 +19,7 @@ export const base = css`
     justify-content: center;
     margin: 0;
     border: 0;
-    background: none;
+    background: var(${tokens.itemBackground});
     cursor: pointer;
     color: var(${tokens.itemColor});
     padding: var(${tokens.itemPadding});
@@ -31,6 +31,11 @@ export const base = css`
 
     &.${classes.selected} {
         color: var(${tokens.itemColorSelected});
+    }
+
+    .${classes.selectedBackground} &.${classes.selected} {
+        color: var(${tokens.itemColorSelectedBackground});
+        background: var(${tokens.itemBackgroundSelected});
     }
 
     &:focus-visible {

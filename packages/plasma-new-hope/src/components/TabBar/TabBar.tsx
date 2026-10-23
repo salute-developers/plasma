@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
+import cls from 'classnames';
 
 import type { RootProps } from '../../engines';
-import { cx } from '../../utils';
 
 import type { TabBarProps } from './TabBar.types';
 import { base as viewCSS } from './variations/_view/base';
@@ -11,7 +11,17 @@ import { base } from './TabBar.styles';
 
 export const tabBarRoot = (Root: RootProps<HTMLElement, TabBarProps>) =>
     forwardRef<HTMLElement, TabBarProps>((props, ref) => {
-        const { children, island = false, separation = 'none', className, view, size, ...rest } = props;
+        const {
+            children,
+            island = false,
+            separation = 'none',
+            hasSelectedItemBackground = false,
+            homeIndicator = false,
+            className,
+            view,
+            size,
+            ...rest
+        } = props;
 
         let separationClassName: string | undefined;
         if (separation === 'shadow') {
@@ -25,10 +35,17 @@ export const tabBarRoot = (Root: RootProps<HTMLElement, TabBarProps>) =>
                 ref={ref}
                 view={view}
                 size={size}
-                className={cx(className, island && classes.island, separationClassName)}
+                className={cls(
+                    className,
+                    island && classes.island,
+                    hasSelectedItemBackground && classes.selectedBackground,
+                    homeIndicator && classes.hasHomeIndicator,
+                    separationClassName,
+                )}
                 {...rest}
             >
-                {children}
+                <div className={classes.items}>{children}</div>
+                {homeIndicator ? <div className={classes.homeIndicator} aria-hidden /> : null}
             </Root>
         );
     });

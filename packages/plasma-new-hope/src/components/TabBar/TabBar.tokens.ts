@@ -3,7 +3,11 @@ export const classes = {
     shadow: 'plasma-tab-bar-shadow',
     divider: 'plasma-tab-bar-divider',
     selected: 'plasma-tab-bar-item-selected',
+    selectedBackground: 'plasma-tab-bar-selected-background',
     fixed: 'plasma-tab-bar-fixed',
+    items: 'plasma-tab-bar-items',
+    hasHomeIndicator: 'plasma-tab-bar-has-home-indicator',
+    homeIndicator: 'plasma-tab-bar-home-indicator',
 };
 
 export const privateTokens = {
@@ -27,6 +31,16 @@ export const tokens = {
     dividerColor: '--plasma-tab-bar-divider-color',
     /** @styleType dimension */
     dividerWidth: '--plasma-tab-bar-divider-width',
+    /** @styleType color */
+    homeIndicatorColor: '--plasma-tab-bar-home-indicator-color',
+    /** @styleType dimension */
+    homeIndicatorWidth: '--plasma-tab-bar-home-indicator-width',
+    /** @styleType dimension */
+    homeIndicatorHeight: '--plasma-tab-bar-home-indicator-height',
+    /** @styleType dimension */
+    homeIndicatorRadius: '--plasma-tab-bar-home-indicator-radius',
+    /** @styleType dimension */
+    homeIndicatorPadding: '--plasma-tab-bar-home-indicator-padding',
 
     /** @styleType dimension @styleComponent TabBarItem */
     itemPadding: '--plasma-tab-bar-item-padding',
@@ -38,6 +52,12 @@ export const tokens = {
     itemColor: '--plasma-tab-bar-item-color',
     /** @styleType color @styleProp itemColor @styleState selected @styleComponent TabBarItem */
     itemColorSelected: '--plasma-tab-bar-item-color-selected',
+    /** @styleType color @styleProp itemColor @styleState selectedBackground @styleComponent TabBarItem */
+    itemColorSelectedBackground: '--plasma-tab-bar-item-color-selected-background',
+    /** @styleType color @styleProp itemBackground @styleComponent TabBarItem */
+    itemBackground: '--plasma-tab-bar-item-background',
+    /** @styleType color @styleProp itemBackground @styleState selected @styleComponent TabBarItem */
+    itemBackgroundSelected: '--plasma-tab-bar-item-background-selected',
     /** @styleType color @styleComponent TabBarItem */
     itemFocusColor: '--plasma-tab-bar-item-focus-color',
     /** @styleType dimension @styleComponent TabBarItem */
