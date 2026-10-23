@@ -4,6 +4,8 @@ import {
     bodyS,
     bodyXS,
     inverseTextPrimary,
+    surfaceNegative,
+    surfaceSolidDefault,
     textAccent,
     textNegative,
     textPrimary,
@@ -65,7 +67,7 @@ export const config = {
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: ${textPrimary};
+                ${checkboxTokens.fillColor}: ${surfaceSolidDefault};
                 ${checkboxTokens.iconColor}: ${inverseTextPrimary};
                 ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
@@ -74,7 +76,7 @@ export const config = {
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             negative: css`
-                ${checkboxTokens.fillColor}: ${textNegative};
+                ${checkboxTokens.fillColor}: ${surfaceNegative};
                 ${checkboxTokens.iconColor}: ${inverseTextPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
