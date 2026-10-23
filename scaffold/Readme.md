@@ -43,6 +43,13 @@ npm run scaffold:docs --package="plasma-asdk" --vertical="plasma-themes" --theme
 
 Если не указать будет использовано значение указанное в `--package`.
 
+## Яндекс Метрика
+
+В шаблоне `docusaurus.config.js` подключение плагина `@salutejs/docusaurus-plugin-yandex-metrika`
+закомментировано: ID счётчика при генерации неизвестен. После создания счётчика раскомментируйте строку и
+укажите его `counterID`. Счётчик попадает только в прод-сборку, подробнее —
+в `utils/docusaurus-plugin-yandex-metrika/README.md`.
+
 ## FAQ
 
 ### Couldn't parse file with handlebars, returning original content

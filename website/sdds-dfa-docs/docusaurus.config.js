@@ -124,6 +124,7 @@ const config = {
         ],
     ],
     plugins: [
+        ['@salutejs/docusaurus-plugin-yandex-metrika', { counterID: 113706337 }],
         function docgenPlugin() {
             // Плагин генерации документации
             return {
