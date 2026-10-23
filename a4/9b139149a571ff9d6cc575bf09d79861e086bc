@@ -1,0 +1,16 @@
+packages/plasma-new-hope/src/components/Loader/Loader.component-test.tsx
+  h_d5955b1b64650f 22,44
+packages/plasma-new-hope/src/components/Overlay/Overlay.component-test.tsx
+  h_d5955b1b64650f 87,96
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5-gigacode.2",
+  "base_commit_sha": "a49b139149a571ff9d6cc575bf09d79861e086bc",
+  "prompts": {},
+  "humans": {
+    "h_d5955b1b64650f": {
+      "author": "IgorYar <ihteyar2@yandex.ru>"
+    }
+  }
+}
