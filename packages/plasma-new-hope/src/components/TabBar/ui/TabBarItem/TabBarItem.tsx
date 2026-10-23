@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
+import cls from 'classnames';
 
 import type { RootProps } from '../../../../engines';
-import { cx } from '../../../../utils';
 import type { TabBarItemProps } from '../../TabBar.types';
 import { classes } from '../../TabBar.tokens';
 import { isFixedWeight, getWeightStyle } from '../../weight';
@@ -28,7 +28,7 @@ export const tabBarItemRoot = (Root: RootProps<HTMLButtonElement, TabBarItemProp
                 {...rest}
                 type={type}
                 {...(selected ? { 'aria-current': 'page' as const } : {})}
-                className={cx(className, selected && classes.selected, isFixedWeight(weight) && classes.fixed)}
+                className={cls(className, selected && classes.selected, isFixedWeight(weight) && classes.fixed)}
                 style={getWeightStyle(weight, style)}
             >
                 {(icon || counter !== undefined) && (

@@ -23,6 +23,16 @@ export type TabBarProps = HTMLAttributes<HTMLElement> & {
      * @default 'none'
      */
     separation?: TabBarSeparation;
+    /**
+     * Фон у выбранного элемента. Цвет фона и текста зависит от `view`.
+     * @default false
+     */
+    hasSelectedItemBackground?: boolean;
+    /**
+     * Нижний индикатор домашней зоны. У `island` рисуется под карточкой.
+     * @default false
+     */
+    homeIndicator?: boolean;
     children?: ReactNode;
 };
 
