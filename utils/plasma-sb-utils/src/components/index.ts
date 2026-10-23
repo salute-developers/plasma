@@ -49,5 +49,6 @@ export * from './CodeArea';
 export * from './Rating';
 export * from './RatingInput';
 export * from './Tabs';
+export * from './TabBar';
 export * from './_ai';
 export * from './TokenUsage';
