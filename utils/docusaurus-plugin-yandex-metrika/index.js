@@ -5,8 +5,9 @@ module.exports = function yandexMetrikaPlugin(context, options) {
         throw new Error('[yandex-metrika] в опциях плагина нужен counterID');
     }
 
-    // счётчик только в проде; NO_ANALYTICS=true — аварийный выключатель
-    const enabled = process.env.NODE_ENV === 'production' && process.env.NO_ANALYTICS !== 'true';
+    // счётчик только в прод-сборке: превью PR и стенды (dev, next-insol) собираются с PREFIX;
+    // NO_ANALYTICS=true — аварийный выключатель
+    const enabled = process.env.NODE_ENV === 'production' && !process.env.PREFIX && process.env.NO_ANALYTICS !== 'true';
 
     return {
         name: 'yandex-metrika',
