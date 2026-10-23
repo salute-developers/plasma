@@ -28,7 +28,7 @@ const config = {
         },
         {
             name: '@salutejs/sdds-cs',
-            excludeComponents: ['Select', 'InformationWrapper', 'CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'Select', 'InformationWrapper', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-dfa',
@@ -36,19 +36,19 @@ const config = {
         },
         {
             name: '@salutejs/sdds-finai',
-            excludeComponents: ['CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-insol',
-            excludeComponents: ['CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-netology',
-            excludeComponents: ['CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-platform-ai',
-            excludeComponents: ['CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet'],
         },
         {
             name: '@salutejs/sdds-scan',
