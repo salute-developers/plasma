@@ -14,7 +14,6 @@ const { meta: META, Default } = getTextFieldStories({
         size: 's',
         hasHint: false,
         hintText: '',
-        titleCaption: '',
         enableContentLeft: false,
     },
     disablePropsList: [
