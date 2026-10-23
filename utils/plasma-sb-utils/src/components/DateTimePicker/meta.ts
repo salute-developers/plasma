@@ -51,7 +51,7 @@ export const createMeta = ({
             appearance: 'default',
             hasClearDivider: false,
             label: 'Лейбл',
-            titleCaption: 'Подсказка к полю сверху справа',
+            titleCaption: 'Подпись к полю',
             leftHelper: 'Подсказка к полю',
             placeholder: '30.05.2024 00:00:00',
             size: 'l',
