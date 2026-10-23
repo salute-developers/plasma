@@ -1,0 +1,90 @@
+{
+    "name": "@sddsjs/finai",
+    "version": "0.1.2",
+    "description": "SDDS by Design System Builder / React UI kit for web applications",
+    "license": "MIT",
+    "keywords": [
+        "design-system",
+        "react-components",
+        "ui-kit",
+        "react"
+    ],
+    "files": [
+        "styled-components",
+        "components",
+        "es",
+        "theme",
+        "css",
+        "index.css",
+        "index.d.ts",
+        "index.js",
+        "index.js.map",
+        "_virtual"
+    ],
+    "main": "index.js",
+    "module": "es/index.js",
+    "types": "index.d.ts",
+    "dependencies": {
+        "@salutejs/plasma-new-hope": "latest"
+    },
+    "peerDependencies": {
+        "react": ">=16.13.1",
+        "react-dom": ">=16.13.1",
+        "styled-components": "^5.3.1"
+    },
+    "devDependencies": {
+        "@babel/cli": "7.24.1",
+        "@babel/core": "7.24.4",
+        "@babel/plugin-proposal-class-properties": "7.18.6",
+        "@babel/plugin-transform-class-properties": "7.24.1",
+        "@babel/plugin-transform-react-constant-elements": "7.24.1",
+        "@babel/preset-env": "7.24.4",
+        "@babel/preset-react": "7.24.1",
+        "@babel/preset-typescript": "7.24.1",
+        "@ironkinoko/rollup-plugin-styles": "^4.0.3",
+        "@linaria/core": "5.0.2",
+        "@linaria/react": "5.0.3",
+        "@linaria/rollup": "5.0.4",
+        "@microsoft/api-extractor": "7.38.3",
+        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-commonjs": "^25.0.4",
+        "@rollup/plugin-node-resolve": "^15.1.0",
+        "@salutejs/plasma-colors": "0.15.0",
+        "@salutejs/plasma-core": "1.197.0",
+        "@salutejs/plasma-cy-utils": "0.128.0",
+        "@salutejs/plasma-icons": "1.218.0",
+        "@salutejs/plasma-sb-utils": "0.198.0",
+        "@types/node": "16.7.13",
+        "@types/react": "18.0.28",
+        "@types/react-dom": "18.0.11",
+        "@types/styled-components": "5.1.0",
+        "babel-loader": "8.2.2",
+        "babel-plugin-annotate-pure-calls": "0.4.0",
+        "babel-plugin-styled-components": "1.13.2",
+        "default-browser-id": "2.0.0",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "rollup": "^3.28.0",
+        "styled-components": "^5.3.11",
+        "vite": "4.5.3"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "prepare": "npm run build",
+        "postpack": "git check-ignore -q . 2>/dev/null; test $? = 1 && git clean -fdX -e \"!*.tgz\" . || true",
+        "prebuild": "rm -rf ./components ./es ./tokens ./theme ./css ./index.*",
+        "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
+        "build": "CSS_BUILD_PATH=css npm run copy-css-files && npm run build:css",
+        "postbuild": "npm run generate:typings",
+        "build:css": "BABEL_ENV=esm SC_NAMESPACE=finai rollup -c",
+        "postbuild:css": "rm -rf src-css",
+        "pregenerate:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts",
+        "generate:typings": "tsc --outDir . --emitDeclarationOnly",
+        "copy-css-files": "mkdir -p ${CSS_BUILD_PATH} && cp -R src/theme/css/* ${CSS_BUILD_PATH}"
+    },
+    "sideEffects": [
+        "*.css"
+    ]
+}
