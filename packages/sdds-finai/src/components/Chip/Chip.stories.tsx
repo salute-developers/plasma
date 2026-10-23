@@ -30,6 +30,12 @@ const { meta: META, Default: DefaultStory } = getChipStories({
             options: ['icon', 'avatar'],
             if: { arg: 'enableContentLeft' },
         },
+        customColor: {
+            control: 'color',
+        },
+        customBackgroundColor: {
+            control: 'color',
+        },
     }),
 });
 

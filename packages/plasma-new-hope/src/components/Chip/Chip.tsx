@@ -16,6 +16,7 @@ import { base as pilledCSS } from './variations/_pilled/base';
 import type { ChipProps } from './Chip.types';
 import { StyledContentClear, StyledContentLeft, StyledContentMain, StyledContentRight, base } from './Chip.styles';
 import { classes, privateTokens, tokens } from './Chip.tokens';
+import { getStateColor } from './utils';
 
 export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
     forwardRef<HTMLButtonElement, ChipProps>((props, ref) => {
@@ -35,6 +36,8 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             pin,
             readOnly = false,
             disabled = false,
+            customColor,
+            customBackgroundColor,
             style,
             // @ts-ignore
             _forceChipManipulationWithReadonly,
@@ -86,6 +89,10 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                     {
                         ...style,
                         [privateTokens.computedBorderRadius]: chipBorderRadius,
+                        [privateTokens.customColor]: customColor,
+                        [privateTokens.customBackground]: customBackgroundColor,
+                        [privateTokens.customBackgroundHover]: getStateColor(customBackgroundColor, 'hover'),
+                        [privateTokens.customBackgroundActive]: getStateColor(customBackgroundColor, 'active'),
                     } as CSSProperties
                 }
                 {...rest}
