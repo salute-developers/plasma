@@ -1,0 +1,37 @@
+{
+    "projectId": "d490c7b5-63c7-4fea-ba4c-7e28e34839c9",
+    "designSystemId": "6a887def-7872-431a-b742-05958a3ff775",
+    "credential": {
+        "type": "env",
+        "name": "DSBUILDER_API_KEY"
+    },
+    "tenants": [
+        {
+            "id": "f87fe151-0b5a-462b-8eb3-08f412c4670c",
+            "designSystemId": "6a887def-7872-431a-b742-05958a3ff775",
+            "name": "sdds_finai_default",
+            "description": null,
+            "directoryPath": ".sdds/tenants/sdds_finai_default",
+            "alias": null,
+            "createdAt": "2026-10-07T11:29:22.567Z",
+            "updatedAt": "2026-10-07T11:29:22.567Z"
+        }
+    ],
+    "palettePath": ".sdds/tenants/palette.json",
+    "platforms": ["react"],
+    "breakpoints": [
+        {
+            "name": "screenS",
+            "to": 959
+        },
+        {
+            "name": "screenM",
+            "from": 960,
+            "to": 1280
+        },
+        {
+            "name": "screenL",
+            "from": 1281
+        }
+    ]
+}
