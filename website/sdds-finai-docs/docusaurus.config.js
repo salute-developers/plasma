@@ -273,6 +273,7 @@ const config = {
                     'guides/next*',
                     'guides/how-to-mcp*',
                     'guides/how-to-icons*',
+                    'guides/how-to-plasma-icons*',
                     'guides/react_17*',
                     'guides/FAQ*',
                     'components/**',
