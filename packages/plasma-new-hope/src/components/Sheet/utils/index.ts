@@ -5,5 +5,3 @@ export {
     getSortedSnapPoints,
     resolveActiveSnapPoint,
 } from './resolveSnapPoint';
-
-export const DEFAULT_Z_INDEX = '0';

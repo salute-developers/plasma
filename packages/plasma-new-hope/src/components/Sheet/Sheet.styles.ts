@@ -9,8 +9,7 @@ export const StyledContentWrapper = styled.div<CommonProps & { hasSnapPoints?: b
     left: 0;
     bottom: 0;
     width: 100%;
-    max-height: 100%;
-    z-index: 1000;
+    max-height: calc(100% - env(safe-area-inset-top, 0px));
     opacity: 1;
 
     display: flex;
@@ -46,10 +45,10 @@ export const StyledSheetHandle = styled.div`
 `;
 
 export const StyledSheetContent = styled.div<{ hasHeader?: boolean; hasFooter?: boolean; hasSnapPoints?: boolean }>`
-    border-radius: 1.25rem 1.25rem 0 0;
+    border-radius: var(${tokens.contentBorderRadius}, 1.25rem 1.25rem 0 0);
     background-color: var(${tokens.contentBackgroundColor});
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(${tokens.contentPaddingHorizontal}, 1rem);
+    padding-right: var(${tokens.contentPaddingHorizontal}, 1rem);
     padding-top: ${({ hasHeader }) => (hasHeader ? 'unset' : '1rem')};
     padding-bottom: ${({ hasFooter }) => (hasFooter ? 'unset' : '1rem')};
 
@@ -57,6 +56,8 @@ export const StyledSheetContent = styled.div<{ hasHeader?: boolean; hasFooter?: 
     overflow: auto;
     overscroll-behavior: contain;
 
+    display: ${({ hasSnapPoints }) => (hasSnapPoints ? 'flex' : 'block')};
+    flex-direction: ${({ hasSnapPoints }) => (hasSnapPoints ? 'column' : 'unset')};
     flex: ${({ hasSnapPoints }) => (hasSnapPoints ? 1 : 'unset')};
     min-height: ${({ hasSnapPoints }) => (hasSnapPoints ? 0 : 'unset')};
 
@@ -75,7 +76,9 @@ export const StyledSheetHeader = styled.div<{ isHeaderFixed?: boolean }>`
         isHeaderFixed ? `var(${tokens.contentBackgroundColor})` : 'transparent'};
 `;
 
-export const StyledSheetBody = styled.div``;
+export const StyledSheetBody = styled.div<{ hasSnapPoints?: boolean }>`
+    flex: ${({ hasSnapPoints }) => (hasSnapPoints ? '1 0 auto' : 'unset')};
+`;
 
 export const StyledSheetFooter = styled.div<{ isFooterFixed?: boolean }>`
     width: 100%;

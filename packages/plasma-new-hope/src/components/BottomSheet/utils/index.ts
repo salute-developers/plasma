@@ -1,13 +1,5 @@
-import type { CSSProperties } from 'react';
-
 import { getSortedSnapPoints, resolveActiveSnapPoint } from '../../Sheet/utils';
 import type { BottomSheetSnapPoint, BottomSheetSnapPoints } from '../BottomSheet.types';
-
-export const getPanelZIndex = (zIndex: CSSProperties['zIndex']) => {
-    const numericZIndex = Number(zIndex);
-
-    return Number.isNaN(numericZIndex) ? zIndex : numericZIndex + 1;
-};
 
 export const applyHeight = (element: HTMLElement, heightPx: number) => {
     element.style.height = `${heightPx}px`;
