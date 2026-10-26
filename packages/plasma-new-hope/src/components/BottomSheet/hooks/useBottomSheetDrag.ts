@@ -67,6 +67,7 @@ export const useBottomSheetDrag = (args: {
         let startY = 0;
         let currentY = 0;
         let startHeight = 0;
+        let renderedMaxHeight = Infinity;
         let tracking = false;
 
         const canStartDrag = (target: EventTarget | null) => {
@@ -90,6 +91,8 @@ export const useBottomSheetDrag = (args: {
             startY = clientY;
             currentY = clientY;
             startHeight = panel.offsetHeight;
+            // max-height панели вычитает safe-area сверху, и панель бывает ниже запрошенной высоты
+            renderedMaxHeight = startHeight < parseFloat(panel.style.height) - 1 ? startHeight : Infinity;
             panel.style.transition = 'none';
         };
 
@@ -104,7 +107,7 @@ export const useBottomSheetDrag = (args: {
 
             if (points?.length) {
                 const { pointsPx } = getSortedSnapPoints(points, window.innerHeight);
-                const maxHeight = pointsPx[pointsPx.length - 1];
+                const maxHeight = Math.min(pointsPx[pointsPx.length - 1], renderedMaxHeight);
 
                 // На верхней точке жест вверх отдаём нативному скроллу контента
                 if (deltaY < 0 && startHeight >= maxHeight) {
