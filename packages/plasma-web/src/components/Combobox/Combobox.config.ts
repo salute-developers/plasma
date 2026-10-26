@@ -69,7 +69,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--surface-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
@@ -132,7 +132,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--surface-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
@@ -195,7 +195,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--surface-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
@@ -258,7 +258,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--surface-accent);
                 ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);

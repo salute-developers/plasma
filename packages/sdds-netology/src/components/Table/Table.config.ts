@@ -7,8 +7,8 @@ import {
     bodyXS,
     bodyXSBold,
     onDarkTextPrimary,
+    surfaceAccent,
     surfaceTransparentTertiary,
-    textAccent,
     textSecondary,
 } from '@salutejs/plasma-themes/tokens/plasma_b2c';
 
@@ -44,7 +44,7 @@ export const config = {
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
                 ${tokens.checkboxTriggerIconColor}: ${onDarkTextPrimary};
 
                 ${tokens.editableCellIconGap}: 0.5rem;
@@ -112,7 +112,7 @@ export const config = {
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
                 ${tokens.checkboxTriggerIconColor}: ${onDarkTextPrimary};
 
                 ${tokens.editableCellIconGap}: 0.375rem;
@@ -180,7 +180,7 @@ export const config = {
                 ${tokens.checkboxTriggerSize}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
                 ${tokens.checkboxTriggerBorderColor}: ${textSecondary};
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
                 ${tokens.checkboxTriggerIconColor}: ${onDarkTextPrimary};
 
                 ${tokens.editableCellIconGap}: 0.25rem;
