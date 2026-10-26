@@ -20,6 +20,7 @@ export const base = css`
 
     background: var(${tokens.background});
     border-radius: var(${tokens.borderRadius}) var(${tokens.borderRadius}) 0 0;
+    backdrop-filter: blur(var(${tokens.blur}));
 
     .${classes.items} {
         display: flex;
@@ -32,23 +33,25 @@ export const base = css`
         border-radius: var(${tokens.borderRadius});
     }
 
-    /* Токен padding задаётся одним значением: нижний отступ складывается с safe-area. */
+    /* Нижний отступ задаётся отдельно: padding может содержать и боковые значения. */
     &:not(.${classes.island}) .${classes.items} {
-        padding-bottom: calc(var(${tokens.padding}) + env(safe-area-inset-bottom, 0px));
+        padding-bottom: calc(var(${tokens.paddingBottom}) + env(safe-area-inset-bottom, 0px));
     }
 
     &.${classes.hasHomeIndicator}:not(.${classes.island}) .${classes.items} {
-        padding-bottom: var(${tokens.padding});
+        padding-bottom: var(${tokens.paddingBottom});
     }
 
     &.${classes.hasHomeIndicator}.${classes.island} {
         background: none;
         border-radius: 0;
+        backdrop-filter: none;
     }
 
     &.${classes.hasHomeIndicator}.${classes.island} .${classes.items} {
         background: var(${tokens.background});
         border-radius: var(${tokens.borderRadius});
+        backdrop-filter: blur(var(${tokens.blur}));
     }
 
     &.${classes.shadow} {
