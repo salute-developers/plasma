@@ -25,7 +25,7 @@ import { PropsTable, Description } from '@site/src/components';
 
 `hasSelectedItemBackground` включает фон у выбранного пункта. Цвет фона и текста зависит от `view`.
 
-`homeIndicator` показывает нижний индикатор. У `island` он рисуется под карточкой.
+`island` и `homeIndicator` включены по умолчанию. Индикатор у `island` рисуется под карточкой. Разделитель доступен при `island={false}`.
 
 ```tsx live
 import React from 'react';
@@ -61,17 +61,17 @@ const selectedIcon = <IconStarFill size="s" color="inherit" />;
 export function App() {
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <TabBar>
+            <TabBar island={false} homeIndicator={false}>
                 <TabBarItem selected icon={selectedIcon} label="Label" />
                 <TabBarItem icon={icon} label="Label" />
                 <TabBarItem icon={icon} label="Label" counter={1} />
             </TabBar>
-            <TabBar separation="shadow">
+            <TabBar island={false} homeIndicator={false} separation="shadow">
                 <TabBarItem selected icon={selectedIcon} label="Label" />
                 <TabBarItem icon={icon} label="Label" />
                 <TabBarItem icon={icon} label="Label" counter={1} />
             </TabBar>
-            <TabBar separation="divider">
+            <TabBar island={false} homeIndicator={false} separation="divider">
                 <TabBarItem selected icon={selectedIcon} label="Label" />
                 <TabBarItem icon={icon} label="Label" />
                 <TabBarItem icon={icon} label="Label" counter={1} />

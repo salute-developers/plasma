@@ -13,10 +13,10 @@ export const tabBarRoot = (Root: RootProps<HTMLElement, TabBarProps>) =>
     forwardRef<HTMLElement, TabBarProps>((props, ref) => {
         const {
             children,
-            island = false,
+            island = true,
             separation = 'none',
             hasSelectedItemBackground = false,
-            homeIndicator = false,
+            homeIndicator = true,
             className,
             view,
             size,
