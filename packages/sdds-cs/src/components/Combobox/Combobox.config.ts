@@ -10,6 +10,7 @@ import {
     outlineNegativeHover,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
+    surfaceAccent,
     surfaceClear,
     surfaceNegative,
     surfaceSolidCard,
@@ -100,7 +101,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: none;
                 ${tokens.checkboxTriggerBorderColor}: ${outlineAccent};
@@ -166,7 +167,7 @@ export const config = {
 
                 ${tokens.itemIconColor}: ${textAccent};
 
-                ${tokens.checkboxFillColor}: ${textAccent};
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
                 ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: none;
                 ${tokens.checkboxTriggerBorderColor}: ${outlineAccent};
