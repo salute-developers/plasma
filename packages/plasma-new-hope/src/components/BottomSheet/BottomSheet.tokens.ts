@@ -17,6 +17,7 @@ export const tokens = {
     overlayColor: '--plasma-bottom-sheet-overlay-color',
     overlayWithBlurColor: '--plasma-bottom-sheet-overlay-with-blur-color',
     contentBackgroundColor: '--plasma-bottom-sheet-content-background-color',
+    contentPaddingHorizontal: '--plasma-bottom-sheet-content-padding-horizontal',
 
     borderRadius: '--plasma-bottom-sheet-border-radius',
 
