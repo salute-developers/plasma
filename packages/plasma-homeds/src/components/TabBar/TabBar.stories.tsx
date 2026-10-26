@@ -12,6 +12,7 @@ const { meta: META, Default, WithSlot } = getTabBarStories({
     itemComponent: TabBarItem,
     slotComponent: TabBarSlot,
     componentConfig: config,
+    disablePropsList: ['island', 'separation', 'islandSeparation', 'hasSelectedItemBackground'],
 });
 
 const meta: Meta<TabBarProps> = {

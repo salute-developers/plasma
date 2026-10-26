@@ -117,40 +117,6 @@ export const config = {
                 ${tokens.homeIndicatorRadius}: 6.25rem;
                 ${tokens.homeIndicatorPadding}: 1rem 0 0.375rem;
             `,
-            l: css`
-                ${tokens.padding}: 0.125rem;
-                ${tokens.paddingBottom}: 0.125rem;
-                ${tokens.gap}: 0.125rem;
-                ${tokens.borderRadius}: 1.125rem;
-                ${tokens.dividerWidth}: 0.0625rem;
-
-                ${tokens.itemPadding}: 0.75rem 0;
-                ${tokens.itemGap}: 0;
-                ${tokens.itemBorderRadius}: 1rem;
-                ${tokens.itemIconSize}: 2.25rem;
-
-                ${tokens.itemLabelFontFamily}: ${bodyXXSBold.fontFamily};
-                ${tokens.itemLabelFontSize}: ${bodyXXSBold.fontSize};
-                ${tokens.itemLabelFontStyle}: ${bodyXXSBold.fontStyle};
-                ${tokens.itemLabelFontWeight}: ${bodyXXSBold.fontWeight};
-                ${tokens.itemLabelLetterSpacing}: ${bodyXXSBold.letterSpacing};
-                ${tokens.itemLabelLineHeight}: ${bodyXXSBold.lineHeight};
-
-                ${tokens.counterHeight}: 1.25rem;
-                ${tokens.counterPadding}: 0 0.375rem;
-                ${tokens.counterBorderRadius}: 1rem;
-                ${tokens.counterFontFamily}: ${bodyXXS.fontFamily};
-                ${tokens.counterFontSize}: ${bodyXXS.fontSize};
-                ${tokens.counterFontStyle}: ${bodyXXS.fontStyle};
-                ${tokens.counterFontWeight}: ${bodyXXS.fontWeight};
-                ${tokens.counterLetterSpacing}: ${bodyXXS.letterSpacing};
-                ${tokens.counterLineHeight}: ${bodyXXS.lineHeight};
-
-                ${tokens.homeIndicatorWidth}: 8.8125rem;
-                ${tokens.homeIndicatorHeight}: 0.25rem;
-                ${tokens.homeIndicatorRadius}: 6.25rem;
-                ${tokens.homeIndicatorPadding}: 1rem 0 0.5rem;
-            `,
         },
     },
 };
