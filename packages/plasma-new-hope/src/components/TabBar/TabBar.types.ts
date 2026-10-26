@@ -14,7 +14,7 @@ export type TabBarProps = HTMLAttributes<HTMLElement> & {
     /**
      * Плавающая панель: скругление со всех сторон и тень вниз.
      * Разделитель в этом режиме не показывается.
-     * @default false
+     * @default true
      */
     island?: boolean;
     /**
@@ -30,7 +30,7 @@ export type TabBarProps = HTMLAttributes<HTMLElement> & {
     hasSelectedItemBackground?: boolean;
     /**
      * Нижний индикатор домашней зоны. У `island` рисуется под карточкой.
-     * @default false
+     * @default true
      */
     homeIndicator?: boolean;
     children?: ReactNode;
