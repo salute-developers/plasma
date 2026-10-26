@@ -59,23 +59,23 @@ import React from 'react';
 import { TabBar, TabBarItem } from '@salutejs/plasma-homeds';
 import { IconStar, IconStarFill } from '@salutejs/plasma-icons';
 
-const icon = <IconStar size="s" color="inherit" />;
-const selectedIcon = <IconStarFill size="s" color="inherit" />;
-
 export function App() {
+    const icon = <IconStar size="s" color="inherit" />;
+    const selectedIcon = <IconStarFill size="s" color="inherit" />;
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            <TabBar>
+            <TabBar island={false} homeIndicator={false}>
                 <TabBarItem selected icon={selectedIcon} label="Label" />
                 <TabBarItem icon={icon} label="Label" />
                 <TabBarItem icon={icon} label="Label" counter={1} />
             </TabBar>
-            <TabBar separation="shadow">
+            <TabBar island={false} homeIndicator={false} separation="shadow">
                 <TabBarItem selected icon={selectedIcon} label="Label" />
                 <TabBarItem icon={icon} label="Label" />
                 <TabBarItem icon={icon} label="Label" counter={1} />
             </TabBar>
-            <TabBar separation="divider">
+            <TabBar island={false} homeIndicator={false} separation="divider">
                 <TabBarItem selected icon={selectedIcon} label="Label" />
                 <TabBarItem icon={icon} label="Label" />
                 <TabBarItem icon={icon} label="Label" counter={1} />
@@ -93,9 +93,9 @@ import React from 'react';
 import { TabBar, TabBarItem, TabBarSlot } from '@salutejs/plasma-homeds';
 import { IconStar } from '@salutejs/plasma-icons';
 
-const icon = <IconStar size="s" color="inherit" />;
-
 export function App() {
+    const icon = <IconStar size="s" color="inherit" />;
+
     return (
         <TabBar>
             <TabBarItem weight={1} icon={icon} label="1" />
