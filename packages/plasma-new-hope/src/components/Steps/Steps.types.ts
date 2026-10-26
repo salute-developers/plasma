@@ -43,6 +43,11 @@ export interface StepsProps {
      */
     hasLine?: boolean;
     /**
+     * Отображает разделительную линию после последнего шага, если hasLine включён
+     * @default false
+     */
+    hasLastLine?: boolean;
+    /**
      * Режим отображения контента
      * @default 'all'
      * @description

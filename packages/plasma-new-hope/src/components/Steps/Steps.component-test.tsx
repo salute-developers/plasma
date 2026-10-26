@@ -278,6 +278,22 @@ describeFn('Steps', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: hasLastLine', () => {
+        mount(
+            <div
+                style={{
+                    display: 'flex',
+                    gap: '1rem',
+                }}
+            >
+                <Steps items={items} hasLastLine orientation="vertical" />
+                <Steps items={[{ ...items[0], indicator: undefined }]} hasLastLine orientation="vertical" />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('indicatorType=icon, hasContent=none', () => {
         mount(<Steps items={bulletIcon} hasContent="none" />);
         cy.matchImageSnapshot();

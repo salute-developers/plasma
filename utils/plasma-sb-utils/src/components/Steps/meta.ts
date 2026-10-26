@@ -67,6 +67,7 @@ export const createMeta = ({
             indicatorType: 'numbered',
             orientation: 'horizontal',
             hasLine: true,
+            hasLastLine: false,
             hasContent: 'all',
             disabled: false,
             loading: false,
@@ -101,6 +102,9 @@ export const createMeta = ({
                 if: { arg: 'orientation', eq: 'horizontal' },
             },
             hasLine: {
+                control: { type: 'boolean' },
+            },
+            hasLastLine: {
                 control: { type: 'boolean' },
             },
             title: {
