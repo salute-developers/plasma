@@ -30,15 +30,23 @@ export const getTabBarStories = (config: CreateTabBarStoriesProps) => {
     const DefaultStoryComponent = createDefaultStory(component, itemComponent);
     const WithSlotStoryComponent = createWithSlotStory(component, itemComponent, slotComponent);
 
+    const renderStory = (StoryComponent: any) => (args: any) => {
+        const { islandSeparation, separation, island, ...rest } = args;
+
+        return (
+            <StoryComponent {...rest} island={island} separation={island ? islandSeparation ?? 'none' : separation} />
+        );
+    };
+
     const Default = {
-        render: (args: any) => <DefaultStoryComponent {...args} />,
+        render: renderStory(DefaultStoryComponent),
     };
 
     const WithSlot = {
         args: {
             island: true,
         },
-        render: (args: any) => <WithSlotStoryComponent {...args} />,
+        render: renderStory(WithSlotStoryComponent),
     };
 
     return {
