@@ -1,5 +1,9 @@
+import React, { useEffect, useRef } from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { disableProps, InSpacingDecorator } from '../../index';
 
+const islandSeparations = ['none', 'shadow'];
 const separations = ['none', 'shadow', 'divider'];
 
 type CreateMetaProps = {
@@ -22,15 +26,43 @@ export const createMeta = ({
     disablePropsList = [],
 }: CreateMetaProps) => ({
     title,
-    decorators: [InSpacingDecorator],
+    decorators: [
+        (Story: any) => {
+            const [args, updateArgs] = useArgs();
+            const islandRef = useRef(args.island);
+
+            useEffect(() => {
+                if (islandRef.current === args.island) {
+                    return;
+                }
+
+                const previousIsland = islandRef.current;
+                islandRef.current = args.island;
+
+                if (args.island) {
+                    const next = args.separation === 'divider' ? 'none' : args.separation;
+                    updateArgs({
+                        islandSeparation: next,
+                        ...(args.separation === 'divider' ? { separation: 'none' } : {}),
+                    });
+                } else if (previousIsland) {
+                    updateArgs({ separation: args.islandSeparation ?? 'none' });
+                }
+            }, [args.island, args.islandSeparation, args.separation, updateArgs]);
+
+            return React.createElement(Story);
+        },
+        InSpacingDecorator,
+    ],
     component,
     args: {
         view: 'default',
         size: 'm',
-        island: false,
+        island: true,
         separation: 'none',
+        islandSeparation: 'none',
         hasSelectedItemBackground: false,
-        homeIndicator: false,
+        homeIndicator: true,
         ...defaultArgs,
     },
     argTypes: {
@@ -48,6 +80,13 @@ export const createMeta = ({
         separation: {
             options: separations,
             control: { type: 'select' },
+            if: { arg: 'island', truthy: false },
+        },
+        islandSeparation: {
+            name: 'separation',
+            options: islandSeparations,
+            control: { type: 'select' },
+            if: { arg: 'island', truthy: true },
         },
         hasSelectedItemBackground: {
             control: { type: 'boolean' },
