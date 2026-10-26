@@ -549,6 +549,33 @@ export function App() {
 }
 ```
 
+## Разделитель после последнего шага
+
+Свойство `hasLastLine` сохраняет разделительную линию после последнего шага. По умолчанию оно выключено. Работает в обеих ориентациях и при любом `contentAlign`. Если `hasLine={false}`, все разделители скрыты независимо от `hasLastLine`.
+
+```tsx live
+import React from 'react';
+import { Steps } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Первый шаг',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: 'Продолжение следует',
+        status: 'active',
+    }];
+
+    return (
+        <div>
+            <Steps items={items} hasLastLine />;
+        </div>
+    );
+}
+```
+
 ## Кастомный размер шага
 
 Каждому шагу можно задать индивидуальный размер через свойство `height` (вертикальный режим) или `width` (горизонтальный режим).
