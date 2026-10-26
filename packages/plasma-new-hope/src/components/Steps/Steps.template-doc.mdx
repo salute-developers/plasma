@@ -566,7 +566,11 @@ export function App() {
         status: 'active',
     }];
 
-    return <Steps items={items} hasLastLine />;
+    return (
+        <div>
+            <Steps items={items} hasLastLine />;
+        </div>
+    );
 }
 ```
 
