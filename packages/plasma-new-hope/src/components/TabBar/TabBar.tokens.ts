@@ -18,7 +18,11 @@ export const tokens = {
     /** @styleType color */
     background: '--plasma-tab-bar-background',
     /** @styleType dimension */
+    blur: '--plasma-tab-bar-blur',
+    /** @styleType dimension */
     padding: '--plasma-tab-bar-padding',
+    /** @styleType dimension */
+    paddingBottom: '--plasma-tab-bar-padding-bottom',
     /** @styleType dimension */
     gap: '--plasma-tab-bar-gap',
     /** @styleType dimension */

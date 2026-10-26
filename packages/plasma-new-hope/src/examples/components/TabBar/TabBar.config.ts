@@ -29,6 +29,7 @@ export const config = {
         view: {
             default: css`
                 ${tokens.background}: var(--surface-solid-card);
+                ${tokens.blur}: 0;
                 ${tokens.boxShadow}: var(--shadow-up-soft-m);
                 ${tokens.islandBoxShadow}: var(--shadow-down-soft-m);
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
@@ -47,6 +48,7 @@ export const config = {
             `,
             accent: css`
                 ${tokens.background}: var(--surface-solid-card);
+                ${tokens.blur}: 0;
                 ${tokens.boxShadow}: var(--shadow-up-soft-m);
                 ${tokens.islandBoxShadow}: var(--shadow-down-soft-m);
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
@@ -65,6 +67,7 @@ export const config = {
             `,
             secondary: css`
                 ${tokens.background}: var(--surface-solid-card);
+                ${tokens.blur}: 0;
                 ${tokens.boxShadow}: var(--shadow-up-soft-m);
                 ${tokens.islandBoxShadow}: var(--shadow-down-soft-m);
                 ${tokens.dividerColor}: var(--surface-transparent-tertiary);
@@ -85,6 +88,7 @@ export const config = {
         size: {
             m: css`
                 ${tokens.padding}: 0.125rem;
+                ${tokens.paddingBottom}: 0.125rem;
                 ${tokens.gap}: 0.125rem;
                 ${tokens.borderRadius}: 1rem;
                 ${tokens.dividerWidth}: 0.0625rem;
@@ -118,6 +122,7 @@ export const config = {
             `,
             l: css`
                 ${tokens.padding}: 0.125rem;
+                ${tokens.paddingBottom}: 0.125rem;
                 ${tokens.gap}: 0.125rem;
                 ${tokens.borderRadius}: 1.125rem;
                 ${tokens.dividerWidth}: 0.0625rem;
