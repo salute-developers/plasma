@@ -8,7 +8,6 @@ import {
     shadowUpSoftM,
     surfaceAccent,
     surfaceNegative,
-    surfaceSolidCard,
     surfaceSolidDefault,
     surfaceTransparentAccent,
     surfaceTransparentSecondary,
@@ -26,7 +25,8 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.background}: ${surfaceSolidCard};
+                ${tokens.background}: ${surfaceTransparentSecondary};
+                ${tokens.blur}: 3.125rem;
                 ${tokens.boxShadow}: ${shadowUpSoftM};
                 ${tokens.islandBoxShadow}: ${shadowDownSoftM};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
@@ -44,7 +44,8 @@ export const config = {
                 ${tokens.homeIndicatorColor}: ${textPrimary};
             `,
             accent: css`
-                ${tokens.background}: ${surfaceSolidCard};
+                ${tokens.background}: ${surfaceTransparentSecondary};
+                ${tokens.blur}: 3.125rem;
                 ${tokens.boxShadow}: ${shadowUpSoftM};
                 ${tokens.islandBoxShadow}: ${shadowDownSoftM};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
@@ -62,7 +63,8 @@ export const config = {
                 ${tokens.homeIndicatorColor}: ${textPrimary};
             `,
             secondary: css`
-                ${tokens.background}: ${surfaceSolidCard};
+                ${tokens.background}: ${surfaceTransparentSecondary};
+                ${tokens.blur}: 3.125rem;
                 ${tokens.boxShadow}: ${shadowUpSoftM};
                 ${tokens.islandBoxShadow}: ${shadowDownSoftM};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
@@ -82,14 +84,15 @@ export const config = {
         },
         size: {
             m: css`
-                ${tokens.padding}: 0.125rem;
-                ${tokens.gap}: 0.125rem;
-                ${tokens.borderRadius}: 1rem;
+                ${tokens.padding}: 0.125rem 0.5rem;
+                ${tokens.paddingBottom}: 0.125rem;
+                ${tokens.gap}: 0.5rem;
+                ${tokens.borderRadius}: 2rem;
                 ${tokens.dividerWidth}: 0.0625rem;
 
-                ${tokens.itemPadding}: 0.625rem 0 0.5rem;
+                ${tokens.itemPadding}: 0.6875rem 0;
                 ${tokens.itemGap}: 0.125rem;
-                ${tokens.itemBorderRadius}: 0.875rem;
+                ${tokens.itemBorderRadius}: 1.875rem;
                 ${tokens.itemIconSize}: 1.5rem;
 
                 ${tokens.itemLabelFontFamily}: ${bodyXXSBold.fontFamily};
@@ -112,10 +115,11 @@ export const config = {
                 ${tokens.homeIndicatorWidth}: 8.8125rem;
                 ${tokens.homeIndicatorHeight}: 0.25rem;
                 ${tokens.homeIndicatorRadius}: 6.25rem;
-                ${tokens.homeIndicatorPadding}: 1rem 0 0.5rem;
+                ${tokens.homeIndicatorPadding}: 1rem 0 0.375rem;
             `,
             l: css`
                 ${tokens.padding}: 0.125rem;
+                ${tokens.paddingBottom}: 0.125rem;
                 ${tokens.gap}: 0.125rem;
                 ${tokens.borderRadius}: 1.125rem;
                 ${tokens.dividerWidth}: 0.0625rem;
