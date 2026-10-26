@@ -41,11 +41,17 @@ describeFn('TabBar', () => {
     it('separation', () => {
         mount(
             <Frame>
-                <TabBar>{items}</TabBar>
+                <TabBar island={false} homeIndicator={false}>
+                    {items}
+                </TabBar>
                 <PadMe />
-                <TabBar separation="shadow">{items}</TabBar>
+                <TabBar island={false} homeIndicator={false} separation="shadow">
+                    {items}
+                </TabBar>
                 <PadMe />
-                <TabBar separation="divider">{items}</TabBar>
+                <TabBar island={false} homeIndicator={false} separation="divider">
+                    {items}
+                </TabBar>
             </Frame>,
         );
         cy.matchImageSnapshot();
@@ -54,13 +60,15 @@ describeFn('TabBar', () => {
     it('island', () => {
         mount(
             <Frame>
-                <TabBar island>{items}</TabBar>
-                <PadMe />
-                <TabBar island separation="shadow">
+                <TabBar island homeIndicator={false}>
                     {items}
                 </TabBar>
                 <PadMe />
-                <TabBar island separation="divider">
+                <TabBar island homeIndicator={false} separation="shadow">
+                    {items}
+                </TabBar>
+                <PadMe />
+                <TabBar island homeIndicator={false} separation="divider">
                     {items}
                 </TabBar>
             </Frame>,
@@ -73,7 +81,7 @@ describeFn('TabBar', () => {
 
         mount(
             <Frame>
-                <TabBar island>
+                <TabBar island homeIndicator={false}>
                     <TabBarItem selected weight={1} icon={selectedIcon} label="1" style={itemStyle} />
                     <TabBarSlot>
                         <div
@@ -117,7 +125,9 @@ describeFn('TabBar', () => {
     it('home indicator', () => {
         mount(
             <Frame>
-                <TabBar homeIndicator>{items}</TabBar>
+                <TabBar island={false} homeIndicator>
+                    {items}
+                </TabBar>
                 <PadMe />
                 <TabBar island homeIndicator>
                     {items}
