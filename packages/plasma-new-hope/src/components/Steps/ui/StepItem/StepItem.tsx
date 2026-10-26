@@ -34,6 +34,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     orientation,
     contentAlign,
     hasLine,
+    hasLastLine,
     hasLoader,
     onClick,
     items,
@@ -132,7 +133,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 [classes.clickable]: clickable && !isActive,
                 [classes.hasIndicator]: hasIndicator,
                 [classes.verticalOrientation]: isVertical,
-                [classes.verticalLastItem]: isVertical && isLast,
+                [classes.verticalLastItem]: isVertical && isLast && (!hasLine || !hasLastLine),
                 [classes.firstItem]: isFirst,
                 [classes.customIndicatorSize]: item?.indicatorSize != null,
                 isNextActive,
@@ -165,7 +166,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 <StepItemDivider
                     className={cls({
                         [classes.verticalOrientation]: isVertical,
-                        [classes.transparentDivider]: !hasLine || isLast,
+                        [classes.transparentDivider]: !hasLine || (isLast && !hasLastLine),
                         [classes.inactive]: isInactive || isNextInactive,
                         [classes.nextActive]: isNextActive && !isInactive,
                         [classes.activeItem]: isActive,

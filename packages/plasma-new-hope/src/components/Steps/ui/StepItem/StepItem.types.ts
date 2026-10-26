@@ -71,6 +71,7 @@ export type StepItemExtendedProps = StepItemProps & {
     items: StepItemProps[];
     size: string;
     hasLine?: boolean;
+    hasLastLine?: boolean;
     hasContent?: StepsContent;
     hasLoader?: boolean;
     onClick?: (item: StepItemProps, index: number) => void;

@@ -26,6 +26,7 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
             orientation = 'horizontal',
             contentAlign = 'left',
             hasLine = true,
+            hasLastLine = false,
             hasContent = 'all',
             hasLoader,
             items = [],
@@ -139,6 +140,7 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
                             orientation={orientation}
                             contentAlign={itemContentAlign}
                             hasLine={hasLine}
+                            hasLastLine={hasLastLine}
                             hasLoader={hasLoader && isActive}
                             onClick={onClick}
                             items={innerItems}
