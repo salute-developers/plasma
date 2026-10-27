@@ -142,7 +142,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                     <FloatingFocusManager context={context}>
                         <div
                             ref={refs.setFloating}
-                            className={cls(styles.root, _configClassName, addFocusMixin.focus)}
+                            className={cls(styles.root, _configClassName)}
                             style={{
                                 ...floatingStyles,
                                 zIndex,
