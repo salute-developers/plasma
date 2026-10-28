@@ -98,8 +98,7 @@ describeFn('CodeField', () => {
             mount(<Demo itemErrorBehavior="remove-symbol" />);
 
             cy.focused().type('12345q');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
+            cy.focused().should('have.value', '12345').and('not.have.attr', 'readonly');
 
             cy.matchImageSnapshot();
         });
@@ -138,10 +137,7 @@ describeFn('CodeField', () => {
                     expect(input).to.have.property('readOnly', true);
                 });
 
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
-
-            cy.then(() => {
+            cy.get('@onChange').should(() => {
                 expect(onChange.args).to.deep.equal([['q'], ['']]);
             });
             cy.focused().should('have.value', '').and('not.have.attr', 'readonly');
@@ -181,10 +177,7 @@ describeFn('CodeField', () => {
                     expect(input).to.have.property('readOnly', true);
                 });
 
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
-
-            cy.then(() => {
+            cy.get('@onChange').should(() => {
                 expect(onChange.args).to.deep.equal([['q']]);
             });
             cy.focused().should('have.value', 'q').and('not.have.attr', 'readonly');
@@ -194,8 +187,7 @@ describeFn('CodeField', () => {
             mount(<Demo itemErrorBehavior="forbid-enter" />);
 
             cy.focused().type('123q');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
+            cy.focused().should('have.value', '123');
 
             cy.matchImageSnapshot();
         });
@@ -204,8 +196,7 @@ describeFn('CodeField', () => {
             mount(<Demo itemErrorBehavior="keep" />);
 
             cy.focused().type('1234q');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
+            cy.focused().should('not.have.attr', 'readonly');
 
             cy.get('[data-code-field-item]')
                 .eq(4)
@@ -236,8 +227,6 @@ describeFn('CodeField', () => {
 
             cy.focused().type('123456');
             cy.focused().should('have.attr', 'readonly');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
 
             cy.focused().should(($input) => {
                 const input = $input[0] as HTMLInputElement;
@@ -257,8 +246,6 @@ describeFn('CodeField', () => {
 
             cy.focused().type('123456');
             cy.focused().should('have.attr', 'readonly');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
 
             cy.focused().should('not.have.attr', 'readonly');
             cy.matchImageSnapshot();
@@ -433,8 +420,6 @@ describeFn('CodeField', () => {
         mount(<CodeField codeLength={4} autoFocus autoComplete="off" />);
 
         cy.focused().type('12q');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
 
         cy.get('[data-code-field-input]').should(($input) => {
             const input = $input[0] as HTMLInputElement;

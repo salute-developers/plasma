@@ -2197,8 +2197,7 @@ describeFn('Combobox', () => {
 
         cy.get('#combobox').click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(100);
+        cy.contains('li', 'Северная Америка').should('be.visible');
 
         cy.matchImageSnapshot();
     });
@@ -2229,9 +2228,6 @@ describeFn('Combobox', () => {
         mount(<Component />);
 
         cy.get('#combobox').should('have.value', 'north_america');
-
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(100);
 
         cy.get('#combobox').should('have.value', 'Северная Америка');
     });
