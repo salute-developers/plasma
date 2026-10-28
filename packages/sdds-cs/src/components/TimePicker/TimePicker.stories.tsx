@@ -12,8 +12,10 @@ const { meta: META, Default } = getTimePickerStories({
     componentConfig: config,
     defaultArgs: {
         size: 's',
+        titleCaption: '',
     },
     disablePropsList: [
+        'titleCaption',
         'appearance',
         'hasClearDivider',
         'size',

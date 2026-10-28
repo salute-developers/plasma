@@ -1,50 +1,56 @@
 import { css, indicatorTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 import {
-    onLightSurfaceSolidPrimary,
-    surfaceSolidDeep,
-    textAccent,
-    textNegative,
-    textWarning,
+    onDarkSurfaceSolidDefault,
+    onLightSurfaceSolidDefault,
+    surfaceAccent,
+    surfaceNegative,
+    surfacePositive,
+    surfaceSolidDefault,
+    surfaceSolidTertiary,
+    surfaceWarning,
 } from '@salutejs-ds/sdds_sbcom/theme/tokens';
 
 export const config = {
     defaults: {
-        size: '8',
-        view: 'global',
+        size: 's',
+        view: 'default',
     },
     variations: {
         view: {
+            default: css`
+                ${tokens.color}: ${surfaceSolidDefault};
+            `,
             accent: css`
-                ${tokens.color}: ${textAccent};
+                ${tokens.color}: ${surfaceAccent};
             `,
-            global: css`
-                ${tokens.color}: ${onLightSurfaceSolidPrimary};
+            inactive: css`
+                ${tokens.color}: ${surfaceSolidTertiary};
             `,
-            mute: css`
-                ${tokens.color}: ${surfaceSolidDeep};
-            `,
-            danger: css`
-                ${tokens.color}: ${textNegative};
+            positive: css`
+                ${tokens.color}: ${surfacePositive};
             `,
             warning: css`
-                ${tokens.color}: ${textWarning};
+                ${tokens.color}: ${surfaceWarning};
+            `,
+            negative: css`
+                ${tokens.color}: ${surfaceNegative};
+            `,
+            black: css`
+                ${tokens.color}: ${onLightSurfaceSolidDefault};
+            `,
+            white: css`
+                ${tokens.color}: ${onDarkSurfaceSolidDefault};
             `,
         },
         size: {
-            '14': css`
-                ${tokens.size}: 14px;
+            l: css`
+                ${tokens.size}: 0.75rem;
             `,
-            '12': css`
-                ${tokens.size}: 12px;
+            m: css`
+                ${tokens.size}: 0.5rem;
             `,
-            '10': css`
-                ${tokens.size}: 10px;
-            `,
-            '8': css`
-                ${tokens.size}: 8px;
-            `,
-            '6': css`
-                ${tokens.size}: 6px;
+            s: css`
+                ${tokens.size}: 0.375rem;
             `,
         },
     },

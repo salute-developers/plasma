@@ -117,6 +117,34 @@ export function App() {
 }
 ```
 
+### Задание цвета текста и фона
+Цвет текста и фона можно задать с помощью свойств
+`customColor` и `customBackgroundColor` соответственно.
+
+Значение, переданное строкой, одинаково во всех состояниях.
+
+Чтобы задать цвет для каждого состояния отдельно, передайте объект `{ default, hover, active }`.
+Не указанные `hover` и `active` наследуют значение `default`.
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/{{ package }}';
+import { onDarkTextPrimary, surfaceAccent, surfaceAccentHover, surfaceAccentActive } from '@salutejs/{{ vertical }}/tokens';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Chip
+                text="Токены"
+                customColor={onDarkTextPrimary}
+                customBackgroundColor=\{{ default: surfaceAccent, hover: surfaceAccentHover, active: surfaceAccentActive }}
+            />
+            <Chip text="Цвета" customColor="antiquewhite" customBackgroundColor="darkolivegreen" />
+        </div>
+    );
+}
+```
+
 ### Градиентный текст
 Текст чипа можно окрасить в градиентный цвет с помощью класса `sdds-core-text-node`
 

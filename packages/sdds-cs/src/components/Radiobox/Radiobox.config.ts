@@ -3,6 +3,7 @@ import {
     bodyS,
     onDarkTextPrimary,
     outlineAccent,
+    surfaceAccent,
     surfaceSolidCard,
     textAccent,
     textSecondary,
@@ -49,7 +50,7 @@ export const config = {
          */
         view: {
             accent: css`
-                ${radioboxTokens.fillColor}: ${textAccent};
+                ${radioboxTokens.fillColor}: ${surfaceAccent};
                 ${radioboxTokens.ellipseColor}: ${onDarkTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: ${surfaceSolidCard};

@@ -424,18 +424,15 @@ export const segmentGroupConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
         stretch: {
             css: stretchCSS,
-            attrs: true,
         },
         orientation: {
             css: orientationCSS,
         },
         filledBackground: {
             css: filledBackgroundCSS,
-            attrs: true,
         },
     },
     defaults: {

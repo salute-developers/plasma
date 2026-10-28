@@ -274,6 +274,7 @@ module.exports = {
                 includeOrder: [
                     'intro*',
                     'guides/how-to-icons*',
+                    'guides/how-to-plasma-icons*',
                     'guides/FAQ*',
                     'components/**',
                     'beta/**',

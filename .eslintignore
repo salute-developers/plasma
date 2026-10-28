@@ -97,3 +97,6 @@ scaffold
 !scaffold/template-component
 
 website/landing/*
+
+# Generated design systems
+design-systems/*/output/

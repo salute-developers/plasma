@@ -16,7 +16,6 @@ import {
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidPrimary,
-    surfaceSolidSecondary,
     surfaceSolidTertiary,
     surfaceTransparentAccent,
     textAccent,
@@ -114,7 +113,6 @@ export const config = {
                 ${tokens.calendarContentPrimaryDisabledColor}: ${textSecondary};
                 ${tokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
                 ${tokens.calendarHeaderArrowColor}: ${textAccent};
-                ${tokens.calendarBorderColor}: ${outlineSolidPrimary};
                 ${tokens.calendarDayOfWeekColor}: ${textSecondary};
                 ${tokens.calendarDisabledOpacity}: 0.4;
 
@@ -130,13 +128,13 @@ export const config = {
                 ${tokens.textFieldContentRightSlotColorHover}: ${textAccentMinor};
 
                 ${tokens.shortcutColor}: ${textPrimary};
-                ${tokens.shortcutBackgroundHover}: ${surfaceSolidSecondary};
+                ${tokens.shortcutBackgroundHover}: ${surfaceTransparentAccent};
             `,
         },
         size: {
             s: css`
                 ${tokens.width}: 19.5rem;
-                ${tokens.borderRadius}: 0.625rem;
+                ${tokens.borderRadius}: 0.75rem;
                 ${tokens.borderWidth}: 0.125rem;
 
                 ${tokens.dividerPadding}: 0 0.375rem;
@@ -182,7 +180,7 @@ export const config = {
                 ${tokens.indicatorWithoutLabelInnerLeft}: auto auto -0.5rem 0;
 
                 ${tokens.textFieldHeight}: 2.5rem;
-                ${tokens.textFieldBorderRadius}: 0.625rem;
+                ${tokens.textFieldBorderRadius}: 0.75rem;
                 ${tokens.textFieldBorderWidth}: 0.125rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.75rem 0.6875rem 0.75rem;
                 ${tokens.textFieldFontFamily}: ${bodyM.fontFamily};
@@ -192,14 +190,14 @@ export const config = {
                 ${tokens.textFieldLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.textFieldLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.titleCaptionOffset}: 0;
+                ${tokens.titleCaptionOffset}: 0.25rem;
                 ${tokens.titleCaptionMargin}: 0.1875rem;
-                ${tokens.titleCaptionFontFamily}: ${bodyS.fontFamily};
-                ${tokens.titleCaptionFontSize}: ${bodyS.fontSize};
-                ${tokens.titleCaptionFontStyle}: ${bodyS.fontStyle};
-                ${tokens.titleCaptionFontWeight}: ${bodyS.fontWeight};
-                ${tokens.titleCaptionLetterSpacing}: ${bodyS.letterSpacing};
-                ${tokens.titleCaptionLineHeight}: ${bodyS.lineHeight};
+                ${tokens.titleCaptionFontFamily}: ${bodyXS.fontFamily};
+                ${tokens.titleCaptionFontSize}: ${bodyXS.fontSize};
+                ${tokens.titleCaptionFontStyle}: ${bodyXS.fontStyle};
+                ${tokens.titleCaptionFontWeight}: ${bodyXS.fontWeight};
+                ${tokens.titleCaptionLetterSpacing}: ${bodyXS.letterSpacing};
+                ${tokens.titleCaptionLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.leftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.leftHelperFontFamily}: ${bodyS.fontFamily};
@@ -219,7 +217,6 @@ export const config = {
                 ${tokens.popoverPadding}: 0.75rem 1rem 0.875rem 1rem;
                 ${tokens.popoverVerticalPadding}: 1.625rem;
 
-                ${tokens.calendarBorderWidth}: 0.125rem;
                 ${tokens.calendarWidth}: 19.5rem;
                 ${tokens.calendarHeight}: 18.625rem;
 
@@ -290,16 +287,16 @@ export const config = {
                 ${tokens.iconButtonPadding}: 0.75rem;
                 ${tokens.iconButtonRadius}: 0.5rem;
 
-                ${tokens.shortcutFontFamily}: ${bodyS.fontFamily};
-                ${tokens.shortcutFontStyle}: ${bodyS.fontStyle};
-                ${tokens.shortcutFontSize}: ${bodyS.fontSize};
-                ${tokens.shortcutFontWeight}: ${bodyS.fontWeight};
-                ${tokens.shortcutLetterSpacing}: ${bodyS.letterSpacing};
-                ${tokens.shortcutLineHeight}: ${bodyS.lineHeight};
+                ${tokens.shortcutFontFamily}: ${bodyM.fontFamily};
+                ${tokens.shortcutFontStyle}: ${bodyM.fontStyle};
+                ${tokens.shortcutFontSize}: ${bodyM.fontSize};
+                ${tokens.shortcutFontWeight}: ${bodyM.fontWeight};
+                ${tokens.shortcutLetterSpacing}: ${bodyM.letterSpacing};
+                ${tokens.shortcutLineHeight}: ${bodyM.lineHeight};
 
-                ${tokens.shortcutPadding}: 0.688rem 0.5rem;
+                ${tokens.shortcutPadding}: 0.5rem;
                 ${tokens.shortcutGap}: 0.375rem;
-                ${tokens.shortcutBorderRadius}: 0.5rem;
+                ${tokens.shortcutBorderRadius}: 0.75rem;
             `,
         },
         disabled: {

@@ -1,14 +1,27 @@
-import React from 'react';
-import { mount, getComponent, getDescribeFN, hasComponent, getBaseVisualTests, PadMe } from '@salutejs/plasma-cy-utils';
+import React, { CSSProperties } from 'react';
+import {
+    mount,
+    getComponent,
+    getDescribeFN,
+    hasComponent,
+    getBaseVisualTests,
+    getConfigMatrix,
+} from '@salutejs/plasma-cy-utils';
 import styled from 'styled-components';
 // @ts-ignore
 import { IconMic } from 'override/_Icon';
+// В Cypress алиас указывает на конфиг текущей вертикали
+import { config as stepsConfig } from 'src/examples/components/Steps/Steps.config';
 
+import { tokens } from './Steps.tokens';
 import type { StepsProps } from './Steps.types';
 import type { StepItemProps, StepStatus } from './ui';
 
 const componentExists = hasComponent('Steps');
 const describeFn = getDescribeFN('Steps');
+
+const parentSizes = getConfigMatrix(stepsConfig, ['size']).map(({ size }) => size);
+const parentSize = parentSizes.includes('s') ? 's' : parentSizes[0];
 
 const stepItems: StepItemProps[] = [
     { title: 'Title', content: 'Content', status: 'active', indicator: 1 },
@@ -265,6 +278,22 @@ describeFn('Steps', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: hasLastLine', () => {
+        mount(
+            <div
+                style={{
+                    display: 'flex',
+                    gap: '1rem',
+                }}
+            >
+                <Steps items={items} hasLastLine orientation="vertical" />
+                <Steps items={[{ ...items[0], indicator: undefined }]} hasLastLine orientation="vertical" />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('indicatorType=icon, hasContent=none', () => {
         mount(<Steps items={bulletIcon} hasContent="none" />);
         cy.matchImageSnapshot();
@@ -454,6 +483,87 @@ describeFn('Steps', () => {
         ];
 
         mount(<Steps items={itemsWithWidth} />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('item size overrides parent size', () => {
+        const titledMarkers: StepItemProps[] = [
+            { indicator: 1, title: 'Title', status: 'completed' },
+            { indicator: 2, title: 'Title', status: 'active', indicatorSize: 36 },
+            { indicator: 3, title: 'Title', status: 'inactive', indicatorSize: 24 },
+        ];
+        const titledBullets: StepItemProps[] = [
+            { title: 'Title', status: 'completed' },
+            { title: 'Title', status: 'active', indicatorSize: 16 },
+            { title: 'Title', status: 'inactive', indicatorSize: 8 },
+        ];
+        const simpleMarkers: StepItemProps[] = [
+            { indicator: 1, status: 'completed' },
+            { indicator: 2, status: 'active', indicatorSize: 56 },
+            { indicator: 3, status: 'inactive', indicatorSize: 48 },
+            { indicator: 4, status: 'inactive', indicatorSize: 36 },
+            { indicator: 5, status: 'inactive', indicatorSize: 24 },
+        ];
+        const simpleBullets: StepItemProps[] = [
+            { status: 'completed' },
+            { status: 'active', indicatorSize: 36 },
+            { status: 'inactive', indicatorSize: 24 },
+            { status: 'inactive', indicatorSize: 16 },
+            { status: 'inactive', indicatorSize: 8 },
+        ];
+
+        mount(
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', height: '470px' }}>
+                <Steps items={titledMarkers} size={parentSize} />
+                <Steps items={titledBullets} size={parentSize} />
+                <Steps items={simpleMarkers} size={parentSize} />
+                <Steps items={simpleBullets} size={parentSize} />
+                <div style={{ display: 'flex', gap: '1.5rem', flex: 1, minHeight: 0 }}>
+                    <Steps items={titledMarkers} size={parentSize} orientation="vertical" />
+                    <Steps items={simpleBullets} size={parentSize} orientation="vertical" />
+                </div>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: renderItem, item style', () => {
+        const itemsWithStyle: StepItemProps[] = [
+            { indicator: 1, title: 'Title 1', status: 'completed' },
+            {
+                indicator: 2,
+                title: 'Title 2',
+                status: 'active',
+                className: 'custom-step',
+                style: {
+                    [tokens.activeIndicatorBorder]: 'solid var(--surface-accent)',
+                    [tokens.activeIndicatorColor]: 'var(--text-accent)',
+                    [tokens.dividerActiveGradientColor]: 'var(--surface-accent)',
+                    [tokens.dividerActiveVerticalGradientColor]: 'var(--surface-accent)',
+                } as CSSProperties,
+            },
+            { indicator: 3, title: 'Title 3', status: 'inactive', style: { opacity: 0.4 } },
+        ];
+
+        const renderItem = (item: StepItemProps, index: number) => (
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <span>{item.title}</span>
+                <span>
+                    Step {index + 1}: {item.status}
+                </span>
+            </div>
+        );
+
+        mount(
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', height: '450px' }}>
+                <Steps items={itemsWithStyle} renderItem={renderItem} />
+                <Steps items={itemsWithStyle} renderItem={renderItem} orientation="vertical" />
+            </div>,
+        );
+
+        cy.get('.custom-step').should('have.length', 2);
 
         cy.matchImageSnapshot();
     });

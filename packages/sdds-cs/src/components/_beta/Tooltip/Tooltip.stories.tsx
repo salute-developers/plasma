@@ -28,7 +28,7 @@ const placements = [
 const trigger = ['click', 'hover', 'focus'];
 
 const views = ['default', 'secondary'];
-const sizes = ['m', 's'];
+const sizes = ['s'];
 
 const meta: Meta<StoryProps> = {
     title: '_Beta/Overlay/Tooltip',

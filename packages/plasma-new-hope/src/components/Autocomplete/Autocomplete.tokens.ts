@@ -3,6 +3,12 @@ export const classes = {
 };
 
 export const tokens = {
+    scrollbarWidth: '--plasma-autocomplete-scrollbar-width',
+    scrollbarTrackBackgroundColor: '--plasma-autocomplete-scrollbar-track-background-color',
+    scrollbarThumbBackgroundColor: '--plasma-autocomplete-scrollbar-thumb-background-color',
+    scrollbarThumbBackgroundColorHover: '--plasma-autocomplete-scrollbar-thumb-background-color-hover',
+    scrollbarThumbBackgroundColorActive: '--plasma-autocomplete-scrollbar-thumb-background-color-active',
+
     // Токены для TextField
     textFieldColor: '--plasma-autocomplete-textfield-color',
     textFieldClearColor: '--plasma-autocomplete-textfield-clear-color',

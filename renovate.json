@@ -1,8 +1,36 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["config:base"],
+    "extends": ["config:recommended"],
+    "baseBranchPatterns": ["dev", "master"],
     "prHourlyLimit": 2,
     "schedule": ["every weekday"],
     "rebaseWhen": "never",
-    "ignoreDeps": ["react", "react-dom", "cypress", "node", "npm", "lerna", "typescript", "eslint"]
+    "ignoreDeps": ["react", "react-dom", "cypress", "node", "npm", "lerna", "typescript", "eslint"],
+    "packageRules": [
+        {
+            "description": "Disable regular dependency updates on master",
+            "matchBaseBranches": ["master"],
+            "enabled": false
+        },
+        {
+            "description": "Update new scoped themes through master only",
+            "matchBaseBranches": ["dev"],
+            "matchPackageNames": ["@sddsjs/sdds_*"],
+            "enabled": false
+        },
+        {
+            "description": "Keep new scoped themes dependencies pinned to the npm latest tag in one PR to master",
+            "matchBaseBranches": ["master"],
+            "matchDatasources": ["npm"],
+            "matchPackageNames": ["@sddsjs/sdds_*"],
+            "enabled": true,
+            "followTag": "latest",
+            "rangeStrategy": "pin",
+            "separateMajorMinor": false,
+            "schedule": ["* * * * *"],
+            "prCreation": "immediate",
+            "rebaseWhen": "auto",
+            "automerge": false
+        }
+    ]
 }

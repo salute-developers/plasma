@@ -102,8 +102,8 @@ module.exports = {
                 ],
             },
         },
-        {
-            files: getPackageSourceGlobs(styledComponentsSourcePackages),
+        ...styledComponentsSourcePackages.map((packageName) => ({
+            files: getPackageSourceGlobs([packageName]),
             rules: {
                 '@typescript-eslint/no-restricted-imports': [
                     'error',
@@ -127,11 +127,22 @@ module.exports = {
                                 group: ['styled-components/*'],
                                 message: 'Build transforms only the styled-components package root',
                             },
+                            ...(packageName === 'sdds-finai'
+                                ? [
+                                      {
+                                          group: [
+                                              '@salutejs/sdds-themes/tokens/sdds_finai',
+                                              '@salutejs/sdds-themes/tokens/sdds_finai/*',
+                                          ],
+                                          message: 'Import theme tokens from @sddsjs/sdds_finai instead',
+                                      },
+                                  ]
+                                : []),
                         ],
                     },
                 ],
             },
-        },
+        })),
         {
             files: [
                 'packages/plasma-new-hope/src/components/**/*.tokens.ts',

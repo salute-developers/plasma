@@ -1,4 +1,132 @@
 {
+    "0.374.0": {
+        "date": "2026-10-28",
+        "core": [
+            {
+                "component": "Pagination",
+                "children": [
+                    {
+                        "text": "дополнена документация об использовании `perPage` и `hasPerPage`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3269",
+                        "id": 3269
+                    }
+                ]
+            },
+            {
+                "component": "Card",
+                "children": [
+                    {
+                        "text": "Добавлен border radius при  `backgroundType` - `solid`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3263",
+                        "id": 3263
+                    }
+                ]
+            },
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "Исправлено переполнение поля длинным `placeholder`.",
+                        "link": "https://github.com/salute-developers/plasma/pull/3262",
+                        "id": 3262
+                    }
+                ]
+            },
+            {
+                "component": "Steps",
+                "children": [
+                    {
+                        "text": "отступ между `title` и `content` в размере `s` приведен в соответствие с макетами",
+                        "link": "https://github.com/salute-developers/plasma/pull/3268",
+                        "id": 3268
+                    },
+                    {
+                        "text": "добавлено свойство `indicatorSize` для изменения размера индикатора элемента\n\nдобавлено свойство `renderItem` для кастомного отображения элемента",
+                        "link": "https://github.com/salute-developers/plasma/pull/3292",
+                        "id": 3292
+                    },
+                    {
+                        "text": "добавлено свойство `hasLastLine` для отображения линии на последнем StepItem",
+                        "link": "https://github.com/salute-developers/plasma/pull/3330",
+                        "id": 3330
+                    }
+                ]
+            },
+            {
+                "component": "Autocomplete, Combobox, Dropdown, Select",
+                "children": [
+                    {
+                        "text": "к выпадающему окну применен кастомный скролл `addScrollbar`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3273",
+                        "id": 3273
+                    }
+                ]
+            },
+            {
+                "component": "RatingInput",
+                "children": [
+                    {
+                        "text": "добавлен новый компонент",
+                        "link": "https://github.com/salute-developers/plasma/pull/3291",
+                        "id": 3291
+                    }
+                ]
+            },
+            {
+                "component": "Checkbox, Radiobox",
+                "children": [
+                    {
+                        "text": "токены заливки приведены в соответствие с макетами",
+                        "link": "https://github.com/salute-developers/plasma/pull/3326",
+                        "id": 3326
+                    }
+                ]
+            },
+            {
+                "component": "Icons",
+                "children": [
+                    {
+                        "text": "добавили уточнения в руководство по работе со старым пакетом `plasma-icons`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3329",
+                        "id": 3329
+                    }
+                ]
+            },
+            {
+                "component": "Popover",
+                "children": [
+                    {
+                        "text": "убрали фокусную рамку с обертки компонента",
+                        "link": "https://github.com/salute-developers/plasma/pull/3332",
+                        "id": 3332
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
+    "0.373.0": {
+        "date": "2026-10-15",
+        "core": [
+            {
+                "component": "plasma-icons",
+                "children": [
+                    {
+                        "text": "изменен вектор в иконках типа `Brain`"
+                    }
+                ]
+            },
+            {
+                "component": "sdds-icons",
+                "children": [
+                    {
+                        "text": "добавлены иконки `Brain`"
+                    }
+                ]
+            }
+        ],
+        "lib": []
+    },
     "0.372.0": {
         "date": "2026-10-14",
         "core": [

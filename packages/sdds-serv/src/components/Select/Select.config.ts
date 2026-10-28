@@ -4,19 +4,63 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    onDarkSurfaceSolidDefault,
+    onDarkSurfaceSolidDefaultActive,
+    onDarkSurfaceSolidDefaultHover,
+    onDarkTextPrimary,
+    onDarkTextPrimaryActive,
+    onDarkTextPrimaryHover,
+    onDarkTextSecondary,
+    onDarkTextSecondaryActive,
+    onDarkTextSecondaryHover,
+    onLightSurfaceSolidDefault,
+    onLightSurfaceSolidDefaultActive,
+    onLightSurfaceSolidDefaultHover,
+    onLightSurfaceTransparentDeep,
+    onLightSurfaceTransparentDeepActive,
+    onLightSurfaceTransparentDeepHover,
+    onLightTextPrimary,
+    onLightTextPrimaryActive,
+    onLightTextPrimaryHover,
+    onLightTextSecondary,
+    onLightTextSecondaryActive,
+    onLightTextSecondaryHover,
+    surfaceAccent,
+    surfaceAccentActive,
+    surfaceAccentHover,
+    surfaceClear,
+    surfaceNegative,
+    surfaceNegativeActive,
+    surfaceNegativeHover,
+    surfacePositive,
+    surfacePositiveActive,
+    surfacePositiveHover,
+    surfaceSolidCard,
+    surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceSolidDefaultHover,
     surfaceTransparentNegative,
     surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
+    surfaceTransparentSecondaryActive,
+    surfaceTransparentSecondaryHover,
+    surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
     surfaceTransparentWarning,
     surfaceTransparentWarningActive,
     textAccent,
     textNegative,
     textPositive,
     textPrimary,
+    textPrimaryActive,
+    textPrimaryHover,
     textSecondary,
+    textSecondaryActive,
+    textSecondaryHover,
     textTertiary,
     textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_serv';
@@ -33,7 +77,12 @@ export const config = {
     variations: {
         view: {
             default: css`
-                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.textFieldColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
@@ -75,13 +124,18 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             positive: css`
-                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.textFieldColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
@@ -123,13 +177,18 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             warning: css`
-                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.textFieldColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
@@ -171,13 +230,18 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             negative: css`
-                ${tokens.textFieldColor}: var(--text-primary);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.textFieldColor}: ${textPrimary};
 
                 ${tokens.textFieldPlaceholderColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColorFocus}: var(--text-tertiary);
@@ -219,21 +283,26 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             accent: css`
-                ${tokens.buttonColor}: var(--on-dark-text-primary);
-                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
-                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonBackgroundColor}: var(--surface-accent);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-accent-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-accent-active);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.buttonColor}: ${onDarkTextPrimary};
+                ${tokens.buttonColorHover}: ${onDarkTextPrimaryHover};
+                ${tokens.buttonColorActive}: ${onDarkTextPrimaryActive};
+                ${tokens.buttonArrowColor}: ${onDarkTextSecondary};
+                ${tokens.buttonArrowColorHover}: ${onDarkTextSecondaryHover};
+                ${tokens.buttonArrowColorActive}: ${onDarkTextSecondaryHover};
+                ${tokens.buttonBackgroundColor}: ${surfaceAccent};
+                ${tokens.buttonBackgroundColorHover}: ${surfaceAccentHover};
+                ${tokens.buttonBackgroundColorActive}: ${surfaceAccentActive};
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -245,21 +314,26 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             secondary: css`
-                ${tokens.buttonColor}: var(--text-primary);
-                ${tokens.buttonColorHover}: var(--text-primary-hover);
-                ${tokens.buttonColorActive}: var(--text-primary-active);
-                ${tokens.buttonArrowColor}: var(--text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--text-secondary-hover);
-                ${tokens.buttonBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.buttonColor}: ${textPrimary};
+                ${tokens.buttonColorHover}: ${textPrimaryHover};
+                ${tokens.buttonColorActive}: ${textPrimaryActive};
+                ${tokens.buttonArrowColor}: ${textSecondary};
+                ${tokens.buttonArrowColorHover}: ${textSecondaryHover};
+                ${tokens.buttonArrowColorActive}: ${textSecondaryHover};
+                ${tokens.buttonBackgroundColor}: ${surfaceTransparentSecondary};
+                ${tokens.buttonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+                ${tokens.buttonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -271,21 +345,26 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             clear: css`
-                ${tokens.buttonColor}: var(--text-primary);
-                ${tokens.buttonColorHover}: var(--text-primary-hover);
-                ${tokens.buttonColorActive}: var(--text-primary-active);
-                ${tokens.buttonArrowColor}: var(--text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--text-secondary-active);
-                ${tokens.buttonBackgroundColor}: var(--surface-clear);
-                ${tokens.buttonBackgroundColorHover}: var(--surface-clear);
-                ${tokens.buttonBackgroundColorActive}: var(--surface-clear);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.buttonColor}: ${textPrimary};
+                ${tokens.buttonColorHover}: ${textPrimaryHover};
+                ${tokens.buttonColorActive}: ${textPrimaryActive};
+                ${tokens.buttonArrowColor}: ${textSecondary};
+                ${tokens.buttonArrowColorHover}: ${textSecondaryHover};
+                ${tokens.buttonArrowColorActive}: ${textSecondaryActive};
+                ${tokens.buttonBackgroundColor}: ${surfaceClear};
+                ${tokens.buttonBackgroundColorHover}: ${surfaceClear};
+                ${tokens.buttonBackgroundColorActive}: ${surfaceClear};
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -297,21 +376,26 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             dark: css`
-                ${tokens.buttonColor}: var(--on-dark-text-primary);
-                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
-                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-light-surface-transparent-deep);
-                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-transparent-deep-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--on-light-surface-transparent-deep-active);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.buttonColor}: ${onDarkTextPrimary};
+                ${tokens.buttonColorHover}: ${onDarkTextPrimaryHover};
+                ${tokens.buttonColorActive}: ${onDarkTextPrimaryActive};
+                ${tokens.buttonArrowColor}: ${onDarkTextSecondary};
+                ${tokens.buttonArrowColorHover}: ${onDarkTextSecondaryHover};
+                ${tokens.buttonArrowColorActive}: ${onDarkTextSecondaryActive};
+                ${tokens.buttonBackgroundColor}:${onLightSurfaceTransparentDeep};
+                ${tokens.buttonBackgroundColorHover}:${onLightSurfaceTransparentDeepHover};
+                ${tokens.buttonBackgroundColorActive}:${onLightSurfaceTransparentDeepActive};
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -323,21 +407,26 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             black: css`
-                ${tokens.buttonColor}: var(--on-dark-text-primary);
-                ${tokens.buttonColorHover}: var(--on-dark-text-primary-hover);
-                ${tokens.buttonColorActive}: var(--on-dark-text-primary-active);
-                ${tokens.buttonArrowColor}: var(--on-dark-text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--on-dark-text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--on-dark-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-light-surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}:var(--on-light-surface-solid-default-hover);
-                ${tokens.buttonBackgroundColorActive}: var(--on-light-surface-solid-default-active);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.buttonColor}: ${onDarkTextPrimary};
+                ${tokens.buttonColorHover}: ${onDarkTextPrimaryHover};
+                ${tokens.buttonColorActive}: ${onDarkTextPrimaryActive};
+                ${tokens.buttonArrowColor}: ${onDarkTextSecondary};
+                ${tokens.buttonArrowColorHover}: ${onDarkTextSecondaryHover};
+                ${tokens.buttonArrowColorActive}: ${onDarkTextSecondaryActive};
+                ${tokens.buttonBackgroundColor}:${onLightSurfaceSolidDefault};
+                ${tokens.buttonBackgroundColorHover}:${onLightSurfaceSolidDefaultHover};
+                ${tokens.buttonBackgroundColorActive}: ${onLightSurfaceSolidDefaultActive};
 
                 ${tokens.disclosureIconColor}: var(--text-secondary);
                 ${tokens.disclosureIconColorHover}: var(--text-secondary-hover);
@@ -349,21 +438,26 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
             white: css`
-                ${tokens.buttonColor}: var(--on-light-text-primary);
-                ${tokens.buttonColorHover}: var(--on-light-text-primary-hover);
-                ${tokens.buttonColorActive}: var(--on-light-text-primary-active);
-                ${tokens.buttonArrowColor}: var(--on-light-text-secondary);
-                ${tokens.buttonArrowColorHover}: var(--on-light-text-secondary-hover);
-                ${tokens.buttonArrowColorActive}: var(--on-light-text-secondary-active);
-                ${tokens.buttonBackgroundColor}:var(--on-dark-surface-solid-default);
-                ${tokens.buttonBackgroundColorHover}:var(--on-dark-surface-solid-default-hover);
-                ${tokens.buttonBackgroundColorActive}:var(--on-dark-surface-solid-default-active);
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
+                ${tokens.buttonColor}: ${onLightTextPrimary};
+                ${tokens.buttonColorHover}: ${onLightTextPrimaryHover};
+                ${tokens.buttonColorActive}: ${onLightTextPrimaryActive};
+                ${tokens.buttonArrowColor}: ${onLightTextSecondary};
+                ${tokens.buttonArrowColorHover}: ${onLightTextSecondaryHover};
+                ${tokens.buttonArrowColorActive}: ${onLightTextSecondaryActive};
+                ${tokens.buttonBackgroundColor}:${onDarkSurfaceSolidDefault};
+                ${tokens.buttonBackgroundColorHover}:${onDarkSurfaceSolidDefaultHover};
+                ${tokens.buttonBackgroundColorActive}:${onDarkSurfaceSolidDefaultActive};
 
                 ${tokens.itemBackgroundHover}: var(--surface-transparent-secondary);
                 ${tokens.disclosureIconColor}: var(--text-secondary);
@@ -375,14 +469,16 @@ export const config = {
 
                 ${tokens.itemIconColor}: var(--text-accent);
 
-                ${tokens.checkboxFillColor}: var(--text-accent);
-                ${tokens.checkboxIconColor}: var(--on-dark-text-primary);
+                ${tokens.checkboxFillColor}: ${surfaceAccent};
+                ${tokens.checkboxIconColor}: ${onDarkTextPrimary};
                 ${tokens.checkboxTriggerBorderCheckedColor}: transparent;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
             `,
         },
         size: {
             l: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldPadding}: 1.0625rem 1.125rem 1.0625rem 1.125rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
@@ -515,6 +611,8 @@ export const config = {
                 ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
@@ -647,6 +745,8 @@ export const config = {
                 ${tokens.dividerMarginBottomTight}: 0.375rem;
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;
@@ -779,6 +879,8 @@ export const config = {
                 ${tokens.dividerMarginBottomTight}: 0.25rem;
             `,
             xs: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldPaddingWithChips}: 0.375rem;

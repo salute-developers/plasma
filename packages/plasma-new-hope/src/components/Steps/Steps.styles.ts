@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-import { classes, tokens } from './Steps.tokens';
+import { classes, privateTokens, tokens } from './Steps.tokens';
 
 export const base = css`
     display: flex;
@@ -11,20 +11,20 @@ export const base = css`
 
         &:not(&.${classes.verticalOrientation}) {
             &.${classes.hasIndicator} {
-                height: var(${tokens.activeIndicatorSize});
+                height: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeIndicatorSize}));
             }
 
             &:not(.${classes.hasIndicator}) {
-                height: var(${tokens.activeBulletSize});
+                height: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeBulletSize}));
             }
         }
 
         &.${classes.verticalOrientation} {
             &.${classes.hasIndicator} {
-                width: var(${tokens.activeIndicatorSize});
+                width: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeIndicatorSize}));
             }
             &:not(.${classes.hasIndicator}) {
-                width: var(${tokens.activeBulletSize});
+                width: max(var(${privateTokens.indicatorTrack}, 0px), var(${tokens.activeBulletSize}));
             }
         }
     }

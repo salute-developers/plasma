@@ -1,2 +1,4 @@
-export { Popup } from '@salutejs/plasma-hope';
-export type { PopupProps } from '@salutejs/plasma-hope';
+import { plasmaCore } from '@salutejs/plasma-new-hope/styled-components';
+
+export const { Popup } = plasmaCore;
+export type PopupProps = plasmaCore.PopupProps;

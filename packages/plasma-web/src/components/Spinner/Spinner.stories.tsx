@@ -1,6 +1,5 @@
-import type { ComponentProps } from 'react';
+import React from 'react';
 import type { Meta } from '@storybook/react-vite';
-import { getSpinnerStories } from '@salutejs/plasma-sb-utils';
 
 import { Button } from '../Button/Button';
 

@@ -1,6 +1,6 @@
 import React, { ComponentProps, forwardRef, ReactNode } from 'react';
-import type { TextFieldProps } from '@salutejs/plasma-hope';
 import {
+    plasmaCore,
     textFieldConfig,
     component,
     mergeConfig,
@@ -24,6 +24,7 @@ export const TextFieldComponent = createConditionalComponent({
 });
 
 type newHopeTextFieldProps = ComponentProps<typeof TextFieldComponent>;
+type TextFieldProps = plasmaCore.TextFieldProps;
 
 type ClearProps =
     | {

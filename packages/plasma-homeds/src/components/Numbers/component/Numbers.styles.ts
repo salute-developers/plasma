@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { degreeMask } from './assets/degree';
 import { percentMask } from './assets/percent';
+import { tildeMask } from './assets/tilde';
 import { lcdFont } from './assets/font';
 import { tokens } from './Numbers.tokens';
 
@@ -25,6 +26,17 @@ export const base = css`
     letter-spacing: 0.2em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+`;
+
+export const StyledTilde = styled.span`
+    flex-shrink: 0;
+    width: calc(var(${tokens.tildeWidth}) + 0.0625rem);
+    height: var(${tokens.fontSize});
+    background-color: currentColor;
+    mask-image: url('${tildeMask}');
+    mask-size: var(${tokens.tildeWidth}) auto;
+    mask-position: left center;
+    mask-repeat: no-repeat;
 `;
 
 export const StyledMinus = styled.span`

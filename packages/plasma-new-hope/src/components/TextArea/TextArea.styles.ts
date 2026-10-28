@@ -358,7 +358,7 @@ export const StyledPlaceholder = styled.label<{
     position: absolute;
     pointer-events: none;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
 
     transition: all 0.1s ease-in-out;
     transform-origin: top left;
@@ -367,6 +367,7 @@ export const StyledPlaceholder = styled.label<{
 
     width: 100%;
     height: auto;
+    overflow: hidden;
 
     top: var(${tokens.inputPaddingTop});
     padding-left: var(${tokens.inputPaddingLeft});

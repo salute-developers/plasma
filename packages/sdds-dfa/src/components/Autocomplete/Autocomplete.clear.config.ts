@@ -12,11 +12,10 @@ import {
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
     surfaceWarning,
     textAccent,
-    textNegative,
-    textNegativeActive,
-    textNegativeHover,
     textPositive,
     textPositiveActive,
     textPositiveHover,
@@ -39,6 +38,11 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textPrimary};
 
@@ -82,6 +86,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             positive: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textPositive};
                 ${tokens.textFieldClearColor}: ${textPositive};
 
@@ -130,6 +139,11 @@ export const config = {
                 ${tokens.textFieldContentSlotColorFocus}: ${textSecondary};
             `,
             warning: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textWarning};
                 ${tokens.textFieldClearColor}: ${textWarning};
 
@@ -178,13 +192,18 @@ export const config = {
                 ${tokens.textFieldContentSlotColorFocus}: ${textSecondary};
             `,
             negative: css`
-                ${tokens.textFieldColor}: ${textNegative};
-                ${tokens.textFieldClearColor}: ${textNegative};
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
 
-                ${tokens.textFieldPlaceholderColor}: ${textNegative};
+                ${tokens.textFieldColor}: ${textWarning};
+                ${tokens.textFieldClearColor}: ${textWarning};
+
+                ${tokens.textFieldPlaceholderColor}: ${textWarning};
                 ${tokens.textFieldPlaceholderColorHover}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
-                ${tokens.textFieldClearPlaceholderColor}: ${textNegative};
+                ${tokens.textFieldClearPlaceholderColor}: ${textWarning};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.textFieldBackgroundColor}: transparent;
@@ -194,21 +213,21 @@ export const config = {
                 ${tokens.textFieldTextBeforeColor}: ${textTertiary};
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
                 ${tokens.textFieldLabelColor}: ${textPrimary};
-                ${tokens.textFieldLeftHelperColor}: ${textNegative};
+                ${tokens.textFieldLeftHelperColor}: ${textWarning};
                 ${tokens.textFieldTitleCaptionColor}: ${textSecondary};
                 ${tokens.textFieldLeftHelperColorFocus}: ${textSecondary};
                 ${tokens.textFieldFocusColor}: ${textAccent};
 
-                ${tokens.textFieldContentSlotColor}: ${textNegative};
-                ${tokens.textFieldContentSlotColorHover}: ${textNegativeHover};
-                ${tokens.textFieldContentSlotColorActive}: ${textNegativeActive};
+                ${tokens.textFieldContentSlotColor}: ${textWarning};
+                ${tokens.textFieldContentSlotColorHover}: ${textWarningHover};
+                ${tokens.textFieldContentSlotColorActive}: ${textWarningActive};
 
                 ${tokens.focusColor}: ${surfaceAccent};
                 ${tokens.textFieldIndicatorColor}: ${surfaceNegative};
                 ${tokens.textFieldOptionalColor}: ${textTertiary};
 
-                ${tokens.textFieldDividerColor}: ${surfaceNegative};
-                ${tokens.textFieldDividerColorHover}: ${surfaceNegative};
+                ${tokens.textFieldDividerColor}: ${surfaceWarning};
+                ${tokens.textFieldDividerColorHover}: ${surfaceWarning};
                 ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.background}: ${surfaceSolidCard};
@@ -228,6 +247,8 @@ export const config = {
         },
         size: {
             xl: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 4rem;
                 ${tokens.textFieldPadding}: 1.3125rem 0;
                 ${tokens.textFieldBorderRadius}: 0;
@@ -310,6 +331,8 @@ export const config = {
                 ${tokens.infiniteLoaderGap}: 0.625rem;
             `,
             l: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3.5rem;
                 ${tokens.textFieldPadding}: 1.0625rem 0;
                 ${tokens.textFieldBorderRadius}: 0;
@@ -391,6 +414,8 @@ export const config = {
                 ${tokens.infiniteLoaderGap}: 0.5rem;
             `,
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldPadding}: 0.875rem 0;
                 ${tokens.textFieldBorderRadius}: 0;
@@ -472,6 +497,8 @@ export const config = {
                 ${tokens.infiniteLoaderGap}: 0.375rem;
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0;
                 ${tokens.textFieldBorderRadius}: 0;
@@ -553,6 +580,8 @@ export const config = {
                 ${tokens.infiniteLoaderGap}: 0.25rem;
             `,
             xs: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0;
                 ${tokens.textFieldBorderRadius}: 0;

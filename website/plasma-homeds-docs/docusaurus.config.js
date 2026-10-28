@@ -99,6 +99,7 @@ const config = {
         ],
     ],
     plugins: [
+        ['@salutejs/docusaurus-plugin-yandex-metrika', { counterID: 113706312 }],
         function docgenPlugin() {
             // Плагин генерации документации
             return {
@@ -216,6 +217,7 @@ const config = {
                     'guides/next*',
                     'guides/how-to-mcp*',
                     'guides/how-to-icons*',
+                    'guides/how-to-plasma-icons*',
                     'guides/react_17*',
                     'guides/FAQ*',
                     'components/**',

@@ -464,6 +464,118 @@ export function App() {
 }
 ```
 
+## Размер индикатора
+
+Свойство `items[n].indicatorSize` задаёт диаметр индикатора шага в пикселях и перекрывает `Steps.size`. Значение одно для точки и для круга с числом или иконкой, от статуса шага не зависит. Типографика и отступы остаются от `Steps.size`. Если `indicatorSize` у шага не задан, шаг наследует `Steps.size`.
+
+```tsx live
+import React from 'react';
+import { Steps } from '@salutejs/plasma-web';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Наследует size',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: '56',
+        status: 'active',
+        indicatorSize: 56,
+    }, {
+        indicator: 3,
+        title: '16',
+        status: 'inactive',
+        indicatorSize: 16,
+    }, {
+        title: 'точка 36',
+        status: 'inactive',
+        indicatorSize: 36,
+    }];
+
+    return (
+        <section>
+            <Steps size="s" items={items} />
+        </section>
+    );
+}
+```
+
+## Кастомный рендер шага
+
+Свойство `renderItem` заменяет текстовую часть шага (`title` и `content`). Коллбэк получает объект шага с вычисленным `status` и его индекс. Индикатор, линия и обработка клика остаются за компонентом, `hasContent` на результат `renderItem` не влияет.
+
+Индивидуальный стиль шагу задаётся через `items[n].className` и `items[n].style`. Через `style` можно переопределить CSS-переменные компонента: в примере у активного шага изменены цвета индикатора и линии.
+
+```tsx live
+import React from 'react';
+import { Steps, stepsTokens } from '@salutejs/plasma-web';
+import { accent } from '@salutejs/plasma-tokens-b2b';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Заполнение',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: 'Проверка',
+        status: 'active',
+        style: {
+            [stepsTokens.activeIndicatorBorder]: `solid ${accent}`,
+            [stepsTokens.activeIndicatorColor]: accent,
+            [stepsTokens.dividerActiveGradientColor]: accent,
+            [stepsTokens.dividerActiveVerticalGradientColor]: accent,
+        },
+    }, {
+        indicator: 3,
+        title: 'Отправка',
+        status: 'inactive',
+        style: { opacity: 0.5 },
+    }];
+
+    const renderItem = (item, index) => (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>{item.title}</span>
+            <span>Шаг {index + 1}: {item.status}</span>
+        </div>
+    );
+
+    return (
+        <section>
+            <Steps items={items} renderItem={renderItem} />
+        </section>
+    );
+}
+```
+
+## Разделитель после последнего шага
+
+Свойство `hasLastLine` сохраняет разделительную линию после последнего шага. По умолчанию оно выключено. Работает в обеих ориентациях и при любом `contentAlign`. Если `hasLine={false}`, все разделители скрыты независимо от `hasLastLine`.
+
+```tsx live
+import React from 'react';
+import { Steps } from '@salutejs/plasma-web';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Первый шаг',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: 'Продолжение следует',
+        status: 'active',
+    }];
+
+    return (
+        <div>
+            <Steps items={items} hasLastLine />;
+        </div>
+    );
+}
+```
+
 ## Кастомный размер шага
 
 Каждому шагу можно задать индивидуальный размер через свойство `height` (вертикальный режим) или `width` (горизонтальный режим).
