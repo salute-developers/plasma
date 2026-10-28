@@ -8,6 +8,7 @@ cypress/snapshots/**/All\ Specs
 cypress/screenshots
 cypress/videos
 cypress/results
+cypress/.generated/
 .nyc_output
 coverage
 coverage-ts
