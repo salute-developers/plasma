@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/docusaurus-plugin-yandex-metrika",
-  "version": "0.2.0",
+  "version": "0.3.0-next-sbcom.0",
   "private": true,
   "description": "Docusaurus plugin with Yandex Metrika counter for Plasma/SDDS documentation sites",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
@@ -11,5 +11,8 @@
     "directory": "utils/docusaurus-plugin-yandex-metrika"
   },
   "main": "index.js",
-  "files": ["index.js", "client.js"]
+  "files": [
+    "index.js",
+    "client.js"
+  ]
 }

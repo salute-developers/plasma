@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-bizcom-docs",
-  "version": "0.31.0",
+  "version": "0.32.0-next-sbcom.0",
   "description": "SDDS BIZCOM documentation",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -33,11 +33,11 @@
     "@docusaurus/preset-classic": "3.6.1",
     "@docusaurus/theme-live-codeblock": "3.6.1",
     "@mdx-js/react": "3.0.0",
-    "@salutejs/plasma-docs-ui": "0.556.0",
-    "@salutejs/plasma-icons": "1.256.0",
-    "@salutejs/plasma-typo": "0.59.0",
-    "@salutejs/sdds-bizcom": "0.375.0",
-    "@salutejs/sdds-themes": "0.86.0",
+    "@salutejs/plasma-docs-ui": "0.557.0-next-sbcom.0",
+    "@salutejs/plasma-icons": "1.257.0-next-sbcom.0",
+    "@salutejs/plasma-typo": "0.60.0-next-sbcom.0",
+    "@salutejs/sdds-bizcom": "0.376.0-next-sbcom.0",
+    "@salutejs/sdds-themes": "0.87.0-next-sbcom.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",
     "docusaurus-theme-search-typesense": "0.25.0",
@@ -52,7 +52,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.6.1",
     "@docusaurus/types": "3.6.1",
-    "@salutejs/docusaurus-plugin-yandex-metrika": "0.2.0",
+    "@salutejs/docusaurus-plugin-yandex-metrika": "0.3.0-next-sbcom.0",
     "@tsconfig/docusaurus": "2.0.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -64,7 +64,15 @@
     "typescript": "5.2.2"
   },
   "browserslist": {
-    "production": [">0.5%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
