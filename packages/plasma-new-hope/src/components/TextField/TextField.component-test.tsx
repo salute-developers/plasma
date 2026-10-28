@@ -308,44 +308,30 @@ describeFn('TextField', () => {
 
         cy.get('input').type('Hello,{enter} Plasma!{enter} Have fun{enter}');
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200);
         cy.get('.has-chips').find('button').should('have.length', 3);
 
         cy.get('input').type('{leftarrow}');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(100);
         cy.get('.has-chips').find('button').eq(2).should('be.focused');
 
         cy.focused()
             .trigger('keydown', { key: 'ArrowLeft' })
             .trigger('keydown', { key: 'ArrowLeft' })
             .trigger('keydown', { key: 'ArrowLeft' });
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200);
         cy.get('.has-chips').find('button').eq(0).should('be.focused');
 
         cy.focused()
             .trigger('keydown', { key: 'ArrowRight' })
             .trigger('keydown', { key: 'ArrowRight' })
             .trigger('keydown', { key: 'ArrowRight' });
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200);
         cy.get('input').should('be.focused');
 
         cy.focused().trigger('keydown', { key: 'Backspace' });
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200);
         cy.get('.has-chips').find('button').should('have.length', 2);
 
         cy.focused().trigger('keydown', { key: 'ArrowLeft' }).trigger('keydown', { key: 'ArrowLeft' });
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200);
         cy.get('.has-chips').find('button').eq(0).should('be.focused');
 
         cy.focused().trigger('keydown', { key: 'Backspace' });
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200);
         cy.get('.has-chips').find('button').should('have.length', 1);
 
         cy.get('input').focus().type('Hello!!!');

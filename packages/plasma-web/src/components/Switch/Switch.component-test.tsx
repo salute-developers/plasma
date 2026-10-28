@@ -3,6 +3,8 @@ import { mount, getComponent, PadMe, CypressTestDecorator } from '@salutejs/plas
 import { standard as standardTypo } from '@salutejs/plasma-typo';
 import { createGlobalStyle } from 'styled-components';
 
+import { expectNoRunningAnimations } from '../../../../../cypress/support/assertions';
+
 const StandardTypoStyle = createGlobalStyle(standardTypo);
 
 describe('plasma-web: Switch', () => {
@@ -45,8 +47,8 @@ describe('plasma-web: Switch', () => {
         );
 
         cy.get('body').tab();
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200); // transition of focus ring
+        cy.focused().should('have.attr', 'type', 'checkbox');
+        cy.get('label').should(expectNoRunningAnimations);
         cy.matchImageSnapshot();
         cy.focused().tab();
         cy.matchImageSnapshot('_focus_checked');
@@ -112,8 +114,8 @@ describe('plasma-web: Switch', () => {
 
         cy.matchImageSnapshot();
         cy.get('#switch').click();
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(400); // transition of focus ring
+        cy.get('#switch input').should('be.checked');
+        cy.get('label').should(expectNoRunningAnimations);
         cy.matchImageSnapshot('mouseDown_pressed');
     });
 });
