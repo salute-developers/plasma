@@ -77,19 +77,19 @@ export const base = css`
         &:hover:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {
             background-color: var(${tokens.helpersBackgroundColorHover});
         }
-    }
 
-    &:active:${exclusionSelectors} .${styledTextAreaWrapper} {
-        box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorActive});
-        background-color: var(${tokens.inputBackgroundColorActive});
-    }
+        &:active:${exclusionSelectors} .${styledTextAreaWrapper} {
+            box-shadow: inset 0 0 0 var(${tokens.borderSize}, 0.0625rem) var(${tokens.inputBorderColorActive});
+            background-color: var(${tokens.inputBackgroundColorActive});
+        }
 
-    &:active:${exclusionSelectors} .${styledContainer} {
-        background-color: var(${tokens.backgroundColorActive});
-    }
+        &:active:${exclusionSelectors} .${styledContainer} {
+            background-color: var(${tokens.backgroundColorActive});
+        }
 
-    &:active:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {
-        background-color: var(${tokens.helpersBackgroundColorActive});
+        &:active:${exclusionSelectors} .${styledTextAreaWrapper} + .${styledHelpers} {
+            background-color: var(${tokens.helpersBackgroundColorActive});
+        }
     }
 
     &.${classes.hasDivider} {
