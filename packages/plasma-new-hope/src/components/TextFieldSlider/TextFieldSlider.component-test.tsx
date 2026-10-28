@@ -197,9 +197,6 @@ describeFn('plasma-new-hope: TextFieldSlider', () => {
 
         cy.get('input').first().clear().type('150');
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
-
         cy.get('input').first().should('have.value', '100');
 
         cy.matchImageSnapshot();
@@ -209,9 +206,6 @@ describeFn('plasma-new-hope: TextFieldSlider', () => {
         mount(<TextFieldSlider {...textFieldSliderProps} min={10} hasScale />);
 
         cy.get('input').first().clear().type('5');
-
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
 
         cy.get('input').first().should('have.value', '10');
 

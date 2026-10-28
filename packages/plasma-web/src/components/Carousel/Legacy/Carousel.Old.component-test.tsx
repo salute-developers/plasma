@@ -36,7 +36,12 @@ describe('plasma-web: CarouselOld', () => {
             </CypressTestDecorator>,
         );
 
-        cy.wait(100);
+        cy.get('img').should(($images) => {
+            $images.each((_, image) => {
+                expect(image.complete, 'image loaded').to.equal(true);
+                expect(image.naturalWidth, 'decoded image width').to.be.greaterThan(0);
+            });
+        });
         cy.matchImageSnapshot();
     });
 });
