@@ -24,14 +24,13 @@ import {
     surfaceSolidCard,
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textPrimaryActive,
@@ -40,6 +39,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -54,13 +54,13 @@ export const config = {
                 ${tokens.outlineFocusColor}: ${surfaceAccent};
 
                 ${tokens.background}: ${surfaceTransparentPrimary};
-                ${tokens.backgroundError}: ${surfaceTransparentNegative};
+                ${tokens.backgroundError}: ${surfaceTransparentWarning};
                 ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
 
                 ${tokens.dividerColor}: ${textPrimary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
-                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorError}: ${textWarning};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
 
                 ${tokens.titleCaptionColor}: ${textSecondary};
@@ -106,8 +106,8 @@ export const config = {
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentWarningActive};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
 

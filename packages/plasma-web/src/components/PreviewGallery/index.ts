@@ -1,4 +1,6 @@
-export { PreviewGallery, StyledPreviewGallery } from '@salutejs/plasma-hope';
-export { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping } from '@salutejs/plasma-hope';
+export { PreviewGallery } from './PreviewGallery';
+export { StyledRoot as StyledPreviewGallery } from './PreviewGalleryItems';
+export { arrayItemRemoving, arrayItemSelecting, arrayItemSwapping } from './utils';
 
-export type { PreviewGalleryProps, PreviewGalleryItemProps } from '@salutejs/plasma-hope';
+export type { PreviewGalleryProps } from './PreviewGallery';
+export type { PreviewGalleryItemProps } from './PreviewGalleryItemBase';

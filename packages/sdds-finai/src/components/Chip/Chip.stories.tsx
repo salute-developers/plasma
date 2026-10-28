@@ -23,14 +23,22 @@ const contentSizeMapper: Record<string, string> = {
 const { meta: META, Default: DefaultStory } = getChipStories({
     component: Chip,
     componentConfig: config,
-    additionalArgTypes: exampleOnly({
-        contentLeftType: {
-            name: 'contentLeftType',
-            control: { type: 'select' },
-            options: ['icon', 'avatar'],
-            if: { arg: 'enableContentLeft' },
+    additionalArgTypes: {
+        ...exampleOnly({
+            contentLeftType: {
+                name: 'contentLeftType',
+                control: { type: 'select' },
+                options: ['icon', 'avatar'],
+                if: { arg: 'enableContentLeft' },
+            },
+        }),
+        customColor: {
+            control: 'color',
         },
-    }),
+        customBackgroundColor: {
+            control: 'color',
+        },
+    },
 });
 
 const meta: Meta<ChipProps> = {

@@ -1,6 +1,17 @@
+import React, { useEffect } from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { disableProps, InSpacingDecorator, exampleOnly } from '../../index';
 
-import { itemViews, orientations, contentAligns, indicatorTypes, hasContentOptions } from './fixtures';
+import {
+    itemViews,
+    indicatorSizePresets,
+    orientations,
+    contentAligns,
+    indicatorTypes,
+    hasContentOptions,
+    getIndicatorSizePreset,
+} from './fixtures';
 
 type CreateMetaProps = {
     component: any;
@@ -23,7 +34,21 @@ export const createMeta = ({
 }: CreateMetaProps) => {
     return {
         title,
-        decorators: [InSpacingDecorator],
+        decorators: [
+            (Story: any, context: any) => {
+                const [, updateArgs] = useArgs();
+                const preset = getIndicatorSizePreset(context.args.simple, context.args.indicatorType);
+
+                useEffect(() => {
+                    if (context.args.indicatorSizePreset !== preset) {
+                        updateArgs({ indicatorSizePreset: preset });
+                    }
+                }, [preset]);
+
+                return React.createElement(Story);
+            },
+            InSpacingDecorator,
+        ],
         component,
         parameters: {
             controls: {
@@ -42,11 +67,13 @@ export const createMeta = ({
             indicatorType: 'numbered',
             orientation: 'horizontal',
             hasLine: true,
+            hasLastLine: false,
             hasContent: 'all',
             disabled: false,
             loading: false,
             simple: false,
             applyCustomCompletedItemView: false,
+            indicatorSizePreset: 'marker',
             ...defaultArgs,
         },
         argTypes: {
@@ -77,6 +104,9 @@ export const createMeta = ({
             hasLine: {
                 control: { type: 'boolean' },
             },
+            hasLastLine: {
+                control: { type: 'boolean' },
+            },
             title: {
                 control: { type: 'text' },
             },
@@ -103,6 +133,34 @@ export const createMeta = ({
                 indicatorType: {
                     options: indicatorTypes,
                     control: { type: 'select' },
+                },
+                indicatorSizeSimpleBullet: {
+                    name: 'indicatorSize',
+                    options: indicatorSizePresets['simple-bullet'],
+                    control: { type: 'select' },
+                    if: { arg: 'indicatorSizePreset', eq: 'simple-bullet' },
+                },
+                indicatorSizeSimpleMarker: {
+                    name: 'indicatorSize',
+                    options: indicatorSizePresets['simple-marker'],
+                    control: { type: 'select' },
+                    if: { arg: 'indicatorSizePreset', eq: 'simple-marker' },
+                },
+                indicatorSizeBullet: {
+                    name: 'indicatorSize',
+                    options: indicatorSizePresets.bullet,
+                    control: { type: 'select' },
+                    if: { arg: 'indicatorSizePreset', eq: 'bullet' },
+                },
+                indicatorSizeMarker: {
+                    name: 'indicatorSize',
+                    options: indicatorSizePresets.marker,
+                    control: { type: 'select' },
+                    if: { arg: 'indicatorSizePreset', eq: 'marker' },
+                },
+                indicatorSizePreset: {
+                    control: false,
+                    table: { disable: true },
                 },
                 simple: {
                     control: { type: 'boolean' },

@@ -12,6 +12,11 @@ export type NumbersProps = {
      */
     unit?: 'degree' | 'percent';
     /**
+     * Тильда перед числом.
+     * @default false
+     */
+    hasSymbolBefore?: boolean;
+    /**
      * Размер цифр.
      * @default xs
      */

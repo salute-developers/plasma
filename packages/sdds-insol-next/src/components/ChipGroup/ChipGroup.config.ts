@@ -100,7 +100,7 @@ export const config = {
                 ${tokens.chipBorderRadius}: 0.5rem;
                 ${tokens.chipWidth}: auto;
                 ${tokens.chipHeight}: 2rem;
-                ${tokens.chipPadding}: 0 0.875rem;
+                ${tokens.chipPadding}: 0 0.75rem;
 
                 ${tokens.chipFontFamily}: ${bodyS.fontFamily};
                 ${tokens.chipFontSize}: ${bodyS.fontSize};
@@ -113,7 +113,7 @@ export const config = {
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
                 ${tokens.chipRightContentMarginLeft}: 0.25rem;
                 ${tokens.chipRightContentMarginRight}: -0.125rem;
-                ${tokens.chipClearContentMarginLeft}: 0.375rem;
+                ${tokens.chipClearContentMarginLeft}: 0.5rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1rem;
             `,
@@ -134,7 +134,7 @@ export const config = {
                 ${tokens.chipLeftContentMarginRight}: 0.25rem;
                 ${tokens.chipRightContentMarginLeft}: 0.25rem;
                 ${tokens.chipRightContentMarginRight}: -0.125rem;
-                ${tokens.chipClearContentMarginLeft}: 0.25rem;
+                ${tokens.chipClearContentMarginLeft}: 0.375rem;
                 ${tokens.chipClearContentMarginRight}: -0.25rem;
                 ${tokens.chipCloseIconSize}: 1rem;
             `,

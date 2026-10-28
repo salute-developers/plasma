@@ -27,3 +27,6 @@ reports
 
 scaffold/template-docs
 scaffold/template-component
+
+# Generated design systems
+design-systems/*/output/

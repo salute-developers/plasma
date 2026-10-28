@@ -93,7 +93,6 @@ export const toastConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
         closeIconType: {
             css: closeIconTypeCSS,

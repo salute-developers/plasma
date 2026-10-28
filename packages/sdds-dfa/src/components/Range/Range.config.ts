@@ -7,17 +7,16 @@ import {
     surfaceAccent,
     surfaceNegative,
     surfaceSolidCardBrightness,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentNegativeHover,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPositiveHover,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
+    surfaceTransparentWarningHover,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textPrimaryActive,
@@ -26,6 +25,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -39,13 +39,13 @@ export const config = {
         view: {
             default: css`
                 ${tokens.background}: ${surfaceTransparentPrimary};
-                ${tokens.backgroundError}: ${surfaceTransparentNegative};
+                ${tokens.backgroundError}: ${surfaceTransparentWarning};
                 ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
 
                 ${tokens.dividerColor}: ${textPrimary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
-                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorError}: ${textWarning};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
@@ -73,9 +73,9 @@ export const config = {
 
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundErrorColorHover}: ${surfaceTransparentWarningHover};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentWarningActive};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
                 ${tokens.textFieldBackgroundSuccessColorHover}: ${surfaceTransparentPositiveHover};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};

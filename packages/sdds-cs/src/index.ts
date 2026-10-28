@@ -17,6 +17,7 @@ export * from './components/Cell';
 export * from './components/Counter';
 export * from './components/Combobox';
 export * from './components/DatePicker';
+export * from './components/DateTimePicker';
 export * from './components/Dropdown';
 export * from './components/IconButton';
 export * from './components/Image';
@@ -65,6 +66,7 @@ export * from './components/Carousel';
 export * from './components/Tour';
 export * from './components/Rating';
 export * from './components/TimePicker';
+export * from './components/RatingInput';
 
 export * from './mixins';
 export * from './tokens';

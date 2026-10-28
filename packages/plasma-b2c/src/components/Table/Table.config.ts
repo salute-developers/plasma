@@ -32,7 +32,7 @@ export const config = {
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--surface-accent);
                 ${tokens.checkboxTriggerIconColor}: var(--on-dark-text-primary);
 
                 ${tokens.editableCellIconGap}: 0.5rem;
@@ -100,7 +100,7 @@ export const config = {
                 ${tokens.checkboxTriggerSize}: 1.25rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.375rem;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--surface-accent);
                 ${tokens.checkboxTriggerIconColor}: var(--on-dark-text-primary);
 
                 ${tokens.editableCellIconGap}: 0.375rem;
@@ -168,7 +168,7 @@ export const config = {
                 ${tokens.checkboxTriggerSize}: 0.875rem;
                 ${tokens.checkboxTriggerBorderRadius}: 0.25rem;
                 ${tokens.checkboxTriggerBorderColor}: var(--text-secondary);
-                ${tokens.checkboxFillColor}: var(--text-accent);
+                ${tokens.checkboxFillColor}: var(--surface-accent);
                 ${tokens.checkboxTriggerIconColor}: var(--on-dark-text-primary);
 
                 ${tokens.editableCellIconGap}: 0.25rem;

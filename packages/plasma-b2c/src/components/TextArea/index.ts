@@ -1,10 +1,12 @@
-import type { TextAreaProps as TextAreaPropsBase } from '@salutejs/plasma-hope';
+import { plasmaCore } from '@salutejs/plasma-new-hope/styled-components';
 import type { PopoverPlacement, PopoverPlacementBasic } from '@salutejs/plasma-new-hope';
 import type { ReactNode } from 'react';
 
 import { TextArea } from './TextArea';
 
 export { TextArea };
+
+type TextAreaPropsBase = plasmaCore.TextAreaProps;
 
 type newHopeTextAreaProps = React.ComponentProps<typeof TextArea>;
 

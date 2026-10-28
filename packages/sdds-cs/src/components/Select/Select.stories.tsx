@@ -10,7 +10,7 @@ type SelectProps = ComponentProps<typeof Select>;
 const { meta: META, Single, Multiselect, Predefined, SelectAll } = getSelectStories({
     component: Select,
     componentConfig: config,
-    disablePropsList: ['size', 'labelPlacement', 'hasHint', 'treeView'],
+    disablePropsList: ['size', 'labelPlacement', 'hasHint', 'treeView', 'titleCaption'],
     defaultArgs: {
         size: 's',
         chipView: 'default',

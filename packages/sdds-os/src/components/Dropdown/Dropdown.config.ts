@@ -8,6 +8,8 @@ export const config = {
     variations: {
         size: {
             l: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 17.5rem;
                 ${tokens.borderRadius}: 0.875rem;
@@ -45,6 +47,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-l-line-height);
             `,
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 15rem;
                 ${tokens.borderRadius}: 0.75rem;
@@ -82,6 +86,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: var(--plasma-typo-body-m-line-height);
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.125rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
@@ -121,6 +127,11 @@ export const config = {
         },
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.background}: var(--surface-solid-primary);
                 ${tokens.itemBackgroundHover}: var(--surface-solid-card);
                 ${tokens.dividerColor}: var(--surface-solid-tertiary);

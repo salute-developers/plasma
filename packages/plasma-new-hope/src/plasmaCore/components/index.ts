@@ -7,3 +7,7 @@ export * from './Typography';
 export * from './Badge';
 export * from './Button';
 export * from './Spinner';
+export * from './TextArea';
+export * from './TextField';
+export * from './Popup';
+export * from './Tooltip';

@@ -114,4 +114,47 @@ describeFn('Chip', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('customBackgroundColor, customColor', () => {
+        mount(<Chip text="Chip_custom" customBackgroundColor="red" customColor="white" />);
+
+        cy.matchImageSnapshot();
+    });
+
+    it('customColor, customBackgroundColor: string and states object', () => {
+        mount(
+            <>
+                <Chip className="chip-string" text="Chip_string" customColor="white" customBackgroundColor="red" />
+                <PadMe />
+                <Chip
+                    className="chip-states"
+                    text="Chip_states"
+                    customColor={{ default: 'white', hover: 'yellow' }}
+                    customBackgroundColor={{ default: 'red', active: 'blue' }}
+                />
+            </>,
+        );
+
+        cy.get('.chip-string').should(($chip) => {
+            const { style } = $chip[0];
+
+            expect(style.getPropertyValue('--plasma-chip-custom-color')).to.eq('white');
+            expect(style.getPropertyValue('--plasma-chip-custom-color-hover')).to.eq('');
+            expect(style.getPropertyValue('--plasma-chip-custom-color-active')).to.eq('');
+            expect(style.getPropertyValue('--plasma-chip-custom-background')).to.eq('red');
+            expect(style.getPropertyValue('--plasma-chip-custom-background-hover')).to.eq('');
+            expect(style.getPropertyValue('--plasma-chip-custom-background-active')).to.eq('');
+        });
+
+        cy.get('.chip-states').should(($chip) => {
+            const { style } = $chip[0];
+
+            expect(style.getPropertyValue('--plasma-chip-custom-color')).to.eq('white');
+            expect(style.getPropertyValue('--plasma-chip-custom-color-hover')).to.eq('yellow');
+            expect(style.getPropertyValue('--plasma-chip-custom-color-active')).to.eq('');
+            expect(style.getPropertyValue('--plasma-chip-custom-background')).to.eq('red');
+            expect(style.getPropertyValue('--plasma-chip-custom-background-hover')).to.eq('');
+            expect(style.getPropertyValue('--plasma-chip-custom-background-active')).to.eq('blue');
+        });
+    });
 });

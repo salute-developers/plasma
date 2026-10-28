@@ -1,0 +1,18 @@
+{
+  "name": "@salutejs/docusaurus-plugin-yandex-metrika",
+  "version": "0.2.0-dev.0",
+  "private": true,
+  "description": "Docusaurus plugin with Yandex Metrika counter for Plasma/SDDS documentation sites",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "utils/docusaurus-plugin-yandex-metrika"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "client.js"
+  ]
+}

@@ -11,6 +11,9 @@ import {
     surfaceClear,
     surfaceNegative,
     surfaceSolidCard,
+    surfaceSolidDefault,
+    surfaceSolidDefaultActive,
+    surfaceSolidDefaultHover,
     surfaceSolidPrimary,
     surfaceTransparentAccent,
     textAccent,
@@ -34,6 +37,11 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceSolidDefault};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceSolidDefaultHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceSolidDefaultActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceSolidPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textPrimary};
 
@@ -78,6 +86,11 @@ export const config = {
                 ${tokens.dropdownBorderColor}: ${surfaceSolidPrimary};
             `,
             negative: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceSolidDefault};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceSolidDefaultHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceSolidDefaultActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceSolidPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textPrimary};
 
@@ -124,6 +137,8 @@ export const config = {
         },
         size: {
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.75rem 0.6875rem 0.75rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
