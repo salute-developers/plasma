@@ -13,5 +13,5 @@
             "plugins": [["@swc/plugin-emotion", { "sourceMap": false }]]
         }
     },
-    "exclude": [".*\\.stories.tsx$", ".*\\.component-test.tsx$"]
+    "exclude": [".*\\.stories.tsx$", ".*\\.component-test.tsx$", ".*\\.test.tsx?$"]
 }

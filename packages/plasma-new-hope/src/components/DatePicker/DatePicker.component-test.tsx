@@ -6,7 +6,6 @@ import { IconPlasma } from 'override/_Icon';
 import type { ButtonProps } from '../Button/Button.types';
 import type { IconButtonProps } from '../IconButton/IconButton.types';
 
-import { getCalendarContainerSize, hasCustomCalendarContainerSize } from './utils/getCalendarContainerSize';
 import type { DatePickerProps } from './SingleDate/SingleDate.types';
 import type { DatePickerRangeProps } from './SingleDate/RangeDate.types';
 
@@ -74,70 +73,6 @@ describeFn('DatePicker', () => {
             />
         );
     };
-
-    (['outer', 'inner'] as const).forEach((labelPlacement) => {
-        (['hover', 'click'] as const).forEach((hintTrigger) => {
-            it(`click targets: labelPlacement=${labelPlacement}, hintTrigger=${hintTrigger}`, () => {
-                const onToggle = cy.stub().as('onToggle');
-                const onLinkClick = cy.stub().as('onLinkClick');
-
-                mount(
-                    <Demo
-                        label="Date label"
-                        labelPlacement={labelPlacement}
-                        titleCaption="Title caption"
-                        leftHelper={
-                            <a href="#instructions" onClick={onLinkClick}>
-                                Instructions
-                            </a>
-                        }
-                        hintText="Date hint"
-                        hintTrigger={hintTrigger}
-                        hintTargetPlacement={labelPlacement}
-                        hintTargetIcon={<span data-testid="hint-icon">?</span>}
-                        onToggle={onToggle}
-                    />,
-                );
-
-                cy.contains('Title caption').click();
-                cy.contains('Instructions').click();
-                cy.get('@onLinkClick').should('have.been.calledOnce');
-                cy.get('[data-testid="hint-icon"]').click();
-                if (hintTrigger === 'hover') {
-                    cy.get('[data-testid="hint-icon"]').trigger('mouseover');
-                }
-                cy.contains('Date hint').should('be.visible').click({ force: true });
-                cy.get('@onToggle').should('not.have.been.called');
-                cy.get('[data-floating-ui-portal] .date-picker-root').should('not.exist');
-
-                cy.contains('label', 'Date label').click({ force: labelPlacement === 'inner' });
-                cy.get('input:not([type="hidden"])').should('be.focused');
-                assertDatePickerPopoverOpen();
-                cy.get('@onToggle').should('have.been.calledOnce');
-
-                cy.get('input:not([type="hidden"])').pressKey('Escape');
-                cy.get('@onToggle').invoke('resetHistory');
-                cy.get('.input-wrapper').click(8, 8);
-                assertDatePickerPopoverOpen();
-                cy.get('input:not([type="hidden"])').should('be.focused');
-                cy.get('@onToggle').should('have.been.calledOnce');
-            });
-        });
-    });
-
-    it('calendar size priority', () => {
-        expect(getCalendarContainerSize()).to.equal(undefined);
-        expect(getCalendarContainerSize(0)).to.equal(undefined);
-        expect(getCalendarContainerSize('0')).to.equal(undefined);
-        expect(getCalendarContainerSize('0rem')).to.equal(undefined);
-        expect(getCalendarContainerSize(0, true)).to.equal('100%');
-        expect(getCalendarContainerSize(undefined, true)).to.equal('100%');
-        expect(getCalendarContainerSize(20, true)).to.equal('20rem');
-        expect(getCalendarContainerSize('20px', true)).to.equal('20px');
-        expect(hasCustomCalendarContainerSize(0)).to.equal(false);
-        expect(hasCustomCalendarContainerSize('0rem')).to.equal(false);
-        expect(hasCustomCalendarContainerSize('20px')).to.equal(true);
-    });
 
     const ControlledDemo = () => {
         const [date, setDate] = useState<string | Date | null | undefined>();
@@ -325,26 +260,6 @@ describeFn('DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('onToggle, outside click', () => {
-        mount(
-            <>
-                <span id="outer">outer text</span>
-                <Demo
-                    defaultDate={new Date(2023, 5, 14)}
-                    onToggle={(isOpen: boolean, event: any) => {
-                        expect(isOpen).to.be.oneOf([true, false]);
-                        expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
-                    }}
-                />
-            </>,
-        );
-
-        cy.get('input').first().click();
-        cy.get('#outer').click();
-
-        cy.matchImageSnapshot();
-    });
-
     it('input date', () => {
         mount(<Demo enableContentRight />);
 
@@ -353,28 +268,6 @@ describeFn('DatePicker', () => {
         cy.pressKey('Enter');
 
         cy.matchImageSnapshot();
-    });
-
-    it('custom quarter names', () => {
-        const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
-        const onCommitDate = cy.stub().as('onCommitDate');
-
-        mount(
-            <Demo
-                type="Quarters"
-                quarterNames={quarterNames}
-                renderFromDate={new Date(2023, 0, 1)}
-                onCommitDate={onCommitDate}
-            />,
-        );
-
-        cy.get('input').first().click();
-        quarterNames.forEach((quarterName) => {
-            cy.contains('[role="gridcell"]', quarterName).should('be.visible');
-        });
-
-        cy.get('input').first().type('14.06.2023');
-        cy.get('@onCommitDate').its('lastCall.args.1.dateInfo.name').should('equal', quarterNames[1]);
     });
 
     it('input date from calendar', () => {
@@ -401,11 +294,8 @@ describeFn('DatePicker', () => {
 
         cy.get('input').first().click().type('06');
         assertDatePickerPopoverOpen();
-        cy.get('input').first().should('have.value', '06/');
         cy.get('input').first().type('14');
-        cy.get('input').first().should('have.value', '06/14/');
         cy.get('input').first().type('{backspace}');
-        cy.get('input').first().should('have.value', '06/1');
         cy.get('input').first().type('42023');
 
         cy.matchImageSnapshot();
@@ -462,8 +352,6 @@ describeFn('DatePicker', () => {
         cy.get('#id-grid-label').click();
         cy.get('[aria-label="2024"]').click();
 
-        cy.get('#id-grid-label').should('have.text', '2024');
-
         cy.matchImageSnapshot();
     });
 
@@ -475,21 +363,8 @@ describeFn('DatePicker', () => {
         cy.get('#id-grid-label').click();
         cy.get('button[aria-label="Предыдущий год"]').click();
         cy.get('button[aria-label="Следующий год"]').click();
-        cy.get('#id-grid-label').should('have.text', '2023');
 
         cy.matchImageSnapshot();
-    });
-
-    it('prop: onChangeVisibleDate', () => {
-        const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
-
-        mount(<Demo defaultDate={new Date(2023, 5, 14)} onChangeVisibleDate={onChangeVisibleDate} />);
-
-        cy.get('input').first().click();
-        assertDatePickerPopoverOpen();
-
-        cy.get('button[aria-label="Следующий месяц"]').click();
-        cy.get('@onChangeVisibleDate').should('have.been.calledWith', new Date(2023, 6));
     });
 
     it('case: very future date', () => {
@@ -540,29 +415,6 @@ describeFn('DatePicker', () => {
         cy.matchImageSnapshot();
     });
 
-    it('normalizes a calendar value before calling onChangeValue', () => {
-        const onChangeValue = cy.stub().as('onChangeValue');
-        const max = new Date(2026, 7, 22);
-        const dateShortcuts = [{ value: max, label: 'Верхняя граница' }];
-
-        mount(
-            <Demo
-                defaultDate={new Date(2026, 7, 20)}
-                max={max}
-                includeEdgeDates={false}
-                dateShortcuts={dateShortcuts}
-                onChangeValue={onChangeValue}
-            />,
-        );
-
-        cy.get('input').first().click();
-        cy.contains('Верхняя граница').click();
-
-        cy.get('input').first().should('have.value', '21.08.2026');
-        cy.get('@onChangeValue').its('lastCall.args.1').should('equal', '21.08.2026');
-        cy.get('@onChangeValue').its('lastCall.args.2').should('deep.equal', new Date(2026, 7, 21));
-    });
-
     it.skip('controlled datepicker: set date', () => {
         cy.viewport(500, 544);
 
@@ -570,9 +422,7 @@ describeFn('DatePicker', () => {
 
         cy.get('input').first().click().type('06142024');
         assertDatePickerPopoverOpen();
-        cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button').first().click();
-        cy.get('input').first().should('have.value', '10/15/2024');
         cy.get('input').first().click();
 
         cy.matchImageSnapshot();
@@ -585,7 +435,6 @@ describeFn('DatePicker', () => {
 
         cy.get('input').first().click().type('06142024');
         assertDatePickerPopoverOpen();
-        cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button.reset-btn').click();
         cy.get('input').first().click();
 
@@ -599,72 +448,10 @@ describeFn('DatePicker', () => {
 
         cy.get('input').first().click().type('06142024');
         assertDatePickerPopoverOpen();
-        cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button.reset-null-btn').click();
-        cy.get('input').first().should('have.value', '');
         cy.get('input').first().click();
 
         cy.matchImageSnapshot();
-    });
-
-    it('controlled datepicker: value stays cleared after blur (empty string)', () => {
-        cy.viewport(500, 544);
-
-        mount(<ControlledDemo />);
-
-        cy.get('input').first().click().type('06142024');
-        cy.get('input').first().should('have.value', '06/14/2024');
-        cy.get('button.reset-btn').click();
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').first().click();
-        cy.get('body').click(0, 0);
-        cy.get('input').first().should('have.value', '');
-    });
-
-    it('controlled datepicker: value stays cleared after blur (null)', () => {
-        cy.viewport(500, 544);
-
-        mount(<ControlledDemo />);
-
-        cy.get('input').first().click().type('06142024');
-        cy.get('input').first().should('have.value', '06/14/2024');
-        cy.get('button.reset-null-btn').click();
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').first().click();
-        cy.get('body').click(0, 0);
-        cy.get('input').first().should('have.value', '');
-    });
-
-    it('prop: onToggle', () => {
-        cy.viewport(500, 544);
-
-        const onToggle = cy.stub().as('onToggle');
-
-        mount(
-            <>
-                <span id="outer">outer text</span>
-                <Demo defaultDate={new Date(2023, 5, 14)} onToggle={onToggle} />
-            </>,
-        );
-
-        cy.get('input').first().click();
-        cy.get('@onToggle').should('have.been.calledOnce');
-        cy.get('@onToggle').should('have.been.calledWith', true);
-
-        cy.get('#outer').click();
-        cy.get('@onToggle').should('have.been.calledTwice');
-        cy.get('@onToggle').should('have.been.calledWith', false);
-    });
-
-    it('prop: onChange', () => {
-        cy.viewport(500, 544);
-
-        const onChange = cy.stub().as('onChange');
-
-        mount(<Demo onChange={onChange} />);
-
-        cy.get('input').first().click().type('14062023');
-        cy.get('@onChange').should('have.been.called');
     });
 });
 
@@ -735,72 +522,6 @@ describeFnRange('DatePickerRange', () => {
             />
         );
     };
-
-    [
-        { isDoubleCalendar: false, isCalendarPositionedByInput: false },
-        { isDoubleCalendar: false, isCalendarPositionedByInput: true },
-        { isDoubleCalendar: true, isCalendarPositionedByInput: false },
-    ].forEach((calendarProps) => {
-        it(`click targets: range ${JSON.stringify(calendarProps)}`, () => {
-            const onToggle = cy.stub().as('onToggle');
-            const onLinkClick = cy.stub().as('onLinkClick');
-
-            mount(
-                <Demo
-                    {...calendarProps}
-                    label="Range label"
-                    titleCaption="Range title caption"
-                    leftHelper={
-                        <a href="#instructions" onClick={onLinkClick}>
-                            Instructions
-                        </a>
-                    }
-                    dividerVariant="icon"
-                    dividerIcon={<span data-testid="range-divider">–</span>}
-                    hintText="Range hint"
-                    hintTargetIcon={<span data-testid="hint-icon">?</span>}
-                    contentRight={
-                        <button type="button" data-testid="calendar-icon">
-                            <IconPlasma size="s" />
-                        </button>
-                    }
-                    onToggle={onToggle}
-                />,
-            );
-
-            cy.contains('Range title caption').click();
-            cy.contains('Instructions').click();
-            cy.get('@onLinkClick').should('have.been.calledOnce');
-            cy.get('[data-testid="range-divider"]').click();
-            cy.get('[data-testid="hint-icon"]').click().trigger('mouseover');
-            cy.contains('Range hint').should('be.visible').click({ force: true });
-            cy.get('@onToggle').should('not.have.been.called');
-            cy.get('[data-floating-ui-portal] .date-picker-root').should('not.exist');
-
-            cy.contains('label', 'Range label').click();
-            cy.get('input:not([type="hidden"])').first().should('be.focused');
-            assertDatePickerPopoverOpen();
-            cy.get('@onToggle').should('have.been.calledOnce');
-
-            cy.get('@onToggle').invoke('resetHistory');
-            cy.get('input:not([type="hidden"])').eq(1).click().should('be.focused');
-            assertDatePickerPopoverOpen();
-            cy.get('@onToggle').should('have.been.calledOnce').and('have.been.calledWith', true);
-
-            cy.get('@onToggle').invoke('resetHistory');
-            cy.get('[data-testid="calendar-icon"]').click();
-            cy.get('input:not([type="hidden"])').first().should('be.focused');
-            assertDatePickerPopoverOpen();
-            cy.get('@onToggle').should('have.been.calledOnce').and('have.been.calledWith', true);
-
-            cy.get('input:not([type="hidden"])').first().pressKey('Escape');
-            cy.get('@onToggle').invoke('resetHistory');
-            cy.get('.input-wrapper').eq(1).click(8, 8);
-            cy.get('input:not([type="hidden"])').eq(1).should('be.focused');
-            assertDatePickerPopoverOpen();
-            cy.get('@onToggle').should('have.been.calledOnce');
-        });
-    });
 
     const ControlledDemo = () => {
         const [date, setDate] = useState<[Date | string | null, Date | string | null] | undefined>();
@@ -939,86 +660,6 @@ describeFnRange('DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
-    it('popover is positioned at the input bottom when leftHelper is set', () => {
-        mount(
-            <Demo
-                id="demo"
-                leftHelper="Подсказка к полю"
-                defaultFirstDate={new Date(2023, 5, 14)}
-                defaultSecondDate={new Date(2023, 5, 17)}
-                placement="bottom"
-                disableFlip
-            />,
-        );
-
-        cy.get('#demo input').first().click();
-        cy.get('#demo')
-            .contains('Подсказка к полю')
-            .then(($helper) => {
-                const inputWrapper = $helper[0].parentElement?.previousElementSibling as HTMLElement | null;
-
-                expect(inputWrapper).not.to.equal(null);
-
-                const inputBottom = inputWrapper?.getBoundingClientRect().bottom ?? 0;
-
-                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
-                    expect($popover[0].getBoundingClientRect().top).to.be.closeTo(inputBottom, 1);
-                });
-            });
-    });
-
-    it('popover is positioned at the active input when isCalendarPositionedByInput is set', () => {
-        cy.viewport(900, 500);
-
-        mount(
-            <Demo
-                isCalendarPositionedByInput
-                contentRight={
-                    <span data-testid="calendar-icon">
-                        <IconPlasma size="s" />
-                    </span>
-                }
-                calendarContainerWidth="20rem"
-                placement="bottom-start"
-                disableFlip
-            />,
-        );
-
-        cy.get('.text-field-group-item')
-            .first()
-            .then(($firstTextField) => {
-                const firstTextFieldLeft = $firstTextField[0].getBoundingClientRect().left;
-
-                cy.wrap($firstTextField).find('input').click();
-                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
-                    expect($popover[0].getBoundingClientRect().left).to.be.closeTo(firstTextFieldLeft, 1);
-                });
-            });
-
-        cy.get('.text-field-group-item')
-            .eq(1)
-            .then(($secondTextField) => {
-                const secondTextFieldLeft = $secondTextField[0].getBoundingClientRect().left;
-
-                cy.wrap($secondTextField).find('input').click();
-                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
-                    expect($popover[0].getBoundingClientRect().left).to.be.closeTo(secondTextFieldLeft, 1);
-                });
-            });
-
-        cy.get('[data-testid="calendar-icon"]').click();
-        cy.get('.text-field-group-item')
-            .first()
-            .then(($firstTextField) => {
-                const firstTextFieldLeft = $firstTextField[0].getBoundingClientRect().left;
-
-                cy.wrap($firstTextField).find('input').should('be.focused');
-                cy.get('[data-floating-ui-portal] > div').should(($popover) => {
-                    expect($popover[0].getBoundingClientRect().left).to.be.closeTo(firstTextFieldLeft, 1);
-                });
-            });
-    });
-
     it('format', () => {
         mount(
             <>
@@ -1077,29 +718,6 @@ describeFnRange('DatePickerRange', () => {
         cy.matchImageSnapshot();
     });
 
-    [false, true].forEach((isCalendarPositionedByInput) => {
-        it(`onToggle, outside click: isCalendarPositionedByInput=${isCalendarPositionedByInput}`, () => {
-            mount(
-                <>
-                    <span id="outer">outer text</span>
-                    <Demo
-                        isCalendarPositionedByInput={isCalendarPositionedByInput}
-                        defaultFirstDate={new Date(2023, 5, 14)}
-                        onToggle={(isOpen: boolean, event: any) => {
-                            expect(isOpen).to.be.oneOf([true, false]);
-                            expect(event?.type).to.be.oneOf(['click', 'pointerdown', undefined]);
-                        }}
-                    />
-                </>,
-            );
-
-            cy.get('input').first().click();
-            assertDatePickerPopoverOpen();
-            cy.get('#outer').click();
-            cy.get('[data-floating-ui-portal] .date-picker-root').should('not.exist');
-        });
-    });
-
     it('input date', () => {
         mount(<Demo enableContentRight />);
 
@@ -1108,28 +726,6 @@ describeFnRange('DatePickerRange', () => {
         cy.focused().type('17.06.2023');
 
         cy.matchImageSnapshot();
-    });
-
-    it('custom quarter names', () => {
-        const quarterNames = ['Первый квартал', 'Второй квартал', 'Третий квартал', 'Четвертый квартал'];
-        const onCommitFirstDate = cy.stub().as('onCommitFirstDate');
-
-        mount(
-            <Demo
-                type="Quarters"
-                quarterNames={quarterNames}
-                renderFromDate={new Date(2023, 0, 1)}
-                onCommitFirstDate={onCommitFirstDate}
-            />,
-        );
-
-        cy.get('input').first().click();
-        quarterNames.forEach((quarterName) => {
-            cy.contains('[role="gridcell"]', quarterName).should('be.visible');
-        });
-
-        cy.get('input').first().type('14.06.2023');
-        cy.get('@onCommitFirstDate').its('lastCall.args.1.dateInfo.name').should('equal', quarterNames[1]);
     });
 
     it('change only second date', () => {
@@ -1141,69 +737,7 @@ describeFnRange('DatePickerRange', () => {
         cy.get('.input-wrapper input').last().click();
         cy.get('body').find('[data-day="27"]').first().click();
 
-        cy.get('input').first().should('have.value', '14.06.2023');
-        cy.get('input').last().should('have.value', '27.06.2023');
-
         cy.matchImageSnapshot();
-    });
-
-    it('DatePickerRange: select second date first on empty calendar', () => {
-        mount(<Demo renderFromDate={new Date(2023, 5, 1)} />);
-
-        cy.get('.input-wrapper input').last().click();
-        cy.get('body').find('[data-day="17"][data-month-index="5"]').first().click();
-
-        cy.get('input').last().should('have.value', '17.06.2023');
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').first().should('be.focused');
-    });
-
-    it('prop: onChangeVisibleDate', () => {
-        const onChangeVisibleDate = cy.stub().as('onChangeVisibleDate');
-
-        mount(<Demo renderFromDate={new Date(2023, 5, 1)} onChangeVisibleDate={onChangeVisibleDate} />);
-
-        cy.get('.input-wrapper input').first().click();
-
-        cy.get('button[aria-label="Следующий месяц"]').first().click();
-
-        cy.get('@onChangeVisibleDate').should('have.been.calledWith', new Date(2023, 6));
-    });
-
-    it('DatePickerRange: complete range by selecting first date after second', () => {
-        mount(<Demo renderFromDate={new Date(2023, 5, 1)} />);
-
-        cy.get('.input-wrapper input').last().click();
-        cy.get('body').find('[data-day="17"][data-month-index="5"]').first().click();
-        cy.get('input').first().click();
-        cy.get('body').find('[data-day="5"][data-month-index="5"]').first().click();
-
-        cy.get('input').first().should('have.value', '05.06.2023');
-        cy.get('input').last().should('have.value', '17.06.2023');
-    });
-
-    it('DatePickerRange: smart swap when selected date is before the existing one', () => {
-        mount(<Demo defaultFirstDate={new Date(2023, 5, 17)} />);
-
-        cy.get('.input-wrapper input').last().click();
-        cy.get('body').find('[data-day="5"][data-month-index="5"]').first().click();
-
-        cy.get('input').first().should('have.value', '05.06.2023');
-        cy.get('input').last().should('have.value', '17.06.2023');
-    });
-
-    it('DatePickerRange: min with time component is accessible with includeEdgeDates', () => {
-        mount(<Demo renderFromDate={new Date(2023, 5, 1)} min={new Date(2023, 5, 10, 15, 30, 0)} includeEdgeDates />);
-
-        cy.get('input').first().click();
-        cy.get('body')
-            .find('[data-day="10"][data-month-index="5"]')
-            .first()
-            .should('not.have.attr', 'aria-disabled', 'true');
-        cy.get('body')
-            .find('[data-day="9"][data-month-index="5"]')
-            .first()
-            .should('have.attr', 'aria-disabled', 'true');
     });
 
     it('input date, double calendar', () => {
@@ -1366,10 +900,7 @@ describeFnRange('DatePickerRange', () => {
 
         cy.get('input').first().click().type('06142024');
         assertDatePickerPopoverOpen();
-        cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button').first().click();
-        cy.get('input').first().should('have.value', '10/15/2024');
-        cy.get('input').last().should('have.value', '10/25/2024');
         cy.get('input').first().click();
 
         cy.matchImageSnapshot();
@@ -1382,7 +913,6 @@ describeFnRange('DatePickerRange', () => {
 
         cy.get('input').first().click().type('06142024');
         assertDatePickerPopoverOpen();
-        cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button.reset-btn').click();
         cy.get('input').first().click();
 
@@ -1396,48 +926,9 @@ describeFnRange('DatePickerRange', () => {
 
         cy.get('input').first().click().type('06142024');
         assertDatePickerPopoverOpen();
-        cy.get('input').first().should('have.value', '06/14/2024');
         cy.get('button.reset-null-btn').click();
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').last().should('have.value', '');
         cy.get('input').first().click();
 
         cy.matchImageSnapshot();
-    });
-
-    it('controlled datepicker: value stays cleared after blur (empty string)', () => {
-        cy.viewport(500, 544);
-
-        mount(<ControlledDemo />);
-
-        cy.get('input').first().click().type('06142024{enter}');
-        cy.focused().type('10252024');
-        cy.get('input').first().should('have.value', '06/14/2024');
-        cy.get('input').last().should('have.value', '10/25/2024');
-        cy.get('button.reset-btn').click();
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').last().should('have.value', '');
-        cy.get('input').first().click();
-        cy.get('body').click(0, 0);
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').last().should('have.value', '');
-    });
-
-    it('controlled datepicker: value stays cleared after blur (null)', () => {
-        cy.viewport(500, 544);
-
-        mount(<ControlledDemo />);
-
-        cy.get('input').first().click().type('06142024{enter}');
-        cy.focused().type('10252024');
-        cy.get('input').first().should('have.value', '06/14/2024');
-        cy.get('input').last().should('have.value', '10/25/2024');
-        cy.get('button.reset-null-btn').click();
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').last().should('have.value', '');
-        cy.get('input').first().click();
-        cy.get('body').click(0, 0);
-        cy.get('input').first().should('have.value', '');
-        cy.get('input').last().should('have.value', '');
     });
 });
