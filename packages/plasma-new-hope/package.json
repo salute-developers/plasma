@@ -56,6 +56,7 @@
     "storybook:ai-components": "USE_AI_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "storybook:build:ai-components": "USE_AI_COMPONENTS=true storybook build -c .storybook -o ai-components-build-sb",
+    "test": "vitest run",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "repository": {
@@ -101,6 +102,7 @@
     "@types/react-dom": "18.0.11",
     "@types/react-syntax-highlighter": "15.5.13",
     "@types/styled-components": "5.1.0",
+    "@vitest/browser-playwright": "4.1.12",
     "babel-loader": "8.2.2",
     "babel-plugin-annotate-pure-calls": "0.4.0",
     "babel-plugin-module-resolver": "5.0.2",
@@ -109,11 +111,14 @@
     "default-browser-id": "2.0.0",
     "katex": "0.16.40",
     "marked-katex-extension": "5.1.7",
+    "playwright": "1.58.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "rollup": "^3.28.0",
     "styled-components": "5.3.11",
-    "tsc-alias": "1.8.16"
+    "tsc-alias": "1.8.16",
+    "vitest": "4.1.12",
+    "vitest-browser-react": "2.3.0"
   },
   "dependencies": {
     "@floating-ui/dom": "1.7.4",
