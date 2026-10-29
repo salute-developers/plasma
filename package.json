@@ -157,7 +157,7 @@
   "dependencies": {
     "babel-plugin-annotate-pure-calls": "0.4.0",
     "cypress-real-events": "1.12.0",
-    "patch-package": "8.0.0",
+    "patch-package": "8.0.1",
     "playwright-webkit": "1.58.2"
   },
   "overrides": {
