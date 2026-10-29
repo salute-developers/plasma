@@ -1,4 +1,26 @@
 {
+  "0.375.1": {
+    "date": "2026-10-29",
+    "core": [
+      {
+        "component": "TextArea",
+        "children": [
+          {
+            "text": "исправлен селектор для активного состояния"
+          }
+        ]
+      },
+      {
+        "component": "DatePicker",
+        "children": [
+          {
+            "text": "добавлен стиль для outline в Safari"
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.375.0": {
     "date": "2026-10-28",
     "core": [
