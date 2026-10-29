@@ -1,0 +1,6 @@
+/dist
+/types
+/node_modules
+
+build-sb
+/index.*
