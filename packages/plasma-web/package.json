@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-web",
-  "version": "1.645.0",
+  "version": "1.645.1",
   "description": "Salute Design System / React UI kit for web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -33,7 +33,7 @@
     "styled-components": "^5.3.11"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.387.0",
+    "@salutejs/plasma-new-hope": "0.387.1",
     "@salutejs/plasma-themes": "0.69.0",
     "@salutejs/plasma-tokens-b2b": "1.71.0",
     "@salutejs/plasma-tokens-b2c": "0.82.0",

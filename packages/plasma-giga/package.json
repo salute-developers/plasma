@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-giga",
-  "version": "0.370.0",
+  "version": "0.370.1",
   "description": "Salute Design System / React UI kit for PLASMA GIGA web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -32,7 +32,7 @@
     "styled-components": "^5.3.11"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.387.0",
+    "@salutejs/plasma-new-hope": "0.387.1",
     "@salutejs/plasma-themes": "0.69.0",
     "@salutejs/plasma-typo": "0.59.0"
   },

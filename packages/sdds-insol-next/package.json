@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/sdds-insol-next",
-  "version": "0.369.0",
+  "version": "0.369.1",
   "description": "Salute Design System / React UI kit for SDDS INSOL NEXT web applications",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "publishConfig": {
@@ -37,7 +37,7 @@
     "styled-components": "^5.3.11"
   },
   "dependencies": {
-    "@salutejs/plasma-new-hope": "0.387.0",
+    "@salutejs/plasma-new-hope": "0.387.1",
     "@salutejs/sdds-themes": "0.86.0",
     "classnames": "2.5.1"
   },
