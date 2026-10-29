@@ -1,75 +1,54 @@
-import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
+import React from 'react';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
 import { IconClose } from '@salutejs/plasma-icons';
-import { disableProps, getConfigVariations, InSpacingDecorator } from '@salutejs/plasma-sb-utils';
+import { getIconButtonStories } from '@salutejs/plasma-sb-utils';
 
 import { IconButton } from './IconButton';
 import { config } from './IconButton.config';
 
-type StoryButtonProps = ComponentProps<typeof IconButton> & { contentType: string; isLoading: boolean };
+type IconButtonProps = ComponentProps<typeof IconButton>;
 
-const { views, sizes } = getConfigVariations(config);
-const pins = ['square-square', 'circle-circle'];
+const Icon = (size: string) => {
+    if (size === 'xxs') {
+        return <IconClose color="inherit" style={{ width: '0.75rem', height: '0.75rem' }} />;
+    }
 
-const meta: Meta<StoryButtonProps> = {
-    title: 'Data Entry/IconButton',
-    decorators: [InSpacingDecorator],
-    argTypes: {
-        size: {
-            options: sizes,
-            control: {
-                type: 'select',
-            },
-        },
-        view: {
-            options: views,
-            control: {
-                type: 'select',
-            },
-        },
+    if (size === 'xs' || size === 's' || size === 'm') {
+        return <IconClose color="inherit" size={size} />;
+    }
+
+    return <IconClose color="inherit" size="s" />;
+};
+
+const { meta: META, Default } = getIconButtonStories({
+    component: IconButton,
+    componentConfig: config,
+    defaultArgs: {
+        size: 's',
+        pin: 'square-square',
+    },
+    additionalArgTypes: {
         pin: {
-            options: pins,
-            control: {
-                type: 'select',
-            },
+            options: ['square-square', 'circle-circle'],
+            control: { type: 'select' },
             table: { defaultValue: { summary: 'bottom' } },
         },
-        ...disableProps(['children', 'theme', 'loader', 'onClick', 'onFocus', 'onBlur', 'contentLeft', 'contentRight']),
+    },
+    Icon,
+});
+
+const meta: Meta<IconButtonProps> = {
+    ...META,
+    title: 'Data Entry/IconButton',
+    argTypes: {
+        ...META.argTypes,
+        focused: {
+            control: { type: 'boolean' },
+        },
     },
 };
 
 export default meta;
 
-const getSizeForIcon = (size) => {
-    if (size === 's' || size === 'xs') {
-        return { size };
-    }
-    if (size === 'xxs') {
-        return {
-            style: {
-                width: '0.75rem',
-                height: '0.75rem',
-            },
-        };
-    }
-
-    return { size };
-};
-
-export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
-    args: {
-        children: <IconClose />,
-        view: 'default',
-        size: 's',
-        disabled: false,
-        focused: true,
-        isLoading: false,
-        pin: 'square-square',
-    },
-    argTypes: { ...disableProps(['children']) },
-    render: (args) => (
-        <IconButton {...args}>
-            <IconClose color="inherit" {...getSizeForIcon(args.size)} />
-        </IconButton>
-    ),
-};
+export { Default };
