@@ -72,7 +72,7 @@ export type DatePickerTextFieldProps = {
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
-    leftHelper?: string;
+    leftHelper?: ReactNode;
     /**
      * Слот для контента слева.
      */

@@ -132,7 +132,7 @@ export type RangeInnerProps = {
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
-    leftHelper?: string;
+    leftHelper?: ReactNode;
     /**
      * Метка-подпись к элементу справа
      */

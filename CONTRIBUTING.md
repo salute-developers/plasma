@@ -102,9 +102,24 @@ npm run test --workspace=@salutejs/sdds-api-tests
 // TODO: https://github.com/salute-developers/plasma/issues/438
 ```
 
+## Unit тесты
+
+Поведение компонента (колбэки, события, значения, фокус) проверяется unit-тестами, внешний вид — снимками Cypress. Проверки между ними не дублируются.
+
+-   `*.test.ts` — логика, выполняется в Node.
+-   `*.test.tsx` — поведение компонентов, выполняется в Chromium. Компоненты берутся из `src/examples/components`, поэтому тест запускается один раз, а не в каждой вертикали.
+
+Тесты лежат в `packages/plasma-new-hope` рядом с кодом. Пример — `DatePicker.test.tsx`.
+
+Запуск (перед первым запуском: `npx playwright install chromium`):
+
+```sh
+npm run test --workspace=@salutejs/plasma-new-hope
+```
+
 ## Cypress тесты
 
-При изменении поведения или внешнего вида компонента добавляйте или обновляйте соответствующие компонентные тесты.
+При изменении внешнего вида компонента добавляйте или обновляйте снимки.
 
 ### Запуск через Docker
 

@@ -44,6 +44,12 @@
         }
     },
     "include": ["./src"],
-    "exclude": ["./src/helpers", "./src/**/*.stories.tsx", "./src/**/*.component-test.tsx"],
-    "references": [{ "path": "./tsconfig.tests.json" }]
+    "exclude": [
+        "./src/helpers",
+        "./src/**/*.stories.tsx",
+        "./src/**/*.component-test.tsx",
+        "./src/**/*.test.ts",
+        "./src/**/*.test.tsx"
+    ],
+    "references": [{ "path": "./tsconfig.tests.json" }, { "path": "./tsconfig.unit.json" }]
 }
