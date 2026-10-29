@@ -33,3 +33,5 @@ build-sb-draft
 emotion/*
 
 /ai-components-build-sb
+/.storybook/public/workflow-metrics/*.tmp
+/.storybook/public/workflow-metrics/v3/**/*.tmp

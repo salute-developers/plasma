@@ -56,6 +56,7 @@
     "storybook:ai-components": "USE_AI_COMPONENTS=true storybook dev -p ${PORT:-7002} -c .storybook",
     "storybook:build": "storybook build -c .storybook -o build-sb",
     "storybook:build:ai-components": "USE_AI_COMPONENTS=true storybook build -c .storybook -o ai-components-build-sb",
+    "test:workflow-metrics": "node --test tests/workflow-metrics*.test.mjs",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "repository": {

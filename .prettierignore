@@ -30,3 +30,6 @@ scaffold/template-component
 
 # Generated design systems
 design-systems/*/output/
+
+# Workflow metrics chunks are content-addressed; formatting invalidates sizes, SHA-256 and gzip copies.
+packages/plasma-new-hope/.storybook/public/workflow-metrics/v3/
