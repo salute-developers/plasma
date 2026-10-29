@@ -36,6 +36,11 @@ const config: StorybookConfig = {
     async viteFinal(config) {
         return mergeConfig(config, {
             base: '',
+            define: {
+                'process.env.STORYBOOK_WORKFLOW_METRICS_URL': JSON.stringify(
+                    process.env.STORYBOOK_WORKFLOW_METRICS_URL || '',
+                ),
+            },
             resolve: {
                 dedupe: ['react', 'react-dom', 'styled-components'],
                 alias: {
