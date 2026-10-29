@@ -153,6 +153,8 @@ jobs:
                     cp -R ./website/${{ matrix.package }}-docs/build ./s3_local_docs_build/${{ env.SHORT_NAME }}
 
             -   name: Build storybook - "${{ matrix.package }}"
+                env:
+                    STORYBOOK_WORKFLOW_METRICS_URL: /workflow-metrics
                 run: |
                     npm run storybook:build --prefix="./packages/${{ matrix.package }}"
                     cp -R ./packages/${{ matrix.package }}/build-sb ./s3_local_storybook_build/${{ env.SHORT_NAME }}-storybook
