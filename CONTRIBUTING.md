@@ -102,9 +102,36 @@ npm run test --workspace=@salutejs/sdds-api-tests
 // TODO: https://github.com/salute-developers/plasma/issues/438
 ```
 
+## Unit тесты
+
+Поведение компонента (колбэки, события, значения, фокус) проверяется unit-тестами, внешний вид — снимками Cypress. Проверки между ними не дублируются.
+
+-   `*.test.ts` — логика, выполняется в Node.
+-   `*.test.tsx` — поведение компонентов, выполняется в Chromium. Компоненты берутся из `src/examples/components`, поэтому тест запускается один раз, а не в каждой вертикали.
+
+Тесты лежат в папке `tests/` компонента в `packages/plasma-new-hope`: тест компонента — в её корне, тесты утилит и хуков повторяют структуру исходников. Cypress-тест (`*.component-test.tsx`) остаётся в корне компонента.
+
+```
+DatePicker/
+├── DatePicker.component-test.tsx
+├── utils/
+│   └── normalizeDates.ts
+└── tests/
+    ├── DatePicker.test.tsx
+    └── utils/
+        └── normalizeDates.test.ts
+```
+
+Перед первым запуском установите Chromium: `npx playwright install chromium`.
+
+```sh
+npm run unit:run                 # все тесты
+npm run unit:run -- DatePicker   # тесты одного компонента
+```
+
 ## Cypress тесты
 
-При изменении поведения или внешнего вида компонента добавляйте или обновляйте соответствующие компонентные тесты.
+При изменении внешнего вида компонента добавляйте или обновляйте снимки.
 
 ### Запуск через Docker
 

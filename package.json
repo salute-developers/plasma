@@ -27,6 +27,7 @@
     "cy:cli": "node scripts/cy-cli.js",
     "cy:open": "cypress open --component --browser chromium",
     "cy:report:coverage": "nyc report --reporter=cobertura --reporter=html",
+    "unit:run": "npm run test --workspace=@salutejs/plasma-new-hope --",
     "extract-docgen-info": "lerna run extract-docgen-info",
     "lint:scripts": "eslint ./scripts ./auto-plugins/src --ext .js,.ts --quiet",
     "lint:packages": "./scripts/lint-packages.js",
