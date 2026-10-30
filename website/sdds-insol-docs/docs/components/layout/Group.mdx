@@ -1,0 +1,157 @@
+---
+id: group
+slug: /components/group
+title: Group
+description: "Группа из Button, IconButton и Chip с общим отступом, направлением и скруглением внутренних углов."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+
+# Group
+<Description name="Group" />
+<PropsTable name="Group" exclude={['css']} />
+
+## Использование
+`Group` выстраивает `Button`, `IconButton` и `Chip` в ряд или колонку.
+Скругление внутренних углов и растягивание применяются только к этим компонентам.
+
+```tsx live
+import React from 'react';
+import { Group, Button } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <Group>
+            {Array(3)
+                .fill(true)
+                .map((_, i) => (
+                    <Button text={`Button ${i}`} />
+                ))}
+        </Group>
+    );
+}
+```
+
+## Примеры
+
+### Направление и отступы
+`orientation` задаёт направление, `gap` — отступ между элементами: `none`, `dense` или `wide`.
+
+```tsx live
+import React from 'react';
+import { Group, Button } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div>
+            <Group orientation="vertical" gap="none">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </Group>
+
+            <Group orientation="horizontal" gap="wide">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </Group>
+        </div>
+    );
+}
+```
+
+### Скругление
+`shape="default"` не меняет радиусы элементов.
+`shape="segmented"` скругляет только внутренние углы, внешние остаются у самих элементов.
+При `gap="none"` внутренний радиус равен 0.
+
+```tsx live
+import React from 'react';
+import { Group, Button } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
+            <Group shape="segmented">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </Group>
+
+            <Group shape="segmented" gap="none">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </Group>
+
+            <Group shape="default" gap="wide">
+                {Array(3)
+                    .fill(true)
+                    .map((_, i) => (
+                        <Button text={`Button ${i}`} />
+                    ))}
+            </Group>
+        </div>
+    );
+}
+```
+
+### Растягивание
+`stretching="filled"` занимает всю доступную ширину и делит её между элементами.
+`stretching="auto"` подстраивает группу под содержимое.
+
+```tsx live
+import React from 'react';
+import { Group, Button } from '@salutejs/sdds-insol';
+
+export function App() {
+    return (
+        <div style={{ width: '24rem' }}>
+            <Group stretching="filled">
+                <Button text="One" />
+                <Button text="Two" />
+                <Button text="Three" />
+            </Group>
+        </div>
+    );
+}
+```
+
+### Button, IconButton и Chip
+В одной группе можно сочетать все три компонента.
+
+```tsx live
+import React from 'react';
+import { Group, Button, IconButton, Chip } from '@salutejs/sdds-insol';
+import { IconClose } from '@salutejs/plasma-icons';
+
+export function App() {
+    return (
+        <div>
+            <Group shape="segmented">
+                <Button text="Button" />
+                <IconButton>
+                    <IconClose color="inherit" />
+                </IconButton>
+                <Chip text="Chip" hasClear={false} />
+            </Group>
+
+            <Group shape="segmented" orientation="vertical" gap="wide">
+                <Button text="Button" />
+                <IconButton>
+                    <IconClose color="inherit" />
+                </IconButton>
+                <Chip text="Chip" hasClear={false} />
+            </Group>
+        </div>
+    );
+}
+```
