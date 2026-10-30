@@ -44,6 +44,27 @@ const openTimePicker = () => {
     cy.get('input').first().click();
 };
 
+const deleteWithoutKeyDown = (cursorPosition: number, inputType = 'deleteContentBackward') => {
+    cy.get('input')
+        .first()
+        .then(($input) => {
+            const input = $input[0] as HTMLInputElement;
+            const inputWindow = input.ownerDocument.defaultView;
+            const valueSetter = inputWindow
+                ? Object.getOwnPropertyDescriptor(inputWindow.HTMLInputElement.prototype, 'value')?.set
+                : undefined;
+
+            if (!inputWindow || !valueSetter) {
+                throw new Error('Native input APIs are not available');
+            }
+
+            const deletionIndex = inputType === 'deleteContentForward' ? cursorPosition : cursorPosition - 1;
+            valueSetter.call(input, input.value.slice(0, deletionIndex) + input.value.slice(deletionIndex + 1));
+            input.setSelectionRange(deletionIndex, deletionIndex);
+            input.dispatchEvent(new inputWindow.InputEvent('input', { bubbles: true, inputType }));
+        });
+};
+
 getBaseVisualTests({
     component: 'TimePicker',
     componentProps: {
@@ -143,6 +164,132 @@ describeFn('TimePicker', () => {
         cy.wait(350);
 
         cy.matchImageSnapshot();
+    });
+
+    it('adds delimiters after completed sections, hasTimeFormat', () => {
+        const onChange = cy.stub().as('onChange');
+        mount(<TimePicker columnsQuantity={3} hasTimeFormat onChange={onChange} />);
+
+        cy.get('input').first().type('1').should('have.value', '1');
+        cy.get('input').first().type('2').should('have.value', '12:');
+        cy.get('@onChange')
+            .its('lastCall.args.1')
+            .should('deep.equal', {
+                value: '00:',
+                timeValues: { hour: 0, minute: null, second: null },
+            });
+
+        cy.get('input').first().type('3').should('have.value', '12:3');
+        cy.get('input').first().type('0').should('have.value', '12:30:');
+        cy.get('input').first().type('45').should('have.value', '12:30:45');
+    });
+
+    it('omits the delimiter after the last section, hasTimeFormat', () => {
+        mount(<TimePicker hasTimeFormat />);
+
+        cy.get('input').first().type('12').should('have.value', '12:');
+        cy.get('input').first().type('30').should('have.value', '12:30');
+    });
+
+    it('adds delimiters after padded sections, hasTimeFormat', () => {
+        mount(<TimePicker columnsQuantity={3} hasTimeFormat />);
+
+        cy.get('input').first().type('9').should('have.value', '09:');
+        cy.get('input').first().type('7').should('have.value', '09:07:');
+        cy.get('input').first().type('8').should('have.value', '09:07:08');
+    });
+
+    it('deletes digits across automatic delimiters, hasTimeFormat', () => {
+        mount(<TimePicker columnsQuantity={3} hasTimeFormat />);
+
+        cy.get('input').first().type('1230').should('have.value', '12:30:');
+        cy.get('input').first().type('{backspace}').should('have.value', '12:3');
+        cy.get('input').first().type('{backspace}').should('have.value', '12:');
+        cy.get('input').first().type('{backspace}').should('have.value', '1');
+        cy.get('input').first().type('{backspace}').should('have.value', '');
+
+        cy.get('input').first().type('1230').should('have.value', '12:30:');
+        cy.get('input').first().type('{home}{rightarrow}{rightarrow}{del}').should('have.value', '12:0');
+        cy.get('input').first().clear().should('have.value', '');
+    });
+
+    [false, true].forEach((hasTimeFormat) => {
+        [false, true].forEach((controlled) => {
+            describe(`deletion: hasTimeFormat=${hasTimeFormat}, controlled=${controlled}`, () => {
+                const TestCase = ({ onChange }: Pick<TimePickerProps, 'onChange'>) => {
+                    const [value, setValue] = React.useState('');
+
+                    return (
+                        <TimePicker
+                            columnsQuantity={3}
+                            hasTimeFormat={hasTimeFormat}
+                            value={controlled ? value : undefined}
+                            onChange={(event, nextValue) => {
+                                setValue(nextValue.value ?? '');
+                                onChange?.(event, nextValue);
+                            }}
+                        />
+                    );
+                };
+
+                it('deletes a trailing delimiter without keydown', () => {
+                    mount(<TestCase />);
+                    cy.get('input').first().type('12').should('have.value', '12:');
+
+                    deleteWithoutKeyDown(3);
+                    cy.get('input').first().should('have.value', '1').should('have.prop', 'selectionStart', 1);
+                    deleteWithoutKeyDown(1);
+                    cy.get('input').first().should('have.value', '');
+
+                    cy.get('input').first().type('1234').should('have.value', '12:34:');
+                    deleteWithoutKeyDown(6);
+                    cy.get('input').first().should('have.value', '12:3').should('have.prop', 'selectionStart', 4);
+                });
+
+                it('preserves other sections when deleting without keydown', () => {
+                    const onChange = cy.stub().as('onChange');
+                    mount(<TestCase onChange={onChange} />);
+                    cy.get('input').first().type('123456').should('have.value', '12:34:56');
+
+                    deleteWithoutKeyDown(3);
+                    cy.get('input').first().should('have.value', '1:34:56').should('have.prop', 'selectionStart', 1);
+                    cy.get('@onChange')
+                        .its('lastCall.args.1.timeValues')
+                        .should('deep.equal', { hour: 1, minute: 34, second: 56 });
+
+                    deleteWithoutKeyDown(1);
+                    cy.get('input').first().should('have.value', ':34:56').should('have.prop', 'selectionStart', 0);
+                    cy.get('@onChange')
+                        .its('lastCall.args.1')
+                        .should('deep.equal', { value: ':34:56', timeValues: { hour: null, minute: 34, second: 56 } });
+                    cy.get('input').first().type('01').should('have.value', '01:34:56');
+
+                    deleteWithoutKeyDown(5, 'deleteContentForward');
+                    cy.get('input').first().should('have.value', '01:34:06');
+                    cy.get('@onChange')
+                        .its('lastCall.args.1.timeValues')
+                        .should('deep.equal', { hour: 1, minute: 34, second: 6 });
+                });
+
+                it('preserves section boundaries with Backspace and Delete', () => {
+                    const onChange = cy.stub().as('onChange');
+                    mount(<TestCase onChange={onChange} />);
+                    cy.get('input').first().type('123456').should('have.value', '12:34:56');
+                    cy.get('input').first().type('{home}{rightarrow}{rightarrow}{rightarrow}{backspace}');
+                    cy.get('input').first().should('have.value', '1:34:56').should('have.prop', 'selectionStart', 1);
+                    cy.get('@onChange')
+                        .its('lastCall.args.1.timeValues')
+                        .should('deep.equal', { hour: 1, minute: 34, second: 56 });
+
+                    cy.get('input').first().type('2').should('have.value', '12:34:56');
+                    cy.get('input').first().type('{home}{rightarrow}{rightarrow}{del}');
+                    cy.get('input').first().should('have.value', '12:4:56');
+                    cy.get('@onChange')
+                        .its('lastCall.args.1.timeValues')
+                        .should('deep.equal', { hour: hasTimeFormat ? 0 : 12, minute: 4, second: 56 });
+                });
+            });
+        });
     });
 
     it('select time from popover', () => {
@@ -662,8 +809,8 @@ describeFn('TimePicker', () => {
                 timeValues: { hour: null, minute: null, second: null },
             });
         cy.get('input').first().type('1');
-        cy.get('input').first().should('have.value', '01');
-        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '01');
+        cy.get('input').first().should('have.value', '01:');
+        cy.get('@onChange').its('lastCall.args.1.value').should('eq', '01:');
     });
 
     it('hasTimeFormat: keeps a leading zero editable in controlled mode', () => {
@@ -679,7 +826,8 @@ describeFn('TimePicker', () => {
         cy.get('input').first().type('0');
         cy.get('input').first().should('have.value', '0');
         cy.get('input').first().type('1');
-        cy.get('input').first().should('have.value', '01');
+        cy.get('input').first().should('have.value', '01:');
+        cy.get('input').first().type('30').should('have.value', '01:30');
     });
 
     it('hasTimeFormat: disables the meridiem cut off by min', () => {
