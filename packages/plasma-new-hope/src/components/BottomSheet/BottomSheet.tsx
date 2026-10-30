@@ -4,9 +4,8 @@ import { RootProps } from '../../engines';
 import { useEscKeyDown } from '../../hooks';
 import { Overlay } from '../Overlay';
 import { IconClose } from '../_Icon';
-import { cx } from '../../utils';
+import { cx, getPanelZIndex } from '../../utils';
 
-import { getPanelZIndex } from './utils';
 import { BottomSheetProps } from './BottomSheet.types';
 import { classes, tokens } from './BottomSheet.tokens';
 import { useBottomSheet } from './hooks/useBottomSheet';

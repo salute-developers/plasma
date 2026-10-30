@@ -1,4 +1,4 @@
-import type { ReactNode, HTMLAttributes } from 'react';
+import type { ReactNode, HTMLAttributes, CSSProperties } from 'react';
 
 export type SheetSnapPoint = string;
 export type SheetSnapPoints = string[];
@@ -20,6 +20,13 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
      * Обработчик клика по оверлею (если не передан, используется onClose).
      */
     onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+
+    /**
+     * Закрывать шторку при клике по оверлею.
+     * Если false — оверлей остаётся, но клик по нему игнорируется (курсор default).
+     * @default true
+     */
+    closeOnOverlayClick?: boolean;
 
     /**
      * Закрывать шторку при нажатии на ESC.
@@ -82,6 +89,12 @@ export interface SheetProps extends HTMLAttributes<HTMLDivElement> {
      * false
      */
     withBlur?: boolean;
+
+    /**
+     * Значение z-index для подложки. Шторка располагается на слой выше.
+     * @default 1000
+     */
+    zIndex?: CSSProperties['zIndex'];
 
     children?: ReactNode;
 

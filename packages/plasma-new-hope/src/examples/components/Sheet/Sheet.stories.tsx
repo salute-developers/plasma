@@ -26,6 +26,11 @@ const meta: Meta<StorySheetProps> = {
                 type: 'inline-radio',
             },
         },
+        zIndex: {
+            control: {
+                type: 'text',
+            },
+        },
     },
     args: {
         withBlur: false,
@@ -36,6 +41,8 @@ const meta: Meta<StorySheetProps> = {
         isFooterFixed: false,
         handlePlacement: 'outer',
         fullScreen: false,
+        zIndex: 1000,
+        closeOnOverlayClick: true,
     },
 };
 
@@ -66,6 +73,8 @@ const StoryDefault = ({
     hasHandle,
     withBlur,
     handlePlacement,
+    zIndex,
+    closeOnOverlayClick,
     fullScreen = false,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
@@ -82,6 +91,8 @@ const StoryDefault = ({
                 onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
+                zIndex={zIndex}
+                closeOnOverlayClick={closeOnOverlayClick}
                 contentHeader={
                     storyHasHeader ? (
                         <div>
@@ -146,6 +157,7 @@ const StoryWithScroll = ({
     isHeaderFixed,
     hasHandle,
     withBlur,
+    zIndex,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
     const handleClose = createOnClose(setOpened);
@@ -160,6 +172,7 @@ const StoryWithScroll = ({
                 onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
+                zIndex={zIndex}
                 contentHeader={
                     storyHasHeader ? (
                         <div>
@@ -217,6 +230,7 @@ const StoryWithInsideScroll = ({
     isHeaderFixed,
     hasHandle,
     withBlur,
+    zIndex,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
     const handleClose = createOnClose(setOpened);
@@ -231,6 +245,7 @@ const StoryWithInsideScroll = ({
                 onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
+                zIndex={zIndex}
                 contentHeader={
                     storyHasHeader ? (
                         <div>
@@ -290,6 +305,7 @@ const StoryWithDoubleScroll = ({
     isHeaderFixed,
     hasHandle,
     withBlur,
+    zIndex,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
     const handleClose = createOnClose(setOpened);
@@ -304,6 +320,7 @@ const StoryWithDoubleScroll = ({
                 onClose={handleClose}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
+                zIndex={zIndex}
                 contentHeader={
                     storyHasHeader ? (
                         <div>
@@ -383,6 +400,7 @@ const StoryWithSnapPoints = ({
     hasHandle,
     withBlur,
     handlePlacement,
+    zIndex,
 }: StorySheetProps) => {
     const [opened, setOpened] = useState(false);
 
@@ -397,6 +415,7 @@ const StoryWithSnapPoints = ({
                 onClose={() => setOpened(false)}
                 hasHandle={hasHandle}
                 withBlur={withBlur}
+                zIndex={zIndex}
                 snapPoints={SNAP_POINTS}
                 initialSnapPoint={SNAP_POINTS[0]}
                 contentHeader={

@@ -3,7 +3,7 @@ import React, { forwardRef, useRef } from 'react';
 import { RootProps } from '../../engines';
 import { useEscKeyDown } from '../../hooks';
 import { Overlay } from '../Overlay';
-import { cx } from '../../utils';
+import { cx, getPanelZIndex } from '../../utils';
 
 import { SheetProps } from './Sheet.types';
 import { useOverflow, useSheetSwipe } from './hooks';
@@ -18,7 +18,6 @@ import {
 } from './Sheet.styles';
 import { base as viewCSS } from './variations/_view/base';
 import { base as handlePlacementCSS } from './variations/_handlePlacement/base';
-import { DEFAULT_Z_INDEX } from './utils';
 
 /**
  * Открывает окно-шторку поверх основного экрана.
@@ -32,6 +31,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 children,
                 onClose,
                 onOverlayClick,
+                closeOnOverlayClick = true,
                 onEscKeyDown,
                 closeOnEsc = true,
                 hasHandle = true,
@@ -50,6 +50,8 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                 onSnapPointChange,
                 className,
                 view,
+                zIndex = 1000,
+                style,
                 ...restProps
             },
             rootRef,
@@ -101,6 +103,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                         hasSnapPoints={hasSnapPoints}
                         className={cx(closedClass, className)}
                         ref={contentWrapperRef}
+                        style={{ ...style, zIndex: getPanelZIndex(zIndex) }}
                         {...restProps}
                     >
                         {hasHandle && <StyledSheetHandle ref={handleRef} />}
@@ -113,7 +116,7 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                             {hasHeader && (
                                 <StyledSheetHeader isHeaderFixed={isHeaderFixed}>{contentHeader}</StyledSheetHeader>
                             )}
-                            <StyledSheetBody>{children}</StyledSheetBody>
+                            <StyledSheetBody hasSnapPoints={hasSnapPoints}>{children}</StyledSheetBody>
                             {hasFooter && (
                                 <StyledSheetFooter isFooterFixed={isFooterFixed}>{contentFooter}</StyledSheetFooter>
                             )}
@@ -121,10 +124,10 @@ export const sheetRoot = (Root: RootProps<HTMLDivElement, SheetProps>) =>
                     </StyledContentWrapper>
                     {withOverlay && opened && (
                         <Overlay
-                            zIndex={DEFAULT_Z_INDEX}
+                            zIndex={String(zIndex)}
                             backgroundColorProperty={overlayBackgroundToken}
                             withBlur={withBlur}
-                            isClickable
+                            isClickable={closeOnOverlayClick}
                             onOverlayClick={handleOverlayClick}
                         />
                     )}

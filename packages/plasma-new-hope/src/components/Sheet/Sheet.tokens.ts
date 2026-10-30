@@ -9,6 +9,10 @@ export const tokens = {
     sheetOverlayWithBlurColor: '--plasma-sheet-overlay-with-blur-color',
     /** @styleType color */
     contentBackgroundColor: '--plasma-sheet-content-background-color',
+    /** @styleType dimension */
+    contentBorderRadius: '--plasma-sheet-content-border-radius',
+    /** @styleType dimension */
+    contentPaddingHorizontal: '--plasma-sheet-content-padding-horizontal',
     /** @styleType color */
     handleBackgroundColor: '--plasma-sheet-handle-background-color',
     /** @styleType dimension */
