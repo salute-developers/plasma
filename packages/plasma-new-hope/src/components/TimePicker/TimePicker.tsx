@@ -253,8 +253,23 @@ export const timePickerRoot = (
             };
 
             const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-                const input = event.target.value;
-                const cursorPos = event.target.selectionStart;
+                let input = event.target.value;
+                let cursorPos = event.target.selectionStart;
+
+                // Мобильные клавиатуры могут удалять разделитель без события keydown.
+                if (
+                    cursorPos !== null &&
+                    displayValue[cursorPos] === delimiter &&
+                    displayValue === `${input.slice(0, cursorPos)}${delimiter}${input.slice(cursorPos)}`
+                ) {
+                    const isForwardDeletion = (event.nativeEvent as InputEvent).inputType === 'deleteContentForward';
+                    const deletionIndex = isForwardDeletion ? cursorPos : Math.max(0, cursorPos - 1);
+
+                    input = isForwardDeletion
+                        ? `${input.slice(0, cursorPos)}${delimiter}${input.slice(cursorPos + 1)}`
+                        : `${input.slice(0, deletionIndex)}${delimiter}${input.slice(cursorPos)}`;
+                    cursorPos = isForwardDeletion ? cursorPos + 1 : deletionIndex;
+                }
 
                 const parsed = hasTimeFormat
                     ? processTimeInput12(input, format, cursorPos, meridiem)
@@ -305,6 +320,19 @@ export const timePickerRoot = (
             };
 
             const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+                const input = event.currentTarget;
+                const { selectionStart, selectionEnd } = input;
+
+                if (selectionStart !== null && selectionStart === selectionEnd) {
+                    if (event.key === 'Backspace' && input.value[selectionStart - 1] === delimiter) {
+                        input.setSelectionRange(selectionStart - 1, selectionStart - 1);
+                    }
+
+                    if (event.key === 'Delete' && input.value[selectionStart] === delimiter) {
+                        input.setSelectionRange(selectionStart + 1, selectionStart + 1);
+                    }
+                }
+
                 if (event.key === 'Enter' && !isInnerOpen) {
                     event.preventDefault();
                     setIsInnerOpen(true);
