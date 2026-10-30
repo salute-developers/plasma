@@ -90,17 +90,18 @@ const parseTimeSegments = (
     normalizeHours: (segment: string) => NormalizedSegment = (segment) => normalizeTimeSegment('HH', segment),
 ): { values: TimeValues; segments: string[]; text: string; meridiem?: Meridiem } => {
     const explicitMeridiem = input.match(/(?:^|[^a-z])(AM|PM)\s*$/i)?.[1].toUpperCase() as Meridiem | undefined;
-    const digits = input.replace(/\D/g, '');
+    const inputSegments = input.split(delimiter).map((segment) => segment.replace(/\D/g, ''));
     const tokens = format.split(delimiter) as ('HH' | 'mm' | 'ss')[];
 
     const values: TimeValues = { hh: null, mm: null, ss: null };
     const segments: string[] = [];
-    let digitIndex = 0;
+    let remainingDigits = '';
     let meridiem: Meridiem | undefined;
 
-    tokens.forEach((token) => {
-        const segmentDigits = digits.slice(digitIndex, digitIndex + 2);
-        digitIndex += segmentDigits.length;
+    tokens.forEach((token, index) => {
+        const digits = `${remainingDigits}${inputSegments[index] ?? ''}`;
+        const segmentDigits = digits.slice(0, 2);
+        remainingDigits = digits.slice(2);
 
         const normalized = token === 'HH' ? normalizeHours(segmentDigits) : normalizeTimeSegment(token, segmentDigits);
 
@@ -112,7 +113,15 @@ const parseTimeSegments = (
         segments.push(normalized.text);
     });
 
-    return { values, segments, text: segments.filter(Boolean).join(delimiter), meridiem: explicitMeridiem ?? meridiem };
+    const text = segments
+        .map((segment, index) =>
+            index < tokens.length - 1 && (segment.length === 2 || segments.slice(index + 1).some(Boolean))
+                ? `${segment}${delimiter}`
+                : segment,
+        )
+        .join('');
+
+    return { values, segments, text, meridiem: explicitMeridiem ?? meridiem };
 };
 
 /**
@@ -227,7 +236,7 @@ export const processTimeInput12 = (
     }
 
     return {
-        innerString: innerSegments.filter(Boolean).join(delimiter),
+        innerString: innerSegments.slice(0, text.split(delimiter).length).join(delimiter),
         displayString: text,
         values,
         newCursorPosition: getCursorPosition(cursorPosition ?? 0, input.length, text.length),
