@@ -9,6 +9,7 @@ export * from './Accordion';
 export * from './Breadcrumbs';
 export * from './Button';
 export * from './IconButton';
+export * from './Group';
 export * from './EmbeddedButton';
 export * from './TextField';
 export * from './TextFieldSlider';
