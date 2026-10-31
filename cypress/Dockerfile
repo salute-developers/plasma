@@ -1,4 +1,4 @@
-FROM cypress/base:24.11.1
+FROM cypress/base:26.13.0
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y chromium && \

@@ -18,11 +18,11 @@ on:
 jobs:
     state:
         name: Computed state
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-26.04
         outputs:
             MATRIX: ${{ steps.matrix.outputs.result }}
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v7
                 # [NOTE]: В проекте default branch - dev, что бы правильно собрать
                 # актуальную версию для branch master, нужно указать ref = 'master'
                 # [DOC]: About REF. The branch, tag or SHA to checkout. When checking out the repository that
@@ -35,7 +35,7 @@ jobs:
 
             -   name: Read meta config
                 id: matrix
-                uses: actions/github-script@v7
+                uses: actions/github-script@v9
                 with:
                     script: |
                         const fs = require('fs');
@@ -46,9 +46,9 @@ jobs:
     deploy-website:
         name: Deploy website artifacts
         needs: state
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-26.04
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v7
                 with:
                     ref: ${{ inputs.ref }}
                     show-progress: false
@@ -95,13 +95,13 @@ jobs:
             TYPESENSE_KEY: ${{ secrets.TYPESENSE_KEY }}
             TYPESENSE_SERVICE_HOSTNAME: ${{ vars.TYPESENSE_SERVICE_HOSTNAME }}
             QDRANT_API_KEY: ${{ secrets.QDRANT_API_KEY }}
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-26.04
         strategy:
             fail-fast: false
             matrix:
                 package: ${{ fromJSON(needs.state.outputs.MATRIX) }}
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v7
                 with:
                     ref: ${{ inputs.ref }}
                     show-progress: false
@@ -125,7 +125,7 @@ jobs:
 
             -   name: Computed lerna scope
                 id: scope
-                uses: actions/github-script@v7
+                uses: actions/github-script@v9
                 env:
                     PACKAGE: ${{ matrix.package }}
                 with:

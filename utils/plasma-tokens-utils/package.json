@@ -23,18 +23,18 @@
   "dependencies": {
     "@salutejs/plasma-colors": "0.27.0",
     "@salutejs/plasma-typo": "0.59.0",
-    "@theme-ui/css": "0.3.1",
-    "color": "^4.2.3",
-    "csstype": "3.0.3",
-    "param-case": "3.0.3"
+    "@theme-ui/css": "0.17.4",
+    "color": "^5.0.0",
+    "csstype": "3.2.3",
+    "param-case": "4.0.0"
   },
   "devDependencies": {
-    "@types/color": "^3.0.3",
-    "@types/jest": "^26.0.20",
-    "@types/node": "^14.11.1",
-    "jest": "^26.6.3",
-    "ts-jest": "^26.5.3",
-    "ts-node": "^9.1.1"
+    "@types/color": "^4.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.0.0",
+    "jest": "^30.0.0",
+    "ts-jest": "^29.0.0",
+    "ts-node": "^10.0.0"
   },
   "publishConfig": {
     "access": "public"
