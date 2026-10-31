@@ -17,9 +17,9 @@ jobs:
 
     build:
         needs: authorize
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-26.04
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
               with:
                   ref: refs/pull/${{ github.event.pull_request.number }}/merge
                   show-progress: false
@@ -37,7 +37,7 @@ jobs:
               run: npm run build --workspace=@salutejs/sdds-landing
 
             - name: Save landing build
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: sdds-landing
                   path: website/landing/dist/
@@ -46,10 +46,10 @@ jobs:
 
     publish:
         needs: build
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-26.04
         steps:
             - name: Download landing build
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v8
               with:
                   name: sdds-landing
                   path: landing-dist
@@ -92,7 +92,7 @@ jobs:
 
     comment:
         needs: publish
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-26.04
         permissions:
             contents: read
             pull-requests: write
@@ -100,7 +100,7 @@ jobs:
             group: preview-links-${{ github.event.pull_request.number }}
             cancel-in-progress: false
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
               with:
                   # Load helpers from the same revision as this workflow.
                   ref: ${{ github.workflow_sha }}
@@ -108,7 +108,7 @@ jobs:
                   persist-credentials: false
 
             - name: Attach landing preview link
-              uses: actions/github-script@v7
+              uses: actions/github-script@v9
               env:
                   BASE_URL: ${{ vars.STAGE_STABLE_URL }}/pr/pr-${{ github.event.pull_request.number }}
               with:

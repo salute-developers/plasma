@@ -26,9 +26,9 @@
     "@salutejs/sdds-platform-ai": "0.374.1",
     "@salutejs/sdds-scan": "0.373.1",
     "@salutejs/sdds-serv": "0.374.1",
-    "@types/node": "^25.9.1",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
+    "@types/node": "^26.0.0",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },

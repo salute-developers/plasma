@@ -21,10 +21,10 @@
   "peerDependencies": {
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11 || ^6.0.0"
   },
   "devDependencies": {
-    "@cypress/react": "5.12.0",
+    "@cypress/react": "10.0.1",
     "@salutejs-ds/sdds_os": "0.1.2",
     "@salutejs/plasma-themes": "0.69.0",
     "@salutejs/plasma-tokens": "1.159.0",
@@ -34,14 +34,14 @@
     "@salutejs/plasma-typo": "0.59.0",
     "@salutejs/sdds-themes": "0.86.0",
     "@sddsjs/sdds_finai": "0.1.1",
-    "@types/node": "18.16.20",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
-    "@types/react-native": "0.69.6",
-    "@types/styled-components": "5.1.0",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/react-native": "0.73.0",
+    "@types/styled-components": "5.1.36",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "5.3.11",
+    "styled-components": "6.6.0",
     "typescript": "5.6.3"
   },
   "publishConfig": {
