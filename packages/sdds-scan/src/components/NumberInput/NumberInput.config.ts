@@ -9,6 +9,7 @@ import {
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
     inverseTextTertiary,
+    onDarkSurfaceSolidDefault,
     onDarkSurfaceTransparentSecondary,
     onDarkTextPrimary,
     onDarkTextPrimaryActive,
@@ -98,7 +99,7 @@ export const config = {
             `,
             accent: css`
                 ${tokens.caretColor}: ${textAccent};
-                ${tokens.caretColorSolid}: ${inverseTextPrimary};
+                ${tokens.caretColorSolid}: ${onDarkSurfaceSolidDefault};
                 ${tokens.errorColor}: ${textNegative};
                 ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
 
