@@ -94,7 +94,7 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
               with:
                   show-progress: false
                   fetch-depth: 0
@@ -102,7 +102,7 @@ jobs:
 
             - name: Get associated pull request by commit
               id: data
-              uses: actions/github-script@v7
+              uses: actions/github-script@v9
               with:
                   result-encoding: string
                   script: |
@@ -148,7 +148,7 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
               with:
                   show-progress: false
                   fetch-depth: 10
@@ -166,7 +166,7 @@ jobs:
 
             - name: Create comment with version
               id: comment
-              uses: actions/github-script@v7
+              uses: actions/github-script@v9
               env:
                   DATA: "${{ env.COMMIT_MESSAGE }}"
               with:
@@ -196,7 +196,7 @@ jobs:
 
             - name: Get pull requests id's
               id: ids
-              uses: actions/github-script@v7
+              uses: actions/github-script@v9
               with:
                   script: |
                       const res = await github.rest.repos.listPullRequestsAssociatedWithCommit({
@@ -216,7 +216,7 @@ jobs:
                       return ids;
 
             - name: Add comments to pull request by ID
-              uses: actions/github-script@v7
+              uses: actions/github-script@v9
               with:
                   script: |
                       const listID = ${{ steps.ids.outputs.result }};

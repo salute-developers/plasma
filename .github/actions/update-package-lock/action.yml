@@ -24,7 +24,7 @@ runs:
       run: npm i --silent ${{ env.OPTIONS }}
 
     - name: Sync package-lock files
-      uses: nick-fields/retry@v2.9.0
+      uses: nick-fields/retry@v4.0.0
       with:
         shell: bash
         timeout_minutes: 5

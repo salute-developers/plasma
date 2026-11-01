@@ -9,7 +9,7 @@ jobs:
     env:
       PREFIX: 'dev'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           show-progress: false
           
