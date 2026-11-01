@@ -141,4 +141,22 @@ export const base = css`
             color: var(${tokens.leftHelperColorEdited});
         }
     }
+
+    .${classes.rangeSuccess}, .${classes.rangeValueSuccess} {
+        &:has(${ContentWrapper}:focus-within) .${informationWrapperClasses.leftHelper} {
+            color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColorSuccess}));
+        }
+    }
+
+    .${classes.rangeError}, .${classes.rangeValueError} {
+        &:has(${ContentWrapper}:focus-within) .${informationWrapperClasses.leftHelper} {
+            color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColorError}));
+        }
+    }
+
+    .${classes.rangeEdited}, .${classes.rangeValueEdited} {
+        &:has(${ContentWrapper}:focus-within) .${informationWrapperClasses.leftHelper} {
+            color: var(${tokens.leftHelperColorFocus}, var(${tokens.leftHelperColorEdited}));
+        }
+    }
 `;
