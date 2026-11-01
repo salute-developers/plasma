@@ -10,6 +10,12 @@ type NumberInputProps = ComponentProps<typeof NumberInput>;
 const { meta: META, Default, DisplayWithoutValue } = getNumberInputStories({
     component: NumberInput,
     componentConfig: config,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: { type: 'select' },
+        },
+    },
     defaultArgs: {
         size: 'm',
     },
