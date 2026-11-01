@@ -265,7 +265,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.3125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -436,7 +436,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.25rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
