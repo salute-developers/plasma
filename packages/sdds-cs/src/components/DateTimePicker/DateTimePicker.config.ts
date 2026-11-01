@@ -17,6 +17,7 @@ import {
     surfaceNegative,
     surfaceSolidCard,
     surfaceSolidCardBrightness,
+    surfaceSolidDefault,
     surfaceSolidPrimary,
     surfaceSolidSecondary,
     surfaceSolidTertiary,
@@ -131,9 +132,9 @@ export const config = {
                 ${tokens.tooltipBoxShadow}: ${shadowDownHardM};
                 ${tokens.tooltipColor}: ${textPrimary};
 
-                ${tokens.timePickerItemBackgroundHover}: ${surfaceSolidSecondary};
+                ${tokens.timePickerItemBackgroundHover}: ${surfaceTransparentAccent};
                 ${tokens.timePickerItemBackgroundActive}: ${surfaceSolidSecondary};
-                ${tokens.timePickerScrollbarColor}: ${surfaceSolidTertiary};
+                ${tokens.timePickerScrollbarColor}: ${surfaceSolidDefault};
                 ${tokens.timePickerScrollbarTrackColor}: ${surfaceSolidPrimary};
 
                 ${tokens.shortcutColor}: ${textPrimary};
@@ -287,6 +288,7 @@ export const config = {
                 ${tokens.timePickerItemFontWeight}: ${bodyM.fontWeight};
                 ${tokens.timePickerItemLetterSpacing}: ${bodyM.letterSpacing};
                 ${tokens.timePickerItemLineHeight}: ${bodyM.lineHeight};
+                ${tokens.timePickerGap}: 0;
                 ${tokens.timePickerScrollbarWidth}: 0.125rem;
                 ${tokens.timePickerScrollbarMargin}: 0.25rem;
 
