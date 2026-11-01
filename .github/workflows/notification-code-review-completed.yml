@@ -13,11 +13,11 @@ jobs:
             AUTHOR: ${{ github.event.pull_request.user.login || 'Yakutoc' }}
         steps:
             -   name: Checkout repository
-                uses: actions/checkout@v4
+                uses: actions/checkout@v7
 
             -   name: Count approvals and author for pr
                 id: state
-                uses: actions/github-script@v7
+                uses: actions/github-script@v9
                 with:
                     script: |
                         const fs = require('fs');

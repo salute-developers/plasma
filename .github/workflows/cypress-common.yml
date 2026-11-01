@@ -40,7 +40,7 @@ jobs:
       COVERAGE: true
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: ./.github/actions/prepare-environment
 
@@ -69,7 +69,7 @@ jobs:
 
       - name: Install dependencies and prepare packages
         if: ${{ (inputs.test-all == 'true' || steps.check-test-files-exist.outputs.tests-exist == 'true') }}
-        uses: nick-fields/retry@v3
+        uses: nick-fields/retry@v4
         with:
           timeout_minutes: 45
           max_attempts: 2
@@ -126,7 +126,7 @@ jobs:
 
       - name: Save artifacts
         if: ${{ failure() || inputs.with-artifacts }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Failures_Tests_Artifact_${{ inputs.scope }}${{ inputs.browser != '' && format('_{0}', inputs.browser) || '' }}_
           path: /tmp/artifacts/

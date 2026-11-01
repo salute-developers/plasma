@@ -34,22 +34,22 @@
     "@salutejs/plasma-colors": "0.27.0",
     "@salutejs/plasma-core": "1.248.0",
     "@salutejs/plasma-icons": "1.256.0",
-    "@storybook/react": "10.3.4",
-    "param-case": "^3.0.4"
+    "@storybook/react": "10.6.5",
+    "param-case": "^4.0.0"
   },
   "peerDependencies": {
     "react": ">=16.13.1",
     "react-dom": ">=16.13.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11 || ^6.0.0"
   },
   "devDependencies": {
-    "@types/node": "24.10.1",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
+    "@types/node": "26.6.6",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
     "@types/styled-components": "^5.1.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "5.3.11"
+    "styled-components": "6.6.0"
   },
   "publishConfig": {
     "access": "public"

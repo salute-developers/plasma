@@ -12,10 +12,10 @@ jobs:
             AUTHOR: ${{ github.event.pull_request.user.login }}
         steps:
             -   name: Checkout repository
-                uses: actions/checkout@v4
+                uses: actions/checkout@v7
 
             -   name: Setup Node.js
-                uses: actions/setup-node@v6
+                uses: actions/setup-node@v7
                 with:
                     node-version-file: '.nvmrc'
                     cache: 'npm'
@@ -32,7 +32,7 @@ jobs:
                     token: ${{ secrets.GH_TOKEN }}
 
             -   name: Set reviewers
-                uses: actions/github-script@v7
+                uses: actions/github-script@v9
                 env:
                     REVIEWERS_LIST: ${{ steps.reviewers.outputs.reviewers }}
                 with:

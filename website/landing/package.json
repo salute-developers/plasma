@@ -13,10 +13,10 @@
   "dependencies": {
     "react": "19.2.4",
     "react-dom": "19.2.4",
-    "react-router-dom": "6.30.3"
+    "react-router-dom": "7.18.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-react-swc": "4.2.2",
-    "vite": "5.4.21"
+    "@vitejs/plugin-react-swc": "4.3.3",
+    "vite": "8.3.5"
   }
 }

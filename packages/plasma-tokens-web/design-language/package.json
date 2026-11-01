@@ -6,7 +6,7 @@
     "dependencies": {
         "@diez/engine": "^10.6.0",
         "@diez/prefabs": "^10.6.0",
-        "color": "^3.1.2"
+        "color": "^5.0.0"
     },
     "devDependencies": {
         "@diez/compiler-core": "^10.6.0",

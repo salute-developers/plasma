@@ -6,9 +6,9 @@ on:
 jobs:
     deploy-artifacts:
         name: Deploy storybook artifacts
-        runs-on: ubuntu-22.04
+        runs-on: ubuntu-26.04
         steps:
-            -   uses: actions/checkout@v4
+            -   uses: actions/checkout@v7
                 with:
                     ref: next-sbcom
                     show-progress: false
