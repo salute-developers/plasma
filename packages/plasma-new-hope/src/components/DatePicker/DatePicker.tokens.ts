@@ -121,6 +121,7 @@ export const tokens = {
     leftHelperColorSuccess: '--plasma-date-picker__left-helper-color-success',
     leftHelperColorEdited: '--plasma-date-picker__left-helper-color-edited',
     leftHelperColorReadOnly: '--plasma-date-picker__left-helper-color-readonly',
+    leftHelperColorFocus: '--plasma-date-picker__left-helper-color-focus',
     leftHelperOffset: '--plasma-date-picker__left-helper-offset',
 
     leftHelperFontFamily: '--plasma-date-picker__left-helper-font-family',
