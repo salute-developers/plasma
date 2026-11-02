@@ -17,8 +17,8 @@ const isForceRun =
         .includes(FORCE_RUN_LABEL);
 
 const CORE_DIR = './packages/plasma-new-hope/src/components';
-const BASE_REF = process.env.GITHUB_BASE_REF || 'dev';
-const HEAD_SHA = process.env.GITHUB_SHA;
+const BASE_REF = getInput('base-ref') || process.env.GITHUB_BASE_REF || 'dev';
+const HEAD_SHA = getInput('head-sha') || process.env.GITHUB_SHA;
 
 // Получение измененных файлов
 const getChangedFiles = () => {

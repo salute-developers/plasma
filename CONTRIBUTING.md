@@ -128,7 +128,11 @@ PACKAGE_NAME=plasma-web COMPONENTS=Button,Checkbox npm run cy:run
 PACKAGE_NAME=plasma-web COMPONENTS=Button BROWSER=webkit npm run cy:run
 ```
 
-CI также запускает Chromium и WebKit; матрицы описаны в `.github/workflows/cypress.yml`.
+В PR CI автоматически запускает только Chromium (`.github/workflows/cypress.yml`). WebKit запускается:
+
+-   по комментарию `/test-webkit` в открытом PR из этого же репозитория — для изменённых компонентов, как и в автоматической проверке. Команда доступна пользователям с правами `write`, `maintain` или `admin`; результат появится в статусе `Cypress WebKit` и в ответном комментарии. Комментарий обрабатывает `.github/workflows/cypress-webkit-request.yml`: после проверки прав автора и PR он запускает `.github/workflows/cypress-webkit.yml` через `workflow_dispatch` и передаёт head SHA PR. Если к старту тестов PR изменился, повторите `/test-webkit` для новой ревизии. Повторный `/test-webkit` отменяет идущий прогон, другие комментарии в PR его не прерывают;
+-   ежедневно в 00:00 UTC для всех пакетов из `PACKAGES_CYPRESS`, кроме `sdds-insol-next`, `sdds-netology`, `sdds-bizcom` и `sdds-dfa` (`.github/workflows/cypress-by-cron-every-day.yml`);
+-   автоматически в release-PR в `master` (`.github/workflows/cypress-release-branch.yml`).
 
 ### Обновление снимков
 
