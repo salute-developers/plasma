@@ -1,0 +1,76 @@
+name: Request Cypress WebKit component testing
+
+on:
+    issue_comment:
+        types:
+            - created
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.event.issue.number }}
+    cancel-in-progress: false
+
+jobs:
+    authorize:
+        name: Authorize and dispatch WebKit tests
+        if: |
+            github.event.issue.pull_request &&
+            github.event.comment.body == '/test-webkit'
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write # запустить Cypress WebKit через workflow_dispatch
+            issues: write # реакция на комментарий
+            pull-requests: read
+        steps:
+            - name: Check author permission and dispatch WebKit tests
+              uses: actions/github-script@v7
+              with:
+                  script: |
+                      const allowedPermissions = new Set(['write', 'maintain', 'admin']);
+                      const pullNumber = context.issue.number;
+                      const username = context.payload.comment.user.login;
+
+                      const { data: access } = await github.rest.repos.getCollaboratorPermissionLevel({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          username,
+                      });
+
+                      if (!allowedPermissions.has(access.permission)) {
+                          core.setFailed(`@${username} does not have permission to run WebKit tests.`);
+                          return;
+                      }
+
+                      const { data: pull } = await github.rest.pulls.get({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          pull_number: pullNumber,
+                      });
+
+                      if (pull.state !== 'open') {
+                          core.setFailed(`Pull request #${pullNumber} is not open.`);
+                          return;
+                      }
+
+                      if (pull.head.repo?.full_name !== `${context.repo.owner}/${context.repo.repo}`) {
+                          core.setFailed('WebKit tests by request are allowed only for pull requests from this repository.');
+                          return;
+                      }
+
+                      await github.rest.reactions.createForIssueComment({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          comment_id: context.payload.comment.id,
+                          content: 'eyes',
+                      });
+
+                      // Код PR не выполняется в контексте issue_comment: тесты запускаются отдельным workflow_dispatch.
+                      await github.rest.actions.createWorkflowDispatch({
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          workflow_id: 'cypress-webkit.yml',
+                          ref: context.payload.repository.default_branch,
+                          inputs: {
+                              'pull-request-number': String(pullNumber),
+                              'expected-head-sha': pull.head.sha,
+                          },
+                      });
