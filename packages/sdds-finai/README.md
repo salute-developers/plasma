@@ -87,21 +87,23 @@ Beta-компоненты доступны из точки входа `@salutejs
 
 Тема включает в себя цветовые и типографические токены.
 
-Доступны светлая и тёмная темы — `sdds_finai__light` и `sdds_finai__dark`.
+Доступны тенанты `default`, `beta_core` и `high_contrast`, каждый со светлой и тёмной темами.
+В примерах используется тенант `default` — `sdds_finai_default__light` и `sdds_finai_default__dark`.
+Для другого тенанта замените `default` в имени экспорта или CSS-файла на `beta_core` или `high_contrast`.
 
 ### Через импорт css-файла
 
 ```jsx
-import '@sddsjs/sdds_finai/css/sdds_finai__light.css';
+import '@sddsjs/sdds_finai/css/sdds_finai_default__light.css';
 ```
 
 ### Через styled-components
 
 ```jsx
 import { createGlobalStyle } from 'styled-components';
-import { sdds_finai__light } from '@sddsjs/sdds_finai';
+import { sdds_finai_default__light } from '@sddsjs/sdds_finai';
 
-const Theme = createGlobalStyle(sdds_finai__light);
+const Theme = createGlobalStyle(sdds_finai_default__light);
 
 // вызовите <Theme /> в корне приложения
 ```
@@ -110,9 +112,9 @@ const Theme = createGlobalStyle(sdds_finai__light);
 
 ```jsx
 import { Global, css } from '@emotion/react';
-import { sdds_finai__light } from '@sddsjs/sdds_finai';
+import { sdds_finai_default__light } from '@sddsjs/sdds_finai';
 
-const themeStyle = css(sdds_finai__light);
+const themeStyle = css(sdds_finai_default__light);
 
 // вызовите <Global styles={themeStyle} /> в корне приложения
 ```
@@ -124,7 +126,7 @@ const themeStyle = css(sdds_finai__light);
 ```jsx
 // App.tsx
 import { Button, BodyL } from '@salutejs/sdds-finai';
-import '@sddsjs/sdds_finai/css/sdds_finai__light.css';
+import '@sddsjs/sdds_finai/css/sdds_finai_default__light.css';
 
 export const App = () => {
     return (

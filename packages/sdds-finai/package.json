@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@salutejs/plasma-new-hope": "0.387.1",
-    "@sddsjs/sdds_finai": "0.1.1",
+    "@sddsjs/sdds_finai": "0.2.1",
     "classnames": "2.5.1"
   },
   "devDependencies": {
