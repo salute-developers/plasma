@@ -1,9 +1,14 @@
 import React from 'react';
 import type { Decorator } from '@storybook/react-vite';
 import { createGlobalStyle } from 'styled-components';
-import { sdds_finai__light, sdds_finai__dark } from '@sddsjs/sdds_finai';
 
 import { ViewContainer } from '../src/components/ViewContainer/ViewContainer';
+
+import { getTheme } from './themes';
+
+const ThemeStyle = createGlobalStyle<{ $theme: TemplateStringsArray }>`
+    ${({ $theme }) => $theme}
+`;
 
 const DocumentStyle = createGlobalStyle`
     html:root {
@@ -26,16 +31,9 @@ const DocumentStyle = createGlobalStyle`
 `;
 /* stylelint-enable */
 
-export const SDDS_FINAI_LIGHT_THEME = 'sdds-finai:light';
-export const SDDS_FINAI_DARK_THEME = 'sdds-finai:dark';
 export const DEFAULT_MODE = 'default';
 export const ON_DARK_MODE = 'onDark';
 export const ON_LIGHT_MODE = 'onLight';
-
-const themes = {
-    [SDDS_FINAI_LIGHT_THEME]: createGlobalStyle(sdds_finai__light),
-    [SDDS_FINAI_DARK_THEME]: createGlobalStyle(sdds_finai__dark),
-};
 
 type ViewType = {
     style?: object;
@@ -68,15 +66,13 @@ const viewMap: Record<string, ViewType> = {
 };
 
 export const withTheme: Decorator = (Story, context) => {
-    const theme = context.globals.theme;
+    const theme = getTheme(context.globals.theme, context.globals.tenant);
     const viewContainerType = viewMap[context.globals.viewContainer];
-
-    const Theme = themes[theme];
 
     return (
         <div style={viewContainerType.style}>
             <ViewContainer view={viewContainerType.view}>
-                <Theme />
+                <ThemeStyle $theme={theme} />
                 <DocumentStyle />
                 <Story {...context} />
             </ViewContainer>

@@ -1,5 +1,5 @@
 import type { Meta } from '@storybook/react-vite';
-import { sdds_finai__light } from '@sddsjs/sdds_finai';
+import { sdds_finai_default__light } from '@sddsjs/sdds_finai';
 import { createToastNotify, getTokenUsageStories } from '@salutejs/plasma-sb-utils';
 
 import { Accordion, AccordionItem } from '../../Accordion';
@@ -8,7 +8,7 @@ import { ToastProvider, useToast } from '../../Toast/Toast';
 
 const { meta: META, Default } = getTokenUsageStories({
     configModules: import.meta.glob('../../**/*.config.{ts,tsx}', { eager: true }),
-    theme: sdds_finai__light[0],
+    theme: sdds_finai_default__light[0],
     accordion: Accordion,
     accordionItem: AccordionItem,
     textField: TextField,
