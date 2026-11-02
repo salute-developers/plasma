@@ -266,7 +266,7 @@ describeFn('Calendar', () => {
     });
 
     it('periodSelectorAlign=center', () => {
-        mount(<Demo value={baseDate} periodSelectorAlign="center" />);
+        mount(<Demo baseValue={baseDate} periodSelectorAlign="center" />);
 
         cy.matchImageSnapshot();
     });
