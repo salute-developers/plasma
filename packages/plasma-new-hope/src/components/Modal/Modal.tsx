@@ -134,7 +134,11 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                             <ModalBody className={cx(isResizable && classes.resizable)}>
                                 <ModalContent className={innerHasClose ? classes.hasClose : undefined}>
                                     {innerHasClose && (
-                                        <CloseButton onClick={onClose} data-test="modal-close">
+                                        <CloseButton
+                                            className={classes.close}
+                                            onClick={onClose}
+                                            data-test="modal-close"
+                                        >
                                             <IconClose size="s" color="currentColor" />
                                         </CloseButton>
                                     )}

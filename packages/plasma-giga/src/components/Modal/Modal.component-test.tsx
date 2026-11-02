@@ -22,6 +22,7 @@ describe('plasma-giga: Modal', () => {
     const ModalHeader = getComponent('ModalHeader');
     const ModalFooter = getComponent('ModalFooter');
     const ModalImage = getComponent('ModalImage');
+    const Dropdown = getComponent('Dropdown');
     const Button = getComponent('Button');
     const H2 = getComponent('H2');
     const H3 = getComponent('H3');
@@ -345,6 +346,115 @@ describe('plasma-giga: Modal', () => {
         cy.contains('Заголовок').should('be.visible');
         cy.get('[data-test="modal-close"]').should('be.visible');
         cy.matchImageSnapshot();
+    });
+
+    it('hasBody: dropdown is not clipped', () => {
+        function DemoWithDropdown() {
+            const [isOpen, setIsOpen] = React.useState(true);
+
+            return (
+                <PopupProvider>
+                    <Modal opened={isOpen} onClose={() => setIsOpen(false)} hasBody hasClose size="s">
+                        <ModalHeader>
+                            <H3>Заголовок</H3>
+                        </ModalHeader>
+                        <div style={{ padding: '0 1.5rem 0.5rem' }}>
+                            <Dropdown
+                                items={[
+                                    { value: 'a', label: 'Пункт A' },
+                                    { value: 'b', label: 'Пункт B' },
+                                    { value: 'c', label: 'Пункт C' },
+                                ]}
+                                alwaysOpened
+                                closeOnOverlayClick={false}
+                                zIndex={10000}
+                            >
+                                <Button text="Список" />
+                            </Dropdown>
+                        </div>
+                    </Modal>
+                </PopupProvider>
+            );
+        }
+
+        mount(
+            <CypressTestDecorator>
+                <DemoWithDropdown />
+            </CypressTestDecorator>,
+        );
+
+        cy.contains('Пункт C').should(($item) => {
+            const item = $item[0].getBoundingClientRect();
+            const hit = document.elementFromPoint(item.left + item.width / 2, item.top + item.height / 2);
+
+            expect($item[0] === hit || $item[0].contains(hit), 'dropdown item is clipped').to.equal(true);
+        });
+        cy.matchImageSnapshot();
+    });
+
+    it('hasBody: image after content has square top corners', () => {
+        mount(
+            <CypressTestDecorator>
+                <PopupProvider>
+                    <Modal opened onClose={() => undefined} hasBody hasClose size="s">
+                        <div>Перед картинкой</div>
+                        <ModalImage>
+                            <div style={{ height: '4rem', background: '#d0d0d0' }} />
+                        </ModalImage>
+                    </Modal>
+                </PopupProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.contains('Перед картинкой').should('be.visible');
+        cy.get('.modal-image').should(($image) => {
+            const style = getComputedStyle($image[0]);
+
+            expect(style.borderTopLeftRadius).to.equal('0px');
+            expect(style.borderBottomLeftRadius).not.to.equal('0px');
+        });
+    });
+
+    it('hasBody: image at the top keeps radius next to the close button', () => {
+        mount(
+            <CypressTestDecorator>
+                <PopupProvider>
+                    <Modal opened onClose={() => undefined} hasBody hasClose size="s">
+                        <ModalImage>
+                            <div style={{ height: '4rem', background: '#d0d0d0' }} />
+                        </ModalImage>
+                    </Modal>
+                </PopupProvider>
+            </CypressTestDecorator>,
+        );
+
+        cy.get('.modal-close').should('be.visible');
+        cy.get('.modal-image').should(($image) => {
+            const style = getComputedStyle($image[0]);
+
+            expect(style.borderTopLeftRadius).not.to.equal('0px');
+            expect(style.borderBottomLeftRadius).not.to.equal('0px');
+        });
+    });
+
+    it('hasBody: absoluteHeader without image keeps the card top radius', () => {
+        mount(
+            <CypressTestDecorator>
+                <DemoWithSlots size="s" absoluteHeader withImage={false} />
+            </CypressTestDecorator>,
+        );
+
+        cy.get('.modal-header-absolute').should(($header) => {
+            const header = $header[0];
+            const body = header.parentElement?.parentElement;
+            const headerStyle = getComputedStyle(header);
+            const bodyStyle = getComputedStyle(body);
+
+            expect(headerStyle.backgroundColor, 'header background').to.not.equal('rgba(0, 0, 0, 0)');
+            expect(headerStyle.borderTopLeftRadius).to.equal(bodyStyle.borderTopLeftRadius);
+            expect(headerStyle.borderTopRightRadius).to.equal(bodyStyle.borderTopRightRadius);
+            expect(headerStyle.borderTopLeftRadius).to.not.equal('0px');
+        });
     });
 
     it('hasBody: absoluteHeader without ModalImage', () => {

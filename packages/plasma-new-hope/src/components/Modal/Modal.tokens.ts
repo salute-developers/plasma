@@ -8,6 +8,7 @@ export const classes = {
     footer: 'modal-footer',
     footerText: 'modal-footer-text',
     image: 'modal-image',
+    close: 'modal-close',
     hasClose: 'modal-has-close',
     resizable: 'modal-resizable',
 };

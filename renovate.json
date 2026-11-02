@@ -3,10 +3,19 @@
     "extends": ["config:recommended"],
     "baseBranchPatterns": ["dev", "master"],
     "prHourlyLimit": 2,
-    "schedule": ["every weekday"],
+    "schedule": ["* 0-3 */2 * *"],
     "rebaseWhen": "never",
     "ignoreDeps": ["react", "react-dom", "cypress", "node", "npm", "lerna", "typescript", "eslint"],
     "packageRules": [
+        {
+            "description": "Group regular dependency updates into one PR to dev",
+            "matchBaseBranches": ["dev"],
+            "groupName": "all dependencies",
+            "groupSlug": "all",
+            "groupSingleUpdates": true,
+            "separateMajorMinor": false,
+            "rebaseWhen": "auto"
+        },
         {
             "description": "Disable regular dependency updates on master",
             "matchBaseBranches": ["master"],
@@ -26,6 +35,9 @@
             "enabled": true,
             "followTag": "latest",
             "rangeStrategy": "pin",
+            "groupName": "sddsjs themes",
+            "groupSlug": "sddsjs-themes",
+            "groupSingleUpdates": true,
             "separateMajorMinor": false,
             "schedule": ["* * * * *"],
             "prCreation": "immediate",
