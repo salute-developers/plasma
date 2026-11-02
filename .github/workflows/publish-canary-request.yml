@@ -5,16 +5,16 @@ on:
         types:
             - created
 
-concurrency:
-    group: ${{ github.workflow }}-${{ github.event.issue.number }}
-    cancel-in-progress: false
-
 jobs:
     authorize-canary:
         name: Authorize and dispatch canary publication
         if: |
             github.event.issue.pull_request &&
             github.event.comment.body == '/release-canary'
+        # На уровне workflow обычный комментарий в PR отменял бы ожидающий запуск /release-canary.
+        concurrency:
+            group: ${{ github.workflow }}-${{ github.event.issue.number }}
+            cancel-in-progress: false
         runs-on: ubuntu-latest
         permissions:
             actions: write # запустить Publish npm через workflow_dispatch
