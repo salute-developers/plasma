@@ -1,6 +1,6 @@
 {
-    "name": "@sddsjs/finai",
-    "version": "0.1.2",
+    "name": "@sddsjs/sdds_finai",
+    "version": "0.2.1",
     "description": "SDDS by Design System Builder / React UI kit for web applications",
     "license": "MIT",
     "keywords": [
@@ -78,7 +78,7 @@
         "prebuild:css": "rm -rf src-css && ./scripts/copy-linaria-components.sh",
         "build": "CSS_BUILD_PATH=css npm run copy-css-files && npm run build:css",
         "postbuild": "npm run generate:typings",
-        "build:css": "BABEL_ENV=esm SC_NAMESPACE=finai rollup -c",
+        "build:css": "BABEL_ENV=esm SC_NAMESPACE=sdds_finai rollup -c",
         "postbuild:css": "rm -rf src-css",
         "pregenerate:typings": "rm -rf components/**/*.d.ts && rm -f index.d.ts",
         "generate:typings": "tsc --outDir . --emitDeclarationOnly",
