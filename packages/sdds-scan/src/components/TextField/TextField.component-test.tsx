@@ -26,4 +26,7 @@ getBaseVisualTests({
     componentProps,
     propsForName: ['appearance=white,focused'],
     configPropsForMatrix: ['view'],
+    actionBeforeSnapshot: () => {
+        cy.get('input').focus();
+    },
 });
