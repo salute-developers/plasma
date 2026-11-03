@@ -2,8 +2,8 @@ import { css, selectTokens as tokens } from '@salutejs/plasma-new-hope/styled-co
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
+    dataBlueSoft,
+    dataBlueSoftActive,
     inverseTextPrimary,
     inverseTextPrimaryActive,
     inverseTextPrimaryHover,
@@ -332,8 +332,8 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
 
-                ${tokens.textFieldBackgroundColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueSoftActive};
                 ${tokens.textFieldBorderColor}: ${outlineTransparentInfo};
                 ${tokens.textFieldBorderColorHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorFocus}: ${outlineTransparentInfoActive};

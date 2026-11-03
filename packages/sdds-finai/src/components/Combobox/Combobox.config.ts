@@ -3,8 +3,8 @@ import {
     bodyM,
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
+    dataBlueSoft,
+    dataBlueSoftActive,
     inverseTextPrimary,
     inverseTextSecondary,
     inverseTextSecondaryHover,
@@ -333,8 +333,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
-                ${tokens.textFieldBackgroundColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueSoftActive};
                 ${tokens.textFieldBorderColor}: ${outlineTransparentInfo};
                 ${tokens.textFieldBorderColorHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorFocus}: ${outlineTransparentInfoActive};
