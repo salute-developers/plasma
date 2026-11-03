@@ -4,9 +4,9 @@ import {
     bodySBold,
     bodyXS,
     bodyXSBold,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
+    dataBlueSoft,
+    dataBlueSoftActive,
+    dataBlueSoftHover,
     h4,
     h4Bold,
     h5,
@@ -78,9 +78,9 @@ export const config = {
                 ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
-                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueLightHover};
-                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueSoftHover};
+                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueSoftActive};
 
                 ${tokens.textFieldBorderColor}: ${outlineSolidPrimary};
                 ${tokens.textFieldBorderColorHover}: ${outlineSolidPrimaryHover};

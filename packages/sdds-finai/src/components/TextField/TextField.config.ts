@@ -2,9 +2,9 @@ import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
+    dataBlueSoft,
+    dataBlueSoftActive,
+    dataBlueSoftHover,
     inverseTextPrimary,
     inverseTextSecondary,
     inverseTextSecondaryHover,
@@ -215,9 +215,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${dataBlueLight};
-                ${tokens.backgroundColorHover}: ${dataBlueLightHover};
-                ${tokens.backgroundColorFocus}: ${dataBlueLightActive};
+                ${tokens.backgroundColor}: ${dataBlueSoft};
+                ${tokens.backgroundColorHover}: ${dataBlueSoftHover};
+                ${tokens.backgroundColorFocus}: ${dataBlueSoftActive};
                 ${tokens.borderColor}: ${outlineTransparentInfo};
                 ${tokens.borderColorHover}: ${outlineTransparentInfoHover};
                 ${tokens.borderColorFocus}: ${outlineTransparentInfoActive};

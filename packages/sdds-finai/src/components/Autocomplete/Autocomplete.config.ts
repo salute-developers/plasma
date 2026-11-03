@@ -2,8 +2,8 @@ import { css, autocompleteTokens as tokens } from '@salutejs/plasma-new-hope/sty
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
+    dataBlueSoft,
+    dataBlueSoftActive,
     outlineAccent,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
@@ -271,8 +271,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
-                ${tokens.textFieldBackgroundColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueSoftActive};
                 ${tokens.textFieldBorderColor}: ${outlineTransparentInfo};
                 ${tokens.textFieldBorderColorHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorFocus}: ${outlineTransparentInfoActive};
