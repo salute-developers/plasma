@@ -13,6 +13,12 @@ const { meta: META, Default } = getPaginationStories({
     component: Pagination,
     componentConfig: config,
     additionalComponents: { IconButton },
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: { type: 'select' },
+        },
+    },
     defaultArgs: {
         size: 'm',
     },
