@@ -9,6 +9,7 @@ const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
 const placeholderColorHover = `var(${tokens.textFieldPlaceholderColorHover}, var(${tokens.textFieldPlaceholderColor}))`;
 const openedValueColor = `var(${tokens.textFieldColorFocus}, var(${tokens.textFieldColor}))`;
+const leftHelperColor = `var(${tokens.textFieldLeftHelperColorFocus}, var(${tokens.textFieldLeftHelperColor}))`;
 
 export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.color}: ${({ opened }) => (opened ? openedValueColor : `var(${tokens.textFieldColor})`)};
@@ -18,7 +19,8 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
     ${textFieldTokens.borderColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
     ${textFieldTokens.labelColor}: var(${tokens.textFieldLabelColor});
-    ${textFieldTokens.leftHelperColor}: var(${tokens.textFieldLeftHelperColor});
+    ${textFieldTokens.leftHelperColor}: ${({ opened }) =>
+    opened ? leftHelperColor : `var(${tokens.textFieldLeftHelperColor})`};
 
     ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
