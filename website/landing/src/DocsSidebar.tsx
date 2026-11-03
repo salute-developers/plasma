@@ -53,6 +53,14 @@ export function DocsSidebar() {
                     </div>
 
                     <div className="doc-tree-group">
+                        <h3>Инструменты разработчика</h3>
+                        <nav className="tree-list">
+                            <DocsTreeLink href="/docs/cli">CLI — установка и использование</DocsTreeLink>
+                            <DocsTreeLink href="/docs/mcp">Подключение MCP</DocsTreeLink>
+                        </nav>
+                    </div>
+
+                    <div className="doc-tree-group">
                         <h3>Компоненты</h3>
 
                         <nav className="tree-list">
