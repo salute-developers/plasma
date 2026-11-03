@@ -1093,81 +1093,47 @@ export default function IndexPage() {
                     <div className="bento kn-extra">
                         <div className="bento-card">
                             <div>
-                                <h3>Документация AI-ready</h3>
-
+                                <h3>CLI</h3>
                                 <p>
-                                    Структурированный контекст со связями между сущностями и версиями — агент получает
-                                    правила системы, а не текст страницы.
+                                    Установите dsbuilder для работы с дизайн-системой из терминала: подключайте проект,
+                                    загружайте токены и компоненты, генерируйте код.
                                 </p>
                             </div>
-
                             <div className="bento-links">
-                                <SiteLink href="#">
+                                <SiteLink href="/docs/cli#install">
                                     <svg viewBox="0 0 24 24">
                                         <path d="M9 6l6 6-6 6" />
                                     </svg>
-                                    Как устроен контекст
+                                    Установка CLI
                                 </SiteLink>
-
-                                <SiteLink href="#">
+                                <SiteLink href="/docs/cli#project">
                                     <svg viewBox="0 0 24 24">
                                         <path d="M9 6l6 6-6 6" />
                                     </svg>
-                                    Правила для агентов
+                                    Сценарии использования
                                 </SiteLink>
                             </div>
                         </div>
-
                         <div className="bento-card">
                             <div>
                                 <h3>MCP</h3>
-
                                 <p>
-                                    Подключение по Model Context Protocol: агент читает компоненты, токены и правила
-                                    напрямую из системы.
+                                    Подключите AI-агента к дизайн-системе через dsbuilder: используйте компоненты,
+                                    токены и документацию при разработке и прототипировании.
                                 </p>
                             </div>
-
                             <div className="bento-links">
-                                <SiteLink href="#">
+                                <SiteLink href="/docs/mcp">
                                     <svg viewBox="0 0 24 24">
                                         <path d="M9 6l6 6-6 6" />
                                     </svg>
-                                    Подключить MCP
+                                    Подключение MCP
                                 </SiteLink>
-
-                                <SiteLink href="#">
+                                <SiteLink href="/docs/mcp#capabilities">
                                     <svg viewBox="0 0 24 24">
                                         <path d="M9 6l6 6-6 6" />
                                     </svg>
-                                    Что уже доступно
-                                </SiteLink>
-                            </div>
-                        </div>
-
-                        <div className="bento-card">
-                            <div>
-                                <h3>Прототипирование с контекстом</h3>
-
-                                <p>
-                                    Агент собирает экран на реальных компонентах и вашей теме, а не на приблизительной
-                                    вёрстке.
-                                </p>
-                            </div>
-
-                            <div className="bento-links">
-                                <SiteLink href="#">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 6l6 6-6 6" />
-                                    </svg>
-                                    Сценарии работы
-                                </SiteLink>
-
-                                <SiteLink href="#">
-                                    <svg viewBox="0 0 24 24">
-                                        <path d="M9 6l6 6-6 6" />
-                                    </svg>
-                                    Ограничения
+                                    Что доступно
                                 </SiteLink>
                             </div>
                         </div>
@@ -1264,7 +1230,7 @@ export default function IndexPage() {
                             </div>
 
                             <div className="bento-links">
-                                <SiteLink href="#">
+                                <SiteLink href="/docs/mcp">
                                     <svg viewBox="0 0 24 24">
                                         <path d="M9 6l6 6-6 6" />
                                     </svg>

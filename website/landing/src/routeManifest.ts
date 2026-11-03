@@ -2,6 +2,21 @@ import { newsEnabled } from './features.ts';
 
 export const routeManifest = [
     {
+        name: 'doc-cli',
+        route: '/docs/cli',
+        componentName: 'DocCliPage',
+        title: 'CLI — установка и использование — SDDS',
+        description:
+            'Установка dsbuilder на macOS и Windows, авторизация, подключение проекта и генерация дизайн-системы.',
+    },
+    {
+        name: 'doc-mcp',
+        route: '/docs/mcp',
+        componentName: 'DocMcpPage',
+        title: 'Подключение MCP — SDDS',
+        description: 'Настройка встроенного MCP-сервера dsbuilder для работы AI-агента с дизайн-системой проекта.',
+    },
+    {
         name: 'article',
         route: '/news/article',
         componentName: 'ArticlePage',
