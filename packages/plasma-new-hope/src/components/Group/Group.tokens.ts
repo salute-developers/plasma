@@ -14,7 +14,7 @@ export const classes = {
 };
 
 export const privateTokens = {
-    innerRadius: '--sdds-core_private-group-inner-radius',
+    innerRadius: '--plasma_private-group-inner-radius',
 };
 
 export const tokens = {
