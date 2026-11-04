@@ -18,6 +18,7 @@ export * from './components/Combobox';
 export * from './components/Counter';
 export * from './components/DatePicker';
 export * from './components/Dropdown';
+export * from './components/Editable';
 export * from './components/IconButton';
 export * from './components/Image';
 export * from './components/Indicator';
