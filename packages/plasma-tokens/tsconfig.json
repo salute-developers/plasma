@@ -11,8 +11,9 @@
         "sourceMap": true,
         "removeComments": false,
         "outDir": ".",
-        "rootDir": "./src"
+        "jsx": "react"
+        // "rootDir": "./src"
     },
-    "include": ["./src"],
+    "include": ["./src", "../../../../website/plasma-theme-builder/src/"],
     "exclude": ["./design-language", "./data"]
 }
