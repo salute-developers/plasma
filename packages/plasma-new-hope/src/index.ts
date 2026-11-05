@@ -96,6 +96,7 @@ export * from './components/ProgressBarCircular';
 export * from './components/TimePicker';
 export * from './components/DateTimePicker';
 export * from './components/Loader';
+export * from './components/Wheel';
 export * from './components/File';
 export * from './components/TextFieldSlider';
 export * from './components/_ai/Input';
