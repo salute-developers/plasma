@@ -54,3 +54,4 @@ export * from './Tabs';
 export * from './TabBar';
 export * from './_ai';
 export * from './TokenUsage';
+export * from './Wheel';
