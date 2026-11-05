@@ -1,0 +1,619 @@
+---
+id: Wheel
+slug: /components/Wheel
+title: Wheel
+description: 'Выбор значений в прокручиваемых колонках.'
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Wheel
+
+<Description name="Wheel" />
+
+Компонент для выбора значений в прокручиваемых колонках. Поддерживает управление с клавиатуры, колёсиком мыши, перетаскиванием, стрелками и нажатием на строку. Колонки могут содержать числа, строки и React-элементы.
+
+## Быстрый старт
+
+Передайте колонки в `columns`, выбранные значения в `value` и обновляйте их через `onChange`. Поле `name` связывает колонку с ключом объекта `value`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ hours: 12, minutes: 30 });
+    const hours = Array.from({ length: 24 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+    const minutes = Array.from({ length: 60 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+
+    return (
+        <Wheel
+            size="m"
+            value={value}
+            onChange={setValue}
+            separator="dots"
+            aria-label="Время"
+            columns={[
+                { name: 'hours', label: 'Часы', items: hours, loop: true },
+                { name: 'minutes', label: 'Минуты', items: minutes, loop: true },
+            ]}
+        />
+    );
+}
+```
+
+## Управление внешним видом
+
+Свойство `view` задаёт цветовое оформление и подложку выбранной строки, `size` — типографику, интервалы и размеры стрелок и разделителей.
+
+По умолчанию используются `view="default"` и `size="displayL"`.
+
+<Tabs>
+    <TabItem value="view" label="View" default>
+        Доступен вид `default` без подложки выбора.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Wheel } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const [value, setValue] = useState({ count: 3 });
+            const items = Array.from({ length: 7 }, (_, value) => ({ value, label: String(value) }));
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                    {(['default'] as const).map((view) => (
+                        <Wheel
+                            key={view}
+                            view={view}
+                            size="m"
+                            value={value}
+                            onChange={setValue}
+                            aria-label={view}
+                            columns={[{ name: 'count', label: 'Количество', items }]}
+                        />
+                    ))}
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="size" label="Size">
+        Доступны размеры `s`, `m`, `l`, `h1`, `h2`, `h3`, `h4`, `h5`, `displayS`, `displayM` и `displayL`.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Wheel } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const [value, setValue] = useState({ count: 3 });
+            const items = Array.from({ length: 7 }, (_, value) => ({ value, label: String(value) }));
+
+            return (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+                    {(['s', 'h3', 'displayS'] as const).map((size) => (
+                        <Wheel
+                            key={size}
+                            size={size}
+                            visibleItemsCount={3}
+                            value={value}
+                            onChange={setValue}
+                            aria-label={`Размер ${size}`}
+                            columns={[{ name: 'count', label: 'Количество', items }]}
+                        />
+                    ))}
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
+</Tabs>
+
+## Управление значением
+
+Wheel работает в управляемом режиме: `value` — объект со значением каждой колонки, `onChange` — обработчик выбора. Свойство `defaultValue` не поддерживается.
+
+`onChange(nextValue, columnName)` получает полный объект значений и имя изменённой колонки. Значения остальных колонок сохраняются. Компонент обновляет выбранную строку после получения нового `value` от родителя.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ hours: 12, minutes: 30 });
+    const [changedColumn, setChangedColumn] = useState('—');
+    const items = Array.from({ length: 60 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+
+    return (
+        <div>
+            <Wheel
+                size="m"
+                value={value}
+                columns={[
+                    { name: 'hours', label: 'Часы', items: items.slice(0, 24) },
+                    { name: 'minutes', label: 'Минуты', items },
+                ]}
+                onChange={(nextValue, columnName) => {
+                    setValue(nextValue);
+                    setChangedColumn(columnName);
+                }}
+                aria-label="Выбор времени"
+            />
+            <p>
+                Выбрано: {value.hours}:{String(value.minutes).padStart(2, '0')}
+            </p>
+            <p>Изменена колонка: {changedColumn}</p>
+        </div>
+    );
+}
+```
+
+Имена колонок должны быть уникальными и совпадать с ключами `value`. Значения элементов могут быть строками или числами и должны быть уникальными внутри своей колонки. Число `1` и строка `'1'` — разные значения.
+
+TypeScript выводит допустимые имена колонок и типы их значений из `value`. Например, для `value.hours: number` элементы колонки `hours` должны иметь числовые `value`.
+
+## Колонки и элементы
+
+Порядок и количество колонок определяются массивом `columns`. Для отображения части колонок передайте сокращённый массив, например `columns.slice(0, 2)`. Контроль `columnsCount` в Storybook относится только к примеру и не входит в API Wheel.
+
+### Свойства колонки
+
+| Свойство      | Тип                          | Описание                                                                                           |
+| ------------- | ---------------------------- | -------------------------------------------------------------------------------------------------- |
+| `name`        | Ключ объекта `value`         | Обязательное уникальное имя колонки.                                                               |
+| `label`       | `string`                     | Обязательное доступное название колонки для скринридера. Само по себе не отображается над списком. |
+| `items`       | `readonly WheelItem[]`       | Обязательный список элементов.                                                                     |
+| `width`       | `CSSProperties['width']`     | Ширина колонки: число в пикселях или CSS-строка.                                                   |
+| `description` | `ReactNode`                  | Подпись под выбранным элементом.                                                                   |
+| `textAfter`   | `ReactNode`                  | Контент после значения в каждой строке, например единица измерения.                                |
+| `loop`        | `boolean`                    | Зацикливание этой колонки. По умолчанию `false`.                                                   |
+| `disabled`    | `boolean`                    | Отключение этой колонки.                                                                           |
+| `renderItem`  | `(item, state) => ReactNode` | Кастомное отображение содержимого строки.                                                          |
+
+### Свойства элемента
+
+| Свойство    | Тип                   | Описание                                                                                              |
+| ----------- | --------------------- | ----------------------------------------------------------------------------------------------------- |
+| `value`     | `string` или `number` | Обязательное уникальное значение элемента.                                                            |
+| `label`     | `ReactNode`           | Обязательное содержимое строки. Для строк и чисел доступное название определяется автоматически.      |
+| `textValue` | `string`              | Доступное название элемента. Обязательно, если `label` задан JSX или другим непримитивным содержимым. |
+| `disabled`  | `boolean`             | Элемент недоступен для выбора и пропускается при навигации.                                           |
+
+## Подписи и единицы измерения
+
+`description` отображается под выбранным значением. При перелистывании подпись масштабируется вместе с элементом: у выбранной строки её прозрачность равна `1`, у остальных — `0`.
+
+`textAfter` отображается после значения в каждой строке и масштабируется вместе с ним. Если подпись задана хотя бы у одной колонки, остальные колонки резервируют место под неё, сохраняя выравнивание строк.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ kilograms: 60, grams: 500 });
+
+    return (
+        <Wheel
+            size="m"
+            value={value}
+            onChange={setValue}
+            aria-label="Масса"
+            columns={[
+                {
+                    name: 'kilograms',
+                    label: 'Килограммы',
+                    items: Array.from({ length: 41 }, (_, index) => ({ value: index + 40, label: index + 40 })),
+                    description: 'Килограммы',
+                    textAfter: 'кг',
+                },
+                {
+                    name: 'grams',
+                    label: 'Граммы',
+                    items: Array.from({ length: 10 }, (_, index) => ({ value: index * 100, label: index * 100 })),
+                    description: 'Граммы',
+                    textAfter: 'г',
+                },
+            ]}
+        />
+    );
+}
+```
+
+## Количество видимых значений
+
+`visibleItemsCount` задаётся для всего Wheel и принимает `3` или `5`. По умолчанию отображается пять строк, включая выбранную. При выключенном зацикливании позиции за границами списка остаются пустыми.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ count: 3 });
+    const items = Array.from({ length: 7 }, (_, value) => ({ value, label: String(value) }));
+
+    return (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+            {([3, 5] as const).map((visibleItemsCount) => (
+                <Wheel
+                    key={visibleItemsCount}
+                    size="m"
+                    visibleItemsCount={visibleItemsCount}
+                    value={value}
+                    onChange={setValue}
+                    aria-label={`${visibleItemsCount} видимых значения`}
+                    columns={[{ name: 'count', label: 'Количество', items }]}
+                />
+            ))}
+        </div>
+    );
+}
+```
+
+## Зацикливание
+
+Зацикливание включается свойством `loop` каждой колонки отдельно. В зацикленной колонке переход после последнего доступного элемента ведёт к первому, а перед первым — к последнему. В остальных колонках навигация останавливается на границах списка.
+
+В примере часы зациклены, минуты — нет:
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ hours: 23, minutes: 59 });
+    const items = Array.from({ length: 60 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+
+    return (
+        <Wheel
+            size="m"
+            value={value}
+            onChange={setValue}
+            separator="dots"
+            aria-label="Время с зацикленными часами"
+            columns={[
+                { name: 'hours', label: 'Часы', description: 'Часы', items: items.slice(0, 24), loop: true },
+                { name: 'minutes', label: 'Минуты', description: 'Минуты', items },
+            ]}
+        />
+    );
+}
+```
+
+## Выравнивание
+
+Свойство `align` управляет выравниванием значений, подписей и стрелок во всех колонках:
+
+-   `left` — по левому краю;
+-   `center` — по центру, значение по умолчанию;
+-   `right` — по правому краю;
+-   `mixed` — первая колонка выравнивается вправо, последняя влево, все внутренние по центру. Единственная колонка при `mixed` центрируется.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ days: 1, hours: 2, minutes: 3, seconds: 4 });
+    const items = Array.from({ length: 60 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+
+    return (
+        <Wheel
+            size="m"
+            align="mixed"
+            value={value}
+            onChange={setValue}
+            aria-label="Длительность"
+            columns={[
+                { name: 'days', label: 'Дни', description: 'Дни', items: items.slice(0, 31) },
+                { name: 'hours', label: 'Часы', description: 'Часы', items: items.slice(0, 24) },
+                { name: 'minutes', label: 'Минуты', description: 'Минуты', items },
+                { name: 'seconds', label: 'Секунды', description: 'Секунды', items },
+            ]}
+        />
+    );
+}
+```
+
+## Разделители
+
+Свойство `separator` задаёт общий разделитель между соседними колонками. По умолчанию используется `none`. Для одной колонки разделитель не отображается.
+
+<Tabs>
+    <TabItem value="presets" label="Готовые варианты" default>
+        Доступны `none`, `dots` и `divider`. Готовые разделители скрыты от скринридера.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Wheel } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const [value, setValue] = useState({ hours: 12, minutes: 30 });
+            const items = Array.from({ length: 60 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                    {(['none', 'dots', 'divider'] as const).map((separator) => (
+                        <Wheel
+                            key={separator}
+                            size="m"
+                            visibleItemsCount={3}
+                            separator={separator}
+                            value={value}
+                            onChange={setValue}
+                            aria-label={`Разделитель ${separator}`}
+                            columns={[
+                                { name: 'hours', label: 'Часы', items: items.slice(0, 24) },
+                                { name: 'minutes', label: 'Минуты', items },
+                            ]}
+                        />
+                    ))}
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="custom" label="Кастомный разделитель">
+        Передайте строку, число или React-элемент. Строки `none`, `dots` и `divider` зарезервированы для готовых вариантов. Значения `null` и `false` скрывают разделитель, а число `0` отображается как контент.
+
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Wheel } from '@salutejs/sdds-dfa';
+
+        export function App() {
+            const [value, setValue] = useState({ day: 15, month: 6 });
+            const days = Array.from({ length: 30 }, (_, index) => ({ value: index + 1, label: index + 1 }));
+            const months = Array.from({ length: 12 }, (_, index) => ({ value: index + 1, label: index + 1 }));
+
+            return (
+                <Wheel
+                    size="m"
+                    value={value}
+                    onChange={setValue}
+                    separator={<span aria-hidden style={{ color: 'var(--text-accent)' }}>/</span>}
+                    aria-label="День и месяц"
+                    columns={[
+                        { name: 'day', label: 'День', description: 'День', items: days },
+                        { name: 'month', label: 'Месяц', description: 'Месяц', items: months },
+                    ]}
+                />
+            );
+        }
+        ```
+
+        Кастомный разделитель сохраняет заданные ему атрибуты доступности. Для декоративного содержимого укажите `aria-hidden` самостоятельно.
+    </TabItem>
+
+</Tabs>
+
+## Ширина компонента и колонок
+
+По умолчанию ширина колонки определяется самым широким элементом всего списка в его выбранном состоянии, включая элементы вне видимой области. Учитываются `renderItem`, `textAfter` и `description`. При перелистывании ширина сохраняется, при изменении данных или размеров контента пересчитывается.
+
+`width` у Wheel задаёт ширину контейнера, `width` у записи в `columns` — ширину конкретной колонки. Оба свойства принимают число в пикселях или CSS-строку, например `'12rem'`, `'30%'` или `'calc(100% - 2rem)'`.
+
+При заданной ширине контейнера колонки без собственной ширины делят доступное пространство с учётом промежутков и разделителей. Явно заданные ширины колонок сохраняются. Если ширина колонки меньше её содержимого, значения обрезаются.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ hours: 12, minutes: 30, seconds: 15 });
+    const items = Array.from({ length: 60 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+
+    return (
+        <div style={{ width: '100%', maxWidth: '35rem' }}>
+            <Wheel
+                size="m"
+                width="100%"
+                value={value}
+                onChange={setValue}
+                separator="dots"
+                aria-label="Время с настройкой ширины"
+                columns={[
+                    { name: 'hours', label: 'Часы', description: 'Часы', items: items.slice(0, 24), width: 120 },
+                    { name: 'minutes', label: 'Минуты', description: 'Минуты', items, width: '30%' },
+                    { name: 'seconds', label: 'Секунды', description: 'Секунды', items },
+                ]}
+            />
+        </div>
+    );
+}
+```
+
+## Кастомное содержимое строк
+
+Для JSX в `label` обязательно задайте `textValue` — текстовое название элемента для скринридера. Для строковых и числовых меток `textValue` можно использовать, чтобы переопределить доступное название.
+
+`renderItem(item, state)` позволяет изменить отображение строки. `state.selected` указывает, выбрана ли она, а `state.offset` задаёт позицию относительно выбранной строки: `0` — выбранная, отрицательные значения — выше, положительные — ниже.
+
+При пяти видимых значениях используются позиции от `-2` до `2`, при трёх — от `-1` до `1`. Функция также вызывается для скрытых соседних строк, участвующих в анимации: позиций `±3` и `±2` соответственно, и для расчёта ширины с состоянием `{ selected: true, offset: 0 }`. Функция должна оставаться чистой.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ delivery: 'standard' });
+
+    return (
+        <Wheel
+            size="m"
+            value={value}
+            onChange={setValue}
+            aria-label="Способ доставки"
+            columns={[
+                {
+                    name: 'delivery',
+                    label: 'Доставка',
+                    items: [
+                        { value: 'standard', label: <span>Курьер</span>, textValue: 'Курьерская доставка' },
+                        { value: 'express', label: <span>Экспресс</span>, textValue: 'Экспресс-доставка' },
+                        { value: 'pickup', label: <span>Самовывоз</span>, textValue: 'Самовывоз' },
+                    ],
+                    renderItem: (item, { selected }) => (
+                        <span style={{ color: selected ? 'var(--text-accent)' : 'inherit' }}>{item.label}</span>
+                    ),
+                },
+            ]}
+        />
+    );
+}
+```
+
+## Зависимые колонки
+
+Связь между колонками задаётся в родительском компоненте. При изменении основной колонки обновите список зависимой колонки и её выбранное значение в одном обработчике.
+
+В примере смена страны выбирает первый город из нового списка:
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const cities = {
+        ru: [
+            { value: 'moscow', label: 'Москва' },
+            { value: 'petersburg', label: 'Петербург' },
+            { value: 'kazan', label: 'Казань' },
+        ],
+        by: [
+            { value: 'minsk', label: 'Минск' },
+            { value: 'brest', label: 'Брест' },
+            { value: 'grodno', label: 'Гродно' },
+        ],
+        kz: [
+            { value: 'astana', label: 'Астана' },
+            { value: 'almaty', label: 'Алматы' },
+            { value: 'shymkent', label: 'Шымкент' },
+        ],
+    };
+    const [value, setValue] = useState<{ country: keyof typeof cities; city: string }>({
+        country: 'ru',
+        city: 'moscow',
+    });
+
+    return (
+        <Wheel
+            size="m"
+            value={value}
+            onChange={(nextValue, columnName) => {
+                setValue(
+                    columnName === 'country' ? { ...nextValue, city: cities[nextValue.country][0].value } : nextValue,
+                );
+            }}
+            aria-label="Место назначения"
+            columns={[
+                {
+                    name: 'country',
+                    label: 'Страна',
+                    items: [
+                        { value: 'ru', label: 'Россия' },
+                        { value: 'by', label: 'Беларусь' },
+                        { value: 'kz', label: 'Казахстан' },
+                    ],
+                },
+                { name: 'city', label: 'Город', items: cities[value.country] },
+            ]}
+        />
+    );
+}
+```
+
+Выбранные значения должны присутствовать в соответствующих списках. Если значение отсутствует, Wheel визуально использует первый доступный элемент, но не исправляет переданный объект `value` и не вызывает `onChange` автоматически. Для пустой колонки выбранного элемента нет.
+
+## Неактивное состояние
+
+Отключить можно весь компонент через `disabled`, отдельную колонку через `columns[].disabled` или конкретный элемент через `items[].disabled`. Недоступные элементы пропускаются при навигации и не выбираются нажатием. Пустая колонка и колонка без доступных элементов не принимают фокус и не реагируют на ввод.
+
+В примере часы отключены, значение `15` в минутах недоступно, а переключатель отключает весь Wheel:
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ hours: 12, minutes: 30 });
+    const [disabled, setDisabled] = useState(false);
+    const items = Array.from({ length: 60 }, (_, value) => ({ value, label: String(value).padStart(2, '0') }));
+
+    return (
+        <div>
+            <label>
+                <input type="checkbox" checked={disabled} onChange={(event) => setDisabled(event.target.checked)} />
+                Отключить Wheel
+            </label>
+            <div>
+                <Wheel
+                    size="m"
+                    disabled={disabled}
+                    value={value}
+                    onChange={setValue}
+                    aria-label="Время с недоступными значениями"
+                    columns={[
+                        { name: 'hours', label: 'Часы', items: items.slice(0, 24), disabled: true },
+                        {
+                            name: 'minutes',
+                            label: 'Минуты',
+                            items: items.map((item) => ({ ...item, disabled: item.value === 15 })),
+                        },
+                    ]}
+                />
+            </div>
+        </div>
+    );
+}
+```
+
+## Анимация и стрелки
+
+По умолчанию `animated={true}` включает плавное перемещение, масштабирование и изменение прозрачности строк и их подписей. Wheel учитывает системную настройку `prefers-reduced-motion: reduce`. При `animated={false}` выбранное значение меняется сразу.
+
+`hasControls={false}` скрывает стрелки над и под колонками. Выбор с клавиатуры, колёсиком мыши, перетаскиванием и нажатием на строки остаётся доступным.
+
+```tsx live
+import React, { useState } from 'react';
+import { Wheel } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState({ count: 3 });
+    const items = Array.from({ length: 7 }, (_, value) => ({ value, label: String(value) }));
+
+    return (
+        <Wheel
+            size="m"
+            animated={false}
+            hasControls={false}
+            value={value}
+            onChange={setValue}
+            aria-label="Количество без анимации и стрелок"
+            columns={[{ name: 'count', label: 'Количество', description: 'Штуки', items }]}
+        />
+    );
+}
+```
+
+## Доступность и клавиатура
+
+Задайте название группы через `aria-label` или `aria-labelledby`. Каждая колонка получает роль `listbox` и доступное название из обязательного `label`. Строки имеют роль `option`, а выбранная строка отмечается через `aria-selected` и `aria-activedescendant` колонки. Для JSX-меток задавайте `textValue`.
+
+`description` связывается с колонкой как дополнительное описание. Стрелки управления имеют доступные названия, но не создают дополнительных остановок при переходе по `Tab`.
+
+| Клавиша       | Действие                                                                         |
+| ------------- | -------------------------------------------------------------------------------- |
+| `Tab`         | Переводит фокус на следующую доступную колонку или следующий элемент страницы.   |
+| `Shift + Tab` | Переводит фокус на предыдущую доступную колонку или предыдущий элемент страницы. |
+| `↑`           | Выбирает предыдущий доступный элемент текущей колонки.                           |
+| `↓`           | Выбирает следующий доступный элемент текущей колонки.                            |
+| `Home`        | Выбирает первый доступный элемент текущей колонки.                               |
+| `End`         | Выбирает последний доступный элемент текущей колонки.                            |
+
+При `loop={false}` стрелки останавливаются на границах списка. Свойства `loop`, `disabled` и `items[].disabled` учитываются при выборе с клавиатуры, мышью и перетаскиванием.
+
+## Таблица свойств
+
+<PropsTable name="Wheel" exclude={['css']} />
