@@ -99,8 +99,8 @@ export function App() {
 
 С помощью свойства `type` можно выбрать тип отображения компонента:
 
-- `"default"` — обычный, с отображением номеров страниц;
-- `"compact"` — компактный, показывает только текущую страницу.
+- `"default"` — обычный, все элементы в одну строку;
+- `"compact"` — компактный, номера страниц и действия в две строки.
 
 ```tsx live
 import React from 'react';
@@ -111,6 +111,52 @@ export function App() {
         <div style=\{{ display: 'flex', gap: '1rem', flexDirection: 'column' }}>
             <Pagination size="xs" type="default" slots={9} count={200} hasPerPage />
             <Pagination size="xs" type="compact" slots={9} count={200} hasPerPage />
+        </div>
+    );
+}
+```
+
+## Без номеров страниц
+
+Свойство `hasPageRange={false}` скрывает номера страниц: вместо них выводится поле с текущей страницей и общим числом страниц (`[2] / 15`).
+Все элементы располагаются в одну строку, без подписей и `helperText` — подходит для небольших блоков.
+Кнопки навигации передаются через `leftContent` и `rightContent`.
+
+```tsx live
+import React, { useState } from 'react';
+import { Pagination, IconButton } from '@salutejs/{{ package }}';
+import { IconDisclosureLeftOutline, IconDisclosureRightOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(20);
+    const count = 300;
+    const pages = Math.ceil(count / perPage);
+
+    return (
+        <div style=\{{ width: '17.5rem' }}>
+            <Pagination
+                size="xs"
+                type="compact"
+                hasPageRange={false}
+                count={count}
+                value={page}
+                perPage={perPage}
+                leftContent={
+                    <IconButton view="clear" size="xs" disabled={page === 1} onClick={() => setPage(page - 1)}>
+                        <IconDisclosureLeftOutline color="inherit" size="xs" />
+                    </IconButton>
+                }
+                rightContent={
+                    <IconButton view="clear" size="xs" disabled={page === pages} onClick={() => setPage(page + 1)}>
+                        <IconDisclosureRightOutline color="inherit" size="xs" />
+                    </IconButton>
+                }
+                onChange={(newPage, newPerPage) => {
+                    setPage(newPage ?? page);
+                    setPerPage(newPerPage ?? perPage);
+                }}
+            />
         </div>
     );
 }

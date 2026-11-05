@@ -10,6 +10,8 @@ export const classes = {
 
     defaultType: 'pagination-type-default',
     compactType: 'pagination-type-compact',
+    withoutRange: 'pagination-without-range',
+    withoutRangeInput: 'pagination-without-range-input',
 
     withHasQuickJump: 'pagination-has-quick-jump',
     withHasPerPageSelect: 'pagination-has-perpage-select',
@@ -153,4 +155,11 @@ export const tokens = {
     inputBorderWidth: '--plasma-pagination-input-border-width',
     /** @styleType dimension */
     inputPadding: '--plasma-pagination-input-padding',
+
+    /** @styleType dimension */
+    paginationWithoutRangeGap: '--plasma-pagination-without-range-gap',
+    /** @styleType dimension */
+    paginationWithoutRangePagesGap: '--plasma-pagination-without-range-pages-gap',
+    /** @styleType dimension */
+    paginationWithoutRangeInputWidth: '--plasma-pagination-without-range-input-width',
 };
