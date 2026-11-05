@@ -17,9 +17,7 @@ export const config = {
         },
         size: {
             m: css`
-                ${editableTokens.editButtonPaddingLeft}: 1rem;
-                ${editableTokens.textBoxPaddingRight}: 1rem;
-                ${editableTokens.textBoxMarginRight}: -1rem;
+                ${editableTokens.iconGap}: 1rem;
             `,
         },
     },

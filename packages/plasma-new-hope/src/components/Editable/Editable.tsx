@@ -9,6 +9,7 @@ import type {
     KeyboardEventHandler,
 } from 'react';
 import type { RootProps } from 'src/engines';
+import cls from 'classnames';
 
 import { useForkRef } from '../../hooks';
 import { constants } from '../../utils';
@@ -36,6 +37,8 @@ export const editableRoot = (typographyVariants: TypographyVariants) => (
                 onChange,
                 onBlur,
                 onPaste,
+                multiline,
+                className,
                 ...props
             },
             outerRef,
@@ -130,20 +133,22 @@ export const editableRoot = (typographyVariants: TypographyVariants) => (
             }, [value, textComponent]);
 
             return (
-                <Root {...props}>
-                    <Component
-                        ref={innerRef}
-                        className={classes.editableTextBox}
-                        role="textbox"
-                        spellCheck={spellCheck}
-                        contentEditable
-                        onPaste={handlePaste}
-                        onInput={handleChange}
-                        onBlur={handleBlur}
-                        onFocus={handleFocus}
-                        onKeyDown={handleKeyDown}
-                        aria-label={placeholder}
-                    />
+                <Root {...props} className={cls(className, multiline && classes.multiline)}>
+                    <span className={classes.textClip}>
+                        <Component
+                            ref={innerRef}
+                            className={classes.editableTextBox}
+                            role="textbox"
+                            spellCheck={spellCheck}
+                            contentEditable
+                            onPaste={handlePaste}
+                            onInput={handleChange}
+                            onBlur={handleBlur}
+                            onFocus={handleFocus}
+                            onKeyDown={handleKeyDown}
+                            aria-label={placeholder}
+                        />
+                    </span>
                     {prevValueRef.current?.length === 0 && !isEditing && (
                         <Component>
                             <StyledPlacehpolder onClick={handleEditClick}>{placeholder}</StyledPlacehpolder>
