@@ -70,6 +70,7 @@ export * from './components/Carousel';
 export * from './components/Tour';
 export * from './components/EmbedIconButton';
 export * from './components/TimePicker';
+export * from './components/Wheel';
 export * from './components/ProgressBarCircular';
 export * from './components/DateTimePicker';
 export * from './components/File';
