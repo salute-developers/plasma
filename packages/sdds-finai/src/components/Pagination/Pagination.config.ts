@@ -191,6 +191,10 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationWithoutRangeGap}: 1.5rem;
+                ${paginationTokens.paginationWithoutRangePagesGap}: 0.25rem;
+                ${paginationTokens.paginationWithoutRangeInputWidth}: 3.75rem;
             `,
             xs: css`
                 ${paginationTokens.paginationFontFamily}: ${bodyXS.fontFamily};
@@ -232,6 +236,10 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationWithoutRangeGap}: 1rem;
+                ${paginationTokens.paginationWithoutRangePagesGap}: 0.25rem;
+                ${paginationTokens.paginationWithoutRangeInputWidth}: 3.25rem;
             `,
         },
         type: {
