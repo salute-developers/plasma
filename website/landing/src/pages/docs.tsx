@@ -268,67 +268,35 @@ export default function DocsPage() {
                         </div>
 
                         <div className="cat-cards">
-                            <SiteLink className="cat-card" href="/#ai">
+                            <SiteLink className="cat-card" href="/docs/cli">
                                 <span className="doc-card-media">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <circle cx="12" cy="12" r="2.6" />
-                                        <circle cx="5" cy="6" r="1.8" />
-                                        <circle cx="19" cy="6" r="1.8" />
-                                        <circle cx="5" cy="18" r="1.8" />
-                                        <circle cx="19" cy="18" r="1.8" />
-                                        <path d="M10 10.4L6.4 7.4M14 10.4l3.6-3M10 13.6l-3.6 3M14 13.6l3.6 3" />
+                                        <rect x="3" y="4" width="18" height="16" rx="2" />
+                                        <path d="m7 9 3 3-3 3M13 15h4" />
                                     </svg>
                                 </span>
-
                                 <span className="doc-card-body">
                                     <span className="cat-head">
-                                        <b>AI-ready контекст</b>
+                                        <b>CLI</b>
                                     </span>
-
                                     <p>
-                                        Структура со связями между сущностями и версиями — агент получает правила
-                                        системы, а не текст страницы.
+                                        Установка dsbuilder, подключение проекта и генерация дизайн-системы из
+                                        терминала.
                                     </p>
                                 </span>
                             </SiteLink>
-
-                            <SiteLink className="cat-card" href="/#ai">
+                            <SiteLink className="cat-card" href="/docs/mcp">
                                 <span className="doc-card-media">
                                     <svg viewBox="0 0 24 24" aria-hidden="true">
                                         <path d="M9 3v6M15 3v6M6 9h12v4a6 6 0 0 1-6 6 6 6 0 0 1-6-6z" />
                                     </svg>
                                 </span>
-
                                 <span className="doc-card-body">
                                     <span className="cat-head">
                                         <b>MCP</b>
                                         <span className="cat-count">бета</span>
                                     </span>
-
-                                    <p>
-                                        Подключение по Model Context Protocol: компоненты, токены и правила читаются
-                                        напрямую из системы.
-                                    </p>
-                                </span>
-                            </SiteLink>
-
-                            <SiteLink className="cat-card" href="#">
-                                <span className="doc-card-media">
-                                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                                        <path d="M6 3h8l4 4v14H6zM14 3v4h4" />
-                                        <path d="M9 12h6M9 16h4" />
-                                    </svg>
-                                </span>
-
-                                <span className="doc-card-body">
-                                    <span className="cat-head">
-                                        <b>Шаблон спецификации</b>
-                                    </span>
-
-                                    <p>
-                                        По нему пишется новая страница компонента. Пока не заполнены обязательные
-                                        разделы — это черновик.
-                                    </p>
+                                    <p>Подключение AI-агента к дизайн-системе через встроенный MCP-сервер dsbuilder.</p>
                                 </span>
                             </SiteLink>
                         </div>
