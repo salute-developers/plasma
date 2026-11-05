@@ -34,7 +34,7 @@
     "@salutejs/plasma-colors": "0.28.0-dev.0",
     "@salutejs/plasma-core": "1.249.0-dev.0",
     "@salutejs/plasma-icons": "1.257.1-dev.0",
-    "@storybook/react": "10.3.4",
+    "@storybook/react": "10.6.5",
     "param-case": "^3.0.4"
   },
   "peerDependencies": {
@@ -54,7 +54,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "lib"
-  ]
+  "files": ["lib"]
 }
