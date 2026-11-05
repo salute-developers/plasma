@@ -21,18 +21,19 @@ const config = {
         },
         {
             name: '@salutejs/plasma-giga',
+            excludeComponents: ['Editable'],
         },
         {
             name: '@salutejs/sdds-bizcom',
-            excludeComponents: ['CodeArea', 'BottomSheet'],
+            excludeComponents: ['CodeArea', 'BottomSheet', 'Editable'],
         },
         {
             name: '@salutejs/sdds-cs',
-            excludeComponents: ['RatingInput', 'Select', 'InformationWrapper', 'CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'Select', 'InformationWrapper', 'CodeArea', 'BottomSheet', 'Editable'],
         },
         {
             name: '@salutejs/sdds-dfa',
-            excludeComponents: ['InformationWrapper', 'CodeArea', 'BottomSheet'],
+            excludeComponents: ['InformationWrapper', 'CodeArea', 'BottomSheet', 'Editable'],
         },
         {
             name: '@salutejs/sdds-finai',
@@ -40,23 +41,23 @@ const config = {
         },
         {
             name: '@salutejs/sdds-insol',
-            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet', 'Editable'],
         },
         {
             name: '@salutejs/sdds-netology',
-            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet', 'Editable'],
         },
         {
             name: '@salutejs/sdds-platform-ai',
-            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet'],
+            excludeComponents: ['RatingInput', 'CodeArea', 'BottomSheet', 'Editable'],
         },
         {
             name: '@salutejs/sdds-scan',
-            excludeComponents: ['CodeArea', 'Sheet', 'BottomSheet'],
+            excludeComponents: ['CodeArea', 'Sheet', 'BottomSheet', 'Editable'],
         },
         {
             name: '@salutejs/sdds-serv',
-            excludeComponents: ['CodeArea', 'BottomSheet'],
+            excludeComponents: ['CodeArea', 'BottomSheet', 'Editable'],
         },
     ],
     includeComponents: [],

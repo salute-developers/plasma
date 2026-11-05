@@ -25,10 +25,12 @@ const paste = (selector: string, text: string) => {
 
 const noop = () => {};
 
-const Headline1ForMatrix = componentExists ? getComponent('Headline1') : () => null;
+// У sdds-finai нет старой типографики Headline*, там только H1–H6.
+const textComponentName = hasComponent('Headline1') ? 'Headline1' : 'H1';
+const TextForMatrix = componentExists ? getComponent(textComponentName) : () => null;
 
 const componentProps = {
-    textComponent: Headline1ForMatrix,
+    textComponent: TextForMatrix,
     value: 'Document 1',
     placeholder: 'placeholder',
 };
@@ -73,19 +75,19 @@ describeFn('Editable', () => {
     }
 
     it('empty', () => {
-        const Headline1 = getComponent('Headline1');
+        const TextComponent = getComponent(textComponentName);
 
-        mount(<Editable textComponent={Headline1} icon={<IconPlasma size="s" color="inherit" />} />);
+        mount(<Editable textComponent={TextComponent} icon={<IconPlasma size="s" color="inherit" />} />);
 
         cy.matchImageSnapshot();
     });
 
     it('empty, placeholder', () => {
-        const Headline1 = getComponent('Headline1');
+        const TextComponent = getComponent(textComponentName);
 
         mount(
             <Editable
-                textComponent={Headline1}
+                textComponent={TextComponent}
                 icon={<IconPlasma size="s" color="inherit" />}
                 placeholder="Плейсхолдер"
             />,
@@ -95,9 +97,9 @@ describeFn('Editable', () => {
     });
 
     it('onChange', () => {
-        const Headline1 = getComponent('Headline1');
+        const TextComponent = getComponent(textComponentName);
 
-        mount(<Editable value="onChange" onChange={noop} maxLength={5} textComponent={Headline1} />);
+        mount(<Editable value="onChange" onChange={noop} maxLength={5} textComponent={TextComponent} />);
 
         cy.get('span > div').first().type('Hello');
 
@@ -105,20 +107,20 @@ describeFn('Editable', () => {
     });
 
     it('onBlur and onFocus', () => {
-        const Headline1 = getComponent('Headline1');
+        const TextComponent = getComponent(textComponentName);
 
         mount(
             <Editable
                 value="onBlur and onFocus"
                 onBlur={noop}
                 icon={<IconPlasma size="s" color="inherit" />}
-                textComponent={Headline1}
+                textComponent={TextComponent}
             />,
         );
 
-        cy.get('span > span').click();
+        cy.get('.editable-text-box').click();
 
-        cy.get('span > div').first().blur();
+        cy.get('.editable-text-box').blur();
 
         // для случаев, если не поддерживаются современные интерфейсы window
         cy.window().then((win) => {
@@ -138,17 +140,17 @@ describeFn('Editable', () => {
             });
         });
 
-        cy.get('span > div').first().focus();
+        cy.get('.editable-text-box').focus();
 
-        cy.get('span > div').first().trigger('keydown', { keyCode: 13 });
+        cy.get('.editable-text-box').trigger('keydown', { keyCode: 13 });
 
         cy.matchImageSnapshot();
     });
 
     it('onPaste', () => {
-        const Headline1 = getComponent('Headline1');
+        const TextComponent = getComponent(textComponentName);
 
-        mount(<Editable value="onPaste" onPaste={noop} textComponent={Headline1} />);
+        mount(<Editable value="onPaste" onPaste={noop} textComponent={TextComponent} />);
 
         paste('span > div', 'Hello from paste');
 
@@ -197,5 +199,92 @@ describeFn('Editable', () => {
         mount(<Demo componentName="H4" iconSize="xs" />);
 
         cy.matchImageSnapshot();
+    });
+
+    const longValue = 'Очень длинное название документа, которое не помещается в одну строку';
+
+    it('multiline', () => {
+        const H5 = getComponent('H5');
+
+        mount(
+            <Editable
+                textComponent={H5}
+                value={longValue}
+                multiline
+                icon={<IconPlasma size="s" color="inherit" />}
+                style={{ maxWidth: '20rem' }}
+            />,
+        );
+
+        cy.get('.editable-multiline').should('exist');
+        cy.get('.editable-text-box').should('have.css', 'white-space', 'pre-wrap');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('single line overflow', () => {
+        const H5 = getComponent('H5');
+
+        mount(
+            <div style={{ width: '16rem' }}>
+                <Editable
+                    textComponent={H5}
+                    value={longValue}
+                    icon={<IconPlasma size="s" color="inherit" />}
+                    style={{ maxWidth: '100%' }}
+                />
+            </div>,
+        );
+
+        cy.get('.editable-multiline').should('not.exist');
+        cy.get('.editable-text-box').should('have.css', 'white-space', 'nowrap');
+
+        cy.matchImageSnapshot();
+    });
+
+    it('short text does not overflow', () => {
+        const H5 = getComponent('H5');
+
+        mount(
+            <div style={{ width: '16rem' }}>
+                <Editable
+                    textComponent={H5}
+                    value="Header 5"
+                    icon={<IconPlasma size="s" color="inherit" />}
+                    style={{ maxWidth: '100%' }}
+                />
+            </div>,
+        );
+
+        cy.get('.editable-text-clip').then(($clip) => {
+            expect($clip[0].scrollWidth).to.be.at.most($clip[0].clientWidth + 1);
+        });
+
+        cy.matchImageSnapshot();
+    });
+
+    it('enter ends editing', () => {
+        const H5 = getComponent('H5');
+
+        mount(<Editable textComponent={H5} value="Header 5" icon={<IconPlasma size="s" color="inherit" />} />);
+
+        cy.get('.editable-text-box').click();
+        cy.get('svg').should('not.be.visible');
+
+        cy.get('.editable-text-box').type('{enter}');
+
+        cy.get('.editable-text-box').should('not.be.focused');
+        cy.get('svg').should('be.visible');
+    });
+
+    it('paste strips line breaks', () => {
+        const H5 = getComponent('H5');
+
+        mount(<Editable textComponent={H5} value="текст" icon={<IconPlasma size="s" color="inherit" />} />);
+
+        cy.get('svg').click();
+        paste('.editable-text-box', 'первая\nвторая');
+
+        cy.get('.editable-text-box').should('have.text', 'перваявторая');
     });
 });
