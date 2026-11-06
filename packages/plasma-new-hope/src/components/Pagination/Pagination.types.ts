@@ -44,6 +44,12 @@ export type CustomPaginationProps = {
     size?: string;
 
     /**
+     * Показывать номера страниц.
+     * @default true
+     */
+    hasPageRange?: boolean;
+
+    /**
      * Количество страниц
      */
     count?: number;

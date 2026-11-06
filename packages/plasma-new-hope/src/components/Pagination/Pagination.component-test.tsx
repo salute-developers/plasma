@@ -253,6 +253,37 @@ describeFn('Pagination', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: hasPageRange', () => {
+        const prev = <Button>Prev</Button>;
+        const next = <Button>Next</Button>;
+
+        mount(
+            <div style={{ width: '25rem' }}>
+                <Pagination
+                    type="compact"
+                    hasPageRange={false}
+                    leftContent={prev}
+                    rightContent={next}
+                    value={values[1]}
+                    count={count}
+                />
+                <PadMe />
+                <Pagination
+                    type="compact"
+                    hasPageRange={false}
+                    hasQuickJump={false}
+                    leftContent={prev}
+                    rightContent={next}
+                    value={values[1]}
+                    count={count}
+                />
+            </div>,
+        );
+
+        cy.viewport(500, 400);
+        cy.matchImageSnapshot();
+    });
+
     it('minSlots', () => {
         cy.viewport(1000, 500);
         mount(

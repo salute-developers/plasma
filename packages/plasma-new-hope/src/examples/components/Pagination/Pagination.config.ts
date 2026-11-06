@@ -167,6 +167,10 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationWithoutRangeGap}: 2rem;
+                ${paginationTokens.paginationWithoutRangePagesGap}: 0.25rem;
+                ${paginationTokens.paginationWithoutRangeInputWidth}: 4.5rem;
             `,
             m: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-m-font-family);
@@ -208,6 +212,10 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationWithoutRangeGap}: 1.5rem;
+                ${paginationTokens.paginationWithoutRangePagesGap}: 0.25rem;
+                ${paginationTokens.paginationWithoutRangeInputWidth}: 4rem;
             `,
             s: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-s-font-family);
@@ -249,6 +257,10 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationWithoutRangeGap}: 1.5rem;
+                ${paginationTokens.paginationWithoutRangePagesGap}: 0.25rem;
+                ${paginationTokens.paginationWithoutRangeInputWidth}: 3.75rem;
             `,
             xs: css`
                 ${paginationTokens.paginationFontFamily}: var(--plasma-typo-body-xs-font-family);
@@ -290,6 +302,10 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationWithoutRangeGap}: 1rem;
+                ${paginationTokens.paginationWithoutRangePagesGap}: 0.25rem;
+                ${paginationTokens.paginationWithoutRangeInputWidth}: 3.25rem;
             `,
         },
         type: {

@@ -22,6 +22,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { classes } from './Pagination.tokens';
 import { PaginationQuickJumpToPage } from './ui/PaginationQuickJumpToPage/PaginationQuickJumpToPage';
 import { PaginationSelectPerPage } from './ui/PaginationSelectPerPage/PaginationSelectPerPage';
+import { PaginationWithoutRange } from './ui/PaginationWithoutRange/PaginationWithoutRange';
 
 export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, PaginationProps>) =>
     forwardRef<HTMLDivElement, PaginationProps>(
@@ -49,6 +50,7 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
 
                 hasQuickJump = defaultValues.hasQuickJump,
                 hasPerPage = defaultValues.hasPerPage,
+                hasPageRange = defaultValues.hasPageRange,
                 perPageList = defaultValues.perPageList,
                 isCommonButtonStyles = defaultValues.isCommonButtonStyles,
 
@@ -130,6 +132,16 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
             const handlerSetPerPage = (newPerPageValue: number) => {
                 setPerPageInner(newPerPageValue);
 
+                if (!hasPageRange) {
+                    const newPages = Math.max(Math.ceil(count / newPerPageValue), 1);
+                    const newPageValue = Math.min(pageValue, newPages);
+
+                    setPageInner(newPageValue);
+                    onChange?.(newPageValue, newPerPageValue);
+                    onChangePerPageValue?.(newPerPageValue);
+                    return;
+                }
+
                 onChange?.(pageValue, newPerPageValue);
                 onChangePerPageValue?.(newPerPageValue);
             };
@@ -171,6 +183,38 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                     observers.forEach((observer) => observer.disconnect());
                 };
             }, [type]);
+
+            if (!hasPageRange) {
+                return (
+                    <Root
+                        size={size}
+                        view={view}
+                        viewCurrentPage={viewCurrentPage}
+                        className={cx(classes.wrapper, typeClass)}
+                        ref={forkRef}
+                        {...rest}
+                    >
+                        <PaginationWithoutRange
+                            pageValue={pageValue}
+                            pages={Math.max(pages, 1)}
+                            perPageValue={perPageValue}
+                            perPageList={perPageList}
+                            hasQuickJump={hasQuickJump}
+                            hasPerPage={hasPerPage}
+                            placeholderQuickJump={placeholderQuickJump}
+                            isCommonButtonStyles={isCommonButtonStyles}
+                            leftContent={leftContent}
+                            rightContent={rightContent}
+                            size={size}
+                            listWidth={listWidth}
+                            onChangePage={handleSetPage}
+                            onChangePerPage={handlerSetPerPage}
+                            onFocusQuickJump={onFocusQuickJump}
+                            onBlurQuickJump={onBlurQuickJump}
+                        />
+                    </Root>
+                );
+            }
 
             return (
                 <Root

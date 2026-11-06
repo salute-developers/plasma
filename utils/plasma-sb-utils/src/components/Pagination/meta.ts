@@ -32,6 +32,7 @@ export const createMeta = ({
             size: 'xs',
             hasQuickJump: true,
             hasPerPage: true,
+            hasPageRange: true,
             pilled: false,
             square: true,
             listWidth: '5rem',
@@ -81,6 +82,9 @@ export const createMeta = ({
                 if: { arg: 'hasQuickJump', truhty: true },
             },
             hasPerPage: {
+                control: { type: 'boolean' },
+            },
+            hasPageRange: {
                 control: { type: 'boolean' },
             },
             singleLine: {
