@@ -1,6 +1,6 @@
 module.exports = {
     plugins: ['stylelint-order', 'stylelint-prettier'],
-    processors: ['stylelint-processor-styled-components'],
+    customSyntax: 'postcss-styled-syntax',
     extends: ['stylelint-config-styled-components'],
     ignoreFiles: ['scaffold/template-docs/src/theme/Playground/index.tsx'],
     rules: {
@@ -18,7 +18,7 @@ module.exports = {
         'font-family-no-missing-generic-family-keyword': [true, { ignoreFontFamilies: 'a' }],
         'font-weight-notation': 'named-where-possible',
 
-        'function-blacklist': [],
+        'function-disallowed-list': [],
         'function-calc-no-unspaced-operator': true,
         'function-comma-newline-after': 'always-multi-line',
         'function-comma-newline-before': 'never-multi-line',
@@ -30,10 +30,10 @@ module.exports = {
         'function-parentheses-newline-inside': 'never-multi-line',
         'function-parentheses-space-inside': 'never',
         'function-url-quotes': 'always',
-        'function-url-scheme-whitelist': ['https'],
+        'function-url-scheme-allowed-list': ['https'],
         // правила whitelist и blacklist взаимоисключающие
-        // "function-url-scheme-blacklist": ["data"],
-        'function-whitelist': null,
+        // "function-url-scheme-disallowed-list": ["data"],
+        'function-allowed-list': null,
         'function-whitespace-after': 'always',
 
         'number-leading-zero': 'always',
@@ -45,7 +45,7 @@ module.exports = {
 
         'time-min-milliseconds': 100,
 
-        'unit-blacklist': [],
+        'unit-disallowed-list': [],
         'unit-case': 'lower',
         'unit-no-unknown': true,
 
@@ -60,7 +60,7 @@ module.exports = {
 
         'shorthand-property-no-redundant-values': true,
 
-        'property-blacklist': [],
+        'property-disallowed-list': [],
         'property-case': 'lower',
         'property-no-unknown': true,
         'property-no-vendor-prefix': null,
@@ -73,8 +73,8 @@ module.exports = {
         'declaration-colon-space-after': null,
         'declaration-colon-space-before': 'never',
         // "declaration-no-important": true,
-        'declaration-property-unit-blacklist': {},
-        'declaration-property-value-blacklist': {},
+        'declaration-property-unit-disallowed-list': {},
+        'declaration-property-value-disallowed-list': {},
         'declaration-block-no-duplicate-properties': [true, { ignore: ['consecutive-duplicates'] }],
         'declaration-block-no-redundant-longhand-properties': [true, { ignoreShorthands: ['/flex-/'] }],
         'declaration-block-no-shorthand-property-overrides': true,
@@ -151,7 +151,8 @@ module.exports = {
         'comment-no-empty': true,
         'comment-whitespace-inside': 'always',
 
-        indentation: 4,
+        // Template literal formatting is checked by Prettier in lint-staged.
+        indentation: null,
         linebreaks: 'unix',
         'max-line-length': 120,
         'max-empty-lines': 1,
@@ -162,7 +163,7 @@ module.exports = {
         'no-extra-semicolons': true,
         'no-invalid-double-slash-comments': true,
         'no-missing-end-of-source-newline': true,
-        'no-empty-first-line': true,
+        'no-empty-first-line': null,
         'no-unknown-animations': true,
 
         /* 'order/order': [

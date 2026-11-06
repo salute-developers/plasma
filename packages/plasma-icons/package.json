@@ -93,10 +93,10 @@
     "react-dom": "^18.2.0",
     "rollup": "^3.29.5",
     "rollup-plugin-css-only": "^4.5.2",
-    "sharp": "^0.32.6",
+    "sharp": "^0.35.5",
     "styled-components": "5.3.11",
     "svg2vectordrawable": "^2.9.1",
-    "vite": "4.5.3"
+    "vite": "7.3.7"
   },
   "scripts": {
     "prepare": "npm run build",
@@ -114,10 +114,6 @@
     "build:css": "rollup -c",
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
-  "sideEffects": [
-    "*.css"
-  ]
+  "contributors": ["salute.developers@gmail.com"],
+  "sideEffects": ["*.css"]
 }

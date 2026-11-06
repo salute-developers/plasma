@@ -28,10 +28,10 @@
     "generate-mcp-data": "rm -rf ./mcpData && tsx ./scripts/generateMcpData/index.ts"
   },
   "dependencies": {
-    "@docusaurus/core": "3.6.1",
+    "@docusaurus/core": "3.10.2",
     "@docusaurus/faster": "3.8.1",
-    "@docusaurus/preset-classic": "3.6.1",
-    "@docusaurus/theme-live-codeblock": "3.6.1",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-live-codeblock": "3.10.2",
     "@mdx-js/react": "3.0.0",
     "@salutejs/plasma-docs-ui": "0.557.1-dev.0",
     "@salutejs/plasma-icons": "1.257.1-dev.0",
@@ -42,7 +42,7 @@
     "@salutejs/plasma-web": "1.646.1-dev.0",
     "@svgr/webpack": "8.1.0",
     "clsx": "^1.1.1",
-    "docusaurus-theme-search-typesense": "^0.25.0",
+    "docusaurus-theme-search-typesense": "0.27.0",
     "file-loader": "^6.2.0",
     "prism-react-renderer": "2.3.1",
     "react": "18.2.0",
@@ -52,8 +52,8 @@
     "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.6.1",
-    "@docusaurus/types": "3.6.1",
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/types": "3.10.2",
     "@salutejs/docusaurus-plugin-yandex-metrika": "0.3.0-dev.0",
     "@tsconfig/docusaurus": "2.0.2",
     "@types/react": "18.0.28",
@@ -66,15 +66,7 @@
     "typescript": "5.2.2"
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }
