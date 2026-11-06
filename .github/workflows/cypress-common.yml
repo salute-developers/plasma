@@ -29,18 +29,30 @@ on:
         required: false
         type: string
         default: 'false'
+      ref:
+        description: 'Git ref to checkout (leave empty for the triggering ref)'
+        required: false
+        type: string
+        default: ''
+      continue-on-error:
+        description: 'When false, failed tests fail the calling job'
+        required: false
+        type: boolean
+        default: true
 
 jobs:
   run:
     if: ${{ inputs.scope != '' }}
     runs-on: ubuntu-latest
-    continue-on-error: true
+    continue-on-error: ${{ inputs.continue-on-error }}
     env:
       NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
       COVERAGE: true
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - uses: ./.github/actions/prepare-environment
 

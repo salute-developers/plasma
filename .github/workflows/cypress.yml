@@ -65,13 +65,11 @@ jobs:
         # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
         # Можно для этого использовать JSON.stringify()
         scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_PLASMA }}
-        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "plasma"
-      browser: ${{ matrix.browser }}
       components: ${{ needs.find_components.outputs.components }}
       test-all: ${{ needs.find_components.outputs.test-all }}
     secrets: inherit
@@ -83,13 +81,11 @@ jobs:
       fail-fast: false
       matrix:
         scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_SDDS }}
-        browser: ['', 'webkit']
 
     uses: ./.github/workflows/cypress-common.yml
     with:
       scope: ${{ matrix.scope }}
       prefix: "sdds"
-      browser: ${{ matrix.browser }}
       components: ${{ needs.find_components.outputs.components }}
       test-all: ${{ needs.find_components.outputs.test-all }}
     secrets: inherit
