@@ -75,7 +75,7 @@ export const base = css`
 
         ${EditButton} {
             padding-left: 0;
-            background: var(--plasma-editable-icon-background, var(${tokens.editButtonBackground}));
+            background: var(${tokens.iconBackground}, var(${tokens.editButtonBackground}));
         }
     }
 `;
