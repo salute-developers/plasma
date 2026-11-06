@@ -212,7 +212,7 @@ describeFn('Editable', () => {
                 value={longValue}
                 multiline
                 icon={<IconPlasma size="s" color="inherit" />}
-                style={{ maxWidth: '20rem' }}
+                style={{ maxWidth: '17rem' }}
             />,
         );
 

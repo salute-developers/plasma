@@ -21,18 +21,18 @@ import React from 'react';
 import { BodyL, BodyM, BodyS, BodyXS, BodyXXS, Editable, H1, H2, H3, H4, H5, H6, editableTokens } from '@salutejs/plasma-web';
 import { EditOutline } from '@salutejs/sdds-icons/24';
 
-function Example({ textComponent, iconSize, iconGap, value }) {
-    return (
-        <Editable
-            textComponent={textComponent}
-            value={value}
-            icon={<EditOutline width={iconSize} height={iconSize} color="inherit" />}
-            style={{ [editableTokens.iconGap]: iconGap }}
-        />
-    );
-}
-
 export function App() {
+    function Example({ textComponent, iconSize, iconGap, value }) {
+        return (
+            <Editable
+                textComponent={textComponent}
+                value={value}
+                icon={<EditOutline width={iconSize} height={iconSize} color="inherit" />}
+                style={{ [editableTokens.iconGap]: iconGap }}
+            />
+        );
+    }
+
     return (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             <Example textComponent={H1} iconSize={54} iconGap="8px" value="Header 1" />
