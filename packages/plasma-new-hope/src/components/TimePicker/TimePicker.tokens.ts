@@ -227,6 +227,7 @@ export const tokens = {
     itemLetterSpacing: '--sdds-core-time-picker-item-letter-spacing',
     itemLineHeight: '--sdds-core-time-picker-item-line-height',
 
+    gap: '--sdds-core-time-picker-gap',
     scrollbarWidth: '--sdds-core-time-picker-scrollbar-width',
     scrollbarColor: '--sdds-core-time-picker-scrollbar-color',
     scrollbarTrackColor: '--sdds-core-time-picker-scrollbar-track-color',
