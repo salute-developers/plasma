@@ -1,4 +1,5 @@
 export * from './components/Button';
+export * from './components/Form';
 export * from './components/TextArea';
 export * from './components/TextField';
 
