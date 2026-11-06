@@ -71,13 +71,18 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": [
-      "src/**/*component-test.tsx"
-    ],
+    "ignoreFiles": ["src/**/*component-test.tsx"],
     "atLeast": 99
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
-  "sideEffects": false
+  "contributors": ["salute.developers@gmail.com"],
+  "sideEffects": false,
+  "overrides": {
+    "@types/react-native": "0.69.6",
+    "brace-expansion@^1": "1.1.22",
+    "browserslist": "4.29.5",
+    "form-data@^3": "3.0.5",
+    "js-yaml@^3": "3.15.2",
+    "lodash": "4.18.1",
+    "ws@^7": "7.5.14"
+  }
 }
