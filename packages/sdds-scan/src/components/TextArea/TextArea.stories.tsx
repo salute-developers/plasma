@@ -10,6 +10,12 @@ type TextAreaProps = ComponentProps<typeof TextArea>;
 const { meta: META, Default } = getTextAreaStories({
     component: TextArea,
     componentConfig: config,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: { type: 'select' },
+        },
+    },
 });
 
 const meta: Meta<TextAreaProps> = {

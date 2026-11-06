@@ -272,6 +272,8 @@ export const tokens = {
     leftHelperColorSuccess: '--plasma-range-info-wrapper-left-helper--success',
     /** @styleType color */
     leftHelperColorEdited: '--plasma-range-info-wrapper-left-helper--edited',
+    /** @styleType color */
+    leftHelperColorFocus: '--plasma-range-info-wrapper-left-helper-color-focus',
 
     /** @styleType dimension */
     helpersPadding: '--plasma-range-info-wrapper-helpers-padding-top',
