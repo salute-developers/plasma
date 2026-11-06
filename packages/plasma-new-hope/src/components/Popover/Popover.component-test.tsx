@@ -303,4 +303,29 @@ describeFn('Popover', () => {
         cy.get('button').first().click();
         cy.get('p').contains(text).should('not.be.visible');
     });
+
+    it('placement as array: first item that fits, then next by priority', () => {
+        const PlacementDemo = ({ position }: { position: 'top' | 'bottom' }) => (
+            <div style={{ position: 'fixed', left: '50%', [position]: 0 }}>
+                <Popover
+                    opened
+                    id="popover"
+                    trigger="click"
+                    placement={['bottom', 'top']}
+                    target={<Button>Target</Button>}
+                    isFocusTrapped={false}
+                >
+                    <div style={{ width: '10rem', height: '10rem' }}>
+                        <p>{text}</p>
+                    </div>
+                </Popover>
+            </div>
+        );
+
+        mount(<PlacementDemo position="top" />);
+        cy.get('#popover').should('have.attr', 'data-popper-placement', 'bottom');
+
+        mount(<PlacementDemo position="bottom" />);
+        cy.get('#popover').should('have.attr', 'data-popper-placement', 'top');
+    });
 });
