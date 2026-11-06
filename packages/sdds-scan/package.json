@@ -7,16 +7,8 @@
     "access": "public"
   },
   "license": "MIT",
-  "files": [
-    "dist",
-    "types"
-  ],
-  "keywords": [
-    "design-system",
-    "react-components",
-    "ui-kit",
-    "react"
-  ],
+  "files": ["dist", "types"],
+  "keywords": ["design-system", "react-components", "ui-kit", "react"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/salute-developers/plasma.git",
@@ -95,17 +87,25 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": [
-      "src/**/*.component-test.tsx",
-      "src/**/*.stories.tsx",
-      "src/**/*.styles.ts"
-    ],
+    "ignoreFiles": ["src/**/*.component-test.tsx", "src/**/*.stories.tsx", "src/**/*.styles.ts"],
     "atLeast": 99.9
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
-  "sideEffects": [
-    "*.css"
-  ]
+  "contributors": ["salute.developers@gmail.com"],
+  "sideEffects": ["*.css"],
+  "overrides": {
+    "@types/react-native": "0.69.6",
+    "@linaria/babel-preset": {
+      "happy-dom": "21.0.4"
+    },
+    "brace-expansion@^1": "1.1.22",
+    "brace-expansion@^2": "2.1.8",
+    "browserslist": "4.29.5",
+    "js-yaml@^4": "4.3.2",
+    "nanoid@^3": "3.3.20",
+    "postcss": "8.5.32",
+    "shell-quote": "1.12.0",
+    "source-map-js": "1.2.2",
+    "svgo@^2": "2.8.4",
+    "ws@^7": "7.5.14"
+  }
 }

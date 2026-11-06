@@ -21,12 +21,7 @@
     "collectPackageInfo.d.ts",
     "collectPackageInfo.js"
   ],
-  "keywords": [
-    "design-system",
-    "react-components",
-    "ui-kit",
-    "react"
-  ],
+  "keywords": ["design-system", "react-components", "ui-kit", "react"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/salute-developers/plasma.git",
@@ -98,14 +93,17 @@
     "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
   },
   "typeCoverage": {
-    "ignoreFiles": [
-      "src/**/*component-test.tsx",
-      "src/**/*stories.tsx"
-    ],
+    "ignoreFiles": ["src/**/*component-test.tsx", "src/**/*stories.tsx"],
     "atLeast": 99.96
   },
-  "contributors": [
-    "salute.developers@gmail.com"
-  ],
-  "sideEffects": false
+  "contributors": ["salute.developers@gmail.com"],
+  "sideEffects": false,
+  "overrides": {
+    "@types/react-native": "0.69.6",
+    "brace-expansion@^1": "1.1.22",
+    "browserslist": "4.29.5",
+    "form-data@^3": "3.0.5",
+    "js-yaml@^3": "3.15.2",
+    "ws@^7": "7.5.14"
+  }
 }
