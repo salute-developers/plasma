@@ -113,6 +113,8 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textPositive};
                 ${tokens.rightHelperColor}: ${textPositive};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -148,6 +150,8 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textWarning};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -183,6 +187,8 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -556,9 +562,10 @@ export const config = {
         },
         readOnly: {
             true: css`
-                ${tokens.readOnlyOpacity}: 0.1;
+                ${tokens.readOnlyOpacity}: 1;
                 ${tokens.colorReadOnly}: ${textPrimary};
-                ${tokens.backgroundColorReadOnly}: ${surfaceTransparentPrimary};
+                ${tokens.backgroundColorReadOnly}: ${surfaceSolidCard};
+                ${tokens.borderColorReadOnly}: ${outlineSolidPrimary};
                 ${tokens.placeholderColorReadOnly}: ${textSecondary};
                 ${tokens.leftHelperColorReadOnly}: ${textSecondary};
                 ${tokens.rightHelperColorReadOnly}: ${textSecondary};
