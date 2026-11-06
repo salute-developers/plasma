@@ -212,7 +212,7 @@ describeFn('Editable', () => {
                 value={longValue}
                 multiline
                 icon={<IconPlasma size="s" color="inherit" />}
-                style={{ maxWidth: '20rem' }}
+                style={{ maxWidth: '17rem' }}
             />,
         );
 
@@ -261,6 +261,31 @@ describeFn('Editable', () => {
         });
 
         cy.matchImageSnapshot();
+    });
+
+    it('resets clip scroll after editing', () => {
+        const H5 = getComponent('H5');
+
+        mount(
+            <div style={{ width: '16rem' }}>
+                <Editable
+                    textComponent={H5}
+                    value={longValue}
+                    icon={<IconPlasma size="s" color="inherit" />}
+                    style={{ maxWidth: '100%' }}
+                />
+            </div>,
+        );
+
+        cy.get('.editable-text-box').click('left');
+        cy.get('.editable-text-clip').then(($clip) => {
+            $clip[0].scrollLeft = 40;
+            expect($clip[0].scrollLeft).to.be.greaterThan(0);
+        });
+        cy.get('.editable-text-box').blur();
+        cy.get('.editable-text-clip').should(($clip) => {
+            expect($clip[0].scrollLeft).to.equal(0);
+        });
     });
 
     it('enter ends editing', () => {

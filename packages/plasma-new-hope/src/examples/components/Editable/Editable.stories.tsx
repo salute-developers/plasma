@@ -1,7 +1,6 @@
 import React, { forwardRef, useState } from 'react';
 import type { ComponentProps, CSSProperties } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { Description, Stories, Subtitle, Title } from '@storybook/addon-docs/blocks';
 import { disableProps } from '@salutejs/plasma-sb-utils';
 
 import { IconEditOutline } from '../../../components/_Icon';
@@ -43,31 +42,10 @@ const variants = [
     },
 ];
 
-const DocsPage = () => (
-    <>
-        <Title />
-        <Subtitle />
-        <Description />
-        <Stories />
-    </>
-);
-
 const meta: Meta<typeof Editable> = {
     title: 'Data Entry/Editable',
     decorators: [WithTheme],
     component: Editable,
-    parameters: {
-        docs: {
-            page: DocsPage,
-            description: {
-                component: [
-                    'Редактируемый текст. Иконка передаётся в `icon`, для hover нужен `color="inherit"`.',
-                    '',
-                    '`multiline` переносит значение на новую строку, когда оно не помещается по ширине.',
-                ].join('\n'),
-            },
-        },
-    },
     argTypes: {
         ...disableProps([
             'ref',

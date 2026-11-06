@@ -6,6 +6,7 @@ export const classes = {
 
 export const tokens = {
     editButtonBackground: '--plasma-editable-edit-button-background',
+    iconBackground: '--plasma-editable-icon-background',
     editButtonColor: '--plasma-editable-edit-button-color',
     editButtonColorHover: '--plasma-editable-edit-button-color-hover',
     iconGap: '--plasma-editable-icon-gap',

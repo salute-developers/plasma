@@ -48,6 +48,7 @@ export const editableRoot = (typographyVariants: TypographyVariants) => (
             const [isEditing, setIsEditing] = useState(false);
 
             const inputRef = useRef<HTMLDivElement>(null);
+            const textClipRef = useRef<HTMLSpanElement>(null);
             const innerRef = useForkRef(inputRef, outerRef);
 
             const prevValueRef = useRef(value || '');
@@ -80,6 +81,12 @@ export const editableRoot = (typographyVariants: TypographyVariants) => (
                 setIsEditing(false);
 
                 clearSelection();
+
+                // End scrolls the clip to the caret. The fade uses background-attachment: local,
+                // so a leftover scrollLeft shifts it after editing ends.
+                if (textClipRef.current) {
+                    textClipRef.current.scrollLeft = 0;
+                }
 
                 // NOTE: Remove <br> tag inserted by Safari
                 const editableElement = inputRef.current;
@@ -134,7 +141,7 @@ export const editableRoot = (typographyVariants: TypographyVariants) => (
 
             return (
                 <Root {...props} className={cls(className, multiline && classes.multiline)}>
-                    <span className={classes.textClip}>
+                    <span ref={textClipRef} className={classes.textClip}>
                         <Component
                             ref={innerRef}
                             className={classes.editableTextBox}
