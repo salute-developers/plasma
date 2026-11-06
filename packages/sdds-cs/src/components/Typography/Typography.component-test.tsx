@@ -95,8 +95,6 @@ describe('sdds-cs: ResponsiveTypography', () => {
     it('Dspl @375px', () => {
         mount(dspl);
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(100);
         cy.viewport(375, 667);
         cy.matchImageSnapshot();
     });

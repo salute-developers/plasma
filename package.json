@@ -23,6 +23,7 @@
     "release": "npm run git:diff && auto shipit -vv",
     "precy:run": "rm -rf {.nyc_output}",
     "cy:clean": "rm -rf cypress/{results,reports,screenshots,videos}",
+    "test:cy-scripts": "node --test tests/cypress-test-runtime.test.js tests/cypress-browser-window.test.js",
     "cy:run": "node scripts/cy-run.js",
     "cy:cli": "node scripts/cy-cli.js",
     "cy:open": "cypress open --component --browser chromium",

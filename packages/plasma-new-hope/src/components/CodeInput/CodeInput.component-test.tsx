@@ -61,8 +61,7 @@ describeFn('CodeInput', () => {
             mount(<Demo itemErrorBehavior="remove-symbol" />);
 
             cy.focused().type('12345q');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
+            cy.get('.codeinput-item-circle-error-animation').should('not.exist');
 
             cy.matchImageSnapshot();
         });
@@ -71,8 +70,7 @@ describeFn('CodeInput', () => {
             mount(<Demo itemErrorBehavior="forbid-enter" />);
 
             cy.focused().type('123q');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
+            cy.focused().should('have.value', '');
 
             cy.matchImageSnapshot();
         });
@@ -97,8 +95,7 @@ describeFn('CodeInput', () => {
             mount(<Demo codeErrorBehavior="remove-code" />);
 
             cy.focused().type('123456');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
+            cy.get('.codeinput-code-error-animation').should('not.exist');
 
             cy.matchImageSnapshot();
         });
@@ -107,8 +104,7 @@ describeFn('CodeInput', () => {
             mount(<Demo codeErrorBehavior="keep" />);
 
             cy.focused().type('123456');
-            // eslint-disable-next-line cypress/no-unnecessary-waiting
-            cy.wait(350);
+            cy.get('.codeinput-code-error-animation').should('not.exist');
 
             cy.matchImageSnapshot();
         });

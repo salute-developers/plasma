@@ -19,15 +19,7 @@ var react_1 = __importDefault(require("react"));
 var CypressHelpers_1 = require("./CypressHelpers");
 var CypressDecorator_1 = require("./CypressDecorator");
 var getConfigMatrix_1 = require("./getConfigMatrix");
-var getConfig = function (component) {
-    try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
-        return require("src/examples/components/".concat(component, "/").concat(component, ".config.ts")).config;
-    }
-    catch (_a) {
-        return null;
-    }
-};
+var testRuntime_1 = require("./testRuntime");
 /**
  * Генерирует базовые визуальные тесты для компонента.
  * Генерирует describe-блок с именем компонента, внутри которого будет
@@ -58,7 +50,7 @@ var getBaseVisualTests = function (_a) {
         if (!Component) {
             return;
         }
-        var config = componentExists ? getConfig(configComponentName || component) : null;
+        var config = componentExists ? (0, testRuntime_1.getTestConfig)(configComponentName || component) : null;
         var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix, excludePropsValues);
         configMatrix.forEach(function (combination) {
             var testParams = Object.entries(combination)

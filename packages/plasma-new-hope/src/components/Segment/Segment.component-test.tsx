@@ -300,8 +300,9 @@ describeFn('Segment', () => {
         cy.get('body').find('[aria-label="Следующий сегмент"]').click();
         cy.get('body').find('[aria-label="Предыдущий сегмент"]');
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(500);
+        cy.get('.segment-group-clip-scroll').should(($scroll) => {
+            expect($scroll[0].scrollLeft, 'segment scroll position').to.be.greaterThan(0);
+        });
 
         cy.matchImageSnapshot();
     });
