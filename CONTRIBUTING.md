@@ -86,6 +86,12 @@ npm run lint --workspace=@salutejs/plasma-new-hope
 
 CI запускает lint изменённых пакетов относительно SHA базы PR или merge group без предварительной сборки workspace-пакетов. `@salutejs/plasma-colors` исключён из этой проверки: его `src` генерируется при сборке и проверяется командой `build:colors`.
 
+CSS-in-JS проверяется Stylelint с `postcss-styled-syntax`; форматирование шаблонных строк выполняет Prettier из `lint-staged.config.js`. Для ручной проверки укажите нужные файлы:
+
+```sh
+npx stylelint "packages/plasma-new-hope/src/components/ButtonBase/*.tsx"
+```
+
 При изменении публичных props, generic-типов или экспортов компонентов обновите API-тесты в `utils/api-tests/src/components/` и выполните:
 
 ```sh
