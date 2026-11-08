@@ -106,6 +106,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
     ${textFieldTokens.titleCaptionMargin}: var(${tokens.titleCaptionMargin});
+    ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.titleCaptionInnerLabelOffset});
     ${textFieldTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});
     ${textFieldTokens.titleCaptionColorReadOnly}: var(${tokens.titleCaptionColorReadOnly});
     ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.titleCaptionFontFamily});

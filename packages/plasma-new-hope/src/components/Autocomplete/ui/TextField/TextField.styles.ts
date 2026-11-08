@@ -57,6 +57,7 @@ export const StyledTextField = styled(TextField)`
     ${textFieldTokens.labelLetterSpacing}: var(${autocompleteTokens.textFieldLabelLetterSpacing});
     ${textFieldTokens.labelLineHeight}: var(${autocompleteTokens.textFieldLabelLineHeight});
     ${textFieldTokens.titleCaptionMargin}: var(${autocompleteTokens.textFieldTitleCaptionMargin});
+    ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${autocompleteTokens.textFieldTitleCaptionInnerLabelOffset});
     ${textFieldTokens.titleCaptionColor}: var(${autocompleteTokens.textFieldTitleCaptionColor});
     ${textFieldTokens.titleCaptionColorReadOnly}: var(${autocompleteTokens.textFieldTitleCaptionColorReadOnly});
     ${textFieldTokens.titleCaptionFontFamily}: var(${autocompleteTokens.textFieldTitleCaptionFontFamily});
