@@ -305,6 +305,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-m-line-height);
 
                 ${tokens.textFieldLabelOffset}: 0.625rem;
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-m-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-m-font-size);
                 ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-m-font-style);
@@ -429,6 +430,7 @@ export const config = {
                 ${tokens.textFieldLineHeight}: var(--plasma-typo-body-s-line-height);
 
                 ${tokens.textFieldLabelOffset}: 0.5rem;
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.textFieldLabelFontFamily}: var(--plasma-typo-body-s-font-family);
                 ${tokens.textFieldLabelFontSize}: var(--plasma-typo-body-s-font-size);
                 ${tokens.textFieldLabelFontStyle}: var(--plasma-typo-body-s-font-style);
