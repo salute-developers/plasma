@@ -33,7 +33,7 @@
     "@salutejs/plasma-tokens-web": "1.87.0-dev.0",
     "@salutejs/plasma-typo": "0.60.0-dev.0",
     "@salutejs/sdds-themes": "0.87.0-dev.0",
-    "@sddsjs/sdds_finai": "0.2.1",
+    "@sddsjs/sdds_finai": "0.2.3",
     "@types/node": "18.16.20",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -47,7 +47,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "lib"
-  ]
+  "files": ["lib"]
 }

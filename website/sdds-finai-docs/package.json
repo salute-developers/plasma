@@ -38,7 +38,7 @@
     "@salutejs/plasma-typo": "0.60.0-dev.0",
     "@salutejs/sdds-finai": "0.367.1-dev.0",
     "@salutejs/sdds-themes": "0.87.0-dev.0",
-    "@sddsjs/sdds_finai": "0.2.1",
+    "@sddsjs/sdds_finai": "0.2.3",
     "@svgr/webpack": "8.1.0",
     "clsx": "1.1.1",
     "docusaurus-theme-search-typesense": "0.25.0",
@@ -71,15 +71,7 @@
     }
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   }
 }
