@@ -18,13 +18,15 @@ import { Avatar, AvatarGroup } from '@salutejs/plasma-b2c';
 
 export function App() {
     return (
-        <AvatarGroup>
+        <div>
+            <AvatarGroup>
                 {Array(5)
                     .fill(true)
                     .map(() => (
                         <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
                     ))}
             </AvatarGroup>
+        </div>
     );
 }
 ```
