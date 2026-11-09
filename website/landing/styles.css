@@ -1747,14 +1747,8 @@ a.comp-card:hover{border-color:var(--accent-line); background:#262a2f; transform
   border-bottom:1px solid var(--outline-transparent); background:var(--surface-transparent-1);
   transition:background var(--dur) var(--ease);
 }
-.doc-card:hover .doc-card-media,
-a.comp-card:hover .comp-card-art{background:var(--surface-transparent-2)}
-.doc-card-media svg{
-  width:22px; height:22px; display:block; fill:none; stroke:var(--text-secondary);
-  stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round;
-  transition:stroke var(--dur) var(--ease);
-}
-.doc-card:hover .doc-card-media svg{stroke:var(--text-primary)}
+
+
 .doc-card-body,
 .comp-card-body{display:flex; flex-direction:column; gap:10px; padding:18px 20px 20px; flex:1}
 .doc-card-head{display:flex; align-items:center; justify-content:space-between; gap:12px}
@@ -1782,23 +1776,72 @@ a.comp-card:hover .comp-card-art{background:var(--surface-transparent-2)}
 /* Карточка компонента устроена ровно как карточка раздела: та же сетка, те же
    поля и та же медиа-полоса сверху. Отличается только содержимое полосы —
    вместо иконки раздела схематичный силуэт компонента. */
+/* Изометрическая сетка — фон области, а не часть рисунка: она одинакова у всех
+   55 карточек, и в разметке это были бы три десятка лишних линий на каждую.
+   Шаг 28px по перпендикуляру соответствует двум клеткам сцены; при одной
+   клетке сетка рябит на таком размере. */
+.doc-card-media,
 .comp-card-art{
-  min-height:104px; place-items:center start; overflow:hidden;
+  position:relative; display:block; height:140px; padding:0; overflow:hidden;
+  background-image:
+    repeating-linear-gradient(30deg,rgba(255,255,255,.045) 0 1px,transparent 1px 28px),
+    repeating-linear-gradient(-30deg,rgba(255,255,255,.045) 0 1px,transparent 1px 28px);
 }
-.comp-card-art svg{width:72px; height:40px; display:block}
-.comp-card-art .a-box{fill:rgba(255,255,255,.22)}
-.comp-card-art .a-line{fill:rgba(255,255,255,.16)}
-.comp-card-art .a-dot{fill:rgba(255,255,255,.3)}
-.comp-card-art .a-knob{fill:rgba(255,255,255,.42)}
-.comp-card-art .a-ring{fill:none; stroke:rgba(255,255,255,.28); stroke-width:1.6}
-.comp-card-art .a-stroke{fill:none; stroke:rgba(255,255,255,.24); stroke-width:1.4}
-.comp-card-art .a-dashed{fill:none; stroke:rgba(255,255,255,.26); stroke-width:1.4; stroke-dasharray:5 4}
-.comp-card-art .a-path{fill:none; stroke:rgba(255,255,255,.34); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
-/* у карточек без своей страницы силуэт такой же приглушённый, как и текст */
-.comp-card.is-soon .comp-card-art{opacity:.45}
-
-/* спецификация написана, страницы на портале пока нет */
-.comp-card.is-soon{opacity:.62}
+/* Сцена стоит по центру области и в неё не вписывается по ширине — края сетки
+   остаются видны по бокам. */
+.comp-art{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:146px; height:108px; display:block; overflow:visible;
+}
+/* Грани залиты цветом шапки карточки: плашки перекрывают сетку и друг друга,
+   от объёма остаётся только контур. */
+.comp-art .face{
+  fill:#26282c; stroke:rgba(255,255,255,.46); stroke-width:1;
+  vector-effect:non-scaling-stroke; stroke-linejoin:round;
+}
+.comp-art .face.top{fill:#2b2d32}
+/* Белым — то, что в компоненте главное: нажатая кнопка, выбранный пункт,
+   заполненная часть шкалы. Приглушённым — всё остальное содержимое. */
+.comp-art .live{fill:var(--text-primary)}
+.comp-art .dim{fill:rgba(255,255,255,.26)}
+/* Деталь на светлой грани: белым и приглушённым там ничего не видно. */
+.comp-art .ink{fill:rgba(22,24,28,.42)}
+/* Контур без заливки: фокус-рамка и зона отклика — то, чего нет в предмете,
+   но что показывает поведение. */
+.comp-art .ring{
+  fill:none; stroke:rgba(255,255,255,.4); stroke-width:1;
+  stroke-dasharray:4 4; vector-effect:non-scaling-stroke;
+}
+/* При наведении отзывается сам рисунок, а не подложка: раньше светлела вся
+   медиа-полоса, и на контурной изометрии это читалось как засветка блока.
+   Контур становится ярче, сетка чуть проступает. */
+.doc-card:hover .comp-art .face,
+.cat-card:hover .comp-art .face,
+a.comp-card:hover .comp-art .face{stroke:rgba(255,255,255,.62)}
+.doc-card:hover .doc-card-media,
+.cat-card:hover .doc-card-media,
+a.comp-card:hover .comp-card-art{
+  background-image:
+    repeating-linear-gradient(30deg,rgba(255,255,255,.07) 0 1px,transparent 1px 28px),
+    repeating-linear-gradient(-30deg,rgba(255,255,255,.07) 0 1px,transparent 1px 28px);
+}
+/* У карточек без своей страницы ссылки нет, но полная неподвижность читается
+   как сломанная вёрстка: рамка откликается, подъёма и курсора-указателя нет. */
+.comp-card.is-soon{transition:opacity var(--dur) var(--ease), border-color var(--dur) var(--ease)}
+.comp-card.is-soon:hover{opacity:.82; border-color:var(--accent-line)}
+/* Описание уложено в две строки — плотнее, чем абзац в карточке раздела. */
+.comp-card p{line-height:1.45}
+/* Спецификация написана, страницы на портале пока нет. Об этом говорит бейдж,
+   а приглушение только поддерживает его: одной прозрачностью это состояние не
+   читалось — карточка выглядела сломанной, а не «в работе». */
+.comp-card.is-soon{opacity:.86}
+.comp-soon{
+  position:absolute; z-index:1; top:12px; right:12px;
+  padding:3px 9px; border-radius:999px; font-style:normal;
+  font-size:10.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--text-tertiary); background:var(--bg-tertiary);
+  border:1px solid var(--outline-transparent);
+}
 .comp-card.is-soon b{color:var(--text-secondary)}
 
 /* категории компонентов: те же карточки, но со счётчиком спецификаций */
@@ -1810,7 +1853,7 @@ a.comp-card:hover .comp-card-art{background:var(--surface-transparent-2)}
   transition:border-color var(--dur) var(--ease), background var(--dur) var(--ease), transform var(--dur-slow) var(--ease);
 }
 .cat-card:hover{border-color:var(--accent-line); background:#262a2f; transform:translateY(-2px)}
-.cat-card .doc-card-media{min-height:88px}
+
 .cat-card .doc-card-body{gap:10px; padding:18px 20px 20px}
 .cat-head{display:flex; align-items:center; justify-content:space-between; gap:12px}
 .cat-head b{font-size:17px; font-weight:500; color:var(--text-primary)}
