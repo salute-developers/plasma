@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-cy-utils",
-  "version": "0.179.0-dev.0",
+  "version": "0.180.0-dev.1",
   "description": "Test helpers shared between ui libraries.",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -47,5 +47,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": ["lib"]
+  "files": [
+    "lib"
+  ]
 }
