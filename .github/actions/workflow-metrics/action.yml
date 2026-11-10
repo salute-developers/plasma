@@ -1,0 +1,164 @@
+name: Cypress workflow metrics
+description: Collect Cypress history or publish an existing v3 archive to S3.
+
+inputs:
+    mode:
+        description: 'collect or publish-existing (initial upload without GitHub API)'
+        default: collect
+    archive-directory:
+        description: 'Repository archive root containing v3/, used for the initial S3 upload'
+        default: packages/plasma-new-hope/.storybook/public/workflow-metrics
+    from:
+        description: 'Start date, YYYY-MM-DD; empty continues the saved archive'
+        default: ''
+    to:
+        description: 'End date, YYYY-MM-DD; empty uses today in UTC'
+        default: ''
+    workflow:
+        description: 'Workflow filename or all'
+        default: all
+    refresh-days:
+        description: 'Recheck recent days to discover reruns'
+        default: '7'
+    max-requests:
+        description: 'Total GitHub API request budget'
+        default: '4500'
+
+outputs:
+    collection-status:
+        description: 'Collector exit code; empty in publish-existing mode'
+        value: ${{ steps.collect.outputs.status }}
+
+runs:
+    using: composite
+    steps:
+        - name: Check mode and collection token
+          shell: bash
+          env:
+              METRICS_MODE: ${{ inputs.mode }}
+          run: |
+              case "$METRICS_MODE" in
+                collect)
+                  if [ -z "${GITHUB_TOKEN//[[:space:]]/}" ]; then
+                    echo '::error::Add the WORKFLOW_METRICS_TOKEN repository secret with a PAT that has Actions: read access to salute-developers/plasma.'
+                    exit 1
+                  fi
+                  ;;
+                publish-existing) ;;
+                *) echo '::error::Use mode collect or publish-existing.'; exit 1 ;;
+              esac
+
+        - name: Setup Node.js
+          uses: actions/setup-node@v6.4.0
+          with:
+              node-version-file: ${{ github.workspace }}/.nvmrc
+
+        - name: Set working directories
+          shell: bash
+          run: |
+              metrics_job_directory=$(mktemp -d "$RUNNER_TEMP/workflow-metrics.XXXXXX")
+              echo "METRICS_DIRECTORY=$metrics_job_directory/archive" >> "$GITHUB_ENV"
+              echo "METRICS_BASELINE=$metrics_job_directory/baseline" >> "$GITHUB_ENV"
+
+        # The scripts use only Node built-ins and local sources; npm install/build is unnecessary.
+        - name: Install s3cmd
+          shell: bash
+          run: pip3 install s3cmd==2.4.0
+
+        - name: Publish the already collected repository archive
+          if: inputs.mode == 'publish-existing'
+          shell: bash
+          working-directory: ${{ github.workspace }}
+          env:
+              METRICS_ACTION_PATH: ${{ github.action_path }}
+              METRICS_SOURCE: ${{ inputs.archive-directory }}
+          run: |
+              node "$METRICS_ACTION_PATH/scripts/cli/sync.mjs" \
+                --mode=publish-existing --bootstrap-dir="$METRICS_SOURCE" \
+                --output-dir="$METRICS_DIRECTORY" --baseline-dir="$METRICS_BASELINE" \
+                | tee "$RUNNER_TEMP/workflow-metrics-published.json"
+              {
+                echo '### Cypress workflow metrics: existing archive'
+                echo 'S3 prefix: workflow-metrics/v3/. GitHub API collection was skipped.'
+                echo '```json'
+                cat "$RUNNER_TEMP/workflow-metrics-published.json"
+                echo '```'
+              } >> "$GITHUB_STEP_SUMMARY"
+
+        - name: Restore published archive or bootstrap from repository
+          id: restore
+          if: inputs.mode == 'collect'
+          shell: bash
+          working-directory: ${{ github.workspace }}
+          env:
+              METRICS_ACTION_PATH: ${{ github.action_path }}
+              METRICS_SOURCE: ${{ inputs.archive-directory }}
+          run: >-
+              node "$METRICS_ACTION_PATH/scripts/cli/sync.mjs"
+              --mode=restore --bootstrap-dir="$METRICS_SOURCE"
+              --output-dir="$METRICS_DIRECTORY" --baseline-dir="$METRICS_BASELINE"
+
+        - name: Collect completed Cypress jobs
+          id: collect
+          if: inputs.mode == 'collect'
+          shell: bash
+          working-directory: ${{ github.workspace }}
+          env:
+              METRICS_ACTION_PATH: ${{ github.action_path }}
+              INPUT_FROM: ${{ inputs.from }}
+              INPUT_TO: ${{ inputs.to }}
+              INPUT_WORKFLOW: ${{ inputs.workflow }}
+              INPUT_REFRESH_DAYS: ${{ inputs.refresh-days }}
+              INPUT_MAX_REQUESTS: ${{ inputs.max-requests }}
+              TZ: Europe/Moscow
+          run: |
+              args=(--require-token --output-dir="$METRICS_DIRECTORY" --workflow="$INPUT_WORKFLOW"
+                    --refresh-days="$INPUT_REFRESH_DAYS" --max-requests="$INPUT_MAX_REQUESTS")
+              if [ -n "$INPUT_FROM" ]; then args+=(--from="$INPUT_FROM"); fi
+              if [ -n "$INPUT_TO" ]; then args+=(--to="$INPUT_TO"); fi
+              set +e
+              node "$METRICS_ACTION_PATH/scripts/cli/collect.mjs" "${args[@]}"
+              status=$?
+              set -e
+              echo "status=$status" >> "$GITHUB_OUTPUT"
+              if [ "$status" -eq 2 ]; then
+                echo '::notice::Collection paused at a checkpoint; publishing partial progress.'
+              elif [ "$status" -ne 0 ]; then
+                echo '::error::Collection failed; publishing validated checkpoints before marking the job failed.'
+              fi
+
+        - name: Count b2c spec files from git history
+          if: steps.collect.outputs.status == '0' || steps.collect.outputs.status == '2'
+          shell: bash
+          working-directory: ${{ github.workspace }}
+          env:
+              METRICS_ACTION_PATH: ${{ github.action_path }}
+          run: |
+              for workflow in cypress-by-cron-every-day.yml cypress.yml cypress-release-branch.yml; do
+                node "$METRICS_ACTION_PATH/scripts/cli/spec-counts.mjs" \
+                  --workflow="$workflow" --output-dir="$METRICS_DIRECTORY"
+              done
+
+        - name: Publish chunks and then manifests to S3
+          if: ${{ !cancelled() && steps.restore.outcome == 'success' && steps.collect.outputs.status != '' }}
+          shell: bash
+          working-directory: ${{ github.workspace }}
+          env:
+              METRICS_ACTION_PATH: ${{ github.action_path }}
+              COLLECTION_STATUS: ${{ steps.collect.outputs.status }}
+          run: |
+              node "$METRICS_ACTION_PATH/scripts/cli/sync.mjs" \
+                --mode=publish --output-dir="$METRICS_DIRECTORY" --baseline-dir="$METRICS_BASELINE" \
+                | tee "$RUNNER_TEMP/workflow-metrics-published.json"
+              {
+                echo '### Cypress workflow metrics'
+                echo "S3 prefix: workflow-metrics/v3/. Collection exit code: $COLLECTION_STATUS."
+                echo '```json'
+                cat "$RUNNER_TEMP/workflow-metrics-published.json"
+                echo '```'
+              } >> "$GITHUB_STEP_SUMMARY"
+
+        - name: Report collection error
+          if: ${{ !cancelled() && steps.collect.outputs.status != '' && steps.collect.outputs.status != '0' && steps.collect.outputs.status != '2' }}
+          shell: bash
+          run: exit 1

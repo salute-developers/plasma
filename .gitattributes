@@ -1,1 +1,4 @@
 *.json  linguist-language=JSON-with-Comments
+
+# Archive hashes and byte counts are calculated with LF line endings.
+packages/plasma-new-hope/.storybook/public/workflow-metrics/v3/**/*.json text eol=lf

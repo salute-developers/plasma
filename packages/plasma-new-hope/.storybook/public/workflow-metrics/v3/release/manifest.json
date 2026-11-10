@@ -1,0 +1,272 @@
+{
+    "version": 3,
+    "repository": "salute-developers/plasma",
+    "workflow": "cypress-release-branch.yml",
+    "from": "2023-10-29",
+    "to": "2026-10-30",
+    "updatedAt": "2026-10-30T09:26:22.379Z",
+    "collectionRevision": 1,
+    "coverage": [{ "from": "2023-10-29T00:00:00.000Z", "to": "2026-10-30T23:59:59.000Z" }],
+    "warnings": [],
+    "totals": { "runs": 99, "jobs": 1234 },
+    "packages": [
+        "plasma-b2c",
+        "plasma-giga",
+        "plasma-homeds",
+        "plasma-ui",
+        "plasma-web",
+        "sdds-cs",
+        "sdds-finai",
+        "sdds-insol",
+        "sdds-os",
+        "sdds-platform-ai",
+        "sdds-scan",
+        "sdds-serv"
+    ],
+    "series": [
+        {
+            "period": "2025",
+            "path": "series/2025.9070e0a693fe3976ee58845745b99ba649bb1378b4c240ae19eb0c0ae39d7a46.json",
+            "sha256": "9070e0a693fe3976ee58845745b99ba649bb1378b4c240ae19eb0c0ae39d7a46",
+            "bytes": 10835,
+            "gzipBytes": 1217,
+            "count": 60
+        },
+        {
+            "period": "2026",
+            "path": "series/2026.f8d54c1ea07a3109e9e9a0036bee0980ef0d56a7e3cdf23ab811d9a65db9d2f0.json",
+            "sha256": "f8d54c1ea07a3109e9e9a0036bee0980ef0d56a7e3cdf23ab811d9a65db9d2f0",
+            "bytes": 112127,
+            "gzipBytes": 6546,
+            "count": 656
+        }
+    ],
+    "jobs": [
+        {
+            "period": "2025-09",
+            "path": "jobs/2025-09.698912a6ef496322a373f9869c1dfc4c0acf71c85250a57e62ce942fd42ecc38.json",
+            "sha256": "698912a6ef496322a373f9869c1dfc4c0acf71c85250a57e62ce942fd42ecc38",
+            "bytes": 9281,
+            "gzipBytes": 722,
+            "count": 24
+        },
+        {
+            "period": "2025-10",
+            "path": "jobs/2025-10.90095ac47344ec31867a7425a150e835e728c346455a440fc35e1b5e4db03d13.json",
+            "sha256": "90095ac47344ec31867a7425a150e835e728c346455a440fc35e1b5e4db03d13",
+            "bytes": 9283,
+            "gzipBytes": 723,
+            "count": 24
+        },
+        {
+            "period": "2025-11",
+            "path": "jobs/2025-11.928be062424240e019642a8c33b32b83de29272e7477f8c73a1cfa94ef4b2a73.json",
+            "sha256": "928be062424240e019642a8c33b32b83de29272e7477f8c73a1cfa94ef4b2a73",
+            "bytes": 9280,
+            "gzipBytes": 744,
+            "count": 24
+        },
+        {
+            "period": "2025-12",
+            "path": "jobs/2025-12.05d7991ed439eec6dcfe63fea7febc27f29398f8b97266547048e4796a8472bc.json",
+            "sha256": "05d7991ed439eec6dcfe63fea7febc27f29398f8b97266547048e4796a8472bc",
+            "bytes": 36960,
+            "gzipBytes": 1847,
+            "count": 96
+        },
+        {
+            "period": "2026-01",
+            "path": "jobs/2026-01.5b0e2470e354af2794d69b2ecc6bf3c473b0d7db915a083986213c53bf53c249.json",
+            "sha256": "5b0e2470e354af2794d69b2ecc6bf3c473b0d7db915a083986213c53bf53c249",
+            "bytes": 4803,
+            "gzipBytes": 531,
+            "count": 12
+        },
+        {
+            "period": "2026-02",
+            "path": "jobs/2026-02.48d972f7620907f888d0fcaaf728e568ea7e7292500032340ceef18c805615d9.json",
+            "sha256": "48d972f7620907f888d0fcaaf728e568ea7e7292500032340ceef18c805615d9",
+            "bytes": 34812,
+            "gzipBytes": 1935,
+            "count": 90
+        },
+        {
+            "period": "2026-03",
+            "path": "jobs/2026-03.40a3fd52fd5341c7bf1397d2402ccec1a52010447cd9a5421b38d9eba7853be9.json",
+            "sha256": "40a3fd52fd5341c7bf1397d2402ccec1a52010447cd9a5421b38d9eba7853be9",
+            "bytes": 67763,
+            "gzipBytes": 3092,
+            "count": 180
+        },
+        {
+            "period": "2026-04",
+            "path": "jobs/2026-04.80d8e98ae6afeef964f675ac9cf66a335d26945984d472c72914a2cef3b1855e.json",
+            "sha256": "80d8e98ae6afeef964f675ac9cf66a335d26945984d472c72914a2cef3b1855e",
+            "bytes": 62661,
+            "gzipBytes": 2575,
+            "count": 168
+        },
+        {
+            "period": "2026-05",
+            "path": "jobs/2026-05.d0d54256bb687899b6e1e8957148e8a5ad00c3873ffb504f1b9ffd2d915d9b47.json",
+            "sha256": "d0d54256bb687899b6e1e8957148e8a5ad00c3873ffb504f1b9ffd2d915d9b47",
+            "bytes": 35839,
+            "gzipBytes": 1676,
+            "count": 96
+        },
+        {
+            "period": "2026-06",
+            "path": "jobs/2026-06.e1505fd200bb99f7ca2dece4af80493070c0552e6242f20e6c4fbeccbf08050b.json",
+            "sha256": "e1505fd200bb99f7ca2dece4af80493070c0552e6242f20e6c4fbeccbf08050b",
+            "bytes": 44780,
+            "gzipBytes": 1956,
+            "count": 120
+        },
+        {
+            "period": "2026-07",
+            "path": "jobs/2026-07.e5aab8750306b0a57a3227dd49e621ac6b9635a9247ba32063d0d63d87f534dd.json",
+            "sha256": "e5aab8750306b0a57a3227dd49e621ac6b9635a9247ba32063d0d63d87f534dd",
+            "bytes": 26220,
+            "gzipBytes": 1268,
+            "count": 70
+        },
+        {
+            "period": "2026-08",
+            "path": "jobs/2026-08.6d7989492fdc1d2974890d6a468d8d80e4b3278c3812351f538872baf28da267.json",
+            "sha256": "6d7989492fdc1d2974890d6a468d8d80e4b3278c3812351f538872baf28da267",
+            "bytes": 57632,
+            "gzipBytes": 2429,
+            "count": 154
+        },
+        {
+            "period": "2026-09",
+            "path": "jobs/2026-09.11d0bc3292a6c0e4ac01455ec1dfbf9dbda24b0992f5236df0b43bc76af28850.json",
+            "sha256": "11d0bc3292a6c0e4ac01455ec1dfbf9dbda24b0992f5236df0b43bc76af28850",
+            "bytes": 41289,
+            "gzipBytes": 2294,
+            "count": 110
+        },
+        {
+            "period": "2026-10",
+            "path": "jobs/2026-10.042e844a88e429ea5af5eb91001bf20cbc1bbca956fb9b02d7c8418fe10ac32a.json",
+            "sha256": "042e844a88e429ea5af5eb91001bf20cbc1bbca956fb9b02d7c8418fe10ac32a",
+            "bytes": 24803,
+            "gzipBytes": 1531,
+            "count": 66
+        }
+    ],
+    "state": [
+        {
+            "period": "2025-09",
+            "path": "state/2025-09.9f035ba23b2c91b44f027ad16b7d423f5ea59fc830a000c2cade1df5998b7cc9.json",
+            "sha256": "9f035ba23b2c91b44f027ad16b7d423f5ea59fc830a000c2cade1df5998b7cc9",
+            "bytes": 405,
+            "gzipBytes": 273,
+            "count": 2
+        },
+        {
+            "period": "2025-10",
+            "path": "state/2025-10.0c8374f392f2127c55c323a3277cc83e5095179205a083bcea07c339df00c662.json",
+            "sha256": "0c8374f392f2127c55c323a3277cc83e5095179205a083bcea07c339df00c662",
+            "bytes": 405,
+            "gzipBytes": 277,
+            "count": 2
+        },
+        {
+            "period": "2025-11",
+            "path": "state/2025-11.d64fb4ba9271b76ff8c9d270e37f3cf37be05318ab6bd40d0866ba99626f2877.json",
+            "sha256": "d64fb4ba9271b76ff8c9d270e37f3cf37be05318ab6bd40d0866ba99626f2877",
+            "bytes": 547,
+            "gzipBytes": 325,
+            "count": 3
+        },
+        {
+            "period": "2025-12",
+            "path": "state/2025-12.665b4f4b5af0e6674c47edbd09efc40e13c1bb13555da961f1f0f1b25a2044b3.json",
+            "sha256": "665b4f4b5af0e6674c47edbd09efc40e13c1bb13555da961f1f0f1b25a2044b3",
+            "bytes": 1399,
+            "gzipBytes": 552,
+            "count": 9
+        },
+        {
+            "period": "2026-01",
+            "path": "state/2026-01.96265fb5ccd151dd423c895e185dc99a12ef17b98b5a4e9ba6295ac52fe1ffb2.json",
+            "sha256": "96265fb5ccd151dd423c895e185dc99a12ef17b98b5a4e9ba6295ac52fe1ffb2",
+            "bytes": 405,
+            "gzipBytes": 275,
+            "count": 2
+        },
+        {
+            "period": "2026-02",
+            "path": "state/2026-02.dddc78510c5e65673f1d8082ff686b96ed011c6299a0a98fe3f2e4c4bf8199c6.json",
+            "sha256": "dddc78510c5e65673f1d8082ff686b96ed011c6299a0a98fe3f2e4c4bf8199c6",
+            "bytes": 1683,
+            "gzipBytes": 632,
+            "count": 11
+        },
+        {
+            "period": "2026-03",
+            "path": "state/2026-03.c4eb686382dfb55f55953a325ad1180ef0e8509b95d20561c4a616587a18913b.json",
+            "sha256": "c4eb686382dfb55f55953a325ad1180ef0e8509b95d20561c4a616587a18913b",
+            "bytes": 2819,
+            "gzipBytes": 892,
+            "count": 19
+        },
+        {
+            "period": "2026-04",
+            "path": "state/2026-04.cc466a263fa3188df3dd171e54f5641e4a9164101a0ec99e183a8051dd9805e8.json",
+            "sha256": "cc466a263fa3188df3dd171e54f5641e4a9164101a0ec99e183a8051dd9805e8",
+            "bytes": 1257,
+            "gzipBytes": 493,
+            "count": 8
+        },
+        {
+            "period": "2026-05",
+            "path": "state/2026-05.6ff8e145c7b994b480640466733bd4d6792573117127ab7ffa7406e74a1786fc.json",
+            "sha256": "6ff8e145c7b994b480640466733bd4d6792573117127ab7ffa7406e74a1786fc",
+            "bytes": 689,
+            "gzipBytes": 369,
+            "count": 4
+        },
+        {
+            "period": "2026-06",
+            "path": "state/2026-06.6ba546f59a07dad5e17af2425b218078e35a843f2dccfe5aabf6be9872aff138.json",
+            "sha256": "6ba546f59a07dad5e17af2425b218078e35a843f2dccfe5aabf6be9872aff138",
+            "bytes": 1115,
+            "gzipBytes": 483,
+            "count": 7
+        },
+        {
+            "period": "2026-07",
+            "path": "state/2026-07.86a6db5e4409d7550c7bb3ac20719604adc83f1e4567ba0fccd6ba62ceccfea2.json",
+            "sha256": "86a6db5e4409d7550c7bb3ac20719604adc83f1e4567ba0fccd6ba62ceccfea2",
+            "bytes": 547,
+            "gzipBytes": 316,
+            "count": 3
+        },
+        {
+            "period": "2026-08",
+            "path": "state/2026-08.eb242bf2d8f0c5d6bc99e7d1c2368d5ffdc83b5927bf58f39fd4fc21c5183d2b.json",
+            "sha256": "eb242bf2d8f0c5d6bc99e7d1c2368d5ffdc83b5927bf58f39fd4fc21c5183d2b",
+            "bytes": 1967,
+            "gzipBytes": 711,
+            "count": 13
+        },
+        {
+            "period": "2026-09",
+            "path": "state/2026-09.f1a0451e5a38c19e5e456e2fb005a97394437c6dbf2102fb2708f248b95d34d1.json",
+            "sha256": "f1a0451e5a38c19e5e456e2fb005a97394437c6dbf2102fb2708f248b95d34d1",
+            "bytes": 1257,
+            "gzipBytes": 523,
+            "count": 8
+        },
+        {
+            "period": "2026-10",
+            "path": "state/2026-10.c29ca038502fd99b98129784ee88c759d05b1d20121431d053b14fcb1030395d.json",
+            "sha256": "c29ca038502fd99b98129784ee88c759d05b1d20121431d053b14fcb1030395d",
+            "bytes": 1257,
+            "gzipBytes": 521,
+            "count": 8
+        }
+    ]
+}
