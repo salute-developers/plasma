@@ -9,6 +9,13 @@ import jsxPlugin from '@svgr/plugin-jsx';
 import svgoPlugin from '@svgr/plugin-svgo';
 import prettier from 'prettier';
 
+import {
+    assertDuotoneLayers,
+    createMarkSecondaryLayerPlugin,
+    createNormalizeOpacityPlugin,
+    isDuotoneIcon,
+} from './duotone.mjs';
+
 const sizes = [16, 24, 36];
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const svgRoot = path.join(packageRoot, 'svg');
@@ -95,9 +102,12 @@ const generateIcon = async ({ fileName, inputDirectory, outputDirectory, size })
     const svg = await fs.readFile(path.join(inputDirectory, fileName), 'utf8');
     const filePath = path.join(inputDirectory, fileName);
     const idPrefix = `sdds-${size}-${componentName}`;
+    const isDuotone = isDuotoneIcon(componentName);
+    const duotoneLayers = { primary: 0, secondary: 0 };
     const svgoConfig = {
         multipass: true,
         plugins: [
+            ...(isDuotone ? [createNormalizeOpacityPlugin()] : []),
             {
                 name: 'preset-default',
                 params: {
@@ -137,10 +147,16 @@ const generateIcon = async ({ fileName, inputDirectory, outputDirectory, size })
             prettier: false,
             template: createTemplate(size, maskImage),
             replaceAttrValues: getPaintReplacements(svg),
-            svgoConfig,
+            svgoConfig: isDuotone
+                ? { ...svgoConfig, plugins: [...svgoConfig.plugins, createMarkSecondaryLayerPlugin(duotoneLayers)] }
+                : svgoConfig,
         },
         { componentName, filePath },
     );
+
+    if (isDuotone) {
+        assertDuotoneLayers(duotoneLayers, filePath);
+    }
 
     const formattedComponent = prettier.format(component, {
         parser: 'typescript',

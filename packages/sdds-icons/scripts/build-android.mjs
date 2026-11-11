@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 import svg2vectordrawable from 'svg2vectordrawable';
 
+import { isDuotoneIcon, nameAndroidDuotoneLayers } from './duotone.mjs';
+
 const sizes = [16, 24, 36];
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const svgRoot = path.join(packageRoot, 'svg');
@@ -85,13 +87,15 @@ await Promise.all(
         const iconName = path.basename(fileName, '.svg');
 
         return sizes.map(async (size) => {
-            const svg = await fs.readFile(path.join(svgRoot, String(size), fileName), 'utf8');
+            const svgPath = path.join(svgRoot, String(size), fileName);
+            const svg = await fs.readFile(svgPath, 'utf8');
             const vectorDrawable = await svg2vectordrawable(svg, {
                 floatPrecision: 3,
                 fillBlack: true,
             });
+            const output = isDuotoneIcon(iconName) ? nameAndroidDuotoneLayers(vectorDrawable, svgPath) : vectorDrawable;
 
-            await fs.writeFile(path.join(androidRoot, getAndroidFileName(iconName, size)), vectorDrawable, 'utf8');
+            await fs.writeFile(path.join(androidRoot, getAndroidFileName(iconName, size)), output, 'utf8');
         });
     }),
 );

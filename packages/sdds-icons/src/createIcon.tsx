@@ -1,12 +1,32 @@
 import React, { forwardRef } from 'react';
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
 
 export type IconProps = ComponentPropsWithoutRef<'svg'> & {
     gradient?: string;
+    /**
+     * Цвет второго слоя duotone-иконки. По умолчанию совпадает с `currentColor`.
+     */
+    secondaryColor?: string;
+    /**
+     * Прозрачность второго слоя duotone-иконки от 0 до 1. По умолчанию берётся из исходного SVG.
+     */
+    secondaryOpacity?: number;
+};
+
+const getStyle = (style: CSSProperties | undefined, secondaryColor?: string, secondaryOpacity?: number) => {
+    if (secondaryColor === undefined && secondaryOpacity === undefined) {
+        return style;
+    }
+
+    return {
+        '--sdds-icon-secondary-color': secondaryColor,
+        '--sdds-icon-secondary-opacity': secondaryOpacity,
+        ...style,
+    } as CSSProperties;
 };
 
 export const createIcon = (content: ReactNode, size: number, maskImage: string) => {
-    return forwardRef<SVGSVGElement, IconProps>(({ gradient, ...props }, ref) => {
+    return forwardRef<SVGSVGElement, IconProps>(({ gradient, secondaryColor, secondaryOpacity, ...props }, ref) => {
         return (
             <svg
                 ref={ref}
@@ -16,6 +36,7 @@ export const createIcon = (content: ReactNode, size: number, maskImage: string) 
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 {...props}
+                style={getStyle(props.style, secondaryColor, secondaryOpacity)}
             >
                 {gradient ? (
                     <foreignObject width="100%" height="100%">

@@ -4,6 +4,8 @@ import { fileURLToPath } from 'node:url';
 
 import sharp from 'sharp';
 
+import { extractDuotoneLayer, isDuotoneIcon } from './duotone.mjs';
+
 const sizes = [16, 24, 36];
 const scales = {
     '1x': {
@@ -62,46 +64,77 @@ await fs.mkdir(iosRoot, { recursive: true });
 
 let pngCount = 0;
 
+const writeImageset = async ({ input, imageName, imagesetName, width, height }) => {
+    const imagesetRoot = path.join(iosRoot, `${imagesetName}.imageset`);
+
+    await fs.mkdir(imagesetRoot, { recursive: true });
+
+    const images = [];
+
+    for (const [scaleName, preset] of Object.entries(scales)) {
+        const pngName = `${imageName}-${width}@${scaleName}.png`;
+
+        await sharp(input, { density: preset.density })
+            .resize({ width: width * preset.scale, height: height * preset.scale })
+            .png()
+            .toFile(path.join(imagesetRoot, pngName));
+
+        images.push({
+            scale: scaleName,
+            idiom: 'universal',
+            filename: pngName,
+        });
+        pngCount += 1;
+    }
+
+    const contents = {
+        info: {
+            version: 1,
+            author: 'xcode',
+        },
+        images,
+    };
+
+    await fs.writeFile(path.join(imagesetRoot, 'Contents.json'), `${JSON.stringify(contents, null, 2)}\n`, 'utf8');
+};
+
 for (const [sizeIndex, size] of sizes.entries()) {
     for (const fileName of namesBySize[sizeIndex]) {
         const sourcePath = path.join(svgRoot, String(size), fileName);
         const iconName = path.basename(fileName, '.svg');
-        const imagesetRoot = path.join(iosRoot, `${iconName}${size}.imageset`);
         const metadata = await sharp(sourcePath).metadata();
 
         if (!metadata.width || !metadata.height) {
             throw new Error(`Cannot determine SVG dimensions: ${sourcePath}`);
         }
 
-        await fs.mkdir(imagesetRoot, { recursive: true });
+        const { width, height } = metadata;
 
-        const images = [];
+        await writeImageset({
+            input: sourcePath,
+            imageName: iconName,
+            imagesetName: `${iconName}${size}`,
+            width,
+            height,
+        });
 
-        for (const [scaleName, preset] of Object.entries(scales)) {
-            const pngName = `${iconName}-${metadata.width}@${scaleName}.png`;
-
-            await sharp(sourcePath, { density: preset.density })
-                .resize({ width: metadata.width * preset.scale, height: metadata.height * preset.scale })
-                .png()
-                .toFile(path.join(imagesetRoot, pngName));
-
-            images.push({
-                scale: scaleName,
-                idiom: 'universal',
-                filename: pngName,
-            });
-            pngCount += 1;
+        if (!isDuotoneIcon(iconName)) {
+            continue;
         }
 
-        const contents = {
-            info: {
-                version: 1,
-                author: 'xcode',
-            },
-            images,
-        };
+        const svg = await fs.readFile(sourcePath, 'utf8');
 
-        await fs.writeFile(path.join(imagesetRoot, 'Contents.json'), `${JSON.stringify(contents, null, 2)}\n`, 'utf8');
+        for (const layer of ['primary', 'secondary']) {
+            const layerName = layer === 'primary' ? 'Primary' : 'Secondary';
+
+            await writeImageset({
+                input: Buffer.from(extractDuotoneLayer(svg, layer, sourcePath)),
+                imageName: `${iconName}${layerName}`,
+                imagesetName: `${iconName}${size}${layerName}`,
+                width,
+                height,
+            });
+        }
     }
 }
 
