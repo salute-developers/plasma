@@ -152,7 +152,35 @@ import TabItem from '@theme/TabItem';
 
 ### Управление внешним видом
 
-Внешний вид компонента зависит от свойств `size`:
+Внешний вид компонента зависит от свойств `appearance`, `size`:
+
+Свойство `appearance` задаёт стиль поля: `"default"` или `"white"`.
+
+```tsx live
+import React from 'react';
+import { DatePicker } from '@salutejs/sdds-scan';
+import { IconDone } from '@salutejs/plasma-icons';
+
+export function App() {
+    const appearances = ['default', 'white']
+
+    return (
+        <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+            {appearances.map((appearance) => (
+                <DatePicker
+                    key={appearance}
+                    appearance={appearance}
+                    label={`Appearance ${appearance}`}
+                    leftHelper="Подсказка к полю"
+                    placeholder="Введите дату"
+                    contentRight={<IconDone size="s" />}
+                    usePortal
+                />
+            ))}
+        </div>
+    );
+}
+```
 
 Размер `DatePicker` задаётся с помощью свойства `size`.
 
@@ -736,9 +764,36 @@ import { DatePicker } from '@salutejs/sdds-scan';
 
 ### Управление внешним видом
 
-Внешний вид компонента зависит от свойств `size`, `isDoubleCalendar`:
+Внешний вид компонента зависит от свойств `appearance`, `size`, `isDoubleCalendar`:
 
 <Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        Свойство `appearance` задаёт стиль поля: `"default"` или `"white"`.
+
+        ```tsx live
+        import React from 'react';
+        import { DatePickerRange } from '@salutejs/sdds-scan';
+
+        export function App() {
+            const appearances = ['default', 'white']
+
+            return (
+                <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+                    {appearances.map((appearance) => (
+                        <DatePickerRange
+                            key={appearance}
+                            appearance={appearance}
+                            label={`Appearance ${appearance}`}
+                            firstPlaceholder="От"
+                            secondPlaceholder="До"
+                            usePortal
+                        />
+                    ))}
+                </div>
+            );
+        }
+        ```
+    </TabItem>
     <TabItem value="size" label="Size">
         Размер `DatePickerRange` задаётся с помощью свойства `size`.
         Возможные значения свойства: `"m"`, `"s"`.

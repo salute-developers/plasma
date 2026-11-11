@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 
 import { Switch } from '@salutejs/sdds-finai';
-import { sdds_finai__light, sdds_finai__dark } from '@sddsjs/sdds_finai';
+import { sdds_finai_default__light, sdds_finai_default__dark } from '@sddsjs/sdds_finai';
 
-const LightTheme = createGlobalStyle(sdds_finai__light);
-const DarkTheme = createGlobalStyle(sdds_finai__dark);
+const LightTheme = createGlobalStyle(sdds_finai_default__light);
+const DarkTheme = createGlobalStyle(sdds_finai_default__dark);
 
 const App = () => {
     const [theme, setTheme] = useState('light');

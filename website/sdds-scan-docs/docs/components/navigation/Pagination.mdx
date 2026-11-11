@@ -32,10 +32,27 @@ export function App() {
 
 ## Управление внешним видом
 
-Внешний вид компонента зависит от свойств `view` и `size`:
+Внешний вид компонента зависит от свойств `appearance`, `view` и `size`:
 
 <Tabs>
-    <TabItem value="view" label="View" default>
+    <TabItem value="appearance" label="Appearance" default>
+        Вариант `"white"` предназначен для размещения на белой карточке: поле быстрого перехода получает светлый фон и видимую рамку:
+
+        ```tsx live
+        import React from 'react';
+        import { Pagination } from '@salutejs/sdds-scan';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexDirection: 'column' }}>
+                    <Pagination size="s" slots={9} count={200} hasQuickJump appearance="default" />
+                    <Pagination size="s" slots={9} count={200} hasQuickJump appearance="white" />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="view" label="View">
         Вид кнопок пагинации задается с помощью свойства `view`:
 
         - `"default"` — основная;

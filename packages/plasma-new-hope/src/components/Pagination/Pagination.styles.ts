@@ -165,6 +165,13 @@ export const PaginationActionsLeft = styled.div`
     }
 `;
 
+export const PaginationQuickJumpGroup = styled.div`
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(${tokens.paginationQuickJumpGap}, 0.75rem);
+`;
+
 export const PaginationHelperText = styled.div`
     color: var(${tokens.paginationHelperTextColor});
 

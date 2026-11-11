@@ -3,6 +3,7 @@ import {
     onDarkTextPrimary,
     onLightTextPrimary,
     textAccent,
+    textInfo,
     textNegative,
     textPositive,
     textPrimary,
@@ -32,6 +33,9 @@ export const config = {
             `,
             negative: css`
                 ${badgeTokens.color}: ${textNegative};
+            `,
+            info: css`
+                ${badgeTokens.color}: ${textInfo};
             `,
             dark: css`
                 ${badgeTokens.color}: ${onLightTextPrimary};

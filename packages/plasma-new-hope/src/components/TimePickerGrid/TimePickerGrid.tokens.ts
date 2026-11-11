@@ -32,6 +32,7 @@ export const tokens = {
     itemLetterSpacing: '--plasma-time-picker-grid-item-letter-spacing',
     itemLineHeight: '--plasma-time-picker-grid-item-line-height',
 
+    gap: '--plasma-time-picker-grid-gap',
     scrollbarWidth: '--plasma-time-picker-grid-scrollbar-width',
     scrollbarColor: '--plasma-time-picker-grid-scrollbar-color',
     scrollbarTrackColor: '--plasma-time-picker-grid-scrollbar-track-color',

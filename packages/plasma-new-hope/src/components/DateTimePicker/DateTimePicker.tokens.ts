@@ -307,6 +307,7 @@ export const tokens = {
     timePickerItemLetterSpacing: '--plasma-date-time-picker-grid-item-letter-spacing',
     timePickerItemLineHeight: '--plasma-date-time-picker-grid-item-line-height',
 
+    timePickerGap: '--plasma-date-time-picker-grid-gap',
     timePickerScrollbarWidth: '--plasma-date-time-picker-grid-scrollbar-width',
     timePickerScrollbarColor: '--plasma-date-time-picker-grid-scrollbar-color',
     timePickerScrollbarTrackColor: '--plasma-date-time-picker-grid-scrollbar-track-color',

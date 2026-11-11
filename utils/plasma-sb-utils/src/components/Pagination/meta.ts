@@ -32,12 +32,15 @@ export const createMeta = ({
             size: 'xs',
             hasQuickJump: true,
             hasPerPage: true,
+            hasPageRange: true,
+            hasTotalPages: false,
             pilled: false,
             square: true,
             listWidth: '5rem',
             helperText: 'Подсказка',
             textQuickJump: 'Перейти к странице',
             placeholderQuickJump: '№',
+            textPerPage: 'Показать по',
             singleLine: false,
             enableLeftSlot: true,
             enableRightSlot: true,
@@ -74,14 +77,25 @@ export const createMeta = ({
             },
             textQuickJump: {
                 control: { type: 'text' },
-                if: { arg: 'hasQuickJump', truhty: true },
+                if: { arg: 'hasQuickJump', truthy: true },
             },
             placeholderQuickJump: {
                 control: { type: 'text' },
-                if: { arg: 'hasQuickJump', truhty: true },
+                if: { arg: 'hasQuickJump', truthy: true },
             },
             hasPerPage: {
                 control: { type: 'boolean' },
+            },
+            textPerPage: {
+                control: { type: 'text' },
+                if: { arg: 'hasPerPage', truthy: true },
+            },
+            hasPageRange: {
+                control: { type: 'boolean' },
+            },
+            hasTotalPages: {
+                control: { type: 'boolean' },
+                if: { arg: 'hasQuickJump', truthy: true },
             },
             singleLine: {
                 control: { type: 'boolean' },

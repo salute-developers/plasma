@@ -3,9 +3,9 @@ import {
     bodyS,
     bodyXS,
     bodyXXS,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
+    dataBlueSoft,
+    dataBlueSoftActive,
+    dataBlueSoftHover,
     outlineAccent,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
@@ -200,10 +200,10 @@ export const config = {
                 ${textAreaTokens.hintIconColor}: ${textSecondary};
             `,
             edited: css`
-                ${textAreaTokens.backgroundColor}: ${dataBlueLight};
-                ${textAreaTokens.backgroundColorHover}: ${dataBlueLightHover};
-                ${textAreaTokens.backgroundColorActive}: ${dataBlueLightActive};
-                ${textAreaTokens.backgroundColorFocus}: ${dataBlueLightActive};
+                ${textAreaTokens.backgroundColor}: ${dataBlueSoft};
+                ${textAreaTokens.backgroundColorHover}: ${dataBlueSoftHover};
+                ${textAreaTokens.backgroundColorActive}: ${dataBlueSoftActive};
+                ${textAreaTokens.backgroundColorFocus}: ${dataBlueSoftActive};
                 ${textAreaTokens.borderColor}: ${outlineTransparentInfo};
                 ${textAreaTokens.borderColorHover}: ${outlineTransparentInfoHover};
                 ${textAreaTokens.borderColorFocus}: ${outlineTransparentInfoActive};

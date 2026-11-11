@@ -1,5 +1,5 @@
 {
-    "projectId": "d490c7b5-63c7-4fea-ba4c-7e28e34839c9",
+    "projectId": "841a4a32-9428-417a-975f-b487d0fa9005",
     "designSystemId": "6a887def-7872-431a-b742-05958a3ff775",
     "credential": {
         "type": "env",
@@ -13,8 +13,28 @@
             "description": null,
             "directoryPath": ".sdds/tenants/sdds_finai_default",
             "alias": null,
-            "createdAt": "2026-10-07T11:29:22.567Z",
-            "updatedAt": "2026-10-07T11:29:22.567Z"
+            "createdAt": "2026-10-07T11:29:22.567055Z",
+            "updatedAt": "2026-10-07T11:29:22.567055Z"
+        },
+        {
+            "id": "342793f1-d262-421e-bec8-7fbd20baaf7d",
+            "designSystemId": "6a887def-7872-431a-b742-05958a3ff775",
+            "name": "sdds_finai_beta_core",
+            "description": null,
+            "directoryPath": ".sdds/tenants/sdds_finai_beta_core",
+            "alias": null,
+            "createdAt": "2026-10-29T11:34:58.661927Z",
+            "updatedAt": "2026-10-29T11:37:30.594411Z"
+        },
+        {
+            "id": "60df262a-fecc-49d1-872b-3f795a692310",
+            "designSystemId": "6a887def-7872-431a-b742-05958a3ff775",
+            "name": "sdds_finai_high_contrast",
+            "description": null,
+            "directoryPath": ".sdds/tenants/sdds_finai_high_contrast",
+            "alias": null,
+            "createdAt": "2026-10-29T11:37:37.432101Z",
+            "updatedAt": "2026-10-29T11:38:05.647650Z"
         }
     ],
     "palettePath": ".sdds/tenants/palette.json",

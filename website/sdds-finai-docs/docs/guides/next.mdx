@@ -23,6 +23,9 @@ import { Button } from '@salutejs/sdds-finai';
 
 Ниже представлены различные способы подключения темы в проект:
 
+В примерах используется тенант `default`. Для `beta_core` или `high_contrast` замените `default`
+в имени экспорта или CSS-файла. Подробнее — в разделе [«Подключение тенантов»](../intro.mdx#подключение-тенантов).
+
 ### Styled Components
 
 :::info
@@ -33,10 +36,10 @@ import { Button } from '@salutejs/sdds-finai';
 
 ```tsx
 import type { AppProps } from "next/app";
-import { sdds_finai__light } from '@sddsjs/sdds_finai';
+import { sdds_finai_default__light } from '@sddsjs/sdds_finai';
 import { createGlobalStyle } from "styled-components";
 
-const PlasmaTheme = createGlobalStyle(sdds_finai__light);
+const PlasmaTheme = createGlobalStyle(sdds_finai_default__light);
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -53,7 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
 ```tsx
 import type { AppProps } from "next/app";
-import '@sddsjs/sdds_finai/css/sdds_finai__light.css';
+import '@sddsjs/sdds_finai/css/sdds_finai_default__light.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   return <Component {...pageProps} />;

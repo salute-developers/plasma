@@ -1,3 +1,4 @@
 # В .sdds коммитится только декларация
 */.sdds/*
 !*/.sdds/config.json
+.env

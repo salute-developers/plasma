@@ -157,10 +157,10 @@ body{margin:0; background:var(--bg-tertiary); color:var(--text-primary); font-fa
 
 /* Слой меню лежит под панелью и не перехватывает клики мимо себя. */
 .mega{position:fixed; inset:0; z-index:45; pointer-events:none}
+@keyframes megaReveal{from{opacity:0} to{opacity:1}}
 .mega-shell{
   position:absolute; pointer-events:auto;
-  /* размер и место меняются с лёгким перелётом — панель «доезжает» до нового пункта */
-  transition:transform var(--dur-slow) var(--ease-spring), width var(--dur-slow) var(--ease-spring), height var(--dur-slow) var(--ease-spring);
+  /* Рамка и обрезка фона получают одну геометрию до первого кадра. */
 }
 /* Стекло меню — отдельный неподвижный слой во весь экран. Форму панели ему
    задаёт обрезка: так размытие считается один раз и не переезжает вместе с рамкой,
@@ -170,21 +170,20 @@ body{margin:0; background:var(--bg-tertiary); color:var(--text-primary); font-fa
   background:var(--glass-over);
   -webkit-backdrop-filter:blur(24px); backdrop-filter:blur(24px);
   clip-path:inset(0 100% 100% 0 round 16px);
-  transition:opacity var(--dur) var(--ease), clip-path var(--dur-slow) var(--ease-spring);
+  /* Обрезка не анимируется: иначе фон раскрывается из угла экрана. */
 }
-.mega.is-open .mega-glass{opacity:1}
+.mega.is-open .mega-glass{opacity:1; animation:megaReveal .16s ease-out both}
 
 .mega-body{
   position:relative; width:100%; height:100%; overflow:hidden;
   border:1px solid var(--accent-line); border-radius:16px;
-  opacity:0; transform:translateY(-10px); transform-origin:top center;
-  transition:opacity var(--dur) var(--ease), transform var(--dur-slow) var(--ease-spring);
+  opacity:1;
 }
 /* подложка меню на случай, если браузер не умеет размывать фон */
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
   .mega-body{background:var(--menu-surface)}
 }
-.mega.is-open .mega-body{opacity:1; transform:none}
+.mega.is-open .mega-body{opacity:1; transform:none; animation:megaReveal .16s ease-out both}
 /* Панель вынута из потока: так она сохраняет свою естественную ширину,
    по которой рамка и подстраивается. */
 .mega-panel{position:absolute; top:0; left:0; display:flex; gap:56px; padding:24px 28px}
@@ -220,7 +219,7 @@ body{margin:0; background:var(--bg-tertiary); color:var(--text-primary); font-fa
 
 @media (prefers-reduced-motion: reduce){
   .nav-pill,.mega-shell,.mega-body{transition:none}
-  .mega-col,.mega-panel{animation:none}
+  .mega.is-open .mega-glass,.mega.is-open .mega-body,.mega-col,.mega-panel{animation:none}
 }
 .panel-control{
   width:32px; height:32px; padding:0; display:inline-grid; place-items:center; flex:none;
@@ -1109,7 +1108,7 @@ body{margin:0; background:var(--bg-tertiary); color:var(--text-primary); font-fa
   font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--text-tertiary);
 }
 .kn-extra{margin-top:12px}
-.kn-extra .bento-card{grid-column:span 2; min-height:auto}
+.kn-extra .bento-card{grid-column:span 3; min-height:auto}
 @media (max-width:1100px){
   .kn-stage{display:none}                     /* на узких экранах сцена не читается */
   .kn-extra .bento-card{grid-column:span 2}
@@ -2688,3 +2687,17 @@ a.comp-card:hover .comp-card-art{background:var(--surface-transparent-2)}
   #theme .seg button{height:40px; font-size:12.5px}
   #theme .props-foot{font-size:9.5px}
 }
+
+/* Command examples follow the documentation palette and type scale. */
+.doc-code-block{margin:20px 0; min-width:0}
+.doc-code-actions{display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:8px; color:var(--text-tertiary); font-size:13px}
+.doc-code-actions button{font:inherit; color:var(--text-primary); background:var(--bg-secondary); border:1px solid var(--outline-transparent); border-radius:8px; padding:6px 12px; cursor:pointer}
+.doc-code-actions button:hover{background:var(--surface-transparent-2)}
+.doc-code-actions button:focus-visible{outline:2px solid currentColor; outline-offset:3px}
+.doc-code-block .doc-code{margin:0}
+
+/* Keep explanatory lists as readable as the surrounding documentation prose. */
+.doc-step-list{gap:24px}
+.doc-step-list > li{padding-left:4px}
+.doc-step-list > li > b{display:block; color:var(--text-primary); font-weight:500; line-height:1.5}
+.article .doc-step-list > li > p{margin:8px 0 0; font-size:inherit; line-height:1.65; color:var(--text-paragraph)}

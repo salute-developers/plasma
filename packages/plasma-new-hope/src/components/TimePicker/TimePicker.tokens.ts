@@ -47,6 +47,7 @@ export const tokens = {
     labelLineHeight: '--sdds-core-time-picker__label-line-height',
 
     titleCaptionMargin: '--sdds-core-time-picker__title-caption-margin',
+    titleCaptionInnerLabelOffset: '--sdds-core-time-picker__title-caption-label-inner-offset',
     titleCaptionColor: '--sdds-core-time-picker__title-caption-color',
     titleCaptionColorReadOnly: '--sdds-core-time-picker__title-caption-color-readonly',
     titleCaptionFontFamily: '--sdds-core-time-picker__title-caption-font-family',
@@ -227,6 +228,7 @@ export const tokens = {
     itemLetterSpacing: '--sdds-core-time-picker-item-letter-spacing',
     itemLineHeight: '--sdds-core-time-picker-item-line-height',
 
+    gap: '--sdds-core-time-picker-gap',
     scrollbarWidth: '--sdds-core-time-picker-scrollbar-width',
     scrollbarColor: '--sdds-core-time-picker-scrollbar-color',
     scrollbarTrackColor: '--sdds-core-time-picker-scrollbar-track-color',

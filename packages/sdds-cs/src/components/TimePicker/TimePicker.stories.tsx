@@ -13,6 +13,8 @@ const { meta: META, Default } = getTimePickerStories({
     defaultArgs: {
         size: 's',
         titleCaption: '',
+        hasHint: false,
+        hintText: '',
     },
     disablePropsList: [
         'titleCaption',

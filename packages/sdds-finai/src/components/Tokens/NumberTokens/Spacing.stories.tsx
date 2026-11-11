@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_finai__dark, sdds_finai__light } from '@sddsjs/sdds_finai';
 import { InSpacingDecorator, getGroupedCornerRadiusTokens } from '@salutejs/plasma-sb-utils';
-import type { GroupedNumberTokens } from '@salutejs/plasma-sb-utils';
 
+import { getTheme } from '../../../../.storybook/themes';
 import { ToastProvider, useToast } from '../../Toast/Toast';
 import type { ShowToastArgs } from '../../Toast';
 
@@ -23,13 +22,9 @@ const meta: Meta = {
 
 export default meta;
 
-const themes: Record<string, GroupedNumberTokens> = {
-    'sdds-finai:light': getGroupedCornerRadiusTokens(sdds_finai__light[0]),
-    'sdds-finai:dark': getGroupedCornerRadiusTokens(sdds_finai__dark[0]),
-};
-
 const StoryDemo = ({ context }) => {
-    const groupedTokens = themes[context.globals.theme];
+    const theme = getTheme(context.globals.theme, context.globals.tenant);
+    const groupedTokens = useMemo(() => getGroupedCornerRadiusTokens(theme[0]), [theme]);
     const { showToast } = useToast();
     const toastData = {
         view: 'default',

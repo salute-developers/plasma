@@ -1,0 +1,93 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Подключение тенантов
+
+Начиная с `@sddsjs/sdds_finai@0.2.0`, доступны тенанты `default`, `beta_core` и `high_contrast`.
+Тенант задаёт набор значений дизайн-токенов. Каждый тенант содержит светлую и тёмную темы.
+В корне приложения подключите нужную комбинацию тенанта и цветовой темы.
+
+| Тенант | Светлая тема | Тёмная тема |
+| --- | --- | --- |
+| `default` | `sdds_finai_default__light` | `sdds_finai_default__dark` |
+| `beta_core` | `sdds_finai_beta_core__light` | `sdds_finai_beta_core__dark` |
+| `high_contrast` | `sdds_finai_high_contrast__light` | `sdds_finai_high_contrast__dark` |
+
+Примеры ниже подключают светлую тему тенанта `beta_core`. Для другого тенанта замените `beta_core`
+на `default` или `high_contrast` в имени экспорта либо CSS-файла. Для тёмной темы замените `__light` на `__dark`.
+
+<Tabs>
+    <TabItem value="css" label="css" default>
+
+```jsx
+import '@sddsjs/sdds_finai/css/sdds_finai_beta_core__light.css';
+```
+
+Или в общем CSS-файле приложения:
+
+```css
+@import '@sddsjs/sdds_finai/css/sdds_finai_beta_core__light.css';
+```
+
+    </TabItem>
+    <TabItem value="css-module" label="css-module">
+
+```jsx
+import React from 'react';
+import { Button } from '@salutejs/sdds-finai/css';
+import styles from '@sddsjs/sdds_finai/css/sdds_finai_beta_core.module.css';
+
+export const App = () => (
+    <div className={styles.light}>
+        <Button text="Кнопка" />
+    </div>
+);
+```
+
+Для тёмной темы используйте `styles.dark`. Имя CSS-модуля зависит от тенанта и содержит обе цветовые темы.
+
+    </TabItem>
+    <TabItem value="sc" label="styled-components">
+
+```jsx
+import React from 'react';
+import { createGlobalStyle } from 'styled-components';
+import { Button } from '@salutejs/sdds-finai';
+import { sdds_finai_beta_core__light } from '@sddsjs/sdds_finai';
+
+const Theme = createGlobalStyle(sdds_finai_beta_core__light);
+
+export const App = () => (
+    <>
+        <Theme />
+        <Button text="Кнопка" />
+    </>
+);
+```
+
+    </TabItem>
+    <TabItem value="emotion" label="emotion">
+
+```jsx
+import React from 'react';
+import { Global, css } from '@emotion/react';
+import { Button } from '@salutejs/sdds-finai/emotion';
+import { sdds_finai_beta_core__light } from '@sddsjs/sdds_finai';
+
+const themeStyle = css(sdds_finai_beta_core__light);
+
+export const App = () => (
+    <>
+        <Global styles={themeStyle} />
+        <Button text="Кнопка" />
+    </>
+);
+```
+
+    </TabItem>
+</Tabs>
+
+Имена импортируемых токенов остаются общими для всех тенантов, например `textPrimary` из `@sddsjs/sdds_finai`.
+Их значения определяет подключённая тема. Импорты компонентов при смене тенанта также остаются прежними.
+
+В Storybook тенант переключается контролом `Tenant`, а светлая и тёмная темы — контролом `Theme`.

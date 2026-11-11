@@ -16,7 +16,6 @@ export const ModalBody = styled.div`
     width: var(${tokens.modalWidth}, auto);
     height: 100%;
     box-sizing: border-box;
-    overflow: hidden;
     border-radius: var(${tokens.modalBodyBorderRadius});
     padding: var(${tokens.modalBodyPadding});
     background: var(${tokens.modalBodyBackground});
@@ -40,10 +39,34 @@ export const ModalContent = styled.div`
 
     .${classes.headerAbsolute} {
         background: var(${tokens.modalBodyBackground});
+        /*
+         * Фон шапки совпадает с карточкой и лежит поверх её скругления.
+         * Радиус нужен самой шапке: ModalBody больше не обрезает содержимое.
+         */
+        border-top-left-radius: var(${tokens.modalBodyBorderRadius});
+        border-top-right-radius: var(${tokens.modalBodyBorderRadius});
     }
 
     &:has(.${classes.image}) .${classes.headerAbsolute} {
         background: transparent;
+    }
+
+    /*
+     * Картинка непрозрачная и рисуется поверх скругления ModalBody, поэтому радиус
+     * карточки задан ей самой. Скругляется только тот край, до которого она реально
+     * доходит. Сосед в потоке занимает свой край: любой предыдущий — верх, любой
+     * следующий — низ. Крестик и AbsoluteHeader вне потока и край не занимают.
+     * Правила живут здесь, а не на картинке: селектор с :not() в начале stylis
+     * приклеивает к компоненту, и предыдущий сосед перестаёт находиться.
+     */
+    & > :not(.${classes.headerAbsolute}):not(.${classes.close}) ~ .${classes.image} {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    & > .${classes.image}:has(~ :not(.${classes.headerAbsolute}):not(.${classes.close})) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 `;
 

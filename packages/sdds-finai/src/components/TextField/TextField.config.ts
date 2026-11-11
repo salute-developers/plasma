@@ -2,9 +2,9 @@ import { css, textFieldTokens as tokens } from '@salutejs/plasma-new-hope/styled
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
+    dataBlueSoft,
+    dataBlueSoftActive,
+    dataBlueSoftHover,
     inverseTextPrimary,
     inverseTextSecondary,
     inverseTextSecondaryHover,
@@ -215,9 +215,9 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${dataBlueLight};
-                ${tokens.backgroundColorHover}: ${dataBlueLightHover};
-                ${tokens.backgroundColorFocus}: ${dataBlueLightActive};
+                ${tokens.backgroundColor}: ${dataBlueSoft};
+                ${tokens.backgroundColorHover}: ${dataBlueSoftHover};
+                ${tokens.backgroundColorFocus}: ${dataBlueSoftActive};
                 ${tokens.borderColor}: ${outlineTransparentInfo};
                 ${tokens.borderColorHover}: ${outlineTransparentInfoHover};
                 ${tokens.borderColorFocus}: ${outlineTransparentInfoActive};
@@ -252,8 +252,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.625rem;
                 ${tokens.borderWidth}: 0.125rem;
 
-                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.375rem;
-                ${tokens.rightContentMargin}: -0.1875rem -0.375rem -0.1875rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
                 ${tokens.rightContentWithHintMargin}: -0.1875rem -0.1875rem -0.1875rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;
@@ -339,8 +339,8 @@ export const config = {
                 ${tokens.borderRadius}: 0.5rem;
                 ${tokens.borderWidth}: 0.125rem;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.25rem;
-                ${tokens.rightContentMargin}: -0.0625rem -0.25rem -0.0625rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.rightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
 
                 ${tokens.contentRightWrapperGap}: 0.25rem;

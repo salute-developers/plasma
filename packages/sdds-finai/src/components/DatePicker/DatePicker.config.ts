@@ -4,9 +4,9 @@ import {
     bodySBold,
     bodyXS,
     bodyXSBold,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
+    dataBlueSoft,
+    dataBlueSoftActive,
+    dataBlueSoftHover,
     h4,
     h4Bold,
     h5,
@@ -57,7 +57,7 @@ export const config = {
                 ${tokens.background}: ${surfaceTransparentCard};
                 ${tokens.backgroundError}: ${surfaceTransparentNegative};
                 ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
-                ${tokens.backgroundEdited}: ${dataBlueLight};
+                ${tokens.backgroundEdited}: ${dataBlueSoft};
 
                 ${tokens.borderColor}: ${outlineSolidPrimary};
                 ${tokens.borderColorHover}: ${outlineSolidPrimaryHover};
@@ -129,9 +129,9 @@ export const config = {
                 ${tokens.textFieldBorderColorSuccessFocus}: ${outlineAccent};
 
                 ${tokens.textFieldColorEdited}: ${textPrimary};
-                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueLightHover};
-                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueSoftHover};
+                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueSoftActive};
                 ${tokens.textFieldBorderColorEdited}: ${outlineTransparentInfo};
                 ${tokens.textFieldBorderColorEditedHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorEditedFocus}: ${outlineTransparentInfoActive};
@@ -265,7 +265,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.3125rem -0.1875rem 0.75rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
@@ -437,7 +437,7 @@ export const config = {
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
                 ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.25rem -0.0625rem 0.75rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.textFieldTextBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 

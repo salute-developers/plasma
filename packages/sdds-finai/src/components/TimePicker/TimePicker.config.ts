@@ -2,9 +2,9 @@ import { timePickerTokens as tokens, css } from '@salutejs/plasma-new-hope/style
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
+    dataBlueSoft,
+    dataBlueSoftActive,
+    dataBlueSoftHover,
     outlineAccent,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
@@ -81,9 +81,9 @@ export const config = {
                 ${tokens.textFieldBorderColorSuccess}: ${outlineTransparentPositive};
                 ${tokens.textFieldBorderColorSuccessHover}: ${outlineTransparentPositiveHover};
                 ${tokens.textFieldBorderColorSuccessFocus}: ${outlineAccent};
-                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueLightHover};
-                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueSoftHover};
+                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueSoftActive};
                 ${tokens.textFieldBorderColorEdited}: ${outlineTransparentInfo};
                 ${tokens.textFieldBorderColorEditedHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorEditedFocus}: ${outlineTransparentInfoActive};

@@ -613,6 +613,54 @@ type SuggestionItem = {
     </TabItem>
 </Tabs>
 
+### Управление внешним видом
+
+Внешний вид компонента зависит от свойств `appearance`, `view`, `size`:
+
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Autocomplete } from '@salutejs/sdds-scan';
+
+        export function App() {
+            const [value, setValue] = useState('Алексей Смирнов');
+
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+                    <Autocomplete
+                        view="default"
+                        appearance="default"
+                        label="Appearance default"
+                        placeholder="Введите значение"
+                        suggestions={mockData}
+                        value={value}
+                        onChange={(event) => setValue(event.target.value)}
+                        onSuggestionSelect={(item) => setValue(item.label)}
+                    />
+                    <Autocomplete
+                        view="default"
+                        appearance="white"
+                        label="Appearance white"
+                        placeholder="Введите значение"
+                        suggestions={mockData}
+                        value={value}
+                        onChange={(event) => setValue(event.target.value)}
+                        onSuggestionSelect={(item) => setValue(item.label)}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/).

@@ -2,9 +2,9 @@ import { css, rangeTokens as tokens } from '@salutejs/plasma-new-hope/styled-com
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
-    dataBlueLightHover,
+    dataBlueSoft,
+    dataBlueSoftActive,
+    dataBlueSoftHover,
     outlineAccent,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
@@ -50,7 +50,7 @@ export const config = {
                 ${tokens.background}: ${surfaceTransparentCard};
                 ${tokens.backgroundError}: ${surfaceTransparentNegative};
                 ${tokens.backgroundSuccess}: ${surfaceTransparentPositive};
-                ${tokens.backgroundEdited}: ${dataBlueLight};
+                ${tokens.backgroundEdited}: ${dataBlueSoft};
 
                 ${tokens.borderColor}: ${outlineSolidPrimary};
                 ${tokens.borderColorError}: ${outlineTransparentNegative};
@@ -101,9 +101,9 @@ export const config = {
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentCard};
                 ${tokens.textFieldBorderColorSuccessHover}: ${outlineTransparentPositiveHover};
                 ${tokens.textFieldBorderColorSuccessFocus}: ${outlineAccent};
-                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueLightHover};
-                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundEditedColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundEditedColorHover}: ${dataBlueSoftHover};
+                ${tokens.textFieldBackgroundEditedColorFocus}: ${dataBlueSoftActive};
                 ${tokens.textFieldBorderColorEdited}: ${outlineTransparentInfo};
                 ${tokens.textFieldBorderColorEditedHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorEditedFocus}: ${outlineTransparentInfoActive};
