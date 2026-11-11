@@ -116,6 +116,58 @@ export function App() {
 }
 ```
 
+## Диапазон страниц
+
+Свойство `hasPageRange` управляет отображением номеров страниц.<br />
+При `hasPageRange={false}` номера скрываются, а `leftContent` и `rightContent` выводятся вокруг поля быстрого перехода.<br />
+Свойство `hasTotalPages` добавляет к полю общее количество страниц, а в самом поле показывается текущая страница.
+
+Подписи задаются через `textQuickJump` и `textPerPage`, пустая строка их скрывает.<br />
+Такой вид подходит для небольших блоков.
+
+```tsx live
+import React, { useState } from 'react';
+import { Pagination, IconButton } from '@salutejs/{{ package }}';
+import { IconDisclosureLeftOutline, IconDisclosureRightOutline } from '@salutejs/plasma-icons';
+
+export function App() {
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(20);
+    const count = 300;
+    const pages = Math.ceil(count / perPage);
+
+    return (
+        <div style=\{{ width: '20rem' }}>
+            <Pagination
+                size="xs"
+                type="compact"
+                hasPageRange={false}
+                hasTotalPages
+                textQuickJump=""
+                textPerPage=""
+                count={count}
+                value={page}
+                perPage={perPage}
+                leftContent={
+                    <IconButton view="clear" size="xs" disabled={page === 1} onClick={() => setPage(page - 1)}>
+                        <IconDisclosureLeftOutline color="inherit" size="xs" />
+                    </IconButton>
+                }
+                rightContent={
+                    <IconButton view="clear" size="xs" disabled={page === pages} onClick={() => setPage(page + 1)}>
+                        <IconDisclosureRightOutline color="inherit" size="xs" />
+                    </IconButton>
+                }
+                onChange={(newPage, newPerPage) => {
+                    setPage(newPage ?? page);
+                    setPerPage(newPerPage ?? perPage);
+                }}
+            />
+        </div>
+    );
+}
+```
+
 ## Форма кнопок
 
 С помощью свойства `pilled` можно переключить кнопки в круглую форму:

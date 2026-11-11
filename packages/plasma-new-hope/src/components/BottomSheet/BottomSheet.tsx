@@ -4,9 +4,8 @@ import { RootProps } from '../../engines';
 import { useEscKeyDown } from '../../hooks';
 import { Overlay } from '../Overlay';
 import { IconClose } from '../_Icon';
-import { cx } from '../../utils';
+import { cx, getPanelZIndex } from '../../utils';
 
-import { getPanelZIndex } from './utils';
 import { BottomSheetProps } from './BottomSheet.types';
 import { classes, tokens } from './BottomSheet.tokens';
 import { useBottomSheet } from './hooks/useBottomSheet';
@@ -45,6 +44,7 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                 zIndex = 1000,
                 onClose = noop,
                 onOverlayClick,
+                closeOnOverlayClick = true,
                 onEscKeyDown,
                 snapPoints,
                 initialSnapPoint,
@@ -96,7 +96,7 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                                 withBlur ? `var(${tokens.overlayWithBlurColor})` : `var(${tokens.overlayColor})`
                             }
                             withBlur={withBlur}
-                            isClickable
+                            isClickable={closeOnOverlayClick}
                             onOverlayClick={handleOverlayClick}
                         />
                     )}
@@ -104,7 +104,10 @@ export const bottomSheetRoot = (Root: RootProps<HTMLDivElement, BottomSheetProps
                     <Panel
                         ref={panelRef}
                         className={panelClassName}
-                        style={{ maxHeight: hasSnapPoints ? '100%' : maxHeight, zIndex: getPanelZIndex(zIndex) }}
+                        style={{
+                            maxHeight: hasSnapPoints ? 'calc(100% - env(safe-area-inset-top, 0px))' : maxHeight,
+                            zIndex: getPanelZIndex(zIndex),
+                        }}
                     >
                         {hasHandle && (
                             <Handler ref={handleRef} $placement={handlePlacement} className={classes.hasHandle} />

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { publicPath } from './paths';
@@ -79,6 +79,8 @@ const menus = {
             title: 'Инструменты',
             links: [
                 ['DS Builder', '/builder'],
+                ['CLI', '/docs/cli'],
+                ['MCP', '/docs/mcp'],
                 ['Темы и токены', '/docs/theming'],
                 ['Библиотека в Figma', 'https://www.figma.com/design/0FxQGHmGUOCjtHM3N9j4Oq/'],
             ],
@@ -97,6 +99,13 @@ const menus = {
             : []),
     ],
     '/docs': [
+        {
+            title: 'Инструменты разработчика',
+            links: [
+                ['CLI — установка и использование', '/docs/cli'],
+                ['Подключение MCP', '/docs/mcp'],
+            ],
+        },
         {
             title: 'Основы',
             links: [
@@ -244,7 +253,7 @@ export function Header() {
         setMobile(false);
         setSearch(false);
     }, [pathname]);
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!menu || !megaRef.current) return undefined;
         const place = () => {
             const panel = document.getElementById('panel')?.getBoundingClientRect();
@@ -350,7 +359,7 @@ export function Header() {
                     <div className="mega-glass" />
                     <div className="mega-shell">
                         <div className="mega-body">
-                            <div className="mega-panel is-open is-first">
+                            <div className="mega-panel is-open">
                                 {menus[menu].map((column) => (
                                     <div className="mega-col" key={column.title}>
                                         <p className="mega-col-title">{column.title}</p>

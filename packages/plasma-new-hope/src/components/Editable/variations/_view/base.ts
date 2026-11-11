@@ -6,8 +6,12 @@ import { EditButton } from '../../Editable.styles';
 export const base = css`
     ${EditButton} {
         background: var(
-            --plasma-editable-icon-background,
-            linear-gradient(270deg, var(${tokens.editButtonBackground}) 70%, rgba(0, 0, 0, 0) 120%)
+            ${tokens.iconBackground},
+            linear-gradient(
+                to left,
+                var(${tokens.editButtonBackground}) calc(100% - var(${tokens.iconGap})),
+                transparent
+            )
         );
         color: var(${tokens.editButtonColor});
     }

@@ -2,6 +2,12 @@ import type { HTMLAttributes, ReactNode, SyntheticEvent, CSSProperties, RefObjec
 
 import { FocusedPathState } from './reducers/focusedPathReducer';
 
+/**
+ * Сторона открытия выпадающего списка.
+ *
+ * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
+ * Используйте `top-start`, `bottom-start`, `left-start` и `right-start`.
+ */
 export type DropdownPlacement =
     | 'auto'
     | 'top-start'
@@ -15,7 +21,11 @@ export type DropdownPlacement =
     | 'bottom-end'
     | 'left-start'
     | 'left-center'
-    | 'left-end';
+    | 'left-end'
+    | 'top'
+    | 'bottom'
+    | 'left'
+    | 'right';
 export type DropdownTrigger = 'hover' | 'click';
 export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
 export type PlacementType =
@@ -44,6 +54,7 @@ export type ItemOption = {
     label: string;
     /**
      * Сторона открытия вложенного выпадающего списка относительно текущего элемента.
+     * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
      */
     placement?: DropdownPlacement;
     /**
@@ -104,6 +115,8 @@ export type DropdownProps<T extends ItemOption = ItemOption> = {
     trigger?: DropdownTrigger;
     /**
      * Сторона открытия Dropdown относительно target элемента.
+     * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
+     * Используйте `top-start`, `bottom-start`, `left-start` и `right-start`.
      * @default bottom-start
      */
     placement?: DropdownPlacement;

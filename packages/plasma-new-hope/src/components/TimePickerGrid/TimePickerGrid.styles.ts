@@ -19,7 +19,7 @@ export const StyledTimePicker = styled.div<{ width?: string | number }>`
     display: flex;
     padding: var(${tokens.timePickerGridPadding});
     flex: 1 1 1;
-    gap: var(${tokens.scrollbarWidth});
+    gap: var(${tokens.gap}, var(${tokens.scrollbarWidth}));
     box-sizing: border-box;
     position: relative;
     height: var(${tokens.columnHeight});

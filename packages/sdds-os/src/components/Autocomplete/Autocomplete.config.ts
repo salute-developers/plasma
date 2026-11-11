@@ -256,6 +256,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.textFieldTitleCaptionMargin}: 0.3125rem;
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -341,6 +342,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -472,8 +474,9 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-tertiary);
-                ${tokens.textFieldTitleCaptionColor}: var(--text-secondary);
+                ${tokens.textFieldTitleCaptionColor}: var(--text-tertiary);
                 ${tokens.textFieldContentSlotColor}: var(--text-tertiary);
+                ${tokens.textFieldContentSlotRightColor}: var(--text-tertiary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-solid-tertiary);
                 ${tokens.textFieldBorderColor}: transparent;
             `,
@@ -481,6 +484,7 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.textFieldReadOnlyOpacity}: 1;
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);

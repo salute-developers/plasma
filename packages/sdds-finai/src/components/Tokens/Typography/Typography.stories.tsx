@@ -1,6 +1,5 @@
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
+import React, { Dispatch, FC, SetStateAction, useEffect, useMemo, useState } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_finai__dark, sdds_finai__light } from '@sddsjs/sdds_finai';
 import {
     InSpacingDecorator,
     getGroupedTypographyTokens,
@@ -8,13 +7,9 @@ import {
     upperFirstLetter,
     typographyToCssMap,
 } from '@salutejs/plasma-sb-utils';
-import type {
-    TypographyStructure,
-    Breakpoint,
-    TypographyProperties,
-    TypographyWeight,
-} from '@salutejs/plasma-sb-utils';
+import type { Breakpoint, TypographyProperties, TypographyWeight } from '@salutejs/plasma-sb-utils';
 
+import { getTheme } from '../../../../.storybook/themes';
 import { Accordion } from '../../Accordion/Accordion';
 import { ToastProvider, useToast } from '../../Toast/Toast';
 import { SegmentGroup } from '../../Segment/Segment';
@@ -47,11 +42,6 @@ const meta: Meta = {
 };
 
 export default meta;
-
-const themes: Record<string, TypographyStructure> = {
-    'sdds-finai:light': getGroupedTypographyTokens(sdds_finai__light[0]),
-    'sdds-finai:dark': getGroupedTypographyTokens(sdds_finai__dark[0]),
-};
 
 type FontWeightControllerProps = {
     fontWeights: Array<TypographyWeight>;
@@ -182,7 +172,8 @@ const TokenData: FC<TokenDataProps> = ({ title, token, size, fontFamily, fontWei
 };
 
 const StoryDemoTypography = ({ context }) => {
-    const groupedTokens = themes[context.globals.theme];
+    const theme = getTheme(context.globals.theme, context.globals.tenant);
+    const groupedTokens = useMemo(() => getGroupedTypographyTokens(theme[0]), [theme]);
 
     const actualFontWeights = Object.keys(groupedTokens) as Array<TypographyWeight>;
     const [fontWeight, setFontWeight] = useState<TypographyWeight>(actualFontWeights[0]);

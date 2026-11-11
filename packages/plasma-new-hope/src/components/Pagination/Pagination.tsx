@@ -13,6 +13,7 @@ import {
     PaginationShorter,
     PaginationActionsLeft,
     PaginationHelperText,
+    PaginationQuickJumpGroup,
 } from './Pagination.styles';
 import type { PaginationProps } from './Pagination.types';
 import { getSections, defaultValues } from './utils';
@@ -49,6 +50,8 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
 
                 hasQuickJump = defaultValues.hasQuickJump,
                 hasPerPage = defaultValues.hasPerPage,
+                hasPageRange = defaultValues.hasPageRange,
+                hasTotalPages = defaultValues.hasTotalPages,
                 perPageList = defaultValues.perPageList,
                 isCommonButtonStyles = defaultValues.isCommonButtonStyles,
 
@@ -128,9 +131,13 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
             };
 
             const handlerSetPerPage = (newPerPageValue: number) => {
-                setPerPageInner(newPerPageValue);
+                const newPages = Math.max(Math.ceil(count / newPerPageValue), 1);
+                const newPageValue = hasTotalPages ? Math.min(pageValue, newPages) : pageValue;
 
-                onChange?.(pageValue, newPerPageValue);
+                setPerPageInner(newPerPageValue);
+                setPageInner(newPageValue);
+
+                onChange?.(newPageValue, newPerPageValue);
                 onChangePerPageValue?.(newPerPageValue);
             };
 
@@ -170,7 +177,33 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                 return () => {
                     observers.forEach((observer) => observer.disconnect());
                 };
-            }, [type]);
+            }, [type, hasPageRange]);
+
+            const leftSlot = leftContent && (
+                <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>{leftContent}</PaginationButtonGroup>
+            );
+            const rightSlot = rightContent && (
+                <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
+                    {rightContent}
+                </PaginationButtonGroup>
+            );
+
+            // Без номеров страниц слоты возле поля быстрого перехода
+            const withQuickJumpGroup = !hasPageRange && (hasQuickJump || leftSlot || rightSlot);
+            const pagesOffset = hasPageRange ? pagesWidth : 0;
+
+            const quickJump = (
+                <PaginationQuickJumpToPage
+                    prevPageValue={pageValue}
+                    totalPages={Math.max(pages, 1)}
+                    hasTotalPages={hasTotalPages}
+                    placeholderQuickJump={placeholderQuickJump}
+                    textQuickJump={textQuickJump}
+                    onChangeValue={handleSetPage}
+                    onFocusQuickJump={onFocusQuickJump}
+                    onBlurQuickJump={onBlurQuickJump}
+                />
+            );
 
             return (
                 <Root
@@ -182,64 +215,61 @@ export const paginationRoot = (Root: RootPropsOmitOnChange<HTMLDivElement, Pagin
                     {...rest}
                 >
                     <PaginationRoot className={typeClass}>
-                        <PaginationPages ref={pagesRef}>
-                            {leftContent && (
-                                <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
-                                    {leftContent}
-                                </PaginationButtonGroup>
-                            )}
-                            {sections &&
-                                sections.map((section, indexSection) => (
-                                    <Fragment key={indexSection}>
-                                        {indexSection !== 0 && (
-                                            <PaginationShorter
-                                                stretching="fixed"
-                                                disabled
-                                                className={classes.buttonDisabled}
-                                            >
-                                                ...
-                                            </PaginationShorter>
-                                        )}
-                                        <PaginationSection>
-                                            {section.map((currentPage, index) => (
-                                                <PaginationButton
-                                                    key={`${currentPage}_${index}`}
-                                                    className={cx(
-                                                        classes.paginationPageButton,
-                                                        isActiveButton(currentPage),
-                                                        disabled.includes(currentPage) ? classes.buttonDisabled : '',
-                                                    )}
-                                                    pin={roundedClass}
-                                                    disabled={disabled.includes(currentPage)}
-                                                    square={square}
-                                                    onClick={() => handleClick(currentPage)}
+                        {hasPageRange && (
+                            <PaginationPages ref={pagesRef}>
+                                {leftSlot}
+                                {sections &&
+                                    sections.map((section, indexSection) => (
+                                        <Fragment key={indexSection}>
+                                            {indexSection !== 0 && (
+                                                <PaginationShorter
+                                                    stretching="fixed"
+                                                    disabled
+                                                    className={classes.buttonDisabled}
                                                 >
-                                                    {currentPage}
-                                                </PaginationButton>
-                                            ))}
-                                        </PaginationSection>
-                                    </Fragment>
-                                ))}
-                            {rightContent && (
-                                <PaginationButtonGroup isCommonButtonStyles={isCommonButtonStyles}>
-                                    {rightContent}
-                                </PaginationButtonGroup>
-                            )}
-                        </PaginationPages>
+                                                    ...
+                                                </PaginationShorter>
+                                            )}
+                                            <PaginationSection>
+                                                {section.map((currentPage, index) => (
+                                                    <PaginationButton
+                                                        key={`${currentPage}_${index}`}
+                                                        className={cx(
+                                                            classes.paginationPageButton,
+                                                            isActiveButton(currentPage),
+                                                            disabled.includes(currentPage)
+                                                                ? classes.buttonDisabled
+                                                                : '',
+                                                        )}
+                                                        pin={roundedClass}
+                                                        disabled={disabled.includes(currentPage)}
+                                                        square={square}
+                                                        onClick={() => handleClick(currentPage)}
+                                                    >
+                                                        {currentPage}
+                                                    </PaginationButton>
+                                                ))}
+                                            </PaginationSection>
+                                        </Fragment>
+                                    ))}
+                                {rightSlot}
+                            </PaginationPages>
+                        )}
                         <PaginationActions
-                            style={type === 'compact' ? { minWidth: '0px' } : { width: `calc(100% - ${pagesWidth}px)` }}
+                            style={
+                                type === 'compact' ? { minWidth: '0px' } : { width: `calc(100% - ${pagesOffset}px)` }
+                            }
                             className={cx(classes.actions, typeClass, withHasPerPageSelect, withHasQuickJump)}
                         >
                             <PaginationActionsLeft className={typeClass}>
-                                {hasQuickJump && (
-                                    <PaginationQuickJumpToPage
-                                        prevPageValue={pageValue}
-                                        placeholderQuickJump={placeholderQuickJump}
-                                        textQuickJump={textQuickJump}
-                                        onChangeValue={handleSetPage}
-                                        onFocusQuickJump={onFocusQuickJump}
-                                        onBlurQuickJump={onBlurQuickJump}
-                                    />
+                                {withQuickJumpGroup ? (
+                                    <PaginationQuickJumpGroup>
+                                        {leftSlot}
+                                        {hasQuickJump && quickJump}
+                                        {rightSlot}
+                                    </PaginationQuickJumpGroup>
+                                ) : (
+                                    hasQuickJump && quickJump
                                 )}
                                 {helperText && (
                                     <PaginationHelperText

@@ -153,4 +153,9 @@ export const tokens = {
     inputBorderWidth: '--plasma-pagination-input-border-width',
     /** @styleType dimension */
     inputPadding: '--plasma-pagination-input-padding',
+
+    /** @styleType dimension */
+    paginationQuickJumpGap: '--plasma-pagination-quick-jump-gap',
+    /** @styleType dimension */
+    paginationQuickJumpInnerGap: '--plasma-pagination-quick-jump-inner-gap',
 };

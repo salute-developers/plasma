@@ -780,7 +780,7 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.25rem;
                 ${tokens.dividerMarginBottomTight}: 0.25rem;
 
-                ${tokens.disclosureIconMargin}: 0 -0.375rem 0 0;
+                ${tokens.disclosureIconMargin}: 0 0 0 0.375rem;
             `,
             xs: css`
                 ${tokens.scrollbarWidth}: 0.188rem;
@@ -917,7 +917,7 @@ export const config = {
                 ${tokens.dividerMarginTopTight}: 0.125rem;
                 ${tokens.dividerMarginBottomTight}: 0.125rem;
 
-                ${tokens.disclosureIconMargin}: 0 -0.25rem 0 0;
+                ${tokens.disclosureIconMargin}: 0 0 0 0.25rem;
             `,
         },
         labelPlacement: {

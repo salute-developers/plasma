@@ -85,6 +85,7 @@ export const tokens = {
     textFieldLabelLineHeight: '--plasma-autocomplete-textfield-label-line-height',
 
     textFieldTitleCaptionMargin: '--plasma-autocomplete-textfield-title-caption-margin',
+    textFieldTitleCaptionInnerLabelOffset: '--plasma-autocomplete-textfield-title-caption-label-inner-offset',
     textFieldTitleCaptionColor: '--plasma-autocomplete-textfield-title-caption-color',
     textFieldTitleCaptionColorReadOnly: '--plasma-autocomplete-textfield-title-caption-color-readonly',
     textFieldTitleCaptionFontFamily: '--plasma-autocomplete-textfield-title-caption-font-family',

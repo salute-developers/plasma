@@ -4,11 +4,13 @@ import {
     onDarkTextPrimary,
     onLightSurfaceTransparentDeep,
     surfaceTransparentAccent,
+    surfaceTransparentInfo,
     surfaceTransparentNegative,
     surfaceTransparentPositive,
     surfaceTransparentSecondary,
     surfaceTransparentWarning,
     textAccent,
+    textInfo,
     textNegative,
     textPositive,
     textPrimary,
@@ -43,6 +45,10 @@ export const config = {
             negative: css`
                 ${badgeTokens.color}: ${textNegative};
                 ${badgeTokens.background}: ${surfaceTransparentNegative};
+            `,
+            info: css`
+                ${badgeTokens.color}: ${textInfo};
+                ${badgeTokens.background}: ${surfaceTransparentInfo};
             `,
             dark: css`
                 ${badgeTokens.color}: ${onDarkTextPrimary};

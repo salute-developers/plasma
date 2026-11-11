@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_finai__dark, sdds_finai__light } from '@sddsjs/sdds_finai';
 import { InSpacingDecorator, getGroupedTokens, upperFirstLetter } from '@salutejs/plasma-sb-utils';
-import type { GroupedTokens, TokenData } from '@salutejs/plasma-sb-utils';
+import type { TokenData } from '@salutejs/plasma-sb-utils';
 import { cx } from '@salutejs/plasma-new-hope/styled-components';
 
+import { getTheme } from '../../../../.storybook/themes';
 import { Accordion } from '../../Accordion/Accordion';
 import { ToastProvider, useToast } from '../../Toast/Toast';
 import { SegmentGroup } from '../../Segment/Segment';
@@ -42,11 +42,6 @@ const meta: Meta = {
 
 export default meta;
 
-const themes: Record<string, GroupedTokens> = {
-    'sdds-finai:light': getGroupedTokens(sdds_finai__light[0]),
-    'sdds-finai:dark': getGroupedTokens(sdds_finai__dark[0]),
-};
-
 const ColorTokenData: FC<ColorTokenDataProps> = ({
     token,
     tokenData,
@@ -81,7 +76,8 @@ const ColorTokenData: FC<ColorTokenDataProps> = ({
 };
 
 const StoryDemoColor = ({ context }) => {
-    const groupedTokens = themes[context.globals.theme];
+    const theme = getTheme(context.globals.theme, context.globals.tenant);
+    const groupedTokens = useMemo(() => getGroupedTokens(theme[0]), [theme]);
     const { showToast } = useToast();
     const { selectedSegmentItems } = useSegment();
     const toastData = {

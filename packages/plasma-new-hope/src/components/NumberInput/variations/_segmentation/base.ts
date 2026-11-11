@@ -139,7 +139,7 @@ export const base = css`
             ${spinnerTokens.color}: var(${tokens.loaderSpinnerColorSolid});
         }
 
-        &.${classes.manualInput} ${Input} {
+        ${InputWrapper}.${classes.manualInput} ${Input} {
             caret-color: var(${tokens.caretColorSolid}, var(${tokens.caretColor}));
         }
 
