@@ -156,7 +156,7 @@ export const tokens = {
     // Токены для TextField
     /** @styleType color */
     textFieldColor: '--plasma-select-textfield-color',
-    /** @styleType color @styleProp textFieldColor @styleState focused */
+    /** @styleType color */
     textFieldColorFocus: '--plasma-select-textfield-color-focus',
 
     /** @styleType color */
@@ -170,25 +170,25 @@ export const tokens = {
     textFieldBorderColor: '--plasma-select-textfield-border-color',
     /** @styleType color @styleProp textFieldBorderColor @styleState hovered */
     textFieldBorderColorHover: '--plasma-select-textfield-border-color-hover',
-    /** @styleType color @styleProp textFieldBorderColor @styleState focused */
+    /** @styleType color */
     textFieldBorderColorFocus: '--plasma-select-textfield-border-color-focus',
 
     /** @styleType color */
     textFieldDividerColor: '--plasma-select-textfield-divider-color',
     /** @styleType color @styleProp textFieldDividerColor @styleState hovered */
     textFieldDividerColorHover: '--plasma-select-textfield-divider-color-hover',
-    /** @styleType color @styleProp textFieldDividerColor @styleState focused */
+    /** @styleType color */
     textFieldDividerColorFocus: '--plasma-select-textfield-divider-color-focus',
 
     /** @styleType color */
     textFieldPlaceholderColor: '--plasma-select-textfield-placeholder-color',
     /** @styleType color @styleProp textFieldPlaceholderColor @styleState hovered */
     textFieldPlaceholderColorHover: '--plasma-select-textfield-placeholder-color-hover',
-    /** @styleType color @styleProp textFieldPlaceholderColor @styleState focused */
+    /** @styleType color */
     textFieldPlaceholderColorFocus: '--plasma-select-textfield-placeholder-color-focus',
     /** @styleType color */
     textFieldClearPlaceholderColor: '--plasma-select-textfield-clear-placeholder-color',
-    /** @styleType color @styleProp textFieldClearPlaceholderColor @styleState focused */
+    /** @styleType color */
     textFieldClearPlaceholderColorFocus: '--plasma-select-textfield-clear-placeholder-color-focus',
 
     /** Цвета для read-only состояния */
@@ -316,7 +316,7 @@ export const tokens = {
 
     /** @styleType color */
     textFieldLeftHelperColor: '--plasma-select-textfield-left-helper-color',
-    /** @styleType color @styleProp textFieldLeftHelperColor @styleState focused */
+    /** @styleType color */
     textFieldLeftHelperColorFocus: '--plasma-select-textfield-left-helper-color-focus',
     /** @styleType color */
     textFieldLeftHelperColorReadOnly: '--plasma-select-textfield__left-helper-color-readonly',

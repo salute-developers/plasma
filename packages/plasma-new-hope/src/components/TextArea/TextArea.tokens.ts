@@ -42,7 +42,7 @@ export const tokens = {
     backgroundColorHover: '--plasma-textarea-background-color-hover',
     /** @styleType color @styleProp backgroundColor @styleState pressed */
     backgroundColorActive: '--plasma-textarea-background-color-active',
-    /** @styleType color @styleProp backgroundColor @styleState focused */
+    /** @styleType color */
     backgroundColorFocus: '--plasma-textarea-background-color-focus',
 
     /** @styleType color */
@@ -63,7 +63,7 @@ export const tokens = {
     inputBorderColorHover: '--plasma-textarea-input-border-color-hover',
     /** @styleType color @styleProp inputBorderColor @styleState pressed */
     inputBorderColorActive: '--plasma-textarea-input-border-color-active',
-    /** @styleType color @styleProp inputBorderColor @styleState focused */
+    /** @styleType color */
     inputBorderColorFocus: '--plasma-textarea-input-border-color-focus',
 
     /** @styleType color */
@@ -92,7 +92,7 @@ export const tokens = {
 
     /** @styleType color */
     leftHelperColor: '--plasma-textarea-left-helper-color',
-    /** @styleType color @styleProp leftHelperColor @styleState focused */
+    /** @styleType color */
     leftHelperColorFocus: '--plasma-textarea-left-helper-color-focus',
     /** @styleType color */
     rightHelperColor: '--plasma-textarea-right-helper-color',
@@ -120,7 +120,7 @@ export const tokens = {
     borderColor: '--plasma-textarea-border-color',
     /** @styleType color @styleProp borderColor @styleState hovered */
     borderColorHover: '--plasma-textarea-border-color-hover',
-    /** @styleType color @styleProp borderColor @styleState focused */
+    /** @styleType color */
     borderColorFocus: '--plasma-textarea-border-color-focus',
 
     /** @styleType color */

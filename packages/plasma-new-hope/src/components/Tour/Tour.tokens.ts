@@ -7,6 +7,8 @@ export const privateTokens = {
 };
 
 export const tokens = {
+    /** @styleType color */
     tailColor: '--sdds-core-tour-tail-color',
+    /** @styleType color */
     overlayColor: '--sdds-core-tour-overlay-color',
 };

@@ -29,7 +29,7 @@ export const privateTokens = {
 export const tokens = {
     /** @styleType color */
     color: '--plasma-textfield-color',
-    /** @styleType color @styleProp color @styleState focused */
+    /** @styleType color */
     colorFocus: '--plasma-textfield-color-focus',
     /** @styleType color */
     clearColor: '--plasma-textfield-clear-color',
@@ -50,7 +50,7 @@ export const tokens = {
     borderColor: '--plasma-textfield-border-color',
     /** @styleType color @styleProp borderColor @styleState hovered */
     borderColorHover: '--plasma-textfield-border-color-hover',
-    /** @styleType color @styleProp borderColor @styleState focused */
+    /** @styleType color */
     borderColorFocus: '--plasma-textfield-border-color-focus',
 
     /** @styleType color */
@@ -82,11 +82,11 @@ export const tokens = {
     placeholderColor: '--plasma-textfield__placeholder-color',
     /** @styleType color @styleProp placeholderColor @styleState hovered */
     placeholderColorHover: '--plasma-textfield__placeholder-color-hover',
-    /** @styleType color @styleProp placeholderColor @styleState focused */
+    /** @styleType color */
     placeholderColorFocus: '--plasma-textfield__placeholder-color-focus',
     /** @styleType color */
     clearPlaceholderColor: '--plasma-textfield__clear-placeholder-color',
-    /** @styleType color @styleProp clearPlaceholderColor @styleState focused */
+    /** @styleType color */
     clearPlaceholderColorFocus: '--plasma-textfield__clear-placeholder-color-focus',
     /** @styleType color */
     optionalColor: '--plasma-textfield__optional-color',
@@ -134,7 +134,7 @@ export const tokens = {
     contentSlotColorHover: '--plasma-textfield-content-slot-color-hover',
     /** @styleType color */
     contentSlotColorActive: '--plasma-textfield-content-slot-color-active',
-    /** @styleType color @styleProp contentSlotColor @styleState focused */
+    /** @styleType color */
     contentSlotColorFocus: '--plasma-textfield-content-slot-color-focus',
 
     /** @styleType color */
@@ -224,7 +224,7 @@ export const tokens = {
 
     /** @styleType color */
     leftHelperColor: '--plasma-textfield__left-helper-color',
-    /** @styleType color @styleProp leftHelperColor @styleState focused */
+    /** @styleType color */
     leftHelperColorFocus: '--plasma-textfield__left-helper-color-focus',
     /** @styleType color */
     leftHelperColorReadOnly: '--plasma-textfield__left-helper-color-readonly',
@@ -246,7 +246,7 @@ export const tokens = {
 
     /** @styleType color */
     rightHelperColor: '--plasma-textfield__right-helper-color',
-    /** @styleType color @styleProp rightHelperColor @styleState focused */
+    /** @styleType color */
     rightHelperColorFocus: '--plasma-textfield__right-helper-color-focus',
     /** @styleType color */
     rightHelperColorReadOnly: '--plasma-textfield__right-helper-color-readonly',
