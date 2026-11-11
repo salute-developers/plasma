@@ -10,6 +10,15 @@ const manifestPath = path.join(outputRoot, 'manifest.json');
 
 const compareNames = (left, right) => left.localeCompare(right, 'en');
 
+const iconStyles = [
+    ['Duotone', 'duotone'],
+    ['OutlineBold', 'outline-bold'],
+    ['Outline', 'outline'],
+    ['Fill', 'fill'],
+];
+
+const getIconStyle = (name) => iconStyles.find(([suffix]) => name.endsWith(suffix))?.[1];
+
 const decodeXmlEntities = (value, filePath) =>
     value.replace(/&(#x[\da-f]+|#\d+|amp|apos|gt|lt|quot);/gi, (entity, code) => {
         const namedEntities = {
@@ -69,9 +78,7 @@ const readMetadata = async ({ fileName, size }) => {
         throw new Error(`SVG metadata field "aliases" must be a non-empty array in ${filePath}`);
     }
 
-    const aliases = metadata.aliases.map((alias, index) =>
-        assertNonEmptyString(alias, `aliases[${index}]`, filePath),
-    );
+    const aliases = metadata.aliases.map((alias, index) => assertNonEmptyString(alias, `aliases[${index}]`, filePath));
     const category = assertNonEmptyString(metadata.category, 'category', filePath);
     const source = assertNonEmptyString(metadata.source, 'source', filePath);
     const metadataSize = Number(metadata.size);
@@ -148,6 +155,7 @@ const generateManifest = async () => {
             name,
             aliases: metadataBySize[0].aliases,
             category: metadataBySize[0].category,
+            style: getIconStyle(name),
             sizes: metadataBySize.map(({ size }) => size),
         });
     }
