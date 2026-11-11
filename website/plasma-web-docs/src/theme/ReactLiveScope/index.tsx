@@ -1,5 +1,6 @@
 import React from 'react';
 import * as Icons from '@salutejs/plasma-icons';
+import * as SddsIcons from '@salutejs/sdds-icons/24';
 import * as Tokens from '@salutejs/plasma-tokens-b2b';
 import * as Web from '@salutejs/plasma-web';
 import { Filler } from '@salutejs/plasma-docs-ui';
@@ -14,6 +15,7 @@ const ReactLiveScope = {
     useForm,
     Controller,
     ...Icons,
+    ...SddsIcons,
     ...Tokens,
     ...Web,
     ...React,

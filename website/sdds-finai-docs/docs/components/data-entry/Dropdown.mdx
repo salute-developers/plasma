@@ -32,6 +32,7 @@ type ItemOption = {
     label: string;
     /**
      * Сторона открытия вложенного выпадающего списка относительно текущего элемента.
+     * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
      */
     placement?: DropdownPlacement;
     /**
@@ -244,8 +245,10 @@ type ItemOption = {
 
     <TabItem value="placement" label="Placement">
         Параметр `placement` может принимать следующие значения : `"top-start"`, `"top-center"`, `"top-end"`, `"right-start"`, `"right-center"`, `"right-end"`, `"bottom-start"`, `"bottom-center"`, `"bottom-end"`, `"left-start"`, `"left-center"`, `"left-end"`, `"auto"`.<br />
-        Суффикс `start` выравнивает список по началу стороны, `end` — по концу, `center` — по центру.<br />
-        Default value для placement - `"bottom-start"`.
+        Default value для placement - `"bottom-start"`.<br />
+        :::warning
+        Значения `"top"`, `"bottom"`, `"left"` и `"right"` устарели (**deprecated**) и будут удалены. Используйте `"top-start"`, `"bottom-start"`, `"left-start"` и `"right-start"`.
+        :::
 
         ```tsx live
         import React from 'react';

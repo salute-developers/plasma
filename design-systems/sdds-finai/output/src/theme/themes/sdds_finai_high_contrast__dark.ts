@@ -1685,6 +1685,8 @@ export const sdds_finai_high_contrast__dark = [`
   --shadow-down-soft-l: 0rem 3.75rem 7rem -0.5rem #09090914;
   --shadow-down-soft-m: 0rem 1.5rem 3rem -0.5rem #09090914;
   --shadow-down-soft-s: 0rem 0.25rem 0.875rem -0.25rem #09090914, 0rem 0.0625rem 0.25rem -0.0625rem #0909090A;
+  --shadow-gradient-dark: 0.1689rem 0.2252rem 0.6756rem 0rem #2969E399, -0.1126rem -0.1689rem 1.1823rem -0.1689rem #12C2F399;
+  --shadow-gradient-light: 0.1875rem 0.25rem 0.75rem 0rem #8BB2FC7A, -0.125rem -0.1875rem 1.3125rem -0.1875rem #4AD6FC7A;
   --shadow-up-hard-l: 0rem -3.75rem 7rem -0.5rem #09090966;
   --shadow-up-hard-m: 0rem -1rem 2rem -0.5rem #0909093D;
   --shadow-up-hard-s: 0rem -0.25rem 0.75rem -0.1875rem #09090933, 0rem -0.0625rem 0.25rem -0.0625rem #09090908;

@@ -13,19 +13,60 @@ import { PropsTable, Description, StorybookLink } from '@site/src/components';
 
 ## Использование
 
+Иконка передаётся в `icon`. Чтобы цвет иконки менялся при наведении, укажите `color="inherit"`.
+
 ```tsx live
 import React from 'react';
-import { Editable } from '@salutejs/plasma-b2c';
-import { IconEdit } from '@salutejs/plasma-icons';
-import { Headline1 } from '@salutejs/plasma-typo';
+import { BodyL, BodyM, BodyS, BodyXS, BodyXXS, Editable, H1, H2, H3, H4, H5, H6, editableTokens } from '@salutejs/plasma-b2c';
+import { EditOutline } from '@salutejs/sdds-icons/24';
+
+export function App() {
+    function Example({ textComponent, iconSize, iconGap, value }) {
+        return (
+            <Editable
+                textComponent={textComponent}
+                value={value}
+                icon={<EditOutline width={iconSize} height={iconSize} color="inherit" />}
+                style={{ [editableTokens.iconGap]: iconGap }}
+            />
+        );
+    }
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            <Example textComponent={H1} iconSize={54} iconGap="8px" value="Header 1" />
+            <Example textComponent={H2} iconSize={38} iconGap="8px" value="Header 2" />
+            <Example textComponent={H3} iconSize={30} iconGap="6px" value="Header 3" />
+            <Example textComponent={H4} iconSize={26} iconGap="6px" value="Header 4" />
+            <Example textComponent={H5} iconSize={24} iconGap="6px" value="Header 5" />
+            <Example textComponent={H6} iconSize={16} iconGap="2px" value="Header 6" />
+            <Example textComponent={BodyL} iconSize={22} iconGap="6px" value="Body L" />
+            <Example textComponent={BodyM} iconSize={20} iconGap="6px" value="Body M" />
+            <Example textComponent={BodyS} iconSize={18} iconGap="2px" value="Body S" />
+            <Example textComponent={BodyXS} iconSize={14} iconGap="2px" value="Body XS" />
+            <Example textComponent={BodyXXS} iconSize={12} iconGap="2px" value="Body XXS" />
+        </div>
+    );
+}
+```
+
+## Перенос строки
+
+`multiline` переносит значение на новую строку, когда оно не помещается по ширине родителя.
+
+```tsx live
+import React from 'react';
+import { Editable, H5, editableTokens } from '@salutejs/plasma-b2c';
+import { EditOutline } from '@salutejs/sdds-icons/24';
 
 export function App() {
     return (
         <Editable
-            icon={<IconEdit size='s' color="inherit" />}
-            textComponent={Headline1}
-            value="Default value"
-            onChange={() => { console.log('handleChange') }}
+            multiline
+            style={{ maxWidth: '20rem', [editableTokens.iconGap]: '6px' }}
+            icon={<EditOutline width={24} height={24} color="inherit" />}
+            textComponent={H5}
+            value="Очень длинное название документа, которое не помещается в одну строку"
         />
     );
 }

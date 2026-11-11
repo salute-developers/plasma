@@ -1,4 +1,74 @@
 {
+  "0.390.0": {
+    "date": "2026-11-11",
+    "core": [
+      {
+        "component": "TimePicker",
+        "children": [
+          {
+            "text": "изменено форматирование: разделитель вводится автоматически, после ввода секции",
+            "link": "https://github.com/salute-developers/plasma/pull/3358",
+            "id": 3358
+          }
+        ]
+      },
+      {
+        "component": "Group",
+        "children": [
+          {
+            "text": "добавлен компонент Group для группировки элементов Button, IconButton и Chip",
+            "link": "https://github.com/salute-developers/plasma/pull/3335",
+            "id": 3335
+          }
+        ]
+      },
+      {
+        "component": "Dropdown",
+        "children": [
+          {
+            "text": "`top`, `bottom`, `left` и `right` снова входят в публичный тип `placement` у `Dropdown`. В документации они помечены как deprecated и будут удалены.",
+            "link": "https://github.com/salute-developers/plasma/pull/3380",
+            "id": 3380
+          }
+        ]
+      },
+      {
+        "component": "BottomSheet",
+        "children": [
+          {
+            "text": "Добавлен свойство `closeOnOverlayClick`\n\nДобавлен расчет высоты шторки учитывающий чёлку айфонов при активных `snapPoints`",
+            "link": "https://github.com/salute-developers/plasma/pull/3331",
+            "id": 3331
+          }
+        ]
+      },
+      {
+        "component": "Editable",
+        "children": [
+          {
+            "text": "добавлен многострочный режим\n\nдобавлен новый компонент",
+            "link": "https://github.com/salute-developers/plasma/pull/3376",
+            "id": 3376
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
+  "0.388.0": {
+    "date": "2026-11-02",
+    "core": [
+      {
+        "component": "Icons",
+        "children": [
+          {
+            "text": "исправлен вектор для иконки `LoginFill`"
+          }
+        ]
+      }
+    ],
+    "lib": []
+  },
   "0.387.1": {
     "date": "2026-10-29",
     "core": [

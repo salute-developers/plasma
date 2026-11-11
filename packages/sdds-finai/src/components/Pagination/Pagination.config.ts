@@ -191,6 +191,9 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationQuickJumpGap}: 0.75rem;
+                ${paginationTokens.paginationQuickJumpInnerGap}: 0.5rem;
             `,
             xs: css`
                 ${paginationTokens.paginationFontFamily}: ${bodyXS.fontFamily};
@@ -232,6 +235,9 @@ export const config = {
                 ${paginationTokens.inputBorderWidth}: 0.0625rem;
 
                 ${paginationTokens.paginationHelperTextGap}: 0.5rem 2.5rem;
+
+                ${paginationTokens.paginationQuickJumpGap}: 0.75rem;
+                ${paginationTokens.paginationQuickJumpInnerGap}: 0.5rem;
             `,
         },
         type: {
