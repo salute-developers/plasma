@@ -52,8 +52,6 @@ export function App() {
 Вид задается с помощью свойства `view`. Возможные значения свойства `view`:
 
 + `"default"` – основной бейдж;
-+ `"accent"` – бейдж акцентного цвета;
-+ `"positive"` – успешное завершение;
 + `"negative"` – ошибка;
 
 ```tsx live
@@ -64,8 +62,6 @@ export function App() {
     return (
         <div>
             <Counter count={10} view="default" />
-            <Counter count={10} view="accent" />
-            <Counter count={10} view="positive" />
             <Counter count={10} view="negative" />
         </div>
     );

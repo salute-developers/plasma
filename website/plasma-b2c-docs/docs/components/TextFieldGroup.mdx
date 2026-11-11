@@ -43,7 +43,7 @@ import { TextFieldGroup, TextField } from '@salutejs/plasma-b2c';
 export function App() {
     return (
         <div>
-            <TextFieldGroup size="s" view="secondary">
+            <TextFieldGroup size="s">
                 {Array(5)
                     .fill(true)
                     .map((_, i) => (
@@ -52,6 +52,7 @@ export function App() {
             </TextFieldGroup>
             
             <TextFieldGroup isCommonTextFieldStyles={false}>
+                <TextField placeholder="Размер xl" size="xl" />
                 <TextField placeholder="Размер l" size="l" />
                 <TextField placeholder="Размер m" size="m" />
                 <TextField placeholder="Размер s" size="s" />

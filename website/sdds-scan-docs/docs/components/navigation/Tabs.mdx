@@ -265,7 +265,7 @@ export function App() {
                     ))}
                     {dropdownItems.length > 0 && (
                         <div style={{ marginLeft: '1.75rem' }}>
-                            <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
+                            <Dropdown size="s" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
                                 <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
                                     ShowAll
                                 </TabItem>
@@ -291,7 +291,7 @@ export function App() {
                     ))}
                     {dropdownItems.length > 0 && (
                         <div style={{ marginLeft: '1.75rem' }}>
-                            <Dropdown size="xs" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
+                            <Dropdown size="s" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
                                 <IconTabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
                                     <IconClock color="inherit" size="xs" />
                                 </IconTabItem>
@@ -356,7 +356,7 @@ export function App() {
                 ))}
                 {dropdownItems.length > 0 && (
                     <div style={{ marginLeft: '1.75rem' }}>
-                        <Dropdown size="xs" items={dropdownItems} onItemSelect={onSelectDropdownItem}>
+                        <Dropdown size="s" items={dropdownItems} onItemSelect={onSelectDropdownItem}>
                             <TabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
                                 ShowAll
                             </TabItem>

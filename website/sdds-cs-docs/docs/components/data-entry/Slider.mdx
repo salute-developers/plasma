@@ -49,13 +49,11 @@ export function App() {
         export function App() {
             const [v1, setV1] = useState(50);
             const [v2, setV2] = useState(50);
-            const [v3, setV3] = useState(50);
 
             return (
                 <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
                     <Slider view="default" min={0} max={100} value={v1} label="Default" onChange={setV1} />
                     <Slider view="accent" min={0} max={100} value={v2} label="Accent" onChange={setV2} />
-                    <Slider view="gradient" min={0} max={100} value={v3} label="Gradient" onChange={setV3} />
                 </div>
             );
         }
@@ -68,14 +66,10 @@ export function App() {
 
         export function App() {
             const [vs, setVs] = useState(50);
-            const [vm, setVm] = useState(50);
-            const [vl, setVl] = useState(50);
 
             return (
                 <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
                     <Slider size="s" min={0} max={100} value={vs} label="Size s" onChange={setVs} />
-                    <Slider size="m" min={0} max={100} value={vm} label="Size m" onChange={setVm} />
-                    <Slider size="l" min={0} max={100} value={vl} label="Size l" onChange={setVl} />
                 </div>
             );
         }

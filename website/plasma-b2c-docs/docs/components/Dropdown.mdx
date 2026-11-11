@@ -137,7 +137,7 @@ type ItemOption = {
 
     <TabItem value="size" label="Size">
         Размер `Dropdown` задается с помощью свойства `size`.<br />
-        Возможные значения свойства: `"l"`, `"m"`, `"s"` или `"xs"`.
+        Возможные значения свойства: `"xl"`, `"l"`, `"m"`, `"s"` или `"xs"`.
 
         ```tsx live
         import React from 'react';
@@ -177,6 +177,13 @@ type ItemOption = {
 
             return (
                 <div style={{ height: "300px", display: "flex", gap: "50px" }}>
+                    <Dropdown
+                        items={items}
+                        size="xl"
+                    >
+                        <Button text="Список стран" />
+                    </Dropdown>
+
                     <Dropdown
                         items={items}
                         size="l"
