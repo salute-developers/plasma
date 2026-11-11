@@ -510,7 +510,7 @@ export function App() {
                                 }
                             }}
                         >
-                            <IconButton view="clear" size="xs">
+                            <IconButton view="clear" size="s">
                                 <IconEditOutline />
                             </IconButton>
                         </Dropdown>
@@ -520,12 +520,12 @@ export function App() {
 
             return (
                 <div style={{ display: "block" }}>
-                    <ButtonGroup size="xs" isCommonButtonStyles={false}>
-                        <Button text="Очистить выбранные" view="warning" size="xs" onClick={clearSelected} />
-                        <Button text="Убрать сортировку" view="warning" size="xs" onClick={clearSorted} />
-                        <Button text="Очистить фильтры" view="warning" size="xs" onClick={clearFiltered} />
-                        <Button text="Очистить все" view="critical" size="xs" onClick={clearAll} />
-                        <Button text="Добавить строку" view="success" size="xs" onClick={addRow} />
+                    <ButtonGroup size="s" isCommonButtonStyles={false}>
+                        <Button text="Очистить выбранные" view="secondary" size="s" onClick={clearSelected} />
+                        <Button text="Убрать сортировку" view="secondary" size="s" onClick={clearSorted} />
+                        <Button text="Очистить фильтры" view="secondary" size="s" onClick={clearFiltered} />
+                        <Button text="Очистить все" view="clear" size="s" onClick={clearAll} />
+                        <Button text="Добавить строку" view="accent" size="s" onClick={addRow} />
                     </ButtonGroup>
 
                     <br />

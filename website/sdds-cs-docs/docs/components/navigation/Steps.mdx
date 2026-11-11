@@ -144,7 +144,7 @@ export function App() {
 
 <Tabs>
     <TabItem value="view" label="View" default>
-        Свойство `view` применяется ко всему компоненту и задаёт цвет завершённых шагов и разделителя. Принимает значения `default` и `accent`.
+        Свойство `view` применяется ко всему компоненту и задаёт цвет завершённых шагов и разделителя. Принимает значение `default`.
 
         ```tsx live
         import React from 'react';
@@ -168,83 +168,7 @@ export function App() {
             return (
                 <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column' }}>
                     <Steps view="default" items={completedItems} />
-                    <Steps view="accent" items={completedItems} />
                 </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="itemView" label="ItemView">
-        Свойство `itemView` применяется к индикатору и заголовку **активного** шага. Принимает значения `default`, `negative`, `warning`, `positive`.
-
-        :::info
-        Значения `itemView` применяются к шагу только когда его статус — `active`.
-        :::
-
-        ```tsx live
-        import React from 'react';
-        import { Steps } from '@salutejs/sdds-cs';
-
-        export function App() {
-            const activeItems = [{
-                indicator: 1,
-                title: 'Active step',
-                status: 'active',
-            }, {
-                indicator: 2,
-                title: 'Inactive step',
-                status: 'inactive',
-            }];
-
-            return (
-                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column' }}>
-                    <Steps itemView="default" items={activeItems} />
-                    <Steps itemView="positive" items={activeItems} />
-                    <Steps itemView="warning" items={activeItems} />
-                    <Steps itemView="negative" items={activeItems} />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="completedItemView" label="CompletedItemView">
-        Свойство `completedItemView` задаётся на каждом шаге через `items[n].completedItemView` и переопределяет внешний вид **завершённого** шага. Принимает значения `default`, `accent`, `negative`, `warning`, `positive`.
-
-        ```tsx live
-        import React from 'react';
-        import { Steps } from '@salutejs/sdds-cs';
-
-        export function App() {
-            const items = [{
-                indicator: 1,
-                title: 'accent',
-                status: 'completed',
-                completedItemView: 'accent',
-            }, {
-                indicator: 2,
-                title: 'positive',
-                status: 'completed',
-                completedItemView: 'positive',
-            }, {
-                indicator: 3,
-                title: 'warning',
-                status: 'completed',
-                completedItemView: 'warning',
-            }, {
-                indicator: 4,
-                title: 'negative',
-                status: 'completed',
-                completedItemView: 'negative',
-            }, {
-                indicator: 5,
-                title: 'active',
-                status: 'active',
-            }];
-
-            return (
-                <section>
-                    <Steps items={items} />
-                </section>
             );
         }
         ```

@@ -49,7 +49,7 @@ export function App() {
 
         export function App() {
             return (
-                <ChipGroup size="s" view="secondary">
+                <ChipGroup size="s" view="default">
                     {Array(5)
                         .fill(true)
                         .map((_, i) => (
@@ -69,7 +69,7 @@ export function App() {
             return (
                 <ChipGroup isCommonChipStyles={false}>
                     <Chip size="m" text="Default" />
-                    <Chip size="s" text="Secondary" view="secondary" />
+                    <Chip size="s" text="Positive" view="positive" />
                     <Chip size="xs" text="Accent" view="accent" />
                 </ChipGroup>
             );

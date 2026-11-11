@@ -66,10 +66,10 @@ export function App() {
 + `"default"` – по умолчанию;
 + `"accent"` – акцентная;
 + `"secondary"` – вторичная;
-+ `"clear"` – без цветового сопровождения.
 + `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"negative"` – ошибка;
++ `"info"` – информационная.
 
 ```tsx live
 import React from 'react';
@@ -88,9 +88,6 @@ export function App() {
             <EmbedIconButton size="s" view="secondary">
                 <IconClose color="inherit" />
             </EmbedIconButton>
-            <EmbedIconButton size="s" view="clear">
-                <IconClose color="inherit" />
-            </EmbedIconButton>
             <EmbedIconButton size="s" view="positive">
                 <IconClose color="inherit" />
             </EmbedIconButton>
@@ -98,6 +95,9 @@ export function App() {
                 <IconClose color="inherit" />
             </EmbedIconButton>
             <EmbedIconButton size="s" view="negative">
+                <IconClose color="inherit" />
+            </EmbedIconButton>
+            <EmbedIconButton size="s" view="info">
                 <IconClose color="inherit" />
             </EmbedIconButton>
         </div>

@@ -146,9 +146,9 @@ export function App() {
 Используйте значение `inherit` для свойства `color`, чтобы цвет наследовался от `view` компонента `Notification`.
 
 ```tsx
-//INFO: В данном случае значении цвета будет как во `view='positive'`
+//INFO: В данном случае значении цвета будет как во `view='default'`
 addNotification({
-    view: 'positive',
+    view: 'default',
     icon: <IconBell color="inherit" size="xs" />,
     ...
 }, 3000);
@@ -175,7 +175,7 @@ export function App() {
                 title: 'Входящий вызов',
                 icon: <IconBell color="inherit" size="xs" />,
                 children: 'Принять?',
-                view: 'positive',
+                view: 'default',
                 textColor: 'black',
                 titleColor: 'blue'
             }, 3000);
@@ -225,7 +225,7 @@ export function App() {
                 title: 'Входящий вызов',
                 icon: <IconBell color="inherit" size="xs" />,
                 children: 'Задача организации, в особенности же сплочённость команды профессионалов требует определения и уточнения глубокомысленных рассуждений.',
-                view: 'positive',
+                view: 'default',
                 width: 'fit-content',
                 maxWidth: '30rem'
             }, 3000);
