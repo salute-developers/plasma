@@ -43,6 +43,13 @@ export default (pathToBuild, exclude = []) => {
             const items = fs.readdirSync(currentPath);
 
             for (const item of items) {
+                // Как и Docusaurus, пропускаем partials: файлы и папки с префиксом `_`.
+                // Их содержимое попадает в индекс через импорт в основные страницы.
+                if (item.startsWith('_')) {
+                    // eslint-disable-next-line no-continue
+                    continue;
+                }
+
                 const fullPath = path.join(currentPath, item);
                 const stat = fs.statSync(fullPath);
 

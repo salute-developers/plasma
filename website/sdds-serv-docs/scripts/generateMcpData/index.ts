@@ -74,6 +74,10 @@ interface InputItem {
 
 type IndexItem = z.infer<typeof IndexItemSchema>;
 
+// Маркер, который generateIndex подставляет вместо <PropsTable /> (см. generateIndexFiles.mjs).
+// Искать по слову `props` нельзя: оно встречается в коде примеров, например `(props) =>`.
+const PROPS_MARKER_REGEX = /Props \(свойства\) для компонента [^:]*:/;
+
 function asString(value: unknown): string {
     return typeof value === 'string' ? value : '';
 }
@@ -195,7 +199,7 @@ function extractSummary(pageContent: string, headingText: string): string {
     const heading = headingText.trim();
     const headingRegex = heading ? new RegExp(`^#\\s+${escapeRegExp(heading)}\\s*`, 'i') : /^#\s+\S+\s*/;
     const afterHeading = normalized.replace(headingRegex, '').trim();
-    const beforeProps = afterHeading.split(/\bProps\b/i)[0] ?? afterHeading;
+    const beforeProps = afterHeading.split(PROPS_MARKER_REGEX)[0] ?? afterHeading;
     const withoutBlocks = beforeProps
         .replace(/```[\s\S]*?```/g, ' ')
         .replace(/^#{1,6}\s+.*$/gm, ' ')
@@ -298,12 +302,12 @@ function toDefaultString(propRecord: Record<string, unknown>): string {
 }
 
 function extractProps(pageContent: string): ComponentOutputFile['api']['props'] {
-    const propsMatch = /\bProps\b/i.exec(pageContent);
+    const propsMatch = PROPS_MARKER_REGEX.exec(pageContent);
     if (!propsMatch) {
         return [];
     }
 
-    const jsonChunk = findJsonArrayChunk(pageContent, propsMatch.index);
+    const jsonChunk = findJsonArrayChunk(pageContent, propsMatch.index + propsMatch[0].length);
     if (!jsonChunk) {
         return [];
     }

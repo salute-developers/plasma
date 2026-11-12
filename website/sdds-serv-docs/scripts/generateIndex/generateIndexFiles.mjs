@@ -103,7 +103,13 @@ async function extractContentWithCode(mdxContent) {
                                     include?.includes(type.key),
                             )
                             .filter((type) => !exclude.includes(type.key))
-                            .map((item) => ({ name: item.prop.name, type: item.prop.type }));
+                            .map(({ prop }) => ({
+                                name: prop.name,
+                                type: prop.type,
+                                required: prop.required,
+                                defaultValue: prop.defaultValue,
+                                description: prop.description,
+                            }));
 
                         textContent += `Props (свойства) для компонента ${propsTableData.name}: ${JSON.stringify(
                             propsFiltered,
