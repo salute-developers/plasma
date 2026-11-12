@@ -74,6 +74,16 @@ interface InputItem {
 
 type IndexItem = z.infer<typeof IndexItemSchema>;
 
+const COMPONENTS_CATEGORY = 'components';
+// Категории, страницы которых тоже описывают компоненты, и точка входа для их импорта.
+const EXTRA_COMPONENT_CATEGORIES: Record<string, { package: string }> = {
+    ai: { package: 'sdds-serv/ai' },
+};
+
+function isComponentCategory(category: string): boolean {
+    return category === COMPONENTS_CATEGORY || Object.keys(EXTRA_COMPONENT_CATEGORIES).includes(category);
+}
+
 // Маркер, который generateIndex подставляет вместо <PropsTable /> (см. generateIndexFiles.mjs).
 // Искать по слову `props` нельзя: оно встречается в коде примеров, например `(props) =>`.
 const PROPS_MARKER_REGEX = /Props \(свойства\) для компонента [^:]*:/;
@@ -401,7 +411,7 @@ function toOutputItem(item: InputItem): OutputFile {
         asString(item.metadata?.category) || extractCategoryFromUrl(asString(item.metadata?.source?.url));
     const category = normalizeCategory(rawCategory);
 
-    if (category !== 'components') {
+    if (!isComponentCategory(category)) {
         return SimpleOutputFileSchema.parse({
             name,
             package: packageName,
@@ -412,7 +422,7 @@ function toOutputItem(item: InputItem): OutputFile {
 
     return ComponentOutputFileSchema.parse({
         name,
-        package: packageName,
+        package: EXTRA_COMPONENT_CATEGORIES[category]?.package ?? packageName,
         category,
         summary: extractSummary(pageContent, name),
         api: {
@@ -453,6 +463,8 @@ function main(): void {
 
     const usedNamesByCategory = new Map<string, Set<string>>();
     const indexItemsByCategory = new Map<string, IndexItem[]>();
+    // Компоненты из дополнительных категорий, которые нужно добавить в индекс components.
+    const extraComponentItems: IndexItem[] = [];
     let created = 0;
 
     const getUsedNames = (category: string): Set<string> => {
@@ -485,14 +497,18 @@ function main(): void {
         const filePath = path.join(categoryDir, `${filename}.json`);
         fs.writeFileSync(filePath, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
 
-        getCategoryIndexItems(output.category).push(
-            IndexItemSchema.parse({
-                name: output.name,
-                href: `${filename}.json`,
-                summary: indexSummary,
-                category: output.category,
-            }),
-        );
+        const indexItem = IndexItemSchema.parse({
+            name: output.name,
+            href: `${filename}.json`,
+            summary: indexSummary,
+            category: output.category,
+        });
+        getCategoryIndexItems(output.category).push(indexItem);
+
+        if (output.category !== COMPONENTS_CATEGORY && isComponentCategory(output.category)) {
+            // href разрешается относительно components/index.json, поэтому файл остаётся в папке своей категории.
+            extraComponentItems.push({ ...indexItem, href: `../${output.category}/${filename}.json` });
+        }
 
         created += 1;
     };
@@ -502,8 +518,9 @@ function main(): void {
         const output = toOutputItem(inputItem);
         const pageContent = asString(inputItem.pageContent);
         const baseName = output.name || `item-${index + 1}`;
-        const indexSummary =
-            output.category === 'components' ? output.summary : extractSummary(pageContent, output.name);
+        const indexSummary = isComponentCategory(output.category)
+            ? output.summary
+            : extractSummary(pageContent, output.name);
         writeOutputFile(output, baseName, indexSummary);
     });
 
@@ -523,6 +540,8 @@ function main(): void {
             cleanText(transformedTokensSource).slice(0, 300) || tokensOutput.name,
         );
     }
+
+    getCategoryIndexItems(COMPONENTS_CATEGORY).push(...extraComponentItems);
 
     const manifestPaths: Record<string, string> = {};
 
