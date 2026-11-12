@@ -1,21 +1,15 @@
-import { mount, CypressTestDecorator, getComponent } from '@salutejs/plasma-cy-utils';
 import React, { useState, useRef } from 'react';
-import styled from '@emotion/styled';
+import { mount, getComponent, getDescribeFN, hasComponent } from '@salutejs/plasma-cy-utils';
 
-const text = 'Тортик - это ложь';
+const componentExists = hasComponent('Portal');
+const describeFn = getDescribeFN('Portal');
 
-const StyledWrapper = styled.div`
-    padding: 1.25rem;
-    margin-bottom: 0.625rem;
-    margin-top: 0.625rem;
+const text = 'Содержимое портала';
 
-    border: 1px solid;
-`;
-
-describe('sdds-cs: Portal', () => {
-    const Portal = getComponent('Portal');
-    const Button = getComponent('Button');
-    const BodyM = getComponent('BodyM');
+describeFn('Portal', () => {
+    const Portal = componentExists ? getComponent('Portal') : () => null;
+    const Button = componentExists ? getComponent('Button') : () => null;
+    const BodyM = componentExists ? getComponent('BodyM') : () => null;
 
     function Demo({ disabled = false }: { disabled?: boolean }) {
         const [show, setShow] = useState(false);
@@ -24,27 +18,25 @@ describe('sdds-cs: Portal', () => {
         return (
             <>
                 <Button onClick={() => setShow(!show)} />
-                <StyledWrapper id="parentContainer">
+                <div id="parentContainer">
                     <BodyM>
-                        По завершении программы вам предложат тортик и возможность выговориться перед дипломированным
-                        сочувственным слушателем.
+                        Содержимое появится в нижнем блоке.
+                        Если портал выключен (disabled), то содержимое появится в данном блоке.
                     </BodyM>
                     {show && containerRef.current && (
                         <Portal disabled={disabled} container={containerRef.current}>
                             <BodyM>{text}</BodyM>
                         </Portal>
                     )}
-                </StyledWrapper>
-                <StyledWrapper id="targetContainer" ref={containerRef} />
+                </div>
+                <div id="targetContainer" ref={containerRef} />
             </>
         );
     }
 
     it('open portal', () => {
         mount(
-            <CypressTestDecorator>
-                <Demo />,
-            </CypressTestDecorator>,
+            <Demo />
         );
 
         cy.get('button').click();
@@ -54,9 +46,7 @@ describe('sdds-cs: Portal', () => {
 
     it('disabled portal', () => {
         mount(
-            <CypressTestDecorator>
-                <Demo disabled />,
-            </CypressTestDecorator>,
+            <Demo disabled />
         );
 
         cy.get('button').click();
