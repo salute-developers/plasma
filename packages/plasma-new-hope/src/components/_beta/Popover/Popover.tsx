@@ -14,6 +14,7 @@ import {
     safePolygon,
     shift,
     flip,
+    size,
     FloatingPortal,
     autoUpdate,
     limitShift,
@@ -24,7 +25,7 @@ import { Slot } from '../utils/Slot';
 
 import { Resizable } from './Resizable';
 import { ARROW_PADDING, matchPlacements, getFloatingPortalProps, useTailStyle } from './utils';
-import { classes } from './Popover.tokens';
+import { classes, tokens } from './Popover.tokens';
 import type { PopoverProps } from './Popover.types';
 import styles from './Popover.module.css';
 
@@ -66,6 +67,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
     const opened = outerOpened ?? innerOpened;
 
     const arrowRef = useRef<HTMLDivElement | null>(null);
+    const [availableWidth, setAvailableWidth] = useState<number>();
 
     const handleToggle = (nextOpened: boolean) => {
         setInnerOpened(nextOpened);
@@ -102,6 +104,15 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                     },
                     [outerOffset, hasTail],
                 ),
+                size({
+                    apply({ rects, elements, availableWidth }) {
+                        const width = Math.max(0, availableWidth);
+
+                        elements.floating.style.setProperty(tokens.targetWidth, `${rects.reference.width}px`);
+                        elements.floating.style.setProperty(tokens.availableWidth, `${width}px`);
+                        setAvailableWidth(width);
+                    },
+                }),
             ],
         },
     );
@@ -153,6 +164,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                             <Resizable
                                 placement={matchPlacements(placement)}
                                 resizable={resizable}
+                                availableWidth={availableWidth}
                                 onResizeStart={onResizeStart}
                                 onResizeEnd={onResizeEnd}
                             >
@@ -172,7 +184,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                                         />
                                     )}
 
-                                    {children}
+                                    <div className={styles.content}>{children}</div>
 
                                     {appearance === 'closeInner' && (
                                         <button
