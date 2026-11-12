@@ -14,6 +14,7 @@ import {
     safePolygon,
     shift,
     flip,
+    size,
     FloatingPortal,
     autoUpdate,
     limitShift,
@@ -66,6 +67,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
     const opened = outerOpened ?? innerOpened;
 
     const arrowRef = useRef<HTMLDivElement | null>(null);
+    const [availableWidth, setAvailableWidth] = useState<number>();
 
     const handleToggle = (nextOpened: boolean) => {
         setInnerOpened(nextOpened);
@@ -102,6 +104,18 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                     },
                     [outerOffset, hasTail],
                 ),
+                size({
+                    apply({ rects, elements, availableWidth }) {
+                        const width = Math.max(0, availableWidth);
+
+                        elements.floating.style.setProperty(
+                            '--plasma-popover-target-width',
+                            `${rects.reference.width}px`,
+                        );
+                        elements.floating.style.setProperty('--plasma-popover-available-width', `${width}px`);
+                        setAvailableWidth(width);
+                    },
+                }),
             ],
         },
     );
@@ -153,6 +167,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                             <Resizable
                                 placement={matchPlacements(placement)}
                                 resizable={resizable}
+                                availableWidth={availableWidth}
                                 onResizeStart={onResizeStart}
                                 onResizeEnd={onResizeEnd}
                             >
@@ -172,7 +187,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                                         />
                                     )}
 
-                                    {children}
+                                    <div className={styles.content}>{children}</div>
 
                                     {appearance === 'closeInner' && (
                                         <button
