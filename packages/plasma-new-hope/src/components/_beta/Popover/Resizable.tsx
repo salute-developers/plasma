@@ -131,6 +131,7 @@ export const Resizable: FC<PropsWithChildren<ResizableProps>> = ({
     placement,
     onResizeStart,
     onResizeEnd,
+    availableWidth,
 }) => {
     const resizableContainer = useRef<ResizableInstance>(null);
     const resizable = typeof outerResizable === 'boolean' ? { disabled: !outerResizable } : outerResizable;
@@ -145,6 +146,11 @@ export const Resizable: FC<PropsWithChildren<ResizableProps>> = ({
     if (!resizable || resizable.disabled) {
         return <>{children}</>;
     }
+
+    const maxWidth =
+        availableWidth === undefined ? resizable.maxWidth : Math.min(resizable.maxWidth ?? Infinity, availableWidth);
+    const minWidth =
+        availableWidth === undefined ? resizable.minWidth : Math.min(resizable.minWidth ?? 0, maxWidth ?? Infinity);
 
     const getIcon = (position: ResizeIconProps['position'], options: ResizableOptions) => {
         const positionName = {
@@ -167,9 +173,9 @@ export const Resizable: FC<PropsWithChildren<ResizableProps>> = ({
             enable={getResizeDirections(resizable.directions)}
             resizeRatio={getResizeRatio(placement)}
             defaultSize={resizable.defaultSize}
-            minWidth={resizable.minWidth}
+            minWidth={minWidth}
             minHeight={resizable.minHeight}
-            maxWidth={resizable.maxWidth}
+            maxWidth={maxWidth}
             maxHeight={resizable.maxHeight}
             onResizeStart={() => {
                 toggleNoSelect();
