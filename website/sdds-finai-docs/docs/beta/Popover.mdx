@@ -66,6 +66,30 @@ export function App() {
         }
         ```
     </TabItem>
+    <TabItem value="width" label="Width">
+        `popoverWidth` задаёт ширину окна: `'target'` — по ширине `target`, либо любое CSS-значение. Без свойства ширина определяется контентом.
+
+        ```tsx live
+        import * as Beta from '@salutejs/sdds-finai/beta';
+        import { Button } from '@salutejs/sdds-finai';
+
+        export function App() {
+            return (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-start' }}>
+                    <Beta.Popover
+                        popoverWidth="target"
+                        target={<Button text="По ширине target" style={{ width: '20rem' }} />}
+                    >
+                        Ширина окна равна ширине кнопки
+                    </Beta.Popover>
+                    <Beta.Popover popoverWidth="15rem" target={<Button text="Фиксированная ширина" />}>
+                        Фиксированная ширина
+                    </Beta.Popover>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
     <TabItem value="resizable" label="Resizable">
         Чтобы включить возможность растягивать Popover нужно настроить свойство `resizable`. Формат следующий:
         ```tsx
