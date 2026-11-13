@@ -41,10 +41,10 @@ export type BasicTooltipProps = {
      */
     shift?: boolean;
     /**
-     * Отступ всплывающего окна относительно target.
+     * Отступ всплывающего окна относительно target: число или [поперечный, основной].
      * @default 0
      */
-    offset?: number;
+    offset?: number | [number, number];
     /**
      * Задержка перед раскрытием, мс. (При trigger === 'hover')
      * @default 0

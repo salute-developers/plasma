@@ -109,6 +109,8 @@ npm run test --workspace=@salutejs/sdds-api-tests
 -   `*.test.ts` — логика, выполняется в Node.
 -   `*.test.tsx` — поведение компонентов, выполняется в Chromium. Компоненты берутся из `src/examples/components`, поэтому тест запускается один раз, а не в каждой вертикали.
 
+Утилиты с DOM-измерениями также проверяются в `*.test.tsx`, с настоящими браузерными API. Unit-тесты подключают общую декларацию CSS Modules из `src/components/_beta/css-modules.d.ts`, которая описывает произвольные имена классов, включая классы beta-компонентов и тем. Unit-тесты beta-компонентов исключаются из сборки деклараций типов в `src/components/_beta/tsconfig.json`.
+
 Тесты лежат в папке `tests/` компонента в `packages/plasma-new-hope`: тест компонента — в её корне, тесты утилит и хуков повторяют структуру исходников. Cypress-тест (`*.component-test.tsx`) остаётся в корне компонента.
 
 ```
@@ -132,6 +134,10 @@ npm run unit:run -- DatePicker   # тесты одного компонента
 ## Cypress тесты
 
 При изменении внешнего вида компонента добавляйте или обновляйте снимки.
+
+Тесты beta-компонентов с CSS Modules могут импортировать компонент напрямую из ядра. В `cypress/webpack.config.ts` файлы `*.module.css` подключаются с default export классов, как в Vite и beta-сборке; остальные CSS-файлы остаются глобальными.
+
+Сборка beta (`npm run build:beta --workspace=@salutejs/plasma-new-hope`) выпускает CSS рядом с модулем компонента. `emitCssModulesPlugin` в `rollup.beta.config.mjs` пересчитывает ссылки `url(...)` на emitted assets относительно этого CSS. При добавлении SVG или других CSS-ресурсов проверяйте, что эти ссылки существуют в обеих сборках, ESM и CJS.
 
 ### Запуск через Docker
 
