@@ -38,6 +38,7 @@
         "sdds-vc",
         "sdds-icons"
     ],
+    "PACKAGES_DS_SKIP_PR": ["plasma-asdk", "sdds-insol", "sdds-sbcom", "sdds-vc"],
     "PACKAGES_TYPESENSE": [
         "plasma-b2c",
         "plasma-web",

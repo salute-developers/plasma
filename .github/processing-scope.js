@@ -3,6 +3,7 @@
  * @typedef {object} json
  * @property {Array<string>} PACKAGES_CYPRESS
  * @property {Array<string>} PACKAGES_DS
+ * @property {Array<string>} PACKAGES_DS_SKIP_PR
  */
 const CONFIG = require('./config-ci.json');
 
@@ -77,7 +78,11 @@ module.exports = () => {
         // INFO: @example get 'plasma-web-docs' -> 'plasma-web'
         const packageDS = item.endsWith('-docs') ? item.replace('-docs', '') : item;
 
-        if (CONFIG.PACKAGES_DS.includes(packageDS) && !acc.includes(packageDS)) {
+        if (
+            CONFIG.PACKAGES_DS.includes(packageDS) &&
+            !CONFIG.PACKAGES_DS_SKIP_PR.includes(packageDS) &&
+            !acc.includes(packageDS)
+        ) {
             acc.push(packageDS);
         }
 
