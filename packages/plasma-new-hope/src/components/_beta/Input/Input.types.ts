@@ -1,7 +1,3 @@
-// 1. Названия пропсов сверить с дизайном и, если нужно, привести к единому виду
-// 2. При необходимости добавлять новые пропсы
-// 3. Порядок пропсов менять можно
-
 import type { ComponentPropsWithRef, InputHTMLAttributes, ReactNode, Ref } from 'react';
 
 /**
@@ -31,19 +27,19 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
     /**
      * Вспомогательный текст снизу слева для поля ввода.
      */
-    leftHelper?: ReactNode;
+    caption?: ReactNode;
     /**
      * Вспомогательный текст снизу справа для поля ввода.
      */
-    rightHelper?: ReactNode;
+    counter?: ReactNode;
     /**
      * Слот для контента слева.
      */
-    contentLeft?: ReactNode;
+    contentBefore?: ReactNode;
     /**
      * Слот для контента справа.
      */
-    contentRight?: ReactNode;
+    contentAfter?: ReactNode;
     /**
      * Слот для вспомогательного текста слева.
      */
@@ -53,6 +49,12 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
      */
     textAfter?: string;
     /**
+     * Скрывать плейсхолдер, пока в поле есть хотя бы один чип.
+     * После удаления последнего чипа плейсхолдер отображается снова.
+     * @default false
+     */
+    hidePlaceholderOnChips?: boolean;
+    /**
      * Chips.
      */
     chips?: {
@@ -60,6 +62,11 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
          * Массив чипов, которые будут отображаться в поле ввода.
          */
         value?: string[];
+        /**
+         * Область удаления чипа: весь чип или только иконка закрытия.
+         * @default close-icon
+         */
+        clickArea?: 'full' | 'close-icon';
         /**
          * Callback для удаления чипа.
          */
@@ -144,14 +151,6 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
         /**
          * Слот для контента слева, например `Icon`.
          */
-        contentLeft?: ReactNode;
+        contentBefore?: ReactNode;
     };
-    /**
-     * Размер.
-     */
-    size?: string;
-    /**
-     * Вид.
-     */
-    view?: string;
 };

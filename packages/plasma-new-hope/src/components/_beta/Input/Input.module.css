@@ -1,0 +1,532 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sdds-core-input-layout-gap, 0);
+    min-width: 0;
+    color: var(--sdds-core-input-color, inherit);
+    font-family: var(--sdds-core-input-font-family, inherit);
+    font-size: var(--sdds-core-input-font-size, 1rem);
+    font-style: var(--sdds-core-input-font-style, normal);
+    font-weight: var(--sdds-core-input-font-weight);
+    letter-spacing: var(--sdds-core-input-letter-spacing, normal);
+    line-height: var(--sdds-core-input-line-height);
+}
+
+.header,
+.body,
+.field,
+.editor,
+.viewport,
+.inputContainer,
+.labelGroup,
+.helpers {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    gap: var(--sdds-core-input-gap);
+}
+
+.header {
+    align-items: flex-start;
+    padding-block-end: var(--sdds-core-input-header-gap);
+    color: var(--sdds-core-input-label-color, inherit);
+    font-size: var(--sdds-core-input-label-font-size, inherit);
+    line-height: var(--sdds-core-input-label-line-height, inherit);
+}
+
+.root[data-label-placement='outer'] .header {
+    padding-block-end: var(--sdds-core-input-outer-label-gap);
+}
+
+.labelGroup {
+    position: relative;
+    gap: var(--sdds-core-input-indicator-gap, 0.25rem);
+}
+
+.label {
+    display: flex;
+    min-width: 0;
+}
+
+.labelText,
+.chipText {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.titleCaption {
+    margin-inline-start: auto;
+    min-width: 0;
+    text-align: end;
+    color: var(--sdds-core-input-title-caption-color, inherit);
+    font-size: var(--sdds-core-input-helper-font-size);
+    line-height: var(--sdds-core-input-helper-line-height);
+    letter-spacing: var(--sdds-core-input-helper-letter-spacing, inherit);
+}
+
+.root[data-label-placement='outer'] .titleCaption {
+    padding-block-start: var(--sdds-core-input-title-caption-padding-top);
+}
+
+.body {
+    position: relative;
+}
+
+.field {
+    position: relative;
+    flex: 1;
+    box-sizing: border-box;
+    min-height: var(--sdds-core-input-height);
+    padding: var(--sdds-core-input-padding);
+    border-radius: var(--sdds-core-input-border-radius);
+    background: var(--sdds-core-input-background-color);
+    box-shadow: inset 0 0 0 var(--sdds-core-input-border-width, 0) var(--sdds-core-input-border-color);
+    cursor: text;
+}
+
+.root:not([data-disabled], [data-readonly]) .label {
+    cursor: text;
+}
+
+.field::after {
+    content: '';
+    display: var(--sdds-core-input-divider-display, none);
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    height: var(--sdds-core-input-divider-height, 0.062rem);
+    border-radius: 1rem;
+    background: var(--sdds-core-input-divider-color, currentColor);
+    pointer-events: none;
+}
+
+.root:not([data-disabled], [data-readonly]) .field:focus-within {
+    background: var(--sdds-core-input-background-color-focus, var(--sdds-core-input-background-color, transparent));
+    box-shadow: inset 0 0 0 var(--sdds-core-input-border-width, 0.062rem)
+        var(--sdds-core-input-border-color-focus, var(--sdds-core-input-border-color, currentColor));
+}
+
+.root:not([data-disabled], [data-readonly]) .field:focus-within::after {
+    background: var(--sdds-core-input-divider-color-focus, var(--sdds-core-input-divider-color, currentColor));
+}
+
+.editor {
+    position: relative;
+    flex: 1;
+    box-sizing: border-box;
+    padding-inline: var(--sdds-core-input-content-padding-inline);
+}
+
+.viewport {
+    flex: 1;
+    flex-wrap: wrap;
+    gap: var(--sdds-core-input-editor-gap);
+}
+
+.inputContainer {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    position: relative;
+    flex: 1;
+    min-width: min(var(--sdds-core-input-min-width, 1ch), 100%);
+    max-width: 100%;
+    gap: 0;
+}
+
+.root[data-has-chips] .inputContainer {
+    flex-basis: auto;
+}
+
+.inputSizer {
+    display: none;
+    grid-area: 1 / 2;
+    min-width: 0;
+    padding-right: 1px;
+    visibility: hidden;
+    overflow: hidden;
+    white-space: pre;
+    pointer-events: none;
+}
+
+.root[data-has-chips] .inputSizer {
+    display: block;
+}
+
+.input {
+    grid-area: 1 / 2;
+    display: block;
+    box-sizing: border-box;
+    width: 0;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+    font: inherit;
+    letter-spacing: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.input:focus {
+    text-overflow: clip;
+}
+
+.input::placeholder {
+    color: var(--sdds-core-input-placeholder-color, currentColor);
+    -webkit-text-fill-color: var(--sdds-core-input-placeholder-color, currentColor);
+    opacity: 1;
+}
+
+.contentBefore,
+.contentAfter {
+    display: flex;
+    flex: none;
+    align-items: center;
+    color: var(--sdds-core-input-content-color, inherit);
+    cursor: default;
+}
+
+.contentBefore {
+    padding-inline-start: var(--sdds-core-input-content-slot-padding, 0);
+}
+
+.contentAfter {
+    padding-inline-end: var(--sdds-core-input-content-slot-padding, 0);
+}
+
+.root[data-has-inner-hint] .contentAfter {
+    padding-inline-end: calc(
+        var(--sdds-core-input-content-slot-padding, 0px) + var(--sdds-core-input-content-right-padding, 0px)
+    );
+}
+
+.affix {
+    flex: none;
+    color: var(--sdds-core-input-affix-color, inherit);
+    white-space: pre;
+}
+
+.affixBefore {
+    grid-area: 1 / 1;
+    margin-right: var(--sdds-core-input-affix-gap);
+}
+
+.affixAfter {
+    grid-area: 1 / 3;
+    margin-left: var(--sdds-core-input-affix-gap);
+}
+
+.indicator {
+    flex: none;
+    order: 1;
+    color: var(--sdds-core-input-indicator-color, inherit);
+    font: inherit;
+}
+
+.indicator[data-placement='left'] {
+    order: -1;
+}
+
+.indicator[data-kind='required'] {
+    position: absolute;
+    width: var(--sdds-core-input-required-size, 0);
+    height: var(--sdds-core-input-required-size, 0);
+    top: var(--sdds-core-input-required-top, 0.25rem);
+    inset-inline-end: calc(
+        -1 * (var(--sdds-core-input-required-size, 0px) + var(--sdds-core-input-indicator-gap, 0.25rem))
+    );
+    border-radius: 50%;
+    background: var(--sdds-core-input-required-color, currentColor);
+    pointer-events: none;
+}
+
+.indicator[data-kind='required'][data-placement='left'] {
+    inset-inline-end: auto;
+    inset-inline-start: var(
+        --sdds-core-input-required-left-inset,
+        calc(-1 * (var(--sdds-core-input-required-size, 0px) + var(--sdds-core-input-indicator-gap, 0.25rem)))
+    );
+    top: var(--sdds-core-input-required-left-top, var(--sdds-core-input-required-top, 0.25rem));
+}
+
+.field > .indicator[data-kind='required'] {
+    width: var(--sdds-core-input-field-required-size, 0);
+    height: var(--sdds-core-input-field-required-size, 0);
+    top: var(--sdds-core-input-field-required-top, 0);
+    inset-inline-end: var(--sdds-core-input-field-required-inset, 0);
+    transform: var(--sdds-core-input-field-required-transform, none);
+}
+
+.field > .indicator[data-kind='required'][data-placement='left'] {
+    inset-inline-end: auto;
+    inset-inline-start: var(--sdds-core-input-field-required-inset, 0);
+}
+
+.root[data-has-outer-hint] .field > .indicator[data-kind='required'][data-placement='right'] {
+    inset-inline-end: calc(
+        var(--sdds-core-input-field-required-inset, 0px) - var(--sdds-core-input-field-required-hint-offset, 0px)
+    );
+}
+
+.helpers {
+    align-items: flex-start;
+    font-size: var(--sdds-core-input-helper-font-size);
+    line-height: var(--sdds-core-input-helper-line-height);
+    overflow-wrap: anywhere;
+    gap: var(--sdds-core-input-helpers-gap);
+    padding-block-start: var(--sdds-core-input-helper-gap);
+    letter-spacing: var(--sdds-core-input-helper-letter-spacing, inherit);
+}
+
+.caption {
+    min-width: 0;
+    color: var(--sdds-core-input-caption-color, inherit);
+}
+
+.counter {
+    min-width: 0;
+    margin-inline-start: auto;
+    text-align: end;
+    color: var(--sdds-core-input-counter-color, inherit);
+}
+
+.chips {
+    display: contents;
+}
+
+.chip {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: var(--sdds-core-input-chip-gap);
+    box-sizing: border-box;
+    max-width: 100%;
+    height: var(--sdds-core-input-chip-height);
+    padding: var(--sdds-core-input-chip-padding);
+    border-radius: var(--sdds-core-input-chip-border-radius);
+    background: var(--sdds-core-input-chip-background-color, transparent);
+    color: var(--sdds-core-input-chip-color, inherit);
+    font-family: var(--sdds-core-input-chip-font-family);
+    font-size: var(--sdds-core-input-chip-font-size);
+    font-style: var(--sdds-core-input-chip-font-style);
+    font-weight: var(--sdds-core-input-chip-font-weight);
+    letter-spacing: var(--sdds-core-input-chip-letter-spacing);
+    line-height: var(--sdds-core-input-chip-line-height);
+    user-select: none;
+    cursor: default;
+}
+
+.chipFull {
+    margin: 0;
+    border: 0;
+    text-align: start;
+    cursor: pointer;
+}
+
+.chipFull .chipRemove {
+    cursor: inherit;
+}
+
+.chipRemove,
+.hintTarget {
+    container-type: inline-size;
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0.125rem;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.chipRemove {
+    width: var(--sdds-core-input-chip-remove-size);
+    height: var(--sdds-core-input-chip-remove-size);
+    color: var(--sdds-core-input-chip-remove-color, inherit);
+}
+
+.hintTarget {
+    width: var(--sdds-core-input-hint-size);
+    height: var(--sdds-core-input-hint-size);
+    color: var(--sdds-core-input-hint-color, inherit);
+}
+
+.header .hintTarget {
+    --sdds-core-input-hint-size: var(--sdds-core-input-header-hint-size);
+}
+
+.body > .hintTarget {
+    position: absolute;
+    inset-inline-start: calc(100% + var(--sdds-core-input-outer-hint-gap));
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.hintIcon16,
+.hintIcon24 {
+    width: 100%;
+    height: 100%;
+}
+
+.hintIcon16 {
+    display: none;
+}
+
+.hintIcon24 {
+    display: block;
+}
+
+@container (max-width: 16px) {
+    .hintIcon16 {
+        display: block;
+    }
+
+    .hintIcon24 {
+        display: none;
+    }
+}
+
+.chipRemove svg {
+    width: 100%;
+    height: 100%;
+}
+
+.chipFull:focus-visible,
+.chip:has(button.chipRemove:focus-visible) {
+    outline: var(--sdds-core-input-chip-focus-outline-width) solid
+        var(--sdds-core-input-chip-focus-color, var(--sdds-core-input-focus-color, currentColor));
+    outline-offset: calc(-1 * var(--sdds-core-input-chip-focus-outline-width));
+}
+
+.chipRemove:focus-visible {
+    outline: none;
+}
+
+.hintTarget:focus-visible {
+    outline: 0.125rem solid var(--sdds-core-input-focus-color, currentColor);
+    outline-offset: 0.125rem;
+}
+
+.chipFull:disabled,
+.chipRemove:disabled,
+.hintTarget:disabled {
+    cursor: default;
+}
+
+.hint {
+    overflow-wrap: anywhere;
+}
+
+.root[data-label-placement='inner']:not([data-has-chips]) .field {
+    padding-block: var(--sdds-core-input-inner-padding-block);
+}
+
+.root[data-label-placement='inner']:not([data-has-chips]) .editor {
+    padding-block-start: var(--sdds-core-input-inner-label-space);
+}
+
+.root[data-label-placement='inner'] .labelGroup {
+    pointer-events: none;
+    position: absolute;
+    inset-inline: var(--sdds-core-input-content-padding-inline);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--sdds-core-input-placeholder-color, inherit);
+    transition: top 0.1s ease-in-out, transform 0.1s ease-in-out, padding 0.1s ease-in-out, color 0.1s ease-in-out,
+        font-size 0.1s ease-in-out, font-weight 0.1s ease-in-out, letter-spacing 0.1s ease-in-out,
+        line-height 0.1s ease-in-out;
+}
+
+.root[data-label-placement='inner'] .label {
+    pointer-events: auto;
+}
+
+.root[data-label-placement='inner'][data-has-chips] .labelGroup {
+    display: none;
+}
+
+.root[data-label-placement='inner']:has(.input:focus, .input:not(:placeholder-shown)) .labelGroup,
+.root[data-label-placement='inner'][data-keep-placeholder] .labelGroup {
+    top: 0;
+    transform: translateY(0);
+    color: var(--sdds-core-input-inner-label-color, inherit);
+    font-size: var(--sdds-core-input-inner-label-font-size);
+    line-height: var(--sdds-core-input-inner-label-line-height);
+    letter-spacing: var(--sdds-core-input-inner-label-letter-spacing, inherit);
+}
+
+.root[data-label-placement='inner']:not([data-keep-placeholder], [data-has-chips]):has(.input:placeholder-shown:not(:focus))
+    .input::placeholder {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.root[data-label-placement='inner']:not([data-keep-placeholder], [data-has-chips]):has(.input:placeholder-shown:not(:focus))
+    .affix {
+    visibility: hidden;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .root:not([data-disabled], [data-readonly]) .field:hover:not(:focus-within) {
+        background: var(--sdds-core-input-background-color-hover, var(--sdds-core-input-background-color, transparent));
+    }
+
+    .chipFull:not(:disabled):hover {
+        background: var(--sdds-core-input-chip-background-color-hover, var(--sdds-core-input-chip-background-color));
+    }
+
+    button.chipRemove:not(:disabled):hover,
+    .chipFull:not(:disabled):hover .chipRemove {
+        color: var(--sdds-core-input-chip-remove-color-hover, var(--sdds-core-input-chip-remove-color, inherit));
+    }
+
+    .hintTarget:not(:disabled):hover {
+        color: var(--sdds-core-input-action-color-hover, currentColor);
+    }
+}
+
+.chipFull:not(:disabled):active {
+    background: var(--sdds-core-input-chip-background-color-hover, var(--sdds-core-input-chip-background-color));
+}
+
+.chipFull:not(:disabled):active .chipRemove {
+    color: var(--sdds-core-input-chip-remove-color-hover, var(--sdds-core-input-chip-remove-color, inherit));
+}
+
+.root[data-readonly],
+.root[data-readonly] .field,
+.input[readonly] {
+    cursor: default;
+}
+
+.root[data-disabled] {
+    opacity: var(--sdds-core-input-disabled-opacity, 0.4);
+}
+
+.root[data-disabled] .field,
+.root[data-disabled] .label,
+.input:disabled {
+    cursor: not-allowed;
+}
+
+.root[data-readonly] .field {
+    background: var(--sdds-core-input-background-color-readonly, var(--sdds-core-input-background-color, transparent));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .root[data-label-placement='inner'] .labelGroup {
+        transition: none;
+    }
+}

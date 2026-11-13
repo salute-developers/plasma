@@ -20,6 +20,7 @@ export default {
     output: [
         {
             preserveModules: true,
+            preserveModulesRoot: sourceDir,
             dir: 'dist/beta/es',
             format: 'es',
             freeze: false,
@@ -29,6 +30,7 @@ export default {
         },
         {
             preserveModules: true,
+            preserveModulesRoot: sourceDir,
             dir: 'dist/beta/cjs',
             format: 'cjs',
             freeze: false,
@@ -39,6 +41,11 @@ export default {
         },
     ],
     external: (id) => {
+        // sdds-icons has ESM-only exports; bundle used icons to keep beta's CJS entry point working.
+        if (id.startsWith('@salutejs/sdds-icons/')) {
+            return false;
+        }
+
         if (id.startsWith('regenerator-runtime') || id === 'tslib') {
             return false;
         }
