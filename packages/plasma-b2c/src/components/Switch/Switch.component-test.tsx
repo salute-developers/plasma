@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount, CypressTestDecorator, getComponent, PadMe } from '@salutejs/plasma-cy-utils';
 
+import { expectNoRunningAnimations } from '../../../../../cypress/support/assertions';
+
 describe('plasma-b2c: Switch', () => {
     const Switch = getComponent('Switch');
 
@@ -34,8 +36,8 @@ describe('plasma-b2c: Switch', () => {
         );
 
         cy.get('body').tab();
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(200); // transition of focus ring
+        cy.focused().should('have.attr', 'type', 'checkbox');
+        cy.get('label').should(expectNoRunningAnimations);
         cy.matchImageSnapshot();
         cy.focused().tab();
         cy.matchImageSnapshot('_focus_checked');
@@ -101,8 +103,8 @@ describe('plasma-b2c: Switch', () => {
 
         cy.matchImageSnapshot();
         cy.get('#switch').click();
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(400); // transition of focus ring
+        cy.get('#switch input').should('be.checked');
+        cy.get('label').should(expectNoRunningAnimations);
         cy.matchImageSnapshot('mouseDown_pressed');
     });
 });

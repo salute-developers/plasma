@@ -1,13 +1,15 @@
 import path from 'path';
 import fs from 'fs-extra';
+import { NormalModuleReplacementPlugin } from 'webpack';
 
 import babelrc from '../.babelrc';
+import { generateTestRuntime } from '../scripts/cy-test-runtime';
 
 const resolveModule = (...fromPaths) => (...pathSegments) => path.resolve(...fromPaths, ...pathSegments);
 
 const rootPath = path.resolve(__dirname, '..');
 const packsPath = path.join(rootPath, 'packages');
-const resolveInsidePackage = resolveModule('packages', process.env.PACKAGE_NAME, 'node_modules');
+const resolveInsidePackage = resolveModule(packsPath, process.env.PACKAGE_NAME, 'node_modules');
 
 const resolveFromRoot = (moduleName: string) =>
     path.dirname(
@@ -26,26 +28,13 @@ const resolveInsidePackageOrRoot = (...pathSegments: string[]) => {
     return resolveFromRoot(path.join(...pathSegments));
 };
 
-const dummyModule = `
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-`;
-
-['plasma-web', 'plasma-giga', 'plasma-b2c', 'sdds-cs', 'sdds-insol'].forEach((pack) => {
-    const packIndexPath = path.join(packsPath, pack, 'index.js');
-    if (!fs.ensureFileSync(packIndexPath)) {
-        fs.writeFileSync(packIndexPath, dummyModule);
-    }
-});
-
 export const getWebpackConfig = () => {
     const babelOpts = { ...babelrc.env.cjs, plugins: ['@emotion/babel-plugin'] };
 
     const browser = process.env.BROWSER || 'chromium';
     const cache = Boolean(process.env.WEBPACK_CACHE_ENABLED);
+    const runtime = generateTestRuntime({ packageName: process.env.PACKAGE_NAME });
+    const utilityDir = resolveFromRoot('@salutejs/plasma-cy-utils');
 
     console.log('BROWSER', browser);
     console.log('WEBPACK_CACHE_ENABLED', cache);
@@ -56,6 +45,11 @@ export const getWebpackConfig = () => {
         target: 'web',
         devtool: false,
         plugins: [
+            new NormalModuleReplacementPlugin(/^\.\/testRuntime(?:\.js)?$/, (resource) => {
+                if (['src', 'lib'].some((directory) => resource.context === path.join(utilityDir, directory))) {
+                    resource.request = runtime;
+                }
+            }),
             {
                 apply(compiler) {
                     compiler.options.devtool = false;

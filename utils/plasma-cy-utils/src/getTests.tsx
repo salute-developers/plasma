@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import { mount } from './CypressHelpers';
 import { getComponent, getDescribeFN, hasComponent } from './CypressDecorator';
 import { getConfigMatrix } from './getConfigMatrix';
+import { getTestConfig } from './testRuntime';
 
 type GetBaseVisualTestsArgs = {
     /**
@@ -47,15 +48,6 @@ type GetBaseVisualTestsArgs = {
     configComponentName?: string;
 };
 
-const getConfig = (component: string): any => {
-    try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
-        return require(`src/examples/components/${component}/${component}.config.ts`).config;
-    } catch {
-        return null;
-    }
-};
-
 /**
  * Генерирует базовые визуальные тесты для компонента.
  * Генерирует describe-блок с именем компонента, внутри которого будет
@@ -98,7 +90,7 @@ export const getBaseVisualTests = ({
             return;
         }
 
-        const config = componentExists ? getConfig(configComponentName || component) : null;
+        const config = componentExists ? getTestConfig(configComponentName || component) : null;
         const configMatrix = getConfigMatrix(config, configPropsForMatrix, excludePropsValues);
 
         configMatrix.forEach((combination) => {
