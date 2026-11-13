@@ -25,14 +25,14 @@ module.exports = {
     url: 'https://plasma.sberdevices.ru/',
     baseUrl,
     onBrokenLinks: 'warn',
-    onBrokenMarkdownLinks: 'warn',
     favicon: 'images/favicon.png',
     organizationName: 'Salute-Developers',
     projectName: 'Plasma',
     trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock', 'docusaurus-theme-search-typesense'],
     future: {
-        experimental_faster: true,
+        v4: true,
+        faster: true,
     },
     themeConfig: {
         navbar: {
@@ -277,6 +277,9 @@ module.exports = {
         },
     ],
     markdown: {
+        hooks: {
+            onBrokenMarkdownLinks: 'warn',
+        },
         format: 'detect',
         mdx1Compat: {
             comments: true,
