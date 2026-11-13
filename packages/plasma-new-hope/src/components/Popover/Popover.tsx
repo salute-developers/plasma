@@ -1,4 +1,5 @@
 import React, { useRef, useCallback, useEffect, useLayoutEffect, useState, forwardRef, isValidElement } from 'react';
+import { flushSync } from 'react-dom';
 import { usePopper } from 'react-popper';
 import type { RootProps } from 'src/engines';
 import { useFocusTrap, useForkRef } from 'src/hooks';
@@ -85,6 +86,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
             const [arrowElement, setArrowElement] = useState<HTMLSpanElement | null>(null);
             const [shouldRender, setShouldRender] = useState(innerIsOpen);
+            const [isPositioned, setIsPositioned] = useState(false);
 
             const portalContainer =
                 (typeof target === 'object' && target !== null && 'current' in target && target.current) || undefined;
@@ -103,7 +105,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 offsetOuter: offset,
             });
 
-            const { styles, attributes, forceUpdate, state: popperState } = usePopper(rootEl, popoverEl, {
+            const { styles, attributes, update, state: popperState } = usePopper(rootEl, popoverEl, {
                 // TODO: #1121
                 // eslint-disable-next-line no-nested-ternary
                 placement: isAutoArray
@@ -143,7 +145,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
 
                 const popoverWindow = popoverEl.ownerDocument.defaultView;
 
-                if (!popoverWindow) {
+                if (!popoverWindow || !isPositioned) {
                     return undefined;
                 }
 
@@ -166,7 +168,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 popoverWindow.addEventListener('resize', updateAvailableHeight);
 
                 return () => popoverWindow.removeEventListener('resize', updateAvailableHeight);
-            }, [innerIsOpen, popoverEl, popperState?.placement, stretchHeight, styles.popper.transform]);
+            }, [innerIsOpen, isPositioned, popoverEl, popperState?.placement, stretchHeight, styles.popper.transform]);
 
             const handleToggle = useCallback(
                 (nextIsOpen: boolean, event: React.SyntheticEvent | Event) => {
@@ -302,19 +304,25 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                 setPortalEl(portal);
             }, []);
 
-            useEffect(() => {
-                if (!innerIsOpen || !forceUpdate) {
-                    return;
+            useLayoutEffect(() => {
+                if (!innerIsOpen) {
+                    setIsPositioned(false);
+                    return undefined;
                 }
 
-                /*
-                 * INFO: Метод forceUpdate содержит в себе flushSync и приводит
-                 * к повторному рендеру компонента, который уже находится в процессе рендера.
-                 * Данный хак, нужен для того, чтобы это поведение избежать и перенаправить
-                 * вызов метода в очередь микрозадач.
-                 */
-                Promise.resolve().then(forceUpdate);
-            }, [innerIsOpen, children, forceUpdate]);
+                let isActive = true;
+
+                // Позиция, посчитанная для закрытого поповера (display: none), неверна, пересчитываем до отрисовки.
+                update?.().then(() => {
+                    if (isActive) {
+                        flushSync(() => setIsPositioned(true));
+                    }
+                });
+
+                return () => {
+                    isActive = false;
+                };
+            }, [innerIsOpen, children, update]);
 
             const handleTransitionEnd = () => {
                 if (!innerIsOpen) {
@@ -357,6 +365,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                         style={{
                                             ...styles.popper,
                                             display: shouldRender || innerIsOpen ? 'block' : 'none',
+                                            ...(innerIsOpen &&
+                                                !isPositioned && { transform: 'translate(-100%, -100%)' }),
                                         }}
                                         zIndex={zIndex}
                                     >
