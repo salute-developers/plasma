@@ -1,0 +1,186 @@
+.xl,
+.l,
+.m,
+.s,
+.xs {
+    --sdds-core-input-letter-spacing: -0.02em;
+    --sdds-core-input-hint-size: 1.5rem;
+    --sdds-core-input-header-hint-size: 1rem;
+    --sdds-core-input-field-required-size: 0.5rem;
+    --sdds-core-input-required-top: 0.25rem;
+    --sdds-core-input-inner-label-space: calc(var(--sdds-core-input-inner-label-line-height) + 0.125rem);
+    --sdds-core-input-content-padding-inline: 0.125rem;
+    --sdds-core-input-content-right-padding: 0.125rem;
+    --sdds-core-input-content-slot-padding: 0px;
+    --sdds-core-input-divider-display: none;
+    --sdds-core-input-field-required-top: 0px;
+    --sdds-core-input-field-required-inset: 0px;
+    --sdds-core-input-field-required-transform: none;
+    --sdds-core-input-field-required-hint-offset: 0px;
+}
+
+.xl {
+    --sdds-core-input-height: 4rem;
+    --sdds-core-input-required-left-inset: -0.75rem;
+    --sdds-core-input-required-left-top: 0.5rem;
+    --sdds-core-input-font-size: var(--plasma-typo-body-l-font-size);
+    --sdds-core-input-line-height: var(--plasma-typo-body-l-line-height);
+    --sdds-core-input-title-caption-padding-top: 0.375rem;
+    --sdds-core-input-editor-gap: 0.125rem;
+    --sdds-core-input-chip-height: 3.25rem;
+    --sdds-core-input-chip-border-radius: 0.625rem;
+    --sdds-core-input-chip-padding: 0 0.75rem 0 1rem;
+    --sdds-core-input-chip-gap: 0.625rem;
+    --sdds-core-input-chip-remove-size: 1.5rem;
+    --sdds-core-input-chip-font-family: var(--plasma-typo-body-l-font-family);
+    --sdds-core-input-chip-font-size: var(--plasma-typo-body-l-font-size);
+    --sdds-core-input-chip-font-style: var(--plasma-typo-body-l-font-style);
+    --sdds-core-input-chip-font-weight: var(--plasma-typo-body-l-font-weight);
+    --sdds-core-input-chip-letter-spacing: var(--plasma-typo-body-l-letter-spacing);
+    --sdds-core-input-chip-line-height: var(--plasma-typo-body-l-line-height);
+    --sdds-core-input-padding: 0.375rem 1.125rem;
+    --sdds-core-input-border-radius: 1rem;
+    --sdds-core-input-gap: 0.375rem;
+    --sdds-core-input-outer-label-gap: 0.75rem;
+    --sdds-core-input-outer-hint-gap: 1.125rem;
+}
+
+.l {
+    --sdds-core-input-height: 3.5rem;
+    --sdds-core-input-required-left-inset: -0.75rem;
+    --sdds-core-input-required-left-top: 0.5rem;
+    --sdds-core-input-font-size: var(--plasma-typo-body-l-font-size);
+    --sdds-core-input-line-height: var(--plasma-typo-body-l-line-height);
+    --sdds-core-input-title-caption-padding-top: 0.375rem;
+    --sdds-core-input-editor-gap: 0.25rem;
+    --sdds-core-input-chip-height: 2.75rem;
+    --sdds-core-input-chip-border-radius: 0.5rem;
+    --sdds-core-input-chip-padding: 0 0.75rem 0 1rem;
+    --sdds-core-input-chip-gap: 0.625rem;
+    --sdds-core-input-chip-remove-size: 1.5rem;
+    --sdds-core-input-chip-font-family: var(--plasma-typo-body-l-font-family);
+    --sdds-core-input-chip-font-size: var(--plasma-typo-body-l-font-size);
+    --sdds-core-input-chip-font-style: var(--plasma-typo-body-l-font-style);
+    --sdds-core-input-chip-font-weight: var(--plasma-typo-body-l-font-weight);
+    --sdds-core-input-chip-letter-spacing: var(--plasma-typo-body-l-letter-spacing);
+    --sdds-core-input-chip-line-height: var(--plasma-typo-body-l-line-height);
+    --sdds-core-input-padding: 0.375rem 1rem;
+    --sdds-core-input-border-radius: 0.875rem;
+    --sdds-core-input-gap: 0.375rem;
+    --sdds-core-input-outer-label-gap: 0.75rem;
+    --sdds-core-input-outer-hint-gap: 1rem;
+}
+
+.m {
+    --sdds-core-input-height: 3rem;
+    --sdds-core-input-required-left-inset: -0.75rem;
+    --sdds-core-input-required-left-top: 0.375rem;
+    --sdds-core-input-font-size: var(--plasma-typo-body-m-font-size, 1rem);
+    --sdds-core-input-line-height: var(--plasma-typo-body-m-line-height, 1.25rem);
+    --sdds-core-input-title-caption-padding-top: 0.3125rem;
+    --sdds-core-input-editor-gap: 0.25rem;
+    --sdds-core-input-chip-height: 2.25rem;
+    --sdds-core-input-chip-border-radius: 0.375rem;
+    --sdds-core-input-chip-padding: 0 0.625rem 0 0.875rem;
+    --sdds-core-input-chip-gap: 0.5rem;
+    --sdds-core-input-chip-remove-size: 1.25rem;
+    --sdds-core-input-chip-font-family: var(--plasma-typo-body-m-font-family);
+    --sdds-core-input-chip-font-size: var(--plasma-typo-body-m-font-size);
+    --sdds-core-input-chip-font-style: var(--plasma-typo-body-m-font-style);
+    --sdds-core-input-chip-font-weight: var(--plasma-typo-body-m-font-weight);
+    --sdds-core-input-chip-letter-spacing: var(--plasma-typo-body-m-letter-spacing);
+    --sdds-core-input-chip-line-height: var(--plasma-typo-body-m-line-height);
+    --sdds-core-input-padding: 0.375rem 0.875rem;
+    --sdds-core-input-border-radius: 0.75rem;
+    --sdds-core-input-gap: 0.25rem;
+    --sdds-core-input-outer-label-gap: 0.625rem;
+    --sdds-core-input-outer-hint-gap: 0.875rem;
+}
+
+.s {
+    --sdds-core-input-height: 2.5rem;
+    --sdds-core-input-required-left-inset: -0.6875rem;
+    --sdds-core-input-required-left-top: 0.3125rem;
+    --sdds-core-input-font-size: var(--plasma-typo-body-s-font-size, 0.875rem);
+    --sdds-core-input-line-height: var(--plasma-typo-body-s-line-height);
+    --sdds-core-input-title-caption-padding-top: 0.1875rem;
+    --sdds-core-input-field-required-size: 0.375rem;
+    --sdds-core-input-editor-gap: 0.25rem;
+    --sdds-core-input-chip-height: 1.75rem;
+    --sdds-core-input-chip-border-radius: 0.25rem;
+    --sdds-core-input-chip-padding: 0 0.5rem 0 0.75rem;
+    --sdds-core-input-chip-gap: 0.375rem;
+    --sdds-core-input-chip-remove-size: 1rem;
+    --sdds-core-input-chip-font-family: var(--plasma-typo-body-s-font-family);
+    --sdds-core-input-chip-font-size: var(--plasma-typo-body-s-font-size);
+    --sdds-core-input-chip-font-style: var(--plasma-typo-body-s-font-style);
+    --sdds-core-input-chip-font-weight: var(--plasma-typo-body-s-font-weight);
+    --sdds-core-input-chip-letter-spacing: var(--plasma-typo-body-s-letter-spacing);
+    --sdds-core-input-chip-line-height: var(--plasma-typo-body-s-line-height);
+    --sdds-core-input-inner-label-space: var(--sdds-core-input-inner-label-line-height);
+    --sdds-core-input-padding: 0.375rem 0.75rem;
+    --sdds-core-input-border-radius: 0.625rem;
+    --sdds-core-input-gap: 0.25rem;
+    --sdds-core-input-outer-label-gap: 0.5rem;
+    --sdds-core-input-outer-hint-gap: 0.75rem;
+}
+
+.xs {
+    --sdds-core-input-height: 2rem;
+    --sdds-core-input-required-left-inset: -0.625rem;
+    --sdds-core-input-required-left-top: 0.25rem;
+    --sdds-core-input-font-size: var(--plasma-typo-body-xs-font-size, 0.75rem);
+    --sdds-core-input-line-height: var(--plasma-typo-body-xs-line-height, 0.875rem);
+    --sdds-core-input-title-caption-padding-top: 0px;
+    --sdds-core-input-hint-size: 1rem;
+    --sdds-core-input-field-required-size: 0.375rem;
+    --sdds-core-input-required-top: 0.125rem;
+    --sdds-core-input-editor-gap: 0.25rem;
+    --sdds-core-input-chip-height: 1.25rem;
+    --sdds-core-input-chip-border-radius: 0.125rem;
+    --sdds-core-input-chip-padding: 0 0.375rem 0 0.625rem;
+    --sdds-core-input-chip-gap: 0.25rem;
+    --sdds-core-input-chip-remove-size: 0.75rem;
+    --sdds-core-input-chip-font-family: var(--plasma-typo-body-xs-font-family);
+    --sdds-core-input-chip-font-size: var(--plasma-typo-body-xs-font-size);
+    --sdds-core-input-chip-font-style: var(--plasma-typo-body-xs-font-style);
+    --sdds-core-input-chip-font-weight: var(--plasma-typo-body-xs-font-weight);
+    --sdds-core-input-chip-letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+    --sdds-core-input-chip-line-height: var(--plasma-typo-body-xs-line-height);
+    --sdds-core-input-inner-label-space: var(--sdds-core-input-inner-label-line-height);
+    --sdds-core-input-padding: 0.375rem 0.5rem;
+    --sdds-core-input-border-radius: 0.5rem;
+    --sdds-core-input-gap: 0.125rem;
+    --sdds-core-input-outer-label-gap: 0.375rem;
+    --sdds-core-input-outer-hint-gap: 0.5rem;
+}
+
+.xl[data-has-chips],
+.l[data-has-chips],
+.m[data-has-chips],
+.s[data-has-chips],
+.xs[data-has-chips] {
+    --sdds-core-input-padding: 0.375rem;
+    --sdds-core-input-content-padding-inline: 0;
+    --sdds-core-input-gap: 0.375rem;
+}
+
+.xl[data-has-chips] {
+    --sdds-core-input-content-slot-padding: 0.75rem;
+}
+
+.l[data-has-chips] {
+    --sdds-core-input-content-slot-padding: 0.625rem;
+}
+
+.m[data-has-chips] {
+    --sdds-core-input-content-slot-padding: 0.5rem;
+}
+
+.s[data-has-chips] {
+    --sdds-core-input-content-slot-padding: 0.375rem;
+}
+
+.xs[data-has-chips] {
+    --sdds-core-input-content-slot-padding: 0.125rem;
+}
