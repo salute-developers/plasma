@@ -19,7 +19,6 @@ const config = {
     url: 'https://plasma.sberdevices.ru/',
     baseUrl,
     onBrokenLinks: 'warn',
-    onBrokenMarkdownLinks: 'warn',
     favicon: 'images/favicon.png',
     organizationName: 'Salute-Developers',
     trailingSlash: true,
@@ -234,6 +233,9 @@ const config = {
         ],
     ],
     markdown: {
+        hooks: {
+            onBrokenMarkdownLinks: 'warn',
+        },
         format: 'detect',
         mdx1Compat: {
             comments: true,
