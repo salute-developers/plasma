@@ -89,8 +89,11 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             const portalContainer =
                 (typeof target === 'object' && target !== null && 'current' in target && target.current) || undefined;
 
-            const isAutoArray = Array.isArray(placement);
-            const isAuto = isAutoArray || (placement as PopoverPlacement).startsWith('auto');
+            const isPlacementArray = Array.isArray(placement);
+            const [mainPlacement, ...fallbackPlacements] = isPlacementArray
+                ? placement
+                : [placement as PopoverPlacement];
+            const isAuto = !isPlacementArray && (placement as PopoverPlacement).startsWith('auto');
 
             const openClass = innerIsOpen && shouldRender ? classes.open : undefined;
             const animatedClass = animated ? classes.animate : undefined;
@@ -104,13 +107,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             });
 
             const { styles, attributes, forceUpdate, state: popperState } = usePopper(rootEl, popoverEl, {
-                // TODO: #1121
-                // eslint-disable-next-line no-nested-ternary
-                placement: isAutoArray
-                    ? placement[0]?.endsWith('start')
-                        ? 'auto-start'
-                        : 'auto'
-                    : (placement as PopoverPlacement),
+                placement: mainPlacement ?? 'auto',
                 modifiers: [
                     {
                         name: 'preventOverflow',
@@ -121,9 +118,9 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                     { name: 'offset', options: { offset: [offsetInner[0], offsetInner[1]] } },
                     {
                         name: 'flip',
-                        enabled: isAuto,
+                        enabled: isAuto || isPlacementArray,
                         options: {
-                            allowedAutoPlacements: isAutoArray ? (placement as PopoverPlacement[]) : [],
+                            fallbackPlacements: fallbackPlacements.length ? fallbackPlacements : undefined,
                         },
                     },
                     {
