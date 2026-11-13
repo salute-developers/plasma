@@ -14,6 +14,7 @@ import {
     safePolygon,
     shift,
     flip,
+    size,
     FloatingPortal,
     autoUpdate,
     limitShift,
@@ -56,6 +57,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
         delayClose = 0,
         zIndex = 1000,
         portal,
+        popoverWidth,
         // @ts-ignore
         _configClassName,
         ...rest
@@ -102,6 +104,12 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                     },
                     [outerOffset, hasTail],
                 ),
+                popoverWidth === 'target' &&
+                    size({
+                        apply({ rects, elements }) {
+                            elements.floating.style.width = `${rects.reference.width}px`;
+                        },
+                    }),
             ],
         },
     );
@@ -147,6 +155,7 @@ export const Popover = forwardRef<HTMLDivElement, PopoverProps>((props, ref) => 
                                 ...floatingStyles,
                                 zIndex,
                                 visibility: isPositioned ? 'visible' : 'hidden',
+                                width: popoverWidth === 'target' ? undefined : popoverWidth ?? '',
                             }}
                             {...getFloatingProps()}
                         >

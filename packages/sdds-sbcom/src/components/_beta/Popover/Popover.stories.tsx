@@ -75,6 +75,11 @@ const meta: Meta<StoryProps> = {
                 type: 'boolean',
             },
         },
+        popoverWidth: {
+            control: {
+                type: 'text',
+            },
+        },
         offset: {
             control: {
                 type: 'number',
