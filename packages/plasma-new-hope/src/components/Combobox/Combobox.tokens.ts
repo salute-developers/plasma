@@ -2,6 +2,10 @@ export const classes = {
     dropdownItemIsFocused: 'dropdown-item-is-focused',
     dropdownItemIsDisabled: 'dropdown-item-is-disabled',
     dropdownItemIsActive: 'dropdown-item-is-active',
+    dropdownItemIsSelected: 'dropdown-item-is-selected',
+    dropdownItemIsAncestor: 'dropdown-item-is-ancestor',
+    itemSelectionSlot: 'dropdown-item-selection-slot',
+    itemAncestorSelectionSlot: 'dropdown-item-ancestor-selection-slot',
     comboboxTargetArrow: 'combobox-target-arrow',
     arrowInverse: 'arrow-inverse',
     textfieldTarget: 'combobox-textfield-target',
@@ -30,6 +34,8 @@ export const tokens = {
     borderRadius: '--plasma-combobox-border-radius',
     /** @styleType dimension */
     padding: '--plasma-combobox-padding',
+    /** @styleType dimension */
+    listGap: '--plasma-combobox-list-gap',
     /** @styleType dimension */
     margin: '--plasma-combobox-margin',
     /** @styleType dimension */
@@ -71,6 +77,14 @@ export const tokens = {
     itemIconMargin: '--plasma-combobox-item-icon-margin',
     /** @styleType color */
     itemBackgroundHover: '--plasma-combobox-item-background-hover',
+    /** @styleType color */
+    itemBackgroundSelected: '--plasma-combobox-item-background-selected',
+    /** @styleType color */
+    itemBackgroundAncestor: '--plasma-combobox-item-background-ancestor',
+    /** @styleType value */
+    itemSelectionSlotDisplay: '--plasma-combobox-item-selection-slot-display',
+    /** @styleType value */
+    itemAncestorSelectionSlotDisplay: '--plasma-combobox-item-ancestor-selection-slot-display',
     /** @styleType color */
     itemIconColor: '--plasma-combobox-item-icon-color',
     /** @styleType dimension */

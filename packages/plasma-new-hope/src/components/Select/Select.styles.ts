@@ -48,6 +48,10 @@ export const Ul = styled.ul<{
     overflow-x: hidden;
     overflow-y: ${({ virtual }) => (virtual ? 'visible' : 'auto')};
     ${scrollbar}
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(${tokens.listGap}, 0);
+
     border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
     margin: 0;
     padding: 0;
