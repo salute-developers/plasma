@@ -2608,6 +2608,60 @@ describeFn('Select', () => {
         }
     });
 
+    it('disclosure icon keeps the left offset with renderItem', () => {
+        const nested = (label: string) => [
+            {
+                value: 'parent',
+                label,
+                items: [{ value: 'child', label: 'Ребёнок' }],
+            },
+        ];
+
+        const readOffset = (label: string) =>
+            cy.contains('li', label).then(($li) => {
+                const icon = $li[0].lastElementChild as HTMLElement;
+                const content = icon.previousElementSibling as HTMLElement;
+                const gap = icon.getBoundingClientRect().left - content.getBoundingClientRect().right;
+
+                return {
+                    gap,
+                    margin: parseFloat(getComputedStyle(icon).marginLeft),
+                };
+            });
+
+        mount(
+            <>
+                <Select id="plain" items={nested('Обычный')} label="Label" placeholder="Placeholder" />
+                <Select
+                    id="custom"
+                    items={nested('Кастомный')}
+                    label="Label"
+                    placeholder="Placeholder"
+                    renderItem={(item) => (
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
+                            <span>{item.label}</span>
+                            <span>справа</span>
+                        </div>
+                    )}
+                />
+            </>,
+        );
+
+        cy.get('#plain').click();
+        readOffset('Обычный').then((plain) => {
+            expect(plain.margin, 'plain margin').to.be.greaterThan(0);
+            expect(plain.gap, 'plain gap').to.be.closeTo(plain.margin, 1);
+
+            cy.get('#plain').click();
+            cy.get('#custom').click();
+
+            return readOffset('Кастомный').then((custom) => {
+                expect(custom.margin, 'renderItem margin').to.equal(plain.margin);
+                expect(custom.gap, 'renderItem gap').to.be.closeTo(plain.margin, 1);
+            });
+        });
+    });
+
     it('cascade list keeps single-line ellipsis', () => {
         const longLabel = 'Очень длинное название пункта списка которое не помещается';
 
