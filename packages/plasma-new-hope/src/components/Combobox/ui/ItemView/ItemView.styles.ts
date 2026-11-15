@@ -86,6 +86,14 @@ export const IconWrapper = styled.div<{ variant: ComboboxProps['variant']; withM
     margin: ${({ withMargin }) => (withMargin ? `var(${tokens.itemIconMargin})` : '0')};
     line-height: 0;
     color: var(${tokens.itemIconColor});
+
+    &.${classes.itemSelectionSlot} {
+        display: var(${tokens.itemSelectionSlotDisplay}, flex);
+    }
+
+    &.${classes.itemAncestorSelectionSlot} {
+        display: var(${tokens.itemAncestorSelectionSlotDisplay}, flex);
+    }
 `;
 
 export const StyledText = styled.div`

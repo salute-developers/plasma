@@ -101,6 +101,14 @@ export const IconWrapper = styled.div<{ variant: SelectProps['variant'] }>`
     margin: var(${tokens.itemIconMargin});
     line-height: 0;
     color: var(${tokens.itemIconColor});
+
+    &.${classes.itemSelectionSlot} {
+        display: var(${tokens.itemSelectionSlotDisplay}, flex);
+    }
+
+    &.${classes.itemAncestorSelectionSlot} {
+        display: var(${tokens.itemAncestorSelectionSlotDisplay}, flex);
+    }
 `;
 
 export const StyledText = styled.div<{ color?: string }>`
@@ -127,12 +135,28 @@ export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
     user-select: none;
     background-clip: padding-box;
 
-    &:hover:not(.${classes.dropdownItemIsDisabled}) {
-        cursor: pointer;
+    &.${classes.dropdownItemIsActive} {
         background-color: var(${tokens.itemBackgroundHover});
     }
 
-    &.${classes.dropdownItemIsActive} {
+    &.${classes.dropdownItemIsSelected} {
+        background-color: var(${tokens.itemBackgroundSelected}, var(${constants.itemBackground}));
+    }
+
+    &.${classes.dropdownItemIsSelected}.${classes.dropdownItemIsActive} {
+        background-color: var(${tokens.itemBackgroundSelected}, var(${tokens.itemBackgroundHover}));
+    }
+
+    &.${classes.dropdownItemIsAncestor} {
+        background-color: var(${tokens.itemBackgroundAncestor}, var(${constants.itemBackground}));
+    }
+
+    &.${classes.dropdownItemIsAncestor}.${classes.dropdownItemIsActive} {
+        background-color: var(${tokens.itemBackgroundAncestor}, var(${tokens.itemBackgroundHover}));
+    }
+
+    &:hover:not(.${classes.dropdownItemIsDisabled}) {
+        cursor: pointer;
         background-color: var(${tokens.itemBackgroundHover});
     }
 

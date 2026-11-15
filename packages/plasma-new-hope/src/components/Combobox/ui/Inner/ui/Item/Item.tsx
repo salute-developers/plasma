@@ -43,6 +43,8 @@ export const Item: FC<ItemProps> = ({
 
     const checkedValue = checked.get(item.value) || false;
     const disabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
+    const selectedClass = !multiple && checkedValue === 'done' ? classes.dropdownItemIsSelected : undefined;
+    const ancestorClass = !multiple && checkedValue === 'dot' ? classes.dropdownItemIsAncestor : undefined;
 
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
@@ -80,7 +82,7 @@ export const Item: FC<ItemProps> = ({
     return (
         <Wrapper
             {...rest}
-            className={cx(disabledClassName, focusedClass, activeClass, className)}
+            className={cx(disabledClassName, focusedClass, activeClass, selectedClass, ancestorClass, className)}
             id={getItemId(treeId, value)}
             ref={ref}
             onClick={handleClick}

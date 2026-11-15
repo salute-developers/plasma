@@ -24,6 +24,7 @@ type ItemSelectionIconProps = {
     renderSelectionIcon: ComboboxProps['renderSelectionIcon'];
     checkboxAppearance?: string;
     withMargin?: boolean;
+    withSelectionSlot?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
@@ -36,32 +37,38 @@ export const ItemSelectionIcon: React.FC<ItemSelectionIconProps> = ({
     renderSelectionIcon,
     checkboxAppearance,
     withMargin,
+    withSelectionSlot = true,
     onChange,
-}) => (
-    <IconWrapper variant={variant} withMargin={withMargin}>
-        {renderSelectionIcon ? (
-            renderSelectionIcon(mapCheckedVariants(checked, multiple))
-        ) : (
-            <>
-                {multiple && (
-                    <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
-                        <StyledCheckbox
-                            disabled={disabled}
-                            checked={Boolean(checked)}
-                            indeterminate={checked === 'indeterminate'}
-                            onChange={onChange}
-                            appearance={checkboxAppearance ?? 'default'}
-                        />
-                    </StyledCheckboxWrapper>
-                )}
-                {!multiple && checked === 'dot' && <StyledIndicator size="s" view="default" />}
-                {!multiple && checked === 'done' && (
-                    <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
-                )}
-            </>
-        )}
-    </IconWrapper>
-);
+}) => {
+    const slotClass = checked === 'dot' ? classes.itemAncestorSelectionSlot : classes.itemSelectionSlot;
+    const selectionSlotClass = withSelectionSlot && !multiple && !renderSelectionIcon ? slotClass : undefined;
+
+    return (
+        <IconWrapper variant={variant} withMargin={withMargin} className={selectionSlotClass}>
+            {renderSelectionIcon ? (
+                renderSelectionIcon(mapCheckedVariants(checked, multiple))
+            ) : (
+                <>
+                    {multiple && (
+                        <StyledCheckboxWrapper onClick={(e) => e.stopPropagation()}>
+                            <StyledCheckbox
+                                disabled={disabled}
+                                checked={Boolean(checked)}
+                                indeterminate={checked === 'indeterminate'}
+                                onChange={onChange}
+                                appearance={checkboxAppearance ?? 'default'}
+                            />
+                        </StyledCheckboxWrapper>
+                    )}
+                    {!multiple && checked === 'dot' && <StyledIndicator size="s" view="default" />}
+                    {!multiple && checked === 'done' && (
+                        <StyledIconDone size={sizeToIconSize(size, variant)} color="inherit" />
+                    )}
+                </>
+            )}
+        </IconWrapper>
+    );
+};
 
 type ItemContentProps = {
     item: ItemOptionTransformed;
