@@ -97,6 +97,7 @@ export const Item: React.FC<Props> = ({ item, pathToItem }) => {
             variant={variant}
             renderSelectionIcon={renderSelectionIcon}
             checkboxAppearance={_checkboxAppearance}
+            withSelectionSlot={false}
             onChange={handleChange}
         />
     );

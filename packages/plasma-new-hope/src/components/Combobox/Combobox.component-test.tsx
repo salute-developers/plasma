@@ -2950,6 +2950,183 @@ describeFn('Combobox', () => {
             region: ['paris', 'lyon'],
         });
     });
+
+    it('cascade list selection styles', () => {
+        const cascadeItems = [
+            { value: 'europe', label: 'Европа' },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                items: [
+                    { value: 'brazil', label: 'Бразилия' },
+                    { value: 'argentina', label: 'Аргентина' },
+                ],
+            },
+        ];
+        const Component = () => {
+            const [value, setValue] = useState('brazil');
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <style>{`
+                        ul[role='tree'],
+                        ul[role='group'] {
+                            --plasma-combobox-list-gap: 2px;
+                            --plasma-combobox-item-background-selected: rgb(1, 2, 3);
+                            --plasma-combobox-item-background-ancestor: rgb(4, 5, 6);
+                            --plasma-combobox-item-background-hover: rgb(7, 8, 9);
+                            --plasma-combobox-item-selection-slot-display: none;
+                            --plasma-combobox-item-ancestor-selection-slot-display: none;
+                        }
+                    `}</style>
+                    <Combobox
+                        id="combobox"
+                        value={value}
+                        onChange={setValue}
+                        items={cascadeItems}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+
+        cy.contains('li', 'Южная Америка')
+            .should('have.class', 'dropdown-item-is-ancestor')
+            .and('have.css', 'background-color', 'rgb(4, 5, 6)')
+            .find('.dropdown-item-ancestor-selection-slot')
+            .should('have.css', 'display', 'none');
+        cy.contains('li', 'Европа').should('not.have.class', 'dropdown-item-is-selected');
+        cy.contains('li', 'Южная Америка')
+            .closest('ul')
+            .should('have.css', 'display', 'grid')
+            .and('have.css', 'row-gap', '2px');
+
+        cy.contains('li', 'Южная Америка').click();
+
+        cy.contains('li', 'Бразилия')
+            .should('have.class', 'dropdown-item-is-selected')
+            .and('have.css', 'background-color', 'rgb(1, 2, 3)')
+            .find('.dropdown-item-selection-slot')
+            .should('have.css', 'display', 'none');
+
+        if (Cypress.browser.family !== 'webkit') {
+            cy.contains('li', 'Бразилия').realHover();
+            cy.contains('li', 'Бразилия').should('have.css', 'background-color', 'rgb(7, 8, 9)');
+            cy.contains('li', 'Аргентина').realHover();
+            cy.contains('li', 'Аргентина').should('have.css', 'background-color', 'rgb(7, 8, 9)');
+        }
+    });
+
+    it('cascade list keeps single-line ellipsis', () => {
+        const longLabel = 'Очень длинное название пункта списка которое не помещается';
+
+        const Component = () => (
+            <div style={{ width: '160px' }}>
+                <Combobox
+                    id="combobox"
+                    items={[{ value: 'long', label: longLabel }]}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listWidth="120px"
+                    listMaxHeight="80px"
+                    singleLine
+                />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('li', longLabel).then(($item) => {
+            const item = $item[0];
+            const title = item.querySelector('.cell-textbox-title') as HTMLElement;
+            const list = item.closest('ul') as HTMLElement;
+
+            expect(title.scrollWidth).to.be.greaterThan(title.clientWidth);
+            expect(getComputedStyle(title).textOverflow).to.eq('ellipsis');
+            expect(Math.round(item.getBoundingClientRect().width)).to.eq(
+                Math.round(list.getBoundingClientRect().width),
+            );
+        });
+    });
+
+    it('cascade list does not shrink a wrapped item', () => {
+        const longLabel = 'Очень длинное название пункта списка которое не помещается';
+
+        const Component = () => (
+            <div style={{ width: '160px' }}>
+                <Combobox
+                    id="combobox"
+                    items={[{ value: 'long', label: longLabel }]}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listWidth="120px"
+                    listMaxHeight="80px"
+                />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('li', longLabel).then(($item) => {
+            const itemBox = $item[0].getBoundingClientRect();
+            const title = $item[0].querySelector('.cell-textbox-title') as HTMLElement;
+            const titleBox = title.getBoundingClientRect();
+
+            expect(titleBox.height).to.be.greaterThan(30);
+            expect(itemBox.height).to.be.greaterThan(titleBox.height);
+            expect(titleBox.bottom).to.be.at.most(itemBox.bottom + 1);
+        });
+    });
+
+    it('treeView ignores cascade selection styles', () => {
+        const treeItems = [
+            { value: 'europe', label: 'Европа' },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                items: [{ value: 'brazil', label: 'Бразилия' }],
+            },
+        ];
+        const Component = () => {
+            const [value, setValue] = useState('brazil');
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="combobox"
+                        value={value}
+                        onChange={setValue}
+                        items={treeItems}
+                        label="Label"
+                        placeholder="Placeholder"
+                        treeView
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.get('.dropdown-item-is-selected').should('not.exist');
+        cy.get('.dropdown-item-is-ancestor').should('not.exist');
+        cy.get('[role="treeitem"]').then(($items) => {
+            const first = $items[0].getBoundingClientRect();
+            const second = $items[1].getBoundingClientRect();
+
+            expect(Math.round(second.top - first.bottom)).to.eq(0);
+        });
+
+        cy.contains('[role="treeitem"]', 'Южная Америка').click();
+        cy.contains('[role="treeitem"]', 'Бразилия').find('svg').filter(':visible').should('have.length.at.least', 1);
+    });
 });
 
 describeFn('Combobox react-hook-form', () => {

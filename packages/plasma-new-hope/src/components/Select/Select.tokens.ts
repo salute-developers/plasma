@@ -2,6 +2,10 @@ export const classes = {
     dropdownItemIsFocused: 'dropdown-item-is-focused',
     dropdownItemIsDisabled: 'dropdown-item-is-disabled',
     dropdownItemIsActive: 'dropdown-item-is-active',
+    dropdownItemIsSelected: 'dropdown-item-is-selected',
+    dropdownItemIsAncestor: 'dropdown-item-is-ancestor',
+    itemSelectionSlot: 'dropdown-item-selection-slot',
+    itemAncestorSelectionSlot: 'dropdown-item-ancestor-selection-slot',
     selectTargetArrow: 'select-target-arrow',
     arrowInverse: 'arrow-inverse',
     textfieldTarget: 'select-textfield-target',
@@ -29,6 +33,8 @@ export const tokens = {
     borderRadius: '--plasma-select-border-radius',
     /** @styleType dimension */
     padding: '--plasma-select-padding',
+    /** @styleType dimension */
+    listGap: '--plasma-select-list-gap',
     /** @styleType dimension */
     margin: '--plasma-select-margin',
 
@@ -68,6 +74,14 @@ export const tokens = {
     itemIconMargin: '--plasma-select-item-icon-margin',
     /** @styleType color */
     itemBackgroundHover: '--plasma-select-item-background-hover',
+    /** @styleType color */
+    itemBackgroundSelected: '--plasma-select-item-background-selected',
+    /** @styleType color */
+    itemBackgroundAncestor: '--plasma-select-item-background-ancestor',
+    /** @styleType value */
+    itemSelectionSlotDisplay: '--plasma-select-item-selection-slot-display',
+    /** @styleType value */
+    itemAncestorSelectionSlotDisplay: '--plasma-select-item-ancestor-selection-slot-display',
     /** @styleType float */
     itemDisabledOpacity: '--plasma-select-item-disabled-opacity',
     /** @styleType color */
