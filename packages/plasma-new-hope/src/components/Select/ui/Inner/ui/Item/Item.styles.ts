@@ -82,7 +82,7 @@ export const StyledIconDone = styled(IconDone)`
 `;
 
 export const DisclosureIconWrapper = styled.div`
-    margin: var(${tokens.disclosureIconMargin});
+    margin: var(${tokens.disclosureIconMargin}, 0 0 0 var(${tokens.cellGap}, 0));
     line-height: 0;
     color: var(${tokens.disclosureNestedIconColor}, var(${tokens.disclosureIconColor}));
 
@@ -114,6 +114,11 @@ export const IconWrapper = styled.div<{ variant: SelectProps['variant'] }>`
 export const StyledText = styled.div<{ color?: string }>`
     ${applyEllipsis()};
     flex: 1;
+    min-width: 0;
+
+    & * {
+        min-width: 0;
+    }
 `;
 
 export const Wrapper = styled.li<{ variant: SelectProps['variant'] }>`
