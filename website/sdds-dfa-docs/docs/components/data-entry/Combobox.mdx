@@ -1282,6 +1282,178 @@ export function App() {
 }
 ```
 
+## Использование renderItem для расширенного варианта Combobox
+
+`renderItem` рисует ячейку в списке. В поле выбранное значение показывается той же ячейкой: без Caption и без иконок по краям. Справа остаётся крестик очистки.
+
+```tsx live
+import React, { useState } from 'react';
+import { Combobox, Cell, textFieldTokens } from '@salutejs/sdds-dfa';
+import { IconPlasma, IconClose } from '@salutejs/plasma-icons';
+import { BodyXS } from '@salutejs/plasma-typo';
+import styled from 'styled-components';
+import { textSecondary } from '@salutejs/sdds-themes/tokens/sdds_dfa';
+
+export function App() {
+    const items = [
+        {
+            value: 'north_america',
+            label: 'Северная Америка',
+            subtitle: ['23 государства', '24,25 млн км²'],
+            population: '580 млн',
+        },
+        {
+            value: 'south_america',
+            label: 'Южная Америка',
+            subtitle: ['12 государств', '17,84 млн км²'],
+            population: '430 млн',
+            items: [
+                {
+                    value: 'brazil',
+                    label: 'Бразилия',
+                    subtitle: ['27 штатов', '8,51 млн км²'],
+                    population: '203 млн',
+                },
+                {
+                    value: 'argentina',
+                    label: 'Аргентина',
+                    subtitle: ['24 провинции', '2,78 млн км²'],
+                    population: '46 млн',
+                },
+            ],
+        },
+    ];
+
+    const findItem = (list, current) => {
+        for (const item of list) {
+            if (item.value === current) {
+                return item;
+            }
+
+            if (item.items) {
+                const nested = findItem(item.items, current);
+
+                if (nested) {
+                    return nested;
+                }
+            }
+        }
+
+        return null;
+    };
+
+    const SubTitle = ({ items: subtitleItems }) => (
+        <BodyXS style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span>{subtitleItems.join(' • ')}</span>
+            <IconPlasma size="xs" color="inherit" />
+        </BodyXS>
+    );
+
+    const ContentRight = ({ population }) => (
+        <Cell view="default" title={population} subtitle={<BodyXS>Население</BodyXS>} />
+    );
+
+    const Content = ({ title, items: subtitleItems, population }) => (
+        <Cell
+            view="default"
+            title={title}
+            subtitle={<SubTitle items={subtitleItems} />}
+            contentRight={population && <ContentRight population={population} />}
+            contentLeft={<IconPlasma color={textSecondary} />}
+        />
+    );
+
+    const TargetContent = ({ title, items: subtitleItems, population }) => (
+        <Cell
+            view="default"
+            title={title}
+            subtitle={<SubTitle items={subtitleItems} />}
+            contentRight={population && <ContentRight population={population} />}
+            style={{ width: '100%', minWidth: 0 }}
+        />
+    );
+
+    const TargetCombobox = styled(Combobox)`
+        && {
+            ${textFieldTokens.height}: 62px;
+        }
+
+        &.is-filled {
+            ${textFieldTokens.padding}: 0.375rem 1rem;
+
+            .input-scrollable-wrapper {
+                flex: 0 0 0;
+                width: 0;
+                min-width: 0;
+                overflow: hidden;
+            }
+
+            input {
+                color: transparent;
+                caret-color: transparent;
+            }
+
+            .input-wrapper > [data-root] {
+                flex: 1;
+                min-width: 0;
+                line-height: normal;
+            }
+        }
+    `;
+
+    const [value, setValue] = useState('');
+    const selected = findItem(items, value);
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '400px', height: '300px' }}>
+            <TargetCombobox
+                className={selected ? 'is-filled' : undefined}
+                label="Title"
+                placeholder="Placeholder"
+                items={items}
+                value={value}
+                onChange={setValue}
+                renderItem={(item) => (
+                    <Content title={item.label} items={item.subtitle} population={item.population} />
+                )}
+                contentLeft={
+                    selected ? (
+                        <TargetContent
+                            title={selected.label}
+                            items={selected.subtitle}
+                            population={selected.population}
+                        />
+                    ) : undefined
+                }
+                contentRight={
+                    selected ? (
+                        <button
+                            type="button"
+                            aria-label="Очистить"
+                            onMouseDown={(event) => event.preventDefault()}
+                            onClick={(event) => {
+                                event.stopPropagation();
+                                setValue('');
+                            }}
+                            style={{
+                                display: 'inline-flex',
+                                padding: 0,
+                                border: 0,
+                                background: 'transparent',
+                                color: 'inherit',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            <IconClose size="s" color="inherit" />
+                        </button>
+                    ) : null
+                }
+            />
+        </div>
+    );
+}
+```
+
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
