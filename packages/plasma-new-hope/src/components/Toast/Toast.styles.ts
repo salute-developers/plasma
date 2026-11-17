@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { Overlay } from '../Overlay';
 import { buttonTokens } from '../Button';
 
-import { Button, TOAST_Z_INDEX } from './utils';
+import { Button } from './utils';
 import { classes, tokens } from './Toast.tokens';
 
 export const base = css`
@@ -18,11 +18,11 @@ export const base = css`
     ${buttonTokens.buttonWidth}: 1rem;
 `;
 
-export const StyledRoot = styled.div<{ position: string; isVisible: boolean; offset?: number }>`
+export const StyledRoot = styled.div<{ position: string; isVisible: boolean; offset?: number; zIndex: string }>`
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    z-index: ${TOAST_Z_INDEX};
+    z-index: ${({ zIndex }) => zIndex};
 
     display: flex;
     width: 0;

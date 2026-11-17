@@ -55,9 +55,29 @@ export type ToastContextType = {
     animationRunTimeout: MutableRefObject<number | null>;
     showToast: ShowToast;
     hideToast: () => void;
+    /**
+     * Приостановить таймер скрытия (наведение или фокус внутри сообщения).
+     */
+    pauseTimer?: () => void;
+    /**
+     * Возобновить таймер скрытия.
+     */
+    resumeTimer?: () => void;
 };
 
 export type ToastProviderProps = {
     children: ReactNode;
     defaultToastArgs?: Partial<ShowToastArgs>;
+    /**
+     * Ставить новые сообщения в очередь, пока отображается текущее.
+     * Повторяющиеся сообщения (тот же текст, позиция и вид) объединяются.
+     * Если выключено, новое сообщение заменяет текущее.
+     * @default false
+     */
+    queue?: boolean;
+    /**
+     * Максимальная длина очереди сообщений. Сообщения сверх лимита отбрасываются.
+     * @default 5
+     */
+    maxQueueLength?: number;
 };

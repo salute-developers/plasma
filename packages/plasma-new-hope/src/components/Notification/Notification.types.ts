@@ -159,6 +159,11 @@ export interface NotificationPortalProps extends Omit<HTMLAttributes<HTMLDivElem
      */
     placement?: NotificationPlacement;
     /**
+     * Максимальное количество одновременно видимых оповещений. Остальные ставятся в очередь,
+     * их таймер запускается при показе.
+     */
+    maxCount?: number;
+    /**
      * @description Только для применения в рамках SSR.
      */
     UNSAFE_SSR_ENABLED?: boolean;

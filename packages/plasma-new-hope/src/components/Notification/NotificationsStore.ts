@@ -8,6 +8,11 @@ const DEFAULT_CLOSE_DELAY = 380;
 export type NotificationItem = {
     id: string;
     isHidden?: boolean;
+    /**
+     * Время отображения. Отсчёт начинается, когда оповещение становится видимым.
+     */
+    timeout?: number | null;
+    onTimeoutClose?: () => void;
 };
 export type NotificationsState = {
     notifications: NotificationItem[];
@@ -59,7 +64,11 @@ const createNotificationId = () => {
     return `plasma-notification-${Date.now()}-${notificationIdCounter}`;
 };
 
-const closeNotificationInStore = (store: NotificationsStoreInstance, id: string, delay = DEFAULT_CLOSE_DELAY) => {
+export const closeNotificationInStore = (
+    store: NotificationsStoreInstance,
+    id: string,
+    delay = DEFAULT_CLOSE_DELAY,
+) => {
     const { dispatch } = store;
 
     dispatch('hide', id);
@@ -67,6 +76,10 @@ const closeNotificationInStore = (store: NotificationsStoreInstance, id: string,
     setTimeout(() => dispatch('remove', id), delay);
 };
 
+/**
+ * Добавляет оповещение. Повторное добавление с тем же `id`, пока оповещение отображается, объединяется с ним.
+ * Таймер закрытия запускается при показе оповещения, поэтому оповещения в очереди не истекают.
+ */
 const addNotificationToStore = (
     store: NotificationsStoreInstance,
     { id: externalId, onTimeoutClose, ...rest }: NotificationProps,
@@ -75,28 +88,17 @@ const addNotificationToStore = (
     const id = externalId || createNotificationId();
     const { dispatch, get } = store;
 
+    if (get().notifications.some((notification) => notification.id === id && !notification.isHidden)) {
+        return id;
+    }
+
     dispatch('add', {
         ...rest,
         id,
         isHidden: false,
+        timeout,
+        onTimeoutClose,
     });
-
-    // TODO: Вынести логику закрытия в отдельный модуль, данный метод должен только создавать новое оповещение
-    if (timeout !== 0 && timeout !== null) {
-        setTimeout(() => {
-            const { notifications } = get();
-
-            const notification = notifications.find((notification) => notification.id === id);
-
-            if (!notification) {
-                return;
-            }
-
-            closeNotificationInStore(store, id);
-
-            onTimeoutClose?.();
-        }, timeout);
-    }
 
     return id;
 };

@@ -24,13 +24,7 @@ const ClientOnlyPortal: FC<{
         }
 
         if (typeof providerFrame === 'string' && providerFrame !== 'document') {
-            const containerElement = document.getElementById(providerFrame as string);
-
-            if (!containerElement) {
-                ref.current = document.body;
-            }
-
-            ref.current = containerElement;
+            ref.current = document.getElementById(providerFrame as string) || document.body;
 
             return;
         }

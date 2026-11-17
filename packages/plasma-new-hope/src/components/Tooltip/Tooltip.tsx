@@ -4,6 +4,7 @@ import { RootProps, component } from 'src/engines';
 import { canUseDOM, cx } from 'src/utils';
 
 import { popoverConfig, popoverTokens } from '../Popover';
+import { useOverlayChildZIndex } from '../OverlayProvider/OverlayContext';
 
 import { useDelayedTooltip } from './hooks';
 import { TooltipProps } from './Tooltip.types';
@@ -13,6 +14,7 @@ import { base as sizeCSS } from './variations/_size/base';
 import { tokens } from './Tooltip.tokens';
 
 const ESCAPE_KEYCODE = 27;
+const DEFAULT_Z_INDEX = 9200;
 
 const getStringValue = (value?: number | string) => {
     return typeof value === 'number' ? `${value}rem` : value;
@@ -56,7 +58,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                 view,
                 size,
                 contentLeft,
-                zIndex = '9200',
+                zIndex,
                 className,
                 style,
                 hoverTimeout,
@@ -68,6 +70,8 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
             outerRef,
         ) => {
             const [ref, setRef] = useState<HTMLDivElement | null>(null);
+            const overlayChildZIndex = useOverlayChildZIndex();
+            const innerZIndex = zIndex ?? String(Math.max(overlayChildZIndex ?? 0, DEFAULT_Z_INDEX));
 
             mouseLeaveDelay = mouseLeaveDelay ?? hoverTimeout ?? 300;
 
@@ -151,7 +155,7 @@ export const tooltipRoot = (Root: RootProps<HTMLDivElement, Omit<TooltipProps, '
                     opened={isTooltipOpened}
                     placement={placement}
                     offset={offset}
-                    zIndex={zIndex}
+                    zIndex={innerZIndex}
                     target={target || children}
                     usePortal={usePortal}
                     hasArrow={arrow || hasArrow}

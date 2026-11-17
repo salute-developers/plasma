@@ -297,6 +297,10 @@ const keyboardNavigationDefault = ({
             case keys.Escape: {
                 if (path[0]) {
                     handleListToggle(false);
+
+                    if (event.key === keys.Escape) {
+                        event.preventDefault();
+                    }
                 }
 
                 if (multiple) {
@@ -617,6 +621,10 @@ const keyboardNavigationTree = ({
             case keys.Escape: {
                 if (path[0]) {
                     handleListToggle(false);
+
+                    if (event.key === keys.Escape) {
+                        event.preventDefault();
+                    }
                 }
 
                 if (multiple) {

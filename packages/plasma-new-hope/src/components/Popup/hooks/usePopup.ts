@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 
 import type { PopupAnimationInfo, PopupHookArgs } from '../Popup.types';
-import { usePopupContext } from '../PopupContext';
+import { ensureFallbackOverlayRoot, OVERLAY_ROOT_ID, useOverlayContext } from '../../OverlayProvider/OverlayContext';
+import { useOverlayLayer } from '../../OverlayProvider/hooks/useOverlayLayer';
 
 // Хук для подключения анимации
 const usePopupAnimation = (): PopupAnimationInfo => {
@@ -15,10 +16,22 @@ const usePopupAnimation = (): PopupAnimationInfo => {
 };
 
 // Хук для внутреннего состояния, необходимого для правильного отображения вложенных окон, а также для анимации
-export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs) => {
+export const usePopup = ({ isOpen, id, popupInfo, withAnimation, layerOptions, zIndex }: PopupHookArgs) => {
     const [isVisible, setVisible] = useState<boolean>(false);
-    const popupController = usePopupContext();
     const animationInfo = usePopupAnimation();
+    const { rootId, isFallback } = useOverlayContext();
+
+    const info = layerOptions?.info || popupInfo?.info ? { ...popupInfo?.info, ...layerOptions?.info } : undefined;
+
+    // слой остаётся в стеке до окончания анимации закрытия, но уже не участвует в маршрутизации событий
+    const layer = useOverlayLayer({
+        ...layerOptions,
+        id,
+        info,
+        zIndex,
+        registered: isOpen || isVisible,
+        closing: !isOpen,
+    });
 
     // для использования transition в качестве анимации
     useEffect(() => {
@@ -27,11 +40,13 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
         }
     }, [animationInfo, withAnimation, isVisible]);
 
-    // сначала добавление/удаление из контекста, и только после этого отображение/скрытие
     useEffect(() => {
         // при первом открытии
         if (isOpen && !isVisible) {
-            popupController.register({ id, ...popupInfo });
+            if (isFallback) {
+                ensureFallbackOverlayRoot();
+            }
+
             setVisible(true);
             animationInfo.setEndAnimation(false);
             return;
@@ -48,15 +63,15 @@ export const usePopup = ({ isOpen, id, popupInfo, withAnimation }: PopupHookArgs
         }
 
         // иначе обычное закрытие
-        popupController.unregister(id);
         setVisible(false);
     }, [isOpen, isVisible, animationInfo]);
 
-    useEffect(() => {
-        return () => {
-            popupController.unregister(id);
-        };
-    }, [id]);
-
-    return { isVisible, setVisible, animationInfo, withAnimation, rootId: popupController.rootId };
+    return {
+        isVisible,
+        setVisible,
+        animationInfo,
+        withAnimation,
+        rootId: isFallback ? OVERLAY_ROOT_ID : rootId,
+        layer,
+    };
 };

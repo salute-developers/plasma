@@ -37,11 +37,16 @@ const subscribeGlobalPortalProvider = (subscriber: GlobalPortalSubscriber) => {
     };
 };
 
+/**
+ * @deprecated Используйте OverlayProvider: он включает область Notification.
+ * Локальное использование NotificationsProvider продолжает работать.
+ */
 export const NotificationsProvider: FC<NotificationsProviderProps> = ({
     children,
     config,
     frame,
     placement,
+    maxCount,
     UNSAFE_SSR_ENABLED,
     className,
     defaultNotificationArgs,
@@ -79,6 +84,7 @@ export const NotificationsProvider: FC<NotificationsProviderProps> = ({
                     <NotificationsPortal
                         frame={frame}
                         placement={placement}
+                        maxCount={maxCount}
                         config={config}
                         UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}
                         className={className}
@@ -97,6 +103,7 @@ export const NotificationsProvider: FC<NotificationsProviderProps> = ({
                         <NotificationsPortal
                             frame={frame}
                             placement={placement}
+                            maxCount={maxCount}
                             config={config}
                             UNSAFE_SSR_ENABLED={UNSAFE_SSR_ENABLED}
                             className={className}

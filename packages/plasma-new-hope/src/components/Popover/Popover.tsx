@@ -5,6 +5,7 @@ import { useFocusTrap, useForkRef } from 'src/hooks';
 import { cx, safeUseId } from 'src/utils';
 
 import { Portal } from '../Portal';
+import { useOverlayChildZIndex } from '../OverlayProvider/OverlayContext';
 import { Resizable } from '../_Resizable';
 
 import { base as viewCSS } from './variations/_view/base';
@@ -52,6 +53,8 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
             outerRootRef,
         ) => {
             const outerOpened = Boolean(isOpen || opened);
+            const overlayChildZIndex = useOverlayChildZIndex();
+            const innerZIndex = zIndex ?? (overlayChildZIndex === undefined ? undefined : String(overlayChildZIndex));
             const isControlled = isOpen !== undefined || opened !== undefined;
             const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState(false);
             const innerIsOpen = isControlled ? outerOpened : uncontrolledIsOpen;
@@ -358,7 +361,7 @@ export const popoverRoot = (Root: RootProps<HTMLDivElement, PopoverProps>) =>
                                             ...styles.popper,
                                             display: shouldRender || innerIsOpen ? 'block' : 'none',
                                         }}
-                                        zIndex={zIndex}
+                                        zIndex={innerZIndex}
                                     >
                                         {hasArrow && (
                                             <StyledArrow

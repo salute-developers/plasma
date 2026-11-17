@@ -29,6 +29,7 @@ export * from './components/Switch';
 export * from './components/Tabs';
 export * from './components/Calendar';
 export * from './components/Typography';
+export * from './components/OverlayProvider';
 export * from './components/Popup';
 export * from './components/Modal';
 export * from './components/Notification';

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 import { FocusManager } from '../utils/focusManager';
-import { FocusTrapSelectors } from '../utils/focusScope';
+import { FocusTrapSelectors, GetFocusScopeElements } from '../utils/focusScope';
 import { focusSelector, isFocusable, isTabble } from '../utils/tabbable';
 import { scopeTab } from '../utils/scopeTab';
 
@@ -61,11 +61,14 @@ export const useFocusTrap = (
     focusAfterAnimation?: boolean,
     enableOnFirstMount?: boolean,
     focusTrapSelectors?: FocusTrapSelectors,
+    getExtraScopeElements?: GetFocusScopeElements,
 ): ((instance: HTMLElement | null) => void) => {
     const ref = useRef<HTMLElement | null>();
     const focusTrapSelectorsRef = useRef(focusTrapSelectors);
+    const getExtraScopeElementsRef = useRef(getExtraScopeElements);
 
     focusTrapSelectorsRef.current = focusTrapSelectors;
+    getExtraScopeElementsRef.current = getExtraScopeElements;
 
     const setRef = useCallback(
         (node: HTMLElement | null) => {
@@ -74,12 +77,17 @@ export const useFocusTrap = (
             }
 
             if (ref.current) {
-                focusManager.teardownScopedFocus(ref.current);
-                focusManager.returnFocus();
+                const closingNode = ref.current;
+                focusManager.teardownScopedFocus(closingNode);
+                focusManager.returnFocus(closingNode);
             }
 
             if ((active || enableOnFirstMount) && node) {
-                focusManager.setupScopedFocus(node, () => focusTrapSelectorsRef.current);
+                focusManager.setupScopedFocus(
+                    node,
+                    () => focusTrapSelectorsRef.current,
+                    () => getExtraScopeElementsRef.current?.() ?? [],
+                );
                 focusManager.markForFocusAfter(focusAfterNode);
 
                 // Delay processing the HTML node by a frame. This ensures focus is assigned correctly.
@@ -109,7 +117,13 @@ export const useFocusTrap = (
 
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Tab' && ref.current && focusManager.isTopFocusNode(ref.current)) {
-                scopeTab(ref.current, event, active, focusTrapSelectorsRef.current);
+                scopeTab(
+                    ref.current,
+                    event,
+                    active,
+                    focusTrapSelectorsRef.current,
+                    getExtraScopeElementsRef.current?.(),
+                );
 
                 if (enableOnFirstMount) {
                     setTimeout(() => {

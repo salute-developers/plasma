@@ -1,12 +1,10 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef } from 'react';
 import cls from 'classnames';
 import { useForkRef, useFocusTrap } from 'src/hooks';
 import { getSizeValueFromProp, safeUseId } from 'src/utils';
 import type { RootProps } from 'src/engines';
 
-import { usePopupContext } from '../Popup';
-import { Overlay } from '../Overlay';
-import { DEFAULT_Z_INDEX } from '../Popup/utils';
+import { LayerOverlay } from '../OverlayProvider/ui/LayerOverlay';
 
 import { classes, tokens } from './Drawer.tokens';
 import type { DrawerProps } from './Drawer.types';
@@ -14,7 +12,6 @@ import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
 import { base as borderRadiusCSS } from './variations/_borderRadius/base';
 import { StyledPopup, StyledPanel } from './Drawer.styles';
-import { getIdLastDrawer } from './DrawerContext';
 import { useDrawer } from './hooks';
 
 // issue #823
@@ -42,6 +39,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                 customBackgroundColor,
                 customContentBackgroundColor,
                 onClose,
+                onCloseRequest,
                 onOverlayClick,
                 onEscKeyDown,
                 offset,
@@ -59,13 +57,31 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
         ) => {
             const innerIsOpen = Boolean(isOpen || opened);
 
-            const trapRef = useFocusTrap(true, initialFocusRef, focusAfterRef);
-            const popupController = usePopupContext();
-
-            const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRef);
-
             const uniqId = safeUseId();
             const innerId = id || uniqId;
+
+            const { layerOptions, handleOverlayClick, getFocusScopeElements } = useDrawer({
+                id: innerId,
+                asModal,
+                closeOnEsc,
+                onEscKeyDown,
+                onOverlayClick,
+                onClose,
+                onCloseRequest,
+                popupInfo,
+            });
+
+            const trapRef = useFocusTrap(
+                true,
+                initialFocusRef,
+                focusAfterRef,
+                undefined,
+                undefined,
+                undefined,
+                getFocusScopeElements,
+            );
+
+            const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRef);
             const overlayBackgroundToken = withBlur
                 ? `var(${tokens.drawerOverlayWithBlurColor})`
                 : `var(${tokens.drawerOverlayColor})`;
@@ -76,35 +92,13 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
 
             const placementClass = placement ? classes[`${placement}Placement` as keyof typeof classes] : undefined;
 
-            const { drawerInfo } = useDrawer({
-                id: innerId,
-                isOpen: innerIsOpen,
-                closeOnEsc,
-                onEscKeyDown,
-                onClose,
-                popupInfo,
-                disableScroll: asModal,
-            });
-            const transparent = useMemo(() => getIdLastDrawer(Array.from(popupController.items.values())) !== innerId, [
-                innerId,
-                popupController.items,
-            ]);
-
-            const onDrawerOverlayKeyDown = (event: React.MouseEvent<HTMLDivElement>) => {
-                if (onOverlayClick) {
-                    onOverlayClick(event);
-                    return;
-                }
-
-                if (onClose) {
-                    onClose();
-                }
-            };
-
             return (
                 <StyledPopup
                     id={innerId}
                     ref={asModal ? innerRef : outerRef}
+                    role="dialog"
+                    aria-modal={asModal ? 'true' : undefined}
+                    layerOptions={layerOptions}
                     className={cls(placementClass, className, {
                         [classes.enterCustomAnimation]: animationInfo?.enter,
                         [classes.exitCustomAnimation]: animationInfo?.exit,
@@ -112,7 +106,7 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                     opened={innerIsOpen}
                     zIndex={zIndex}
                     placement={placement}
-                    popupInfo={drawerInfo}
+                    popupInfo={popupInfo}
                     frame={frame}
                     positionFixed={positionFixed}
                     width={innerWidth}
@@ -123,14 +117,13 @@ export const drawerRoot = (Root: RootProps<HTMLDivElement, DrawerProps>) =>
                     overlay={
                         asModal && (
                             <Root view={view}>
-                                <Overlay
+                                <LayerOverlay
                                     className={classes.overlay}
-                                    zIndex={zIndex || DEFAULT_Z_INDEX}
+                                    zIndex={zIndex}
                                     backgroundColorProperty={overlayBackgroundToken}
                                     withBlur={withBlur}
-                                    transparent={transparent}
                                     isClickable={closeOnOverlayClick}
-                                    onOverlayClick={onDrawerOverlayKeyDown}
+                                    onOverlayClick={handleOverlayClick}
                                     style={{ ...overlayProps, position: overlayPosition }}
                                 />
                             </Root>
