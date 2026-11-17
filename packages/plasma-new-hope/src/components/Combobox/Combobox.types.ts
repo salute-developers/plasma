@@ -81,6 +81,10 @@ type ComboboxSingleProps<T extends ItemOption> = {
     isTargetAmount?: false;
     targetAmount?: never;
     renderValue?: never;
+    /**
+     * Callback для кастомной настройки значения в поле.
+     */
+    renderTarget?: (value: T | null, opened?: boolean) => ReactNode;
     selectAllOptions?: never;
     chipClickArea?: never;
 };
@@ -93,6 +97,10 @@ type ComboboxMultipleProps<T extends ItemOption> = {
     isTargetAmount?: true;
     targetAmount?: number;
     renderValue?: (item: T) => string;
+    /**
+     * Callback для кастомной настройки значения в поле.
+     */
+    renderTarget?: (value: T[], opened?: boolean) => ReactNode;
     selectAllOptions?: SelectAllProps;
     chipClickArea?: 'full' | 'close-icon';
 };
