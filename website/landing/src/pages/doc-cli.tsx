@@ -2,7 +2,7 @@ import { DocsPageLayout } from '../DocsPageLayout';
 import { DocsCodeBlock } from '../DocsCodeBlock';
 import { SiteLink } from '../shared';
 
-const base = 'https://plasma.sberdevices.ru/design-system-builder/cli';
+const base = 'https://github.com/salute-developers/design-system-builder/releases/latest/download';
 
 export default function DocCliPage() {
     return (
@@ -23,15 +23,15 @@ export default function DocCliPage() {
             </p>
             <h2 id="install">Установка</h2>
             <p>
-                Выберите свою ОС и выполните команды в терминале. Сначала скачайте скрипт: перед запуском его можно
-                открыть и прочитать. Установщик загрузит стабильную версию CLI и проверит контрольную сумму архива.
+                Выберите свою ОС и выполните команды в терминале. Перед запуском скрипт можно открыть и прочитать.
+                Он загрузит последнюю стабильную версию CLI и проверит контрольную сумму архива.
             </p>
             <h3 id="macos">macOS</h3>
             <p>
                 Архитектура Apple Silicon или Intel определяется автоматически. Для самого CLI и MCP Java и Node.js не
                 нужны.
             </p>
-            <DocsCodeBlock>{`curl -fsSLo install-dsbuilder.sh ${base}/install.sh\nsh install-dsbuilder.sh`}</DocsCodeBlock>
+            <DocsCodeBlock>{`curl -fsSL ${base}/install.sh -o install-dsbuilder.sh &&\nsh install-dsbuilder.sh`}</DocsCodeBlock>
             <p>
                 <a href={`${base}/install.sh`}>Скрипт установки для macOS и Linux/JVM</a>
             </p>
@@ -60,7 +60,7 @@ export default function DocCliPage() {
             </p>
             <h3 id="linux">Linux / JVM</h3>
             <p>Для JVM-варианта нужна Java 17 или новее. Выберите его явно:</p>
-            <DocsCodeBlock>{`curl -fsSLo install-dsbuilder.sh ${base}/install.sh\nsh install-dsbuilder.sh --target jvm`}</DocsCodeBlock>
+            <DocsCodeBlock>{`curl -fsSL ${base}/install.sh -o install-dsbuilder.sh &&\nsh install-dsbuilder.sh --target jvm`}</DocsCodeBlock>
             <h3>Проверка и обновление</h3>
             <DocsCodeBlock>{`dsbuilder --version\ndsbuilder --help`}</DocsCodeBlock>
             <p>Для обновления повторите команды установки для своей ОС: скрипт выберет текущую стабильную версию.</p>
