@@ -1,0 +1,25 @@
+---
+id: button
+slug: /components/button
+title: Button
+---
+
+import { PropsTable } from '@site/src/components';
+import Note from '../../_examples/_note.mdx';
+
+# Button
+Кнопка запускает действие. Props описаны ниже, а пример с `(props) =>` есть в разделе примеров.
+
+<PropsTable name="Button" exclude={['size']} />
+
+<Note />
+
+## Примеры
+
+### Базовая кнопка
+
+```tsx
+import { Button } from '@salutejs/fixture';
+
+export const App = (props) => <Button text="Кнопка" {...props} />;
+```
