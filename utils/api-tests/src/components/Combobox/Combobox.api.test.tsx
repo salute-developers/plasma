@@ -86,6 +86,13 @@ describe('Basics', () => {
             .toHaveProperty('renderItem')
             .toEqualTypeOf<((item: ItemOption) => ReactNode) | undefined>();
         expectTypeOf<ComboboxProps>()
+            .toHaveProperty('renderTarget')
+            .toEqualTypeOf<
+                | ((value: ItemOption | null, opened?: boolean) => ReactNode)
+                | ((value: ItemOption[], opened?: boolean) => ReactNode)
+                | undefined
+            >();
+        expectTypeOf<ComboboxProps>()
             .toHaveProperty('renderSelectionIcon')
             .toEqualTypeOf<((selected: boolean | 'indeterminate') => ReactNode) | undefined>();
         expectTypeOf<ComboboxProps>()
