@@ -69,6 +69,7 @@ export * from './components/Select';
 export * from './components/Drawer';
 export * from './components/Modal';
 export * from './components/Notification';
+export * from './components/OverlayProvider';
 export * from './components/Popup';
 export * from './components/Progress';
 export * from './components/ProgressBarCircular';
