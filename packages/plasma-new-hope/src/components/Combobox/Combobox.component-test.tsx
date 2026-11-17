@@ -765,6 +765,99 @@ describeFn('Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('renderTarget single', () => {
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((item, opened) => (
+            <button type="button" id="custom-target">
+                {item?.label || 'Placeholder'} {opened ? 'opened' : 'closed'}
+            </button>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState('');
+
+            return (
+                <Combobox id="combobox" items={items} value={value} onChange={setValue} renderTarget={renderTarget} />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target').should('contain.text', 'Placeholder closed');
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.equal(null);
+        });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+
+        cy.get('#custom-target').click();
+
+        cy.get('#custom-target').should('contain.text', 'Placeholder opened');
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+
+        cy.contains('Северная Америка').click();
+
+        cy.get('#custom-target').should('contain.text', 'Северная Америка');
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.include({ value: 'north_america', label: 'Северная Америка' });
+        });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+    });
+
+    it('renderTarget multiple', () => {
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((selectedItems, opened) => (
+            <button type="button" id="custom-target">
+                {selectedItems.length ? selectedItems.map((item) => item.label).join(', ') : 'Empty'}{' '}
+                {opened ? 'opened' : 'closed'}
+            </button>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState<string[]>([]);
+
+            return (
+                <Combobox
+                    id="combobox"
+                    multiple
+                    items={[
+                        { value: 'north_america', label: 'Северная Америка' },
+                        { value: 'europe', label: 'Европа' },
+                    ]}
+                    value={value}
+                    onChange={setValue}
+                    renderTarget={renderTarget}
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target').should('contain.text', 'Empty closed');
+        cy.get('@renderTarget').its('lastCall.args.0').should('deep.equal', []);
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+
+        cy.get('#custom-target').click();
+
+        cy.get('#custom-target').should('contain.text', 'Empty opened');
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+
+        cy.contains('Северная Америка').click();
+        cy.contains('Европа').click();
+
+        cy.get('#custom-target').should('contain.text', 'Северная Америка, Европа opened');
+        cy.get('@renderTarget')
+            .its('lastCall.args.0')
+            .then((selectedItems) => {
+                expect(selectedItems.map(({ value, label }) => ({ value, label }))).to.deep.equal([
+                    { value: 'north_america', label: 'Северная Америка' },
+                    { value: 'europe', label: 'Европа' },
+                ]);
+            });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+    });
+
     it('isTargetAmount', () => {
         cy.viewport(500, 300);
 
