@@ -54,6 +54,7 @@ describe('Basics', () => {
             .toHaveProperty('portal')
             .toEqualTypeOf<string | RefObject<HTMLElement | null> | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('closeAfterSelect').toEqualTypeOf<boolean | undefined>();
+        expectTypeOf<ComboboxProps>().toHaveProperty('clearSearchOnSelect').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('virtual').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<ComboboxProps>()
             .toHaveProperty('onScroll')
