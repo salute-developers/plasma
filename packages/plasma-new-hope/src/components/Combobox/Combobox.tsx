@@ -83,6 +83,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             renderSelectionIcon,
             filter,
             closeAfterSelect: outerCloseAfterSelect,
+            keepSearchOnSelect = false,
             onChangeValue,
             filterValue,
             onScroll,
@@ -311,8 +312,12 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
         }, [items]);
 
-        // При изменении value нужно возвращать значение в инпуте к исходному.
+        // В multiple-режиме можно сохранять поисковый запрос, пока список открыт.
         useDidMountLayoutEffect(() => {
+            if (multiple && keepSearchOnSelect && isListOpened) {
+                return;
+            }
+
             setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
         }, [value]);
 
@@ -332,7 +337,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                     value: { filteredItems, filterCb: filter || defaultFilter, textValue },
                 });
             }
-        }, [textValue]);
+        }, [textValue, filteredItems]);
 
         /**
          * Vars

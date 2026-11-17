@@ -34,7 +34,7 @@ export const getComboboxStories = (config: CreateStoriesProps) => {
         },
         parameters: {
             controls: {
-                exclude: ['isTargetAmount', 'targetAmount', 'chipClickArea'],
+                exclude: ['isTargetAmount', 'targetAmount', 'chipClickArea', 'keepSearchOnSelect'],
             },
         },
     };

@@ -223,6 +223,11 @@ type BasicProps<T extends ItemOption = ItemOption> = {
      */
     closeAfterSelect?: boolean;
     /**
+     * Сохранять строку поиска при изменении выбранных значений в multiple-режиме.
+     * @default false
+     */
+    keepSearchOnSelect?: boolean;
+    /**
      * Обработчик изменения значения в строке поиска.
      */
     onChangeValue?: (value: string) => void;
