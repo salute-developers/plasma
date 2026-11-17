@@ -69,6 +69,7 @@ export const createMeta = ({
             arrowPlacement: 'left',
             singleLine: true,
             closeAfterSelect: false,
+            keepSearchOnSelect: false,
             chipClickArea: 'full',
             ...defaultArgs,
         },
@@ -184,6 +185,9 @@ export const createMeta = ({
                 control: { type: 'boolean' },
             },
             closeAfterSelect: {
+                control: { type: 'boolean' },
+            },
+            keepSearchOnSelect: {
                 control: { type: 'boolean' },
             },
             alwaysOpened: {
