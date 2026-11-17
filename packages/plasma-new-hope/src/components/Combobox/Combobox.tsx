@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo, useLayoutEffect, useRef } from 'react';
-import type { ChangeEvent, ForwardedRef, MouseEvent } from 'react';
+import type { ChangeEvent, ForwardedRef, MouseEvent, Ref } from 'react';
 import { safeUseId, isEmpty } from 'src/utils';
 import { RootProps } from 'src/engines';
 import { useOutsideClick, useDidMountLayoutEffect, useForkRef } from 'src/hooks';
@@ -16,7 +16,7 @@ import {
     useValue,
     useComboboxItems,
 } from './hooks';
-import { Inner, StyledTextField, VirtualList, SelectAll, TreeList } from './ui';
+import { Inner, RenderTarget, StyledTextField, VirtualList, SelectAll, TreeList } from './ui';
 import {
     Ul,
     base,
@@ -64,6 +64,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             isTargetAmount,
             targetAmount,
             renderValue,
+            renderTarget,
             name,
 
             /* Basic */
@@ -345,6 +346,83 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         const activeDescendantItemValue = getItemByFocused(focusedPath, filteredFocusedToValueMap)?.value || '';
         const withArrowInverse = isListOpened ? classes.arrowInverse : undefined;
 
+        const renderPopoverTarget = (referenceRef: Ref<HTMLElement>) =>
+            renderTarget ? (
+                <RenderTarget
+                    multiple={multiple}
+                    value={value}
+                    opened={isListOpened}
+                    renderTarget={renderTarget}
+                    valueToItemMap={valueToItemMap}
+                    inputWrapperRef={referenceRef}
+                    onClick={handleTargetClick}
+                />
+            ) : (
+                <div>
+                    <StyledTextField
+                        ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
+                        inputWrapperRef={referenceRef}
+                        _onFieldClick={handleTargetClick}
+                        opened={isListOpened}
+                        value={textValue}
+                        onChange={handleTextValueChange}
+                        size={size}
+                        view={view}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        label={label}
+                        placeholder={placeholder}
+                        contentLeft={contentLeft}
+                        contentRight={
+                            contentRight || contentRight !== undefined ? (
+                                contentRight
+                            ) : (
+                                <IconArrowWrapper
+                                    disabled={disabled}
+                                    readOnly={readOnly}
+                                    onClick={handleClickArrow}
+                                    className={classes.comboboxTargetArrow}
+                                >
+                                    <StyledArrow
+                                        color="inherit"
+                                        size={sizeToIconSize(size)}
+                                        className={withArrowInverse}
+                                    />
+                                </IconArrowWrapper>
+                            )
+                        }
+                        textBefore={textBefore}
+                        textAfter={textAfter}
+                        onKeyDown={onKeyDown}
+                        leftHelper={
+                            helperText && (
+                                <StyledLeftHelper onClick={(e) => e.stopPropagation()}>{helperText}</StyledLeftHelper>
+                            )
+                        }
+                        role="combobox"
+                        aria-autocomplete="list"
+                        aria-controls={`${treeId}_tree_level_1`}
+                        aria-expanded={isListOpened}
+                        aria-activedescendant={
+                            activeDescendantItemValue ? getItemId(treeId, activeDescendantItemValue) : ''
+                        }
+                        labelPlacement={labelPlacement}
+                        keepPlaceholder={keepPlaceholder}
+                        chipView={chipView}
+                        {...(multiple
+                            ? {
+                                  enumerationType: 'chip',
+                                  _chipClickArea: chipClickArea,
+                                  _chips: getChips(),
+                                  _onChipCloseClick: handleChipClick,
+                              }
+                            : { enumerationType: 'plain' })}
+                        {...rest}
+                        _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
+                    />
+                </div>
+            );
+
         return (
             <Root
                 size={size}
@@ -400,75 +478,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                             portal={portal}
                             listWidth={listWidth}
                             offset={_offset}
-                            target={(referenceRef) => (
-                                <div>
-                                    <StyledTextField
-                                        ref={name ? inputRef : (inputForkRef as ForwardedRef<HTMLInputElement>)}
-                                        inputWrapperRef={referenceRef}
-                                        _onFieldClick={handleTargetClick}
-                                        opened={isListOpened}
-                                        value={textValue}
-                                        onChange={handleTextValueChange}
-                                        size={size}
-                                        view={view}
-                                        disabled={disabled}
-                                        readOnly={readOnly}
-                                        label={label}
-                                        placeholder={placeholder}
-                                        contentLeft={contentLeft}
-                                        contentRight={
-                                            contentRight || contentRight !== undefined ? (
-                                                contentRight
-                                            ) : (
-                                                <IconArrowWrapper
-                                                    disabled={disabled}
-                                                    readOnly={readOnly}
-                                                    onClick={handleClickArrow}
-                                                    className={classes.comboboxTargetArrow}
-                                                >
-                                                    <StyledArrow
-                                                        color="inherit"
-                                                        size={sizeToIconSize(size)}
-                                                        className={withArrowInverse}
-                                                    />
-                                                </IconArrowWrapper>
-                                            )
-                                        }
-                                        textBefore={textBefore}
-                                        textAfter={textAfter}
-                                        onKeyDown={onKeyDown}
-                                        leftHelper={
-                                            helperText && (
-                                                <StyledLeftHelper onClick={(e) => e.stopPropagation()}>
-                                                    {helperText}
-                                                </StyledLeftHelper>
-                                            )
-                                        }
-                                        role="combobox"
-                                        aria-autocomplete="list"
-                                        aria-controls={`${treeId}_tree_level_1`}
-                                        aria-expanded={isListOpened}
-                                        aria-activedescendant={
-                                            activeDescendantItemValue
-                                                ? getItemId(treeId, activeDescendantItemValue)
-                                                : ''
-                                        }
-                                        labelPlacement={labelPlacement}
-                                        keepPlaceholder={keepPlaceholder}
-                                        chipView={chipView}
-                                        {...(multiple
-                                            ? {
-                                                  enumerationType: 'chip',
-                                                  _chipClickArea: chipClickArea,
-                                                  _chips: getChips(),
-                                                  _onChipCloseClick: handleChipClick,
-                                              }
-                                            : { enumerationType: 'plain' })}
-                                        {...rest}
-                                        _onEnterDisabled // Пропс для отключения обработчика Enter внутри Textfield
-                                    />
-                                </div>
-                            )}
+                            target={renderPopoverTarget}
                             zIndex={zIndex}
                             isInner={false}
                             shift={shift}
