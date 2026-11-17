@@ -13,6 +13,12 @@ import { PropsTable } from '@site/src/components';
 
 ## Быстрый старт
 
+:::tip
+Рекомендуется подключать единый [`OverlayProvider`](./OverlayProvider.mdx) в корне приложения. Он заменяет `PopupProvider`, `ToastProvider` и `NotificationsProvider`
+и управляет порядком слоёв, закрытием по `Escape` и клику вне, фокусом и блокировкой прокрутки.
+Отдельные провайдеры продолжают работать, но помечены как устаревшие.
+:::
+
 Используйте `NotificationsProvider` и методы из `useNotifications` для вызова компонента `Notification`.
 
 :::info
