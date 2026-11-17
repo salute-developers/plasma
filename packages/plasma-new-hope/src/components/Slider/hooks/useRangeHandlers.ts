@@ -1,5 +1,7 @@
 import type { ChangeEvent, KeyboardEvent, SyntheticEvent } from 'react';
 
+import { roundValueToStep } from '../utils/roundValueToStep';
+
 const clamp = (value: number, min: number, max: number) => Math.max(min, Math.min(value, max));
 
 export interface UseRangeHandlersParams {
@@ -57,7 +59,7 @@ export const useRangeHandlers = ({
         e.preventDefault();
         const pageStep = Math.round(((max - min) * multipleStepSize) / 100);
         const raw = clamp(e.key === 'PageUp' ? value + pageStep : value - pageStep, min, max);
-        const newValue = step ? clamp(min + Math.round((raw - min) / step) * step, min, max) : raw;
+        const newValue = step ? clamp(roundValueToStep(raw, min, step), min, max) : raw;
         if (Number.isNaN(newValue)) {
             return;
         }
