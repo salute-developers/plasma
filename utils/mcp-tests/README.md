@@ -71,4 +71,6 @@ npm run test \
 
 Job `test-mcp-data` запускается после успешных `upload-mcp-data` и `upload-icons-manifest`. Для каждой библиотеки создаётся отдельная matrix-задача. Если upload завершился с ошибкой, тесты не запускаются.
 
+Сами данные (`mcpData/`, `manifest.json`) генерирует пакет [`utils/mcp-data`](../mcp-data/README.md).
+
 Сейчас тест проверяет MCP-сервер и ответы tools. Проверка всех `href` из индексов и полноты данных в `mcpData` может быть добавлена отдельным этапом.
