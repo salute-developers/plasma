@@ -1282,14 +1282,14 @@ export function App() {
 }
 ```
 
-## Использование renderItem для расширенного варианта Combobox
+## Использование renderTarget и renderItem для расширенного варианта Combobox
 
-`renderItem` рисует ячейку в списке. В поле выбранное значение показывается той же ячейкой: без Caption и без иконок по краям. Справа остаётся крестик очистки.
+`renderItem` и `renderTarget` рисуют одну и ту же ячейку: в списке и в поле. У поля нет Caption и боковых иконок ячейки. Пока значение не выбрано, справа стрелка. После выбора — крестик очистки.
 
 ```tsx live
 import React, { useState } from 'react';
-import { Combobox, Cell, textFieldTokens } from '@salutejs/sdds-dfa';
-import { IconPlasma, IconClose } from '@salutejs/plasma-icons';
+import { Combobox, Cell, EmbedIconButton, TextField, textFieldTokens } from '@salutejs/sdds-dfa';
+import { IconPlasma, IconClose, IconDisclosureDown } from '@salutejs/plasma-icons';
 import { BodyXS } from '@salutejs/plasma-typo';
 import styled from 'styled-components';
 import { textSecondary } from '@salutejs/sdds-themes/tokens/sdds_dfa';
@@ -1324,24 +1324,6 @@ export function App() {
         },
     ];
 
-    const findItem = (list, current) => {
-        for (const item of list) {
-            if (item.value === current) {
-                return item;
-            }
-
-            if (item.items) {
-                const nested = findItem(item.items, current);
-
-                if (nested) {
-                    return nested;
-                }
-            }
-        }
-
-        return null;
-    };
-
     const SubTitle = ({ items: subtitleItems }) => (
         <BodyXS style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
             <span>{subtitleItems.join(' • ')}</span>
@@ -1369,85 +1351,66 @@ export function App() {
             title={title}
             subtitle={<SubTitle items={subtitleItems} />}
             contentRight={population && <ContentRight population={population} />}
-            style={{ width: '100%', minWidth: 0 }}
         />
     );
 
-    const TargetCombobox = styled(Combobox)`
-        && {
-            ${textFieldTokens.height}: 62px;
-        }
+    const TargetField = styled(TextField)`
+        ${textFieldTokens.height}: 62px;
 
-        &.is-filled {
-            ${textFieldTokens.padding}: 0.375rem 1rem;
+        cursor: pointer;
 
-            .input-scrollable-wrapper {
-                flex: 0 0 0;
-                width: 0;
-                min-width: 0;
-                overflow: hidden;
-            }
-
-            input {
-                color: transparent;
-                caret-color: transparent;
-            }
-
-            .input-wrapper > [data-root] {
-                flex: 1;
-                min-width: 0;
-                line-height: normal;
-            }
+        input {
+            cursor: pointer;
+            pointer-events: none;
+            caret-color: transparent;
         }
     `;
 
+    const Arrow = styled(IconDisclosureDown)`
+        transform: ${({ $opened }) => ($opened ? 'rotate(-180deg)' : 'none')};
+    `;
+
     const [value, setValue] = useState('');
-    const selected = findItem(items, value);
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '400px', height: '300px' }}>
-            <TargetCombobox
-                className={selected ? 'is-filled' : undefined}
-                label="Title"
-                placeholder="Placeholder"
+            <Combobox
                 items={items}
                 value={value}
                 onChange={setValue}
                 renderItem={(item) => (
                     <Content title={item.label} items={item.subtitle} population={item.population} />
                 )}
-                contentLeft={
-                    selected ? (
-                        <TargetContent
-                            title={selected.label}
-                            items={selected.subtitle}
-                            population={selected.population}
-                        />
-                    ) : undefined
-                }
-                contentRight={
-                    selected ? (
-                        <button
-                            type="button"
-                            aria-label="Очистить"
-                            onMouseDown={(event) => event.preventDefault()}
-                            onClick={(event) => {
-                                event.stopPropagation();
-                                setValue('');
-                            }}
-                            style={{
-                                display: 'inline-flex',
-                                padding: 0,
-                                border: 0,
-                                background: 'transparent',
-                                color: 'inherit',
-                                cursor: 'pointer',
-                            }}
-                        >
-                            <IconClose size="s" color="inherit" />
-                        </button>
-                    ) : null
-                }
+                renderTarget={(item, opened) => (
+                    <TargetField
+                        label="Title"
+                        placeholder={item ? null : 'Placeholder'}
+                        value=""
+                        onChange={() => {}}
+                        contentLeft={item ? <TargetContent title={item.label} items={item.subtitle} /> : undefined}
+                        contentRight={
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                {item ? <ContentRight population={item.population} /> : null}
+                                {item ? (
+                                    <EmbedIconButton
+                                        size="m"
+                                        view="default"
+                                        aria-label="Очистить"
+                                        onMouseDown={(event) => event.preventDefault()}
+                                        onClick={(event) => {
+                                            event.stopPropagation();
+                                            setValue('');
+                                        }}
+                                    >
+                                        <IconClose size="s" color="inherit" />
+                                    </EmbedIconButton>
+                                ) : (
+                                    <Arrow $opened={opened} size="s" color="inherit" />
+                                )}
+                            </div>
+                        }
+                    />
+                )}
             />
         </div>
     );
