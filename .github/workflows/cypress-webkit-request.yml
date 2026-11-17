@@ -19,7 +19,8 @@ jobs:
         permissions:
             actions: write # запустить Cypress WebKit через workflow_dispatch
             issues: write # реакция на комментарий
-            pull-requests: read
+            # Комментарий в PR: одного issues: write недостаточно, приходит 403.
+            pull-requests: write
         steps:
             - name: Check author permission and dispatch WebKit tests
               uses: actions/github-script@v7
@@ -56,13 +57,6 @@ jobs:
                           return;
                       }
 
-                      await github.rest.reactions.createForIssueComment({
-                          owner: context.repo.owner,
-                          repo: context.repo.repo,
-                          comment_id: context.payload.comment.id,
-                          content: 'eyes',
-                      });
-
                       // Код PR не выполняется в контексте issue_comment: тесты запускаются отдельным workflow_dispatch.
                       await github.rest.actions.createWorkflowDispatch({
                           owner: context.repo.owner,
@@ -74,3 +68,14 @@ jobs:
                               'expected-head-sha': pull.head.sha,
                           },
                       });
+
+                      try {
+                          await github.rest.reactions.createForIssueComment({
+                              owner: context.repo.owner,
+                              repo: context.repo.repo,
+                              comment_id: context.payload.comment.id,
+                              content: 'eyes',
+                          });
+                      } catch (error) {
+                          core.warning(`Could not add a reaction: ${error.message}`);
+                      }
