@@ -1215,6 +1215,46 @@ type Items = Array<{
     </TabItem>
 </Tabs>
 
+## Сохранение поискового запроса
+
+В режиме `multiple` передайте `keepSearchOnSelect`, чтобы после выбора
+элемента сохранять введённый текст и фильтрацию списка.
+
+По умолчанию `keepSearchOnSelect` равен `false`: при изменении выбранных значений
+поиск очищается. Закрытие списка, Escape и Tab очищают поиск независимо от этого
+свойства. В режиме одиночного выбора свойство не влияет на поведение.
+
+```tsx live
+import React, { useState } from 'react';
+import { Combobox } from '@salutejs/sdds-platform-ai';
+
+export function App() {
+    const [value, setValue] = useState<string[]>([]);
+
+    const items = [
+        { value: 'north_america', label: 'Северная Америка' },
+        { value: 'south_america', label: 'Южная Америка' },
+        { value: 'europe', label: 'Европа' },
+    ];
+
+    return (
+        <div style={{ height: "300px" }}>
+            <div style={{ width: "300px" }}>
+                <Combobox
+                    multiple
+                    items={items}
+                    value={value}
+                    onChange={setValue}
+                    keepSearchOnSelect
+                    label="Регионы"
+                    placeholder="Поиск региона"
+                />
+            </div>
+        </div>
+    );
+}
+```
+
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
