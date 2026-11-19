@@ -1,8 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { publicPath } from './paths';
 import { routeManifest } from './routeManifest';
+import { newsEnabled } from './features';
 
 export function parseStyle(value) {
     return Object.fromEntries(
@@ -49,8 +50,6 @@ export function SiteFooter({ contactHref = '/contacts', contactLabel = 'Почт
                 {' · '}
                 <SiteLink href="#">Changelog</SiteLink>
                 {' · '}
-                <SiteLink href="#">Telegram</SiteLink>
-                {' · '}
                 <SiteLink href={contactHref}>{contactLabel}</SiteLink>
             </span>
         </footer>
@@ -61,7 +60,7 @@ const navigation = [
     { name: 'Дизайн система', href: '/' },
     { name: 'Документация', href: '/docs' },
     { name: 'Builder', href: '/builder' },
-    { name: 'Новости', href: '/news' },
+    ...(newsEnabled ? [{ name: 'Новости', href: '/news' }] : []),
     { name: 'Контакты', href: '/contacts' },
 ];
 
@@ -80,20 +79,33 @@ const menus = {
             title: 'Инструменты',
             links: [
                 ['DS Builder', '/builder'],
+                ['CLI', '/docs/cli'],
+                ['MCP', '/docs/mcp'],
                 ['Темы и токены', '/docs/theming'],
                 ['Библиотека в Figma', 'https://www.figma.com/design/0FxQGHmGUOCjtHM3N9j4Oq/'],
             ],
         },
-        {
-            title: 'Что нового',
-            links: [
-                ['Новости системы', '/news'],
-                ['Разбор релиза', '/news/article'],
-                ['Контакты команды', '/contacts'],
-            ],
-        },
+        ...(newsEnabled
+            ? [
+                  {
+                      title: 'Что нового',
+                      links: [
+                          ['Новости системы', '/news'],
+                          ['Разбор релиза', '/news/article'],
+                          ['Контакты команды', '/contacts'],
+                      ],
+                  },
+              ]
+            : []),
     ],
     '/docs': [
+        {
+            title: 'Инструменты разработчика',
+            links: [
+                ['CLI — установка и использование', '/docs/cli'],
+                ['Подключение MCP', '/docs/mcp'],
+            ],
+        },
         {
             title: 'Основы',
             links: [
@@ -163,7 +175,11 @@ function Search({ close }) {
                             setQuery(event.target.value);
                             setActive(0);
                         }}
-                        placeholder="Поиск по документации, компонентам и новостям"
+                        placeholder={
+                            newsEnabled
+                                ? 'Поиск по документации, компонентам и новостям'
+                                : 'Поиск по документации и компонентам'
+                        }
                         aria-label="Поисковый запрос"
                     />
                     <button className="gsearch-esc" type="button" onClick={close}>
@@ -237,7 +253,7 @@ export function Header() {
         setMobile(false);
         setSearch(false);
     }, [pathname]);
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!menu || !megaRef.current) return undefined;
         const place = () => {
             const panel = document.getElementById('panel')?.getBoundingClientRect();
@@ -323,11 +339,7 @@ export function Header() {
                     <button className="panel-control" type="button" aria-label="Поиск" onClick={() => setSearch(true)}>
                         <img src={publicPath('/media/icon-search-20.svg')} alt="" />
                     </button>
-                    <SiteLink
-                        className="panel-cta"
-                        href="https://plasma.sberdevices.ru/design-system-builder/"
-                        id="builderCta"
-                    >
+                    <SiteLink className="panel-cta" href="https://plasma.sberdevices.ru/design-system-builder/">
                         Войти в билдер
                     </SiteLink>
                     <button
@@ -347,7 +359,7 @@ export function Header() {
                     <div className="mega-glass" />
                     <div className="mega-shell">
                         <div className="mega-body">
-                            <div className="mega-panel is-open is-first">
+                            <div className="mega-panel is-open">
                                 {menus[menu].map((column) => (
                                     <div className="mega-col" key={column.title}>
                                         <p className="mega-col-title">{column.title}</p>

@@ -11,12 +11,14 @@ export const createDefaultStory = (Pagination: any, IconButton: any) => (args: a
     const [pageValue, setPageValue] = useState<number>(args.initialValue);
     const [perPageValue, setPerPageValue] = useState<number>(args.perPage);
 
-    const lastPage = Math.ceil(args.count / perPageValue);
+    const lastPage = args.hasPerPage ? Math.ceil(args.count / perPageValue) : args.count;
     const iconSize = args.size === 'xs' ? 'xs' : 's';
 
-    const handleChangePage = (page: number, perPage: number) => {
+    const handleChangePage = (page: number, perPage?: number) => {
         setPageValue(page);
-        setPerPageValue(perPage);
+        if (perPage !== undefined) {
+            setPerPageValue(perPage);
+        }
         action('onChange')(page, perPage);
     };
 
@@ -53,8 +55,9 @@ export const createDefaultStory = (Pagination: any, IconButton: any) => (args: a
     return (
         <Pagination
             {...args}
+            key={String(args.hasPerPage)}
             value={pageValue}
-            perPage={perPageValue}
+            perPage={args.hasPerPage ? perPageValue : undefined}
             leftContent={leftContent}
             rightContent={rightContent}
             onChange={handleChangePage}

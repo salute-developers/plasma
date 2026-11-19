@@ -184,6 +184,7 @@ export const StyledContainer = styled.div<{ hasExplicitHeight: boolean }>`
 
 export const StyledTextArea = styled.textarea<{
     hasContentRight: boolean;
+    hasInnerHint?: boolean;
     hasExplicitHeight: boolean;
     resize?: string;
 }>`
@@ -209,10 +210,15 @@ export const StyledTextArea = styled.textarea<{
 
     min-height: var(${tokens.inputMinHeight});
 
-    padding-right: ${({ hasContentRight }) =>
-        hasContentRight
+    padding-right: ${({ hasContentRight, hasInnerHint }) => {
+        if (hasContentRight && hasInnerHint) {
+            return `calc(var(${tokens.inputPaddingRightWithRightContent}, 0) + var(${tokens.hintTargetSize}, 0))`;
+        }
+
+        return hasContentRight || hasInnerHint
             ? `var(${tokens.inputPaddingRightWithRightContent}, 0)`
-            : `var(${tokens.inputPaddingRight}, 0)`};
+            : `var(${tokens.inputPaddingRight}, 0)`;
+    }};
     padding-left: var(${tokens.inputPaddingLeft}, 0);
     padding-top: 0;
     padding-bottom: 0;
@@ -257,6 +263,7 @@ export const StyledTextArea = styled.textarea<{
 
 export const StyledHiddenTextArea = styled.textarea<{
     hasContentRight: boolean;
+    hasInnerHint?: boolean;
     resize?: string;
     cols?: number;
 }>`
@@ -275,10 +282,15 @@ export const StyledHiddenTextArea = styled.textarea<{
     left: 0 !important;
     right: ${({ cols }) => (cols ? 'unset' : '0.0625rem !important')};
     border-width: 0;
-    padding-right: ${({ hasContentRight }) =>
-        hasContentRight
+    padding-right: ${({ hasContentRight, hasInnerHint }) => {
+        if (hasContentRight && hasInnerHint) {
+            return `calc(var(${privateTokens.scrollbarCompensationPadding}, 0) + var(${tokens.inputPaddingRightWithRightContent}, 0) + var(${tokens.hintTargetSize}, 0))`;
+        }
+
+        return hasContentRight || hasInnerHint
             ? `calc(var(${privateTokens.scrollbarCompensationPadding}, 0) + var(${tokens.inputPaddingRightWithRightContent}, 0))`
-            : `calc(var(${privateTokens.scrollbarCompensationPadding}, 0) + var(${tokens.inputPaddingRight}, 0))`};
+            : `calc(var(${privateTokens.scrollbarCompensationPadding}, 0) + var(${tokens.inputPaddingRight}, 0))`;
+    }};
     padding-left: var(${tokens.inputPaddingLeft}, 0);
     padding-top: 0;
     padding-bottom: 0;
@@ -358,7 +370,7 @@ export const StyledPlaceholder = styled.label<{
     position: absolute;
     pointer-events: none;
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
 
     transition: all 0.1s ease-in-out;
     transform-origin: top left;
@@ -367,6 +379,7 @@ export const StyledPlaceholder = styled.label<{
 
     width: 100%;
     height: auto;
+    overflow: hidden;
 
     top: var(${tokens.inputPaddingTop});
     padding-left: var(${tokens.inputPaddingLeft});

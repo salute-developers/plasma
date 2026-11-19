@@ -57,7 +57,7 @@ export const StyledTimeColumn = styled.div<{ height?: string | number }>`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: var(${tokens.scrollbarWidth});
+    gap: var(${tokens.gap}, var(${tokens.scrollbarWidth}));
     width: 100%;
 
     &.${classes.timeColumnActive} {

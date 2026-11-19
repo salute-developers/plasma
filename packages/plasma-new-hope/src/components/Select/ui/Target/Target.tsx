@@ -39,6 +39,8 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             keepPlaceholder,
             requiredProps,
             hintProps,
+            appearance,
+            hasDivider,
         },
         ref,
     ) => {
@@ -48,6 +50,7 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
             return (
                 <RenderTarget
                     onClick={onClick}
+                    onKeyDown={onKeyDown}
                     inputWrapperRef={inputWrapperRef}
                     multiselect={multiselect}
                     value={value}
@@ -107,6 +110,8 @@ export const Target = forwardRef<HTMLButtonElement, TargetProps>(
                 keepPlaceholder={keepPlaceholder}
                 requiredProps={requiredProps}
                 hintProps={hintProps}
+                appearance={appearance}
+                hasDivider={hasDivider}
             />
         );
     },

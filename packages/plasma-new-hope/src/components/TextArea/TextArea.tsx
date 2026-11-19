@@ -116,6 +116,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             labelPlacement = 'inner',
             titleCaption,
             placeholder,
+            onScroll,
             leftHelper,
             leftHelperPlacement = 'inner',
             rightHelperPlacement = 'inner',
@@ -132,6 +133,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             hintView = 'default',
             hintSize = 'm',
             hintTargetIcon,
+            hintTargetPlacement = 'outer',
             hintPlacement = 'auto',
             hintHasArrow,
             hintOffset = HINT_DEFAULT_OFFSET,
@@ -185,6 +187,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const outerRef = createRef<HTMLTextAreaElement>();
         const hiddenRef = useRef<HTMLTextAreaElement | null>(null);
         const hintRef = useRef<HTMLDivElement>(null);
+        const placeholderRef = useRef<HTMLLabelElement>(null);
 
         useOutsideClick(() => {
             setIsHintVisible(false);
@@ -214,6 +217,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const hasRightContentClass = contentRight ? classes.hasRightContent : undefined;
         const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
         const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
+        const hasInnerHint = Boolean(!hasOuterLabel && hintText && hintTargetPlacement === 'inner');
 
         const handleHintShow = () => setIsHintVisible(true);
         const handleHintHide = () => setIsHintVisible(false);
@@ -257,6 +261,14 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             size,
         );
 
+        const limitPlaceholderHeight = () => {
+            if (placeholderRef.current && outerRef.current) {
+                placeholderRef.current.style.maxHeight = `${outerRef.current.clientHeight}px`;
+            }
+        };
+
+        useLayoutEffect(limitPlaceholderHeight, [placeholderLabel, hasHeader]);
+
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
 
@@ -266,7 +278,19 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
 
             recalculateAutoResize();
+            limitPlaceholderHeight();
         });
+
+        const onScrollHandler = useCallback(
+            (event: React.UIEvent<HTMLTextAreaElement>) => {
+                if (placeholderRef.current) {
+                    placeholderRef.current.scrollTop = event.currentTarget.scrollTop;
+                }
+
+                onScroll?.(event);
+            },
+            [onScroll],
+        );
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
@@ -315,6 +339,27 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                 {optionalText}
             </StyledOptionalText>
         ) : null;
+
+        const innerHint =
+            !hasOuterLabel && hintText && hintTargetPlacement === 'inner' ? (
+                <HintComponent
+                    ref={hintRef}
+                    hintText={hintText}
+                    hintTrigger={hintTrigger}
+                    isHintVisible={isHintVisible}
+                    hintTargetIcon={hintTargetIcon}
+                    hintPlacement={hintPlacement}
+                    hintHasArrow={hintHasArrow}
+                    hintOffset={hintOffset}
+                    hintWidth={hintWidth}
+                    hintContentLeft={hintContentLeft}
+                    size={size}
+                    handleHintShow={handleHintShow}
+                    handleHintHide={handleHintHide}
+                    handleHintClick={handleHintClick}
+                    isInnerLabel
+                />
+            ) : null;
 
         return (
             <Root
@@ -391,7 +436,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             {required && hasRequiredIndicator && (
                                 <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
                             )}
-                            {hintText && (
+                            {hintText && hintTargetPlacement === 'outer' && (
                                 <StyledHintWrapper className={classes.innerLabelPlacement}>
                                     <HintComponent
                                         ref={hintRef}
@@ -423,13 +468,24 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     >
                         {headerSlot && !clear && <StyledHeaderSlot>{headerSlot}</StyledHeaderSlot>}
 
-                        {contentRight && !hasHeader && <StyledContent>{contentRight}</StyledContent>}
+                        {(contentRight || innerHint) && !hasHeader && (
+                            <StyledContent>
+                                {contentRight}
+                                {innerHint}
+                            </StyledContent>
+                        )}
 
                         {hasHeader && (
                             <StyledContentWrapper className={styledContentWrapper} hasHeader={hasHeader}>
-                                {contentRight && <StyledContent hasHeader={hasHeader}>{contentRight}</StyledContent>}
+                                {(contentRight || innerHint) && (
+                                    <StyledContent hasHeader={hasHeader}>
+                                        {contentRight}
+                                        {innerHint}
+                                    </StyledContent>
+                                )}
                                 {headerSlot && placeholderLabel && (
                                     <StyledPlaceholder
+                                        ref={placeholderRef}
                                         hasContentRight={Boolean(contentRight)}
                                         className={styledPlaceholder}
                                         htmlFor={id}
@@ -444,6 +500,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
                             hasContentRight={Boolean(contentRight)}
+                            hasInnerHint={hasInnerHint}
                             hasExplicitHeight={hasExplicitHeight}
                             ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
@@ -457,6 +514,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             resize={resize}
                             defaultValue={defaultValue}
                             onChange={onChangeHandler}
+                            onScroll={onScrollHandler}
                             {...rest}
                         />
                         {Boolean(applyAutoResize || cols) && (
@@ -464,6 +522,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                 aria-hidden
                                 ref={hiddenRef}
                                 hasContentRight={Boolean(contentRight)}
+                                hasInnerHint={hasInnerHint}
                                 value={value || uncontrolledValue || ' '}
                                 onChange={() => {}}
                                 defaultValue={defaultValue}
@@ -485,6 +544,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     )}
                     {!hasHeader && placeholderLabel && (
                         <StyledPlaceholder
+                            ref={placeholderRef}
                             hasContentRight={Boolean(contentRight)}
                             className={styledPlaceholder}
                             htmlFor={id}

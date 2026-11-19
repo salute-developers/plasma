@@ -275,19 +275,6 @@ export default function NewsPage() {
                             </div>
 
                             <div className="side-card">
-                                <h3>Не пропускать обновления</h3>
-
-                                <p>
-                                    Раз в две недели присылаем дайджест: что вышло, что изменилось в правилах и что
-                                    стоит обновить у себя.
-                                </p>
-
-                                <SiteLink className="side-cta" href="#">
-                                    Подписаться в Telegram
-                                </SiteLink>
-                            </div>
-
-                            <div className="side-card">
                                 <h3>Нужен компонент?</h3>
 
                                 <p>

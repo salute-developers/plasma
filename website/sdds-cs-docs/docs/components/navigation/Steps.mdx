@@ -144,7 +144,7 @@ export function App() {
 
 <Tabs>
     <TabItem value="view" label="View" default>
-        Свойство `view` применяется ко всему компоненту и задаёт цвет завершённых шагов и разделителя. Принимает значения `default` и `accent`.
+        Свойство `view` применяется ко всему компоненту и задаёт цвет завершённых шагов и разделителя. Принимает значение `default`.
 
         ```tsx live
         import React from 'react';
@@ -168,83 +168,7 @@ export function App() {
             return (
                 <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column' }}>
                     <Steps view="default" items={completedItems} />
-                    <Steps view="accent" items={completedItems} />
                 </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="itemView" label="ItemView">
-        Свойство `itemView` применяется к индикатору и заголовку **активного** шага. Принимает значения `default`, `negative`, `warning`, `positive`.
-
-        :::info
-        Значения `itemView` применяются к шагу только когда его статус — `active`.
-        :::
-
-        ```tsx live
-        import React from 'react';
-        import { Steps } from '@salutejs/sdds-cs';
-
-        export function App() {
-            const activeItems = [{
-                indicator: 1,
-                title: 'Active step',
-                status: 'active',
-            }, {
-                indicator: 2,
-                title: 'Inactive step',
-                status: 'inactive',
-            }];
-
-            return (
-                <div style={{ display: 'flex', gap: '2rem', flexDirection: 'column' }}>
-                    <Steps itemView="default" items={activeItems} />
-                    <Steps itemView="positive" items={activeItems} />
-                    <Steps itemView="warning" items={activeItems} />
-                    <Steps itemView="negative" items={activeItems} />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="completedItemView" label="CompletedItemView">
-        Свойство `completedItemView` задаётся на каждом шаге через `items[n].completedItemView` и переопределяет внешний вид **завершённого** шага. Принимает значения `default`, `accent`, `negative`, `warning`, `positive`.
-
-        ```tsx live
-        import React from 'react';
-        import { Steps } from '@salutejs/sdds-cs';
-
-        export function App() {
-            const items = [{
-                indicator: 1,
-                title: 'accent',
-                status: 'completed',
-                completedItemView: 'accent',
-            }, {
-                indicator: 2,
-                title: 'positive',
-                status: 'completed',
-                completedItemView: 'positive',
-            }, {
-                indicator: 3,
-                title: 'warning',
-                status: 'completed',
-                completedItemView: 'warning',
-            }, {
-                indicator: 4,
-                title: 'negative',
-                status: 'completed',
-                completedItemView: 'negative',
-            }, {
-                indicator: 5,
-                title: 'active',
-                status: 'active',
-            }];
-
-            return (
-                <section>
-                    <Steps items={items} />
-                </section>
             );
         }
         ```
@@ -460,6 +384,118 @@ export function App() {
                 Next
             </Button>
         </section>
+    );
+}
+```
+
+## Размер индикатора
+
+Свойство `items[n].indicatorSize` задаёт диаметр индикатора шага в пикселях и перекрывает `Steps.size`. Значение одно для точки и для круга с числом или иконкой, от статуса шага не зависит. Типографика и отступы остаются от `Steps.size`. Если `indicatorSize` у шага не задан, шаг наследует `Steps.size`.
+
+```tsx live
+import React from 'react';
+import { Steps } from '@salutejs/sdds-cs';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Наследует size',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: '56',
+        status: 'active',
+        indicatorSize: 56,
+    }, {
+        indicator: 3,
+        title: '16',
+        status: 'inactive',
+        indicatorSize: 16,
+    }, {
+        title: 'точка 36',
+        status: 'inactive',
+        indicatorSize: 36,
+    }];
+
+    return (
+        <section>
+            <Steps size="s" items={items} />
+        </section>
+    );
+}
+```
+
+## Кастомный рендер шага
+
+Свойство `renderItem` заменяет текстовую часть шага (`title` и `content`). Коллбэк получает объект шага с вычисленным `status` и его индекс. Индикатор, линия и обработка клика остаются за компонентом, `hasContent` на результат `renderItem` не влияет.
+
+Индивидуальный стиль шагу задаётся через `items[n].className` и `items[n].style`. Через `style` можно переопределить CSS-переменные компонента: в примере у активного шага изменены цвета индикатора и линии.
+
+```tsx live
+import React from 'react';
+import { Steps, stepsTokens } from '@salutejs/sdds-cs';
+import { textAccent, surfaceAccent } from '@salutejs/sdds-themes/tokens';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Заполнение',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: 'Проверка',
+        status: 'active',
+        style: {
+            [stepsTokens.activeIndicatorBorder]: `solid ${surfaceAccent}`,
+            [stepsTokens.activeIndicatorColor]: textAccent,
+            [stepsTokens.dividerActiveGradientColor]: surfaceAccent,
+            [stepsTokens.dividerActiveVerticalGradientColor]: surfaceAccent,
+        },
+    }, {
+        indicator: 3,
+        title: 'Отправка',
+        status: 'inactive',
+        style: { opacity: 0.5 },
+    }];
+
+    const renderItem = (item, index) => (
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span>{item.title}</span>
+            <span>Шаг {index + 1}: {item.status}</span>
+        </div>
+    );
+
+    return (
+        <section>
+            <Steps items={items} renderItem={renderItem} />
+        </section>
+    );
+}
+```
+
+## Разделитель после последнего шага
+
+Свойство `hasLastLine` сохраняет разделительную линию после последнего шага. По умолчанию оно выключено. Работает в обеих ориентациях и при любом `contentAlign`. Если `hasLine={false}`, все разделители скрыты независимо от `hasLastLine`.
+
+```tsx live
+import React from 'react';
+import { Steps } from '@salutejs/sdds-cs';
+
+export function App() {
+    const items = [{
+        indicator: 1,
+        title: 'Первый шаг',
+        status: 'completed',
+    }, {
+        indicator: 2,
+        title: 'Продолжение следует',
+        status: 'active',
+    }];
+
+    return (
+        <div>
+            <Steps items={items} hasLastLine />;
+        </div>
     );
 }
 ```

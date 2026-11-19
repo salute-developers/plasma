@@ -40,6 +40,7 @@ export const createMeta = ({
             hasClose: true,
             hasHandle: true,
             withOverlay: true,
+            closeOnOverlayClick: true,
             withBlur: true,
             withTransition: true,
             maxHeight: '66dvh',
@@ -65,6 +66,9 @@ export const createMeta = ({
                 control: { type: 'boolean' },
             },
             withOverlay: {
+                control: { type: 'boolean' },
+            },
+            closeOnOverlayClick: {
                 control: { type: 'boolean' },
             },
             withBlur: {

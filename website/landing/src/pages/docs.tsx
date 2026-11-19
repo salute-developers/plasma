@@ -776,7 +776,7 @@ export default function DocsPage() {
                         </div>
 
                         <div className="cat-cards">
-                            <SiteLink className="cat-card" href="/#ai">
+                            <SiteLink className="cat-card" href="/docs/cli">
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -812,20 +812,17 @@ export default function DocsPage() {
                                         </g>
                                     </svg>
                                 </span>
-
                                 <span className="doc-card-body">
                                     <span className="cat-head">
-                                        <b>AI-ready контекст</b>
+                                        <b>CLI</b>
                                     </span>
-
                                     <p>
-                                        Структура со связями между сущностями и версиями — агент получает правила
-                                        системы, а не текст страницы.
+                                        Установка dsbuilder, подключение проекта и генерация дизайн-системы из
+                                        терминала.
                                     </p>
                                 </span>
                             </SiteLink>
-
-                            <SiteLink className="cat-card" href="/#ai">
+                            <SiteLink className="cat-card" href="/docs/mcp">
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -852,13 +849,11 @@ export default function DocsPage() {
                                         </g>
                                     </svg>
                                 </span>
-
                                 <span className="doc-card-body">
                                     <span className="cat-head">
                                         <b>MCP</b>
                                         <span className="cat-count">бета</span>
                                     </span>
-
                                     <p>
                                         Подключение по Model Context Protocol: компоненты, токены и правила читаются
                                         напрямую из системы.

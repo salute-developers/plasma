@@ -11,6 +11,7 @@ export * from './getPopoverPlacement';
 export * from './initialValuesHelper';
 export { noop } from './noop';
 export { getHeightAsNumber } from './getHeightAsNumber';
+export { getPanelZIndex } from './getPanelZIndex';
 export { createConditionalComponent } from './createConditionalComponent';
 export { deepCopy } from './deepCopy';
 export { isArraysEqual } from './isArraysEqual';

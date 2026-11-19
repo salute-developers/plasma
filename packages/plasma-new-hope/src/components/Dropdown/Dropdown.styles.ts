@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { addScrollbar } from 'src/mixins';
 
 import { getCorrectHeight } from './utils';
 import { DropdownProps } from './Dropdown.types';
@@ -24,6 +25,15 @@ export const Ul = styled.ul<{
     max-height: ${({ listMaxHeight }) => (listMaxHeight ? getCorrectHeight(listMaxHeight) : 'auto')};
     overflow-x: hidden;
     overflow-y: auto;
+    scrollbar-width: auto;
+
+    ${addScrollbar({
+        scrollWidth: `var(${tokens.scrollbarWidth}, 0)`,
+        trackColor: `var(${tokens.scrollbarTrackBackgroundColor})`,
+        thumbColor: `var(${tokens.scrollbarThumbBackgroundColor})`,
+        thumbHoverColor: `var(${tokens.scrollbarThumbBackgroundColorHover}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+        thumbActiveColor: `var(${tokens.scrollbarThumbBackgroundColorActive}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+    })}
     border-radius: var(${tokens.listBorderRadius}, ${defaultListBorderRadius});
     margin: 0;
     padding: 0;

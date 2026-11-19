@@ -41,6 +41,7 @@ export const StyledTimePickerGrid = styled(TimePickerGrid)<{
     ${timePickerGridTokens.itemLetterSpacing}: var(${tokens.itemLetterSpacing});
     ${timePickerGridTokens.itemLineHeight}: var(${tokens.itemLineHeight});
 
+    ${timePickerGridTokens.gap}: var(${tokens.gap});
     ${timePickerGridTokens.scrollbarWidth}: var(${tokens.scrollbarWidth});
     ${timePickerGridTokens.scrollbarColor}: var(${tokens.scrollbarColor});
     ${timePickerGridTokens.scrollbarTrackColor}: var(${tokens.scrollbarTrackColor});
@@ -106,6 +107,7 @@ export const StyledInput = styled(TextField)`
     ${textFieldTokens.labelLineHeight}: var(${tokens.labelLineHeight});
 
     ${textFieldTokens.titleCaptionMargin}: var(${tokens.titleCaptionMargin});
+    ${textFieldTokens.titleCaptionInnerLabelOffset}: var(${tokens.titleCaptionInnerLabelOffset});
     ${textFieldTokens.titleCaptionColor}: var(${tokens.titleCaptionColor});
     ${textFieldTokens.titleCaptionColorReadOnly}: var(${tokens.titleCaptionColorReadOnly});
     ${textFieldTokens.titleCaptionFontFamily}: var(${tokens.titleCaptionFontFamily});

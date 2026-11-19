@@ -10,6 +10,10 @@ import { PropsTable, Description } from '@site/src/components';
 # IconButton
 Кнопки могут отображаться в нескольких размерах и цветах, могут содержать иконку.
 
+:::tip[Рекомендуем]
+- Для группировки `Button`, `IconButton` и `Chip` используйте [Group](../layout/Group.mdx)
+:::
+
 ## IconButton
 <Description name="IconButton" />
 
@@ -108,6 +112,12 @@ export function App() {
                     <IconClose color="inherit" />
                 </IconButton>
                 <IconButton size="s" view="white">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="green">
+                    <IconClose color="inherit" />
+                </IconButton>
+                <IconButton size="s" view="pink">
                     <IconClose color="inherit" />
                 </IconButton>
             </div>

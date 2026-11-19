@@ -36,6 +36,8 @@ export const defaultValues = {
     disabledPages: [],
     hasQuickJump: true,
     hasPerPage: true,
+    hasPageRange: true,
+    hasTotalPages: false,
     perPageList: [20, 50, 100, 200],
     isCommonButtonStyles: true,
     placeholderQuickJump: '#',

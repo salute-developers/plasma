@@ -1,10 +1,20 @@
-import { component, mergeConfig } from 'src/engines';
+import { createConditionalComponent } from 'src/utils';
 
-import { selectConfig } from '../../..';
+import { component, mergeConfig } from '../../../engines';
+import { selectConfig } from '../../../components/Select';
 
 import { config } from './Select.config';
+import { config as clearConfig } from './Select.clear.config';
 
-const mergedConfig = mergeConfig(selectConfig, config);
-const Select = component(mergedConfig);
+const mergedConfigDefault = mergeConfig(selectConfig, config);
+const SelectDefault = component(mergedConfigDefault);
+
+const mergedConfigClear = mergeConfig(selectConfig, clearConfig);
+const SelectClear = component(mergedConfigClear);
+
+const Select = createConditionalComponent({
+    default: SelectDefault,
+    clear: SelectClear,
+});
 
 export { Select };

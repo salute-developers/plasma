@@ -8,6 +8,10 @@ import { PropsTable, Description } from '@site/src/components';
 # Chip
 Chips могут отображаться в нескольких размерах и цветах, могут содержать текст и/или иконку.
 
+:::tip[Рекомендуем]
+- Для группировки `Button`, `IconButton` и `Chip` используйте [Group](./Group.mdx)
+:::
+
 ## Chip
 <Description name="Chip" />
 <PropsTable name="Chip" exclude={['css', 'focused']} />
@@ -112,6 +116,34 @@ export function App() {
             <Chip text="Chip" pin="clear-circle" />
             <Chip text="Chip" pin="circle-clear" />
             <Chip text="Chip" pin="circle-circle" />
+        </div>
+    );
+}
+```
+
+### Задание цвета текста и фона
+Цвет текста и фона можно задать с помощью свойств
+`customColor` и `customBackgroundColor` соответственно.
+
+Значение, переданное строкой, одинаково во всех состояниях.
+
+Чтобы задать цвет для каждого состояния отдельно, передайте объект `{ default, hover, active }`.
+Не указанные `hover` и `active` наследуют значение `default`.
+
+```tsx live
+import React from 'react';
+import { Chip } from '@salutejs/{{ package }}';
+import { onDarkTextPrimary, surfaceAccent, surfaceAccentHover, surfaceAccentActive } from '@salutejs/{{ vertical }}/tokens';
+
+export function App() {
+    return (
+        <div style=\{{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <Chip
+                text="Токены"
+                customColor={onDarkTextPrimary}
+                customBackgroundColor=\{{ default: surfaceAccent, hover: surfaceAccentHover, active: surfaceAccentActive }}
+            />
+            <Chip text="Цвета" customColor="antiquewhite" customBackgroundColor="darkolivegreen" />
         </div>
     );
 }

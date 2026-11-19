@@ -818,6 +818,52 @@ type Items = Array<{
     </TabItem>
 </Tabs>
 
+### Управление внешним видом
+
+Внешний вид компонента зависит от свойств `appearance`, `view`, `size`:
+
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Combobox } from '@salutejs/sdds-scan';
+
+        export function App() {
+            const [value, setValue] = useState('apple');
+
+            const items = [
+                { value: 'apple', label: 'Яблоко' },
+                { value: 'banana', label: 'Банан' },
+                { value: 'orange', label: 'Апельсин' },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+                    <Combobox
+                        view="default"
+                        appearance="default"
+                        label="Appearance default"
+                        placeholder="Введите значение"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                    />
+                    <Combobox
+                        view="default"
+                        appearance="white"
+                        label="Appearance white"
+                        placeholder="Введите значение"
+                        items={items}
+                        value={value}
+                        onChange={setValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ## Взаимодействие с disabled-элементами
 
 Изнутри компонента взаимодействие с disabled-элементами **невозможно**. Ниже представлены примеры с `selected` и `unselected` disabled-элементом.
@@ -1214,6 +1260,46 @@ type Items = Array<{
         ```
     </TabItem>
 </Tabs>
+
+## Сохранение поискового запроса
+
+В режиме `multiple` передайте `keepSearchOnSelect`, чтобы после выбора
+элемента сохранять введённый текст и фильтрацию списка.
+
+По умолчанию `keepSearchOnSelect` равен `false`: при изменении выбранных значений
+поиск очищается. Закрытие списка, Escape и Tab очищают поиск независимо от этого
+свойства. В режиме одиночного выбора свойство не влияет на поведение.
+
+```tsx live
+import React, { useState } from 'react';
+import { Combobox } from '@salutejs/sdds-scan';
+
+export function App() {
+    const [value, setValue] = useState<string[]>([]);
+
+    const items = [
+        { value: 'north_america', label: 'Северная Америка' },
+        { value: 'south_america', label: 'Южная Америка' },
+        { value: 'europe', label: 'Европа' },
+    ];
+
+    return (
+        <div style={{ height: "300px" }}>
+            <div style={{ width: "300px" }}>
+                <Combobox
+                    multiple
+                    items={items}
+                    value={value}
+                    onChange={setValue}
+                    keepSearchOnSelect
+                    label="Регионы"
+                    placeholder="Поиск региона"
+                />
+            </div>
+        </div>
+    );
+}
+```
 
 ## Клавиатурная навигация
 

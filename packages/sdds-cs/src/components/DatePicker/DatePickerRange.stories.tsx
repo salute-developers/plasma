@@ -15,6 +15,7 @@ const { meta: META, Range } = getDatePickerRangeStories({
         size: 's',
         hasHint: false,
         hintText: '',
+        titleCaption: '',
         enableContentLeft: false,
         enableFirstTextFieldContentLeft: false,
         enableSecondTextFieldContentLeft: false,

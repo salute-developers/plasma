@@ -1,5 +1,5 @@
 import { createApplyPaperMixin } from '@salutejs/plasma-new-hope/styled-components';
-import * as allTokens from '@salutejs/sdds-themes/tokens/sdds_finai';
+import * as allTokens from '@sddsjs/sdds_finai';
 
 export { addFocus, mediaQuery } from '@salutejs/plasma-new-hope/styled-components';
 

@@ -271,7 +271,7 @@ type SuggestionItem = {
                         listMaxHeight="250px"
                         onScroll={onScroll}
                         threshold={0}
-                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="primary" />} title="Загрузка" stretching="auto" /> : undefined}
+                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="default" />} title="Загрузка" stretching="auto" /> : undefined}
                         label="Label"
                         placeholder="Placeholder"
                         leftHelper="Введите имя Алексей"
@@ -469,7 +469,7 @@ type SuggestionItem = {
                         suggestions={suggestions}
                         listMaxHeight="250px"
                         renderList={isError ? () => <EmptyState icon={<IconRefresh />} description="Произошла ошибка. Попробуйте обновить." buttonText="Обновить" buttonAction={handleGetData} /> : undefined}
-                        contentRight={isLoading ? <Spinner view="primary" /> : undefined}
+                        contentRight={isLoading ? <Spinner view="default" /> : undefined}
                         label="Label"
                         placeholder="Placeholder"
                         leftHelper="Введите имя Алексей"
@@ -503,7 +503,7 @@ type SuggestionItem = {
 
         ```tsx live
         import React from 'react';
-        import { Select, Cell } from '@salutejs/sdds-scan';
+        import { Autocomplete, Cell } from '@salutejs/sdds-scan';
 
         export function App() {
             const items = [
@@ -605,6 +605,54 @@ type SuggestionItem = {
                                 </BodyXS>
                             </>
                         }
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+### Управление внешним видом
+
+Внешний вид компонента зависит от свойств `appearance`, `view`, `size`:
+
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Autocomplete } from '@salutejs/sdds-scan';
+
+        export function App() {
+            const [value, setValue] = useState('Алексей Смирнов');
+
+            const mockData = [
+                { label: 'Алексей Смирнов' },
+                { label: 'Екатерина Иванова' },
+                { label: 'Дмитрий Петров' },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap' }}>
+                    <Autocomplete
+                        view="default"
+                        appearance="default"
+                        label="Appearance default"
+                        placeholder="Введите значение"
+                        suggestions={mockData}
+                        value={value}
+                        onChange={(event) => setValue(event.target.value)}
+                        onSuggestionSelect={(item) => setValue(item.label)}
+                    />
+                    <Autocomplete
+                        view="default"
+                        appearance="white"
+                        label="Appearance white"
+                        placeholder="Введите значение"
+                        suggestions={mockData}
+                        value={value}
+                        onChange={(event) => setValue(event.target.value)}
+                        onSuggestionSelect={(item) => setValue(item.label)}
                     />
                 </div>
             );

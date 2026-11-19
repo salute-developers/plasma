@@ -1,5 +1,7 @@
 // TODO: #723 Добавить collectPackageInfo
 
+export * as plasmaCore from './plasmaCore';
+
 export * from './mixins';
 export * from './engines';
 export * from './hooks';
@@ -8,6 +10,7 @@ export * from './types';
 export * from './components/Button';
 export * from './components/IconButton';
 export * from './components/ButtonGroup';
+export * from './components/Group';
 export * from './components/Breadcrumbs';
 export * from './components/Chip';
 export * from './components/ChipGroup';
@@ -52,6 +55,7 @@ export * from './components/Progress';
 export * from './components/Select';
 export * from './components/Divider';
 export * from './components/Toolbar';
+export * from './components/TabBar';
 export * from './components/Sheet';
 export * from './components/BottomSheet';
 export * from './components/Slider';
@@ -71,6 +75,7 @@ export * from './components/NumberInput';
 export * from './components/Dropzone';
 export * from './components/Tree';
 export * from './components/Rating';
+export * from './components/RatingInput';
 export * from './components/Note';
 export * from './components/Table';
 export * from './components/List';
@@ -91,11 +96,12 @@ export * from './components/ProgressBarCircular';
 export * from './components/TimePicker';
 export * from './components/DateTimePicker';
 export * from './components/Loader';
+export * from './components/Wheel';
 export * from './components/File';
 export * from './components/TextFieldSlider';
 export * from './components/_ai/Input';
 export * from './components/_ai/Markdown';
 export * from './components/_ai/Answer';
 export * from './components/_ai/Container';
-export * from './components/_ai/Header';
 export * from './components/_ai/UserMessage';
+export * from './components/_ai/Header';

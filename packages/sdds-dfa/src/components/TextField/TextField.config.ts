@@ -23,9 +23,6 @@ import {
     surfaceSolidDefault,
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentNegativeHover,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPositiveHover,
@@ -42,7 +39,6 @@ import {
     surfaceWarningActive,
     surfaceWarningHover,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textSecondary,
@@ -156,15 +152,15 @@ export const config = {
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.backgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.backgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.backgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.backgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.backgroundColorHover}: ${surfaceTransparentWarningHover};
+                ${tokens.backgroundColorFocus}: ${surfaceTransparentWarningActive};
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.textBeforeColor}: ${textTertiary};
                 ${tokens.textAfterColor}: ${textTertiary};
                 ${tokens.labelColor}: ${textPrimary};
-                ${tokens.leftHelperColor}: ${textNegative};
-                ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColor}: ${textWarning};
+                ${tokens.rightHelperColor}: ${textWarning};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
@@ -172,8 +168,8 @@ export const config = {
                 ${tokens.contentSlotColorHover}: ${textSecondaryHover};
                 ${tokens.contentSlotColorActive}: ${textSecondaryActive};
 
-                ${tokens.dividerColor}: ${surfaceNegative};
-                ${tokens.dividerColorHover}: ${surfaceNegative};
+                ${tokens.dividerColor}: ${surfaceWarning};
+                ${tokens.dividerColorHover}: ${surfaceWarning};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.focusColor}: ${textAccent};

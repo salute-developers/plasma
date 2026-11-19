@@ -94,6 +94,13 @@ export interface BottomSheetProps extends HTMLAttributes<HTMLDivElement> {
     onOverlayClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 
     /**
+     * Закрывать шторку при клике по оверлею.
+     * Если false — оверлей остаётся, но клик по нему игнорируется (курсор default).
+     * @default true
+     */
+    closeOnOverlayClick?: boolean;
+
+    /**
      * Закрывать шторку при нажатии на ESC.
      * @default true
      */

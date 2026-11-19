@@ -11,6 +11,7 @@ export * from './components/Tooltip';
 export * from './components/ProgressBarCircular';
 
 // Navigation
+export * from './components/Carousel';
 export * from './components/Breadcrumbs';
 export * from './components/Dropdown';
 export * from './components/Link';
@@ -22,6 +23,7 @@ export * from './components/Tabs';
 export * from './components/ButtonBase';
 export * from './components/Button';
 export * from './components/ButtonGroup';
+export * from './components/Group';
 export * from './components/IconButton';
 export * from './components/EmbedIconButton';
 export * from './components/Calendar';
@@ -68,6 +70,7 @@ export * from './components/Cell';
 export * from './components/Image';
 export * from './components/Divider';
 export * from './components/Rating';
+export * from './components/RatingInput';
 export * from './components/Note';
 export * from './components/List';
 
@@ -95,7 +98,6 @@ export * from './components/Flow';
 
 // export * from './components/Tree';
 // export * from './components/CodeInput';
-// export * from './components/Carousel';
 // export * from './components/Tour';
 // export * from './components/TimePicker';
 // export * from './components/DateTimePicker';

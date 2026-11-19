@@ -1,5 +1,5 @@
 import { css, textFieldGroupTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyS, bodyXS } from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { bodyS, bodyXS } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
@@ -16,8 +16,8 @@ export const config = {
                 ${tokens.padding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.paddingWithChips}: 0.375rem;
 
-                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.25rem;
-                ${tokens.rightContentMargin}: -0.1875rem -0.25rem -0.1875rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;
@@ -72,8 +72,8 @@ export const config = {
                 ${tokens.padding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.paddingWithChips}: 0.375rem;
 
-                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.25rem;
-                ${tokens.rightContentMargin}: -0.0625rem -0.25rem -0.0625rem 0.75rem;
+                ${tokens.leftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
+                ${tokens.rightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
 
                 ${tokens.textBeforeMargin}: 0 0.25rem 0 0;
                 ${tokens.textAfterMargin}: 0 0 0 0.25rem;

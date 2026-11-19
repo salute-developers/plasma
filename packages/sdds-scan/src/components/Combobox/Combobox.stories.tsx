@@ -10,6 +10,12 @@ type ComboboxProps = ComponentProps<typeof Combobox>;
 const { meta: META, Single, Multiple, SelectAll, AddItem } = getComboboxStories({
     component: Combobox,
     componentConfig: config,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: { type: 'select' },
+        },
+    },
 });
 
 const meta: Meta<ComboboxProps> = {

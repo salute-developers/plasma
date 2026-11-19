@@ -110,11 +110,13 @@ export const createDefaultStory = (UserMessage: any, Button: any, EmbedIconButto
 
             return (
                 <>
-                    {Array.from({ length: 3 }).map((_, index) => (
-                        <EmbedIconButton size="m" view="secondary" key={index}>
-                            <IconPlasma size={iconSize} color="inherit" />
-                        </EmbedIconButton>
-                    ))}
+                    <span style={{ display: 'flex' }}>
+                        {Array.from({ length: 3 }).map((_, index) => (
+                            <EmbedIconButton size="m" view="secondary" key={index}>
+                                <IconPlasma size={iconSize} color="inherit" />
+                            </EmbedIconButton>
+                        ))}
+                    </span>
 
                     <EmbedIconButton size="m" view="secondary" onClick={handleEditBegin}>
                         <IconEditOutline size={iconSize} color="inherit" />

@@ -1,5 +1,5 @@
 import { css, emptyStateTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyL, bodyM, bodyS, bodyXS } from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { bodyL, bodyM, bodyS, bodyXS } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {

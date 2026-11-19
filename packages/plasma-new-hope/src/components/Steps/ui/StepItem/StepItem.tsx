@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import cls from 'classnames';
 
 import type { RootProps } from '../../../../engines/types';
-import { classes } from '../../Steps.tokens';
+import { classes, privateTokens } from '../../Steps.tokens';
 
 import type { StepItemExtendedProps } from './StepItem.types';
 import {
@@ -34,12 +34,14 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     orientation,
     contentAlign,
     hasLine,
+    hasLastLine,
     hasLoader,
     onClick,
     items,
     rootView,
     height,
     width,
+    renderItem,
 }: StepItemExtendedProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -63,7 +65,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
 
     const completedItemView = item?.completedItemView ?? rootView;
     const prevCompletedView = prevItem?.completedItemView ?? rootView;
-    const isSimple = !title && !content;
+    const isSimple = !renderItem && !title && !content;
     const clickable = Boolean(onClick);
     const isVertical = orientation === 'vertical';
     const isCentered = contentAlign === 'center';
@@ -82,6 +84,13 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
 
         return undefined;
     })();
+
+    // Диаметр в пикселях попадает в стили через приватную переменную,
+    // а расчёты линии и отступов берут её, если она задана, иначе остаются токены Steps.size.
+    const indicatorSizeStyle: React.CSSProperties | undefined =
+        item?.indicatorSize != null
+            ? ({ [privateTokens.indicatorSize]: `${item.indicatorSize}px` } as React.CSSProperties)
+            : undefined;
 
     const onMouseOver = clickable && !isDisabled ? () => setIsHovered(true) : undefined;
     const onMouseOut = clickable && !isDisabled ? () => setIsHovered(false) : undefined;
@@ -114,7 +123,7 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
     return (
         <Root
             view={completedItemView}
-            className={cls(classes.stepItem, {
+            className={cls(classes.stepItem, item?.className, {
                 [classes.simple]: isSimple,
                 [classes.active]: isActive,
                 [classes.hovered]: isHovered && !isActive,
@@ -124,11 +133,12 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                 [classes.clickable]: clickable && !isActive,
                 [classes.hasIndicator]: hasIndicator,
                 [classes.verticalOrientation]: isVertical,
-                [classes.verticalLastItem]: isVertical && isLast,
+                [classes.verticalLastItem]: isVertical && isLast && (!hasLine || !hasLastLine),
                 [classes.firstItem]: isFirst,
+                [classes.customIndicatorSize]: item?.indicatorSize != null,
                 isNextActive,
             })}
-            style={customSizeStyle}
+            style={{ ...item?.style, ...indicatorSizeStyle, ...customSizeStyle }}
         >
             <BulletIndicatorWrapper
                 className={cls({
@@ -152,20 +162,17 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                         />
                     </Root>
                 )}
-
-                <BulletSlot>{bulletContent}</BulletSlot>
-
+                <BulletSlot className={classes.bulletSlot}>{bulletContent}</BulletSlot>
                 <StepItemDivider
                     className={cls({
                         [classes.verticalOrientation]: isVertical,
-                        [classes.transparentDivider]: !hasLine || isLast,
+                        [classes.transparentDivider]: !hasLine || (isLast && !hasLastLine),
                         [classes.inactive]: isInactive || isNextInactive,
                         [classes.nextActive]: isNextActive && !isInactive,
                         [classes.activeItem]: isActive,
                     })}
                 />
             </BulletIndicatorWrapper>
-
             {!isSimple && (
                 <StepItemContentWrapper
                     className={cls({
@@ -177,10 +184,10 @@ export const stepItemRoot = (Root: RootProps<HTMLDivElement, RootStepItemProps>)
                     })}
                 >
                     <StepItemTitle className={classes.stepItemTitle} {...interactiveHandlers}>
-                        {title}
+                        {renderItem ? renderItem(item, index) : title}
                     </StepItemTitle>
 
-                    {content && (
+                    {!renderItem && content && (
                         <StepItemContent>
                             {typeof content === 'function' ? content(status, index, items) : content}
                         </StepItemContent>

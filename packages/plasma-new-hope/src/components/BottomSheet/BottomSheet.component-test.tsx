@@ -97,4 +97,72 @@ describeFn('BottomSheet', () => {
 
         cy.matchImageSnapshot();
     });
+
+    it('closes on overlay click by default and ignores the click when disabled', () => {
+        const onClose = cy.stub().as('onClose');
+
+        mount(
+            <BottomSheet data-testid="bottom-sheet" opened closeOnOverlayClick={false} onClose={onClose}>
+                <div>Контент</div>
+            </BottomSheet>,
+        );
+
+        cy.get('[data-testid="bottom-sheet"]').children().first().should('have.css', 'cursor', 'default');
+        cy.get('[data-testid="bottom-sheet"]').children().first().click('top');
+
+        cy.get('@onClose').should('not.have.been.called');
+
+        mount(
+            <BottomSheet data-testid="bottom-sheet" opened onClose={onClose}>
+                <div>Контент</div>
+            </BottomSheet>,
+        );
+
+        cy.get('[data-testid="bottom-sheet"]').children().first().should('have.css', 'cursor', 'pointer');
+        cy.get('[data-testid="bottom-sheet"]').children().first().click('top');
+
+        cy.get('@onClose').should('have.been.calledOnce');
+    });
+
+    it('clamps a full-height snap point to the top safe area', () => {
+        mount(
+            renderBottomSheet({
+                withTransition: false,
+                snapPoints: ['100%'],
+                hasHandle: false,
+                hasClose: false,
+            }),
+        );
+
+        cy.get('.bottom-sheet-panel').should(($panel) => {
+            expect($panel[0].style.maxHeight).to.match(/safe-area-inset-top/);
+        });
+
+        cy.get('.bottom-sheet-panel').then(($panel) => {
+            const panel = $panel[0];
+            const previousHeight = panel.style.height;
+
+            panel.style.height = '5000px';
+
+            expect(Math.round(panel.getBoundingClientRect().height)).to.eq(window.innerHeight);
+
+            panel.style.height = previousHeight;
+        });
+    });
+
+    it('uses the horizontal padding token with a zero fallback', () => {
+        mount(renderBottomSheet());
+
+        cy.get('.bottom-sheet-panel').then(($panel) => {
+            const content = $panel[0].lastElementChild as HTMLElement;
+
+            expect(getComputedStyle(content).paddingLeft).to.eq('0px');
+            expect(getComputedStyle(content).paddingRight).to.eq('0px');
+
+            $panel[0].style.setProperty('--plasma-bottom-sheet-content-padding-horizontal', '1.5rem');
+
+            expect(getComputedStyle(content).paddingLeft).to.eq('24px');
+            expect(getComputedStyle(content).paddingRight).to.eq('24px');
+        });
+    });
 });

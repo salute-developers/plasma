@@ -214,8 +214,6 @@ describeFn('Drawer', () => {
         cy.get('.drawer-panel').should('be.visible');
         cy.get('body').click(5, 5);
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(300);
         cy.get('.popup-base-root').should('not.exist');
     });
 
@@ -255,8 +253,6 @@ describeFn('Drawer', () => {
         cy.get('.drawer-panel').should('be.visible');
         cy.get('.plasma-drawer svg').click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(300);
         cy.get('.popup-base-root').should('not.exist');
     });
 
@@ -267,8 +263,6 @@ describeFn('Drawer', () => {
         cy.get('.drawer-panel').should('be.visible');
         cy.get('button').first().type('{esc}', { force: true });
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(300);
         cy.get('.popup-base-root').should('not.exist');
     });
 

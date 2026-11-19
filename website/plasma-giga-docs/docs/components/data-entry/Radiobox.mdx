@@ -46,6 +46,45 @@ export function App() {
 </RadioGroup>
 ```
 
+### Группа радиокнопок на List
+
+Для группы радиокнопок используйте `List` и `ListItem`.
+
+```tsx live
+import { useState } from 'react';
+import { List, ListItem, Radiobox } from '@salutejs/plasma-giga';
+
+export function App() {
+    const items = [
+        { value: 'russian', label: 'Русский', description: 'Родной язык для 150 млн человек' },
+        { value: 'english', label: 'Английский', description: 'Самый распространённый язык в мире' },
+        { value: 'french', label: 'Французский' },
+        { value: 'chinese', label: 'Китайский' },
+    ];
+
+    const [value, setValue] = useState('russian');
+
+    const onChange = (nextValue) => () => setValue(nextValue);
+
+    return (
+        <List role="radiogroup" aria-label="Язык" variant="tight">
+            {items.map((item) => (
+                <ListItem key={item.value} tabIndex={-1}>
+                    <Radiobox
+                        name="language"
+                        value={item.value}
+                        label={item.label}
+                        description={item.description}
+                        checked={value === item.value}
+                        onChange={onChange(item.value)}
+                    />
+                </ListItem>
+            ))}
+        </List>
+    );
+}
+```
+
 ## API
 
 <PropsTable name="Radiobox" exclude={['css', 'focused', 'readOnly']} include={['defaultChecked']} />

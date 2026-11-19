@@ -20,7 +20,7 @@ import {
     textM,
     textS,
     textXS,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 // INFO: у нас нет централизованного, через theme, способа задавать токен для skeleton gradient
 // INFO: поэтому сейчас константа. Changelog от 12.12.2025

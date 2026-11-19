@@ -779,6 +779,57 @@ type Items = Array<{
     </TabItem>
 </Tabs>
 
+### Управление внешним видом
+
+Внешний вид компонента зависит от свойств `appearance`, `view`, `size`:
+
+<Tabs>
+    <TabItem value="appearance" label="Appearance" default>
+        ```tsx live
+        import React, { useState } from 'react';
+        import { Select } from '@salutejs/sdds-scan';
+
+        export function App() {
+            const [singleValue, setSingleValue] = useState('north_america');
+
+            const items = [
+                {
+                    value: 'north_america',
+                    label: 'Северная Америка',
+                },
+                {
+                    value: 'south_america',
+                    label: 'Южная Америка',
+                },
+            ];
+
+            return (
+                <div style={{ display: 'flex', gap: '3rem', flexWrap: 'wrap'}}>
+                    <Select
+                        view="default"
+                        appearance="default"
+                        label="Appearance default"
+                        placeholder="Введите значение"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                    />
+                    <Select
+                        view="default"
+                        appearance="white"
+                        label="Appearance white"
+                        placeholder="Введите значение"
+                        items={items}
+                        value={singleValue}
+                        onChange={setSingleValue}
+                    />
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+</Tabs>
+
 ## Взаимодействие с disabled-элементами
 
 Изнутри компонента взаимодействие с disabled-элементами **невозможно**. Ниже представлены примеры с `selected` и `unselected` disabled-элементом.

@@ -8,10 +8,11 @@ import { ModalFooterProps } from './ModalFooter.types';
 import { base as viewCSS } from './variations/_view/base';
 
 export const modalFooterRoot = (Root: RootProps<HTMLDivElement, ModalFooterProps>) =>
-    forwardRef<HTMLDivElement, ModalFooterProps>(({ children, view, className, ...rest }, outerRef) => {
+    forwardRef<HTMLDivElement, ModalFooterProps>(({ children, text, view, className, ...rest }, outerRef) => {
         return (
             <Root ref={outerRef} view={view} className={cx(className, classes.footer)} {...rest}>
                 {children}
+                {text ? <div className={classes.footerText}>{text}</div> : null}
             </Root>
         );
     });

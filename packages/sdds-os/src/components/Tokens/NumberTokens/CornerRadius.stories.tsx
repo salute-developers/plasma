@@ -1,6 +1,6 @@
 import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { sdds_os__dark, sdds_os__light } from '@salutejs-ds/sdds_os';
+import { sdds_os_default__dark, sdds_os_default__light } from '@sddsjs/sdds_os';
 import { InSpacingDecorator, getGroupedCornerRadiusTokens } from '@salutejs/plasma-sb-utils';
 import type { GroupedNumberTokens } from '@salutejs/plasma-sb-utils';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
@@ -24,8 +24,8 @@ const meta: Meta = {
 export default meta;
 
 const themes: Record<string, GroupedNumberTokens> = {
-    'sdds-os:light': getGroupedCornerRadiusTokens(sdds_os__light[0]),
-    'sdds-os:dark': getGroupedCornerRadiusTokens(sdds_os__dark[0]),
+    'sdds-os:light': getGroupedCornerRadiusTokens(sdds_os_default__light[0]),
+    'sdds-os:dark': getGroupedCornerRadiusTokens(sdds_os_default__dark[0]),
 };
 
 const StoryDemo = ({ context }) => {

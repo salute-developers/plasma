@@ -2,15 +2,19 @@ import styled, { css } from 'styled-components';
 import { component, mergeConfig } from 'src/engines';
 import { addFocus } from 'src/mixins';
 
-import { classes, tokens } from '../../Steps.tokens';
+import { classes, privateTokens, tokens } from '../../Steps.tokens';
 import { spinnerConfig, spinnerTokens } from '../../../Spinner';
+
+const indicatorSize = `var(${privateTokens.indicatorSize}, var(${tokens.indicatorSize}))`;
+const activeIndicatorSize = `var(${privateTokens.indicatorSize}, var(${tokens.activeIndicatorSize}))`;
+const bulletSize = `var(${privateTokens.indicatorSize}, var(${tokens.bulletSize}))`;
+const activeBulletSize = `var(${privateTokens.indicatorSize}, var(${tokens.activeBulletSize}))`;
 
 const mergedConfig = mergeConfig(spinnerConfig);
 const Spinner = component(mergedConfig);
 
 export const SpinnerStyled = styled(Spinner)<{ hasIndicator?: boolean }>`
-    ${spinnerTokens.size}: ${({ hasIndicator }) =>
-    hasIndicator ? `var(${tokens.activeIndicatorSize})` : `var(${tokens.activeBulletSize})`};
+    ${spinnerTokens.size}: ${({ hasIndicator }) => (hasIndicator ? activeIndicatorSize : activeBulletSize)};
     ${spinnerTokens.color}: var(${tokens.loaderSpinnerColor}, var(${tokens.activeIndicatorColor}));
 `;
 
@@ -52,11 +56,19 @@ export const BulletIndicatorWrapper = styled.div`
     width: 100%;
 
     &.${classes.hasIndicator} {
-        min-height: var(${tokens.activeIndicatorSize});
+        min-height: ${activeIndicatorSize};
     }
 
     &:not(.${classes.hasIndicator}) {
-        min-height: var(${tokens.activeBulletSize});
+        min-height: ${activeBulletSize};
+    }
+
+    &:not(.${classes.verticalOrientation}).${classes.hasIndicator} {
+        min-height: max(var(${privateTokens.indicatorTrack}, 0px), ${activeIndicatorSize});
+    }
+
+    &:not(.${classes.verticalOrientation}):not(.${classes.hasIndicator}) {
+        min-height: max(var(${privateTokens.indicatorTrack}, 0px), ${activeBulletSize});
     }
 
     &:not(.${classes.simple}).${classes.verticalOrientation} {
@@ -68,11 +80,11 @@ export const BulletIndicatorWrapper = styled.div`
         align-items: center;
 
         &.${classes.hasIndicator} {
-            min-width: var(${tokens.activeIndicatorSize});
+            min-width: max(var(${privateTokens.indicatorTrack}, 0px), ${activeIndicatorSize});
         }
 
         &:not(.${classes.hasIndicator}) {
-            min-width: var(${tokens.activeBulletSize});
+            min-width: max(var(${privateTokens.indicatorTrack}, 0px), ${activeBulletSize});
         }
     }
 
@@ -96,8 +108,8 @@ export const BulletIndicator = styled.button`
     align-items: center;
     justify-content: center;
 
-    width: var(${tokens.indicatorSize});
-    height: var(${tokens.indicatorSize});
+    width: ${indicatorSize};
+    height: ${indicatorSize};
     border-radius: 50%;
     box-sizing: border-box;
     position: relative;
@@ -127,8 +139,8 @@ export const BulletIndicator = styled.button`
     })}
 
     &.${classes.active} {
-        width: var(${tokens.activeIndicatorSize});
-        height: var(${tokens.activeIndicatorSize});
+        width: ${activeIndicatorSize};
+        height: ${activeIndicatorSize};
 
         border: var(${tokens.dividerThickness}) var(${tokens.activeIndicatorBorder});
 
@@ -158,16 +170,16 @@ export const BulletIndicator = styled.button`
 `;
 
 export const Bullet = styled(BulletIndicator)`
-    width: var(${tokens.bulletSize});
-    height: var(${tokens.bulletSize});
+    width: ${bulletSize};
+    height: ${bulletSize};
 
     border: var(${tokens.bulletBorderThickness}, var(${tokens.dividerThickness})) solid
         var(${tokens.completedBulletBorder}, var(${tokens.completedIndicatorBorder}, transparent));
     background: var(${tokens.completedBulletBackground}, var(${tokens.completedIndicatorBackground}));
 
     &.${classes.active} {
-        width: var(${tokens.activeBulletSize});
-        height: var(${tokens.activeBulletSize});
+        width: ${activeBulletSize};
+        height: ${activeBulletSize};
 
         border: var(${tokens.activeBulletBorderThickness}, var(${tokens.dividerThickness}))
             var(${tokens.bulletActiveIndicatorBorder}, var(${tokens.activeIndicatorBorder}));
@@ -347,12 +359,12 @@ export const base = css`
 
         &.${classes.hasIndicator} {
             ${BulletSlot} {
-                height: var(${tokens.indicatorSize});
-                min-height: var(${tokens.indicatorSize});
+                height: ${indicatorSize};
+                min-height: ${indicatorSize};
             }
 
             &.${classes.active} ${StepItemDivider} {
-                margin-top: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+                margin-top: calc((${activeIndicatorSize} - ${indicatorSize}) / 2);
             }
 
             &.${classes.firstItem}.${classes.active} {
@@ -361,31 +373,35 @@ export const base = css`
                 }
 
                 ${StepItemDivider} {
-                    margin-top: calc(var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize}));
+                    margin-top: calc(${activeIndicatorSize} - ${indicatorSize});
                 }
 
                 ${StepItemTitle} {
-                    padding-top: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.titleLineHeight})) / 2);
+                    padding-top: calc((${activeIndicatorSize} - var(${tokens.titleLineHeight})) / 2);
                 }
             }
 
             & ${StepItemDivider}.${classes.nextActive} {
-                clip-path: inset(0 0 calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2) 0);
+                clip-path: inset(0 0 calc((${activeIndicatorSize} - ${indicatorSize}) / 2) 0);
+            }
+
+            &:has(+ .${classes.customIndicatorSize}) ${StepItemDivider}.${classes.nextActive} {
+                clip-path: none;
             }
 
             & ${StepItemTitle} {
-                padding-top: calc((var(${tokens.indicatorSize}) - var(${tokens.titleLineHeight})) / 2);
+                padding-top: calc((${indicatorSize} - var(${tokens.titleLineHeight})) / 2);
             }
         }
 
         &:not(.${classes.hasIndicator}) {
             ${BulletSlot} {
-                height: var(${tokens.bulletSize});
-                min-height: var(${tokens.bulletSize});
+                height: ${bulletSize};
+                min-height: ${bulletSize};
             }
 
             &.${classes.active} ${StepItemDivider} {
-                margin-top: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
+                margin-top: calc((${activeBulletSize} - ${bulletSize}) / 2);
             }
 
             &.${classes.firstItem}.${classes.active} {
@@ -394,21 +410,25 @@ export const base = css`
                 }
 
                 ${StepItemDivider} {
-                    margin-top: calc(var(${tokens.activeBulletSize}) - var(${tokens.bulletSize}));
+                    margin-top: calc(${activeBulletSize} - ${bulletSize});
                 }
 
                 ${StepItemTitle} {
-                    margin-top: calc((var(${tokens.activeBulletSize}) - var(${tokens.titleLineHeight})) / 2);
+                    margin-top: calc((${activeBulletSize} - var(${tokens.titleLineHeight})) / 2);
                 }
             }
 
             & ${StepItemDivider}.${classes.nextActive} {
-                clip-path: inset(0 0 calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2) 0);
+                clip-path: inset(0 0 calc((${activeBulletSize} - ${bulletSize}) / 2) 0);
+            }
+
+            &:has(+ .${classes.customIndicatorSize}) ${StepItemDivider}.${classes.nextActive} {
+                clip-path: none;
             }
 
             & ${StepItemTitle} {
                 padding-top: 0;
-                margin-top: calc((var(${tokens.bulletSize}) - var(${tokens.titleLineHeight})) / 2);
+                margin-top: calc((${bulletSize} - var(${tokens.titleLineHeight})) / 2);
             }
         }
     }
@@ -437,24 +457,28 @@ export const base = css`
 
     &:not(.${classes.simple}):not(.${classes.verticalOrientation}) {
         &.${classes.hasIndicator}:not(.${classes.centered}) ${StepItemDivider}.${classes.nextActive} {
-            clip-path: inset(0 calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2) 0 0);
+            clip-path: inset(0 calc((${activeIndicatorSize} - ${indicatorSize}) / 2) 0 0);
         }
 
         &:not(.${classes.hasIndicator}):not(.${classes.centered}) ${StepItemDivider}.${classes.nextActive} {
-            clip-path: inset(0 calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2) 0 0);
+            clip-path: inset(0 calc((${activeBulletSize} - ${bulletSize}) / 2) 0 0);
+        }
+
+        &:not(.${classes.centered}):has(+ .${classes.customIndicatorSize}) ${StepItemDivider}.${classes.nextActive} {
+            clip-path: none;
         }
 
         &.${classes.hasIndicator}.${classes.active} {
             ${BulletIndicatorWrapper} {
-                margin-left: calc((var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / -2);
-                width: calc(100% + (var(${tokens.activeIndicatorSize}) - var(${tokens.indicatorSize})) / 2);
+                margin-left: calc((${activeIndicatorSize} - ${indicatorSize}) / -2);
+                width: calc(100% + (${activeIndicatorSize} - ${indicatorSize}) / 2);
             }
         }
 
         &:not(.${classes.hasIndicator}).${classes.active} {
             ${BulletIndicatorWrapper} {
-                margin-left: calc((var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / -2);
-                width: calc(100% + (var(${tokens.activeBulletSize}) - var(${tokens.bulletSize})) / 2);
+                margin-left: calc((${activeBulletSize} - ${bulletSize}) / -2);
+                width: calc(100% + (${activeBulletSize} - ${bulletSize}) / 2);
             }
         }
 

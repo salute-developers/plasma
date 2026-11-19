@@ -4,8 +4,8 @@ import {
     bodyS,
     bodyXS,
     inverseTextPrimary,
+    surfaceSolidDefault,
     textAccent,
-    textPrimary,
     textSecondary,
 } from '@salutejs/sdds-themes/tokens/sdds_platform_ai';
 
@@ -72,7 +72,7 @@ export const config = {
          */
         view: {
             accent: css`
-                ${radioboxTokens.fillColor}: ${textPrimary};
+                ${radioboxTokens.fillColor}: ${surfaceSolidDefault};
                 ${radioboxTokens.ellipseColor}: ${inverseTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;

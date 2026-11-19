@@ -6,6 +6,14 @@ export type PaginationQuickJumpToPageRoot = {
      */
     prevPageValue?: number;
     /*
+     * Всего страниц
+     */
+    totalPages?: number;
+    /*
+     * Показывать общее число страниц.
+     */
+    hasTotalPages?: boolean;
+    /*
      * Placeholder TextField'a для быстрого прыжка на страницу
      */
     placeholderQuickJump?: string;

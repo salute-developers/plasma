@@ -53,7 +53,7 @@ export const config = {
                 ${calendarBaseTokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${calendarBaseTokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
                 ${calendarBaseTokens.calendarHeaderArrowColor}: ${calendarBaseTokens.calendarContentPrimaryColor};
-                ${calendarBaseTokens.calendarDayOfWeekColor}: ${textSecondary};
+                ${calendarBaseTokens.calendarDayOfWeekColor}: ${textPrimary};
                 ${calendarBaseTokens.calendarDisabledOpacity}: 0.4;
 
                 ${calendarBaseTokens.iconButtonColor}: ${textPrimary};
@@ -70,75 +70,6 @@ export const config = {
             `,
         },
         size: {
-            xl: css`
-                ${calendarBaseTokens.calendarContainerWidth}: 28rem;
-                ${calendarBaseTokens.calendarContainerHeight}: 28.75rem;
-
-                ${calendarBaseTokens.calendarYearsPadding}: 0.5rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarYearItemBorderRadius}: 0.875rem;
-
-                ${calendarBaseTokens.calendarYearFontFamily}: ${bodyL.fontFamily};
-                ${calendarBaseTokens.calendarYearFontSize}: ${bodyL.fontSize};
-                ${calendarBaseTokens.calendarYearFontStyle}: ${bodyL.fontStyle};
-                ${calendarBaseTokens.calendarYearFontLetterSpacing}: ${bodyL.letterSpacing};
-                ${calendarBaseTokens.calendarYearFontLineHeight}: ${bodyL.lineHeight};
-                ${calendarBaseTokens.calendarYearFontWeight}: ${bodyL.fontWeight};
-                ${calendarBaseTokens.calendarYearSelectedFontWeight}: ${bodyLBold.fontWeight};
-
-                ${calendarBaseTokens.calendarQuartersPadding}: 0.5rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarQuarterItemBorderRadius}: 0.875rem;
-
-                ${calendarBaseTokens.calendarQuarterFontFamily}: ${bodyL.fontFamily};
-                ${calendarBaseTokens.calendarQuarterFontSize}: ${bodyL.fontSize};
-                ${calendarBaseTokens.calendarQuarterFontStyle}: ${bodyL.fontStyle};
-                ${calendarBaseTokens.calendarQuarterFontLetterSpacing}: ${bodyL.letterSpacing};
-                ${calendarBaseTokens.calendarQuarterFontLineHeight}: ${bodyL.lineHeight};
-                ${calendarBaseTokens.calendarQuarterFontWeight}: ${bodyL.fontWeight};
-                ${calendarBaseTokens.calendarQuarterSelectedFontWeight}: ${bodyLBold.fontWeight};
-
-                ${calendarBaseTokens.calendarMonthsPadding}: 0.5rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarMonthItemBorderRadius}: 0.875rem;
-
-                ${calendarBaseTokens.calendarMonthFontFamily}: ${bodyL.fontFamily};
-                ${calendarBaseTokens.calendarMonthFontSize}: ${bodyL.fontSize};
-                ${calendarBaseTokens.calendarMonthFontStyle}: ${bodyL.fontStyle};
-                ${calendarBaseTokens.calendarMonthFontLetterSpacing}: ${bodyL.letterSpacing};
-                ${calendarBaseTokens.calendarMonthFontLineHeight}: ${bodyL.lineHeight};
-                ${calendarBaseTokens.calendarMonthFontWeight}: ${bodyL.fontWeight};
-                ${calendarBaseTokens.calendarMonthSelectedFontWeight}: ${bodyLBold.fontWeight};
-
-                ${calendarBaseTokens.calendarDaysPadding}: 0.5rem 0 0 0;
-                ${calendarBaseTokens.calendarDayItemBorderRadius}: 0.875rem;
-
-                ${calendarBaseTokens.calendarDayFontFamily}: ${bodyL.fontFamily};
-                ${calendarBaseTokens.calendarDayFontSize}: ${bodyL.fontSize};
-                ${calendarBaseTokens.calendarDayFontStyle}: ${bodyL.fontStyle};
-                ${calendarBaseTokens.calendarDayFontLetterSpacing}: ${bodyL.letterSpacing};
-                ${calendarBaseTokens.calendarDayFontLineHeight}: ${bodyL.lineHeight};
-                ${calendarBaseTokens.calendarDayFontWeight}: ${bodyL.fontWeight};
-                ${calendarBaseTokens.calendarDaySelectedFontWeight}: ${bodyLBold.fontWeight};
-
-                ${calendarBaseTokens.calendarCurrentItemBorderWidth}: 0.063rem;
-
-                ${calendarBaseTokens.calendarHeaderArrowGap}: 0;
-                ${calendarBaseTokens.calendarArrowHeaderCustomSize}: 1.5rem;
-
-                ${calendarBaseTokens.calendarHeaderPadding}: 0 0 0 1rem;
-                ${calendarBaseTokens.calendarHeaderDateGap}: 0.25rem;
-
-                ${calendarBaseTokens.calendarHeaderFontFamily}: ${h3.fontFamily};
-                ${calendarBaseTokens.calendarHeaderFontSize}: ${h3.fontSize};
-                ${calendarBaseTokens.calendarHeaderFontStyle}: ${h3.fontStyle};
-                ${calendarBaseTokens.calendarHeaderFontLetterSpacing}: ${h3.letterSpacing};
-                ${calendarBaseTokens.calendarHeaderFontLineHeight}: ${h3.lineHeight};
-                ${calendarBaseTokens.calendarHeaderFontWeight}: ${h3.fontWeight};
-                ${calendarBaseTokens.calendarHeaderFontWeightBold}: ${h3Bold.fontWeight};
-
-                ${calendarBaseTokens.iconButtonHeight}: 4rem;
-                ${calendarBaseTokens.iconButtonWidth}: 4rem;
-                ${calendarBaseTokens.iconButtonPadding}: 1.25rem;
-                ${calendarBaseTokens.iconButtonRadius}: 1rem;
-            `,
             l: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 24.5rem;
                 ${calendarBaseTokens.calendarContainerHeight}: 25rem;
@@ -206,7 +137,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 3.5rem;
                 ${calendarBaseTokens.iconButtonWidth}: 3.5rem;
                 ${calendarBaseTokens.iconButtonPadding}: 1rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.875rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
             m: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 21rem;
@@ -275,7 +206,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 3rem;
                 ${calendarBaseTokens.iconButtonWidth}: 3rem;
                 ${calendarBaseTokens.iconButtonPadding}: 0.75rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.75rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
             s: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 17.5rem;
@@ -344,14 +275,14 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 2.5rem;
                 ${calendarBaseTokens.iconButtonWidth}: 2.5rem;
                 ${calendarBaseTokens.iconButtonPadding}: 0.5rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.625rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
             xs: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 17.5rem;
                 ${calendarBaseTokens.calendarContainerHeight}: 15.5rem;
 
                 ${calendarBaseTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarYearItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarYearItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarYearFontSize}: ${bodyXS.fontSize};
@@ -362,7 +293,7 @@ export const config = {
                 ${calendarBaseTokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarBaseTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarQuarterItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarQuarterItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
@@ -373,7 +304,7 @@ export const config = {
                 ${calendarBaseTokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarBaseTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarMonthItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarMonthItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarMonthFontSize}: ${bodyXS.fontSize};
@@ -384,7 +315,7 @@ export const config = {
                 ${calendarBaseTokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarBaseTokens.calendarDaysPadding}: 0.375rem 0 0 0;
-                ${calendarBaseTokens.calendarDayItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarDayItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarDayFontSize}: ${bodyXS.fontSize};
@@ -413,7 +344,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 2rem;
                 ${calendarBaseTokens.iconButtonWidth}: 2rem;
                 ${calendarBaseTokens.iconButtonPadding}: 0.5rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.5rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
         },
         eventTooltipSize: {

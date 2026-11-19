@@ -67,9 +67,11 @@ export const config = {
             `,
             negative: css`
                 ${tokens.color}: ${textNegative};
+                ${tokens.colorFocus}: ${textPrimary};
 
                 ${tokens.placeholderColor}: ${textNegative};
-                ${tokens.placeholderColorFocus}: ${textNegative};
+                ${tokens.placeholderColorHover}: ${textSecondary};
+                ${tokens.placeholderColorFocus}: ${textTertiary};
 
                 ${tokens.backgroundColor}: transparent;
                 ${tokens.backgroundColorHover}: transparent;
@@ -80,12 +82,15 @@ export const config = {
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textNegative};
                 ${tokens.rightHelperColor}: ${textNegative};
+                ${tokens.leftHelperColorFocus}: ${textSecondary};
+                ${tokens.rightHelperColorFocus}: ${textSecondary};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
 
                 ${tokens.contentSlotColor}: ${textNegative};
                 ${tokens.contentSlotColorHover}: ${textNegativeHover};
                 ${tokens.contentSlotColorActive}: ${textNegativeActive};
+                ${tokens.contentSlotColorFocus}: ${textSecondary};
 
                 ${tokens.contentSlotRightColor}: ${textSecondary};
                 ${tokens.contentSlotRightColorHover}: ${textSecondaryHover};

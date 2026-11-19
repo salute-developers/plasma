@@ -12,9 +12,9 @@ import {
     h4,
     h5,
     outlineAccent,
-    textNegative,
     textPrimary,
     textSecondary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -26,10 +26,10 @@ export const config = {
         view: {
             default: css`
                 ${tokens.captionColor}: ${textSecondary};
-                ${tokens.captionColorError}: ${textNegative};
+                ${tokens.captionColorError}: ${textWarning};
 
                 ${tokens.codeColor}: ${textPrimary};
-                ${tokens.codeColorError}: ${textNegative};
+                ${tokens.codeColorError}: ${textWarning};
                 ${tokens.borderColorFocus}: ${outlineAccent};
             `,
         },

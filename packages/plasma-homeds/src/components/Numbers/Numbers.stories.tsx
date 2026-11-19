@@ -22,7 +22,8 @@ const meta: Meta<typeof Numbers> = {
     parameters: {
         docs: {
             description: {
-                component: 'LCD-цифры с дробной частью и единицей измерения. Шрифт SBLCD подключается автоматически.',
+                component:
+                    'LCD-цифры с дробной частью, единицей измерения и знаком «≈» для приблизительных значений. Шрифт SBLCD подключается автоматически.',
             },
         },
     },
@@ -31,11 +32,13 @@ const meta: Meta<typeof Numbers> = {
         size: { control: 'select', options: sizes },
         view: { control: 'select', options: views },
         unit: { control: 'select', options: [undefined, 'degree', 'percent'] },
+        hasSymbolBefore: { control: 'boolean' },
         ...disableProps(['theme', 'as', 'forwardedAs', 'view']),
     },
     args: {
         value: -28.8,
         unit: 'degree',
+        hasSymbolBefore: false,
         size: 'm',
         view: 'default',
     },

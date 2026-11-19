@@ -6,6 +6,8 @@ import {
     bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
+    surfaceAccent,
+    surfaceNegative,
     textAccent,
     textNegative,
     textParagraph,
@@ -14,7 +16,7 @@ import {
     textSecondary,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
@@ -93,7 +95,7 @@ export const config = {
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: ${textAccent};
+                ${checkboxTokens.fillColor}: ${surfaceAccent};
                 ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
                 ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
@@ -156,7 +158,7 @@ export const config = {
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             negative: css`
-                ${checkboxTokens.fillColor}: ${textNegative};
+                ${checkboxTokens.fillColor}: ${surfaceNegative};
                 ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;

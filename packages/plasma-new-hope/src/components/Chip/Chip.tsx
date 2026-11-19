@@ -13,9 +13,12 @@ import { base as disabledCSS } from './variations/_disabled/base';
 import { base as readonlyCSS } from './variations/_readonly/base';
 import { base as focusedCSS } from './variations/_focused/base';
 import { base as pilledCSS } from './variations/_pilled/base';
-import type { ChipProps } from './Chip.types';
+import type { ChipProps, CustomColorStates } from './Chip.types';
 import { StyledContentClear, StyledContentLeft, StyledContentMain, StyledContentRight, base } from './Chip.styles';
 import { classes, privateTokens, tokens } from './Chip.tokens';
+
+const getColorStates = (color?: string | CustomColorStates): CustomColorStates =>
+    typeof color === 'string' ? { default: color } : color || {};
 
 export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
     forwardRef<HTMLButtonElement, ChipProps>((props, ref) => {
@@ -35,6 +38,8 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
             pin,
             readOnly = false,
             disabled = false,
+            customColor,
+            customBackgroundColor,
             style,
             // @ts-ignore
             _forceChipManipulationWithReadonly,
@@ -45,6 +50,9 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
 
         const txt = !text && typeof children === 'string' ? children : text;
         const pilledClass = pilled ? classes.pilled : undefined;
+        const color = getColorStates(customColor);
+        const background = getColorStates(customBackgroundColor);
+
         const chipBorderRadius = pin
             ? convertRoundnessMatrix(pin, `var(${tokens.borderRadius})`, `var(${tokens.pilledBorderRadius})`)
             : `var(${pilled ? tokens.pilledBorderRadius : tokens.borderRadius})`;
@@ -86,6 +94,12 @@ export const chipRoot = (Root: RootProps<HTMLButtonElement, ChipProps>) =>
                     {
                         ...style,
                         [privateTokens.computedBorderRadius]: chipBorderRadius,
+                        [privateTokens.customColor]: color.default,
+                        [privateTokens.customColorHover]: color.hover,
+                        [privateTokens.customColorActive]: color.active,
+                        [privateTokens.customBackground]: background.default,
+                        [privateTokens.customBackgroundHover]: background.hover,
+                        [privateTokens.customBackgroundActive]: background.active,
                     } as CSSProperties
                 }
                 {...rest}

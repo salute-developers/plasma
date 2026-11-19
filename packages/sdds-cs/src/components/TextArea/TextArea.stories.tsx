@@ -10,6 +10,10 @@ type TextAreaProps = ComponentProps<typeof TextArea>;
 const { meta: META, Default } = getTextAreaStories({
     component: TextArea,
     componentConfig: config,
+    disablePropsList: ['titleCaption'],
+    defaultArgs: {
+        titleCaption: '',
+    },
 });
 
 const meta: Meta<TextAreaProps> = {

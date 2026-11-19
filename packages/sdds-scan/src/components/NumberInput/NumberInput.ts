@@ -1,7 +1,20 @@
-import { numberInputConfig, component, mergeConfig } from '@salutejs/plasma-new-hope/styled-components';
+import {
+    numberInputConfig,
+    component,
+    mergeConfig,
+    createConditionalComponent,
+} from '@salutejs/plasma-new-hope/styled-components';
 
 import { config } from './NumberInput.config';
+import { config as whiteConfig } from './NumberInput.white.config';
 
-const mergedConfig = mergeConfig(numberInputConfig, config);
+const mergedConfigDefault = mergeConfig(numberInputConfig, config);
+export const NumberInputDefault = component(mergedConfigDefault);
 
-export const NumberInput = component(mergedConfig);
+const mergedConfigWhite = mergeConfig(numberInputConfig, whiteConfig);
+export const NumberInputWhite = component(mergedConfigWhite);
+
+export const NumberInput = createConditionalComponent({
+    default: NumberInputDefault,
+    white: NumberInputWhite,
+});

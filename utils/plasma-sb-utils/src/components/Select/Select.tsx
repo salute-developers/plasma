@@ -20,16 +20,38 @@ type CreateStoriesProps = {
     additionalArgTypes?: {};
 };
 
+// По запросу дизайна appearance и hasDivider должны быть в начале списка контролов.
+const pinLeadingControls = (meta: ReturnType<typeof createMeta>) => {
+    const pin = (source: Record<string, unknown> = {}) => ({
+        ...(source.appearance !== undefined ? { appearance: source.appearance } : {}),
+        ...(source.hasDivider !== undefined ? { hasDivider: source.hasDivider } : {}),
+        ...source,
+    });
+
+    return {
+        ...meta,
+        args: pin(meta.args),
+        argTypes: pin(meta.argTypes),
+        parameters: {
+            controls: {
+                sort: 'none' as const,
+            },
+        },
+    };
+};
+
 export const getSelectStories = (config: CreateStoriesProps) => {
     const { component, componentConfig, customGetContentRight, ...rest } = config;
 
     const selectConfig = getConfigVariations(componentConfig);
 
-    const meta = createMeta({
-        component,
-        componentConfig: selectConfig,
-        ...rest,
-    });
+    const meta = pinLeadingControls(
+        createMeta({
+            component,
+            componentConfig: selectConfig,
+            ...rest,
+        }),
+    );
 
     const SingleStoryComponent = createSingleStory(component, customGetContentRight);
 

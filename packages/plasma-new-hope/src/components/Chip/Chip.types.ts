@@ -2,6 +2,12 @@ import type { ButtonHTMLAttributes, PropsWithChildren, ReactNode, MouseEvent } f
 
 import type { Pin } from '../../utils/roundness';
 
+export type CustomColorStates = {
+    default?: string;
+    hover?: string;
+    active?: string;
+};
+
 type CustomChipProps = {
     /**
      * @internal
@@ -19,6 +25,16 @@ type CustomChipProps = {
      * Слот для контента справа, например `Icon`
      */
     contentRight?: ReactNode;
+    /**
+     * Пользовательский цвет текста. Объект задаёт цвет по состояниям.
+     * Не указанные `hover` и `active` наследуют `default`
+     */
+    customColor?: string | CustomColorStates;
+    /**
+     * Пользовательский цвет фона. Объект задаёт цвет по состояниям.
+     * Не указанные `hover` и `active` наследуют `default`
+     */
+    customBackgroundColor?: string | CustomColorStates;
     /**
      * Есть ли иконка закрытия
      * @default 'true'

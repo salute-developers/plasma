@@ -4,6 +4,9 @@ import {
     surfaceAccent,
     surfaceClear,
     surfaceSolidCardBrightness,
+    surfaceSolidDefault,
+    surfaceSolidDefaultActive,
+    surfaceSolidDefaultHover,
     surfaceSolidPrimary,
     surfaceTransparentAccent,
     textAccent,
@@ -19,6 +22,8 @@ export const config = {
     variations: {
         size: {
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
@@ -61,6 +66,11 @@ export const config = {
         },
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceSolidDefault};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceSolidDefaultHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceSolidDefaultActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceSolidPrimary};
+
                 ${tokens.disabledOpacity}: 0.4;
                 ${tokens.borderColor}: ${outlineSolidPrimary};
                 ${tokens.focusColor}: ${surfaceAccent};

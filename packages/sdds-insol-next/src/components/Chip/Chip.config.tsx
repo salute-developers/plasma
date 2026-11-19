@@ -191,7 +191,7 @@ export const config = {
                 ${chipTokens.pilledBorderRadius}: 1rem;
                 ${chipTokens.width}: auto;
                 ${chipTokens.height}: 2rem;
-                ${chipTokens.padding}: 0 0.875rem;
+                ${chipTokens.padding}: 0 0.75rem;
 
                 ${chipTokens.fontFamily}: ${bodyS.fontFamily};
                 ${chipTokens.fontSize}: ${bodyS.fontSize};
@@ -204,7 +204,7 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.rightContentMarginLeft}: 0.25rem;
                 ${chipTokens.rightContentMarginRight}: -0.125rem;
-                ${chipTokens.clearContentMarginLeft}: 0.375rem;
+                ${chipTokens.clearContentMarginLeft}: 0.5rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
                 ${chipTokens.closeIconSize}: 1rem;
             `,
@@ -226,7 +226,7 @@ export const config = {
                 ${chipTokens.leftContentMarginRight}: 0.25rem;
                 ${chipTokens.rightContentMarginLeft}: 0.25rem;
                 ${chipTokens.rightContentMarginRight}: -0.125rem;
-                ${chipTokens.clearContentMarginLeft}: 0.25rem;
+                ${chipTokens.clearContentMarginLeft}: 0.375rem;
                 ${chipTokens.clearContentMarginRight}: -0.25rem;
                 ${chipTokens.closeIconSize}: 0.75rem;
             `,

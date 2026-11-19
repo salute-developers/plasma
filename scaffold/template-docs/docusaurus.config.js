@@ -99,6 +99,8 @@ const config = {
         ],
     ],
     plugins: [
+        // Яндекс Метрика: заведите счётчик и раскомментируйте строку, см. scaffold/Readme.md
+        // ['@salutejs/docusaurus-plugin-yandex-metrika', { counterID: <ID счётчика> }],
         function docgenPlugin() {
             // Плагин генерации документации
             return {

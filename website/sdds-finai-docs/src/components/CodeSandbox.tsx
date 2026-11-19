@@ -10,7 +10,7 @@ const StyledText = styled.span`
 `;
 
 const sberdevicesDependencies = Object.entries(packageJson.dependencies)
-    .filter(([key]) => key.startsWith('@salutejs') && !key.includes('plasma-docs-ui'))
+    .filter(([key]) => (key.startsWith('@salutejs') || key.startsWith('@sddsjs')) && !key.includes('plasma-docs-ui'))
     .reduce((acc: Record<string, string>, [key, value]) => {
         acc[key] = value;
         return acc;
@@ -19,12 +19,12 @@ const sberdevicesDependencies = Object.entries(packageJson.dependencies)
 const indexSource = `import React from "react";
 import ReactDOM from "react-dom";
 import styled, { createGlobalStyle } from "styled-components";
-import { sdds_finai__light } from "@salutejs/sdds-themes";
+import { sdds_finai_default__light } from "@sddsjs/sdds_finai";
 
 import { App } from "./App";
 import "./style.css";
 
-const Theme = createGlobalStyle(sdds_finai__light);
+const Theme = createGlobalStyle(sdds_finai_default__light);
 
 const StyledPreview = styled.div\`
     padding: 1rem;

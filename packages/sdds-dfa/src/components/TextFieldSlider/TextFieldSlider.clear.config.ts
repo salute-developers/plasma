@@ -15,7 +15,6 @@ import {
     surfaceSolidTertiary,
     surfaceTransparentPrimary,
     textAccent,
-    textNegative,
     textPositive,
     textPositiveActive,
     textPositiveHover,
@@ -24,6 +23,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -239,7 +239,7 @@ export const config = {
                 ${tokens.sliderThumbBorderColor}: ${onLightSurfaceTransparentTertiary};
                 ${tokens.sliderThumbFocusBorderColor}: ${surfaceSolidDefault};
 
-                ${tokens.scaleValueColor}: ${textNegative};
+                ${tokens.scaleValueColor}: ${textWarning};
                 ${tokens.scaleTickDotColor}: ${surfaceSolidTertiary};
             `,
         },

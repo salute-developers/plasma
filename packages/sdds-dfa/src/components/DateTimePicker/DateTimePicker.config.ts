@@ -24,16 +24,15 @@ import {
     surfaceSolidCard,
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryActive,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
+    surfaceTransparentWarning,
+    surfaceTransparentWarningActive,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textPrimaryHover,
@@ -41,6 +40,7 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -70,15 +70,15 @@ export const config = {
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryActive};
                 ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundErrorColorFocus}: ${surfaceTransparentWarningActive};
                 ${tokens.textFieldBackgroundSuccessColor}: ${surfaceTransparentPositive};
                 ${tokens.textFieldBackgroundSuccessColorFocus}: ${surfaceTransparentPositiveActive};
 
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
-                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorError}: ${textWarning};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
 
                 ${tokens.hintIconColor}: ${textSecondary};

@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { ComponentProps } from 'react';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 
 import { WithTheme } from '../../_helpers';
-import { Link } from '../Link/Link';
 
 import { Checkbox } from './Checkbox';
 
@@ -55,67 +54,6 @@ export default meta;
 
 type CheckboxProps = ComponentProps<typeof Checkbox>;
 
-const name = 'languages';
-
-const items = [
-    {
-        name,
-        value: 'natural',
-        label: 'Natural languages',
-        disabled: false,
-        description: 'Languages that people speak. They were not designed by people and they evolved naturally.',
-    },
-    { name, value: 'russian', label: 'Russian', disabled: false, parent: 'natural' },
-    {
-        name,
-        value: 'english',
-        label: 'English',
-        disabled: false,
-        parent: 'natural',
-        description: (
-            <div>
-                The most spoken language in the <Link href="/#">world</Link>
-            </div>
-        ),
-    },
-    { name, value: 'french', label: 'French', disabled: false, parent: 'natural' },
-    { name, value: 'klingon', label: 'Klingon', disabled: false, parent: 'natural' },
-    { name, value: 'elvish', label: 'Elvish', disabled: true, parent: 'natural' },
-    { name, value: 'dothraki', label: 'Dothraki', disabled: true, parent: 'natural' },
-    {
-        name,
-        value: 'chinese',
-        label: (
-            <div>
-                Chinese is the hardest <Link href="/#">language</Link>
-            </div>
-        ),
-        parent: 'natural',
-    },
-];
-
-const getChildren = (value: string) => items.filter((item) => item.parent === value);
-
-const getState = (values: Record<string, boolean | undefined>, value: string) => {
-    const allChildren = getChildren(value);
-
-    if (!allChildren.length) {
-        return { checked: values[value], indeterminate: false };
-    }
-
-    const checkedChildren = allChildren.filter((child) => values[child.value]);
-
-    if (checkedChildren.length === 0) {
-        return { checked: false, indeterminate: false };
-    }
-
-    if (allChildren.length !== checkedChildren.length) {
-        return { checked: false, indeterminate: true };
-    }
-
-    return { checked: true, indeterminate: false };
-};
-
 const StoryDefault = (props: CheckboxProps) => {
     return (
         <>
@@ -152,7 +90,7 @@ export const LongText: StoryObj<CheckboxProps> = {
     render: (args) => <StoryLong {...args} />,
 };
 
-const StoryComplex = (props: CheckboxProps) => {
+const StoryLive = (props: CheckboxProps) => {
     const [values, setValues] = useState({
         russian: true,
         english: true,
@@ -167,13 +105,14 @@ const StoryComplex = (props: CheckboxProps) => {
         <>
             {items.map((item) => (
                 <Checkbox
+                    {...props}
                     {...getState(values, item.value)}
                     style={{ marginLeft: item.parent ? 36 : 0 }}
                     key={item.value}
                     name={item.name}
                     value={item.value}
                     label={item.label}
-                    disabled={item.disabled}
+                    disabled={item.disabled || props.disabled}
                     description={item.description}
                     onChange={(event) => {
                         const { checked } = event.target;
@@ -194,13 +133,12 @@ const StoryComplex = (props: CheckboxProps) => {
                     }}
                     onFocus={onFocus}
                     onBlur={onBlur}
-                    {...props}
                 />
             ))}
         </>
     );
 };
 
-export const Complex: StoryObj<CheckboxProps> = {
-    render: (args) => <StoryComplex {...args} />,
+export const Live: StoryObj<CheckboxProps> = {
+    render: (args) => <StoryLive {...args} />,
 };

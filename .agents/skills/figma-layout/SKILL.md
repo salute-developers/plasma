@@ -92,6 +92,8 @@ description: Верстать продуктовые макеты из Figma и�
 -   получить tokens/theme guidance для цветов, typography, spacing и states;
 -   проверить accessibility/interaction constraints для interactive components.
 
+Если в макете есть иконки SDDS, искать их через `search_icons`. В `query` передать название или описание назначения иконки на русском или английском. При необходимости ограничить число результатов через `limit`. Из ответа взять точное имя компонента и доступные размеры.
+
 Если MCP предоставляет несколько похожих компонентов, выбирать по семантике, а не по визуальному сходству. Например, action item, list item, button, segment, tab, select и input не взаимозаменяемы, даже если похожи на screenshot.
 
 ## Правила маппинга макета в код
@@ -100,7 +102,8 @@ description: Верстать продуктовые макеты из Figma и�
 -   Использовать имена слоёв макета как подсказку, но API и итоговые props брать из component properties макета, `sdds-mcp` и установленной версии пакета.
 -   Для layout использовать CSS/grid/flex wrappers проекта; для controls использовать DS-компоненты.
 -   Для цветов, отступов, radii, shadows и typography сначала искать tokens или theme variables.
--   Для иконок использовать `@salutejs/plasma-icons` package или existing project assets; не вставлять временные asset URLs из Figma/Pixso в код.
+-   Для иконок SDDS использовать `@salutejs/sdds-icons`. Подбирать размер по макету из доступных (`16`, `24`, `36`) и указывать его в пути импорта, например `import { AddFill } from '@salutejs/sdds-icons/24';`.
+-   Для иконок, специфичных для продукта, использовать существующие ресурсы проекта. В коде использовать постоянные ресурсы проекта вместо временных URL из Figma или Pixso.
 -   Для responsive behavior выводить правила из макета и существующего product layout; если поведение не задано, выбрать самый простой устойчивый вариант и отметить допущение.
 -   Для состояний interactive components проверить через MCP, какие states поддержаны компонентом: disabled, focused, selected, checked, error, loading, readonly.
 -   Для `TextField`/`DatePicker` всегда сверять `labelPlacement`; если в макете лейбл внутри поля, в коде должен быть явный `labelPlacement="inner"`.

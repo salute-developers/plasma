@@ -7,7 +7,10 @@ import { VIRTUAL_OVERSCAN, DEFAULT_ESTIMATED_SLIDE_WIDTH, ITEM_VIRTUAL_ATTRIBUTE
 
 const AXIS_LOCK_THRESHOLD = 8;
 
-type UseCarouselOptions = Pick<CarouselProps, 'scrollAlign' | 'gap'> & {
+type UseCarouselOptions = Pick<
+    CarouselProps,
+    'scrollAlign' | 'gap' | 'controlArrowsPlacement' | 'controlArrowsDisabled'
+> & {
     index: number;
     onChangeIndex: (index: number) => void;
     swipeEnabled: boolean;
@@ -29,6 +32,8 @@ export const useCarousel = ({
     index,
     scrollAlign,
     onChangeIndex,
+    controlArrowsPlacement,
+    controlArrowsDisabled,
     swipeEnabled,
     slidesAmount,
     gap,
@@ -79,7 +84,7 @@ export const useCarousel = ({
 
         setVirtualGap(getGapWidth(trackRef.current));
         setFallbackSlideWidth(scrollRef.current?.clientWidth || DEFAULT_ESTIMATED_SLIDE_WIDTH);
-    }, [gap, virtual]);
+    }, [gap, virtual, controlArrowsPlacement, controlArrowsDisabled]);
 
     // Сбрасывает измерения при смене набора слайдов или режима виртуализации.
     useEffect(() => {
@@ -169,6 +174,24 @@ export const useCarousel = ({
         return measureCallbacksRef.current[virtualIndex];
     }, []);
 
+    // При смене положения стрелок меняется доступная ширина fullWidth-слайдов.
+    useLayoutEffect(() => {
+        if (!virtual) {
+            return;
+        }
+
+        virtualizer.measure();
+        const measuredWidths: Record<number, number> = {};
+
+        Object.entries(measuredElementsRef.current).forEach(([itemIndex, element]) => {
+            if (element) {
+                virtualizer.measureElement(element);
+                measuredWidths[Number(itemIndex)] = element.getBoundingClientRect().width;
+            }
+        });
+        setMeasuredSlideWidths(measuredWidths);
+    }, [controlArrowsPlacement, controlArrowsDisabled, virtual, virtualizer]);
+
     // Прокручивает карусель при смене index.
     // Строго в layout-phase, чтобы стартовый кадр сразу был на нужном слайде до первого пеинта.
     useLayoutEffect(() => {
@@ -215,7 +238,7 @@ export const useCarousel = ({
         if (isFirstRender.current) {
             isFirstRender.current = false;
         }
-    }, [index, scrollAlign, virtual, virtualizer]);
+    }, [index, scrollAlign, virtual, virtualizer, controlArrowsPlacement, controlArrowsDisabled]);
 
     // После появления целевого виртуального слайда в DOM выполняет точный scroll с учётом scrollAlign.
     useLayoutEffect(() => {

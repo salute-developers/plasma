@@ -1328,35 +1328,25 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.940]",
-                    "comment": "Основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#F8FAFC1F",
+                    "value": "#FFFFFFB8",
                     "comment": "Основной прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#F8FAFC0A",
+                    "value": "#FFFFFF8A",
                     "comment": "Основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#F8FAFC3D",
+                    "value": "#FFFFFF85",
                     "comment": "Вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#F8FAFC0F",
+                    "value": "#FFFFFF57",
                     "comment": "Вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -1782,6 +1772,16 @@
                     "value": "#118CDF38",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация",
                     "enabled": false
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Основной прозрачный фон поверхности/контрола",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -1870,35 +1870,25 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.940]",
-                    "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#F8FAFC1F",
+                    "value": "#FFFFFFB8",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#F8FAFC0A",
+                    "value": "#FFFFFF8A",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#F8FAFC3D",
+                    "value": "#FFFFFF85",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#F8FAFC0F",
+                    "value": "#FFFFFF57",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -2324,6 +2314,16 @@
                     "value": "#118CDF38",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на темном фоне",
                     "enabled": false
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
+                    "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -2412,35 +2412,25 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.970]",
-                    "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#070B0E12",
+                    "value": "#FFFFFFA8",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#070B0E03",
+                    "value": "#FFFFFFAD",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.1000][-0.940]",
-                    "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#070B0E1F",
+                    "value": "#FFFFFF75",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#070B0E0A",
+                    "value": "#FFFFFF7A",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.1000][-0.880]",
@@ -2866,6 +2856,16 @@
                     "value": "#118CDF38",
                     "comment": "Прозрачный цвет фона поверхности/контрола информация на светлом фоне",
                     "enabled": false
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
+                    "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -2954,35 +2954,25 @@
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.970]",
-                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#070B0E12",
+                    "value": "#FFFFFFA8",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#070B0E03",
+                    "value": "#FFFFFFAD",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.1000][-0.940]",
-                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#070B0E1F",
+                    "value": "#FFFFFF75",
                     "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#070B0E0A",
+                    "value": "#FFFFFF7A",
                     "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.1000][-0.880]",
@@ -3408,6 +3398,16 @@
                     "value": "#118CDF38",
                     "comment": "Прозрачный инвертированный цвет фона поверхности/контрола информация",
                     "enabled": false
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
+                    "enabled": true
                 }
             }
         },
@@ -3623,20 +3623,15 @@
                     "comment": "Прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Основной прозрачный цвет обводки",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#F8FAFC3D",
+                    "value": "#FFFFFF7A",
                     "comment": "Основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#F8FAFC0F",
+                    "value": "#FFFFFF52",
                     "comment": "Основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -4012,6 +4007,11 @@
                     "value": "#118CDF38",
                     "comment": "Прозрачный цвет обводки информация",
                     "enabled": false
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Основной прозрачный цвет обводки",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -4075,20 +4075,15 @@
                     "comment": "Прозрачный цвет обводки по умолчанию на темном фоне",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Основной прозрачный цвет обводки на темном фоне",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#F8FAFC3D",
+                    "value": "#FFFFFF7A",
                     "comment": "Основной прозрачный цвет обводки на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#F8FAFC0F",
+                    "value": "#FFFFFF52",
                     "comment": "Основной прозрачный цвет обводки на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -4464,6 +4459,11 @@
                     "value": "#118CDF38",
                     "comment": "Прозрачный цвет обводки информация на темном фоне",
                     "enabled": false
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Основной прозрачный цвет обводки на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -4527,20 +4527,15 @@
                     "comment": "Прозрачный цвет обводки по умолчанию на светлом фоне",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.880]",
-                    "comment": "Основной прозрачный цвет обводки на светлом фоне",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#070B0E3D",
+                    "value": "#FFFFFF66",
                     "comment": "Основной прозрачный цвет обводки на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#070B0E0F",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной прозрачный цвет обводки на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.1000][-0.720]",
@@ -4916,6 +4911,11 @@
                     "value": "#0B7ECB38",
                     "comment": "Прозрачный цвет обводки информация на светлом фоне",
                     "enabled": false
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Основной прозрачный цвет обводки на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -4979,20 +4979,15 @@
                     "comment": "Инвертированный прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.880]",
-                    "comment": "Инвертированный основной прозрачный цвет обводки",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#070B0E3D",
+                    "value": "#FFFFFF66",
                     "comment": "Инвертированный основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#070B0E0F",
+                    "value": "#FFFFFFFF",
                     "comment": "Инвертированный основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.1000][-0.720]",
@@ -5368,6 +5363,11 @@
                     "value": "#0B7ECB38",
                     "comment": "Прозрачный инвертированный цвет обводки информация",
                     "enabled": false
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Инвертированный основной прозрачный цвет обводки",
+                    "enabled": true
                 }
             }
         },
@@ -6809,35 +6809,25 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.970]",
-                    "comment": "Основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#070B0E03",
+                    "value": "#FFFFFFA8",
                     "comment": "Основной прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#070B0E0D",
+                    "value": "#FFFFFFAD",
                     "comment": "Основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.1000][-0.940]",
-                    "comment": "Вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#070B0E05",
+                    "value": "#FFFFFF75",
                     "comment": "Вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#070B0E1A",
+                    "value": "#FFFFFF7A",
                     "comment": "Вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.1000][-0.880]",
@@ -7298,6 +7288,16 @@
                     "value": "[general.red.400]",
                     "comment": "Цвет фона поверхности/контрола ошибка",
                     "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Основной прозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -7351,35 +7351,25 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на темном фоне",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.940]",
-                    "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#F8FAFC05",
+                    "value": "#FFFFFFB8",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#F8FAFC1A",
+                    "value": "#FFFFFF8A",
                     "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#F8FAFC0A",
+                    "value": "#FFFFFF85",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#F8FAFC29",
+                    "value": "#FFFFFF57",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -7840,6 +7830,16 @@
                     "value": "[general.red.400]",
                     "comment": "Цвет фона поверхности/контрола ошибка на темном фоне",
                     "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Основной прозрачный фон поверхности/контрола на темном фоне",
+                    "enabled": true
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -7893,35 +7893,25 @@
                     "comment": "Непрозрачный фон поверхности/контрола по умолчанию на светлом фоне",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.970]",
-                    "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#070B0E03",
+                    "value": "#FFFFFFA8",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#070B0E0D",
+                    "value": "#FFFFFFAD",
                     "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.1000][-0.940]",
-                    "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#070B0E05",
+                    "value": "#FFFFFF75",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#070B0E1A",
+                    "value": "#FFFFFF7A",
                     "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.1000][-0.880]",
@@ -8382,6 +8372,16 @@
                     "value": "[general.red.400]",
                     "comment": "Цвет фона поверхности/контрола ошибка на светлом фоне",
                     "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Основной прозрачный фон поверхности/контрола на светлом фоне",
+                    "enabled": true
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Вторичный прозрачный фон поверхности/контрола на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -8435,35 +8435,25 @@
                     "comment": "Инвертированный непрозрачный фон поверхности/контрола по умолчанию",
                     "enabled": true
                 },
-                "surfaceTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.940]",
-                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
                 "surfaceTransparentPrimaryHover": {
-                    "value": "#F8FAFC05",
+                    "value": "#FFFFFFB8",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentPrimaryActive": {
-                    "value": "#F8FAFC1A",
+                    "value": "#FFFFFF8A",
                     "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
-                    "enabled": false
-                },
-                "surfaceTransparentSecondary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryHover": {
-                    "value": "#F8FAFC0A",
+                    "value": "#FFFFFF85",
                     "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentSecondaryActive": {
-                    "value": "#F8FAFC29",
+                    "value": "#FFFFFF57",
                     "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
-                    "enabled": false
+                    "enabled": true
                 },
                 "surfaceTransparentTertiary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -8924,6 +8914,16 @@
                     "value": "[general.red.400]",
                     "comment": "Инвертированный цвет фона поверхности/контрола ошибка",
                     "enabled": true
+                },
+                "surfaceTransparentPrimary": {
+                    "value": "#FFFFFF99",
+                    "comment": "Инвертированный основной прозрачный фон поверхности/контрола",
+                    "enabled": true
+                },
+                "surfaceTransparentSecondary": {
+                    "value": "#FFFFFF66",
+                    "comment": "Инвертированный вторичный прозрачный фон поверхности/контрола",
+                    "enabled": true
                 }
             }
         },
@@ -9129,20 +9129,15 @@
                     "comment": "Прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.880]",
-                    "comment": "Основной прозрачный цвет обводки",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#070B0E0A",
+                    "value": "#FFFFFF66",
                     "comment": "Основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#070B0E29",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.1000][-0.720]",
@@ -9528,6 +9523,11 @@
                     "value": "[general.blue.700]",
                     "comment": "Цвет обводки информация",
                     "enabled": true
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Основной прозрачный цвет обводки",
+                    "enabled": true
                 }
             },
             "onDark": {
@@ -9581,20 +9581,15 @@
                     "comment": "Прозрачный цвет обводки по умолчанию на темном фоне",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Основной прозрачный цвет обводки на темном фоне",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#F8FAFC0A",
+                    "value": "#FFFFFF7A",
                     "comment": "Основной прозрачный цвет обводки на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#F8FAFC29",
+                    "value": "#FFFFFF52",
                     "comment": "Основной прозрачный цвет обводки на темном фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -9980,6 +9975,11 @@
                     "value": "[general.blue.500]",
                     "comment": "Цвет обводки информация на темном фоне",
                     "enabled": true
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Основной прозрачный цвет обводки на темном фоне",
+                    "enabled": true
                 }
             },
             "onLight": {
@@ -10033,20 +10033,15 @@
                     "comment": "Прозрачный цвет обводки по умолчанию на светлом фоне",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.1000][-0.880]",
-                    "comment": "Основной прозрачный цвет обводки на светлом фоне",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#070B0E0A",
+                    "value": "#FFFFFF66",
                     "comment": "Основной прозрачный цвет обводки на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#070B0E29",
+                    "value": "#FFFFFFFF",
                     "comment": "Основной прозрачный цвет обводки на светлом фоне",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.1000][-0.720]",
@@ -10432,6 +10427,11 @@
                     "value": "[general.blue.700]",
                     "comment": "Цвет обводки информация на светлом фоне",
                     "enabled": true
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Основной прозрачный цвет обводки на светлом фоне",
+                    "enabled": true
                 }
             },
             "inverse": {
@@ -10485,20 +10485,15 @@
                     "comment": "Инвертированный прозрачный цвет обводки по умолчанию",
                     "enabled": false
                 },
-                "outlineTransparentPrimary": {
-                    "value": "[general.coolGray.50][-0.880]",
-                    "comment": "Инвертированный основной прозрачный цвет обводки",
-                    "enabled": false
-                },
                 "outlineTransparentPrimaryHover": {
-                    "value": "#F8FAFC0A",
+                    "value": "#FFFFFF7A",
                     "comment": "Инвертированный основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentPrimaryActive": {
-                    "value": "#F8FAFC29",
+                    "value": "#FFFFFF52",
                     "comment": "Инвертированный основной прозрачный цвет обводки",
-                    "enabled": false
+                    "enabled": true
                 },
                 "outlineTransparentSecondary": {
                     "value": "[general.coolGray.50][-0.800]",
@@ -10883,6 +10878,11 @@
                 "outlineSolidSecondary": {
                     "value": "[general.coolGray.700]",
                     "comment": "Инвертированный вторичный непрозрачный цвет обводки",
+                    "enabled": true
+                },
+                "outlineTransparentPrimary": {
+                    "value": "#FFFFFFCC",
+                    "comment": "Инвертированный основной прозрачный цвет обводки",
                     "enabled": true
                 }
             }

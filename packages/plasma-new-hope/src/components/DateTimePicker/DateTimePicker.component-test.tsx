@@ -11,6 +11,8 @@ import {
 // @ts-ignore
 import { IconPlasma } from 'override/_Icon';
 
+import { expectTimeItemsAtTop } from '../../../../../cypress/support/assertions';
+
 import type { DateTimePickerProps } from './DateTimePicker.types';
 
 const componentExists = hasComponent('DateTimePicker');
@@ -447,8 +449,7 @@ describeFn('DateTimePicker', () => {
         cy.get('input').first().click().type('14.06.2023 05:06:07');
 
         cy.get('body').find('[data-active="true"]').last().should('be.visible');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
         cy.matchImageSnapshot();
     });
 
@@ -465,8 +466,7 @@ describeFn('DateTimePicker', () => {
         cy.get('body').find('[data-value="07"][data-column="seconds"]').first().click();
 
         cy.get('body').find('[data-active="true"]').last().should('be.visible');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
         cy.matchImageSnapshot();
     });
 
@@ -484,8 +484,7 @@ describeFn('DateTimePicker', () => {
         cy.get('input').first().click();
         cy.get('body').find('[data-day="1"][data-month-index="1"]').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -504,8 +503,7 @@ describeFn('DateTimePicker', () => {
         cy.get('input').first().click();
         cy.get('body').find('[data-day="28"][data-month-index="1"]').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -546,8 +544,7 @@ describeFn('DateTimePicker', () => {
         cy.get('input').first().should('have.value', '06.14.2023 05:06:07');
 
         cy.get('body').find('[data-active="true"]').last().should('be.visible');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
         cy.matchImageSnapshot();
     });
 
@@ -567,8 +564,7 @@ describeFn('DateTimePicker', () => {
         cy.get('input').first().click();
 
         cy.get('body').find('[data-active="true"]').last().should('be.visible');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
         cy.matchImageSnapshot();
     });
 
@@ -800,8 +796,7 @@ describeFn('DateTimePicker', () => {
         openDateTimePicker();
 
         cy.get('body').find('[data-active="true"]').last().should('be.visible');
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
         cy.matchImageSnapshot();
     });
 });

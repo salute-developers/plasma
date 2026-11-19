@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import { mount } from './CypressHelpers';
 import { getComponent, getDescribeFN, hasComponent } from './CypressDecorator';
 import { getConfigMatrix } from './getConfigMatrix';
+import { getTestConfig } from './testRuntime';
 
 type GetBaseVisualTestsArgs = {
     /**
@@ -41,15 +42,10 @@ type GetBaseVisualTestsArgs = {
      * Список пакетов, для которых тесты будут пропущены через describe.skip.
      */
     packagesForSkip?: string[];
-};
-
-const getConfig = (component: string): any => {
-    try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires, global-require, import/no-dynamic-require
-        return require(`src/examples/components/${component}/${component}.config.ts`).config;
-    } catch {
-        return null;
-    }
+    /**
+     * Имя компонента, чей конфиг использовать для построения матрицы (если отличается от component).
+     */
+    configComponentName?: string;
 };
 
 /**
@@ -70,6 +66,7 @@ const getConfig = (component: string): any => {
  * @param {Record<string, string[]>} excludePropsValues - значения пропов, исключаемые из матрицы.
  * @param {string[]} propsForName - пропсы, значения которых включаются в имя теста.
  * @param {string[]} packagesForSkip - список пакетов, для которых тесты будут пропущены через describe.skip.
+ * @param {string} configComponentName - имя компонента, чей конфиг использовать для построения матрицы.
  */
 export const getBaseVisualTests = ({
     component,
@@ -80,6 +77,7 @@ export const getBaseVisualTests = ({
     excludePropsValues,
     propsForName,
     packagesForSkip,
+    configComponentName,
 }: GetBaseVisualTestsArgs) => {
     const componentExists = hasComponent(component);
     const pkgName = Cypress.env('package') as string;
@@ -92,7 +90,7 @@ export const getBaseVisualTests = ({
             return;
         }
 
-        const config = componentExists ? getConfig(component) : null;
+        const config = componentExists ? getTestConfig(configComponentName || component) : null;
         const configMatrix = getConfigMatrix(config, configPropsForMatrix, excludePropsValues);
 
         configMatrix.forEach((combination) => {

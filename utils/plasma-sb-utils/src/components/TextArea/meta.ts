@@ -5,6 +5,7 @@ import {
     hintViews,
     hintSizes,
     hintTriggers,
+    hintTargetPlacements,
     labelPlacements,
     placements,
     requiredPlacements,
@@ -60,6 +61,7 @@ export const createMeta = ({
             hintTrigger: 'hover',
             hintView: 'default',
             hintSize: 'm',
+            hintTargetPlacement: 'outer',
             hintPlacement: 'auto',
             hintWidth: '10rem',
             hintHasArrow: true,
@@ -176,6 +178,11 @@ export const createMeta = ({
             hintSize: {
                 options: hintSizes,
                 control: { type: 'select' },
+                if: { arg: 'hasHint', truthy: true },
+            },
+            hintTargetPlacement: {
+                options: hintTargetPlacements,
+                control: { type: 'inline-radio' },
                 if: { arg: 'hasHint', truthy: true },
             },
             hintPlacement: {

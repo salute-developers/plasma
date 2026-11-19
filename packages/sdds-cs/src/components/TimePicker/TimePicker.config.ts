@@ -10,9 +10,10 @@ import {
     surfaceClear,
     surfaceNegative,
     surfaceSolidCard,
+    surfaceSolidDefault,
     surfaceSolidPrimary,
     surfaceSolidSecondary,
-    surfaceSolidTertiary,
+    surfaceTransparentAccent,
     textAccent,
     textAccentActive,
     textAccentMinor,
@@ -67,9 +68,9 @@ export const config = {
                 ${tokens.textFieldBorderColorErrorFocus}: ${textNegative};
                 ${tokens.textFieldBorderColorErrorHover}: ${textNegative};
 
-                ${tokens.textFieldBorderColorSuccess}: ${textNegative};
-                ${tokens.textFieldBorderColorSuccessFocus}: ${textNegative};
-                ${tokens.textFieldBorderColorSuccessHover}: ${textNegative};
+                ${tokens.textFieldBorderColorSuccess}: ${textPositive};
+                ${tokens.textFieldBorderColorSuccessFocus}: ${textPositive};
+                ${tokens.textFieldBorderColorSuccessHover}: ${textPositive};
 
                 ${tokens.textFieldContentSlotColor}: ${textSecondary};
                 ${tokens.textFieldContentSlotColorHover}: ${textSecondaryHover};
@@ -85,11 +86,11 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
 
                 ${tokens.timePickerBackground}: ${surfaceSolidCard};
-                ${tokens.itemBackgroundHover}: ${surfaceSolidSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentAccent};
                 ${tokens.itemBackgroundActive}: ${surfaceSolidSecondary};
                 ${tokens.itemFocusColor}: ${surfaceAccent};
 
-                ${tokens.scrollbarColor}: ${surfaceSolidTertiary};
+                ${tokens.scrollbarColor}: ${surfaceSolidDefault};
                 ${tokens.scrollbarTrackColor}: ${surfaceSolidPrimary};
 
                 ${tokens.disabledOpacity}: 0.4;
@@ -146,7 +147,7 @@ export const config = {
                 ${tokens.textFieldTextAfterMargin}: 0 0 0 0.25rem;
 
                 ${tokens.timePickerBorderRadius}: 0.625rem;
-                ${tokens.timePickerWidth}: 7.75rem;
+                ${tokens.timePickerWidth}: 7.5rem;
                 ${tokens.timePickerPadding}: 0.125rem;
 
                 ${tokens.columnHeight}: 19rem;
@@ -170,6 +171,7 @@ export const config = {
                 ${tokens.leftHelperLetterSpacing}: ${bodyXS.letterSpacing};
                 ${tokens.leftHelperLineHeight}: ${bodyXS.lineHeight};
 
+                ${tokens.gap}: 0;
                 ${tokens.scrollbarWidth}: 0.125rem;
                 ${tokens.scrollbarMargin}: 0.25rem;
             `,

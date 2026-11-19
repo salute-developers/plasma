@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { SegmentGroup, SegmentItem, SegmentProvider } from '@salutejs/plasma-b2c';
 
 import { Context, setIconGridSize, setIconSize } from '../../store';
+import { SEARCH_QUERY_PARAM } from '../../hooks/useSearchQueryParam';
 import { iconStyleOptions, isIconStyle } from '../../utils/iconStyle';
 import type { IconStyle } from '../../utils/iconStyle';
 import { listSizes } from '../../utils/listSizes';
@@ -13,6 +14,7 @@ type IconCollection = 'plasma' | 'sdds';
 
 type IconsToolbarProps = {
     activeCollection: IconCollection;
+    searchQuery: string;
     iconStyle: IconStyle;
     onIconStyleChange: (iconStyle: IconStyle) => void;
 };
@@ -40,7 +42,7 @@ const StyledFilters = styled.div`
     margin-left: auto;
 `;
 
-export const IconsToolbar = ({ activeCollection, iconStyle, onIconStyleChange }: IconsToolbarProps) => {
+export const IconsToolbar = ({ activeCollection, searchQuery, iconStyle, onIconStyleChange }: IconsToolbarProps) => {
     const router = useRouter();
     const { state, dispatch } = useContext(Context);
     const availableIconStyles = iconStyleOptions.filter(
@@ -52,7 +54,10 @@ export const IconsToolbar = ({ activeCollection, iconStyle, onIconStyleChange }:
             return;
         }
 
-        router.push(collectionRoutes[collection as IconCollection]);
+        router.push({
+            pathname: collectionRoutes[collection as IconCollection],
+            query: searchQuery ? { [SEARCH_QUERY_PARAM]: searchQuery } : {},
+        });
     };
 
     const handleSizeChange = (label: string) => {

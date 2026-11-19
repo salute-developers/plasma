@@ -4,6 +4,7 @@ import {
     onDarkTextPrimary,
     outlineAccent,
     outlineSolidPrimary,
+    surfaceAccent,
     surfaceSolidTertiary,
     textAccent,
     textPrimary,
@@ -44,7 +45,7 @@ export const config = {
         },
         view: {
             accent: css`
-                ${checkboxTokens.fillColor}: ${textAccent};
+                ${checkboxTokens.fillColor}: ${surfaceAccent};
                 ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
                 ${checkboxTokens.labelColor}: ${textPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};

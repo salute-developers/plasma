@@ -57,8 +57,34 @@ describeFn('Carousel', () => {
 
         cy.get('.carousel-right-control-button').click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(250);
+        cy.get('.carousel-right-control-button')
+            .siblings('div')
+            .should(($scroll) => {
+                const scroll = $scroll[0];
+                const card = scroll.firstElementChild.children[1];
+                const scrollRect = scroll.getBoundingClientRect();
+                const cardRect = card.getBoundingClientRect();
+                expect(cardRect.left + cardRect.width / 2, 'second slide centered').to.be.closeTo(
+                    scrollRect.left + scrollRect.width / 2,
+                    1,
+                );
+            });
+
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: controlArrowsPlacement=outer', () => {
+        cy.viewport(700, 500);
+
+        mount(
+            <div style={{ width: '600px' }}>
+                <Carousel controlArrowsPlacement="outer" defaultIndex={1}>
+                    {items.map((item) => (
+                        <StyledCard key={item.id}>{item.title}</StyledCard>
+                    ))}
+                </Carousel>
+            </div>,
+        );
 
         cy.matchImageSnapshot();
     });

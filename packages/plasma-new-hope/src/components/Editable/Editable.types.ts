@@ -33,6 +33,10 @@ export interface EditableProps<T> extends Omit<InputHTMLAttributes<HTMLInputElem
      * Вид контрола.
      */
     view?: string;
+    /**
+     * Перенос текста на новую строку при переполнении
+     */
+    multiline?: boolean;
 }
 
 export type TypographyVariants = {

@@ -24,7 +24,9 @@ export type DropdownOptions = {
     trigger?: DropdownTrigger;
     /**
      * Сторона открытия Dropdown относительно элемента, у которого оно вызвано.
-     * @default bottom
+     * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
+     * Используйте `top-start`, `bottom-start`, `left-start` и `right-start`.
+     * @default bottom-start
      */
     placement?: DropdownPlacement;
     /**

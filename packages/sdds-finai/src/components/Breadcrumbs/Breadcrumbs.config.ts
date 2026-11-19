@@ -1,5 +1,5 @@
 import { css, breadcrumbsTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyL, bodyM, bodyS, bodyXS, surfaceAccent, textPrimary } from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { bodyL, bodyM, bodyS, bodyXS, surfaceAccent, textPrimary } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {

@@ -197,6 +197,8 @@ export const iconSectionsSet = {
         speedMediumOutline: 'SpeedMediumOutline',
         speedHighOutline: 'SpeedHighOutline',
         saveFill: 'SaveFill',
+        textBoldOutline: 'TextBoldOutline',
+        textItalicOutline: 'TextItalicOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
@@ -291,6 +293,10 @@ export const iconSectionsSet = {
         wifiLock: 'WifiLock',
         wifiMedium: 'WifiMedium',
         wifiLow: 'WifiLow',
+        tabletHorizontalFill: 'TabletHorizontalFill',
+        tabletHorizontalOutline: 'TabletHorizontalOutline',
+        tabletVerticalFill: 'TabletVerticalFill',
+        tabletVerticalOutline: 'TabletVerticalOutline',
     },
     Arrows: {
         arrowBarDown: 'ArrowBarDown',
@@ -774,6 +780,7 @@ export const iconSectionsSet = {
         queueDashOutline: 'QueueDashOutline',
         queueDashFill: 'QueueDashFill',
         code: 'Code',
+        closePanelOutline: 'ClosePanelOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',

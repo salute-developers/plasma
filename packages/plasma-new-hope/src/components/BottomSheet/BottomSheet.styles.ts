@@ -50,6 +50,8 @@ export const PanelContent = styled.div`
     flex-direction: column;
     min-height: 0;
     max-height: inherit;
+    padding-left: var(${tokens.contentPaddingHorizontal}, 0);
+    padding-right: var(${tokens.contentPaddingHorizontal}, 0);
     background-color: var(${tokens.contentBackgroundColor});
     border-radius: inherit;
     overflow: hidden;

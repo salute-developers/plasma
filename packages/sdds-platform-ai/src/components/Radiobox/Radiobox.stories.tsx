@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { StoryObj, Meta } from '@storybook/react';
 import { action } from 'storybook/actions';
 import { disableProps, InSpacingDecorator, getConfigVariations } from '@salutejs/plasma-sb-utils';
@@ -39,28 +39,6 @@ export default meta;
 
 type Story = StoryObj<RadioboxProps>;
 
-const cDescription = (
-    <div>
-        A general-purpose, procedural computer programming{' '}
-        <a href="https://en.wikipedia.org/wiki/C_(programming_language)">language</a>{' '}
-    </div>
-);
-
-const langName = 'language';
-
-const items = [
-    {
-        langName,
-        value: 'c',
-        label: 'C',
-        disabled: false,
-        description: cDescription,
-    },
-    { langName, value: 'cpp', label: 'C++', disabled: false },
-    { langName, value: 'assembly', label: 'Assembly', disabled: false },
-    { langName, value: 'elixir', label: 'Elixir', disabled: true },
-];
-
 const StoryDefault = ({ name, label, description, disabled, singleLine, size, view }: RadioboxProps) => {
     const value = 0;
     const [checked, setChecked] = React.useState(true);
@@ -99,43 +77,4 @@ export const Default: Story = {
         view: 'accent',
     },
     render: (args) => <StoryDefault {...args} />,
-};
-
-const StoryLive = (props: RadioboxProps) => {
-    const [value, setValue] = useState('c');
-
-    return (
-        <>
-            {items.map((item) => (
-                <Radiobox
-                    key={item.value}
-                    name={item.langName}
-                    value={item.value}
-                    label={item.label}
-                    disabled={item.disabled}
-                    checked={value[item.value]}
-                    description={item.description}
-                    onChange={(event) => {
-                        event.persist();
-
-                        setValue(item.value);
-                        onChange(event);
-                    }}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    {...props}
-                />
-            ))}
-        </>
-    );
-};
-
-export const Live: Story = {
-    args: {
-        size: 'm',
-        view: 'accent',
-        singleLine: false,
-        focused: true,
-    },
-    render: (args) => <StoryLive {...args} />,
 };

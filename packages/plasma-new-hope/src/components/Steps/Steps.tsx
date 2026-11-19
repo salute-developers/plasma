@@ -1,9 +1,10 @@
-import React, { forwardRef, useState, useEffect, HTMLAttributes, useMemo, FC } from 'react';
+import React, { forwardRef, useState, useEffect, useLayoutEffect, useRef, HTMLAttributes, useMemo, FC } from 'react';
 import cls from 'classnames';
 
 import type { RootPropsOmitOnChange } from '../../engines/types';
+import { useForkRef } from '../../hooks';
 
-import { classes } from './Steps.tokens';
+import { classes, privateTokens } from './Steps.tokens';
 import { StepsProps as BaseStepsProps } from './Steps.types';
 import { base } from './Steps.styles';
 import { base as sizeCSS } from './variations/_size/base';
@@ -25,19 +26,23 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
             orientation = 'horizontal',
             contentAlign = 'left',
             hasLine = true,
+            hasLastLine = false,
             hasContent = 'all',
             hasLoader,
             items = [],
             onChange,
             current,
             status,
+            renderItem,
             ...rest
         } = props;
 
         const [prevIndex, setPrevIndex] = useState<number | undefined>();
+        const rootRef = useRef<HTMLDivElement>(null);
+        const ref = useForkRef(outerRef, rootRef);
 
         const hasIndicator = items.some((item) => item.indicator != null);
-        const isSimple = items.every((item) => !item.title && !item.content);
+        const isSimple = !renderItem && items.every((item) => !item.title && !item.content);
 
         const innerItems = useMemo(() => {
             const isUncontrolled = current !== undefined;
@@ -75,12 +80,38 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
             };
         }, [current, innerItems]);
 
+        /**
+         * Шаги со своим indicatorSize отличаются диаметром индикатора, и чтобы круги стояли на общей оси,
+         * обёртке каждого индикатора нужен размер самого большого круга.
+         * CSS не умеет брать максимум по соседним элементам, а диаметр шага задаётся числом,
+         * поэтому максимум измеряется по DOM и передаётся в стили через приватный токен.
+         */
+        useLayoutEffect(() => {
+            const root = rootRef.current;
+
+            if (!root) {
+                return undefined;
+            }
+
+            if (!items.some((item) => item.indicatorSize != null)) {
+                root.style.removeProperty(privateTokens.indicatorTrack);
+                return undefined;
+            }
+
+            const slots = root.querySelectorAll<HTMLElement>(`.${classes.bulletSlot}`);
+            const track = Math.max(...Array.from(slots, (slot) => slot.offsetWidth));
+
+            root.style.setProperty(privateTokens.indicatorTrack, `${track}px`);
+
+            return undefined;
+        }, [innerItems, size, orientation, hasLoader]);
+
         return (
             <Root
                 size={size}
                 view={view}
                 itemView={itemView}
-                ref={outerRef}
+                ref={ref}
                 className={cls({
                     [classes.verticalOrientation]: orientation === 'vertical',
                     [classes.simple]: isSimple,
@@ -109,12 +140,14 @@ export const stepsRoot = (StepItem: FC<StepItemExtendedProps>) => (
                             orientation={orientation}
                             contentAlign={itemContentAlign}
                             hasLine={hasLine}
+                            hasLastLine={hasLastLine}
                             hasLoader={hasLoader && isActive}
                             onClick={onClick}
                             items={innerItems}
                             rootView={view}
                             height={item.height}
                             width={item.width}
+                            renderItem={renderItem}
                         />
                     );
                 })}
