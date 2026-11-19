@@ -1,0 +1,22 @@
+{
+    "projectId": "d490c7b5-63c7-4fea-ba4c-7e28e34839c9",
+    "designSystemId": "4442eb67-aa17-452c-b4fb-fdd9acc17ada",
+    "credential": {
+        "type": "auto",
+        "name": "DSBUILDER_API_KEY"
+    },
+    "tenants": [
+        {
+            "id": "81661ae4-4f0a-474f-a335-eb7b6632a659",
+            "designSystemId": "4442eb67-aa17-452c-b4fb-fdd9acc17ada",
+            "name": "sdds_os_default",
+            "description": null,
+            "directoryPath": ".sdds/tenants/sdds_os_default",
+            "alias": null,
+            "createdAt": "2026-04-14T13:32:39.060601Z",
+            "updatedAt": "2026-04-14T13:32:39.060601Z"
+        }
+    ],
+    "palettePath": ".sdds/tenants/palette.json",
+    "platforms": []
+}
