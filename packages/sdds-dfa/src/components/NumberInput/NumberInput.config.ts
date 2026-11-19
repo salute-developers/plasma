@@ -24,17 +24,17 @@ import {
     surfaceSolidDefault,
     surfaceSolidDefaultActive,
     surfaceSolidDefaultHover,
-    surfaceTransparentNegative,
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentSecondaryActive,
     surfaceTransparentSecondaryHover,
+    surfaceTransparentWarning,
     textAccent,
-    textNegative,
     textPrimary,
     textPrimaryActive,
     textPrimaryHover,
     textTertiary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -48,8 +48,8 @@ export const config = {
         view: {
             default: css`
                 ${tokens.caretColor}: ${textAccent};
-                ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.errorColor}: ${textWarning};
+                ${tokens.backgroundErrorColor}: ${surfaceTransparentWarning};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${inverseTextPrimary};
@@ -75,8 +75,8 @@ export const config = {
             `,
             secondary: css`
                 ${tokens.caretColor}: ${textAccent};
-                ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.errorColor}: ${textWarning};
+                ${tokens.backgroundErrorColor}: ${surfaceTransparentWarning};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${textPrimary};
@@ -103,8 +103,8 @@ export const config = {
             accent: css`
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.caretColorSolid}: ${inverseTextPrimary};
-                ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.errorColor}: ${textWarning};
+                ${tokens.backgroundErrorColor}: ${surfaceTransparentWarning};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${onDarkTextPrimary};
@@ -131,8 +131,8 @@ export const config = {
             clear: css`
                 ${tokens.caretColor}: ${textAccent};
                 ${tokens.caretColorSolid}: ${textAccent};
-                ${tokens.errorColor}: ${textNegative};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.errorColor}: ${textWarning};
+                ${tokens.backgroundErrorColor}: ${surfaceTransparentWarning};
 
                 ${tokens.color}: ${textPrimary};
                 ${tokens.colorSolid}: ${textPrimary};

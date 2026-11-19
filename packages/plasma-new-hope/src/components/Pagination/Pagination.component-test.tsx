@@ -253,6 +253,66 @@ describeFn('Pagination', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: hasPageRange', () => {
+        cy.on('uncaught:exception', (err) => {
+            if (err.message.includes('ResizeObserver loop completed with undelivered notifications')) {
+                return false;
+            }
+            return true;
+        });
+
+        const prev = <Button>Prev</Button>;
+        const next = <Button>Next</Button>;
+
+        mount(
+            <div style={{ width: '25rem' }}>
+                <Pagination
+                    type="compact"
+                    hasPageRange={false}
+                    helperText="HelperText"
+                    value={values[1]}
+                    count={count}
+                />
+                <PadMe />
+                <Pagination
+                    type="compact"
+                    hasPageRange={false}
+                    hasTotalPages
+                    textQuickJump=""
+                    textPerPage=""
+                    leftContent={prev}
+                    rightContent={next}
+                    value={values[1]}
+                    count={count}
+                />
+                <PadMe />
+                <Pagination
+                    type="compact"
+                    hasPageRange={false}
+                    hasTotalPages
+                    leftContent={prev}
+                    rightContent={next}
+                    value={values[1]}
+                    count={count}
+                />
+            </div>,
+        );
+
+        cy.viewport(500, 400);
+        cy.matchImageSnapshot();
+    });
+
+    it('prop: hasTotalPages', () => {
+        const onChange = cy.stub().as('onChange');
+
+        cy.viewport(1000, 500);
+        mount(<Pagination hasPageRange={false} hasTotalPages count={count} onChange={onChange} />);
+
+        cy.get('.pagination-quick-jump-page input').clear().type('999{enter}').should('have.value', '100');
+        cy.get('.pagination-quick-jump-page input').clear().type('999{enter}').should('have.value', '100');
+        cy.get('@onChange').should('have.been.calledOnceWith', 100);
+    });
+
     it('minSlots', () => {
         cy.viewport(1000, 500);
         mount(

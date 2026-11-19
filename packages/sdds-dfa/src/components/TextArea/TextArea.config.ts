@@ -9,9 +9,6 @@ import {
     surfaceNegative,
     surfacePositive,
     surfaceSolidCardBrightness,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
-    surfaceTransparentNegativeHover,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPositiveHover,
@@ -27,7 +24,6 @@ import {
     surfaceTransparentWarningHover,
     surfaceWarning,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textSecondary,
@@ -172,24 +168,24 @@ export const config = {
                 ${tokens.titleCaptionColor}: ${textSecondary};
             `,
             negative: css`
-                ${tokens.inputBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentNegativeActive};
-                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.inputBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.inputBackgroundColorHover}: ${surfaceTransparentWarningHover};
+                ${tokens.inputBackgroundColorActive}: ${surfaceTransparentWarningActive};
+                ${tokens.inputBackgroundColorFocus}: ${surfaceTransparentWarning};
 
-                ${tokens.helpersBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentNegativeHover};
-                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentNegativeActive};
-                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentNegative};
+                ${tokens.helpersBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.helpersBackgroundColorHover}: ${surfaceTransparentWarningHover};
+                ${tokens.helpersBackgroundColorActive}: ${surfaceTransparentWarningActive};
+                ${tokens.helpersBackgroundColorFocus}: ${surfaceTransparentWarning};
 
                 ${tokens.inputColor}: ${textPrimary};
                 ${tokens.inputColorFocus}: ${textPrimary};
-                ${tokens.inputCaretColor}: ${textNegative};
+                ${tokens.inputCaretColor}: ${textWarning};
 
                 ${tokens.placeholderColor}: ${textSecondary};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.leftHelperColor}: ${textNegative};
+                ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textSecondary};
 
                 ${tokens.rightContentColor}: ${textSecondary};
@@ -206,8 +202,8 @@ export const config = {
                 ${tokens.scrollbarTrackBackgroundColorActive}: ${surfaceTransparentPrimaryActive};
                 ${tokens.scrollbarTrackBackgroundColorHover}: ${surfaceTransparentPrimaryHover};
 
-                ${tokens.dividerColor}: ${surfaceNegative};
-                ${tokens.dividerColorHover}: ${surfaceNegative};
+                ${tokens.dividerColor}: ${surfaceWarning};
+                ${tokens.dividerColorHover}: ${surfaceWarning};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};

@@ -84,6 +84,12 @@ export const StyledItemRoot = styled.div<DateStructureProps & FocusProps>`
             ? `var(${tokens.calendarContentPrimaryColor})`
             : `var(${tokens.calendarContentSecondaryColor})`};
 
+    outline-color: transparent;
+
+    &::before {
+        outline-color: transparent;
+    }
+
     &.${String(classes.selectableItem)} {
         ${addSelected({
             minWidth: 'calc(100% - 0.125rem)',

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { SelectProps } from 'src/components/Select';
 
 import { constants, tokens, classes } from '../../Select.tokens';
+import { scrollbar } from '../../Select.styles';
 
 export const ListWrapper = styled.div`
     width: 100%;
@@ -23,5 +24,6 @@ export const ScrollContainer = styled.div<{
     max-height: ${({ listMaxHeight }) => listMaxHeight || 'auto'};
     overflow-x: hidden;
     overflow-y: auto;
+    ${scrollbar}
     border-radius: calc(var(${tokens.borderRadius}) - 0.125rem - var(${tokens.dropdownBorderWidth}, 0rem));
 `;

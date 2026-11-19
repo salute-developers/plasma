@@ -3,6 +3,8 @@ import type { ReactNode, UIEvent } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber } from 'src/utils';
 
+import { VirtualScrollContainer } from '../../Combobox.styles';
+
 interface Props<T> {
     items: T[];
     renderItem: (item: T, index: number) => ReactNode;
@@ -23,7 +25,7 @@ export function VirtualList<T>({ items, listMaxHeight, onScroll, estimateSize = 
     const virtualItems = virtualizer.getVirtualItems();
 
     return (
-        <div
+        <VirtualScrollContainer
             ref={parentRef}
             style={{
                 height: 'auto',
@@ -59,6 +61,6 @@ export function VirtualList<T>({ items, listMaxHeight, onScroll, estimateSize = 
                     ))}
                 </div>
             </div>
-        </div>
+        </VirtualScrollContainer>
     );
 }

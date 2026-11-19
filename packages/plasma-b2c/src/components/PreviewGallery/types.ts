@@ -1,0 +1,30 @@
+import { PreviewGalleryProps } from './PreviewGallery';
+
+export type BasePlacement = 'top' | 'bottom' | 'right' | 'left';
+export type VariationPlacement = 'top-start' | 'top-end' | 'bottom-start' | 'bottom-end';
+export type Placement = BasePlacement | VariationPlacement;
+
+export type StatusType = 'success' | 'error';
+
+export type InteractionType = 'selectable' | 'draggable';
+
+export type AddionalItemProps = Omit<PreviewGalleryProps, 'items | onItemsSortEnd'>;
+
+export interface TooltipItem {
+    /**
+     * Текст tooltip.
+     */
+    text: string;
+    /**
+     * Направление раскрытия tooltip.
+     */
+    placement?: Placement;
+    /**
+     * Видимость стрелки (хвоста).
+     */
+    arrow?: boolean;
+    /**
+     * Анимированное появление/сокрытие.
+     */
+    animated?: boolean;
+}

@@ -173,7 +173,7 @@ export const config = {
                 ${tokens.activeBulletSize}: 1rem;
 
                 ${tokens.titlePaddingTop}: 0.5rem;
-                ${tokens.contentPaddingTop}: 0.375rem;
+                ${tokens.contentPaddingTop}: 0.25rem;
                 ${tokens.contentSidePadding}: 1.5rem;
                 ${tokens.contentVerticalPadding}: 0.6875rem;
                 ${tokens.verticalContentPaddingLeft}: 0.75rem;

@@ -7,6 +7,17 @@ export const classes = {
 };
 
 export const tokens = {
+    /** @styleType dimension */
+    scrollbarWidth: '--plasma-dropdown-scrollbar-width',
+    /** @styleType color */
+    scrollbarTrackBackgroundColor: '--plasma-dropdown-scrollbar-track-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColor: '--plasma-dropdown-scrollbar-thumb-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorHover: '--plasma-dropdown-scrollbar-thumb-background-color-hover',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorActive: '--plasma-dropdown-scrollbar-thumb-background-color-active',
+
     /** @styleType color */
     background: '--plasma-dropdown-background',
     /** @styleType shadow */

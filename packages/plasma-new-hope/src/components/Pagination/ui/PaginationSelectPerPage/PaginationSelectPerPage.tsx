@@ -25,7 +25,7 @@ export const PaginationSelectPerPage: React.FC<PaginationSelectPerPageProps> = (
 
     return (
         <SelectPerPageRoot {...rest}>
-            <SelectPerPageTypography>{textPerPage}</SelectPerPageTypography>
+            {textPerPage && <SelectPerPageTypography>{textPerPage}</SelectPerPageTypography>}
 
             <SelectPerPageSelect
                 className={classes.selectWrapper}

@@ -18,13 +18,15 @@ import { Avatar, AvatarGroup } from '@salutejs/sdds-platform-ai';
 
 export function App() {
     return (
-        <AvatarGroup>
-                {
-                    Array(5).fill(true).map(() => (
+        <div>
+            <AvatarGroup>
+                {Array(5)
+                    .fill(true)
+                    .map(() => (
                         <Avatar size="xxl" url="https://avatars.githubusercontent.com/u/1813468?v=4" />
-                    ))
-                }
+                    ))}
             </AvatarGroup>
+        </div>
     );
 }
 ```

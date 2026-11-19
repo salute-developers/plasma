@@ -36,6 +36,24 @@ describeFn('Numbers', () => {
         cy.get(`.${classes.unit}`).should('not.exist');
     });
 
+    it('hasSymbolBefore', () => {
+        mount(
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '1rem',
+                    ...numbersProps.style,
+                }}
+            >
+                <Numbers size="m" value={28.8} unit="degree" hasSymbolBefore />
+                <Numbers size="m" value={-28.8} unit="degree" hasSymbolBefore />
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('expands exponential notation', () => {
         mount(
             <>

@@ -32,6 +32,7 @@ export const StyledRange = styled(Range)`
     ${rangeTokens.leftHelperColorSuccess}: var(${tokens.leftHelperColorSuccess});
     ${rangeTokens.leftHelperColorError}: var(${tokens.leftHelperColorError});
     ${rangeTokens.leftHelperColorEdited}: var(${tokens.leftHelperColorEdited});
+    ${rangeTokens.leftHelperColorFocus}: var(${tokens.leftHelperColorFocus});
 
     ${rangeTokens.textFieldColor}: var(${tokens.textFieldColor});
     ${rangeTokens.textFieldColorSuccess}: var(${tokens.textFieldColorSuccess});

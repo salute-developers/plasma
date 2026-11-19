@@ -49,7 +49,6 @@ export const switchRoot = (Root: RootProps<HTMLInputElement, SwitchProps>) =>
                 toggleSize={toggleSize}
                 disabled={disabled}
                 focused={focused ?? outlined}
-                labelPosition={labelPosition}
                 id={id}
                 style={style}
                 className={cx(className)}

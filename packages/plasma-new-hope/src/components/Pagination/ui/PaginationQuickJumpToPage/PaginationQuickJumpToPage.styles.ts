@@ -5,7 +5,7 @@ import { tokens } from '../../Pagination.tokens';
 export const QuickJumpToPageRoot = styled.div`
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: var(${tokens.paginationQuickJumpInnerGap}, 0.5rem);
     flex-shrink: 0;
 
     font-family: var(${tokens.paginationFontFamily});

@@ -32,7 +32,7 @@ const commonArgs = {
     hasClearDivider: false,
     size: 'l',
     view: 'default',
-    titleCaption: 'Подсказка к полю сверху справа',
+    titleCaption: 'Подпись к полю',
     label: 'Лейбл',
     leftHelper: 'Подсказка к полю',
     preserveInvalidOnBlur: false,

@@ -1,7 +1,24 @@
 import styled, { css } from 'styled-components';
+import { addScrollbar } from 'src/mixins';
 
 import { AutocompleteProps } from './Autocomplete.types';
 import { tokens } from './Autocomplete.tokens';
+
+export const scrollbar = `
+    scrollbar-width: auto;
+
+    ${addScrollbar({
+        scrollWidth: `var(${tokens.scrollbarWidth}, 0)`,
+        trackColor: `var(${tokens.scrollbarTrackBackgroundColor})`,
+        thumbColor: `var(${tokens.scrollbarThumbBackgroundColor})`,
+        thumbHoverColor: `var(${tokens.scrollbarThumbBackgroundColorHover}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+        thumbActiveColor: `var(${tokens.scrollbarThumbBackgroundColorActive}, var(${tokens.scrollbarThumbBackgroundColor}))`,
+    })}
+`;
+
+export const VirtualScrollContainer = styled.div`
+    ${scrollbar}
+`;
 
 export const base = css``;
 
@@ -22,6 +39,7 @@ export const Ul = styled.ul<{
     height: auto;
     max-height: ${({ virtual, listMaxHeight }) => (virtual ? 'auto' : listMaxHeight || 'auto')};
     overflow: auto;
+    ${scrollbar}
 
     margin: 0;
     padding: 0;

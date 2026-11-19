@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, ReactNode, CSSProperties } from 'react';
 import { DistributiveOmit } from 'src/types';
 
-import { TextFieldPropsBase } from '../TextField/TextField.types';
+import type { TextFieldPropsBase, TextFieldProps } from '../TextField/TextField.types';
 
 export type SuggestionItemType = {
     /**
@@ -129,13 +129,18 @@ export type AutocompleteProps<T extends SuggestionItemType = SuggestionItemType>
      */
     view?: string;
     /**
+     * @internal
+     */
+    appearance?: string;
+    /**
      * Метка-подпись к элементу справа. Передаётся во внутренний TextField.
      */
     titleCaption?: ReactNode;
-} & DistributiveOmit<
-    TextFieldPropsBase,
-    'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
-> &
+} & Pick<TextFieldProps, 'hasDivider'> &
+    DistributiveOmit<
+        TextFieldPropsBase,
+        'chips' | 'onChangeChips' | 'enumerationType' | 'labelPlacement' | 'chipView' | 'chipValidator' | 'chipType'
+    > &
     Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'required' | 'value' | 'defaultValue' | 'onScroll'>;
 
 export type FloatingPopoverProps = {

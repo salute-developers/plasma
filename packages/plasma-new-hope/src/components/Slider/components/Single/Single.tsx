@@ -8,6 +8,7 @@ import { useRangeHandlers } from '../../hooks/useRangeHandlers';
 import { getTickStyle } from '../../utils/getTickStyle';
 import { getSingleSliderLayout } from '../../utils/getSingleSliderLayout';
 import { getTrackSegments } from '../../utils/getTrackSegments';
+import { roundValueToStep } from '../../utils/roundValueToStep';
 
 import type { SingleSliderProps } from './Single.types';
 import {
@@ -123,12 +124,9 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     // Округляем значение, если оно не кратно новому шагу
     useEffect(() => {
-        const remainder = (value - min) % step;
+        const validValue = clamp(roundValueToStep(value, min, step), min, max);
 
-        if (Math.abs(remainder) > 0.000001) {
-            const roundedValue = Math.round((value - min) / step) * step + min;
-            const validValue = Math.max(min, Math.min(max, roundedValue));
-
+        if (validValue !== value) {
             setDragValue(validValue);
 
             if (outerValue !== undefined) {

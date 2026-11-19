@@ -98,6 +98,12 @@ const meta: Meta<StoryProps> = {
     decorators: [InSpacingDecorator],
     component: Autocomplete,
     argTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: {
+                type: 'select',
+            },
+        },
         view: {
             options: views,
             control: {
@@ -215,6 +221,7 @@ const meta: Meta<StoryProps> = {
         },
     },
     args: {
+        appearance: 'default',
         view: 'default',
         size: 'm',
         labelPlacement: 'outer',

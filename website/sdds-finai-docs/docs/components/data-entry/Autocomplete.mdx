@@ -18,6 +18,8 @@ import AutocompleteExampleClear from '../../_examples/_autocomplete/_autocomplet
 
 ## Appearance
 
+`appearance="clear"` — вариант без фона и рамки, для него можно включить разделитель через `hasDivider`.
+
 `appearance="viewMode"` — режим просмотра.
 
 ```tsx live
@@ -28,8 +30,10 @@ export function App() {
     const suggestions = [{ label: 'Алексей Смирнов' }, { label: 'Екатерина Иванова' }];
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '200px' }}>
-            <Autocomplete suggestions={suggestions} appearance="default" label="Default" placeholder="Placeholder" />
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', height: '300px' }}>
+            <Autocomplete suggestions={suggestions} appearance="default" label="Default" placeholder="Placeholder" titleCaption="titleCaption" />
+            <Autocomplete suggestions={suggestions} appearance="clear" label="Clear" placeholder="Placeholder" titleCaption="titleCaption" />
+            <Autocomplete suggestions={suggestions} appearance="clear" hasDivider label="Clear с разделителем" placeholder="Placeholder" titleCaption="titleCaption" />
             <Autocomplete suggestions={suggestions} appearance="viewMode" value="Алексей Смирнов" readOnly label="ViewMode" placeholder="Placeholder" />
         </div>
     );
@@ -291,7 +295,7 @@ type SuggestionItem = {
                         listMaxHeight="250px"
                         onScroll={onScroll}
                         threshold={0}
-                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="primary" />} title="Загрузка" stretching="auto" /> : undefined}
+                        renderListEnd={isInfiniteLoading ? () => <Cell contentLeft={<Spinner view="default" />} title="Загрузка" stretching="auto" /> : undefined}
                         label="Label"
                         placeholder="Placeholder"
                         leftHelper="Введите имя Алексей"
@@ -489,7 +493,7 @@ type SuggestionItem = {
                         suggestions={suggestions}
                         listMaxHeight="250px"
                         renderList={isError ? () => <EmptyState icon={<IconRefresh />} description="Произошла ошибка. Попробуйте обновить." buttonText="Обновить" buttonAction={handleGetData} /> : undefined}
-                        contentRight={isLoading ? <Spinner view="primary" /> : undefined}
+                        contentRight={isLoading ? <Spinner view="default" /> : undefined}
                         label="Label"
                         placeholder="Placeholder"
                         leftHelper="Введите имя Алексей"
@@ -594,7 +598,7 @@ type SuggestionItem = {
 
         ```tsx live
         import React from 'react';
-        import { Select, Cell } from '@salutejs/sdds-finai';
+        import { Autocomplete, Cell } from '@salutejs/sdds-finai';
 
         export function App() {
             const items = [

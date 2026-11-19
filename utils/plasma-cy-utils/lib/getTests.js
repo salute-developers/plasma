@@ -46,9 +46,10 @@ var getConfig = function (component) {
  * @param {Record<string, string[]>} excludePropsValues - значения пропов, исключаемые из матрицы.
  * @param {string[]} propsForName - пропсы, значения которых включаются в имя теста.
  * @param {string[]} packagesForSkip - список пакетов, для которых тесты будут пропущены через describe.skip.
+ * @param {string} configComponentName - имя компонента, чей конфиг использовать для построения матрицы.
  */
 var getBaseVisualTests = function (_a) {
-    var component = _a.component, componentProps = _a.componentProps, children = _a.children, actionBeforeSnapshot = _a.actionBeforeSnapshot, configPropsForMatrix = _a.configPropsForMatrix, excludePropsValues = _a.excludePropsValues, propsForName = _a.propsForName, packagesForSkip = _a.packagesForSkip;
+    var component = _a.component, componentProps = _a.componentProps, children = _a.children, actionBeforeSnapshot = _a.actionBeforeSnapshot, configPropsForMatrix = _a.configPropsForMatrix, excludePropsValues = _a.excludePropsValues, propsForName = _a.propsForName, packagesForSkip = _a.packagesForSkip, configComponentName = _a.configComponentName;
     var componentExists = (0, CypressDecorator_1.hasComponent)(component);
     var pkgName = Cypress.env('package');
     var describeFn = (packagesForSkip === null || packagesForSkip === void 0 ? void 0 : packagesForSkip.includes(pkgName)) ? describe.skip : (0, CypressDecorator_1.getDescribeFN)(component);
@@ -57,7 +58,7 @@ var getBaseVisualTests = function (_a) {
         if (!Component) {
             return;
         }
-        var config = componentExists ? getConfig(component) : null;
+        var config = componentExists ? getConfig(configComponentName || component) : null;
         var configMatrix = (0, getConfigMatrix_1.getConfigMatrix)(config, configPropsForMatrix, excludePropsValues);
         configMatrix.forEach(function (combination) {
             var testParams = Object.entries(combination)

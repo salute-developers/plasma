@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react-vite';
-import { surfaceLiquid01 } from '@salutejs/plasma-core';
+import { plasmaCore } from '@salutejs/plasma-new-hope/styled-components';
 
 import { InSpacingDecorator, disableProps } from '../../helpers';
 import { Button } from '../Button';
@@ -9,6 +9,8 @@ import { Body1 } from '../Typography';
 
 import { Spinner } from '.';
 import type { SpinnerProps } from '.';
+
+const { surfaceLiquid01 } = plasmaCore;
 
 const meta: Meta<SpinnerProps> = {
     title: 'Data Display/Spinner',

@@ -15,6 +15,7 @@ const { meta: META, Default } = getDatePickerStories({
         size: 's',
         hasHint: false,
         hintText: '',
+        titleCaption: '',
         enableContentLeft: false,
     },
     disablePropsList: [
@@ -33,7 +34,6 @@ const { meta: META, Default } = getDatePickerStories({
         'hintPlacement',
         'hintWidth',
         'hintHasArrow',
-        'enableContentLeft',
         'showShortcuts',
         'dateShortcutsWidth',
         'dateShortcutsPlacement',

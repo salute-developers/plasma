@@ -9,6 +9,11 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-primary);
 
@@ -57,6 +62,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             positive: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-positive);
 
@@ -105,6 +115,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             warning: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-warning);
 
@@ -153,6 +168,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: var(--text-secondary);
             `,
             negative: css`
+                ${tokens.scrollbarThumbBackgroundColor}: var(--surface-transparent-tertiary);
+                ${tokens.scrollbarThumbBackgroundColorHover}: var(--surface-transparent-tertiary-hover);
+                ${tokens.scrollbarThumbBackgroundColorActive}: var(--surface-transparent-tertiary-active);
+                ${tokens.scrollbarTrackBackgroundColor}: var(--surface-transparent-primary);
+
                 ${tokens.textFieldColor}: var(--text-primary);
                 ${tokens.textFieldClearColor}: var(--text-negative);
 
@@ -203,6 +223,8 @@ export const config = {
         },
         size: {
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 3rem;
                 ${tokens.textFieldPadding}: 0.875rem 1rem 0.875rem 1rem;
                 ${tokens.textFieldBorderRadius}: 0.75rem;
@@ -234,6 +256,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.textFieldTitleCaptionMargin}: 0.3125rem;
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -286,6 +309,8 @@ export const config = {
                 ${tokens.infiniteLoaderGap}: 0.375rem;
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
@@ -317,6 +342,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.textFieldLabelLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.textFieldTitleCaptionMargin}: 0.1875rem;
+                ${tokens.textFieldTitleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.textFieldTitleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldTitleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.textFieldTitleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -448,8 +474,9 @@ export const config = {
                 ${tokens.textFieldPlaceholderColor}: var(--text-tertiary);
                 ${tokens.textFieldLabelColor}: var(--text-secondary);
                 ${tokens.textFieldLeftHelperColor}: var(--text-tertiary);
-                ${tokens.textFieldTitleCaptionColor}: var(--text-secondary);
+                ${tokens.textFieldTitleCaptionColor}: var(--text-tertiary);
                 ${tokens.textFieldContentSlotColor}: var(--text-tertiary);
+                ${tokens.textFieldContentSlotRightColor}: var(--text-tertiary);
                 ${tokens.textFieldBackgroundColor}: var(--surface-solid-tertiary);
                 ${tokens.textFieldBorderColor}: transparent;
             `,
@@ -457,6 +484,7 @@ export const config = {
         readOnly: {
             true: css`
                 ${tokens.textFieldReadOnlyOpacity}: 1;
+                ${tokens.textFieldContentSlotColor}: var(--text-secondary);
                 ${tokens.textFieldColorReadOnly}: var(--text-primary);
                 ${tokens.textFieldBackgroundColorReadOnly}: var(--surface-solid-secondary);
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);

@@ -44,6 +44,12 @@ export type CustomPaginationProps = {
     size?: string;
 
     /**
+     * Показывать номера страниц.
+     * @default true
+     */
+    hasPageRange?: boolean;
+
+    /**
      * Количество страниц
      */
     count?: number;
@@ -62,6 +68,12 @@ export type CustomPaginationProps = {
      * Выбор страницы через Input
      */
     hasQuickJump?: boolean;
+
+    /**
+     * Показывать общее число страниц рядом с полем быстрого перехода.
+     * @default false
+     */
+    hasTotalPages?: boolean;
 
     /**
      * Выбор количества результатов на странице

@@ -49,13 +49,11 @@ export function App() {
         export function App() {
             const [v1, setV1] = useState(50);
             const [v2, setV2] = useState(50);
-            const [v3, setV3] = useState(50);
 
             return (
                 <div style={{ display: 'flex', gap: '1rem', flexDirection: 'column', width: '25rem' }}>
                     <Slider view="default" min={0} max={100} value={v1} label="Default" onChange={setV1} />
                     <Slider view="accent" min={0} max={100} value={v2} label="Accent" onChange={setV2} />
-                    <Slider view="gradient" min={0} max={100} value={v3} label="Gradient" onChange={setV3} />
                 </div>
             );
         }

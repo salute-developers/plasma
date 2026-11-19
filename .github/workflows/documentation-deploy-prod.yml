@@ -3,13 +3,16 @@ name: Deploy documentations artefacts [PROD]
 on:
     workflow_dispatch:
     workflow_run:
-      workflows: ["Release"]
-      branches: [master]
-      types: [completed]
+        workflows: ["Publish npm"]
+        branches: [master]
+        types: [completed]
 
 jobs:
     state:
         name: Computed state
+        if: >-
+            ${{ github.event_name == 'workflow_dispatch' ||
+                (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
         runs-on: ubuntu-22.04
         outputs:
             MATRIX: ${{ steps.matrix.outputs.result }}
@@ -32,7 +35,9 @@ jobs:
 
     run:
         name: Deploy artifacts [PROD]
-        if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+        if: >-
+            ${{ github.event_name == 'workflow_dispatch' ||
+                (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push') }}
         uses: ./.github/workflows/documentation-deploy-common.yml
         with:
             path: 'current'

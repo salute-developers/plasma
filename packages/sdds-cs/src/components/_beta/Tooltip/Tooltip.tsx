@@ -7,7 +7,7 @@ import sizeStyles from './config/Size.module.css';
 import viewStyles from './config/View.module.css';
 
 type TooltipView = 'default' | 'secondary';
-type TooltipSize = 'm' | 's';
+type TooltipSize = 's';
 
 export type TooltipProps = CoreTooltipProps & {
     view?: TooltipView;

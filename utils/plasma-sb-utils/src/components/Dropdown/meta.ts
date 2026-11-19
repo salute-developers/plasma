@@ -26,7 +26,7 @@ export const createMeta = ({
         args: {
             size: 'm',
             variant: 'normal',
-            placement: 'bottom',
+            placement: 'bottom-start',
             trigger: 'click',
             openByRightClick: false,
             offset: [0, 8],

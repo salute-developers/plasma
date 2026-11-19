@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
-import type { StepsContent, StepsContentAlign, StepsOrientation } from '../../Steps.types';
+import type { StepsContent, StepsContentAlign, StepsOrientation, StepsProps } from '../../Steps.types';
 
 export type StepStatus = 'active' | 'inactive' | 'completed';
 
@@ -19,6 +19,10 @@ export interface StepItemProps {
      * Отображение выполненного шага
      */
     completedItemView?: string;
+    /**
+     * Диаметр индикатора шага в пикселях, перекрывает размер индикатора из Steps.size
+     */
+    indicatorSize?: number;
     /**
      * Кастомная высота шага (применяется в вертикальной ориентации)
      */
@@ -52,6 +56,14 @@ export interface StepItemProps {
      * @default false
      */
     disabled?: boolean;
+    /**
+     * Classname для шага
+     */
+    className?: string;
+    /**
+     * Стили для шага
+     */
+    style?: CSSProperties;
 }
 
 export type StepItemExtendedProps = StepItemProps & {
@@ -59,11 +71,13 @@ export type StepItemExtendedProps = StepItemProps & {
     items: StepItemProps[];
     size: string;
     hasLine?: boolean;
+    hasLastLine?: boolean;
     hasContent?: StepsContent;
     hasLoader?: boolean;
     onClick?: (item: StepItemProps, index: number) => void;
     contentAlign?: StepsContentAlign;
     orientation?: StepsOrientation;
+    renderItem?: StepsProps['renderItem'];
     /**
      * Отображение шага по умолчанию (берётся из Steps.view)
      */

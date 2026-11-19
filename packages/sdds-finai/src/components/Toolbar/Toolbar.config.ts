@@ -1,9 +1,5 @@
 import { css, toolbarTokens } from '@salutejs/plasma-new-hope/styled-components';
-import {
-    shadowDownSoftS,
-    surfaceSolidCardBrightness,
-    surfaceTransparentTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { shadowDownSoftS, surfaceSolidCardBrightness, surfaceTransparentTertiary } from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {

@@ -15,6 +15,17 @@ export const classes = {
 
 export const tokens = {
     /** @styleType dimension */
+    scrollbarWidth: '--plasma-select-scrollbar-width',
+    /** @styleType color */
+    scrollbarTrackBackgroundColor: '--plasma-select-scrollbar-track-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColor: '--plasma-select-scrollbar-thumb-background-color',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorHover: '--plasma-select-scrollbar-thumb-background-color-hover',
+    /** @styleType color */
+    scrollbarThumbBackgroundColorActive: '--plasma-select-scrollbar-thumb-background-color-active',
+
+    /** @styleType dimension */
     borderRadius: '--plasma-select-border-radius',
     /** @styleType dimension */
     padding: '--plasma-select-padding',
@@ -145,6 +156,8 @@ export const tokens = {
     // Токены для TextField
     /** @styleType color */
     textFieldColor: '--plasma-select-textfield-color',
+    /** @styleType color */
+    textFieldColorFocus: '--plasma-select-textfield-color-focus',
 
     /** @styleType color */
     textFieldBackgroundColor: '--plasma-select-textfield-background-color',
@@ -157,13 +170,26 @@ export const tokens = {
     textFieldBorderColor: '--plasma-select-textfield-border-color',
     /** @styleType color @styleProp textFieldBorderColor @styleState hovered */
     textFieldBorderColorHover: '--plasma-select-textfield-border-color-hover',
-    /** @styleType color @styleProp textFieldBorderColor @styleState focused */
+    /** @styleType color */
     textFieldBorderColorFocus: '--plasma-select-textfield-border-color-focus',
 
     /** @styleType color */
+    textFieldDividerColor: '--plasma-select-textfield-divider-color',
+    /** @styleType color @styleProp textFieldDividerColor @styleState hovered */
+    textFieldDividerColorHover: '--plasma-select-textfield-divider-color-hover',
+    /** @styleType color */
+    textFieldDividerColorFocus: '--plasma-select-textfield-divider-color-focus',
+
+    /** @styleType color */
     textFieldPlaceholderColor: '--plasma-select-textfield-placeholder-color',
+    /** @styleType color @styleProp textFieldPlaceholderColor @styleState hovered */
+    textFieldPlaceholderColorHover: '--plasma-select-textfield-placeholder-color-hover',
     /** @styleType color */
     textFieldPlaceholderColorFocus: '--plasma-select-textfield-placeholder-color-focus',
+    /** @styleType color */
+    textFieldClearPlaceholderColor: '--plasma-select-textfield-clear-placeholder-color',
+    /** @styleType color */
+    textFieldClearPlaceholderColorFocus: '--plasma-select-textfield-clear-placeholder-color-focus',
 
     /** Цвета для read-only состояния */
     /** @styleType color */
@@ -174,6 +200,8 @@ export const tokens = {
     textFieldBorderColorReadOnly: '--plasma-select-textfield-border-color-readonly',
     /** @styleType color */
     textFieldPlaceholderColorReadOnly: '--plasma-select-textfield__placeholder-color-readonly',
+    /** @styleType color */
+    textFieldDividerColorReadOnly: '--plasma-select-textfield-divider-color-readonly',
 
     /** @styleType dimension */
     textFieldHeight: '--plasma-select-textfield-height',
@@ -288,7 +316,7 @@ export const tokens = {
 
     /** @styleType color */
     textFieldLeftHelperColor: '--plasma-select-textfield-left-helper-color',
-    /** @styleType color @styleProp textFieldLeftHelperColor @styleState focused */
+    /** @styleType color */
     textFieldLeftHelperColorFocus: '--plasma-select-textfield-left-helper-color-focus',
     /** @styleType color */
     textFieldLeftHelperColorReadOnly: '--plasma-select-textfield__left-helper-color-readonly',

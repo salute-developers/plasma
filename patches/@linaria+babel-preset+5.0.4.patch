@@ -1,0 +1,32 @@
+diff --git a/node_modules/@linaria/babel-preset/esm/vm/createVmContext.js b/node_modules/@linaria/babel-preset/esm/vm/createVmContext.js
+index 5e9ad0a..9bc7596 100644
+--- a/node_modules/@linaria/babel-preset/esm/vm/createVmContext.js
++++ b/node_modules/@linaria/babel-preset/esm/vm/createVmContext.js
+@@ -20,7 +20,10 @@ function createBaseContext(win, additionalContext) {
+   baseContext.document = win?.document;
+   baseContext.window = win;
+   baseContext.self = win;
+-  baseContext.top = win;
++  // Happy DOM windows already expose top as a read-only alias.
++  if (!win) {
++    baseContext.top = win;
++  }
+   baseContext.parent = win;
+   baseContext.global = win;
+   baseContext.process = process;
+diff --git a/node_modules/@linaria/babel-preset/lib/vm/createVmContext.js b/node_modules/@linaria/babel-preset/lib/vm/createVmContext.js
+index b15f354..dc0357c 100644
+--- a/node_modules/@linaria/babel-preset/lib/vm/createVmContext.js
++++ b/node_modules/@linaria/babel-preset/lib/vm/createVmContext.js
+@@ -28,7 +28,10 @@ function createBaseContext(win, additionalContext) {
+   baseContext.document = win === null || win === void 0 ? void 0 : win.document;
+   baseContext.window = win;
+   baseContext.self = win;
+-  baseContext.top = win;
++  // Happy DOM windows already expose top as a read-only alias.
++  if (!win) {
++    baseContext.top = win;
++  }
+   baseContext.parent = win;
+   baseContext.global = win;
+   baseContext.process = process;

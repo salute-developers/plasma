@@ -7,6 +7,7 @@ import {
     inverseTextPrimary,
     onDarkTextPrimary,
     outlineTransparentTertiary,
+    surfaceAccent,
     surfaceSolidDefault,
     textAccent,
     textNegative,
@@ -112,7 +113,7 @@ export const config = {
             `,
             // deprecated
             accent: css`
-                ${radioboxTokens.fillColor}: ${textAccent};
+                ${radioboxTokens.fillColor}: ${surfaceAccent};
                 ${radioboxTokens.ellipseColor}: ${inverseTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;

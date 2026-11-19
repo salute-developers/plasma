@@ -15,10 +15,10 @@ import {
     sdds_serv__light,
     sdds_scan__light,
     sdds_platform_ai__light,
-    sdds_finai__light,
     sdds_dfa__light,
 } from '@salutejs/sdds-themes';
 import { sdds_os__light } from '@salutejs-ds/sdds_os';
+import { sdds_finai_default__light } from '@sddsjs/sdds_finai';
 // plasma-b2c
 import { dark } from '@salutejs/plasma-tokens-b2c/themes';
 import { standard as standardTypo, compatible as compatibleTypo } from '@salutejs/plasma-typo';
@@ -37,7 +37,7 @@ const ThemeSERV = createGlobalStyle(sdds_serv__light);
 const ThemeSCAN = createGlobalStyle(sdds_scan__light);
 const ThemeOS = createGlobalStyle(sdds_os__light);
 const ThemePLATFORMAI = createGlobalStyle(sdds_platform_ai__light);
-const ThemeFINAI = createGlobalStyle(sdds_finai__light);
+const ThemeFINAI = createGlobalStyle(sdds_finai_default__light);
 const ThemeDFA = createGlobalStyle(sdds_dfa__light);
 const ThemeHOMEDS = createGlobalStyle(plasma_homeds__light);
 const ThemeWEB = createGlobalStyle(plasma_web__light);

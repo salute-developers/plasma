@@ -36,6 +36,10 @@ type GetBaseVisualTestsArgs = {
      * Список пакетов, для которых тесты будут пропущены через describe.skip.
      */
     packagesForSkip?: string[];
+    /**
+     * Имя компонента, чей конфиг использовать для построения матрицы (если отличается от component).
+     */
+    configComponentName?: string;
 };
 /**
  * Генерирует базовые визуальные тесты для компонента.
@@ -55,6 +59,7 @@ type GetBaseVisualTestsArgs = {
  * @param {Record<string, string[]>} excludePropsValues - значения пропов, исключаемые из матрицы.
  * @param {string[]} propsForName - пропсы, значения которых включаются в имя теста.
  * @param {string[]} packagesForSkip - список пакетов, для которых тесты будут пропущены через describe.skip.
+ * @param {string} configComponentName - имя компонента, чей конфиг использовать для построения матрицы.
  */
-export declare const getBaseVisualTests: ({ component, componentProps, children, actionBeforeSnapshot, configPropsForMatrix, excludePropsValues, propsForName, packagesForSkip, }: GetBaseVisualTestsArgs) => void | Mocha.Suite;
+export declare const getBaseVisualTests: ({ component, componentProps, children, actionBeforeSnapshot, configPropsForMatrix, excludePropsValues, propsForName, packagesForSkip, configComponentName, }: GetBaseVisualTestsArgs) => void | Mocha.Suite;
 export {};

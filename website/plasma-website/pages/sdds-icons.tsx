@@ -10,6 +10,7 @@ import type { IconManifest } from '@salutejs/sdds-mcp/icon-search';
 import { Footer, Header, IconsToolbar, Main } from '../components/roster';
 import { multipleMediaQuery } from '../mixins';
 import { StyledActionIcon } from '../components/roster/StyledActionIcon';
+import { useSearchQueryParam } from '../hooks/useSearchQueryParam';
 import { getFormattedDate } from '../utils';
 import { defaultIconStyle, matchesIconStyle } from '../utils/iconStyle';
 import type { IconStyle } from '../utils/iconStyle';
@@ -194,8 +195,8 @@ function SddsIconsPage() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const [manifestState, setManifestState] = useState<ManifestState>({ status: 'loading' });
-    const [searchQuery, setSearchQuery] = useState('');
     const [iconStyle, setIconStyle] = useState<IconStyle>(defaultIconStyle);
+    const [searchQuery, setSearchQuery] = useSearchQueryParam();
 
     const loadManifest = useCallback(async (signal?: AbortSignal) => {
         setManifestState({ status: 'loading' });
@@ -282,7 +283,12 @@ function SddsIconsPage() {
                     version={manifestVersion}
                 />
                 <StyledMain>
-                    <IconsToolbar activeCollection="sdds" iconStyle={iconStyle} onIconStyleChange={setIconStyle} />
+                    <IconsToolbar
+                        activeCollection="sdds"
+                        searchQuery={searchQuery}
+                        iconStyle={iconStyle}
+                        onIconStyleChange={setIconStyle}
+                    />
                     <StyledSearchSection>
                         <StyledSearchInput
                             ref={inputRef}

@@ -7,15 +7,20 @@ import { tokens, classes } from '../../../../Select.tokens';
 
 const mergedConfig = mergeConfig(textFieldConfig);
 const TextField = component(mergedConfig);
+const placeholderColorHover = `var(${tokens.textFieldPlaceholderColorHover}, var(${tokens.textFieldPlaceholderColor}))`;
+const openedValueColor = `var(${tokens.textFieldColorFocus}, var(${tokens.textFieldColor}))`;
+const leftHelperColor = `var(${tokens.textFieldLeftHelperColorFocus}, var(${tokens.textFieldLeftHelperColor}))`;
 
 export const StyledTextField = styled(TextField)<{ opened: boolean }>`
-    ${textFieldTokens.color}: var(${tokens.textFieldColor});
+    ${textFieldTokens.color}: ${({ opened }) => (opened ? openedValueColor : `var(${tokens.textFieldColor})`)};
+    ${textFieldTokens.colorFocus}: var(${tokens.textFieldColorFocus});
     ${textFieldTokens.backgroundColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColor})`};
     ${textFieldTokens.borderColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColor})`};
     ${textFieldTokens.labelColor}: var(${tokens.textFieldLabelColor});
-    ${textFieldTokens.leftHelperColor}: var(${tokens.textFieldLeftHelperColor});
+    ${textFieldTokens.leftHelperColor}: ${({ opened }) =>
+    opened ? leftHelperColor : `var(${tokens.textFieldLeftHelperColor})`};
 
     ${textFieldTokens.colorReadOnly}: var(${tokens.textFieldColorReadOnly});
     ${textFieldTokens.backgroundColorReadOnly}: var(${tokens.textFieldBackgroundColorReadOnly});
@@ -27,14 +32,24 @@ export const StyledTextField = styled(TextField)<{ opened: boolean }>`
 
     ${textFieldTokens.placeholderColor}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.placeholderColorHover}: ${placeholderColorHover};
     ${textFieldTokens.placeholderColorFocus}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldPlaceholderColorFocus})` : `var(${tokens.textFieldPlaceholderColor})`};
+    ${textFieldTokens.clearPlaceholderColor}: var(${tokens.textFieldClearPlaceholderColor});
+    ${textFieldTokens.clearPlaceholderColorFocus}: var(${tokens.textFieldClearPlaceholderColorFocus});
 
     ${textFieldTokens.backgroundColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBackgroundColorFocus})` : `var(${tokens.textFieldBackgroundColorHover})`};
     ${textFieldTokens.borderColorHover}: ${({ opened }) =>
     opened ? `var(${tokens.textFieldBorderColorFocus})` : `var(${tokens.textFieldBorderColorHover})`};
     ${textFieldTokens.borderColorFocus}: var(${tokens.textFieldBorderColorFocus});
+
+    ${textFieldTokens.dividerColor}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldDividerColorFocus})` : `var(${tokens.textFieldDividerColor})`};
+    ${textFieldTokens.dividerColorHover}: ${({ opened }) =>
+    opened ? `var(${tokens.textFieldDividerColorFocus})` : `var(${tokens.textFieldDividerColorHover})`};
+    ${textFieldTokens.dividerColorFocus}: var(${tokens.textFieldDividerColorFocus});
+    ${textFieldTokens.dividerColorReadOnly}: var(${tokens.textFieldDividerColorReadOnly});
 
     ${textFieldTokens.optionalColor}: var(${tokens.textFieldOptionalColor});
 

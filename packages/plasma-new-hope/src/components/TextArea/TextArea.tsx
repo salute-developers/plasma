@@ -116,6 +116,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             labelPlacement = 'inner',
             titleCaption,
             placeholder,
+            onScroll,
             leftHelper,
             leftHelperPlacement = 'inner',
             rightHelperPlacement = 'inner',
@@ -185,6 +186,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const outerRef = createRef<HTMLTextAreaElement>();
         const hiddenRef = useRef<HTMLTextAreaElement | null>(null);
         const hintRef = useRef<HTMLDivElement>(null);
+        const placeholderRef = useRef<HTMLLabelElement>(null);
 
         useOutsideClick(() => {
             setIsHintVisible(false);
@@ -257,6 +259,14 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             size,
         );
 
+        const limitPlaceholderHeight = () => {
+            if (placeholderRef.current && outerRef.current) {
+                placeholderRef.current.style.maxHeight = `${outerRef.current.clientHeight}px`;
+            }
+        };
+
+        useLayoutEffect(limitPlaceholderHeight, [placeholderLabel, hasHeader]);
+
         useResizeObserver(outerRef, (currentElement) => {
             const { width: inlineWidth } = currentElement.style;
 
@@ -266,7 +276,19 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             }
 
             recalculateAutoResize();
+            limitPlaceholderHeight();
         });
+
+        const onScrollHandler = useCallback(
+            (event: React.UIEvent<HTMLTextAreaElement>) => {
+                if (placeholderRef.current) {
+                    placeholderRef.current.scrollTop = event.currentTarget.scrollTop;
+                }
+
+                onScroll?.(event);
+            },
+            [onScroll],
+        );
 
         const onFocusHandler = useCallback(() => {
             setFocused(true);
@@ -430,6 +452,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                 {contentRight && <StyledContent hasHeader={hasHeader}>{contentRight}</StyledContent>}
                                 {headerSlot && placeholderLabel && (
                                     <StyledPlaceholder
+                                        ref={placeholderRef}
                                         hasContentRight={Boolean(contentRight)}
                                         className={styledPlaceholder}
                                         htmlFor={id}
@@ -457,6 +480,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             resize={resize}
                             defaultValue={defaultValue}
                             onChange={onChangeHandler}
+                            onScroll={onScrollHandler}
                             {...rest}
                         />
                         {Boolean(applyAutoResize || cols) && (
@@ -485,6 +509,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     )}
                     {!hasHeader && placeholderLabel && (
                         <StyledPlaceholder
+                            ref={placeholderRef}
                             hasContentRight={Boolean(contentRight)}
                             className={styledPlaceholder}
                             htmlFor={id}

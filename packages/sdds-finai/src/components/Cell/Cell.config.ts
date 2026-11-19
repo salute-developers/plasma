@@ -1,5 +1,5 @@
 import { css, cellTokens } from '@salutejs/plasma-new-hope/styled-components';
-import { bodyL, bodyM, bodyS, bodyXS, textPrimary, textSecondary } from '@salutejs/sdds-themes/tokens/sdds_finai';
+import { bodyL, bodyM, bodyS, bodyXS, textPrimary, textSecondary } from '@sddsjs/sdds_finai';
 
 export const config = {
     variations: {

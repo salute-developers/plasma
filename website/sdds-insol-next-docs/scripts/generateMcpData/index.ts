@@ -2,6 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { z } from 'zod';
 
+import { tools } from './tools.js';
+
 const OutputPropSchema = z.object({
     name: z.string(),
     type: z.string(),
@@ -52,6 +54,7 @@ const ManifestSchema = z.object({
     source: z.object({
         repo: z.string(),
     }),
+    tools: z.array(z.string().min(1)),
     paths: z.record(z.string(), z.string()),
 });
 
@@ -533,6 +536,7 @@ function main(): void {
         source: {
             repo: 'https://github.com/salute-developers/plasma',
         },
+        tools,
         paths: manifestPaths,
     });
 

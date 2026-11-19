@@ -96,15 +96,12 @@ export const badgeConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
         transparent: {
             css: transparentCSS,
-            attrs: true,
         },
         clear: {
             css: clearCSS,
-            attrs: true,
         },
     },
     defaults: {

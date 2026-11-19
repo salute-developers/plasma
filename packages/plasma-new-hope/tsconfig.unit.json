@@ -1,0 +1,17 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "composite": true,
+        "rootDir": ".",
+        "outDir": "./node_modules/.cache/tsc-unit",
+        "types": ["node"]
+    },
+    "include": [
+        "./src/**/*.test.ts",
+        "./src/**/*.test.tsx",
+        "./vitest.config.mts",
+        "./vitest.setup.browser.ts",
+        "./.storybook/declarations.d.ts"
+    ],
+    "exclude": []
+}

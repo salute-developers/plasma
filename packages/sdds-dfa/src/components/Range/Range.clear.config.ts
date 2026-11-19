@@ -11,10 +11,8 @@ import {
     surfaceSolidCardBrightness,
     surfaceTransparentPrimary,
     surfaceTransparentTertiary,
+    surfaceWarning,
     textAccent,
-    textNegative,
-    textNegativeActive,
-    textNegativeHover,
     textPositive,
     textPositiveActive,
     textPositiveHover,
@@ -25,6 +23,9 @@ import {
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    textWarning,
+    textWarningActive,
+    textWarningHover,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -46,7 +47,7 @@ export const config = {
                 ${tokens.dividerColor}: ${surfaceClear};
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.leftHelperColor}: ${textSecondary};
-                ${tokens.leftHelperColorError}: ${textNegative};
+                ${tokens.leftHelperColorError}: ${textWarning};
                 ${tokens.leftHelperColorSuccess}: ${textPositive};
                 ${tokens.titleCaptionColor}: ${textSecondary};
                 ${tokens.hintIconColor}: ${textSecondary};
@@ -76,17 +77,17 @@ export const config = {
                 ${tokens.textFieldContentSlotColorSuccessHover}: ${textPositiveHover};
                 ${tokens.textFieldContentSlotColorSuccessActive}: ${textPositiveActive};
 
-                ${tokens.contentSlotColorError}: ${textNegative};
-                ${tokens.contentSlotColorErrorHover}: ${textNegativeHover};
-                ${tokens.contentSlotColorErrorActive}: ${textNegativeActive};
+                ${tokens.contentSlotColorError}: ${textWarning};
+                ${tokens.contentSlotColorErrorHover}: ${textWarningHover};
+                ${tokens.contentSlotColorErrorActive}: ${textWarningActive};
 
-                ${tokens.textFieldContentSlotColorError}: ${textNegative};
-                ${tokens.textFieldContentSlotColorErrorHover}: ${textNegativeHover};
-                ${tokens.textFieldContentSlotColorErrorActive}: ${textNegativeActive};
+                ${tokens.textFieldContentSlotColorError}: ${textWarning};
+                ${tokens.textFieldContentSlotColorErrorHover}: ${textWarningHover};
+                ${tokens.textFieldContentSlotColorErrorActive}: ${textWarningActive};
 
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldColorSuccess}: ${textPositive};
-                ${tokens.textFieldColorError}: ${textNegative};
+                ${tokens.textFieldColorError}: ${textWarning};
                 ${tokens.focusColor}: ${textAccent};
                 ${tokens.textFieldPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
@@ -106,7 +107,7 @@ export const config = {
                 ${tokens.textFieldTextAfterColor}: ${textTertiary};
 
                 ${tokens.textFieldDividerColorSuccess}: ${surfacePositive};
-                ${tokens.textFieldDividerColorError}: ${surfaceNegative};
+                ${tokens.textFieldDividerColorError}: ${surfaceWarning};
                 ${tokens.textFieldDividerColorHover}: ${textSecondary};
                 ${tokens.textFieldDividerColorFocus}: ${surfaceAccent};
 

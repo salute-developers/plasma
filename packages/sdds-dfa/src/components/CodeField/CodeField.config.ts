@@ -8,13 +8,13 @@ import {
     bodyXS,
     outlineAccent,
     surfaceAccent,
-    surfaceTransparentNegative,
     surfaceTransparentPrimary,
     surfaceTransparentPrimaryHover,
     surfaceTransparentSecondary,
-    textNegative,
+    surfaceTransparentWarning,
     textPrimary,
     textSecondary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -29,16 +29,16 @@ export const config = {
                 ${tokens.caretColor}: ${surfaceAccent};
 
                 ${tokens.captionColor}: ${textSecondary};
-                ${tokens.captionColorError}: ${textNegative};
+                ${tokens.captionColorError}: ${textWarning};
 
                 ${tokens.codeColor}: ${textPrimary};
-                ${tokens.codeColorError}: ${textNegative};
+                ${tokens.codeColorError}: ${textWarning};
                 ${tokens.borderColorFocus}: ${outlineAccent};
 
                 ${tokens.backgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.backgroundColorHover}: ${surfaceTransparentPrimaryHover};
                 ${tokens.backgroundColorFocus}: ${surfaceTransparentSecondary};
-                ${tokens.backgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.backgroundErrorColor}: ${surfaceTransparentWarning};
             `,
         },
         size: {

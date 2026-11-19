@@ -23,33 +23,6 @@ export function initHome() {
    Сценарии первого экрана, витрины продуктов, конфигуратора тем и сцены
    связей. Панель — в core.js, появление блоков — в reveal.js. */
 
-    /* состояние возврата */
-    const RESUME_KEY = 'sdds-portal-returning';
-    const resume = byId('resume');
-    function readFlag() {
-        try {
-            return localStorage.getItem(RESUME_KEY) === '1';
-        } catch (e) {
-            return false;
-        }
-    }
-    function writeFlag(v) {
-        try {
-            v ? localStorage.setItem(RESUME_KEY, '1') : localStorage.removeItem(RESUME_KEY);
-        } catch (e) {
-            // Storage can be unavailable in private browsing contexts.
-        }
-    }
-    if (readFlag()) resume.classList.add('is-on');
-    byId('builderCta').addEventListener('click', () => {
-        writeFlag(true);
-        resume.classList.add('is-on');
-    });
-    byId('resumeReset').addEventListener('click', () => {
-        writeFlag(false);
-        resume.classList.remove('is-on');
-    });
-
     /* фоновое видео */
     /* видео первого экрана.
    Маятник (прямой ход + обратный) уже записан в сам файл: hero-loop.mp4 собран

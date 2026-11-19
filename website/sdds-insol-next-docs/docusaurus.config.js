@@ -24,14 +24,14 @@ module.exports = {
     url: 'https://plasma.sberdevices.ru/',
     baseUrl,
     onBrokenLinks: 'warn',
-    onBrokenMarkdownLinks: 'warn',
     favicon: 'images/favicon.png',
     organizationName: 'Salute-Developers',
     projectName: 'sdds-insol-next',
     trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock', 'docusaurus-theme-search-typesense'],
     future: {
-        experimental_faster: true,
+        v4: true,
+        faster: true,
     },
     themeConfig: {
         navbar: {
@@ -125,6 +125,7 @@ module.exports = {
         ],
     ],
     plugins: [
+        // ['@salutejs/docusaurus-plugin-yandex-metrika', { counterID: 113706415 }],
         function docgenPlugin() {
             // Плагин генерации документации
             return {
@@ -270,6 +271,7 @@ module.exports = {
                     'guides/next*',
                     'guides/how-to-mcp*',
                     'guides/how-to-icons*',
+                    'guides/how-to-plasma-icons*',
                     'guides/react_17*',
                     'guides/FAQ*',
                     'components/**',
@@ -287,6 +289,9 @@ module.exports = {
         ],
     ],
     markdown: {
+        hooks: {
+            onBrokenMarkdownLinks: 'warn',
+        },
         format: 'detect',
         mdx1Compat: {
             comments: true,

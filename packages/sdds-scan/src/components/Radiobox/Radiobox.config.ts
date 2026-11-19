@@ -4,6 +4,7 @@ import {
     bodyS,
     bodyXS,
     onDarkTextPrimary,
+    surfaceAccent,
     textAccent,
     textSecondary,
 } from '@salutejs/sdds-themes/tokens/sdds_scan';
@@ -71,7 +72,7 @@ export const config = {
          */
         view: {
             accent: css`
-                ${radioboxTokens.fillColor}: ${textAccent};
+                ${radioboxTokens.fillColor}: ${surfaceAccent};
                 ${radioboxTokens.ellipseColor}: ${onDarkTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;

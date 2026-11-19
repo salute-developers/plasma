@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 
 import { routeManifest } from './routeManifest';
 import { PageEffects } from './effects';
+import { MetrikaHits } from './metrika';
 import { SiteLink } from './shared';
 
 const pages = import.meta.glob<{ default: React.ComponentType }>('./pages/*.tsx', { eager: true });
@@ -51,6 +52,7 @@ export default function App() {
                     }
                 />
             </Routes>
+            <MetrikaHits />
         </>
     );
 }

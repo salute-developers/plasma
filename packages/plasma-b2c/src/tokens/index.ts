@@ -9,6 +9,6 @@ export {
     linkVisitedActive,
     inputBorder,
     inputBorderHover,
-} from '@salutejs/plasma-hope';
+} from './colors';
 
 export * from './typography';

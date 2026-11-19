@@ -97,6 +97,7 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-m-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-m-line-height);
                 ${tokens.titleCaptionMargin}: 0.3125rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -189,6 +190,7 @@ export const config = {
                 ${tokens.labelLetterSpacing}: var(--plasma-typo-body-s-letter-spacing);
                 ${tokens.labelLineHeight}: var(--plasma-typo-body-s-line-height);
                 ${tokens.titleCaptionMargin}: 0.1875rem;
+                ${tokens.titleCaptionInnerLabelOffset}: 0.25rem;
                 ${tokens.titleCaptionFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.titleCaptionFontStyle}: var(--plasma-typo-body-xs-font-style);
                 ${tokens.titleCaptionFontSize}: var(--plasma-typo-body-xs-font-size);
@@ -336,7 +338,7 @@ export const config = {
 
                 ${tokens.labelColor}: var(--text-secondary);
                 ${tokens.leftHelperColor}: var(--text-tertiary);
-                ${tokens.titleCaptionColor}: var(--text-secondary);
+                ${tokens.titleCaptionColor}: var(--text-tertiary);
 
                 ${tokens.textFieldColor}: var(--text-secondary);
                 ${tokens.textFieldPlaceholderColor}: var(--text-tertiary);
@@ -362,6 +364,7 @@ export const config = {
                 ${tokens.textFieldBorderColorReadOnly}: transparent;
                 ${tokens.textFieldPlaceholderColorReadOnly}: var(--text-secondary);
                 ${tokens.textFieldContentSlotRightOpacityReadOnly}: 1;
+                ${tokens.textFieldContentRightSlotColor}: var(--text-tertiary);
             `,
         },
     },

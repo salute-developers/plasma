@@ -72,6 +72,18 @@ getBaseVisualTests({
     configPropsForMatrix: ['view', 'size'],
 });
 
+getBaseVisualTests({
+    component: 'Autocomplete',
+    componentProps: {
+        ...autocompleteProps,
+        appearance: 'clear',
+        hasDivider: true,
+    },
+    propsForName: ['appearance=clear', 'hasDivider=true'],
+    configPropsForMatrix: ['view', 'size'],
+    packagesForSkip: ['sdds-os', 'sdds-scan', 'sdds-platform-ai', 'sdds-sbcom', 'plasma-homeds'],
+});
+
 describeFn('Autocomplete', () => {
     const Autocomplete = componentExists ? getComponent<AutocompleteProps>('Autocomplete') : () => null;
 

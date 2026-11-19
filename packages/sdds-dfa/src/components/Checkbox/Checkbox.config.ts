@@ -7,9 +7,8 @@ import {
     inverseTextPrimary,
     onDarkTextPrimary,
     surfaceAccent,
-    surfaceNegative,
+    surfaceWarning,
     textAccent,
-    textNegative,
     textParagraph,
     textPositive,
     textPrimary,
@@ -158,11 +157,11 @@ export const config = {
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
             negative: css`
-                ${checkboxTokens.fillColor}: ${surfaceNegative};
+                ${checkboxTokens.fillColor}: ${surfaceWarning};
                 ${checkboxTokens.iconColor}: ${onDarkTextPrimary};
                 ${checkboxTokens.descriptionColor}: ${textSecondary};
                 ${checkboxTokens.triggerBackgroundColor}: transparent;
-                ${checkboxTokens.triggerBorderColor}: ${textNegative};
+                ${checkboxTokens.triggerBorderColor}: ${textWarning};
                 ${checkboxTokens.triggerBorderCheckedColor}: transparent;
             `,
         },

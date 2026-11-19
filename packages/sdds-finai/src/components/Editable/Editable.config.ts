@@ -1,0 +1,25 @@
+import { css, editableTokens } from '@salutejs/plasma-new-hope/styled-components';
+import { backgroundPrimary, textAccent, textPrimary, textSecondary, textTertiary } from '@sddsjs/sdds_finai';
+
+export const config = {
+    defaults: {
+        view: 'default',
+        size: 'm',
+    },
+    variations: {
+        view: {
+            default: css`
+                ${editableTokens.editButtonBackground}: ${backgroundPrimary};
+                ${editableTokens.editButtonColor}: ${textTertiary};
+                ${editableTokens.editButtonColorHover}: ${textPrimary};
+                ${editableTokens.placeholderColor}: ${textSecondary};
+                ${editableTokens.caretColor}: ${textAccent};
+            `,
+        },
+        size: {
+            m: css`
+                ${editableTokens.iconGap}: 1rem;
+            `,
+        },
+    },
+};

@@ -24,14 +24,14 @@ module.exports = {
     url: 'https://plasma.sberdevices.ru/',
     baseUrl,
     onBrokenLinks: 'warn',
-    onBrokenMarkdownLinks: 'warn',
     favicon: 'images/favicon.png',
     organizationName: 'Salute-Developers',
     projectName: 'sdds-bizcom',
     trailingSlash: true,
     themes: ['@docusaurus/theme-live-codeblock', 'docusaurus-theme-search-typesense'],
     future: {
-        experimental_faster: true,
+        v4: true,
+        faster: true,
     },
     themeConfig: {
         navbar: {
@@ -125,6 +125,7 @@ module.exports = {
         ],
     ],
     plugins: [
+        // ['@salutejs/docusaurus-plugin-yandex-metrika', { counterID: 113706395 }],
         function docgenPlugin() {
             // Плагин генерации документации
             return {
@@ -244,15 +245,17 @@ module.exports = {
                     'guides/next*',
                     'guides/how-to-mcp*',
                     'guides/how-to-icons*',
+                    'guides/how-to-plasma-icons*',
                     'guides/react_17*',
                     'guides/FAQ*',
                     'components/**',
+                    'ai/**',
                     'utils/**',
                     'form/**',
                 ],
                 rootContent: [
                     'Установка: `npm install @salutejs/sdds-bizcom @salutejs/sdds-themes` (peer-зависимости: react и react-dom версии 16.13.1 или выше).',
-                    'Точки входа: `@salutejs/sdds-bizcom` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-bizcom/styled-components` — нужен styled-components@5.3.11.',
+                    'Точки входа: `@salutejs/sdds-bizcom` — предсобранный CSS (поставка по умолчанию), `@salutejs/sdds-bizcom/styled-components` — нужен styled-components@5.3.11. AI-компоненты — из `@salutejs/sdds-bizcom/ai` и `@salutejs/sdds-bizcom/ai/styled-components`.',
                     'Темы: `sdds_bizcom__light`, `sdds_bizcom__dark` из `@salutejs/sdds-themes`; дизайн-токены — из `@salutejs/sdds-themes/tokens`.',
                     'MCP-сервер с актуальной документацией: `npx -y @salutejs/sdds-mcp@latest --lib sdds-bizcom`.',
                 ].join('\n\n'),
@@ -260,6 +263,9 @@ module.exports = {
         ],
     ],
     markdown: {
+        hooks: {
+            onBrokenMarkdownLinks: 'warn',
+        },
         format: 'detect',
         mdx1Compat: {
             comments: true,

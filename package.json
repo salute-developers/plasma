@@ -27,6 +27,7 @@
     "cy:cli": "node scripts/cy-cli.js",
     "cy:open": "cypress open --component --browser chromium",
     "cy:report:coverage": "nyc report --reporter=cobertura --reporter=html",
+    "unit:run": "npm run test --workspace=@salutejs/plasma-new-hope --",
     "extract-docgen-info": "lerna run extract-docgen-info",
     "lint:scripts": "eslint ./scripts ./auto-plugins/src --ext .js,.ts --quiet",
     "lint:packages": "./scripts/lint-packages.js",
@@ -125,7 +126,7 @@
     "lerna": "9.0.7",
     "lint-staged": "13.1.2",
     "nyc": "15.1.0",
-    "postcss": "8.5.16",
+    "postcss": "8.5.32",
     "prettier": "2.0.5",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -133,7 +134,7 @@
     "required-path": "1.0.1",
     "remark-mdx": "3.1.0",
     "remark-parse": "11.0.0",
-    "semver": "7.3.7",
+    "semver": "7.8.6",
     "simple-scaffold": "2.2.0",
     "storybook": "10.3.4",
     "style-loader": "4.0.0",
@@ -161,6 +162,22 @@
     "playwright-webkit": "1.58.2"
   },
   "overrides": {
-    "chokidar": "^3.3.1"
+    "chokidar": "^3.3.1",
+    "@linaria/babel-preset": {
+      "happy-dom": "21.0.4"
+    },
+    "brace-expansion@^1": "1.1.22",
+    "brace-expansion@^2": "2.1.8",
+    "brace-expansion@^5": "5.0.13",
+    "browserslist": "4.29.5",
+    "js-yaml@^3": "3.15.2",
+    "js-yaml@^4": "4.3.2",
+    "micromatch@^3": "4.0.8",
+    "postcss@^8": "$postcss",
+    "semver@^7": "$semver",
+    "svgo@^2": "2.8.4",
+    "svgo@^3": "3.3.5",
+    "ws@^7": "7.5.14",
+    "dompurify": "3.4.17"
   }
 }

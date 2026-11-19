@@ -10,6 +10,14 @@ import { PropsTable, Description } from '@site/src/components';
 # ButtonGroup
 <Description name="ButtonGroup" />
 
+:::tip[Рекомендуем]
+- Для группировки `Button`, `IconButton` и `Chip` используйте [Group](../layout/Group.mdx)
+:::
+
+:::warning[Обратите внимание]
+Поддержка компонента `ButtonGroup` ограничена текущей мажорной версией библиотеки.
+:::
+
 ## Использование
 Компонент `ButtonGroup` - это обертка для Button. Принимает в себя группу кнопок.
 
@@ -55,7 +63,7 @@ export function App() {
             <ButtonGroup isCommonButtonStyles={false}>
                 <Button size="m" text="Default" />
                 <Button size="s" text="Primary" view="default" />
-                <Button size="xs" text="Success" view="success" />
+                <Button size="xs" text="Success" view="positive" />
             </ButtonGroup>
         </div>
     );

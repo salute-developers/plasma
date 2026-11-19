@@ -2,6 +2,7 @@ import {
     autocompleteConfig,
     AutocompleteProps,
     component,
+    createConditionalComponent,
     DistributiveOmit,
     DistributivePick,
     mergeConfig,
@@ -11,14 +12,25 @@ import {
 import React, { ComponentProps } from 'react';
 
 import { config } from './Autocomplete.config';
+import { config as whiteConfig } from './Autocomplete.white.config';
 
 const mergedConfig = mergeConfig(autocompleteConfig, config);
-export const AutocompleteComponent = component(mergedConfig);
+export const AutocompleteDefault = component(mergedConfig);
+
+const mergedConfigWhite = mergeConfig(autocompleteConfig, whiteConfig);
+export const AutocompleteWhite = component(mergedConfigWhite);
+
+export const AutocompleteComponent = createConditionalComponent({
+    default: AutocompleteDefault,
+    white: AutocompleteWhite,
+});
 
 type PropsFromConfig = keyof typeof config['variations'];
 
-type Props<T extends SuggestionItemType> = DistributiveOmit<AutocompleteProps<T>, PropsFromConfig> &
-    DistributivePick<ComponentProps<typeof AutocompleteComponent>, PropsFromConfig>;
+type Props<T extends SuggestionItemType> = DistributiveOmit<AutocompleteProps<T>, PropsFromConfig | 'appearance'> &
+    DistributivePick<ComponentProps<typeof AutocompleteDefault>, PropsFromConfig> & {
+        appearance?: 'default' | 'white';
+    };
 
 const AutocompleteWithoutRef = <T extends SuggestionItemType>(
     props: Props<T>,

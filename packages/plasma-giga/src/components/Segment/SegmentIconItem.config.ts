@@ -10,7 +10,7 @@ import {
     textAccent,
     textPrimary,
     textPrimaryHover,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@salutejs/plasma-themes/tokens/plasma_giga';
 
 export const config = {
     defaults: {

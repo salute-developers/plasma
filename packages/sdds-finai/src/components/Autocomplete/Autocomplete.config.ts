@@ -2,8 +2,8 @@ import { css, autocompleteTokens as tokens } from '@salutejs/plasma-new-hope/sty
 import {
     bodyS,
     bodyXS,
-    dataBlueLight,
-    dataBlueLightActive,
+    dataBlueSoft,
+    dataBlueSoftActive,
     outlineAccent,
     outlineSolidPrimary,
     outlineSolidPrimaryHover,
@@ -27,6 +27,8 @@ import {
     surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
     surfaceTransparentWarning,
     surfaceWarning,
     textAccent,
@@ -38,7 +40,7 @@ import {
     textSecondaryHover,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
@@ -49,6 +51,11 @@ export const config = {
     variations: {
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textPrimary};
 
@@ -95,6 +102,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             positive: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textPositive};
 
@@ -142,6 +154,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             warning: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textWarning};
 
@@ -189,6 +206,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             negative: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textNegative};
 
@@ -236,6 +258,11 @@ export const config = {
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
             `,
             edited: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.textFieldColor}: ${textPrimary};
                 ${tokens.textFieldClearColor}: ${textPrimary};
 
@@ -244,8 +271,8 @@ export const config = {
                 ${tokens.textFieldClearPlaceholderColor}: ${textSecondary};
                 ${tokens.textFieldClearPlaceholderColorFocus}: ${textTertiary};
 
-                ${tokens.textFieldBackgroundColor}: ${dataBlueLight};
-                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueLightActive};
+                ${tokens.textFieldBackgroundColor}: ${dataBlueSoft};
+                ${tokens.textFieldBackgroundColorFocus}: ${dataBlueSoftActive};
                 ${tokens.textFieldBorderColor}: ${outlineTransparentInfo};
                 ${tokens.textFieldBorderColorHover}: ${outlineTransparentInfoHover};
                 ${tokens.textFieldBorderColorFocus}: ${outlineTransparentInfoActive};
@@ -285,12 +312,14 @@ export const config = {
         },
         size: {
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2.5rem;
                 ${tokens.textFieldPadding}: 0.6875rem 0.875rem 0.6875rem 0.875rem;
                 ${tokens.textFieldBorderRadius}: 0.625rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.25rem;
-                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.25rem -0.1875rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.1875rem 0.25rem -0.1875rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.1875rem -0.125rem -0.1875rem 0.75rem;
                 ${tokens.textFieldRightContentWithHintMargin}: -0.1875rem -0.1875rem -0.1875rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;
@@ -368,12 +397,14 @@ export const config = {
                 ${tokens.infiniteLoaderGap}: 0.25rem;
             `,
             xs: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.textFieldHeight}: 2rem;
                 ${tokens.textFieldPadding}: 0.5625rem 0.625rem 0.5625rem 0.625rem;
                 ${tokens.textFieldBorderRadius}: 0.5rem;
 
-                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.1875rem;
-                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.1875rem -0.0625rem 0.75rem;
+                ${tokens.textFieldLeftContentMargin}: -0.0625rem 0.25rem -0.0625rem -0.125rem;
+                ${tokens.textFieldRightContentMargin}: -0.0625rem -0.125rem -0.0625rem 0.75rem;
                 ${tokens.textFieldRightContentWithHintMargin}: -0.0625rem -0.438rem -0.0625rem 0.75rem;
 
                 ${tokens.textFieldContentRightWrapperGap}: 0.25rem;

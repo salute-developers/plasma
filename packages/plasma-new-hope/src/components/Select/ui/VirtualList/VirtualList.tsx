@@ -2,6 +2,7 @@ import React, { useRef, CSSProperties } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber } from 'src/utils';
 
+import { VirtualScrollContainer } from '../../Select.styles';
 import type { ItemOption } from '../../Select.types';
 import { Item } from '../Inner/ui';
 
@@ -23,7 +24,7 @@ export const VirtualList: React.FC<Props> = ({ items, listMaxHeight, onScroll })
     const virtualItems = virtualizer.getVirtualItems();
 
     return (
-        <div
+        <VirtualScrollContainer
             ref={parentRef}
             style={{
                 height: 'auto',
@@ -65,6 +66,6 @@ export const VirtualList: React.FC<Props> = ({ items, listMaxHeight, onScroll })
                     ))}
                 </div>
             </div>
-        </div>
+        </VirtualScrollContainer>
     );
 };

@@ -13,8 +13,6 @@ import {
     surfaceSolidCardBrightness,
     surfaceSolidDefault,
     surfaceSolidTertiary,
-    surfaceTransparentNegative,
-    surfaceTransparentNegativeActive,
     surfaceTransparentPositive,
     surfaceTransparentPositiveActive,
     surfaceTransparentPrimary,
@@ -24,12 +22,12 @@ import {
     surfaceTransparentWarning,
     surfaceTransparentWarningActive,
     textAccent,
-    textNegative,
     textPrimary,
     textSecondary,
     textSecondaryActive,
     textSecondaryHover,
     textTertiary,
+    textWarning,
 } from '@salutejs/sdds-themes/tokens/sdds_dfa';
 
 export const config = {
@@ -46,8 +44,8 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
-                ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldErrorColor}: ${textWarning};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPrimary};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPrimaryActive};
@@ -98,8 +96,8 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
-                ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldErrorColor}: ${textWarning};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentPositive};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentPositiveActive};
@@ -146,8 +144,8 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
-                ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldErrorColor}: ${textWarning};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
 
                 ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
                 ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentWarningActive};
@@ -194,12 +192,12 @@ export const config = {
                 ${tokens.textFieldPlaceholderColorFocus}: ${textTertiary};
                 ${tokens.textFieldCaretColor}: ${textAccent};
 
-                ${tokens.textFieldErrorColor}: ${textNegative};
-                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentNegative};
+                ${tokens.textFieldErrorColor}: ${textWarning};
+                ${tokens.textFieldBackgroundErrorColor}: ${surfaceTransparentWarning};
 
-                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentNegative};
-                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentNegativeActive};
-                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentNegativeActive};
+                ${tokens.textFieldBackgroundColor}: ${surfaceTransparentWarning};
+                ${tokens.textFieldBackgroundColorHover}: ${surfaceTransparentWarningActive};
+                ${tokens.textFieldBackgroundColorFocus}: ${surfaceTransparentWarningActive};
 
                 ${tokens.labelColor}: ${textPrimary};
                 ${tokens.titleCaptionColor}: ${textSecondary};

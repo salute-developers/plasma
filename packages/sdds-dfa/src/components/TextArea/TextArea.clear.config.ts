@@ -13,7 +13,6 @@ import {
     surfaceTransparentTertiary,
     surfaceWarning,
     textAccent,
-    textNegative,
     textPositive,
     textPrimary,
     textSecondary,
@@ -154,14 +153,14 @@ export const config = {
                 ${tokens.helpersBackgroundColorActive}: transparent;
                 ${tokens.helpersBackgroundColorFocus}: transparent;
 
-                ${tokens.inputColor}: ${textNegative};
-                ${tokens.inputColorFocus}: ${textNegative};
+                ${tokens.inputColor}: ${textWarning};
+                ${tokens.inputColorFocus}: ${textWarning};
                 ${tokens.inputCaretColor}: ${textAccent};
 
-                ${tokens.placeholderColor}: ${textNegative};
+                ${tokens.placeholderColor}: ${textWarning};
                 ${tokens.placeholderColorFocus}: ${textTertiary};
 
-                ${tokens.leftHelperColor}: ${textNegative};
+                ${tokens.leftHelperColor}: ${textWarning};
                 ${tokens.rightHelperColor}: ${textSecondary};
 
                 ${tokens.rightContentColor}: ${textSecondary};
@@ -173,8 +172,8 @@ export const config = {
 
                 ${tokens.labelOuterColor}: ${textPrimary};
 
-                ${tokens.dividerColor}: ${surfaceNegative};
-                ${tokens.dividerColorHover}: ${surfaceNegative};
+                ${tokens.dividerColor}: ${surfaceWarning};
+                ${tokens.dividerColorHover}: ${surfaceWarning};
                 ${tokens.dividerColorFocus}: ${surfaceAccent};
 
                 ${tokens.hintIconColor}: ${textSecondary};

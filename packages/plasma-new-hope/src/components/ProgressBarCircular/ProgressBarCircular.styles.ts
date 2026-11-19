@@ -1,3 +1,5 @@
+import React from 'react';
+import type { SVGProps } from 'react';
 import styled, { css } from 'styled-components';
 
 import { tokens } from './ProgressBarCircular.tokens';
@@ -18,7 +20,16 @@ export const StyledSVG = styled.svg`
     height: 100%;
 `;
 
-export const StyledBackgroundCircle = styled.circle<{ customStrokeWidth?: number }>`
+type CircleProps = SVGProps<SVGCircleElement> & {
+    customStrokeWidth?: number;
+    percent?: number;
+    reverse?: boolean;
+};
+
+// У svg-тегов linaria пробрасывает пропсы в DOM как есть, поэтому пропсы для стилей отсекаем здесь.
+const Circle = ({ customStrokeWidth, percent, reverse, ...rest }: CircleProps) => React.createElement('circle', rest);
+
+export const StyledBackgroundCircle = styled(Circle)`
     fill: none;
     r: ${({ customStrokeWidth = `var(${tokens.strokeSize})` }) =>
         `calc(50px - calc(calc(50px / var(${tokens.size})) * ${customStrokeWidth}))`};
@@ -27,7 +38,7 @@ export const StyledBackgroundCircle = styled.circle<{ customStrokeWidth?: number
         `calc(calc(50px / var(${tokens.size})) * calc(${customStrokeWidth}) * 2)`};
 `;
 
-export const StyledProgressCircle = styled.circle<{ customStrokeWidth?: number; percent?: number; reverse?: boolean }>`
+export const StyledProgressCircle = styled(Circle)`
     --percentage: ${({ percent }) => percent ?? 0};
     --radius: ${({ customStrokeWidth = `var(${tokens.strokeSize})` }) =>
         `calc(50px - calc(calc(50px / var(${tokens.size})) * ${customStrokeWidth}))`};

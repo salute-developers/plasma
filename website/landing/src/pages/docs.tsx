@@ -776,7 +776,7 @@ export default function DocsPage() {
                         </div>
 
                         <div className="cat-cards">
-                            <SiteLink className="cat-card" href="/#ai">
+                            <SiteLink className="cat-card" href="/docs/cli">
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -812,20 +812,17 @@ export default function DocsPage() {
                                         </g>
                                     </svg>
                                 </span>
-
                                 <span className="doc-card-body">
                                     <span className="cat-head">
-                                        <b>AI-ready контекст</b>
+                                        <b>CLI</b>
                                     </span>
-
                                     <p>
-                                        Структура со связями между сущностями и версиями — агент получает правила
-                                        системы, а не текст страницы.
+                                        Установка dsbuilder, подключение проекта и генерация дизайн-системы из
+                                        терминала.
                                     </p>
                                 </span>
                             </SiteLink>
-
-                            <SiteLink className="cat-card" href="/#ai">
+                            <SiteLink className="cat-card" href="/docs/mcp">
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -852,58 +849,12 @@ export default function DocsPage() {
                                         </g>
                                     </svg>
                                 </span>
-
                                 <span className="doc-card-body">
                                     <span className="cat-head">
                                         <b>MCP</b>
                                         <span className="cat-count">бета</span>
                                     </span>
-
-                                    <p>
-                                        Подключение по Model Context Protocol: компоненты, токены и правила читаются
-                                        напрямую из системы.
-                                    </p>
-                                </span>
-                            </SiteLink>
-
-                            <SiteLink className="cat-card" href="#">
-                                <span className="doc-card-media">
-                                    <svg className="comp-art" viewBox="376 272 178 132">
-                                        <polygon
-                                            className="face"
-                                            points="393.86,349 394.01,347.89 394.46,346.81 395.2,345.79 396.2,344.84 397.45,344 459.8,308 461.27,307.28 462.9,306.7 464.68,306.28 466.55,306.02 468.46,305.93 470.38,306.02 472.25,306.28 474.02,306.7 475.66,307.28 477.12,308 539.48,344 540.73,344.84 541.73,345.79 542.47,346.81 542.91,347.89 543.07,349 543.07,354 542.91,355.11 542.47,356.19 541.73,357.21 540.73,358.16 539.48,359 477.12,395 475.66,395.72 474.02,396.3 472.25,396.72 470.38,396.98 468.46,397.07 466.55,396.98 464.68,396.72 462.9,396.3 461.27,395.72 459.8,395 397.45,359 396.2,358.16 395.2,357.21 394.46,356.19 394.01,355.11 393.86,354"
-                                        />
-                                        <line className="face" x1="468.46" y1="392.07" x2="468.46" y2="397.07" />
-                                        <g transform="matrix(0.866 0.5 -0.866 0.5 468.46 303)">
-                                            <rect className="face top" width="92" height="92" rx="10" />
-                                        </g>
-                                        <g transform="matrix(0.866 0.5 -0.866 0.5 468.46 315)">
-                                            <rect className="live" width="40" height="7" rx="3.5" />
-                                        </g>
-                                        <g transform="matrix(0.866 0.5 -0.866 0.5 454.61 323)">
-                                            <rect className="dim" width="68" height="6" rx="3" />
-                                        </g>
-                                        <g transform="matrix(0.866 0.5 -0.866 0.5 442.48 330)">
-                                            <rect className="dim" width="52" height="6" rx="3" />
-                                        </g>
-                                        <g transform="matrix(0.866 0.5 -0.866 0.5 428.63 338)">
-                                            <rect className="ring" width="68" height="10" rx="5" />
-                                        </g>
-                                        <g transform="matrix(0.866 0.5 -0.866 0.5 414.77 346)">
-                                            <rect className="ring" width="44" height="10" rx="5" />
-                                        </g>
-                                    </svg>
-                                </span>
-
-                                <span className="doc-card-body">
-                                    <span className="cat-head">
-                                        <b>Шаблон спецификации</b>
-                                    </span>
-
-                                    <p>
-                                        По нему пишется новая страница компонента. Пока не заполнены обязательные
-                                        разделы — это черновик.
-                                    </p>
+                                    <p>Подключение AI-агента к дизайн-системе через встроенный MCP-сервер dsbuilder.</p>
                                 </span>
                             </SiteLink>
                         </div>

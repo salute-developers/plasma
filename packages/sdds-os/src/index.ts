@@ -20,6 +20,7 @@ export * from './components/Dropzone';
 // Data Entry
 export * from './components/Button';
 export * from './components/ButtonGroup';
+export * from './components/Group';
 export * from './components/IconButton';
 export * from './components/EmbedIconButton';
 export * from './components/ButtonBase';

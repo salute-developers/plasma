@@ -3,9 +3,12 @@ import {
     bodyM,
     bodyS,
     bodyXS,
+    surfaceTransparentPrimary,
     surfaceTransparentSecondary,
     surfaceTransparentTertiary,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+    surfaceTransparentTertiaryActive,
+    surfaceTransparentTertiaryHover,
+} from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
@@ -15,6 +18,8 @@ export const config = {
     variations: {
         size: {
             m: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.25rem;
                 ${tokens.width}: 15rem;
                 ${tokens.borderRadius}: 0.75rem;
@@ -52,6 +57,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyM.lineHeight};
             `,
             s: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.25rem;
                 ${tokens.width}: 12.5rem;
                 ${tokens.borderRadius}: 0.625rem;
@@ -89,6 +96,8 @@ export const config = {
                 ${tokens.cellTitleLineHeight}: ${bodyS.lineHeight};
             `,
             xs: css`
+                ${tokens.scrollbarWidth}: 0.188rem;
+
                 ${tokens.padding}: 0.25rem;
                 ${tokens.width}: 10rem;
                 ${tokens.borderRadius}: 0.5rem;
@@ -128,6 +137,11 @@ export const config = {
         },
         view: {
             default: css`
+                ${tokens.scrollbarThumbBackgroundColor}: ${surfaceTransparentTertiary};
+                ${tokens.scrollbarThumbBackgroundColorHover}: ${surfaceTransparentTertiaryHover};
+                ${tokens.scrollbarThumbBackgroundColorActive}: ${surfaceTransparentTertiaryActive};
+                ${tokens.scrollbarTrackBackgroundColor}: ${surfaceTransparentPrimary};
+
                 ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
                 ${tokens.dividerColor}: ${surfaceTransparentTertiary};
             `,

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import type { StoryObj, Meta } from '@storybook/react-vite';
 import { InSpacingDecorator, disableProps } from '@salutejs/plasma-sb-utils';
-import { secondary } from '@salutejs/plasma-core';
+import { plasmaCore } from '@salutejs/plasma-new-hope/styled-components';
 
 import type { SpacingProps } from '../../mixins';
 
@@ -40,6 +40,8 @@ import {
     Caption,
     Underline,
 } from '.';
+
+const { secondary } = plasmaCore;
 
 const meta: Meta = {
     title: 'Data Display/Typography',

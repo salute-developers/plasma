@@ -1,74 +1,22 @@
-import React, { ComponentProps } from 'react';
-import type { StoryObj, Meta } from '@storybook/react-vite';
-import { disableProps } from '@salutejs/plasma-sb-utils';
+import type { ComponentProps } from 'react';
+import type { Meta } from '@storybook/react-vite';
+import { getIconButtonStories } from '@salutejs/plasma-sb-utils';
 
-import { iconButtonConfig } from '../../../components/IconButton';
-import { mergeConfig } from '../../../engines';
-import { WithTheme, argTypesFromConfig } from '../../_helpers';
-import { IconChevronLeft } from '../../../components/_Icon';
-
-import { config } from './IconButton.config';
 import { IconButton } from './IconButton';
+import { config } from './IconButton.config';
 
-const meta: Meta<typeof IconButton> = {
-    title: 'Data Entry/IconButton',
-    decorators: [WithTheme],
+type IconButtonProps = ComponentProps<typeof IconButton>;
+
+const { meta: META, Default } = getIconButtonStories({
     component: IconButton,
-    argTypes: {
-        ...argTypesFromConfig(mergeConfig(iconButtonConfig, config)),
-        ...disableProps(['focused']),
-        pin: {
-            options: [
-                'square-square',
-                'square-clear',
-                'clear-square',
-                'clear-clear',
-                'clear-circle',
-                'circle-clear',
-                'circle-circle',
-                '',
-            ],
-            control: {
-                type: 'select',
-            },
-            table: { defaultValue: { summary: 'bottom' } },
-        },
-    },
+    componentConfig: config,
+});
+
+const meta: Meta<IconButtonProps> = {
+    ...META,
+    title: 'Data Entry/IconButton',
 };
 
 export default meta;
 
-const getSizeForIcon = (size) => {
-    const map = {
-        mr: 's',
-        lr: 's',
-        xlr: 's',
-        m: 's',
-        l: 's',
-        xl: 's',
-        sr: 's',
-        xsr: 'xs',
-    };
-    if (map[size]) {
-        return map[size];
-    }
-
-    return size;
-};
-
-export const Default: StoryObj<ComponentProps<typeof IconButton>> = {
-    args: {
-        children: <IconChevronLeft />,
-        view: 'default',
-        size: 'm',
-        disabled: false,
-        focused: true,
-        isLoading: false,
-    },
-    argTypes: { ...disableProps(['children']) },
-    render: (args) => (
-        <IconButton {...args}>
-            <IconChevronLeft color="inherit" size={getSizeForIcon(args.size)} />
-        </IconButton>
-    ),
-};
+export { Default };

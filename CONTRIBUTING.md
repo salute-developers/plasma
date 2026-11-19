@@ -84,6 +84,8 @@ npm run lint --workspace=@salutejs/plasma-new-hope
 
 Общий `npm run lint` также проверяет скрипты и структуру пакетов. Его Lerna-часть выбирает изменения относительно `origin/dev`, поэтому эта ссылка должна быть доступна локально.
 
+CI запускает lint изменённых пакетов относительно SHA базы PR или merge group без предварительной сборки workspace-пакетов. `@salutejs/plasma-colors` исключён из этой проверки: его `src` генерируется при сборке и проверяется командой `build:colors`.
+
 При изменении публичных props, generic-типов или экспортов компонентов обновите API-тесты в `utils/api-tests/src/components/` и выполните:
 
 ```sh
@@ -100,9 +102,36 @@ npm run test --workspace=@salutejs/sdds-api-tests
 // TODO: https://github.com/salute-developers/plasma/issues/438
 ```
 
+## Unit тесты
+
+Поведение компонента (колбэки, события, значения, фокус) проверяется unit-тестами, внешний вид — снимками Cypress. Проверки между ними не дублируются.
+
+-   `*.test.ts` — логика, выполняется в Node.
+-   `*.test.tsx` — поведение компонентов, выполняется в Chromium. Компоненты берутся из `src/examples/components`, поэтому тест запускается один раз, а не в каждой вертикали.
+
+Тесты лежат в папке `tests/` компонента в `packages/plasma-new-hope`: тест компонента — в её корне, тесты утилит и хуков повторяют структуру исходников. Cypress-тест (`*.component-test.tsx`) остаётся в корне компонента.
+
+```
+DatePicker/
+├── DatePicker.component-test.tsx
+├── utils/
+│   └── normalizeDates.ts
+└── tests/
+    ├── DatePicker.test.tsx
+    └── utils/
+        └── normalizeDates.test.ts
+```
+
+Перед первым запуском установите Chromium: `npx playwright install chromium`.
+
+```sh
+npm run unit:run                 # все тесты
+npm run unit:run -- DatePicker   # тесты одного компонента
+```
+
 ## Cypress тесты
 
-При изменении поведения или внешнего вида компонента добавляйте или обновляйте соответствующие компонентные тесты.
+При изменении внешнего вида компонента добавляйте или обновляйте снимки.
 
 ### Запуск через Docker
 
@@ -126,7 +155,11 @@ PACKAGE_NAME=plasma-web COMPONENTS=Button,Checkbox npm run cy:run
 PACKAGE_NAME=plasma-web COMPONENTS=Button BROWSER=webkit npm run cy:run
 ```
 
-CI также запускает Chromium и WebKit; матрицы описаны в `.github/workflows/cypress.yml`.
+В PR CI автоматически запускает только Chromium (`.github/workflows/cypress.yml`). WebKit запускается:
+
+-   по комментарию `/test-webkit` в открытом PR из этого же репозитория — для изменённых компонентов, как и в автоматической проверке. Команда доступна пользователям с правами `write`, `maintain` или `admin`; результат появится в статусе `Cypress WebKit` и в ответном комментарии. Комментарий обрабатывает `.github/workflows/cypress-webkit-request.yml`: после проверки прав автора и PR он запускает `.github/workflows/cypress-webkit.yml` через `workflow_dispatch` и передаёт head SHA PR. Если к старту тестов PR изменился, повторите `/test-webkit` для новой ревизии. Повторный `/test-webkit` отменяет идущий прогон, другие комментарии в PR его не прерывают;
+-   ежедневно в 00:00 UTC для всех пакетов из `PACKAGES_CYPRESS`, кроме `sdds-insol-next`, `sdds-netology`, `sdds-bizcom` и `sdds-dfa` (`.github/workflows/cypress-by-cron-every-day.yml`);
+-   автоматически в release-PR в `master` (`.github/workflows/cypress-release-branch.yml`).
 
 ### Обновление снимков
 
@@ -197,6 +230,8 @@ git commit -m "fix(plasma-web): Fix component Y"
 Точка входа trusted publishing остаётся `publish-npm.yml`. После комментария в Actions появятся два запуска: `Request canary publication` для проверки запроса и `Publish npm` для публикации. Обработчик комментария использует `GITHUB_TOKEN` с `actions: write` и передаёт head SHA PR; общий workflow проверяет, что PR не изменился. Если проверка не прошла, повторите `/release-canary` для новой ревизии.
 
 Версии и публикация выполняются через общий workflow `publish-common.yml`. Документация, Storybook и Cypress имеют отдельные workflows; состав выполненных проверок и публикаций смотрите в конкретном запуске CI.
+
+Jobs добавления preview-комментариев в `sdds-landing-pr.yml` и `documentation-deploy-pr.yml` загружают helper-скрипты из `github.workflow_sha`, чтобы их версия совпадала с workflow. Для `pull_request_target` это ревизия default-ветки `dev`; база релизного PR (`master`) может ещё не содержать новых helper-скриптов.
 
 ### HotFix
 

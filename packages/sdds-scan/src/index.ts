@@ -22,6 +22,7 @@ export * from './components/Tabs';
 export * from './components/ButtonBase';
 export * from './components/Button';
 export * from './components/ButtonGroup';
+export * from './components/Group';
 export * from './components/IconButton';
 export * from './components/EmbedIconButton';
 export * from './components/Calendar';
@@ -68,6 +69,7 @@ export * from './components/Cell';
 export * from './components/Image';
 export * from './components/Divider';
 export * from './components/Rating';
+export * from './components/RatingInput';
 export * from './components/Note';
 export * from './components/List';
 

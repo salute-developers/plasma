@@ -11,6 +11,12 @@ type DatePickerProps = ComponentProps<typeof DatePicker>;
 const { meta: META, Default } = getDatePickerStories({
     component: DatePicker,
     componentConfig: config,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: { type: 'select' },
+        },
+    },
     defaultArgs: {
         size: 'm',
     },

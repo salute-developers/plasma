@@ -52,6 +52,8 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
             titleCaption,
             labelPlacement,
             keepPlaceholder,
+            appearance,
+            hasDivider,
 
             // IsMultiselect
             multiselect,
@@ -307,6 +309,8 @@ export const selectRoot = (Root: RootProps<HTMLDivElement, Omit<SelectProps, 'it
                                 chipClickArea={chipClickArea}
                                 requiredProps={requiredProps}
                                 hintProps={hintProps}
+                                appearance={appearance}
+                                hasDivider={hasDivider}
                             />
                         )}
                         zIndex={zIndex}

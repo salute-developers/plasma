@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber, isEmpty } from 'src/utils';
 
-import { StyledEmptyState } from '../../Select.styles';
+import { StyledEmptyState, VirtualScrollContainer } from '../../Select.styles';
 import { classes } from '../../Select.tokens';
 
 import { Props } from './TreeList.types';
@@ -83,7 +83,7 @@ const VirtualTreeList: React.FC<Props> = ({
                     description={emptyStateDescription || 'Ничего не найдено'}
                 />
             ) : (
-                <div
+                <VirtualScrollContainer
                     ref={parentRef}
                     style={{
                         height: 'auto',
@@ -119,7 +119,7 @@ const VirtualTreeList: React.FC<Props> = ({
                             ))}
                         </div>
                     </div>
-                </div>
+                </VirtualScrollContainer>
             )}
 
             {afterList}

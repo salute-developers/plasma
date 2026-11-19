@@ -109,7 +109,6 @@ export const segmentIconItemConfig = {
         },
         pilled: {
             css: pilledCSS,
-            attrs: true,
         },
     },
     defaults: {

@@ -6,6 +6,7 @@ import {
     bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
+    surfaceAccent,
     textAccent,
     textNegative,
     textParagraph,
@@ -14,7 +15,7 @@ import {
     textSecondary,
     textTertiary,
     textWarning,
-} from '@salutejs/sdds-themes/tokens/sdds_finai';
+} from '@sddsjs/sdds_finai';
 
 export const config = {
     defaults: {
@@ -102,7 +103,7 @@ export const config = {
          */
         view: {
             accent: css`
-                ${radioboxTokens.fillColor}: ${textAccent};
+                ${radioboxTokens.fillColor}: ${surfaceAccent};
                 ${radioboxTokens.ellipseColor}: ${onDarkTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;

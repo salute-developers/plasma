@@ -10,6 +10,12 @@ type RangeProps = ComponentProps<typeof Range>;
 const { meta: META, Default } = getRangeStories({
     component: Range,
     componentConfig: config,
+    additionalArgTypes: {
+        appearance: {
+            options: ['default', 'white'],
+            control: { type: 'select' },
+        },
+    },
 });
 
 const meta: Meta<RangeProps> = {

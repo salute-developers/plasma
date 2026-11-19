@@ -188,6 +188,26 @@ describeFn('TextArea', () => {
         cy.matchImageSnapshot();
     });
 
+    it('placeholder: long text is clipped by textarea', () => {
+        mount(
+            <TextArea
+                width={10}
+                placeholder={Array(30).fill('Very very long placeholder').join(' ')}
+                leftHelper="Helper text left"
+            />,
+        );
+
+        cy.get('textarea').then(($textarea) => {
+            cy.get('.textarea-placeholder').then(($placeholder) => {
+                expect($placeholder[0].getBoundingClientRect().bottom).to.be.at.most(
+                    $textarea[0].getBoundingClientRect().bottom + 1,
+                );
+            });
+        });
+
+        cy.matchImageSnapshot();
+    });
+
     it('required attribute', () => {
         mount(
             <>

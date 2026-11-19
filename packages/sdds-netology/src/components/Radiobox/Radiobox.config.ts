@@ -6,6 +6,7 @@ import {
     bodyXS,
     inverseTextPrimary,
     onDarkTextPrimary,
+    surfaceAccent,
     textAccent,
     textNegative,
     textParagraph,
@@ -102,7 +103,7 @@ export const config = {
          */
         view: {
             accent: css`
-                ${radioboxTokens.fillColor}: ${textAccent};
+                ${radioboxTokens.fillColor}: ${surfaceAccent};
                 ${radioboxTokens.ellipseColor}: ${onDarkTextPrimary};
                 ${radioboxTokens.descriptionColor}: ${textSecondary};
                 ${radioboxTokens.triggerBackgroundColor}: transparent;

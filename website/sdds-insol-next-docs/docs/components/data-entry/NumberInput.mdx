@@ -347,7 +347,7 @@ export function App() {
                         customDecrementButton={
                             <IconButton
                                 size="l"
-                                view={value <= min ? 'critical' : 'accent'}
+                                view={value <= min ? 'negative' : 'accent'}
                                 disabled={value <= min}
                                 onClick={() => setValue(Math.max(min, value - step))}
                             >
@@ -357,7 +357,7 @@ export function App() {
                         customIncrementButton={
                             <IconButton
                                 size="l"
-                                view={value >= max ? 'critical' : 'accent'}
+                                view={value >= max ? 'negative' : 'accent'}
                                 disabled={value >= max}
                                 onClick={() => setValue(Math.min(max, value + step))}
                             >

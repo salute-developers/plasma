@@ -2,10 +2,46 @@ import type { HTMLAttributes, ReactNode, SyntheticEvent, CSSProperties, RefObjec
 
 import { FocusedPathState } from './reducers/focusedPathReducer';
 
-export type DropdownPlacement = 'auto' | 'top' | 'right' | 'bottom' | 'left';
+/**
+ * Сторона открытия выпадающего списка.
+ *
+ * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
+ * Используйте `top-start`, `bottom-start`, `left-start` и `right-start`.
+ */
+export type DropdownPlacement =
+    | 'auto'
+    | 'top-start'
+    | 'top-center'
+    | 'top-end'
+    | 'right-start'
+    | 'right-center'
+    | 'right-end'
+    | 'bottom-start'
+    | 'bottom-center'
+    | 'bottom-end'
+    | 'left-start'
+    | 'left-center'
+    | 'left-end'
+    | 'top'
+    | 'bottom'
+    | 'left'
+    | 'right';
 export type DropdownTrigger = 'hover' | 'click';
 export type HandleGlobalToggleType = (opened: boolean, event?: SyntheticEvent | Event) => void;
-export type PlacementType = 'auto' | 'top-start' | 'right-start' | 'bottom-start' | 'left-start';
+export type PlacementType =
+    | 'auto'
+    | 'top'
+    | 'top-start'
+    | 'top-end'
+    | 'right'
+    | 'right-start'
+    | 'right-end'
+    | 'bottom'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'left'
+    | 'left-start'
+    | 'left-end';
 
 export type ItemOption = {
     /**
@@ -18,6 +54,7 @@ export type ItemOption = {
     label: string;
     /**
      * Сторона открытия вложенного выпадающего списка относительно текущего элемента.
+     * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
      */
     placement?: DropdownPlacement;
     /**
@@ -78,7 +115,9 @@ export type DropdownProps<T extends ItemOption = ItemOption> = {
     trigger?: DropdownTrigger;
     /**
      * Сторона открытия Dropdown относительно target элемента.
-     * @default bottom
+     * Значения `top`, `bottom`, `left` и `right` устарели (deprecated) и будут удалены.
+     * Используйте `top-start`, `bottom-start`, `left-start` и `right-start`.
+     * @default bottom-start
      */
     placement?: DropdownPlacement;
     /**
