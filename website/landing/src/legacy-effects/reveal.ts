@@ -129,11 +129,22 @@ export function initReveal() {
                     el.classList.add('is-settled'); // снимает filter и с внутренних частей
                 }, delay + 1500);
 
-            /* Все блоки подъезжают одинаково. Раньше внутри группы был шаг задержки,
-     и соседние карточки всегда оказывались в разной фазе — страница читалась рвано. */
+            /* В оглавлении проявляем весь визуальный ряд одновременно. offsetTop
+     учитывает текущую сетку после изменения ширины окна и фильтрации поиска. */
             const show = (el) => {
-                el.classList.add('is-rise');
-                settle(el, 0);
+                const parent = el.parentElement;
+                const row = parent?.matches('.docs-index :is(.doc-cards, .cat-cards, .comp-cards)')
+                    ? [...parent.children].filter(
+                          (card) => !card.hidden && Math.abs(card.offsetTop - el.offsetTop) < 2,
+                      )
+                    : [el];
+
+                row.forEach((card) => {
+                    if (card.classList.contains('is-rise')) return;
+                    io.unobserve(card);
+                    card.classList.add('is-rise');
+                    settle(card, 0);
+                });
             };
 
             /* filter на элементе создаёт свой слой, и backdrop-filter внутри начинает
