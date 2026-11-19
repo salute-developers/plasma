@@ -6,7 +6,7 @@ export default function DocsPage() {
         <>
             <Header />
 
-            <section className="section screen page-top">
+            <section className="section screen page-top docs-index">
                 <div className="shell">
                     <h1 className="page-title">Документация</h1>
 
@@ -41,6 +41,7 @@ export default function DocsPage() {
 
                         <div className="doc-cards">
                             <SiteLink className="doc-card" href="/docs/introducing">
+                                <span className="doc-tag">Старт</span>
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -127,7 +128,6 @@ export default function DocsPage() {
                                 <span className="doc-card-body">
                                     <span className="doc-card-head">
                                         <b>Introducing SDDS</b>
-                                        <span className="doc-tag">Старт</span>
                                     </span>
 
                                     <p>Что за система, как работает white-label и с чего начать</p>
@@ -135,6 +135,7 @@ export default function DocsPage() {
                             </SiteLink>
 
                             <SiteLink className="doc-card" href="/docs/sizes">
+                                <span className="doc-tag">Обновлено</span>
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -175,7 +176,6 @@ export default function DocsPage() {
                                 <span className="doc-card-body">
                                     <span className="doc-card-head">
                                         <b>Sizes</b>
-                                        <span className="doc-tag">Обновлено</span>
                                     </span>
 
                                     <p>Единая шкала размеров: от XS до XL во всех контролах</p>
@@ -620,6 +620,7 @@ export default function DocsPage() {
                             </SiteLink>
 
                             <SiteLink className="doc-card" href="/docs/icons">
+                                <span className="doc-tag">новое</span>
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -700,7 +701,6 @@ export default function DocsPage() {
                                 <span className="doc-card-body">
                                     <span className="doc-card-head">
                                         <b>Icons</b>
-                                        <span className="doc-tag">новое</span>
                                     </span>
 
                                     <p>Три стиля иконок, сетка построения и размеры</p>
@@ -823,6 +823,7 @@ export default function DocsPage() {
                                 </span>
                             </SiteLink>
                             <SiteLink className="cat-card" href="/docs/mcp">
+                                <span className="cat-count">бета</span>
                                 <span className="doc-card-media">
                                     <svg className="comp-art" viewBox="376 272 178 132">
                                         <polygon
@@ -852,7 +853,6 @@ export default function DocsPage() {
                                 <span className="doc-card-body">
                                     <span className="cat-head">
                                         <b>MCP</b>
-                                        <span className="cat-count">бета</span>
                                     </span>
                                     <p>Подключение AI-агента к дизайн-системе через встроенный MCP-сервер dsbuilder.</p>
                                 </span>
@@ -1089,6 +1089,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1138,6 +1139,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1234,6 +1236,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1262,6 +1265,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1350,6 +1354,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1558,6 +1563,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1615,6 +1621,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1827,6 +1834,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1901,6 +1909,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1968,6 +1977,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -1997,6 +2007,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2052,6 +2063,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2087,6 +2099,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2115,6 +2128,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2245,6 +2259,7 @@ export default function DocsPage() {
 
                             <div className="comp-cards">
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2295,6 +2310,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2333,6 +2349,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2372,6 +2389,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2418,6 +2436,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2457,6 +2476,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2490,6 +2510,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2531,6 +2552,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2619,6 +2641,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2651,6 +2674,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2721,6 +2745,7 @@ export default function DocsPage() {
 
                             <div className="comp-cards">
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2757,6 +2782,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2793,6 +2819,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2826,6 +2853,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2866,6 +2894,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2902,6 +2931,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -2958,6 +2988,7 @@ export default function DocsPage() {
                                 </SiteLink>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
@@ -3011,6 +3042,7 @@ export default function DocsPage() {
                                 </span>
 
                                 <span className="comp-card is-soon">
+                                    <span className="comp-soon">Скоро</span>
                                     <span className="comp-card-art" aria-hidden="true">
                                         <svg className="comp-art" viewBox="376 272 178 132">
                                             <polygon
