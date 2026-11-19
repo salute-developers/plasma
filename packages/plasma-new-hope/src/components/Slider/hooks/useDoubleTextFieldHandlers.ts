@@ -9,6 +9,7 @@ export type UseDoubleTextFieldHandlersParams = {
     setDragValue: (updater: number[] | ((prev: number[]) => number[])) => void;
     sortValues: (values: number[]) => number[];
     emitChange: (values: number[]) => void;
+    normalizeValue?: (value: number) => number;
     onChangeTextField?: (values: number[], event: ChangeEvent<HTMLInputElement>) => void;
     onBlurTextField?: (values: number[], event: FocusEvent<HTMLInputElement>) => void;
     onKeyDownTextField?: (values: number[], event: KeyboardEvent<HTMLInputElement>) => void;
@@ -29,6 +30,7 @@ export const useDoubleTextFieldHandlers = ({
     setDragValue,
     sortValues,
     emitChange,
+    normalizeValue = (value) => value,
     onChangeTextField,
     onBlurTextField,
     onKeyDownTextField,
@@ -43,7 +45,7 @@ export const useDoubleTextFieldHandlers = ({
             return;
         }
 
-        const handleValue = Number(event.target.value);
+        const handleValue = normalizeValue(Number(event.target.value));
         if (!isControlled) {
             setDragValue((prev) => [handleValue, prev[1]]);
         }
@@ -62,7 +64,7 @@ export const useDoubleTextFieldHandlers = ({
             return;
         }
 
-        const handleValue = Number(event.target.value);
+        const handleValue = normalizeValue(Number(event.target.value));
         const sortedValues = sortValues([handleValue, secondValue]);
         if (!isControlled) {
             setDragValue(sortedValues);
@@ -76,7 +78,7 @@ export const useDoubleTextFieldHandlers = ({
 
     const onSecondTextfieldChange = (event: ChangeEvent<HTMLInputElement>) => {
         if (!isNumber(event.target.value)) return;
-        const handleValue = Number(event.target.value);
+        const handleValue = normalizeValue(Number(event.target.value));
         if (!isControlled) {
             setDragValue((prev) => [prev[0], handleValue]);
         }
@@ -95,7 +97,7 @@ export const useDoubleTextFieldHandlers = ({
             return;
         }
 
-        const handleValue = Number(event.target.value);
+        const handleValue = normalizeValue(Number(event.target.value));
         const sortedValues = sortValues([firstValue, handleValue]);
         if (!isControlled) {
             setDragValue(sortedValues);
