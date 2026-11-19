@@ -1863,6 +1863,65 @@ a.comp-card:hover .comp-card-art{
 }
 .cat-card p{margin:0; font-size:14px; line-height:1.5; color:var(--text-tertiary)}
 
+/* Оглавление: структура карточки Figma 6944:795. Статус над иллюстрацией,
+   затем текст без разделителя. Сетка продолжается под плавным затемнением. */
+.docs-index{
+  --docs-card-radius:20px;
+  --docs-card-border:rgba(255,255,255,.08);
+  --docs-card-badge:#3e4147;
+  --docs-card-grid:rgba(255,255,255,.025);
+}
+.docs-index :is(.doc-card,.cat-card,.comp-card){
+  position:relative; isolation:isolate; min-width:0;
+  border-radius:var(--docs-card-radius); border-color:var(--docs-card-border);
+  background-color:var(--bg-secondary);
+  background-image:
+    repeating-linear-gradient(30deg,var(--docs-card-grid) 0 1px,transparent 1px 28px),
+    repeating-linear-gradient(-30deg,var(--docs-card-grid) 0 1px,transparent 1px 28px);
+}
+.docs-index :is(.doc-card-media,.comp-card-art){
+  flex:none; width:100%; height:160px; min-height:104px; padding:0;
+  border:0; background:transparent;
+}
+.docs-index .comp-art{
+  top:36px; left:50%; transform:translateX(-50%);
+}
+.docs-index :is(.doc-card-body,.comp-card-body){
+  align-items:flex-start; width:100%; gap:8px; padding:20px;
+  background:linear-gradient(to bottom,transparent,var(--bg-secondary));
+}
+.docs-index :is(.doc-card-head,.cat-head){width:100%; min-width:0}
+.docs-index :is(.doc-card,.cat-card,.comp-card) b{
+  min-width:0; font-size:17px; line-height:normal; font-weight:500;
+  color:var(--text-primary); overflow-wrap:anywhere;
+}
+.docs-index :is(.doc-card,.cat-card,.comp-card) p{
+  width:100%; margin:0; font-size:14px; line-height:18px; font-weight:400;
+  color:var(--text-paragraph); overflow-wrap:anywhere;
+}
+.docs-index :is(.doc-tag,.cat-count,.comp-soon){
+  position:absolute; z-index:1; top:20px; left:20px; right:auto;
+  display:inline-flex; align-items:center; min-width:0; height:auto;
+  padding:4px 8px; border:0; border-radius:999px;
+  background:var(--docs-card-badge); color:var(--text-primary);
+  font-family:var(--sans); font-size:12px; line-height:16px; font-weight:400;
+  font-style:normal; letter-spacing:normal; text-transform:none;
+}
+.docs-index :is(.doc-card,.cat-card,a.comp-card):hover{
+  --docs-card-grid:rgba(255,255,255,.04);
+  background-color:var(--bg-secondary);
+}
+.docs-index .comp-card.is-soon:hover{
+  --docs-card-grid:rgba(255,255,255,.04);
+}
+.docs-index :is(.doc-card,.cat-card,.comp-card):hover,
+.docs-index :is(a.doc-card,a.cat-card,a.comp-card):focus-visible{
+  border-color:rgba(255,255,255,.32);
+}
+.docs-index :is(.doc-card:hover,.cat-card:hover,a.comp-card:hover) :is(.doc-card-media,.comp-card-art){
+  background:transparent;
+}
+
 /* ---------------- документация: страница раздела ---------------- */
 /* Три колонки: дерево, текст, оглавление. Крайние липнут под панелью,
    центральная задаёт высоту — поэтому align-items:start, как в новостях. */
