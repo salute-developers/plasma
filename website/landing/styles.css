@@ -1879,6 +1879,9 @@ a.comp-card:hover .comp-card-art{
     repeating-linear-gradient(30deg,var(--docs-card-grid) 0 1px,transparent 1px 28px),
     repeating-linear-gradient(-30deg,var(--docs-card-grid) 0 1px,transparent 1px 28px);
 }
+/* «Скоро» имеет собственную opacity: она не должна показывать карточку
+   до общего запуска анимации ряда. */
+.docs-index .rise.rise-plain:not(.is-rise){opacity:0; transition:none}
 .docs-index :is(.doc-card-media,.comp-card-art){
   flex:none; width:100%; height:160px; min-height:104px; padding:0;
   border:0; background:transparent;

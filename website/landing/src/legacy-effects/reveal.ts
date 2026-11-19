@@ -129,15 +129,18 @@ export function initReveal() {
                     el.classList.add('is-settled'); // снимает filter и с внутренних частей
                 }, delay + 1500);
 
-            /* В оглавлении проявляем весь визуальный ряд одновременно. offsetTop
-     учитывает текущую сетку после изменения ширины окна и фильтрации поиска. */
+            /* Ряд определяется текущими колонками CSS Grid и видимыми карточками.
+     offsetTop ненадёжен: у ссылок и карточек «Скоро» могут быть разные offsetParent. */
             const show = (el) => {
                 const parent = el.parentElement;
-                const row = parent?.matches('.docs-index :is(.doc-cards, .cat-cards, .comp-cards)')
-                    ? [...parent.children].filter(
-                          (card) => !card.hidden && Math.abs(card.offsetTop - el.offsetTop) < 2,
-                      )
-                    : [el];
+                let row = [el];
+                if (parent?.matches('.docs-index :is(.doc-cards, .cat-cards, .comp-cards)')) {
+                    const cards = [...parent.children].filter((card) => !card.hidden);
+                    const columns = getComputedStyle(parent).gridTemplateColumns.split(/\s+/).length;
+                    const index = cards.indexOf(el);
+                    const start = Math.floor(index / columns) * columns;
+                    row = cards.slice(start, start + columns);
+                }
 
                 row.forEach((card) => {
                     if (card.classList.contains('is-rise')) return;
