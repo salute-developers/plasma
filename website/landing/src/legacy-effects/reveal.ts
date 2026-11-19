@@ -139,7 +139,7 @@ export function initReveal() {
                     const columns = getComputedStyle(parent).gridTemplateColumns.split(/\s+/).length;
                     const index = cards.indexOf(el);
                     const start = Math.floor(index / columns) * columns;
-                    row = cards.slice(start, start + columns);
+                    row = index < 0 ? [el] : cards.slice(start, start + columns);
                 }
 
                 row.forEach((card) => {
