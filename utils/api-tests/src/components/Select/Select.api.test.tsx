@@ -28,11 +28,6 @@ type ItemOption = {
     listMaxHeight?: CSSProperties['height'];
 };
 
-type TextValueProps = {
-    textValue: string;
-    onTextValueChange: (textValue: string) => void;
-};
-
 describe('Basics', () => {
     it('Common', () => {
         // @ts-expect-error
@@ -110,8 +105,8 @@ describe('Basics', () => {
         expectTypeOf<SelectProps>()
             .toHaveProperty('renderTarget')
             .toEqualTypeOf<
-                | ((value: ItemOption | null, opened?: boolean, textProps?: TextValueProps) => ReactNode)
-                | ((value: ItemOption[], opened?: boolean, textProps?: TextValueProps) => ReactNode)
+                | ((value: ItemOption | null, opened?: boolean) => ReactNode)
+                | ((value: ItemOption[], opened?: boolean) => ReactNode)
                 | undefined
             >();
         expectTypeOf<SelectProps>().toHaveProperty('selectAllOptions').toEqualTypeOf<

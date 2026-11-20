@@ -158,6 +158,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             textValue,
             currentLabel,
             filter,
+            matchSelectedLabel: !hasCustomTarget,
         });
 
         const {
@@ -224,6 +225,10 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
          */
         /* Обработчик изменения строки поиска */
         const handleChangeTextValue = (newTextValue: string) => {
+            if (readOnly || disabled) {
+                return;
+            }
+
             if (!filterValue || filterValue(newTextValue)) {
                 setTextValue(newTextValue);
 
@@ -332,14 +337,14 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             }
 
             setTextValue(hasCustomTarget ? '' : getTextValue(multiple, value, valueToItemMap, renderValue));
-        }, [value]);
+        }, [value, hasCustomTarget]);
 
         // Эффект для раскрытия дерева при поиске.
         useLayoutEffect(() => {
             if (treeView) {
                 // Если поле ввода стало пустым или если пользователь выбирает элемент,
                 // то скрываем все узлы дерева и выходим из эффекта.
-                if (textValue === '' || textValue === currentLabel) {
+                if (textValue === '' || (!hasCustomTarget && textValue === currentLabel)) {
                     dispatchTreePath({ type: 'reset' });
                     return;
                 }
@@ -350,7 +355,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                     value: { filteredItems, filterCb: filter || defaultFilter, textValue },
                 });
             }
-        }, [textValue, filteredItems]);
+        }, [textValue, filteredItems, hasCustomTarget]);
 
         /**
          * Vars

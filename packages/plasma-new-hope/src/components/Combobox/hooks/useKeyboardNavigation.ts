@@ -96,6 +96,10 @@ export const useKeyNavigation = ({
             return;
         }
 
+        if (event.key === keys.Enter && (event.nativeEvent.isComposing || event.keyCode === 229)) {
+            return;
+        }
+
         onKeyDown(event);
     };
 

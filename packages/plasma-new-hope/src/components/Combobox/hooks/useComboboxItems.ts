@@ -9,13 +9,15 @@ type Props = Pick<ComboboxProps, 'filter'> & {
     items: ItemOptionTransformed[];
     textValue: string;
     currentLabel: string;
+    matchSelectedLabel?: boolean;
 };
 
-export const useComboboxItems = ({ items, textValue, currentLabel, filter }: Props) => {
-    const filteredItems = useMemo(() => filterItems(items, textValue, currentLabel, filter), [
+export const useComboboxItems = ({ items, textValue, currentLabel, filter, matchSelectedLabel = true }: Props) => {
+    const filteredItems = useMemo(() => filterItems(items, textValue, currentLabel, filter, matchSelectedLabel), [
         currentLabel,
         filter,
         items,
+        matchSelectedLabel,
         textValue,
     ]);
 
