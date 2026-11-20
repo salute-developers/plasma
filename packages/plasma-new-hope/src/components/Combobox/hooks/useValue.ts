@@ -27,6 +27,7 @@ type Props = {
     nativeMode: boolean;
     valueToItemMap: ValueToItemMapType;
     renderValue: ComboboxProps['renderValue'];
+    hasCustomTarget?: boolean;
 };
 
 export const useValue = ({
@@ -37,6 +38,7 @@ export const useValue = ({
     nativeMode,
     valueToItemMap,
     renderValue,
+    hasCustomTarget = false,
 }: Props) => {
     // Внутреннее состояние для корректной работы в uncontrolled-режиме.
     const [internalValue, setInternalValue] = useState<Value>(getInitialValue({ defaultValue, multiple }));
@@ -44,8 +46,11 @@ export const useValue = ({
     // Актуальное состояние компонента.
     const value = hasOuterValue(outerValue) ? outerValue : internalValue;
 
-    // Состояние поля поиска в target
-    const [textValue, setTextValueState] = useState(getTextValue(multiple, value, valueToItemMap, renderValue));
+    // Состояние поля поиска в target.
+    // С кастомным renderTarget в поле рисуется выбранная ячейка, поэтому текст в нём — только поисковый запрос.
+    const [textValue, setTextValueState] = useState(
+        hasCustomTarget ? '' : getTextValue(multiple, value, valueToItemMap, renderValue),
+    );
 
     const setTextValue = (newTextValue: string) => {
         if (newTextValue === textValue) {
