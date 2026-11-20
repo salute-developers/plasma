@@ -73,6 +73,22 @@ describeFn('Carousel', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: controlArrowsPlacement=outer', () => {
+        cy.viewport(700, 500);
+
+        mount(
+            <div style={{ width: '600px' }}>
+                <Carousel controlArrowsPlacement="outer" defaultIndex={1}>
+                    {items.map((item) => (
+                        <StyledCard key={item.id}>{item.title}</StyledCard>
+                    ))}
+                </Carousel>
+            </div>,
+        );
+
+        cy.matchImageSnapshot();
+    });
+
     it('prop: controlArrowsDisabled', () => {
         cy.viewport(700, 500);
 
