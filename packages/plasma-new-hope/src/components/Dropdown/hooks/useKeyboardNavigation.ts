@@ -182,6 +182,10 @@ export const useKeyNavigation = ({
             case keys.Escape: {
                 if (path[0]) {
                     handleGlobalToggle(false, event);
+
+                    if (event.key === keys.Escape) {
+                        event.preventDefault();
+                    }
                 }
 
                 break;

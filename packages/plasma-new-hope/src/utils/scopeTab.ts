@@ -10,8 +10,9 @@ export const scopeTab = (
     event: KeyboardEvent,
     activeFocusTrap?: boolean,
     focusTrapSelectors?: FocusTrapSelectors,
+    extraElements?: HTMLElement[],
 ) => {
-    const tabbable = findTabbableInFocusScope(node, focusTrapSelectors);
+    const tabbable = findTabbableInFocusScope(node, focusTrapSelectors, extraElements);
     if (!tabbable.length) {
         event.preventDefault();
         return;

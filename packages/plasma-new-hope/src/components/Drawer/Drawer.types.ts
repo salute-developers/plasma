@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import type { PopupProps } from '../Popup';
 import type { PanelProps } from '../Panel';
 import type { PopupHookArgs } from '../Popup/Popup.types';
+import type { CloseRequestHandler } from '../OverlayProvider/OverlayProvider.types';
 
 export const drawerPlacements = {
     top: 'top',
@@ -33,7 +34,7 @@ export type DrawerOverlayProps = Pick<
     | 'cursor'
 >;
 
-export type DrawerProps = Omit<PopupProps, 'draggable' | 'resizable'> &
+export type DrawerProps = Omit<PopupProps, 'draggable' | 'resizable' | 'layerOptions'> &
     PanelProps & {
         /**
          * Информация об анимации.
@@ -109,10 +110,16 @@ export type DrawerProps = Omit<PopupProps, 'draggable' | 'resizable'> &
          * Общий обработчик клика по кнопке "закрыть".
          */
         onClose?: () => void;
+        /**
+         * Проверка запроса на закрытие (Escape, нажатие на подложку).
+         * Верните `false`, чтобы оставить Drawer открытым, или `Promise`, чтобы отложить решение.
+         */
+        onCloseRequest?: CloseRequestHandler;
     };
 
 export interface DrawerHookArgs
-    extends Pick<PopupHookArgs, 'id' | 'popupInfo' | 'isOpen'>,
-        Pick<DrawerProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'> {
-    disableScroll?: boolean;
-}
+    extends Pick<PopupHookArgs, 'id' | 'popupInfo'>,
+        Pick<
+            DrawerProps,
+            'closeOnEsc' | 'onEscKeyDown' | 'onOverlayClick' | 'onClose' | 'onCloseRequest' | 'asModal'
+        > {}

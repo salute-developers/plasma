@@ -40,6 +40,7 @@ export const PopupRootContainer = styled.div<PopupRootContainerProps>`
     top: ${({ position }) => position.top || ''};
     bottom: ${({ position }) => position.bottom || ''};
     transform: ${({ position }) => position.transform || ''};
+    overscroll-behavior: contain;
 `;
 
 export const IconResizeDiagonalStyled = styled(IconResizeDiagonal)`

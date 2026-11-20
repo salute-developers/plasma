@@ -1,6 +1,8 @@
 import type { ReactNode, RefObject } from 'react';
 import { ResizableType } from 'src/components/_Resizable';
 
+import type { OverlayLayerConfig } from '../OverlayProvider/OverlayProvider.types';
+
 export type PopupPlacementBasic = 'center' | 'top' | 'bottom' | 'right' | 'left';
 export type PopupPlacementMixed = 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 export type PopupPlacement = PopupPlacementBasic | PopupPlacementMixed;
@@ -64,6 +66,11 @@ export interface PopupProps extends React.HTMLAttributes<HTMLDivElement> {
      * Дополнительная информация для программного взаимодействия с окном через контекст.
      */
     popupInfo?: PopupInfo;
+    /**
+     * Настройки слоя в общем стеке OverlayProvider: режим, способы закрытия, запрос на закрытие,
+     * блокировка прокрутки.
+     */
+    layerOptions?: OverlayLayerConfig;
     /**
      * Использовать ли анимацию.
      */
@@ -169,7 +176,7 @@ export interface PopupRootProps extends Omit<PopupProps, 'opened' | 'isOpen' | '
     animationInfo: PopupAnimationInfo;
 }
 
-export interface PopupHookArgs extends Pick<PopupProps, 'popupInfo' | 'withAnimation'> {
+export interface PopupHookArgs extends Pick<PopupProps, 'popupInfo' | 'withAnimation' | 'layerOptions' | 'zIndex'> {
     id: string;
     isOpen: boolean;
 }

@@ -1,17 +1,20 @@
 import React from 'react';
 import type { FC } from 'react';
 
+import { useMessagesZIndex } from '../OverlayProvider/ui/OverlayMessageLayer';
+
 import { classes } from './Toast.tokens';
 import { ToastControllerProps, ToastProps } from './Toast.types';
 import { StyledOverlay, StyledRoot } from './Toast.styles';
 import { useToastInner } from './ToastProvider';
-import { FADE_Z_INDEX, gradients } from './utils';
+import { FADE_Z_INDEX, TOAST_Z_INDEX, gradients } from './utils';
 
 export const ToastControllerHoc = <T extends ToastProps>(ToastComponent: FC<T>) =>
     function ToastController(props: ToastControllerProps) {
         const { position = 'bottom', offset, fade, text, ...rest } = props;
 
-        const { hideToast, isVisible } = useToastInner();
+        const { hideToast, isVisible, pauseTimer, resumeTimer } = useToastInner();
+        const messagesZIndex = useMessagesZIndex();
         const toastKey = `${text}${position}`;
 
         const showedClass = isVisible ? classes.toastShowed : classes.toastHidden;
@@ -32,7 +35,7 @@ export const ToastControllerHoc = <T extends ToastProps>(ToastComponent: FC<T>) 
                 {fade && (
                     <StyledOverlay
                         className={showedFadeClass}
-                        zIndex={FADE_Z_INDEX}
+                        zIndex={messagesZIndex || FADE_Z_INDEX}
                         backgroundColorProperty={gradients[position]}
                         isClickable={false}
                     />
@@ -42,7 +45,12 @@ export const ToastControllerHoc = <T extends ToastProps>(ToastComponent: FC<T>) 
                     position={position}
                     offset={offset}
                     isVisible={isVisible}
+                    zIndex={messagesZIndex || TOAST_Z_INDEX}
                     className={showedClass}
+                    onMouseEnter={pauseTimer}
+                    onMouseLeave={resumeTimer}
+                    onFocus={pauseTimer}
+                    onBlur={resumeTimer}
                 >
                     <ToastComponent {...toastProps} />
                 </StyledRoot>

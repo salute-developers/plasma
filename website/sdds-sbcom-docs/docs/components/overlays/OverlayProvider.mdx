@@ -1,0 +1,119 @@
+---
+id: overlayprovider
+title: OverlayProvider
+---
+
+import { PropsTable } from '@site/src/components';
+
+# OverlayProvider
+
+Единый провайдер всплывающих слоёв. Заменяет `PopupProvider`, `ToastProvider` и `NotificationsProvider` и отвечает за общие правила поведения:
+
+-   порядок слоёв: новый слой отображается над предыдущим, дочерний слой — над родительским;
+-   закрытие по `Escape` и клику вне: событие получает только верхний слой, вложенный элемент (например, открытый список Select) может обработать `Escape` сам;
+-   модальность: слои под модальным окном недоступны для фокуса и вспомогательных технологий;
+-   возврат фокуса на элемент, который открыл слой, или на ближайший доступный элемент;
+-   блокировку прокрутки страницы, пока открыто хотя бы одно модальное окно;
+-   область сообщений: Toast и Notification не перекрывают активное модальное окно и не перехватывают `Escape`.
+
+<PropsTable name="OverlayProvider" exclude={['children']} />
+
+## Подключение
+
+Поместите `OverlayProvider` один раз в корень приложения:
+
+```tsx title="index.tsx"
+import ReactDOM from 'react-dom';
+import { OverlayProvider } from '@salutejs/sdds-sbcom';
+
+import { App } from './App';
+
+ReactDOM.render(
+    <OverlayProvider>
+        <App />
+    </OverlayProvider>,
+    document.getElementById('root'),
+);
+```
+
+Без провайдера компоненты продолжают работать: используется общий менеджер слоёв по умолчанию, а корень для слоёв создаётся в `document.body`.
+Провайдер нужен, чтобы задать `zIndexBase`, контейнер для слоёв (`portalContainer`) и подключить область сообщений.
+
+## Вложенные модальные окна
+
+Каждое следующее модальное окно открывается над предыдущим. `Escape` и клик по подложке закрывают только верхнее окно, после закрытия фокус возвращается на кнопку, которая его открыла.
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, Modal, OverlayProvider } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const [first, setFirst] = useState(false);
+    const [second, setSecond] = useState(false);
+
+    return (
+        <OverlayProvider>
+            <Button text="Открыть окно" onClick={() => setFirst(true)} />
+            <Modal opened={first} onClose={() => setFirst(false)} hasBody>
+                <p>Первое окно</p>
+                <Button text="Открыть вложенное окно" onClick={() => setSecond(true)} />
+                <Modal opened={second} onClose={() => setSecond(false)} hasBody>
+                    <p>Вложенное окно</p>
+                </Modal>
+            </Modal>
+        </OverlayProvider>
+    );
+}
+```
+
+## Подтверждение закрытия
+
+`onCloseRequest` вызывается перед закрытием и получает причину: `escape`, `outside`, `close-button`, `parent-closed`, `modal-opened` или `action`.
+Верните `false`, чтобы отменить закрытие, или `Promise`, чтобы принять решение асинхронно. Пока решение не принято, повторные запросы игнорируются.
+Причины `parent-closed` и `modal-opened` закрывают слой без проверки.
+
+```tsx live
+import React, { useState } from 'react';
+import { Button, Modal, OverlayProvider } from '@salutejs/sdds-sbcom';
+
+export function App() {
+    const [opened, setOpened] = useState(false);
+
+    return (
+        <OverlayProvider>
+            <Button text="Открыть форму" onClick={() => setOpened(true)} />
+            <Modal
+                opened={opened}
+                onClose={() => setOpened(false)}
+                onCloseRequest={(reason) => reason !== 'outside' && window.confirm('Закрыть без сохранения?')}
+                hasBody
+            >
+                <p>Клик по подложке не закрывает окно, остальные способы требуют подтверждения.</p>
+            </Modal>
+        </OverlayProvider>
+    );
+}
+```
+
+## Сообщения
+
+`OverlayProvider` включает области Toast и Notification, поэтому `useToast` и `useNotifications` доступны без отдельных провайдеров.
+Toast по умолчанию ставит новые сообщения в очередь и объединяет одинаковые; таймер скрытия приостанавливается при наведении и фокусе.
+
+```tsx
+<OverlayProvider toast={{ queue: true, maxQueueLength: 3 }} notifications={{ placement: 'top-right', maxCount: 3 }}>
+    <App />
+</OverlayProvider>
+```
+
+Передайте `false` в `toast` или `notifications`, чтобы отключить соответствующую область.
+
+## Переход с отдельных провайдеров
+
+1. Замените `PopupProvider`, `ToastProvider` и `NotificationsProvider` в корне приложения на один `OverlayProvider`.
+2. Настройки `NotificationsProvider` (`placement`, `defaultNotificationArgs`) перенесите в свойство `notifications`, настройки `ToastProvider` — в `toast`.
+3. Удалите собственные обработчики `Escape`, блокировку прокрутки и ручной расчёт `zIndex` для модальных окон: это делает провайдер.
+
+Отдельные провайдеры продолжают работать и помечены как устаревшие. Локальный `ToastProvider` или `NotificationsProvider` внутри `OverlayProvider` по-прежнему создаёт свою область сообщений.
+
+Пока на общий стек слоёв переведены Popup, Modal, Drawer, Toast и Notification. Popover, Tooltip, Dropdown, Select, Combobox, BottomSheet, Sheet и Tour работают по-прежнему; внутри модального окна их `zIndex` по умолчанию рассчитывается над этим окном.

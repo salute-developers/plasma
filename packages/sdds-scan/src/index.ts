@@ -1,5 +1,6 @@
 // Overlay
 export * from './components/Drawer';
+export * from './components/OverlayProvider';
 export * from './components/Popup';
 export * from './components/Modal';
 export * from './components/Notification';

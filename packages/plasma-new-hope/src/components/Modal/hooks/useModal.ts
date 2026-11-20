@@ -1,48 +1,75 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useRef } from 'react';
+import type { MouseEvent } from 'react';
 
-import { ModalInfo, getIdLastModal } from '../ModalContext';
-import { ModalHookArgs } from '../Modal.types';
-import { usePopupContext } from '../../Popup';
+import type { ModalHookArgs } from '../Modal.types';
+import type { CloseReason, OverlayLayerConfig } from '../../OverlayProvider/OverlayProvider.types';
+import { useOverlayContext } from '../../OverlayProvider/OverlayContext';
 
-const ESCAPE_KEYCODE = 27;
+/**
+ * Подключает модальное окно к общему стеку слоёв: Escape, нажатие на подложку и кнопку закрытия
+ * проходят через запрос на закрытие с причиной.
+ */
+export const useModal = ({
+    id,
+    popupInfo,
+    onEscKeyDown,
+    onOverlayClick,
+    onClose,
+    onCloseRequest,
+    closeOnEsc = true,
+}: ModalHookArgs) => {
+    const { manager } = useOverlayContext();
+    const overlayEventRef = useRef<MouseEvent<HTMLDivElement> | null>(null);
 
-export const useModal = ({ id, popupInfo, onEscKeyDown, onClose, closeOnEsc = true }: ModalHookArgs) => {
-    const popupController = usePopupContext();
+    const handleLayerClose = useCallback(
+        (reason: CloseReason, event?: Event) => {
+            const overlayEvent = overlayEventRef.current;
+            overlayEventRef.current = null;
 
-    // При ESC закрывает текущее окно, если это возможно
-    const onKeyDown = useCallback(
-        (event: KeyboardEvent) => {
-            if (!closeOnEsc) {
+            if (reason === 'escape' && onEscKeyDown && event) {
+                onEscKeyDown(event as KeyboardEvent);
                 return;
             }
-            if (event.keyCode === ESCAPE_KEYCODE && getIdLastModal(Array.from(popupController.items.values())) === id) {
-                if (onEscKeyDown) {
-                    onEscKeyDown(event);
-                    return;
-                }
 
-                if (onClose) {
-                    onClose();
-                }
+            if (reason === 'outside' && onOverlayClick && overlayEvent) {
+                onOverlayClick(overlayEvent);
+                return;
             }
+
+            onClose?.();
         },
-        [onClose, onEscKeyDown, popupController.items, closeOnEsc],
+        [onEscKeyDown, onOverlayClick, onClose],
     );
 
-    useEffect(() => {
-        window.addEventListener('keydown', onKeyDown);
-        return () => {
-            window.removeEventListener('keydown', onKeyDown);
-        };
-    }, [onClose, onEscKeyDown, popupController.items, closeOnEsc]);
-
-    const modalInfo: ModalInfo = {
-        id,
-        info: {
-            isModal: true,
+    const handleOverlayClick = useCallback(
+        (event: MouseEvent<HTMLDivElement>) => {
+            overlayEventRef.current = event;
+            manager.requestClose(id, 'outside', event.nativeEvent);
         },
-        ...popupInfo,
+        [manager, id],
+    );
+
+    const handleCloseButtonClick = useCallback(
+        (event: MouseEvent<HTMLButtonElement>) => {
+            manager.requestClose(id, 'close-button', event.nativeEvent);
+        },
+        [manager, id],
+    );
+
+    const getFocusScopeElements = useCallback(
+        () => [...manager.getDescendantElements(id), ...manager.getMessageElements()],
+        [manager, id],
+    );
+
+    const layerOptions: OverlayLayerConfig = {
+        kind: 'modal',
+        modal: true,
+        closeOnEsc,
+        scrollLock: true,
+        info: { ...popupInfo?.info, isModal: true },
+        onClose: handleLayerClose,
+        onCloseRequest,
     };
 
-    return { modalInfo };
+    return { layerOptions, handleOverlayClick, handleCloseButtonClick, getFocusScopeElements };
 };

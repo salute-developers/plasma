@@ -14,4 +14,7 @@ const mergedConfig = mergeConfig(toastConfig, config);
 
 export const Toast = component(mergedConfig);
 export const ToastController = ToastControllerHoc(Toast);
+/**
+ * @deprecated Используйте OverlayProvider.
+ */
 export const ToastProvider = ToastProviderHoc(ToastController);

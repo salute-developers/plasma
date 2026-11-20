@@ -4,7 +4,6 @@ import { useForkRef } from 'src/hooks';
 import { safeUseId } from 'src/utils';
 import cls from 'classnames';
 
-import { usePopupContext } from './PopupContext';
 import type { PopupRootProps } from './Popup.types';
 import { PopupRootContainer, PopupView } from './Popup.styles';
 import { classes } from './Popup.tokens';
@@ -27,6 +26,7 @@ const getDragPositionOffset = (transform?: string) => {
  * Управляет показом/скрытием и анимацией всплывающего окна.
  */
 export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ({ id, position, setVisible, children, role, frame, zIndex, animationInfo, draggable, ...rest }, ref) => {
         const contentRef = useRef<HTMLDivElement | null>(null);
         const innerRef = useForkRef<HTMLDivElement>(contentRef, ref);
@@ -34,7 +34,6 @@ export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
         const uniqueId = safeUseId();
         const handleClass = `draggable-handle-${uniqueId.replace(/:/g, '-')}`;
 
-        const popupController = usePopupContext();
         const positionOffset = getDragPositionOffset(position?.transform);
         const currentPosition = positionOffset && draggable ? { ...position, transform: undefined } : position;
 
@@ -45,12 +44,11 @@ export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
                 }
                 e.stopPropagation();
                 if (animationInfo?.endAnimation) {
-                    popupController.unregister(id);
                     setVisible(false);
                     animationInfo.setEndAnimation(false);
                 }
             },
-            [popupController.unregister, animationInfo?.endAnimation, setVisible],
+            [animationInfo?.endAnimation, setVisible],
         );
 
         const popupNode = (
@@ -62,9 +60,10 @@ export const PopupRoot = forwardRef<HTMLDivElement, PopupRootProps>(
                 frame={frame}
                 onAnimationEnd={handleAnimationEnd}
                 onTransitionEnd={handleAnimationEnd}
+                role={role}
                 {...rest}
             >
-                <PopupView role={role}>{children}</PopupView>
+                <PopupView>{children}</PopupView>
             </PopupRootContainer>
         );
 

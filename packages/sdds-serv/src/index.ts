@@ -28,6 +28,7 @@ export * from './components/Mask';
 export * from './components/Modal';
 export * from './components/Overlay';
 export * from './components/Popover';
+export * from './components/OverlayProvider';
 export * from './components/Popup';
 export * from './components/Portal';
 export * from './components/Price';

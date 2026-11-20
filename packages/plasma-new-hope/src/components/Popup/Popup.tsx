@@ -4,6 +4,7 @@ import { RootProps } from 'src/engines/types';
 import { canUseDOM, cx, safeUseId } from 'src/utils';
 
 import { Portal } from '../Portal';
+import { OverlayLayerContext } from '../OverlayProvider/OverlayContext';
 
 import { Resizable } from './ui';
 import type { PopupPlacementBasic, PopupPlacement, PopupPositionType, PopupProps } from './Popup.types';
@@ -94,10 +95,10 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
                 frame = 'document',
                 children,
                 overlay,
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 role,
                 zIndex,
                 popupInfo,
+                layerOptions,
                 withAnimation = false,
                 className,
                 draggable,
@@ -111,12 +112,15 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             const uniqId = safeUseId();
             const innerId = id || uniqId;
 
-            const { isVisible, animationInfo, setVisible, rootId } = usePopup({
+            const { isVisible, animationInfo, setVisible, rootId, layer } = usePopup({
                 isOpen: innerIsOpen,
                 id: innerId,
                 popupInfo,
+                layerOptions,
                 withAnimation,
+                zIndex,
             });
+            const innerZIndex = zIndex || (layer.state ? String(layer.state.zIndex) : undefined);
 
             const portalRef = useRef<HTMLDivElement | null>(null);
             const contentRef = useRef<HTMLDivElement | null>(null);
@@ -134,25 +138,28 @@ export const popupRoot = (Root: RootProps<HTMLDivElement, PopupProps>) =>
             );
 
             const rootNode = (
-                <Root className={cls}>
-                    {overlay}
+                <OverlayLayerContext.Provider value={layer.layerContextValue}>
+                    <Root className={cls} ref={layer.layerRef}>
+                        {overlay}
 
-                    <PopupRoot
-                        id={innerId}
-                        ref={innerRef}
-                        draggable={draggable}
-                        position={handlePosition(placement, offset)}
-                        zIndex={zIndex}
-                        frame={frame}
-                        animationInfo={animationInfo}
-                        setVisible={setVisible}
-                        {...rest}
-                    >
-                        <Resizable resizable={outerResizable} placement={placement}>
-                            {children}
-                        </Resizable>
-                    </PopupRoot>
-                </Root>
+                        <PopupRoot
+                            id={innerId}
+                            ref={innerRef}
+                            draggable={draggable}
+                            position={handlePosition(placement, offset)}
+                            zIndex={innerZIndex}
+                            frame={frame}
+                            role={role}
+                            animationInfo={animationInfo}
+                            setVisible={setVisible}
+                            {...rest}
+                        >
+                            <Resizable resizable={outerResizable} placement={placement}>
+                                {children}
+                            </Resizable>
+                        </PopupRoot>
+                    </Root>
+                </OverlayLayerContext.Provider>
             );
 
             if (typeof frame !== 'string' && frame && frame.current && canUseDOM) {

@@ -1,97 +1,21 @@
-import { useCallback, useEffect, useRef } from 'react';
+import type { DrawerHookArgs } from '../Drawer.types';
+import type { OverlayLayerConfig } from '../../OverlayProvider/OverlayProvider.types';
+import { useModal } from '../../Modal/hooks/useModal';
 
-import { DrawerInfo, getIdLastDrawer, hasDrawers } from '../DrawerContext';
-import { DrawerHookArgs } from '../Drawer.types';
-import { usePopupContext } from '../../Popup';
-import { canUseDOM } from '../../../utils';
+/**
+ * Подключает Drawer к общему стеку слоёв.
+ * Модальный вариант блокирует фон и прокрутку; немодальный оставляет фон доступным.
+ */
+export const useDrawer = ({ asModal = true, popupInfo, ...rest }: DrawerHookArgs) => {
+    const { layerOptions: modalLayerOptions, ...handlers } = useModal({ popupInfo, ...rest });
 
-const ESCAPE_KEYCODE = 27;
-
-export const useDrawer = ({
-    id,
-    isOpen,
-    popupInfo,
-    onEscKeyDown,
-    onClose,
-    closeOnEsc = true,
-    disableScroll = true,
-}: DrawerHookArgs) => {
-    const popupController = usePopupContext();
-    const overflow = useRef<string>(canUseDOM ? document.body.style.overflow : 'initial');
-
-    // При ESC закрывает текущее окно, если это возможно
-    const onKeyDown = useCallback(
-        (event: KeyboardEvent) => {
-            if (!closeOnEsc) {
-                return;
-            }
-            if (
-                event.keyCode === ESCAPE_KEYCODE &&
-                getIdLastDrawer(Array.from(popupController.items.values())) === id
-            ) {
-                if (onEscKeyDown) {
-                    onEscKeyDown(event);
-                    return;
-                }
-
-                if (onClose) {
-                    onClose();
-                }
-            }
-        },
-        [onClose, onEscKeyDown, popupController.items, closeOnEsc],
-    );
-
-    useEffect(() => {
-        window.addEventListener('keydown', onKeyDown);
-        return () => {
-            window.removeEventListener('keydown', onKeyDown);
-        };
-    }, [onKeyDown]);
-
-    // linaria не поддерживает динамический global
-    useEffect(() => {
-        if (!canUseDOM) {
-            return;
-        }
-
-        if (isOpen && disableScroll) {
-            overflow.current = document.body.style.overflow;
-
-            document.body.style.overflow = 'hidden';
-        }
-    }, [isOpen, disableScroll]);
-
-    useEffect(() => {
-        if (!canUseDOM) {
-            return;
-        }
-
-        if (!isOpen && !hasDrawers(Array.from(popupController.items.values()))) {
-            document.body.style.overflow = overflow.current;
-        }
-    }, [isOpen, popupController.items]);
-
-    // При анмаунте компонента нужно обновлять overflow у body.
-    useEffect(() => {
-        return () => {
-            if (!canUseDOM) {
-                return;
-            }
-
-            if (!hasDrawers(Array.from(popupController.items.values()))) {
-                document.body.style.overflow = overflow.current;
-            }
-        };
-    }, []);
-
-    const drawerInfo: DrawerInfo = {
-        id,
-        info: {
-            isDrawer: true,
-        },
-        ...popupInfo,
+    const layerOptions: OverlayLayerConfig = {
+        ...modalLayerOptions,
+        kind: 'drawer',
+        modal: asModal,
+        scrollLock: asModal,
+        info: { ...popupInfo?.info, isDrawer: true },
     };
 
-    return { drawerInfo };
+    return { layerOptions, ...handlers };
 };

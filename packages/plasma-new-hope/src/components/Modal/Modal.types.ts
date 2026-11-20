@@ -1,4 +1,5 @@
 import { PopupHookArgs, PopupProps, PopupRootProps } from '../Popup/Popup.types';
+import type { CloseRequestHandler } from '../OverlayProvider/OverlayProvider.types';
 
 export type ModalBodyProps =
     | {
@@ -16,7 +17,7 @@ export type ModalBodyProps =
           hasClose?: never;
       };
 
-export interface CommonModalProps extends PopupProps {
+export interface CommonModalProps extends Omit<PopupProps, 'layerOptions'> {
     /**
      * Нужно ли применять blur для подложки.
      */
@@ -60,6 +61,11 @@ export interface CommonModalProps extends PopupProps {
      * Общий обработчик клика по кнопке "закрыть".
      */
     onClose?: () => void;
+    /**
+     * Проверка запроса на закрытие (Escape, нажатие на подложку, кнопка закрытия).
+     * Верните `false`, чтобы оставить окно открытым, или `Promise`, чтобы отложить решение.
+     */
+    onCloseRequest?: CloseRequestHandler;
     view?: string;
     /**
      * Размер модального окна.
@@ -74,5 +80,5 @@ export type ModalBaseRootProps = PopupRootProps & Pick<ModalProps, 'initialFocus
 export type ModalOverlayProps = Pick<PopupRootProps, 'id' | 'zIndex'> &
     Pick<ModalProps, 'withBlur' | 'closeOnOverlayClick' | 'onOverlayClick' | 'onClose'>;
 
-export type ModalHookArgs = Pick<PopupHookArgs, 'id' | 'popupInfo' | 'isOpen'> &
-    Pick<ModalProps, 'closeOnEsc' | 'onEscKeyDown' | 'onClose'>;
+export type ModalHookArgs = Pick<PopupHookArgs, 'id' | 'popupInfo'> &
+    Pick<ModalProps, 'closeOnEsc' | 'onEscKeyDown' | 'onOverlayClick' | 'onClose' | 'onCloseRequest'>;

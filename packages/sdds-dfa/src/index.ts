@@ -79,6 +79,7 @@ export * from './components/TextFieldSlider';
 // INFO: prev disabled components
 export * from './components/Link';
 export * from './components/Overlay';
+export * from './components/OverlayProvider';
 export * from './components/Popup';
 export * from './components/Table';
 

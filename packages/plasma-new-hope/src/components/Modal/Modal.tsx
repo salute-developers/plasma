@@ -1,19 +1,17 @@
-import React, { forwardRef, useCallback, useMemo } from 'react';
+import React, { forwardRef } from 'react';
 import { safeUseId, cx } from 'src/utils';
 import { RootProps, component } from 'src/engines';
 import { useFocusTrap, useForkRef } from 'src/hooks';
 import { IconClose } from 'src/components/_Icon';
 
-import { popupConfig, usePopupContext } from '../Popup';
-import { Overlay } from '../Overlay';
-import { DEFAULT_Z_INDEX } from '../Popup/utils';
+import { popupConfig } from '../Popup';
+import { LayerOverlay } from '../OverlayProvider/ui/LayerOverlay';
 
 import { classes, tokens } from './Modal.tokens';
 import { ModalProps } from './Modal.types';
 import { useModal } from './hooks';
 import { base as viewCSS } from './variations/_view/base';
 import { base as sizeCSS } from './variations/_size/base';
-import { getIdLastModal } from './ModalContext';
 import { CloseButton, ModalBody, ModalContent, base } from './Modal.styles';
 
 // issue #823
@@ -30,6 +28,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 id,
                 withAnimation,
                 onClose,
+                onCloseRequest,
                 onOverlayClick,
                 onEscKeyDown,
                 closeOnEsc = true,
@@ -58,17 +57,6 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
             const innerIsOpen = Boolean(isOpen || opened);
             const innerHasClose = (hasClose === undefined && hasBody) || hasClose;
             const isResizable = Boolean(resizable && (resizable === true || !resizable.disabled));
-            const trapRef = useFocusTrap(
-                isFocusTrapped,
-                initialFocusRef,
-                focusAfterRef,
-                true,
-                !isFocusTrapped,
-                focusTrapSelectors,
-            );
-            const popupController = usePopupContext();
-
-            const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRootRef);
 
             const uniqId = safeUseId();
             const innerId = id || uniqId;
@@ -76,43 +64,36 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                 ? `var(${tokens.modalOverlayWithBlurColor})`
                 : `var(${tokens.modalOverlayColor})`;
 
-            const { modalInfo } = useModal({
+            const { layerOptions, handleOverlayClick, handleCloseButtonClick, getFocusScopeElements } = useModal({
                 id: innerId,
-                isOpen: innerIsOpen,
                 closeOnEsc,
                 onEscKeyDown,
+                onOverlayClick,
                 onClose,
+                onCloseRequest,
                 popupInfo,
             });
 
-            const transparent = useMemo(() => getIdLastModal(Array.from(popupController.items.values())) !== innerId, [
-                innerId,
-                popupController.items,
-            ]);
-
-            const onModalOverlayKeyDown = useCallback(
-                (event: React.MouseEvent<HTMLDivElement>) => {
-                    if (onOverlayClick) {
-                        onOverlayClick(event);
-                        return;
-                    }
-
-                    if (onClose) {
-                        onClose();
-                    }
-                },
-                [closeOnOverlayClick, onOverlayClick, onClose],
+            const trapRef = useFocusTrap(
+                isFocusTrapped,
+                initialFocusRef,
+                focusAfterRef,
+                true,
+                !isFocusTrapped,
+                focusTrapSelectors,
+                getFocusScopeElements,
             );
 
+            const innerRef = useForkRef<HTMLDivElement>(trapRef, outerRootRef);
+
             const overlayNode = (
-                <Overlay
+                <LayerOverlay
                     className={classes.overlay}
-                    zIndex={zIndex || DEFAULT_Z_INDEX}
+                    zIndex={zIndex}
                     backgroundColorProperty={overlayBackgroundToken}
                     withBlur={withBlur}
-                    transparent={transparent}
                     isClickable={closeOnOverlayClick}
-                    onOverlayClick={onModalOverlayKeyDown}
+                    onOverlayClick={handleOverlayClick}
                 />
             );
 
@@ -121,7 +102,10 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                     id={innerId}
                     opened={innerIsOpen}
                     ref={innerRef}
-                    popupInfo={modalInfo}
+                    role="dialog"
+                    aria-modal="true"
+                    popupInfo={popupInfo}
+                    layerOptions={layerOptions}
                     withAnimation={withAnimation}
                     zIndex={zIndex}
                     overlay={<Root view={view}>{overlay || overlayNode}</Root>}
@@ -136,7 +120,7 @@ export const modalRoot = (Root: RootProps<HTMLDivElement, ModalProps>) =>
                                     {innerHasClose && (
                                         <CloseButton
                                             className={classes.close}
-                                            onClick={onClose}
+                                            onClick={handleCloseButtonClick}
                                             data-test="modal-close"
                                         >
                                             <IconClose size="s" color="currentColor" />

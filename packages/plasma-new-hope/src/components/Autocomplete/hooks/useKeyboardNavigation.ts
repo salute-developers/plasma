@@ -106,6 +106,10 @@ export const useKeyNavigation = ({
                 setIsOpen(false);
                 dispatchFocused({ type: 'reset' });
 
+                if (event.key === keys.Escape) {
+                    event.preventDefault();
+                }
+
                 break;
             }
 

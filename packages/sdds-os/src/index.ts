@@ -62,6 +62,7 @@ export * from './components/Flow';
 export * from './components/Grid';
 export * from './components/Overlay';
 export * from './components/Popover';
+export * from './components/OverlayProvider';
 export * from './components/Popup';
 export * from './components/Portal';
 export * from './components/SSRProvider';
