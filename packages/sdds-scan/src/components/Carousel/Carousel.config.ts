@@ -8,6 +8,15 @@ import {
     textPrimary,
 } from '@salutejs/sdds-themes/tokens/sdds_scan';
 
+const baseControlView = `
+    ${tokens.controlIconButtonColor}: ${textPrimary};
+    ${tokens.controlIconButtonBackgroundColor}: ${surfaceTransparentSecondary};
+    ${tokens.controlIconButtonColorHover}: ${textPrimary};
+    ${tokens.controlIconButtonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
+    ${tokens.controlIconButtonColorActive}: ${textPrimary};
+    ${tokens.controlIconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
+`;
+
 export const config = {
     defaults: {
         view: 'default',
@@ -18,17 +27,24 @@ export const config = {
             default: css`
                 ${tokens.paginationDotBackground}: ${surfaceTransparentTertiary};
                 ${tokens.paginationDotActiveBackground}: ${surfaceSolidDefault};
-                ${tokens.controlIconButtonColor}: ${textPrimary};
-                ${tokens.controlIconButtonBackgroundColor}: ${surfaceTransparentSecondary};
-                ${tokens.controlIconButtonColorHover}: ${textPrimary};
-                ${tokens.controlIconButtonBackgroundColorHover}: ${surfaceTransparentSecondaryHover};
-                ${tokens.controlIconButtonColorActive}: ${textPrimary};
-                ${tokens.controlIconButtonBackgroundColorActive}: ${surfaceTransparentSecondaryActive};
+            `,
+        },
+        controlArrowsPlacement: {
+            inner: css`
+                ${baseControlView}
+                ${tokens.controlIconButtonOffset}: 0.75rem;
+            `,
+            outer: css`
+                ${baseControlView}
+                ${tokens.controlIconButtonOffset}: 0.75rem;
             `,
         },
         size: {
             s: css`
-                ${tokens.controlIconButtonRadius}: 100%;
+                ${tokens.controlIconButtonWidth}: 2.5rem;
+                ${tokens.controlIconButtonHeight}: 2.5rem;
+                ${tokens.controlIconButtonPadding}: 1rem;
+                ${tokens.controlIconButtonRadius}: 0.625rem;
             `,
         },
     },
