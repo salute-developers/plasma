@@ -94,6 +94,20 @@ type TextFieldChipProps =
           chipValidator?: (value: string) => ChipValidatorReturn;
       };
 
+/**
+ * Контролируемое значение текста поля и его обработчик изменения.
+ */
+export type TextValueProps = {
+    /**
+     * Текущий текст поля. В Combobox содержит только поисковый запрос.
+     */
+    textValue: string;
+    /**
+     * Изменяет текст поля.
+     */
+    onTextValueChange: (textValue: string) => void;
+};
+
 export type RequiredProps = {
     /**
      * Флаг обязательности поля

@@ -858,6 +858,67 @@ describeFn('Combobox', () => {
         cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
     });
 
+    it('renderTarget with search keeps filtering and keyboard navigation', () => {
+        cy.viewport(500, 400);
+
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((item, opened, textProps) => (
+            <div
+                id="custom-target"
+                style={{ display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid gray', padding: '8px' }}
+            >
+                <span>{item?.label || 'Placeholder'}</span>
+                <input
+                    id="custom-target-input"
+                    value={textProps?.textValue || ''}
+                    onChange={(event) => textProps?.onTextValueChange(event.target.value)}
+                />
+                <span>{opened ? 'opened' : 'closed'}</span>
+            </div>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState('');
+
+            return (
+                <Combobox
+                    id="combobox"
+                    items={[
+                        { value: 'north_america', label: 'Северная Америка' },
+                        { value: 'brazil', label: 'Бразилия' },
+                    ]}
+                    value={value}
+                    onChange={setValue}
+                    renderTarget={renderTarget}
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target-input').click();
+        cy.get('#custom-target-input').type('Браз');
+
+        // Ввод фильтрует список.
+        cy.contains('Бразилия').should('exist');
+        cy.contains('Северная Америка').should('not.exist');
+
+        // Строка поиска приходит третьим аргументом.
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[2]).to.include({ textValue: 'Браз' });
+        });
+
+        cy.contains('Бразилия').click();
+
+        // После выбора строка поиска сбрасывается.
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.include({ value: 'brazil', label: 'Бразилия' });
+            expect(stub.lastCall.args[2]).to.include({ textValue: '' });
+        });
+        cy.get('#custom-target-input').should('have.value', '');
+    });
+
     it('isTargetAmount', () => {
         cy.viewport(500, 300);
 

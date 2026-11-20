@@ -60,6 +60,7 @@ type Props = {
     items: ItemOptionTransformed[];
     disabled: boolean;
     readOnly: boolean;
+    hasCustomTarget?: boolean;
 };
 
 type ReturnedProps = {
@@ -88,6 +89,7 @@ export const useKeyNavigation = ({
     items,
     disabled,
     readOnly,
+    hasCustomTarget = false,
 }: Props): ReturnedProps => {
     const getGuardedKeyDown = (onKeyDown: ReturnedProps['onKeyDown']) => (event: React.KeyboardEvent<HTMLElement>) => {
         if (disabled || readOnly) {
@@ -119,6 +121,7 @@ export const useKeyNavigation = ({
             items,
             disabled,
             readOnly,
+            hasCustomTarget,
         });
 
         return { onKeyDown: getGuardedKeyDown(onKeyDown) };
@@ -145,6 +148,7 @@ export const useKeyNavigation = ({
         items,
         disabled,
         readOnly,
+        hasCustomTarget,
     });
 
     return { onKeyDown: getGuardedKeyDown(onKeyDown) };
@@ -164,6 +168,7 @@ const keyboardNavigationDefault = ({
     value,
     textValue,
     valueToItemMap,
+    hasCustomTarget = false,
 }: Props): ReturnedProps => {
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
     const currentLength: number = pathMap.get(path?.[focusedPath.length - 1]) || 0;
@@ -301,6 +306,10 @@ const keyboardNavigationDefault = ({
 
                 if (multiple) {
                     setTextValue('');
+                } else if (hasCustomTarget) {
+                    // С кастомным renderTarget в поле рисуется выбранная ячейка,
+                    // поэтому при Tab/Escape сбрасываем только поисковый запрос.
+                    setTextValue('');
                 } else if (textValue !== value) {
                     // Проверяем, отличается ли значение в инпуте от выбранного value после нажатия Tab/Enter.
                     // Если изменилось, то возвращаем label выбранного айтема.
@@ -412,6 +421,7 @@ const keyboardNavigationTree = ({
     dispatchTreePath,
     valueToPathMap,
     items,
+    hasCustomTarget = false,
 }: Props): ReturnedProps => {
     const currentItem = getItemByFocused(focusedPath, focusedToValueMap);
     const currentIndex: number = focusedPath?.[focusedPath.length - 1] || 0;
@@ -620,6 +630,10 @@ const keyboardNavigationTree = ({
                 }
 
                 if (multiple) {
+                    setTextValue('');
+                } else if (hasCustomTarget) {
+                    // С кастомным renderTarget в поле рисуется выбранная ячейка,
+                    // поэтому при Tab/Escape сбрасываем только поисковый запрос.
                     setTextValue('');
                 } else if (textValue !== value) {
                     // Проверяем, отличается ли значение в инпуте от выбранного value после нажатия Tab/Enter.
