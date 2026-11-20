@@ -34,6 +34,10 @@ export type ResizableOptions = {
 };
 
 export type ResizableProps = {
+    /**
+     * @internal
+     */
+    availableWidth?: number;
     placement?: ResizablePlacement;
     resizable?: boolean | ResizableOptions;
     onResizeStart?: (resizableContainer?: RefObject<ResizableInstance>) => void;
