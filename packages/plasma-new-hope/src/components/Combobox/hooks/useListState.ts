@@ -57,6 +57,11 @@ export const useListState = ({
         dispatchFocusedPath({ type: 'reset' });
         dispatchPath({ type: 'reset' });
         dispatchTreePath({ type: 'reset' });
+
+        // Повторный выбор в radio не меняет value, но список закрывается здесь.
+        if (hasCustomTarget) {
+            setTextValue('');
+        }
     };
 
     const handleListToggle = (opened: boolean) => {

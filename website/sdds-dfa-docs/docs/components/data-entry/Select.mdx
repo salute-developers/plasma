@@ -607,49 +607,6 @@ type Items = Array<{
         }
         ```
     </TabItem>
-    <TabItem value="treeView" label="Tree View">
-        Включение отображения выпадающего списка в виде дерева осуществляется через свойство `treeView`. Для настройки стороны стрелочки открытия/закрытия используется свойство `arrowPlacement`.
-
-        ```tsx live
-        import React, { useState } from 'react';
-        import { Select } from '@salutejs/sdds-dfa';
-
-        export function App() {
-            const items = [
-                {
-                    value: 'north_america',
-                    label: 'Северная Америка',
-                },
-                {
-                    value: 'south_america',
-                    label: 'Южная Америка',
-                    items: [
-                        {
-                            value: 'brazil',
-                            label: 'Бразилия',
-                        },
-                        {
-                            value: 'argentina',
-                            label: 'Аргентина',
-                        },
-                    ],
-                },
-            ];
-
-            return (
-                <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '350px', height: '300px' }}>
-                    <Select
-                        label="Label"
-                        placeholder="Placeholder"
-                        items={items}
-                        treeView
-                        arrowPlacement="right"
-                    />
-                </div>
-            );
-        }
-        ```
-    </TabItem>
     <TabItem value="slots" label="beforeList / afterList">
         `beforeList` и `afterList` добавляют контент в начало и конец списка.
 
@@ -1067,7 +1024,7 @@ export function App() {
 `Combobox` - уже имеет механизм поиска и фильтрацию из коробки.
 :::
 
-Данный пример показывает реализацию подсветки (<b>highlighting</b>) символов в найденных элементах в режиме `treeView`.
+Данный пример показывает реализацию подсветки (<b>highlighting</b>) символов в найденных элементах.
 
 ```tsx live
 import React, { useState } from 'react';
@@ -1254,7 +1211,7 @@ export function App() {
                 renderItem={(item) => (
                     <Content title={item.label} items={item.subtitle} population={item.population} />
                 )}
-                renderTarget={(item) => (
+                renderTarget={(item, opened, textProps) => (
                     <TargetField
                         label="Title"
                         leftHelper={
@@ -1262,14 +1219,7 @@ export function App() {
                         }
                         placeholder={item ? null : 'Placeholder'}
                         value=""
-                        onChange={() => {}}
-                        contentLeft={
-                            item ? (
-                                <Content title={item.label} items={item.subtitle} />
-                            ) : (
-                                <IconPlasma color="inherit" />
-                            )
-                        }
+                        contentLeft={item ? <Content title={item.label} items={item.subtitle} /> : undefined}
                         contentRight={
                             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                 {item ? <ContentRight population={item.population} /> : null}
@@ -1283,6 +1233,20 @@ export function App() {
     );
 }
 ```
+
+### Контракт renderTarget
+
+`renderTarget?: (value, opened?) => ReactNode`
+
+- `value` — выбранный элемент, в режиме multiselect — массив выбранных; `null`, если ничего не выбрано;
+- `opened` — признак открытого списка;
+
+Что ядро делает само при кастомном target:
+
+- открывает и закрывает список по клику — `onClick` прокидывается в обёртку target;
+- обеспечивает клавиатурную навигацию — `onKeyDown` прокидывается в обёртку target;
+
+На стороне пользователя остаются разметка поля, стрелка и логика очистки значения. Выбранное содержимое рисуется в `contentLeft`.
 
 ## Клавиатурная навигация
 
@@ -1303,4 +1267,4 @@ export function App() {
 
 ## API
 
-<PropsTable name="Select" />
+<PropsTable name="Select" exclude={['treeView', 'arrowPlacement']} />
