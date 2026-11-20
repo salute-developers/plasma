@@ -129,11 +129,25 @@ export function initReveal() {
                     el.classList.add('is-settled'); // снимает filter и с внутренних частей
                 }, delay + 1500);
 
-            /* Все блоки подъезжают одинаково. Раньше внутри группы был шаг задержки,
-     и соседние карточки всегда оказывались в разной фазе — страница читалась рвано. */
+            /* Ряд определяется текущими колонками CSS Grid и видимыми карточками.
+     offsetTop ненадёжен: у ссылок и карточек «Скоро» могут быть разные offsetParent. */
             const show = (el) => {
-                el.classList.add('is-rise');
-                settle(el, 0);
+                const parent = el.parentElement;
+                let row = [el];
+                if (parent?.matches('.docs-index :is(.doc-cards, .cat-cards, .comp-cards)')) {
+                    const cards = [...parent.children].filter((card) => !card.hidden);
+                    const columns = getComputedStyle(parent).gridTemplateColumns.split(/\s+/).length;
+                    const index = cards.indexOf(el);
+                    const start = Math.floor(index / columns) * columns;
+                    row = index < 0 ? [el] : cards.slice(start, start + columns);
+                }
+
+                row.forEach((card) => {
+                    if (card.classList.contains('is-rise')) return;
+                    io.unobserve(card);
+                    card.classList.add('is-rise');
+                    settle(card, 0);
+                });
             };
 
             /* filter на элементе создаёт свой слой, и backdrop-filter внутри начинает
