@@ -15,6 +15,11 @@ import { Cell, Combobox, ComboboxItemOption as ItemOption } from '@salutejs/plas
 
 type ComboboxProps = ComponentProps<typeof Combobox>;
 
+type TextValueProps = {
+    textValue: string;
+    onTextValueChange: (textValue: string) => void;
+};
+
 describe('Basics', () => {
     it('Common', () => {
         // @ts-expect-error
@@ -89,8 +94,8 @@ describe('Basics', () => {
         expectTypeOf<ComboboxProps>()
             .toHaveProperty('renderTarget')
             .toEqualTypeOf<
-                | ((value: ItemOption | null, opened?: boolean) => ReactNode)
-                | ((value: ItemOption[], opened?: boolean) => ReactNode)
+                | ((value: ItemOption | null, opened?: boolean, textProps?: TextValueProps) => ReactNode)
+                | ((value: ItemOption[], opened?: boolean, textProps?: TextValueProps) => ReactNode)
                 | undefined
             >();
         expectTypeOf<ComboboxProps>()
