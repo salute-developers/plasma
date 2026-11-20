@@ -60,26 +60,27 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>((props, ref) => 
             open: opened,
             onOpenChange: handleToggle,
             middleware: [
-                outsideShift &&
-                    shift({
-                        limiter: limitShift(),
-                    }),
-                outsideFlip && flip(),
-                hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
                 offset(
                     ({ placement: currentPlacement }) => {
+                        const [crossAxis, mainAxis] = Array.isArray(outerOffset) ? outerOffset : [0, outerOffset];
                         if (!hasTail) {
-                            return outerOffset;
+                            return { crossAxis, mainAxis };
                         }
 
                         const side = currentPlacement.split('-')[0];
                         const { width = 0, height = 0 } = arrowRef.current?.getBoundingClientRect() ?? {};
                         const tailOffset = side === 'top' || side === 'bottom' ? height : width;
 
-                        return tailOffset + outerOffset;
+                        return { crossAxis, mainAxis: tailOffset + mainAxis };
                     },
                     [outerOffset, hasTail],
                 ),
+                outsideFlip && flip(),
+                outsideShift &&
+                    shift({
+                        limiter: limitShift(),
+                    }),
+                hasTail && arrow({ element: arrowRef, padding: ARROW_PADDING }),
             ],
         },
     );
@@ -93,7 +94,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>((props, ref) => 
         enabled: true,
         outsidePress: true,
     });
-    const role = useRole(context);
+    const role = useRole(context, { role: 'tooltip' });
     const hover = useHover(context, {
         mouseOnly: true,
         enabled: trigger === 'hover',
@@ -107,12 +108,15 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>((props, ref) => 
     });
 
     const { getReferenceProps, getFloatingProps } = useInteractions([dismiss, role, click, hover, focus]);
+    const referenceProps = getReferenceProps();
+    // Сохраняем описания цели и добавляем к ним ID открытой подсказки.
+    const describedBy = cls(target.props['aria-describedby'], referenceProps['aria-describedby']) || undefined;
 
     const { side, tailStyle } = useTailStyle(calculatedPlacement, middlewareData, ARROW_PADDING);
 
     return (
         <>
-            <Slot ref={refs.setReference} {...getReferenceProps()}>
+            <Slot ref={refs.setReference} {...referenceProps} aria-describedby={describedBy}>
                 {target}
             </Slot>
 
