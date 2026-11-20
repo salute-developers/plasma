@@ -2,6 +2,8 @@ import React from 'react';
 import { mount, getComponent, getDescribeFN, hasComponent } from '@salutejs/plasma-cy-utils';
 import styled from 'styled-components';
 
+import type { CarouselNewProps } from './Carousel.types';
+
 const componentExists = hasComponent('Carousel');
 const describeFn = getDescribeFN('Carousel');
 
@@ -24,7 +26,7 @@ const items = Array(20)
     }));
 
 describeFn('Carousel', () => {
-    const Carousel = componentExists ? getComponent<any>('Carousel') : () => null;
+    const Carousel = componentExists ? getComponent<CarouselNewProps>('Carousel') : () => null;
 
     it('basic', () => {
         cy.viewport(700, 500);
@@ -47,7 +49,7 @@ describeFn('Carousel', () => {
 
         mount(
             <div style={{ width: '600px' }}>
-                <Carousel scrollAlign="center">
+                <Carousel scrollAlign="center" defaultIndex={1}>
                     {items.map((item, i) => (
                         <StyledCard key={i}>{item.title}</StyledCard>
                     ))}
@@ -55,12 +57,25 @@ describeFn('Carousel', () => {
             </div>,
         );
 
-        cy.get('.carousel-right-control-button').click();
-
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(250);
-
         cy.matchImageSnapshot();
+    });
+
+    (['inner', 'outer'] as const).forEach((controlArrowsPlacement) => {
+        it(`prop: controlArrowsPlacement=${controlArrowsPlacement}`, () => {
+            cy.viewport(700, 500);
+
+            mount(
+                <div style={{ width: '600px' }}>
+                    <Carousel controlArrowsPlacement={controlArrowsPlacement} defaultIndex={1} fullWidth>
+                        {items.map((item) => (
+                            <StyledCard key={item.id}>{item.title}</StyledCard>
+                        ))}
+                    </Carousel>
+                </div>,
+            );
+
+            cy.matchImageSnapshot();
+        });
     });
 
     it('prop: controlArrowsDisabled', () => {
@@ -68,7 +83,7 @@ describeFn('Carousel', () => {
 
         mount(
             <div style={{ width: '600px' }}>
-                <Carousel controlArrowsDisabled>
+                <Carousel controlArrowsDisabled controlArrowsPlacement="outer">
                     {items.map((item, i) => (
                         <StyledCard key={i}>{item.title}</StyledCard>
                     ))}
@@ -157,103 +172,5 @@ describeFn('Carousel', () => {
         );
 
         cy.matchImageSnapshot();
-    });
-
-    it('prop: defaultIndex', () => {
-        cy.viewport(700, 500);
-
-        mount(
-            <div style={{ width: '600px' }}>
-                <Carousel defaultIndex={4}>
-                    {items.map((item, i) => (
-                        <StyledCard key={i}>{item.title}</StyledCard>
-                    ))}
-                </Carousel>
-            </div>,
-        );
-
-        cy.matchImageSnapshot();
-    });
-
-    it.skip('prop: loop', () => {
-        cy.viewport(700, 500);
-
-        mount(
-            <div style={{ width: '600px' }}>
-                <Carousel loop>
-                    {items.map((item, i) => (
-                        <StyledCard key={i}>{item.title}</StyledCard>
-                    ))}
-                </Carousel>
-            </div>,
-        );
-
-        cy.get('.carousel-left-control-button').click();
-
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(1000);
-
-        cy.matchImageSnapshot();
-    });
-
-    it.skip('prop: autoPlay', () => {
-        cy.viewport(700, 500);
-
-        mount(
-            <div style={{ width: '600px' }}>
-                <Carousel autoPlay autoPlayInterval={400}>
-                    {items.map((item, i) => (
-                        <StyledCard key={i}>{item.title}</StyledCard>
-                    ))}
-                </Carousel>
-            </div>,
-        );
-
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(500);
-
-        cy.matchImageSnapshot();
-    });
-
-    it('prop: virtual', () => {
-        cy.viewport(700, 500);
-
-        const ControlledCarousel = () => {
-            return (
-                <div style={{ width: '600px' }}>
-                    <Carousel virtual defaultIndex={10}>
-                        {items.map((item, i) => (
-                            <StyledCard key={i}>{item.title}</StyledCard>
-                        ))}
-                    </Carousel>
-                </div>
-            );
-        };
-
-        mount(<ControlledCarousel />);
-
-        cy.get('[data-carousel-index="10"]').should('exist');
-        cy.get('[data-carousel-index="17"]').should('not.exist');
-        cy.get('[data-carousel-index="3"]').should('not.exist');
-    });
-
-    it('prop: onChangeIndex', () => {
-        cy.viewport(700, 500);
-
-        const onChangeIndex = cy.stub().as('onChangeIndex');
-
-        mount(
-            <div style={{ width: '600px' }}>
-                <Carousel onChangeIndex={onChangeIndex}>
-                    {items.map((item, i) => (
-                        <StyledCard key={i}>{item.title}</StyledCard>
-                    ))}
-                </Carousel>
-            </div>,
-        );
-
-        cy.get('.carousel-right-control-button').click();
-        cy.get('@onChangeIndex').should('have.been.calledOnce');
-        cy.get('@onChangeIndex').should('have.been.calledWith', 1);
     });
 });

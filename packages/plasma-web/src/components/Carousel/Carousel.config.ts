@@ -1,5 +1,13 @@
 import { css, carouselNewTokens as tokens } from '@salutejs/plasma-new-hope/styled-components';
 
+const baseControlView = `
+    ${tokens.controlIconButtonColor}: var(--text-primary);
+    ${tokens.controlIconButtonColorHover}: var(--text-primary);
+    ${tokens.controlIconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
+    ${tokens.controlIconButtonColorActive}: var(--text-primary);
+    ${tokens.controlIconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+`;
+
 export const config = {
     defaults: {
         view: 'default',
@@ -10,16 +18,25 @@ export const config = {
             default: css`
                 ${tokens.paginationDotBackground}: var(--surface-transparent-tertiary);
                 ${tokens.paginationDotActiveBackground}: var(--surface-solid-default);
-                ${tokens.controlIconButtonColor}: var(--text-primary);
+            `,
+        },
+        controlArrowsPlacement: {
+            inner: css`
+                ${baseControlView}
                 ${tokens.controlIconButtonBackgroundColor}: var(--surface-transparent-secondary);
-                ${tokens.controlIconButtonColorHover}: var(--text-primary);
-                ${tokens.controlIconButtonBackgroundColorHover}: var(--surface-transparent-secondary-hover);
-                ${tokens.controlIconButtonColorActive}: var(--text-primary);
-                ${tokens.controlIconButtonBackgroundColorActive}: var(--surface-transparent-secondary-active);
+                ${tokens.controlIconButtonOffset}: 0.75rem;
+            `,
+            outer: css`
+                ${baseControlView}
+                ${tokens.controlIconButtonBackgroundColor}: var(--surface-clear);
+                ${tokens.controlIconButtonOffset}: 0.75rem;
             `,
         },
         size: {
             s: css`
+                ${tokens.controlIconButtonWidth}: 2.5rem;
+                ${tokens.controlIconButtonHeight}: 2.5rem;
+                ${tokens.controlIconButtonPadding}: 1rem;
                 ${tokens.controlIconButtonRadius}: 100%;
             `,
         },
