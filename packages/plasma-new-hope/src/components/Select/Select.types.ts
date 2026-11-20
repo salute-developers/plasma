@@ -12,13 +12,7 @@ import type {
 } from 'react';
 import type { SafeExtract, NeverProps } from 'src/types';
 
-import type {
-    RequiredProps,
-    LabelProps,
-    HintProps,
-    TextFieldProps,
-    TextValueProps,
-} from '../TextField/TextField.types';
+import type { RequiredProps, LabelProps, HintProps, TextFieldProps } from '../TextField/TextField.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import type { ValueToCheckedMapType } from './hooks/usePathMaps';
@@ -155,11 +149,8 @@ type SelectSingleProps<K extends ItemOption> = {
     isTargetAmount?: false;
     /**
      * Callback для кастомной настройки значения в селекте.
-     * У Select нет строки поиска, поэтому `textProps` не передаётся — обращайтесь к нему
-     * через `textProps?.`. Контракт совпадает с Combobox, где `textProps` содержит текст поля
-     * и его обработчик изменения.
      */
-    renderTarget?: (value: K | null, opened?: boolean, textProps?: TextValueProps) => ReactNode;
+    renderTarget?: (value: K | null, opened?: boolean) => ReactNode;
     selectAllOptions?: never;
 };
 
@@ -169,7 +160,7 @@ type SelectMultiselectProps<K extends ItemOption> = {
     defaultValue?: string[];
     onChange?: (value: string[], item: K | null) => void;
     isTargetAmount?: true;
-    renderTarget?: (value: K[], opened?: boolean, textProps?: TextValueProps) => ReactNode;
+    renderTarget?: (value: K[], opened?: boolean) => ReactNode;
     selectAllOptions?: SelectAllProps;
 };
 
