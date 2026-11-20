@@ -49,6 +49,11 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
      */
     controlArrowsDisabled?: boolean;
     /**
+     * Положение стрелок управления.
+     * @default inner
+     */
+    controlArrowsPlacement?: 'inner' | 'outer';
+    /**
      * Отступ между слайдами.
      * @default 20px
      */

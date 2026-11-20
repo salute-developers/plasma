@@ -41,6 +41,7 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
                 scrollAlign = 'start',
                 children,
                 controlArrowsDisabled = false,
+                controlArrowsPlacement = 'inner',
                 paginationOptions,
                 gap = '20px',
                 className,
@@ -109,6 +110,8 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
                 index,
                 scrollAlign,
                 onChangeIndex,
+                controlArrowsPlacement,
+                controlArrowsDisabled,
                 swipeEnabled,
                 slidesAmount,
                 gap,
@@ -145,8 +148,22 @@ export const carouselNewRoot = (Root: RootProps<HTMLDivElement, CarouselNewProps
             useDisableScroll(scrollRef);
 
             return (
-                <Root className={className} style={style} size={size} view={view} ref={ref} {...rest}>
-                    <ControlsWrapper>
+                <Root
+                    className={className}
+                    style={style}
+                    size={size}
+                    view={view}
+                    controlArrowsPlacement={controlArrowsPlacement}
+                    ref={ref}
+                    {...rest}
+                >
+                    <ControlsWrapper
+                        className={
+                            controlArrowsPlacement === 'outer' && !controlArrowsDisabled
+                                ? classes.outerControls
+                                : undefined
+                        }
+                    >
                         {(loop || index !== 0) && !controlArrowsDisabled && (
                             <IconButton className={classes.leftControlButton} onClick={handleClickLeft}>
                                 <IconDisclosureLeft size="m" color="inherit" />
@@ -200,9 +217,14 @@ export const carouselNewConfig = {
         size: {
             css: sizeCSS,
         },
+        controlArrowsPlacement: {
+            inner: '',
+            outer: '',
+        },
     },
     defaults: {
         view: 'default',
         size: 's',
+        controlArrowsPlacement: 'inner',
     },
 };

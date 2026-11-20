@@ -10,9 +10,18 @@ export const classes = {
     availableDotsRight: 'dot-available-dots-right',
     leftControlButton: 'carousel-left-control-button',
     rightControlButton: 'carousel-right-control-button',
+    outerControls: 'carousel-outer-controls',
 };
 
 export const tokens = {
+    /** @styleType value */
+    controlIconButtonWidth: '--plasma-carousel-control-icon-button-width',
+    /** @styleType value */
+    controlIconButtonHeight: '--plasma-carousel-control-icon-button-height',
+    /** @styleType value */
+    controlIconButtonPadding: '--plasma-carousel-control-icon-button-padding',
+    /** @styleType value */
+    controlIconButtonOffset: '--plasma-carousel-control-icon-button-offset',
     /** @styleType color */
     paginationDotBackground: '--plasma-carousel-pagination-dot-background',
     /** @styleType color */
