@@ -6,6 +6,7 @@ import { classes } from '../../Slider.tokens';
 import type { FormTypeString } from '../../../../types/FormType';
 import { useRangeHandlers } from '../../hooks/useRangeHandlers';
 import { useDoubleTextFieldHandlers } from '../../hooks/useDoubleTextFieldHandlers';
+import { roundValueToStep } from '../../utils/roundValueToStep';
 
 import type { DoubleSliderProps } from './Double.types';
 import {
@@ -33,6 +34,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
     defaultValue,
     name,
     step = 1,
+    roundingMode,
 
     // label
     label,
@@ -58,18 +60,25 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
 }) => {
     const isControlled = outerValue !== undefined;
 
+    const normalizeValue = useCallback(
+        (value: number) => clamp(roundingMode ? roundValueToStep(value, min, step, roundingMode) : value, min, max),
+        [min, max, step, roundingMode],
+    );
+
     const clampedOuterValue =
-        outerValue !== undefined ? [clamp(outerValue[0], min, max), clamp(outerValue[1], min, max)] : undefined;
+        outerValue !== undefined ? [normalizeValue(outerValue[0]), normalizeValue(outerValue[1])] : undefined;
     const clampedDefaultValue =
-        defaultValue !== undefined ? [clamp(defaultValue[0], min, max), clamp(defaultValue[1], min, max)] : undefined;
+        defaultValue !== undefined ? [normalizeValue(defaultValue[0]), normalizeValue(defaultValue[1])] : undefined;
 
     const [dragValue, setDragValue] = useState<number[]>([
         clampedDefaultValue?.[0] ?? min,
         clampedDefaultValue?.[1] ?? max,
     ]);
 
-    const firstValue = clampedOuterValue?.[0] ?? dragValue[0];
-    const secondValue = clampedOuterValue?.[1] ?? dragValue[1];
+    const rawFirstValue = clampedOuterValue?.[0] ?? dragValue[0];
+    const rawSecondValue = clampedOuterValue?.[1] ?? dragValue[1];
+    const firstValue = roundingMode ? normalizeValue(rawFirstValue) : rawFirstValue;
+    const secondValue = roundingMode ? normalizeValue(rawSecondValue) : rawSecondValue;
 
     // z-index: последний взаимодействовавший ползунок — наверху
     const [activeHandle, setActiveHandle] = useState<'first' | 'second'>('second');
@@ -94,10 +103,9 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         width: `calc(${secondPercent - firstPercent} * 100%)`,
     };
 
-    const sortValues = useCallback(
-        (values: number[]) => values.map((val) => Math.min(Math.max(val, min), max)).sort((a, b) => a - b),
-        [min, max],
-    );
+    const sortValues = useCallback((values: number[]) => values.map(normalizeValue).sort((a, b) => a - b), [
+        normalizeValue,
+    ]);
 
     const emitChange = (values: number[]) => {
         if (!onChange) return;
@@ -121,6 +129,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         max: secondValue, // первый не может выйти за второй
         value: firstValue,
         step,
+        roundingMode,
         multipleStepSize,
         isControlled,
         onSetValue: (v) => setDragValue((prev) => [Math.min(v, secondValue), prev[1]]),
@@ -139,6 +148,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         max,
         value: secondValue,
         step,
+        roundingMode,
         multipleStepSize,
         isControlled,
         onSetValue: (v) => setDragValue((prev) => [prev[0], Math.max(v, firstValue)]),
@@ -161,6 +171,7 @@ export const DoubleSlider: FC<DoubleSliderProps> = ({
         setDragValue,
         sortValues,
         emitChange,
+        normalizeValue: roundingMode ? normalizeValue : undefined,
         onChangeTextField,
         onBlurTextField,
         onKeyDownTextField,

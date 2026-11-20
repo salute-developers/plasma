@@ -50,6 +50,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
     defaultValue,
     name,
     step = 1,
+    roundingMode,
 
     // label
     label,
@@ -106,7 +107,8 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     const [dragValue, setDragValue] = useState(clampedDefaultValue ?? min);
 
-    const value = clampedOuterValue ?? dragValue;
+    const rawValue = clampedOuterValue ?? dragValue;
+    const value = roundingMode ? clamp(roundValueToStep(rawValue, min, step, roundingMode), min, max) : rawValue;
 
     const normalizedScaleTicks = useMemo(() => normalizeScaleTicks(scaleTicks), [scaleTicks]);
 
@@ -124,16 +126,16 @@ export const SingleSlider: FC<SingleSliderProps> = ({
 
     // Округляем значение, если оно не кратно новому шагу
     useEffect(() => {
-        const validValue = clamp(roundValueToStep(value, min, step), min, max);
+        const validValue = clamp(roundValueToStep(rawValue, min, step, roundingMode), min, max);
 
-        if (validValue !== value) {
+        if (validValue !== rawValue) {
             setDragValue(validValue);
 
             if (outerValue !== undefined) {
                 emitChange(validValue);
             }
         }
-    }, [step, min, max, value, outerValue]);
+    }, [step, min, max, rawValue, outerValue, roundingMode]);
 
     const {
         innerShowScale,
@@ -186,7 +188,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
             return;
         }
 
-        const clamped = clamp(tick, min, max);
+        const clamped = clamp(roundingMode ? roundValueToStep(tick, min, step, roundingMode) : tick, min, max);
         if (outerValue === undefined) {
             setDragValue(clamped);
         }
@@ -203,6 +205,7 @@ export const SingleSlider: FC<SingleSliderProps> = ({
         max,
         value,
         step,
+        roundingMode,
         multipleStepSize,
         isControlled: outerValue !== undefined,
         onSetValue: setDragValue,
