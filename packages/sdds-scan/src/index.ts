@@ -11,6 +11,7 @@ export * from './components/Tooltip';
 export * from './components/ProgressBarCircular';
 
 // Navigation
+export * from './components/Carousel';
 export * from './components/Breadcrumbs';
 export * from './components/Dropdown';
 export * from './components/Link';
@@ -97,7 +98,6 @@ export * from './components/Flow';
 
 // export * from './components/Tree';
 // export * from './components/CodeInput';
-// export * from './components/Carousel';
 // export * from './components/Tour';
 // export * from './components/TimePicker';
 // export * from './components/DateTimePicker';
