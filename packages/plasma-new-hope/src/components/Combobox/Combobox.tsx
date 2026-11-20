@@ -129,6 +129,8 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
          * Hooks
          */
         const nativeMode = Boolean(name && !hasOuterValue(outerValue));
+        // С кастомным renderTarget в поле рисуется выбранная ячейка, а textValue хранит только поисковый запрос.
+        const hasCustomTarget = Boolean(renderTarget);
 
         const { value, handleChange, textValue, setTextValue } = useValue({
             outerValue,
@@ -138,6 +140,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             nativeMode,
             valueToItemMap,
             renderValue,
+            hasCustomTarget,
         });
 
         const currentLabel = getTextValue(multiple, value, valueToItemMap, renderValue);
@@ -177,6 +180,7 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             value,
             valueToItemMap,
             setTextValue,
+            hasCustomTarget,
         });
 
         const { checked, handleCheckboxChange, handleItemClick, handlePressDown } = useCheckedState({
@@ -211,22 +215,28 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
             items: filteredItems,
             disabled,
             readOnly,
+            hasCustomTarget,
         });
 
         /**
          * Handlers
          */
-        /* Обработчик изменения значения в инпуте */
-        const handleTextValueChange = (e: ChangeEvent<HTMLInputElement>) => {
-            if (!filterValue || filterValue(e.target.value)) {
-                setTextValue(e.target.value);
+        /* Обработчик изменения строки поиска */
+        const handleChangeTextValue = (newTextValue: string) => {
+            if (!filterValue || filterValue(newTextValue)) {
+                setTextValue(newTextValue);
 
                 if (onChangeValue) {
-                    onChangeValue(e.target.value);
+                    onChangeValue(newTextValue);
                 }
             }
             dispatchPath({ type: 'opened_first_level' });
             dispatchFocusedPath({ type: 'reset' });
+        };
+
+        /* Обработчик изменения значения в инпуте */
+        const handleTextValueChange = (e: ChangeEvent<HTMLInputElement>) => {
+            handleChangeTextValue(e.target.value);
         };
 
         const handleClickArrow = (e: MouseEvent<HTMLElement>) => {
@@ -307,14 +317,15 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
         // Эффект для исключительных случаев, когда нужно обновить значение textValue при изменении items,
         // но только если значение textValue совпадает с value в item.
         useLayoutEffect(() => {
-            if (!multiple && value && valueToItemMap.get(value as string)?.value === textValue) {
+            if (!hasCustomTarget && !multiple && value && valueToItemMap.get(value as string)?.value === textValue) {
                 setTextValue(valueToItemMap.get(value as string)?.label || value.toString());
             }
         }, [items]);
 
         // При изменении value нужно возвращать значение в инпуте к исходному.
+        // С кастомным renderTarget в поле рисуется выбранная ячейка, поэтому сбрасываем только поисковый запрос.
         useDidMountLayoutEffect(() => {
-            setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
+            setTextValue(hasCustomTarget ? '' : getTextValue(multiple, value, valueToItemMap, renderValue));
         }, [value]);
 
         // Эффект для раскрытия дерева при поиске.
@@ -351,6 +362,9 @@ export const comboboxRoot = (Root: RootProps<HTMLInputElement, Omit<ComboboxProp
                     valueToItemMap={valueToItemMap}
                     inputWrapperRef={referenceRef}
                     onClick={handleTargetClick}
+                    onKeyDown={onKeyDown}
+                    textValue={textValue}
+                    onTextValueChange={handleChangeTextValue}
                 />
             ) : (
                 <div>

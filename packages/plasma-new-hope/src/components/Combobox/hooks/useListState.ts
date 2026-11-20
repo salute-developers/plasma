@@ -21,6 +21,7 @@ type Props = Pick<ComboboxProps, 'disabled' | 'readOnly' | 'onToggle' | 'multipl
     value: ComboboxProps['value'];
     valueToItemMap: ValueToItemMapType;
     setTextValue: (newTextValue: string) => void;
+    hasCustomTarget?: boolean;
 };
 
 type ReturnedProps = {
@@ -46,6 +47,7 @@ export const useListState = ({
     value,
     valueToItemMap,
     setTextValue,
+    hasCustomTarget = false,
 }: Props): ReturnedProps => {
     const [path, dispatchPath] = useReducer(pathReducer, alwaysOpened ? ['root'] : []);
     const [treePath, dispatchTreePath] = useReducer(treePathReducer, {});
@@ -67,7 +69,9 @@ export const useListState = ({
         } else {
             resetListState();
 
-            setTextValue(getTextValue(multiple, value, valueToItemMap, renderValue));
+            // С кастомным renderTarget в поле рисуется выбранная ячейка,
+            // поэтому при закрытии списка сбрасываем только поисковый запрос.
+            setTextValue(hasCustomTarget ? '' : getTextValue(multiple, value, valueToItemMap, renderValue));
 
             const chipsWrapperNode = rootRef?.current?.querySelector<HTMLElement>(`.${classes.inputScrollableWrapper}`);
 
