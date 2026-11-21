@@ -1,6 +1,12 @@
 import type { CSSProperties, InputHTMLAttributes, ChangeEventHandler, Dispatch, ReactNode } from 'react';
 import { SafeExtract } from 'src/types';
-import type { RequiredProps, HintProps, LabelProps, TextFieldProps } from 'src/components/TextField/TextField.types';
+import type {
+    RequiredProps,
+    HintProps,
+    LabelProps,
+    TextFieldProps,
+    TextValueProps,
+} from 'src/components/TextField/TextField.types';
 
 import { FocusedPathState, TreePathState, TreePathAction } from './reducers';
 import type { ValueToCheckedMapType, CheckedType } from './hooks';
@@ -81,6 +87,11 @@ type ComboboxSingleProps<T extends ItemOption> = {
     isTargetAmount?: false;
     targetAmount?: never;
     renderValue?: never;
+    /**
+     * Callback для кастомной настройки значения в поле.
+     * Третьим аргументом приходит `textProps` с текущим текстом поля и его обработчиком.
+     */
+    renderTarget?: (value: T | null, opened?: boolean, textProps?: TextValueProps) => ReactNode;
     selectAllOptions?: never;
     chipClickArea?: never;
 };
@@ -93,6 +104,11 @@ type ComboboxMultipleProps<T extends ItemOption> = {
     isTargetAmount?: true;
     targetAmount?: number;
     renderValue?: (item: T) => string;
+    /**
+     * Callback для кастомной настройки значения в поле.
+     * Третьим аргументом приходит `textProps` с текущим текстом поля и его обработчиком.
+     */
+    renderTarget?: (value: T[], opened?: boolean, textProps?: TextValueProps) => ReactNode;
     selectAllOptions?: SelectAllProps;
     chipClickArea?: 'full' | 'close-icon';
 };

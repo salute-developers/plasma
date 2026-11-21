@@ -52,6 +52,10 @@ export const Item: FC<ItemProps> = ({
     const checkedValue = checked.get(item.value) || false;
 
     const disabledClassName = disabled ? classes.dropdownItemIsDisabled : undefined;
+    const selectedClass = !multiselect && checkedValue === 'done' ? classes.dropdownItemIsSelected : undefined;
+    const ancestorClass = !multiselect && checkedValue === 'dot' ? classes.dropdownItemIsAncestor : undefined;
+    const slotClass = checkedValue === 'dot' ? classes.itemAncestorSelectionSlot : classes.itemSelectionSlot;
+    const selectionSlotClass = !multiselect && !renderSelectionIcon ? slotClass : undefined;
     const focusedClass =
         currentLevel === focusedPath.length - 1 && index === focusedPath?.[currentLevel]
             ? classes.dropdownItemIsFocused
@@ -88,7 +92,7 @@ export const Item: FC<ItemProps> = ({
     return (
         <Wrapper
             {...rest}
-            className={cx(disabledClassName, focusedClass, activeClass, className)}
+            className={cx(disabledClassName, focusedClass, activeClass, selectedClass, ancestorClass, className)}
             id={getItemId(treeId, value.toString())}
             ref={ref}
             onClick={handleClick}
@@ -100,7 +104,7 @@ export const Item: FC<ItemProps> = ({
             aria-label={ariaLabel}
             aria-selected={Boolean(checkedValue)}
         >
-            <IconWrapper variant={variant}>
+            <IconWrapper variant={variant} className={selectionSlotClass}>
                 {renderSelectionIcon ? (
                     renderSelectionIcon(mapCheckedVariants(checkedValue, multiselect))
                 ) : (
