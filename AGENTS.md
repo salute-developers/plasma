@@ -44,6 +44,7 @@
 -   [remove-old-test](.agents/skills/remove-old-test/SKILL.md) — удаление старых тестов и снимков по запросу.
 -   [figma-component](.agents/skills/figma-component/SKILL.md) — создание и изменение компонентов дизайн-системы по Figma.
 -   [figma-layout](.agents/skills/figma-layout/SKILL.md) — реализация продуктовых экранов на готовых компонентах.
+-   [web-preview-plugin-flow](.agents/skills/web-preview-plugin-flow/SKILL.md) — web-плагин превью DS Builder (`packages/sdds-preview-web-plugin`): правки, связь с генератором DS Builder, упаковка и доставка архива.
 
 ## Коммиты и PR
 
