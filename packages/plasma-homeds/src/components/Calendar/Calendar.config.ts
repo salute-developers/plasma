@@ -53,7 +53,7 @@ export const config = {
                 ${calendarBaseTokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${calendarBaseTokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
                 ${calendarBaseTokens.calendarHeaderArrowColor}: ${calendarBaseTokens.calendarContentPrimaryColor};
-                ${calendarBaseTokens.calendarDayOfWeekColor}: ${textSecondary};
+                ${calendarBaseTokens.calendarDayOfWeekColor}: ${textPrimary};
                 ${calendarBaseTokens.calendarDisabledOpacity}: 0.4;
 
                 ${calendarBaseTokens.iconButtonColor}: ${textPrimary};
@@ -137,7 +137,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 4rem;
                 ${calendarBaseTokens.iconButtonWidth}: 4rem;
                 ${calendarBaseTokens.iconButtonPadding}: 1.25rem;
-                ${calendarBaseTokens.iconButtonRadius}: 1rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
             l: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 24.5rem;
@@ -206,7 +206,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 3.5rem;
                 ${calendarBaseTokens.iconButtonWidth}: 3.5rem;
                 ${calendarBaseTokens.iconButtonPadding}: 1rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.875rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
             m: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 21rem;
@@ -275,7 +275,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 3rem;
                 ${calendarBaseTokens.iconButtonWidth}: 3rem;
                 ${calendarBaseTokens.iconButtonPadding}: 0.75rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.75rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
             s: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 17.5rem;
@@ -344,14 +344,14 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 2.5rem;
                 ${calendarBaseTokens.iconButtonWidth}: 2.5rem;
                 ${calendarBaseTokens.iconButtonPadding}: 0.5rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.625rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
             xs: css`
                 ${calendarBaseTokens.calendarContainerWidth}: 17.5rem;
                 ${calendarBaseTokens.calendarContainerHeight}: 15.5rem;
 
                 ${calendarBaseTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarYearItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarYearItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarYearFontSize}: ${bodyXS.fontSize};
@@ -362,7 +362,7 @@ export const config = {
                 ${calendarBaseTokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarBaseTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarQuarterItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarQuarterItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
@@ -373,7 +373,7 @@ export const config = {
                 ${calendarBaseTokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarBaseTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarBaseTokens.calendarMonthItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarMonthItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarMonthFontSize}: ${bodyXS.fontSize};
@@ -384,7 +384,7 @@ export const config = {
                 ${calendarBaseTokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarBaseTokens.calendarDaysPadding}: 0.375rem 0 0 0;
-                ${calendarBaseTokens.calendarDayItemBorderRadius}: 0.5rem;
+                ${calendarBaseTokens.calendarDayItemBorderRadius}: 0.375rem;
 
                 ${calendarBaseTokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
                 ${calendarBaseTokens.calendarDayFontSize}: ${bodyXS.fontSize};
@@ -413,7 +413,7 @@ export const config = {
                 ${calendarBaseTokens.iconButtonHeight}: 2rem;
                 ${calendarBaseTokens.iconButtonWidth}: 2rem;
                 ${calendarBaseTokens.iconButtonPadding}: 0.5rem;
-                ${calendarBaseTokens.iconButtonRadius}: 0.5rem;
+                ${calendarBaseTokens.iconButtonRadius}: 1000px;
             `,
         },
         eventTooltipSize: {
