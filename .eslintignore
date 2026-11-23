@@ -69,10 +69,6 @@ packages/sdds-insol/*
 packages/plasma-b2c/*
 !packages/plasma-b2c/src
 
-packages/plasma-hope/*
-!packages/plasma-hope/src
-
-
 packages/plasma-web/*
 !packages/plasma-web/src
 
