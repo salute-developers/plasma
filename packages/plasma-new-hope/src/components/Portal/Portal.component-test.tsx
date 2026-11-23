@@ -6,6 +6,7 @@ const describeFn = getDescribeFN('Portal');
 
 const text = 'Содержимое портала';
 
+// TODO: перенести в unit тесты
 describeFn('Portal', () => {
     const Portal = componentExists ? getComponent('Portal') : () => null;
     const Button = componentExists ? getComponent('Button') : () => null;
