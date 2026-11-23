@@ -203,8 +203,6 @@ module.exports = {
                             await fg([
                                 '../../packages/plasma-web/src/**/*.{ts,tsx}',
                                 '!../../packages/plasma-web/src/**/*.test.*',
-                                '../../packages/plasma-hope/src/**/*.{ts,tsx}',
-                                '!../../packages/plasma-hope/src/**/*.test.*',
                             ]),
                         );
                 },
