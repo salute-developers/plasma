@@ -291,6 +291,7 @@ export const iconSectionsSet = {
         wifiLock: 'WifiLock',
         wifiMedium: 'WifiMedium',
         wifiLow: 'WifiLow',
+        tabletHorizontalFill: 'TabletHorizontalFill',
     },
     Arrows: {
         arrowBarDown: 'ArrowBarDown',
