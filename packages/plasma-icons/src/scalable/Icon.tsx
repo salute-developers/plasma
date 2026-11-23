@@ -294,6 +294,7 @@ export const iconSectionsSet = {
         tabletHorizontalFill: 'TabletHorizontalFill',
         tabletHorizontalOutline: 'TabletHorizontalOutline',
         tabletVerticalFill: 'TabletVerticalFill',
+        tabletVerticalOutline: 'TabletVerticalOutline',
     },
     Arrows: {
         arrowBarDown: 'ArrowBarDown',
