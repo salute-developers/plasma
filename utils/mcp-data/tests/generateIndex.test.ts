@@ -27,7 +27,7 @@ describe('generateIndex', () => {
             .map((item) => item.metadata.heading.text)
             .sort();
 
-        assert.deepEqual(names, ['Answer', 'Button', 'faq', 'intro']);
+        assert.deepEqual(names, ['Answer', 'Button', 'beta-components/Button', 'faq', 'intro']);
     });
 
     it('добавляет содержимое импортированного partial в страницу', () => {
@@ -53,6 +53,17 @@ describe('generateIndex', () => {
             'https://example.test/fixture/components/data-entry/button/',
         );
         assert.equal(byName(items, 'intro').metadata.source.url, 'https://example.test/fixture/');
+    });
+
+    it('имя страницы компонентов — title, а не slug', () => {
+        const site = createFixtureSite();
+        generateIndex(site, createConfig({ extraComponentCategories: { beta: { package: 'fixture/beta' } } }));
+        const beta = readJson<IndexItem[]>(site.indexJsonPath).filter((item) => item.metadata.category === 'beta');
+
+        assert.deepEqual(
+            beta.map((item) => item.metadata.heading.text),
+            ['Button'],
+        );
     });
 
     it('productId — имя вертикали', () => {

@@ -29,13 +29,74 @@ import {
 const COMPONENTS_CATEGORY = 'components';
 const SOURCE_REPO = 'https://github.com/salute-developers/plasma';
 
-function toOutputItem(item: InputItem, config: ResolvedMcpDataConfig, isComponentCategory: (c: string) => boolean) {
+interface OutputContext {
+    config: ResolvedMcpDataConfig;
+    lib: string;
+    /** Имя npm-пакета вертикали, например `@salutejs/sdds-finai`. */
+    npmName: string;
+    isComponentCategory: (category: string) => boolean;
+    /** Имя beta-компонента без префикса → путь импорта. По нему стабильный паспорт ссылается на beta-версию. */
+    betaImportPaths: Map<string, string>;
+}
+
+type PackageContext = Pick<OutputContext, 'lib' | 'npmName'>;
+
+/** `sdds-finai/beta` → `@salutejs/sdds-finai/beta`: путь импорта по имени npm-пакета вертикали. */
+function toImportPath(categoryPackage: string, { lib, npmName }: PackageContext): string {
+    if (!npmName || (categoryPackage !== lib && !categoryPackage.startsWith(`${lib}/`))) {
+        return categoryPackage;
+    }
+
+    return `${npmName}${categoryPackage.slice(lib.length)}`;
+}
+
+function getBetaWarning(importPath: string): string {
+    return (
+        `Beta-компонент: импортируется только из \`${importPath}\`. ` +
+        'Если есть стабильный компонент с тем же именем, предпочитай beta-версию.'
+    );
+}
+
+function getBetaRecommendation(name: string, importPath: string): string {
+    return (
+        `У компонента есть beta-версия \`beta/${name}\` (импорт из \`${importPath}\`). ` +
+        `Предпочитай её: паспорт — get_component с именем \`beta/${name}\`.`
+    );
+}
+
+function getItemCategory(item: InputItem): string {
+    const rawCategory =
+        asString(item.metadata?.category) || extractCategoryFromUrl(asString(item.metadata?.source?.url));
+
+    return normalizeCategory(rawCategory);
+}
+
+/** Собирает beta-компоненты: имя без префикса → путь импорта. При повторе имени остаётся первый. */
+function collectBetaImportPaths(
+    items: InputItem[],
+    config: ResolvedMcpDataConfig,
+    packageContext: PackageContext,
+): Map<string, string> {
+    const betaImportPaths = new Map<string, string>();
+
+    items.forEach((item) => {
+        const categoryConfig = config.extraComponentCategories[getItemCategory(item)];
+        const name = asString(item.metadata?.heading?.text);
+
+        if (categoryConfig?.stability === 'beta' && name && !betaImportPaths.has(name)) {
+            betaImportPaths.set(name, toImportPath(categoryConfig.package, packageContext));
+        }
+    });
+
+    return betaImportPaths;
+}
+
+function toOutputItem(item: InputItem, context: OutputContext) {
+    const { config, isComponentCategory } = context;
     const pageContent = asString(item.pageContent);
     const name = asString(item.metadata?.heading?.text);
     const packageName = asString(item.metadata?.productId);
-    const rawCategory =
-        asString(item.metadata?.category) || extractCategoryFromUrl(asString(item.metadata?.source?.url));
-    const category = normalizeCategory(rawCategory);
+    const category = getItemCategory(item);
 
     if (!isComponentCategory(category)) {
         return SimpleOutputFileSchema.parse({
@@ -46,15 +107,37 @@ function toOutputItem(item: InputItem, config: ResolvedMcpDataConfig, isComponen
         });
     }
 
-    return ComponentOutputFileSchema.parse({
-        name,
-        package: config.extraComponentCategories[category]?.package ?? packageName,
+    const categoryConfig = config.extraComponentCategories[category];
+    const componentPackage = categoryConfig?.package ?? packageName;
+    const summary = extractSummary(pageContent, name);
+    const common = {
+        package: componentPackage,
         category,
-        summary: extractSummary(pageContent, name),
         api: {
             props: extractProps(pageContent),
         },
         examples: extractExamples(pageContent),
+    };
+
+    if (categoryConfig?.stability === 'beta') {
+        // Префикс отличает beta-компонент от одноимённого стабильного: get_component ищет по точному имени.
+        return ComponentOutputFileSchema.parse({
+            name: `beta/${name}`,
+            ...common,
+            summary: `[BETA] ${summary}`,
+            stability: 'beta',
+            warning: getBetaWarning(toImportPath(componentPackage, context)),
+        });
+    }
+
+    // Ссылка на beta-версию — только у стабильного компонента из `components`, а не у других категорий.
+    const betaImportPath = category === COMPONENTS_CATEGORY ? context.betaImportPaths.get(name) : undefined;
+
+    return ComponentOutputFileSchema.parse({
+        name,
+        ...common,
+        summary,
+        ...(betaImportPath && { recommendation: getBetaRecommendation(name, betaImportPath) }),
     });
 }
 
@@ -72,8 +155,19 @@ export function generateMcpData(site: Site, config: ResolvedMcpDataConfig): void
         throw new Error('index.json must contain an array');
     }
 
-    const parsedPackageManifest = JSON.parse(fs.readFileSync(site.packageJsonPath, 'utf8')) as { version?: unknown };
+    const parsedPackageManifest = JSON.parse(fs.readFileSync(site.packageJsonPath, 'utf8')) as {
+        name?: unknown;
+        version?: unknown;
+    };
     const packageVersion = asString(parsedPackageManifest.version);
+    const inputItems = parsedInput.map((item) => (item ?? {}) as InputItem);
+    const packageContext: PackageContext = { lib: site.lib, npmName: asString(parsedPackageManifest.name) };
+    const outputContext: OutputContext = {
+        config,
+        ...packageContext,
+        isComponentCategory,
+        betaImportPaths: collectBetaImportPaths(inputItems, config, packageContext),
+    };
 
     // Читаем до очистки outputDir: если модуль токенов не найден, прошлый результат остаётся целым.
     const tokensSource = config.tokens ? readTokensSource(site, config.tokens.entry) : undefined;
@@ -136,11 +230,11 @@ export function generateMcpData(site: Site, config: ResolvedMcpDataConfig): void
         created += 1;
     };
 
-    parsedInput.forEach((item, index) => {
-        const inputItem = (item ?? {}) as InputItem;
-        const output = toOutputItem(inputItem, config, isComponentCategory);
+    inputItems.forEach((inputItem, index) => {
+        const output = toOutputItem(inputItem, outputContext);
         const pageContent = asString(inputItem.pageContent);
-        const baseName = output.name || `item-${index + 1}`;
+        // Файл называется по исходному имени: у beta-компонентов `name` с префиксом, а папка и так `beta/`.
+        const baseName = asString(inputItem.metadata?.heading?.text) || output.name || `item-${index + 1}`;
         const indexSummary = isComponentCategory(output.category)
             ? output.summary
             : extractSummary(pageContent, output.name);

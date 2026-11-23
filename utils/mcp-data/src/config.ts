@@ -36,8 +36,12 @@ export const McpDataConfigSchema = z
         /**
          * Категории, страницы которых описывают компоненты. Они собираются как паспорта (props, examples)
          * и попадают в `components/index.json`. `package` — точка входа для импорта компонентов категории.
+         * `stability: 'beta'` — beta-компоненты: имя получает префикс `beta/`, в паспорт добавляются
+         * `stability` и `warning`, а одноимённый стабильный паспорт получает `recommendation`.
          */
-        extraComponentCategories: z.record(z.string(), z.strictObject({ package: z.string().min(1) })).default({}),
+        extraComponentCategories: z
+            .record(z.string(), z.strictObject({ package: z.string().min(1), stability: z.literal('beta').optional() }))
+            .default({}),
         /** Перенесено из старого конфига без изменений. Генератор поле не читает. */
         qdrantConfig: z.unknown().optional(),
     })
