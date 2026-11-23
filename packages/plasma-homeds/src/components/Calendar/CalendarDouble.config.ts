@@ -55,6 +55,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarHeaderArrowColor}: ${calendarDoubleTokens.calendarContentPrimaryColor};
                 ${calendarDoubleTokens.calendarContentSecondaryColor}: ${textSecondary};
                 ${calendarDoubleTokens.calendarContentSecondaryDisabledColor}: ${textSecondary};
+                ${calendarDoubleTokens.calendarDayOfWeekColor}: ${textPrimary};
                 ${calendarDoubleTokens.calendarDisabledOpacity}: 0.4;
 
                 ${calendarDoubleTokens.iconButtonColor}: ${textPrimary};
@@ -138,7 +139,7 @@ export const config = {
                 ${calendarDoubleTokens.iconButtonHeight}: 4rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 4rem;
                 ${calendarDoubleTokens.iconButtonPadding}: 1.25rem;
-                ${calendarDoubleTokens.iconButtonRadius}: 1rem;
+                ${calendarDoubleTokens.iconButtonRadius}: 1000px;
             `,
             l: css`
                 ${calendarDoubleTokens.calendarContainerWidth}: 51.063rem;
@@ -207,7 +208,7 @@ export const config = {
                 ${calendarDoubleTokens.iconButtonHeight}: 3.5rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 3.5rem;
                 ${calendarDoubleTokens.iconButtonPadding}: 1rem;
-                ${calendarDoubleTokens.iconButtonRadius}: 0.875rem;
+                ${calendarDoubleTokens.iconButtonRadius}: 1000px;
             `,
             m: css`
                 ${calendarDoubleTokens.calendarContainerWidth}: 44.063rem;
@@ -276,7 +277,7 @@ export const config = {
                 ${calendarDoubleTokens.iconButtonHeight}: 3rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 3rem;
                 ${calendarDoubleTokens.iconButtonPadding}: 0.75rem;
-                ${calendarDoubleTokens.iconButtonRadius}: 0.75rem;
+                ${calendarDoubleTokens.iconButtonRadius}: 1000px;
             `,
             s: css`
                 ${calendarDoubleTokens.calendarContainerWidth}: 37.063rem;
@@ -345,14 +346,14 @@ export const config = {
                 ${calendarDoubleTokens.iconButtonHeight}: 2.5rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 2.5rem;
                 ${calendarDoubleTokens.iconButtonPadding}: 0.5rem;
-                ${calendarDoubleTokens.iconButtonRadius}: 0.625rem;
+                ${calendarDoubleTokens.iconButtonRadius}: 1000px;
             `,
             xs: css`
                 ${calendarDoubleTokens.calendarContainerWidth}: 37.063rem;
                 ${calendarDoubleTokens.calendarContainerHeight}: 15.5rem;
 
                 ${calendarDoubleTokens.calendarYearsPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.5rem;
+                ${calendarDoubleTokens.calendarYearItemBorderRadius}: 0.375rem;
 
                 ${calendarDoubleTokens.calendarYearFontFamily}: ${bodyXS.fontFamily};
                 ${calendarDoubleTokens.calendarYearFontSize}: ${bodyXS.fontSize};
@@ -363,7 +364,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarYearSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarQuartersPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.5rem;
+                ${calendarDoubleTokens.calendarQuarterItemBorderRadius}: 0.375rem;
 
                 ${calendarDoubleTokens.calendarQuarterFontFamily}: ${bodyXS.fontFamily};
                 ${calendarDoubleTokens.calendarQuarterFontSize}: ${bodyXS.fontSize};
@@ -374,7 +375,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarQuarterSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarMonthsPadding}: 0.375rem 0.25rem 0 0.25rem;
-                ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.5rem;
+                ${calendarDoubleTokens.calendarMonthItemBorderRadius}: 0.375rem;
 
                 ${calendarDoubleTokens.calendarMonthFontFamily}: ${bodyXS.fontFamily};
                 ${calendarDoubleTokens.calendarMonthFontSize}: ${bodyXS.fontSize};
@@ -385,7 +386,7 @@ export const config = {
                 ${calendarDoubleTokens.calendarMonthSelectedFontWeight}: ${bodyXSBold.fontWeight};
 
                 ${calendarDoubleTokens.calendarDaysPadding}: 0.375rem 0 0 0;
-                ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.5rem;
+                ${calendarDoubleTokens.calendarDayItemBorderRadius}: 0.375rem;
 
                 ${calendarDoubleTokens.calendarDayFontFamily}: ${bodyXS.fontFamily};
                 ${calendarDoubleTokens.calendarDayFontSize}: ${bodyXS.fontSize};
@@ -414,7 +415,7 @@ export const config = {
                 ${calendarDoubleTokens.iconButtonHeight}: 2rem;
                 ${calendarDoubleTokens.iconButtonWidth}: 2rem;
                 ${calendarDoubleTokens.iconButtonPadding}: 0.5rem;
-                ${calendarDoubleTokens.iconButtonRadius}: 0.5rem;
+                ${calendarDoubleTokens.iconButtonRadius}: 1000px;
             `,
         },
         eventTooltipSize: {
