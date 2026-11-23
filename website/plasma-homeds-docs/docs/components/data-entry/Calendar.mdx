@@ -1,0 +1,202 @@
+---
+id: calendar
+slug: /components/calendar
+title: Calendar
+description: "Календарная сетка для выбора даты или диапазона дат."
+---
+
+import { PropsTable, Description } from '@site/src/components';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Calendar
+
+<Description name="Calendar" />
+
+Календарная сетка (CalendarGrid в макетах HomeOS) для выбора даты, месяца, квартала, года или диапазона. Используется самостоятельно и внутри `DatePicker` и `DateTimePicker`.
+
+Компонент `Calendar` объединяет четыре представления: одиночное, двойное, одиночное с диапазоном и двойное с диапазоном. Представление выбирается свойствами `isDouble` и `isRange`.
+
+<Tabs>
+    <TabItem value="calendar" label="Calendar" default>
+        ```tsx live
+        import React from 'react';
+        import { Calendar } from '@salutejs/plasma-homeds';
+
+        export function App() {
+            const [value, setValue] = React.useState(new Date(2022, 8, 14));
+
+            return <Calendar value={value} onChangeValue={setValue} />;
+        }
+        ```
+    </TabItem>
+    <TabItem value="calendar_double" label="CalendarDouble">
+        <Description name="CalendarDouble" />
+
+        ```tsx live
+        import React from 'react';
+        import { CalendarDouble } from '@salutejs/plasma-homeds';
+
+        export function App() {
+            const [value, setValue] = React.useState(new Date(2022, 8, 14));
+
+            return <CalendarDouble value={value} onChangeValue={setValue} />;
+        }
+        ```
+    </TabItem>
+    <TabItem value="calendar_base_range" label="CalendarBaseRange">
+        <Description name="CalendarBaseRange" />
+
+        ```tsx live
+        import React from 'react';
+        import { CalendarBaseRange } from '@salutejs/plasma-homeds';
+
+        export function App() {
+            const [value, setValue] = React.useState([new Date(2022, 8, 6), new Date(2022, 8, 16)]);
+
+            return <CalendarBaseRange value={value} onChangeValue={setValue} />;
+        }
+        ```
+    </TabItem>
+    <TabItem value="calendar_double_range" label="CalendarDoubleRange">
+        <Description name="CalendarDoubleRange" />
+
+        ```tsx live
+        import React from 'react';
+        import { CalendarDoubleRange } from '@salutejs/plasma-homeds';
+
+        export function App() {
+            const [value, setValue] = React.useState([new Date(2022, 8, 6), new Date(2022, 9, 16)]);
+
+            return <CalendarDoubleRange value={value} onChangeValue={setValue} />;
+        }
+        ```
+    </TabItem>
+</Tabs>
+
+## Размер
+
+Размер задаётся свойством `size`. В макетах HomeOS есть размеры `xs`, `s`, `m` и `l`, по умолчанию используется `m`.
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/plasma-homeds';
+
+export function App() {
+    const [value, setValue] = React.useState(new Date(2022, 8, 14));
+
+    return (
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: '2rem' }}>
+            <CalendarBase size="l" value={value} onChangeValue={setValue} />
+            <CalendarBase size="m" value={value} onChangeValue={setValue} />
+            <CalendarBase size="s" value={value} onChangeValue={setValue} />
+            <CalendarBase size="xs" value={value} onChangeValue={setValue} />
+        </div>
+    );
+}
+```
+
+## Тип сетки
+
+Свойство `type` задаёт, что выбирает пользователь: дни (`Days`), месяцы (`Months`), кварталы (`Quarters`) или годы (`Years`).
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/plasma-homeds';
+
+export function App() {
+    const [value, setValue] = React.useState(new Date(2022, 8, 14));
+
+    return (
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: '2rem' }}>
+            <CalendarBase type="Days" value={value} onChangeValue={setValue} />
+            <CalendarBase type="Months" value={value} onChangeValue={setValue} />
+            <CalendarBase type="Quarters" value={value} onChangeValue={setValue} />
+            <CalendarBase type="Years" value={value} onChangeValue={setValue} />
+        </div>
+    );
+}
+```
+
+Названия кварталов задаются свойством `quarterNames`. По умолчанию — `Q1`, `Q2`, `Q3`, `Q4`.
+
+## Выравнивание переключателя периода
+
+В одиночном календаре `periodSelectorAlign="start"` (по умолчанию) размещает переключатель периода слева, а стрелки навигации справа. При `periodSelectorAlign="center"` переключатель стоит по центру между стрелками.
+
+```tsx live
+import React from 'react';
+import { Calendar } from '@salutejs/plasma-homeds';
+
+export function App() {
+    const [value, setValue] = React.useState(new Date(2022, 8, 14));
+
+    return (
+        <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: '2rem' }}>
+            <Calendar periodSelectorAlign="start" value={value} onChangeValue={setValue} />
+            <Calendar periodSelectorAlign="center" value={value} onChangeValue={setValue} />
+        </div>
+    );
+}
+```
+
+## Ограничения и недоступные даты
+
+`min` и `max` задают допустимый период, `disabledList` отключает отдельные дни. Для месяцев, кварталов и годов используются `disabledMonthList`, `disabledQuarterList` и `disabledYearList`.
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/plasma-homeds';
+
+export function App() {
+    const [value, setValue] = React.useState(new Date(2022, 8, 14));
+    const disabledList = Array.from({ length: 3 }, (_, day) => ({ date: new Date(2022, 8, 20 + day) }));
+
+    return (
+        <CalendarBase
+            value={value}
+            min={new Date(2022, 8, 5)}
+            max={new Date(2022, 9, 15)}
+            disabledList={disabledList}
+            onChangeValue={setValue}
+        />
+    );
+}
+```
+
+## Язык
+
+Свойство `locale` принимает `ru` (по умолчанию) или `en`.
+
+```tsx live
+import React from 'react';
+import { CalendarBase } from '@salutejs/plasma-homeds';
+
+export function App() {
+    const [value, setValue] = React.useState(new Date(2022, 8, 14));
+
+    return <CalendarBase locale="en" value={value} onChangeValue={setValue} />;
+}
+```
+
+## API
+
+### Calendar
+
+<PropsTable name="Calendar" exclude={['css']} />
+
+### CalendarBase
+
+<PropsTable name="CalendarBase" exclude={['css']} />
+
+### CalendarDouble
+
+<PropsTable name="CalendarDouble" exclude={['css']} />
+
+### CalendarBaseRange
+
+<PropsTable name="CalendarBaseRange" exclude={['css']} />
+
+### CalendarDoubleRange
+
+<PropsTable name="CalendarDoubleRange" exclude={['css']} />
