@@ -1,0 +1,41 @@
+.view_default {
+    --plasma-popover-background-color: var(--surface-transparent-primary);
+}
+
+.m {
+    --plasma-popover-box-padding-start: 14px;
+    --plasma-popover-box-padding-end: 14px;
+    --plasma-popover-box-padding-top: 12px;
+    --plasma-popover-box-padding-bottom: 12px;
+    --plasma-popover-box-min-height: 48px;
+    --plasma-popover-value-style-font-family: var(--plasma-typo-body-m-font-family);
+    --plasma-popover-value-style-font-size: var(--plasma-typo-body-m-font-size);
+    --plasma-popover-value-style-font-style: var(--plasma-typo-body-m-font-style);
+    --plasma-popover-value-style-font-weight: var(--plasma-typo-body-m-font-weight);
+    --plasma-popover-value-style-letter-spacing: var(--plasma-typo-body-m-letter-spacing);
+    --plasma-popover-value-style-line-height: var(--plasma-typo-body-m-line-height);
+}
+
+.m_outer_label {
+    --plasma-popover-label-color: var(--text-primary);
+    --plasma-popover-label-padding: 10px;
+    --plasma-popover-label-style-font-family: var(--plasma-typo-body-m-font-family);
+    --plasma-popover-label-style-font-size: var(--plasma-typo-body-m-font-size);
+    --plasma-popover-label-style-font-style: var(--plasma-typo-body-m-font-style);
+    --plasma-popover-label-style-font-weight: var(--plasma-typo-body-m-font-weight);
+    --plasma-popover-label-style-letter-spacing: var(--plasma-typo-body-m-letter-spacing);
+    --plasma-popover-label-style-line-height: var(--plasma-typo-body-m-line-height);
+}
+
+.m_inner_label {
+    --plasma-popover-label-color: var(--text-secondary);
+    --plasma-popover-label-padding: 2px;
+    --plasma-popover-label-style-font-family: var(--plasma-typo-body-xs-font-family);
+    --plasma-popover-label-style-font-size: var(--plasma-typo-body-xs-font-size);
+    --plasma-popover-label-style-font-style: var(--plasma-typo-body-xs-font-style);
+    --plasma-popover-label-style-font-weight: var(--plasma-typo-body-xs-font-weight);
+    --plasma-popover-label-style-letter-spacing: var(--plasma-typo-body-xs-letter-spacing);
+    --plasma-popover-label-style-line-height: var(--plasma-typo-body-xs-line-height);
+    --plasma-popover-box-padding-top: 6px;
+    --plasma-popover-box-padding-bottom: 6px;
+}

@@ -1,0 +1,162 @@
+{
+    "view": {
+        "default": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.transparent-primary"
+                }
+            },
+            "binding": [
+                {
+                    "name": "view",
+                    "value": "default"
+                }
+            ]
+        }
+    },
+    "props": {
+        "singleLine": {
+            "type": "boolean",
+            "value": true
+        }
+    },
+    "bindings": [
+        {
+            "name": "size",
+            "type": "enum",
+            "values": ["m"],
+            "defaultValue": "m"
+        },
+        {
+            "name": "label-placement",
+            "type": "enum",
+            "values": ["none", "outer", "inner"],
+            "defaultValue": "none"
+        },
+        {
+            "name": "view",
+            "type": "view",
+            "values": ["default"],
+            "defaultValue": "default"
+        }
+    ],
+    "variations": [
+        {
+            "id": "m",
+            "parent": null,
+            "binding": [
+                {
+                    "name": "size",
+                    "value": "m"
+                },
+                {
+                    "name": "label-placement",
+                    "value": "none"
+                }
+            ],
+            "props": {
+                "labelPlacement": {
+                    "type": "value",
+                    "value": "none"
+                },
+                "boxPaddingStart": {
+                    "type": "dimension",
+                    "value": 14.0
+                },
+                "boxPaddingEnd": {
+                    "type": "dimension",
+                    "value": 14.0
+                },
+                "boxPaddingTop": {
+                    "type": "dimension",
+                    "value": 12.0
+                },
+                "boxPaddingBottom": {
+                    "type": "dimension",
+                    "value": 12.0
+                },
+                "boxMinHeight": {
+                    "type": "dimension",
+                    "value": 48.0
+                },
+                "valueStyle": {
+                    "type": "typography",
+                    "value": "body.m.normal"
+                }
+            }
+        },
+        {
+            "id": "m.outer-label",
+            "parent": "m",
+            "binding": [
+                {
+                    "name": "size",
+                    "value": "m"
+                },
+                {
+                    "name": "label-placement",
+                    "value": "outer"
+                }
+            ],
+            "props": {
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.default.primary"
+                },
+                "labelPlacement": {
+                    "type": "value",
+                    "value": "outer"
+                },
+                "labelPadding": {
+                    "type": "dimension",
+                    "value": 10.0
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.m.normal"
+                }
+            }
+        },
+        {
+            "id": "m.inner-label",
+            "parent": "m",
+            "binding": [
+                {
+                    "name": "size",
+                    "value": "m"
+                },
+                {
+                    "name": "label-placement",
+                    "value": "inner"
+                }
+            ],
+            "props": {
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.default.secondary"
+                },
+                "labelPlacement": {
+                    "type": "value",
+                    "value": "inner"
+                },
+                "labelPadding": {
+                    "type": "dimension",
+                    "value": 2.0
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "boxPaddingTop": {
+                    "type": "dimension",
+                    "value": 6.0
+                },
+                "boxPaddingBottom": {
+                    "type": "dimension",
+                    "value": 6.0
+                }
+            }
+        }
+    ]
+}
