@@ -28,7 +28,6 @@ module.exports = {
         scope: [
             ...commonScope,
             'plasma-core',
-            'plasma-hope',
             'plasma-new-hope',
             'plasma-tokens-b2c',
             'plasma-tokens-web',
@@ -45,7 +44,6 @@ module.exports = {
         scope: [
             ...commonScope,
             'plasma-core',
-            'plasma-hope',
             'plasma-new-hope',
             'plasma-tokens-b2c',
             'plasma-tokens-b2b',
