@@ -774,6 +774,7 @@ export const iconSectionsSet = {
         queueDashOutline: 'QueueDashOutline',
         queueDashFill: 'QueueDashFill',
         code: 'Code',
+        closePanelOutline: 'ClosePanelOutline',
     },
     Toggle: {
         bellDashFill: 'BellDashFill',
