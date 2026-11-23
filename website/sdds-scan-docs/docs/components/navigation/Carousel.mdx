@@ -61,7 +61,7 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
      */
     controlArrowsDisabled?: boolean;
     /**
-     * Положение стрелок управления: поверх слайдов или снаружи области слайдов.
+     * Положение стрелок управления.
      * @default inner
      */
     controlArrowsPlacement?: 'inner' | 'outer';
@@ -117,44 +117,10 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
 
 Для мобильных сценариев имеет смысл включать `swipeEnabled`, а если внешние кнопки навигации не нужны, можно скрыть встроенные стрелки через `controlArrowsDisabled`.
 
-`controlArrowsPlacement` задаёт положение стрелок: `inner` (по умолчанию) — поверх слайдов, `outer` — по бокам от области слайдов, с отступом 12px. В режиме `outer` место под кнопки входит в общую ширину Carousel и сохраняется при скрытии стрелки на первом или последнем слайде. Если установлен `controlArrowsDisabled`, место под кнопки не резервируется.
-
-В `sdds-scan` кнопки сохраняют одинаковое оформление в обоих положениях. Оформление каждого положения задаётся вариацией `controlArrowsPlacement` в конфиге Carousel.
-
 ## Примеры
 
 <Tabs>
-    <TabItem value="outer" label="Внешние стрелки" default>
-        ```tsx live
-        import React from 'react';
-        import { Carousel } from '@salutejs/sdds-scan';
-
-        export function App() {
-            return (
-                <div style={{ width: '100%', maxWidth: 600 }}>
-                    <Carousel controlArrowsPlacement="outer" defaultIndex={1} fullWidth>
-                        {['Первый слайд', 'Второй слайд', 'Третий слайд'].map((slide) => (
-                            <div
-                                key={slide}
-                                style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: 180,
-                                    border: '1px solid #d6d6d6',
-                                    borderRadius: 12,
-                                }}
-                            >
-                                {slide}
-                            </div>
-                        ))}
-                    </Carousel>
-                </div>
-            );
-        }
-        ```
-    </TabItem>
-    <TabItem value="basic" label="Basic">
+    <TabItem value="basic" label="Basic" default>
         ```tsx live
         import React from 'react';
         import { Carousel } from '@salutejs/sdds-scan';
@@ -182,6 +148,41 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
                     <Carousel gap="16px">
                         {items.map((item) => (
                             <StyledCard key={item}>{item}</StyledCard>
+                        ))}
+                    </Carousel>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="control-arrows-placement" label="Положение стрелок">
+        `controlArrowsPlacement` задаёт положение стрелок:
+
+        - `inner` (по умолчанию) — поверх слайдов;
+        - `outer` — по бокам от области слайдов.
+
+        ```tsx live
+        import React from 'react';
+        import { Carousel } from '@salutejs/sdds-scan';
+
+        export function App() {
+            return (
+                <div style={{ width: '100%', maxWidth: 600 }}>
+                    <Carousel controlArrowsPlacement="outer" defaultIndex={1} fullWidth>
+                        {['Первый слайд', 'Второй слайд', 'Третий слайд'].map((slide) => (
+                            <div
+                                key={slide}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    height: 180,
+                                    border: '1px solid #d6d6d6',
+                                    borderRadius: 12,
+                                }}
+                            >
+                                {slide}
+                            </div>
                         ))}
                     </Carousel>
                 </div>
