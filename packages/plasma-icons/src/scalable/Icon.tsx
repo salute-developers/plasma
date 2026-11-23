@@ -292,6 +292,7 @@ export const iconSectionsSet = {
         wifiMedium: 'WifiMedium',
         wifiLow: 'WifiLow',
         tabletHorizontalFill: 'TabletHorizontalFill',
+        tabletHorizontalOutline: 'TabletHorizontalOutline',
     },
     Arrows: {
         arrowBarDown: 'ArrowBarDown',
