@@ -198,6 +198,7 @@ export const iconSectionsSet = {
         speedHighOutline: 'SpeedHighOutline',
         saveFill: 'SaveFill',
         textBoldOutline: 'TextBoldOutline',
+        textItalicOutline: 'TextItalicOutline',
     },
     Animal: {
         animalFill: 'AnimalFill',
