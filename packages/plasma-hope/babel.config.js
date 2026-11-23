@@ -1,1 +1,0 @@
-../plasma-core/babel.config.js
