@@ -22,6 +22,10 @@ export const ComponentOutputFileSchema = z.object({
             snippet: z.string(),
         }),
     ),
+    stability: z.literal('beta').optional(),
+    warning: z.string().optional(),
+    /** У стабильного компонента: ссылка на одноимённую beta-версию. */
+    recommendation: z.string().optional(),
 });
 
 export const SimpleOutputFileSchema = z.object({

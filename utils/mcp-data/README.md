@@ -19,7 +19,7 @@ mcpData/manifest.json           — версия пакета, tools, пути �
 ```
 
 - **index** обходит `docs/`, пропуская файлы и папки с префиксом `_` (partials). Их содержимое попадает в страницу через импорт. Вместо `<PropsTable name="X" />` подставляются props из docgen-данных. Docgen-данные пишет сборка Docusaurus, поэтому сначала нужно собрать сайт.
-- **mcp-data** раскладывает страницы по категориям (первый сегмент пути в `docs/`). Страницы `components/` и категорий из `extraComponentCategories` становятся паспортами компонентов (`summary`, `api.props`, `examples`), остальные сохраняются текстом. Версия в манифесте берётся из `packages/<lib>/package.json`.
+- **mcp-data** раскладывает страницы по категориям (первый сегмент пути в `docs/`). Страницы `components/` и категорий из `extraComponentCategories` становятся паспортами компонентов (`summary`, `api.props`, `examples`), остальные сохраняются текстом. Имя компонента берётся из `title` во frontmatter, `slug` на него не влияет. Версия в манифесте берётся из `packages/<lib>/package.json`.
 - **Токены** (категория `tokens`) берутся из установленного пакета темы, а не из файла в репозитории: модуль `tokens.entry` разрешается от `packages/<lib>/package.json`, читается лежащий рядом с ним `.d.ts`, из `var(--token, fallback)` убираются fallback-значения. Так данные соответствуют версии темы, с которой публикуется вертикаль. Пакеты тем монорепозитория должны быть собраны. Если модуль не найден или в его `.d.ts` нет `export declare const`, шаг завершается ошибкой.
 
 ## Запуск
@@ -55,6 +55,7 @@ export default {
     tokens: { entry: '@salutejs/sdds-themes/tokens/sdds_serv' },
     extraComponentCategories: {
         ai: { package: 'sdds-serv/ai' },
+        beta: { package: 'sdds-serv/beta', stability: 'beta' },
     },
 };
 ```
@@ -64,11 +65,22 @@ export default {
 | `baseUrl` | да | Адрес сайта, от него строятся ссылки на страницы. |
 | `tools` | да | Разрешённые tools в порядке `manifest.tools`. Допустимые значения — `KNOWN_TOOLS` в `src/config.ts`. |
 | `tokens.entry` | если в `tools` есть `get_tokens` | Модуль, из которого импортируются токены темы: `@salutejs/sdds-themes/tokens/sdds_serv`, для внешней темы — например `@sddsjs/sdds_finai/theme/tokens`. Пакет должен быть зависимостью `packages/<lib>`. |
-| `extraComponentCategories` | нет | Категории, страницы которых описывают компоненты (например `ai`). Они собираются как паспорта и добавляются в `components/index.json`. `package` — точка входа для импорта. |
+| `extraComponentCategories` | нет | Категории, страницы которых описывают компоненты (например `ai`). Они собираются как паспорта и добавляются в `components/index.json`. `package` — точка входа для импорта. `stability: 'beta'` — см. ниже. |
 | `exclude` | нет | Дополнительные исключения при обходе `docs/`. Префикс `_` исключается и без него. |
 | `qdrantConfig` | нет | Перенесено из старых конфигов, генератор поле не читает. |
 
 Конфиг проверяется схемой: неизвестный ключ или tool — ошибка.
+
+### Beta-компоненты
+
+Категория с `stability: 'beta'` (сейчас включена только в sdds-finai) собирается так, чтобы агент не спутал beta-компонент со стабильным:
+
+- `name` получает префикс `beta/` (`beta/Popover`). Сервер ищет компонент по точному имени, поэтому `get_component('Popover')` по-прежнему отдаёт стабильный компонент, а beta-версию — `get_component('beta/Popover')`. Файл остаётся `beta/Popover.json`.
+- `summary` в паспорте и в `components/index.json` начинается с `[BETA]` — это видно и в `list_components`, который отдаёт только `name`, `href`, `summary`, `category`.
+- В паспорт добавляются поля `stability: "beta"` и `warning` — текст с путём импорта и рекомендацией предпочитать beta-версию одноимённому стабильному компоненту. Путь собирается из имени npm-пакета вертикали: `sdds-finai/beta` → `@salutejs/sdds-finai/beta`.
+- В паспорт одноимённого стабильного компонента из `components` добавляется поле `recommendation` — ссылка на beta-версию (`beta/Popover`, путь импорта) с советом предпочесть её. Так агент узнаёт о beta-версии, даже если сразу вызвал `get_component('Popover')`.
+
+Сервер `@salutejs/sdds-mcp` отдаёт паспорт целиком, поэтому новые поля доходят до агента без изменений в сервере.
 
 ## Новый сайт документации
 

@@ -64,12 +64,19 @@ function getMdxGroup(mdxPath: string, docsDir: string): string {
     return pathSegments.length > 1 ? pathSegments[0] : path.basename(mdxPath, '.mdx');
 }
 
-function getMdxName(frontmatter: Record<string, unknown>, mdxPath: string, docsDir: string): string {
+function getMdxName(
+    frontmatter: Record<string, unknown>,
+    mdxPath: string,
+    docsDir: string,
+    config: ResolvedMcpDataConfig,
+): string {
     const fallback = path.basename(mdxPath, '.mdx');
-    const name =
-        getMdxGroup(mdxPath, docsDir) === 'components'
-            ? (frontmatter.title as string) || fallback
-            : (frontmatter.slug as string) || fallback;
+    const group = getMdxGroup(mdxPath, docsDir);
+    // Имя компонента — `title`: `slug` задаёт адрес страницы и не должен менять имя в MCP.
+    const isComponentGroup = group === 'components' || Object.hasOwn(config.extraComponentCategories, group);
+    const name = isComponentGroup
+        ? (frontmatter.title as string) || fallback
+        : (frontmatter.slug as string) || fallback;
 
     const normalizedName = name.replace(/^\/+/, '');
 
@@ -257,7 +264,7 @@ function mdxToJson(mdxPath: string, context: IndexContext): IndexItem | undefine
             metadata: {
                 heading: {
                     depth: 1,
-                    text: getMdxName(frontmatter, mdxPath, site.docsDir),
+                    text: getMdxName(frontmatter, mdxPath, site.docsDir, config),
                 },
                 source: {
                     url: generateMdxLink(mdxPath, site.docsDir, componentName, config.baseUrl),
