@@ -200,8 +200,6 @@ module.exports = {
                             await fg([
                                 '../../packages/plasma-b2c/src/**/*.{ts,tsx}',
                                 '!../../packages/plasma-b2c/src/**/*.test.*',
-                                '../../packages/plasma-hope/src/**/*.{ts,tsx}',
-                                '!../../packages/plasma-hope/src/**/*.test.*',
                             ]),
                         );
                 },
