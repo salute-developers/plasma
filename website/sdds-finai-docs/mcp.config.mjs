@@ -12,6 +12,10 @@ export default {
     ],
     // Модуль, из которого импортируются токены темы. Разрешается от packages/sdds-finai.
     tokens: { entry: '@sddsjs/sdds_finai/theme/tokens' },
+    // Beta-компоненты из `docs/beta`: паспорта с префиксом `beta/`
+    extraComponentCategories: {
+        beta: { package: 'sdds-finai/beta', stability: 'beta' },
+    },
     // Перенесено из старого config.mjs без изменений; генератор это поле не читает.
     qdrantConfig: {
         collectionName: 'plasma-docs',
