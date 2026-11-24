@@ -21,8 +21,8 @@ describeFn('Portal', () => {
                 <Button onClick={() => setShow(!show)} />
                 <div id="parentContainer">
                     <BodyM>
-                        Содержимое появится в нижнем блоке.
-                        Если портал выключен (disabled), то содержимое появится в данном блоке.
+                        Содержимое появится в нижнем блоке. Если портал выключен (disabled), то содержимое появится в
+                        данном блоке.
                     </BodyM>
                     {show && containerRef.current && (
                         <Portal disabled={disabled} container={containerRef.current}>
@@ -36,9 +36,7 @@ describeFn('Portal', () => {
     }
 
     it('open portal', () => {
-        mount(
-            <Demo />
-        );
+        mount(<Demo />);
 
         cy.get('button').click();
         cy.get('#parentContainer').contains(text).should('not.exist');
@@ -46,9 +44,7 @@ describeFn('Portal', () => {
     });
 
     it('disabled portal', () => {
-        mount(
-            <Demo disabled />
-        );
+        mount(<Demo disabled />);
 
         cy.get('button').click();
         cy.get('#parentContainer').contains(text).should('be.visible');

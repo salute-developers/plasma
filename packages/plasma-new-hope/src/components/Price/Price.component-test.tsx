@@ -18,7 +18,7 @@ describeFn('Price', () => {
                 <BodyM>
                     <Price locale="en">12345.67</Price>
                 </BodyM>
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -42,7 +42,7 @@ describeFn('Price', () => {
                 <BodyM>
                     <Price currency="inr">12345.67</Price>
                 </BodyM>
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -52,7 +52,7 @@ describeFn('Price', () => {
         mount(
             <BodyM>
                 <Price stroked>12345.67</Price>
-            </BodyM>
+            </BodyM>,
         );
 
         cy.matchImageSnapshot();
@@ -62,7 +62,7 @@ describeFn('Price', () => {
         mount(
             <BodyM>
                 <Price minimumFractionDigits={4}>12345.6789</Price>
-            </BodyM>
+            </BodyM>,
         );
 
         cy.matchImageSnapshot();
@@ -86,7 +86,7 @@ describeFn('Price', () => {
                 <BodyM>
                     <Price periodicity="/ год">3990</Price>
                 </BodyM>
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -99,7 +99,7 @@ describeFn('Price', () => {
                 <Price style={{ marginLeft: '0.25rem' }} stroked>
                     200
                 </Price>
-            </BodyM>
+            </BodyM>,
         );
 
         cy.matchImageSnapshot();

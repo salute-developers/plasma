@@ -7,7 +7,7 @@ const componentExists = hasComponent('ProgressBarCircular');
 const describeFn = getDescribeFN('ProgressBarCircular');
 
 const progressBarCircularProps = {
-    value: 50
+    value: 50,
 };
 
 getBaseVisualTests({
@@ -17,7 +17,9 @@ getBaseVisualTests({
 });
 
 describeFn('ProgressBarCircular', () => {
-    const ProgressBarCircular = componentExists ? getComponent<ProgressBarCircularProps>('ProgressBarCircular') : () => null;
+    const ProgressBarCircular = componentExists
+        ? getComponent<ProgressBarCircularProps>('ProgressBarCircular')
+        : () => null;
 
     it('with content', () => {
         mount(
@@ -27,7 +29,7 @@ describeFn('ProgressBarCircular', () => {
                 <ProgressBarCircular value={50}>
                     <span>Загрузка</span>
                 </ProgressBarCircular>
-            </>
+            </>,
         );
         cy.matchImageSnapshot();
     });
@@ -38,7 +40,7 @@ describeFn('ProgressBarCircular', () => {
                 <ProgressBarCircular value={25} strokeSize={8} />
                 <PadMe />
                 <ProgressBarCircular value={50} strokeSize={4} />
-            </>
+            </>,
         );
         cy.matchImageSnapshot();
     });
@@ -55,7 +57,7 @@ describeFn('ProgressBarCircular', () => {
                 <ProgressBarCircular value={75} />
                 <PadMe />
                 <ProgressBarCircular value={100} />
-            </>
+            </>,
         );
         cy.matchImageSnapshot();
     });
@@ -68,7 +70,7 @@ describeFn('ProgressBarCircular', () => {
                 <ProgressBarCircular value={150} maxValue={200}>
                     75%
                 </ProgressBarCircular>
-            </>
+            </>,
         );
         cy.matchImageSnapshot();
     });
