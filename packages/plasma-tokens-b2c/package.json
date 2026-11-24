@@ -1,6 +1,6 @@
 {
   "name": "@salutejs/plasma-tokens-b2c",
-  "version": "0.84.0-dev.0",
+  "version": "0.85.0-dev.0",
   "description": "",
   "author": "Salute Frontend Team <salute.developers@gmail.com>",
   "license": "MIT",
@@ -57,7 +57,9 @@
     "sizes.js.map",
     "theme.json"
   ],
-  "contributors": ["salute.developers@gmail.com"],
+  "contributors": [
+    "salute.developers@gmail.com"
+  ],
   "sideEffects": false,
   "overrides": {
     "form-data@^4": "4.0.6",
