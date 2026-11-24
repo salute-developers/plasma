@@ -9,7 +9,7 @@ const describeFn = getDescribeFN('Switch');
 const switchProps = {
     label: 'Label',
     description: 'Description',
-    checked: true
+    checked: true,
 };
 
 getBaseVisualTests({
@@ -27,7 +27,7 @@ describeFn('Switch', () => {
                 <Switch label="Переключатель" />
                 <PadMe />
                 <Switch checked label="Переключатель" />
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -39,7 +39,7 @@ describeFn('Switch', () => {
                 <Switch label="Переключатель" />
                 <PadMe />
                 <Switch checked label="Переключатель" />
-            </>
+            </>,
         );
 
         cy.get('body').tab();
@@ -56,16 +56,14 @@ describeFn('Switch', () => {
                 <Switch disabled label="Переключатель" />
                 <PadMe />
                 <Switch disabled checked label="Переключатель" />
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
     });
 
     it('onClick', () => {
-        mount(
-            <Switch id="switch" label="Переключатель" />
-        );
+        mount(<Switch id="switch" label="Переключатель" />);
 
         cy.matchImageSnapshot();
         cy.get('#switch').click();
@@ -73,9 +71,7 @@ describeFn('Switch', () => {
     });
 
     it('onMouseDown', () => {
-        mount(
-            <Switch id="switch" label="Переключатель" />
-        );
+        mount(<Switch id="switch" label="Переключатель" />);
 
         cy.matchImageSnapshot();
         cy.get('#switch').click();
@@ -106,7 +102,7 @@ describeFn('Switch', () => {
                 <Switch label="without description" checked />
                 <PadMe />
                 <Switch description="without label" checked />
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -118,7 +114,7 @@ describeFn('Switch', () => {
                 <Switch label="Переключатель" labelPosition="before" description="Description" checked />
                 <PadMe />
                 <Switch label="Переключатель" labelPosition="after" description="Description" checked />
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();

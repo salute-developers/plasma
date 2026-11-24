@@ -28,7 +28,7 @@ describeFn('PaginationDots', () => {
                     <PaginationDot />
                     <PaginationDot isActive />
                 </PaginationDots>
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();

@@ -32,7 +32,7 @@ const ratingProps = {
     value: 3.8,
     valuePlacement: 'before',
     iconQuantity: 5,
-    hasIcons: true
+    hasIcons: true,
 };
 
 getBaseVisualTests({
@@ -79,7 +79,7 @@ describeFn('Rating', () => {
                 <Demo value={3.8758} precision={2} />
                 <PadMe />
                 <Demo value={3.8758} precision={3} />
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -91,7 +91,7 @@ describeFn('Rating', () => {
                 <Demo value={3.8} valuePlacement="before" />
                 <PadMe />
                 <Demo value={3.8} valuePlacement="after" />
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -107,7 +107,7 @@ describeFn('Rating', () => {
                 <Demo value={3.8} iconQuantity={10} />
                 <PadMe />
                 <Demo value={3.8} iconQuantity={1} />
-            </>
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -122,17 +122,16 @@ describeFn('Rating', () => {
                 <PadMe />
                 <Demo value={0.5} precision={2} />
                 <PadMe />
-                <Demo value={1}/>
+                <Demo value={1} />
                 <PadMe />
-                <Demo value={2.25} precision={2} decimalSeparator=','/>
+                <Demo value={2.25} precision={2} decimalSeparator="," />
                 <PadMe />
-                <Demo value={3.75} precision={2} decimalSeparator='-' />
+                <Demo value={3.75} precision={2} decimalSeparator="-" />
                 <PadMe />
-                <Demo value={5}/>
+                <Demo value={5} />
                 <PadMe />
                 <Demo value={6.75} precision={2} />
-            </>
-            
+            </>,
         );
 
         cy.matchImageSnapshot();
@@ -145,7 +144,7 @@ describeFn('Rating', () => {
                 iconSlot={<IconKeyFill size="s" className={ratingClasses.customIconSizing} />}
                 iconSlotOutline={<IconLockFill size="s" className={ratingClasses.customIconSizing} />}
                 iconSlotHalf={<IconKeyOutline size="s" className={ratingClasses.customIconSizing} />}
-            />
+            />,
         );
 
         cy.matchImageSnapshot();

@@ -15,12 +15,12 @@ describeFn('Sheet', () => {
             <Sheet opened>
                 <BodyM>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae tempore vitae porro laboriosam
-                    consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel
-                    illum ea fugit molestiae dolorem? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-                    nostrum placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt
-                    ullam, dolorem labore quaerat vero maxime ab ipsa nihil.
+                    consectetur fugiat assumenda, earum nesciunt. Distinctio minima nesciunt dicta rem quae vel illum ea
+                    fugit molestiae dolorem? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos nostrum
+                    placeat, neque repudiandae consectetur voluptates soluta et sint eum obcaecati nesciunt ullam,
+                    dolorem labore quaerat vero maxime ab ipsa nihil.
                 </BodyM>
-            </Sheet>
+            </Sheet>,
         );
 
         cy.matchImageSnapshot();
@@ -46,9 +46,7 @@ describeFn('Sheet', () => {
     };
 
     it('onClose', () => {
-        mount(
-            <Interactive />
-        );
+        mount(<Interactive />);
 
         cy.root().click();
 
@@ -58,9 +56,7 @@ describeFn('Sheet', () => {
     it('onTouchMove', () => {
         cy.viewport(375, 600);
 
-        mount(
-            <Interactive />
-        );
+        mount(<Interactive />);
 
         const touchEvent = ({ clientX, clientY }) => ({
             changedTouches: {
@@ -92,9 +88,7 @@ describeFn('Sheet', () => {
     it('withoutOverlay', () => {
         cy.viewport(375, 600);
 
-        mount(
-            <Interactive withOverlay={false} />
-        );
+        mount(<Interactive withOverlay={false} />);
 
         cy.matchImageSnapshot();
     });

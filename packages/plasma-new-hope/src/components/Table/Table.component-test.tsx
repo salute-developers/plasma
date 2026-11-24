@@ -367,7 +367,7 @@ const columnsComplexNodes = [
 
 const tableProps = {
     data: rows,
-    columns: columnsBasic
+    columns: columnsBasic,
 };
 
 getBaseVisualTests({
@@ -385,9 +385,7 @@ describeFn('Table', () => {
     it('borderVariant all', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table borderVariant="all" data={rows} columns={columnsBasic} />
-        );
+        mount(<Table borderVariant="all" data={rows} columns={columnsBasic} />);
 
         cy.matchImageSnapshot();
     });
@@ -395,9 +393,7 @@ describeFn('Table', () => {
     it('borderVariant rows', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table borderVariant="rows" data={rows} columns={columnsBasic} />
-        );
+        mount(<Table borderVariant="rows" data={rows} columns={columnsBasic} />);
 
         cy.matchImageSnapshot();
     });
@@ -405,9 +401,7 @@ describeFn('Table', () => {
     it('borderVariant header', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table borderVariant="header" data={rows} columns={columnsBasic} />
-        );
+        mount(<Table borderVariant="header" data={rows} columns={columnsBasic} />);
 
         cy.matchImageSnapshot();
     });
@@ -415,9 +409,7 @@ describeFn('Table', () => {
     it('maxHeight', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table maxHeight="400px" data={rows} columns={columnsBasic} />
-        );
+        mount(<Table maxHeight="400px" data={rows} columns={columnsBasic} />);
 
         cy.matchImageSnapshot();
     });
@@ -425,9 +417,7 @@ describeFn('Table', () => {
     it('stickyHeader', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table id="table" stickyHeader maxHeight="400px" data={rows} columns={columnsBasic} />
-        );
+        mount(<Table id="table" stickyHeader maxHeight="400px" data={rows} columns={columnsBasic} />);
 
         cy.get('.table-scrollable-container').scrollTo('bottom');
 
@@ -437,9 +427,7 @@ describeFn('Table', () => {
     it('enableSelection', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table enableSelection data={rows} columns={columnsBasic} />
-        );
+        mount(<Table enableSelection data={rows} columns={columnsBasic} />);
 
         cy.matchImageSnapshot();
     });
@@ -447,9 +435,7 @@ describeFn('Table', () => {
     it('renderCell', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table data={complexRows} columns={columnsComplexNodes} />
-        );
+        mount(<Table data={complexRows} columns={columnsComplexNodes} />);
 
         cy.matchImageSnapshot();
     });
@@ -457,9 +443,7 @@ describeFn('Table', () => {
     it('client sorting', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table data={rows} columns={columnsSorting} />
-        );
+        mount(<Table data={rows} columns={columnsSorting} />);
 
         cy.get('.sorting-default-icon').should('be.visible');
         cy.get('.sorting-default-icon').click();
@@ -477,9 +461,7 @@ describeFn('Table', () => {
     it('client filtering', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table data={rows} columns={columnsFiltering} />
-        );
+        mount(<Table data={rows} columns={columnsFiltering} />);
 
         cy.get('.filter-icon').should('be.visible');
         cy.get('.filter-icon').click();
@@ -494,9 +476,7 @@ describeFn('Table', () => {
     it('resizing', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table data={rows} columns={columnsResizing} />
-        );
+        mount(<Table data={rows} columns={columnsResizing} />);
 
         cy.get('th').contains('Население').trigger('mouseover');
         cy.get('.resize-divider').trigger('mousedown', { force: true });
@@ -510,9 +490,7 @@ describeFn('Table', () => {
     it('editing', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table data={rows} columns={columnsEditing} />
-        );
+        mount(<Table data={rows} columns={columnsEditing} />);
 
         cy.get('td').contains('1400').click();
 
@@ -522,25 +500,23 @@ describeFn('Table', () => {
     it('custom nodes', () => {
         cy.viewport(1280, 600);
 
-        mount(
-            <Table data={rows} columns={columnsCustomNodes} />
-        );
+        mount(<Table data={rows} columns={columnsCustomNodes} />);
 
         cy.matchImageSnapshot();
     });
 
     it('semantic DOM', () => {
         mount(
-                <Table
-                    data={rows}
-                    columns={columnsBasic}
-                    classNames={{
-                        root: 'root-class',
-                        table: 'table-class',
-                        header: { wrapper: 'header-wrapper-class', row: 'header-row-class', cell: 'header-cell-class' },
-                        body: { wrapper: 'body-wrapper-class', row: 'body-row-class', cell: 'body-cell-class' },
-                    }}
-                />
+            <Table
+                data={rows}
+                columns={columnsBasic}
+                classNames={{
+                    root: 'root-class',
+                    table: 'table-class',
+                    header: { wrapper: 'header-wrapper-class', row: 'header-row-class', cell: 'header-cell-class' },
+                    body: { wrapper: 'body-wrapper-class', row: 'body-row-class', cell: 'body-cell-class' },
+                }}
+            />,
         );
 
         cy.get('.table__root-element').should('be.visible').should('have.class', 'root-class');
