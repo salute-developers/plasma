@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx --no -- lint-staged
+# Stylelint 14's compile cache cannot load the ESM custom syntax on Node 24.
+DISABLE_V8_COMPILE_CACHE=1 npx --no -- lint-staged
