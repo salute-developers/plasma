@@ -17,10 +17,13 @@ console.log();
 const cwd = process.cwd();
 const lerna = require(path.join(cwd, 'lerna.json'));
 
+let packageReadError = false;
+
 const packagesInfo = lerna.packages
-    .reduce((acc, pttrn) => acc.concat(fg.sync(pttrn, { onlyDirectories: true })), [])
+    .reduce((acc, pttrn) => acc.concat(fg.sync(`${pttrn}/package.json`, { onlyFiles: true })), [])
     .reduce((packages, p) => {
-        const packagePath = path.join(cwd, p, 'package.json');
+        const packagePath = path.join(cwd, p);
+        const dir = path.dirname(p);
 
         try {
             const packageJSON = require(required(packagePath));
@@ -44,10 +47,11 @@ const packagesInfo = lerna.packages
                 private,
                 author,
                 path: packagePath,
-                dir: p,
+                dir,
             });
         } catch (err) {
-            console.error(p, 'Error while reading package.json');
+            console.error(dir, 'Error while reading package.json');
+            packageReadError = true;
         }
 
         return packages;
@@ -214,7 +218,7 @@ const reporter = (pkgInfo, stats) => {
     console.log();
 };
 
-if (results.size) {
+if (results.size || packageReadError) {
     for (const [pkg, stats] of results) {
         const pkgInfo = packagesInfo.get(pkg);
         reporter(pkgInfo, stats);

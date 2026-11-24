@@ -11,18 +11,17 @@ const commonScope = [
 
 module.exports = {
     'plasma-homeds': {
-        scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'plasma-homeds-docs'],
+        scope: [...commonScope, 'plasma-themes', 'plasma-docs-ui', 'plasma-homeds-docs'],
     },
     'plasma-giga': {
-        scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'plasma-giga-docs'],
+        scope: [...commonScope, 'plasma-themes', 'plasma-docs-ui', 'plasma-giga-docs'],
     },
     'plasma-asdk': {
-        scope: [...commonScope, 'plasma-tokens-b2b', 'plasma-themes', 'plasma-core'],
+        scope: [...commonScope, 'plasma-tokens-b2b', 'plasma-themes'],
     },
     'plasma-b2c': {
         scope: [
             ...commonScope,
-            'plasma-core',
             'plasma-tokens-b2c',
             'plasma-tokens-web',
             'plasma-themes',
@@ -31,12 +30,11 @@ module.exports = {
         ],
     },
     'plasma-new-hope': {
-        scope: [...commonScope, 'plasma-themes', 'plasma-core'],
+        scope: [...commonScope, 'plasma-themes'],
     },
     'plasma-web': {
         scope: [
             ...commonScope,
-            'plasma-core',
             'plasma-tokens-b2c',
             'plasma-tokens-b2b',
             'plasma-tokens-web',
@@ -46,43 +44,43 @@ module.exports = {
         ],
     },
     'sdds-serv': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-serv-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-serv-docs'],
     },
     'sdds-dfa': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-dfa-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-dfa-docs'],
     },
     'sdds-cs': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-cs-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-cs-docs'],
     },
     'sdds-finai': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-finai-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-finai-docs'],
     },
     'sdds-insol': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-insol-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-insol-docs'],
     },
     'sdds-insol-next': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-insol-next-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-insol-next-docs'],
     },
     'sdds-netology': {
-        scope: [...commonScope, 'plasma-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-netology-docs'],
+        scope: [...commonScope, 'plasma-themes', 'plasma-docs-ui', 'sdds-netology-docs'],
     },
     'sdds-scan': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-scan-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-scan-docs'],
     },
     'sdds-bizcom': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'plasma-docs-ui', 'sdds-bizcom-docs'],
+        scope: [...commonScope, 'sdds-themes', 'plasma-docs-ui', 'sdds-bizcom-docs'],
     },
     'sdds-platform-ai': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-platform-ai-docs', 'plasma-docs-ui'],
+        scope: [...commonScope, 'sdds-themes', 'sdds-platform-ai-docs', 'plasma-docs-ui'],
     },
     'sdds-os': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+        scope: [...commonScope, 'sdds-themes'],
     },
     'sdds-sbcom': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core', 'sdds-sbcom-docs', 'plasma-docs-ui'],
+        scope: [...commonScope, 'sdds-themes', 'sdds-sbcom-docs', 'plasma-docs-ui'],
     },
     'sdds-vc': {
-        scope: [...commonScope, 'sdds-themes', 'plasma-core'],
+        scope: [...commonScope, 'sdds-themes'],
     },
     'sdds-icons': {
         scope: [],

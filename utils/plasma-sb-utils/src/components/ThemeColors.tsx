@@ -1,7 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { Headline1, Headline3, Footnote1, Caption } from '@salutejs/plasma-core';
 import { paramCase } from 'param-case';
+
+import { Headline1, Headline3, Footnote1, Caption } from './LegacyTypography';
 
 const NONE = 'NONE';
 const comments = {

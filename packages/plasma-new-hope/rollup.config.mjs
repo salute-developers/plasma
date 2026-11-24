@@ -52,7 +52,6 @@ export default {
     plugins: [
         sourceAliasPlugin(),
         linaria({
-            exclude: ['plasma-core/src/collectPackageInfo.ts'],
             babelOptions: {
                 plugins: [
                     [

@@ -1,1 +1,0 @@
-export { IconPlaceholder } from './IconPlaceholder';

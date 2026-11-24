@@ -1,8 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Body1, Caption, white, whiteSecondary, black } from '@salutejs/plasma-core';
 
 import type { ColorsGrid } from '../helpers/flattenPalette';
+
+import { Body1, Caption } from './LegacyTypography';
+
+const white = 'var(--plasma-colors-white)';
+const whiteSecondary = 'var(--plasma-colors-white-secondary)';
+const black = 'var(--plasma-colors-black)';
 
 const textColors = {
     1000: [white, whiteSecondary],
