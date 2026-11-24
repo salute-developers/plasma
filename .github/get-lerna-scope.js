@@ -12,7 +12,7 @@ module.exports = () => {
     const packageTheme = META[PACKAGE].themes;
 
     // INFO: Список обязательных пакетов без которых не будет работать сборка
-    // INFO: Например для корректной сборки storybook в `plasma-asdk` нужно ставить plasma-core
+    // INFO: Например для корректной сборки Storybook нужно ставить plasma-sb-utils
     // INFO: Это workaround - временно позволяет обойти ошибки в инфре
     const requiredDeps = META[PACKAGE].required || [];
 

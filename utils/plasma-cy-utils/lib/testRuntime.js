@@ -96,7 +96,7 @@ var getTestPackage = function (packageName) {
         case 'plasma-homeds':
             return require('../../../packages/plasma-homeds/dist/styled-components/cjs/index.js');
         default:
-            throw new Error("Library ".concat(packageName, " is not required in plasma-core/CypressHelpers:getComponent"));
+            throw new Error("Library ".concat(packageName, " is not required in CypressHelpers:getComponent"));
     }
     /* eslint-enable @typescript-eslint/no-var-requires, global-require */
 };

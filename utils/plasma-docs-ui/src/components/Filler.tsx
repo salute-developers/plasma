@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { applySpacing, SpacingProps, surfaceLiquid01 } from '@salutejs/plasma-core';
+import { applySpacing, SpacingProps } from '@salutejs/plasma-typo';
 
 export const Filler = styled.div<SpacingProps>`
     ${applySpacing}
@@ -13,5 +13,5 @@ export const Filler = styled.div<SpacingProps>`
     width: 100%;
     padding: 0.5rem 1rem;
 
-    background-color: ${surfaceLiquid01};
+    background-color: var(--plasma-colors-surface-liquid01);
 `;

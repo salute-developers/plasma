@@ -49,7 +49,6 @@ export default {
     },
     plugins: [
         linaria({
-            exclude: ['plasma-core/src/collectPackageInfo.ts'],
             tagResolver: (source, tag) => {
                 if (source === '@salutejs/plasma-new-hope/css') {
                     if (tag === 'css') {

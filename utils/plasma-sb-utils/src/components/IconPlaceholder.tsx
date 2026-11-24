@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { tertiary } from '@salutejs/plasma-core';
 
 const sizes = {
     xs: 'width: 1rem;height: 1rem;',
@@ -12,5 +11,5 @@ const sizes = {
 export const IconPlaceholder = styled.div<{ size?: keyof typeof sizes }>`
     ${({ size }) => sizes[size || 's']};
     border-radius: 50%;
-    background: ${tertiary};
+    background: var(--plasma-colors-tertiary);
 `;

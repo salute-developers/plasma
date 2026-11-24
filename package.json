@@ -67,6 +67,7 @@
     "@cypress/webpack-preprocessor": "7.0.2",
     "@emotion/babel-plugin": "11.13.5",
     "@linaria/vite": "5.0.4",
+    "@popperjs/core": "2.11.8",
     "@salutejs/eslint-config": "1.2.0",
     "@salutejs/eslint-config-base": "0.4.0",
     "@salutejs/prettier-config": "0.3.0",

@@ -12,8 +12,7 @@ description: "HOC-функции для расширения компонент�
 
 ```tsx
 import React from 'react';
-import { Button, ButtonProps } from '@salutejs/plasma-core';
-import { withAutoFocus } from '@salutejs/plasma-web';
+import { Button, ButtonProps, withAutoFocus } from '@salutejs/plasma-web';
 
 const AutoFocusButton = withAutoFocus<ButtonProps>(Button);
 
@@ -29,12 +28,11 @@ export const Default = () => {
 
 ```tsx
 import React from 'react';
-import { Button, ButtonProps } from '@salutejs/plasma-core';
-import { withSkeleton, WithSkeletonProps } from '@salutejs/plasma-web';
+import { Button, withSkeleton } from '@salutejs/plasma-web';
 
 const ButtonSkeleton = withSkeleton(Button);
 
-return const Default = () => (
+export const Default = () => (
     <>
         <ButtonSkeleton skeleton /> // Скелетон
         <ButtonSkeleton /> // Кнопка
