@@ -12,8 +12,10 @@ export const filterItems = (
     textValue: string,
     currentLabel: string,
     customFilter?: (item: ItemOption, value: string) => boolean,
+    matchSelectedLabel = true,
 ): Array<ItemOptionTransformed> => {
-    if ((!textValue && !customFilter) || textValue === currentLabel) return items;
+    // У кастомного renderTarget текст поля — поисковый запрос, даже если он совпал с подписью выбранного пункта.
+    if ((!textValue && !customFilter) || (matchSelectedLabel && textValue === currentLabel)) return items;
 
     const filter = customFilter || defaultFilter;
 

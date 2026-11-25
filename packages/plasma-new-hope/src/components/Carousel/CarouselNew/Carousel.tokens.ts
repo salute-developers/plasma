@@ -10,16 +10,34 @@ export const classes = {
     availableDotsRight: 'dot-available-dots-right',
     leftControlButton: 'carousel-left-control-button',
     rightControlButton: 'carousel-right-control-button',
+    outerControls: 'carousel-outer-controls',
 };
 
 export const tokens = {
+    /** @styleType value */
+    controlIconButtonWidth: '--plasma-carousel-control-icon-button-width',
+    /** @styleType value */
+    controlIconButtonHeight: '--plasma-carousel-control-icon-button-height',
+    /** @styleType value */
+    controlIconButtonPadding: '--plasma-carousel-control-icon-button-padding',
+    /** @styleType value */
+    controlIconButtonOffset: '--plasma-carousel-control-icon-button-offset',
+    /** @styleType color */
     paginationDotBackground: '--plasma-carousel-pagination-dot-background',
+    /** @styleType color */
     paginationDotActiveBackground: '--plasma-carousel-pagination-dot-active-background',
+    /** @styleType value */
     controlIconButtonRadius: '--plasma-carousel-control-icon-button-radius',
+    /** @styleType color */
     controlIconButtonColor: '--plasma-carousel-control-icon-button-color',
+    /** @styleType color */
     controlIconButtonBackgroundColor: '--plasma-carousel-control-icon-button-background-color',
+    /** @styleType color @styleProp controlIconButtonColor @styleState hovered */
     controlIconButtonColorHover: '--plasma-carousel-control-icon-button-color-hover',
+    /** @styleType color @styleProp controlIconButtonBackgroundColor @styleState hovered */
     controlIconButtonBackgroundColorHover: '--plasma-carousel-control-icon-button-background-color-hover',
+    /** @styleType color @styleProp controlIconButtonColor @styleState pressed */
     controlIconButtonColorActive: '--plasma-carousel-control-icon-button-color-active',
+    /** @styleType color @styleProp controlIconButtonBackgroundColor @styleState pressed */
     controlIconButtonBackgroundColorActive: '--plasma-carousel-control-icon-button-background-color-active',
 };

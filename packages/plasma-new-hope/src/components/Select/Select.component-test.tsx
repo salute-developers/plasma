@@ -2537,6 +2537,236 @@ describeFn('Select', () => {
         cy.get('#read-only .has-chips button').should('have.length', 1);
         cy.get('@onChange').should('not.have.been.called');
     });
+
+    it('cascade list selection styles', () => {
+        const cascadeItems = [
+            { value: 'europe', label: 'Европа' },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                items: [
+                    { value: 'brazil', label: 'Бразилия' },
+                    { value: 'argentina', label: 'Аргентина' },
+                ],
+            },
+        ];
+        const Component = () => {
+            const [value, setValue] = useState('brazil');
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="select"
+                        value={value}
+                        onChange={setValue}
+                        items={cascadeItems}
+                        label="Label"
+                        placeholder="Placeholder"
+                        style={
+                            {
+                                '--plasma-select-list-gap': '2px',
+                                '--plasma-select-item-background-selected': 'rgb(1, 2, 3)',
+                                '--plasma-select-item-background-ancestor': 'rgb(4, 5, 6)',
+                                '--plasma-select-item-background-hover': 'rgb(7, 8, 9)',
+                                '--plasma-select-item-selection-slot-display': 'none',
+                                '--plasma-select-item-ancestor-selection-slot-display': 'none',
+                            } as React.CSSProperties
+                        }
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+
+        cy.contains('li', 'Южная Америка')
+            .should('have.class', 'dropdown-item-is-ancestor')
+            .and('have.css', 'background-color', 'rgb(4, 5, 6)')
+            .find('.dropdown-item-ancestor-selection-slot')
+            .should('have.css', 'display', 'none');
+        cy.contains('li', 'Европа').should('not.have.class', 'dropdown-item-is-selected');
+        cy.contains('li', 'Южная Америка')
+            .closest('ul')
+            .should('have.css', 'display', 'grid')
+            .and('have.css', 'row-gap', '2px');
+
+        cy.contains('li', 'Южная Америка').click();
+
+        cy.contains('li', 'Бразилия')
+            .should('have.class', 'dropdown-item-is-selected')
+            .and('have.css', 'background-color', 'rgb(1, 2, 3)')
+            .find('.dropdown-item-selection-slot')
+            .should('have.css', 'display', 'none');
+
+        if (Cypress.browser.family !== 'webkit') {
+            cy.contains('li', 'Бразилия').realHover();
+            cy.contains('li', 'Бразилия').should('have.css', 'background-color', 'rgb(7, 8, 9)');
+            cy.contains('li', 'Аргентина').realHover();
+            cy.contains('li', 'Аргентина').should('have.css', 'background-color', 'rgb(7, 8, 9)');
+        }
+    });
+
+    it('disclosure icon keeps the left offset with renderItem', () => {
+        const nested = (label: string) => [
+            {
+                value: 'parent',
+                label,
+                items: [{ value: 'child', label: 'Ребёнок' }],
+            },
+        ];
+
+        const readOffset = (label: string) =>
+            cy.contains('li', label).then(($li) => {
+                const icon = $li[0].lastElementChild as HTMLElement;
+                const content = icon.previousElementSibling as HTMLElement;
+                const gap = icon.getBoundingClientRect().left - content.getBoundingClientRect().right;
+
+                return {
+                    gap,
+                    margin: parseFloat(getComputedStyle(icon).marginLeft),
+                };
+            });
+
+        mount(
+            <>
+                <Select id="plain" items={nested('Обычный')} label="Label" placeholder="Placeholder" />
+                <Select
+                    id="custom"
+                    items={nested('Кастомный')}
+                    label="Label"
+                    placeholder="Placeholder"
+                    renderItem={(item) => (
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}>
+                            <span>{item.label}</span>
+                            <span>справа</span>
+                        </div>
+                    )}
+                />
+            </>,
+        );
+
+        cy.get('#plain').click();
+        readOffset('Обычный').then((plain) => {
+            expect(plain.margin, 'plain margin').to.be.greaterThan(0);
+            expect(plain.gap, 'plain gap').to.be.closeTo(plain.margin, 1);
+
+            cy.get('#plain').click();
+            cy.get('#custom').click();
+
+            return readOffset('Кастомный').then((custom) => {
+                expect(custom.margin, 'renderItem margin').to.equal(plain.margin);
+                expect(custom.gap, 'renderItem gap').to.be.closeTo(plain.margin, 1);
+            });
+        });
+    });
+
+    it('cascade list keeps single-line ellipsis', () => {
+        const longLabel = 'Очень длинное название пункта списка которое не помещается';
+
+        const Component = () => (
+            <div style={{ width: '160px' }}>
+                <Select
+                    id="select"
+                    items={[{ value: 'long', label: longLabel }]}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listWidth="120px"
+                    listMaxHeight="80px"
+                    singleLine
+                />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.contains('li', longLabel).then(($item) => {
+            const item = $item[0];
+            const title = item.querySelector('.cell-textbox-title') as HTMLElement;
+            const list = item.closest('ul') as HTMLElement;
+
+            expect(title.scrollWidth).to.be.greaterThan(title.clientWidth);
+            expect(getComputedStyle(title).textOverflow).to.eq('ellipsis');
+            expect(Math.round(item.getBoundingClientRect().width)).to.eq(
+                Math.round(list.getBoundingClientRect().width),
+            );
+        });
+    });
+
+    it('cascade list does not shrink a wrapped item', () => {
+        const longLabel = 'Очень длинное название пункта списка которое не помещается';
+
+        const Component = () => (
+            <div style={{ width: '160px' }}>
+                <Select
+                    id="select"
+                    items={[{ value: 'long', label: longLabel }]}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listWidth="120px"
+                    listMaxHeight="80px"
+                />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#select').click();
+        cy.contains('li', longLabel).then(($item) => {
+            const itemBox = $item[0].getBoundingClientRect();
+            const title = $item[0].querySelector('.cell-textbox-title') as HTMLElement;
+            const titleBox = title.getBoundingClientRect();
+
+            expect(titleBox.height).to.be.greaterThan(30);
+            expect(itemBox.height).to.be.greaterThan(titleBox.height);
+            expect(titleBox.bottom).to.be.at.most(itemBox.bottom + 1);
+        });
+    });
+
+    it('treeView ignores cascade selection styles', () => {
+        const treeItems = [
+            { value: 'europe', label: 'Европа' },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                items: [{ value: 'brazil', label: 'Бразилия' }],
+            },
+        ];
+        const Component = () => {
+            const [value, setValue] = useState('brazil');
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Select
+                        id="select"
+                        value={value}
+                        onChange={setValue}
+                        items={treeItems}
+                        label="Label"
+                        placeholder="Placeholder"
+                        treeView
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#select .input-wrapper').click('right');
+        cy.get('.dropdown-item-is-selected').should('not.exist');
+        cy.get('.dropdown-item-is-ancestor').should('not.exist');
+        cy.get('[role="treeitem"]').then(($items) => {
+            const first = $items[0].getBoundingClientRect();
+            const second = $items[1].getBoundingClientRect();
+
+            expect(Math.round(second.top - first.bottom)).to.eq(0);
+        });
+
+        cy.contains('[role="treeitem"]', 'Южная Америка').click();
+        cy.contains('[role="treeitem"]', 'Бразилия').find('svg').filter(':visible').should('have.length.at.least', 1);
+    });
 });
 
 describeFn('Select react-hook-form', () => {

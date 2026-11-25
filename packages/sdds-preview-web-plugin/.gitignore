@@ -1,0 +1,11 @@
+node_modules
+dist
+archive
+*.local
+.vite/
+*.log
+.DS_Store
+
+# Строятся `npm run generate` из пакета генератора (`dsbuilder-web-generator api-meta|manifests`).
+public/api-meta.json
+src/generated/

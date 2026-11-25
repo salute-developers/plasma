@@ -2,7 +2,7 @@ import { DocsPageLayout } from '../DocsPageLayout';
 import { DocsCodeBlock } from '../DocsCodeBlock';
 import { SiteLink } from '../shared';
 
-const base = 'https://plasma.sberdevices.ru/design-system-builder/cli';
+const base = 'https://github.com/salute-developers/design-system-builder/releases/latest/download';
 
 export default function DocCliPage() {
     return (
@@ -22,46 +22,99 @@ export default function DocCliPage() {
                 также встроен MCP-сервер для AI-агентов.
             </p>
             <h2 id="install">Установка</h2>
+            <h3>Установка через npm</h3>
             <p>
-                Выберите свою ОС и выполните команды в терминале. Сначала скачайте скрипт: перед запуском его можно
-                открыть и прочитать. Установщик загрузит стабильную версию CLI и проверит контрольную сумму архива.
+                Для работы CLI на macOS, Windows и Linux нужен Node.js 22 или новее и npm. Java и Kotlin для запуска CLI
+                не требуются.
             </p>
-            <h3 id="macos">macOS</h3>
+            <DocsCodeBlock>{`npm install -g @sddsjs/design-system-builder-cli
+dsbuilder --version
+dsbuilder --help`}</DocsCodeBlock>
             <p>
-                Архитектура Apple Silicon или Intel определяется автоматически. Для самого CLI и MCP Java и Node.js не
-                нужны.
+                Доступны все команды CLI, включая <code>dsbuilder mcp serve</code>.
             </p>
-            <DocsCodeBlock>{`curl -fsSLo install-dsbuilder.sh ${base}/install.sh\nsh install-dsbuilder.sh`}</DocsCodeBlock>
+            <h4>Обновление через npm</h4>
+            <DocsCodeBlock>{`npm install -g @sddsjs/design-system-builder-cli@latest`}</DocsCodeBlock>
+            <h4>Генераторы кода дизайн-систем</h4>
             <p>
-                <a href={`${base}/install.sh`}>Скрипт установки для macOS и Linux/JVM</a>
+                Генераторы превращают данные дизайн-системы в код для выбранной платформы. Устанавливайте генератор
+                только если планируете генерировать код дизайн-системы. Для загрузки данных и работы с MCP достаточно CLI.
             </p>
+            <p>Чтобы установить генератор для React, выполните команду:</p>
+            <DocsCodeBlock>{`dsbuilder toolchain install web`}</DocsCodeBlock>
             <p>
-                CLI устанавливается в <code>~/.dsbuilder/cli/macos</code>, команда доступна через{' '}
-                <code>~/.local/bin/dsbuilder</code>. Если терминал не находит её, добавьте каталог в PATH (для
-                стандартной оболочки zsh):
-            </p>
-            <DocsCodeBlock>{`echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc\nsource ~/.zshrc`}</DocsCodeBlock>
-            <p>
-                На Apple Silicon вместе с CLI устанавливается инструмент генерации iOS. На Intel Mac генерация SwiftUI
-                недоступна.
-            </p>
-            <h3 id="windows">Windows x64</h3>
-            <p>
-                Откройте PowerShell и выполните команды. Права администратора, Java и Node.js для CLI и MCP не
-                требуются.
-            </p>
-            <DocsCodeBlock>{`Invoke-WebRequest -Uri '${base}/install.ps1' -OutFile install-dsbuilder.ps1\n.\\install-dsbuilder.ps1`}</DocsCodeBlock>
-            <p>
-                <a href={`${base}/install.ps1`}>Скрипт установки для Windows</a>
+                Для генерации под Android нужны JDK проекта и Gradle-плагин Design System Builder. Инструкция по
+                подключению есть в{' '}
+                <a href="https://plugins.gradle.org/plugin/io.github.salute-developers.design-system-builder">
+                    Gradle Plugin Portal
+                </a>.
             </p>
             <p>
-                Установщик добавляет <code>%LOCALAPPDATA%\DSBuilder\cli</code> в пользовательский PATH. После установки
-                откройте новое окно терминала.
+                Для генерации SwiftUI на macOS с Apple Silicon установите iOS-генератор отдельно. Команда скачает
+                его из последнего релиза Plasma iOS на GitHub.
             </p>
-            <h3 id="linux">Linux / JVM</h3>
-            <p>Для JVM-варианта нужна Java 17 или новее. Выберите его явно:</p>
-            <DocsCodeBlock>{`curl -fsSLo install-dsbuilder.sh ${base}/install.sh\nsh install-dsbuilder.sh --target jvm`}</DocsCodeBlock>
-            <h3>Проверка и обновление</h3>
+            <DocsCodeBlock>{`dsbuilder toolchain install ios`}</DocsCodeBlock>
+            <p>
+                Для ручной установки скачайте архив <code>dsbuilder-ios-cli-&lt;тег&gt;.zip</code> из раздела Assets
+                нужного <a href="https://github.com/salute-developers/plasma-ios/releases">релиза Plasma iOS</a> и
+                передайте путь к архиву команде <code>dsbuilder toolchain install ios --from</code>.
+            </p>
+            <div className="callout">
+                <b>Переход с прежней установки</b>
+                <p>
+                    Если CLI уже установлен другим способом, проверьте, какую команду запускает терминал.
+                    Используйте <code>which -a dsbuilder</code> на macOS и Linux или{' '}
+                    <code>Get-Command dsbuilder -All</code> в PowerShell. Убедитесь, что используется версия,
+                    установленная через npm.
+                </p>
+            </div>
+            <h3>Альтернативные способы установки</h3>
+            <p>
+                Выберите свою ОС и выполните команды в терминале. Перед запуском скрипт можно открыть и прочитать.
+                Он загрузит последнюю стабильную версию CLI и проверит контрольную сумму архива.
+            </p>
+            <details id="macos">
+                <summary>macOS</summary>
+                <p>
+                    Архитектура Apple Silicon или Intel определяется автоматически. Для самого CLI и MCP Java и Node.js не
+                    нужны.
+                </p>
+                <DocsCodeBlock>{`curl -fsSL ${base}/install.sh -o install-dsbuilder.sh &&\nsh install-dsbuilder.sh`}</DocsCodeBlock>
+                <p>
+                    <a href={`${base}/install.sh`}>Скрипт установки для macOS и Linux/JVM</a>
+                </p>
+                <p>
+                    CLI устанавливается в <code>~/.dsbuilder/cli/macos</code>, команда доступна через{' '}
+                    <code>~/.local/bin/dsbuilder</code>. Если терминал не находит её, добавьте каталог в PATH (для
+                    стандартной оболочки zsh):
+                </p>
+                <DocsCodeBlock>{`echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc\nsource ~/.zshrc`}</DocsCodeBlock>
+                <p>
+                    На Apple Silicon вместе с CLI устанавливается инструмент генерации iOS. На Intel Mac генерация SwiftUI
+                    недоступна.
+                </p>
+            </details>
+            <details id="windows">
+                <summary>Windows x64</summary>
+                <p>
+                    Откройте PowerShell и выполните команды. Права администратора, Java и Node.js для CLI и MCP не
+                    требуются.
+                </p>
+                <DocsCodeBlock>{`Invoke-WebRequest -Uri '${base}/install.ps1' -OutFile install-dsbuilder.ps1\n.\\install-dsbuilder.ps1`}</DocsCodeBlock>
+                <p>
+                    <a href={`${base}/install.ps1`}>Скрипт установки для Windows</a>
+                </p>
+                <p>
+                    Установщик добавляет <code>%LOCALAPPDATA%\DSBuilder\cli</code> в пользовательский PATH. После установки
+                    откройте новое окно терминала.
+                </p>
+            </details>
+            <details id="linux">
+                <summary>Linux / JVM</summary>
+                <p>Для JVM-варианта нужна Java 17 или новее. Выберите его явно:</p>
+                <DocsCodeBlock>{`curl -fsSL ${base}/install.sh -o install-dsbuilder.sh &&\nsh install-dsbuilder.sh --target jvm`}</DocsCodeBlock>
+            </details>
+            <h4>Проверка и обновление</h4>
             <DocsCodeBlock>{`dsbuilder --version\ndsbuilder --help`}</DocsCodeBlock>
             <p>Для обновления повторите команды установки для своей ОС: скрипт выберет текущую стабильную версию.</p>
             <h2 id="project">Выберите сценарий работы</h2>

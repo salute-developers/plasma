@@ -1,0 +1,12 @@
+{
+    "props": {
+        "text": {
+            "name": "text",
+            "type": { "name": "string" },
+            "required": true,
+            "defaultValue": null,
+            "description": "Текст ответа",
+            "parent": { "fileName": "src/Answer.tsx", "name": "AnswerProps" }
+        }
+    }
+}

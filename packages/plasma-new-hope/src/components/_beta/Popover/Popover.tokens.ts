@@ -16,4 +16,6 @@ export const tokens = {
     tailWidth: '--plasma-popover-tail-width',
     tailHeight: '--plasma-popover-tail-height',
     tailSideCurvature: '--plasma-popover-tail-side-curvature',
+    targetWidth: '--plasma-popover-target-width',
+    availableWidth: '--plasma-popover-available-width',
 };

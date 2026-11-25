@@ -144,6 +144,10 @@ export const createMeta = ({
         step: {
             control: { type: 'number' },
         },
+        roundingMode: {
+            options: [undefined, 'ceil', 'floor'],
+            control: { type: 'select' },
+        },
         multipleStepSize: {
             control: { type: 'number' },
         },

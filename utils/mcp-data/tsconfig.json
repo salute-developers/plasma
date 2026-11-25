@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "lib": ["ES2023"],
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "types": ["node"],
+
+        /* Код исполняется Node напрямую (type stripping), поэтому только стираемый синтаксис TS. */
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "verbatimModuleSyntax": true,
+        "isolatedModules": true,
+
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
+    },
+    "include": ["./src", "./tests"],
+    "exclude": ["./tests/fixtures"]
+}

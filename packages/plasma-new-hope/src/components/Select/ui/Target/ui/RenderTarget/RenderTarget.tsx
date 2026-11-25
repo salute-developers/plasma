@@ -1,8 +1,11 @@
 import React, { ReactNode, Ref } from 'react';
 
-import { TargetProps } from '../../Target.types';
+import type { TargetProps } from '../../Target.types';
 
-type Props = Pick<TargetProps, 'multiselect' | 'value' | 'opened' | 'renderTarget' | 'valueToItemMap' | 'onClick'> & {
+type Props = Pick<
+    TargetProps,
+    'multiselect' | 'value' | 'opened' | 'renderTarget' | 'valueToItemMap' | 'onClick' | 'onKeyDown'
+> & {
     inputWrapperRef?: Ref<HTMLElement>;
 };
 
@@ -14,6 +17,7 @@ export const RenderTarget: React.FC<Props> = ({
     valueToItemMap,
     inputWrapperRef,
     onClick,
+    onKeyDown,
 }) => {
     let content: ReactNode;
 
@@ -30,7 +34,7 @@ export const RenderTarget: React.FC<Props> = ({
     }
 
     return (
-        <div ref={inputWrapperRef as Ref<HTMLDivElement>} onClick={onClick}>
+        <div ref={inputWrapperRef as Ref<HTMLDivElement>} onClick={onClick} onKeyDown={onKeyDown}>
             {content}
         </div>
     );

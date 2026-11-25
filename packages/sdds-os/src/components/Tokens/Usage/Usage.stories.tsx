@@ -1,5 +1,5 @@
 import type { Meta } from '@storybook/react-vite';
-import { sdds_os__light } from '@salutejs-ds/sdds_os';
+import { sdds_os_default__light } from '@sddsjs/sdds_os';
 import { addNotification } from '@salutejs/plasma-new-hope/styled-components';
 import { createNotificationNotify, getTokenUsageStories } from '@salutejs/plasma-sb-utils';
 
@@ -9,7 +9,7 @@ import { NotificationsProvider } from '../../Notification/Notification';
 
 const { meta: META, Default } = getTokenUsageStories({
     configModules: import.meta.glob('../../**/*.config.{ts,tsx}', { eager: true }),
-    theme: sdds_os__light[0],
+    theme: sdds_os_default__light[0],
     accordion: Accordion,
     accordionItem: AccordionItem,
     textField: TextField,

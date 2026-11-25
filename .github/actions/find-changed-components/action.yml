@@ -9,6 +9,14 @@ inputs:
     description: 'Comma-separated list of PR labels — checked for run-all-cypress label'
     required: false
     default: ''
+  head-sha:
+    description: 'Head commit SHA of the PR (defaults to GITHUB_SHA)'
+    required: false
+    default: ''
+  base-ref:
+    description: 'Base branch of the PR (defaults to GITHUB_BASE_REF or dev)'
+    required: false
+    default: ''
 outputs:
   components:
     description: 'Comma-separated list of changed components'

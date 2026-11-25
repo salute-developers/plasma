@@ -765,6 +765,160 @@ describeFn('Combobox', () => {
         cy.matchImageSnapshot();
     });
 
+    it('renderTarget single', () => {
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((item, opened) => (
+            <button type="button" id="custom-target">
+                {item?.label || 'Placeholder'} {opened ? 'opened' : 'closed'}
+            </button>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState('');
+
+            return (
+                <Combobox id="combobox" items={items} value={value} onChange={setValue} renderTarget={renderTarget} />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target').should('contain.text', 'Placeholder closed');
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.equal(null);
+        });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+
+        cy.get('#custom-target').click();
+
+        cy.get('#custom-target').should('contain.text', 'Placeholder opened');
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+
+        cy.contains('Северная Америка').click();
+
+        cy.get('#custom-target').should('contain.text', 'Северная Америка');
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.include({ value: 'north_america', label: 'Северная Америка' });
+        });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+    });
+
+    it('renderTarget multiple', () => {
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((selectedItems, opened) => (
+            <button type="button" id="custom-target">
+                {selectedItems.length ? selectedItems.map((item) => item.label).join(', ') : 'Empty'}{' '}
+                {opened ? 'opened' : 'closed'}
+            </button>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState<string[]>([]);
+
+            return (
+                <Combobox
+                    id="combobox"
+                    multiple
+                    items={[
+                        { value: 'north_america', label: 'Северная Америка' },
+                        { value: 'europe', label: 'Европа' },
+                    ]}
+                    value={value}
+                    onChange={setValue}
+                    renderTarget={renderTarget}
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target').should('contain.text', 'Empty closed');
+        cy.get('@renderTarget').its('lastCall.args.0').should('deep.equal', []);
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', false);
+
+        cy.get('#custom-target').click();
+
+        cy.get('#custom-target').should('contain.text', 'Empty opened');
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+
+        cy.contains('Северная Америка').click();
+        cy.contains('Европа').click();
+
+        cy.get('#custom-target').should('contain.text', 'Северная Америка, Европа opened');
+        cy.get('@renderTarget')
+            .its('lastCall.args.0')
+            .then((selectedItems) => {
+                expect(selectedItems.map(({ value, label }) => ({ value, label }))).to.deep.equal([
+                    { value: 'north_america', label: 'Северная Америка' },
+                    { value: 'europe', label: 'Европа' },
+                ]);
+            });
+        cy.get('@renderTarget').its('lastCall.args.1').should('equal', true);
+    });
+
+    it('renderTarget with search keeps filtering and keyboard navigation', () => {
+        cy.viewport(500, 400);
+
+        const renderTarget = cy.stub().as('renderTarget');
+
+        renderTarget.callsFake((item, opened, textProps) => (
+            <div
+                id="custom-target"
+                style={{ display: 'flex', alignItems: 'center', gap: '8px', border: '1px solid gray', padding: '8px' }}
+            >
+                <span>{item?.label || 'Placeholder'}</span>
+                <input
+                    id="custom-target-input"
+                    value={textProps?.textValue || ''}
+                    onChange={(event) => textProps?.onTextValueChange(event.target.value)}
+                />
+                <span>{opened ? 'opened' : 'closed'}</span>
+            </div>
+        ));
+
+        const Component = () => {
+            const [value, setValue] = useState('');
+
+            return (
+                <Combobox
+                    id="combobox"
+                    items={[
+                        { value: 'north_america', label: 'Северная Америка' },
+                        { value: 'brazil', label: 'Бразилия' },
+                    ]}
+                    value={value}
+                    onChange={setValue}
+                    renderTarget={renderTarget}
+                />
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#custom-target-input').click();
+        cy.get('#custom-target-input').type('Браз');
+
+        // Ввод фильтрует список.
+        cy.contains('Бразилия').should('exist');
+        cy.contains('Северная Америка').should('not.exist');
+
+        // Строка поиска приходит третьим аргументом.
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[2]).to.include({ textValue: 'Браз' });
+        });
+
+        cy.contains('Бразилия').click();
+
+        // После выбора строка поиска сбрасывается.
+        cy.get('@renderTarget').then((stub) => {
+            expect(stub.lastCall.args[0]).to.include({ value: 'brazil', label: 'Бразилия' });
+            expect(stub.lastCall.args[2]).to.include({ textValue: '' });
+        });
+        cy.get('#custom-target-input').should('have.value', '');
+    });
+
     it('isTargetAmount', () => {
         cy.viewport(500, 300);
 
@@ -2197,8 +2351,7 @@ describeFn('Combobox', () => {
 
         cy.get('#combobox').click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(100);
+        cy.contains('li', 'Северная Америка').should('be.visible');
 
         cy.matchImageSnapshot();
     });
@@ -2229,9 +2382,6 @@ describeFn('Combobox', () => {
         mount(<Component />);
 
         cy.get('#combobox').should('have.value', 'north_america');
-
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(100);
 
         cy.get('#combobox').should('have.value', 'Северная Америка');
     });
@@ -2953,6 +3103,183 @@ describeFn('Combobox', () => {
         cy.get('@onSubmit').should('have.been.calledWith', {
             region: ['paris', 'lyon'],
         });
+    });
+
+    it('cascade list selection styles', () => {
+        const cascadeItems = [
+            { value: 'europe', label: 'Европа' },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                items: [
+                    { value: 'brazil', label: 'Бразилия' },
+                    { value: 'argentina', label: 'Аргентина' },
+                ],
+            },
+        ];
+        const Component = () => {
+            const [value, setValue] = useState('brazil');
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <style>{`
+                        ul[role='tree'],
+                        ul[role='group'] {
+                            --plasma-combobox-list-gap: 2px;
+                            --plasma-combobox-item-background-selected: rgb(1, 2, 3);
+                            --plasma-combobox-item-background-ancestor: rgb(4, 5, 6);
+                            --plasma-combobox-item-background-hover: rgb(7, 8, 9);
+                            --plasma-combobox-item-selection-slot-display: none;
+                            --plasma-combobox-item-ancestor-selection-slot-display: none;
+                        }
+                    `}</style>
+                    <Combobox
+                        id="combobox"
+                        value={value}
+                        onChange={setValue}
+                        items={cascadeItems}
+                        label="Label"
+                        placeholder="Placeholder"
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+
+        cy.contains('li', 'Южная Америка')
+            .should('have.class', 'dropdown-item-is-ancestor')
+            .and('have.css', 'background-color', 'rgb(4, 5, 6)')
+            .find('.dropdown-item-ancestor-selection-slot')
+            .should('have.css', 'display', 'none');
+        cy.contains('li', 'Европа').should('not.have.class', 'dropdown-item-is-selected');
+        cy.contains('li', 'Южная Америка')
+            .closest('ul')
+            .should('have.css', 'display', 'grid')
+            .and('have.css', 'row-gap', '2px');
+
+        cy.contains('li', 'Южная Америка').click();
+
+        cy.contains('li', 'Бразилия')
+            .should('have.class', 'dropdown-item-is-selected')
+            .and('have.css', 'background-color', 'rgb(1, 2, 3)')
+            .find('.dropdown-item-selection-slot')
+            .should('have.css', 'display', 'none');
+
+        if (Cypress.browser.family !== 'webkit') {
+            cy.contains('li', 'Бразилия').realHover();
+            cy.contains('li', 'Бразилия').should('have.css', 'background-color', 'rgb(7, 8, 9)');
+            cy.contains('li', 'Аргентина').realHover();
+            cy.contains('li', 'Аргентина').should('have.css', 'background-color', 'rgb(7, 8, 9)');
+        }
+    });
+
+    it('cascade list keeps single-line ellipsis', () => {
+        const longLabel = 'Очень длинное название пункта списка которое не помещается';
+
+        const Component = () => (
+            <div style={{ width: '160px' }}>
+                <Combobox
+                    id="combobox"
+                    items={[{ value: 'long', label: longLabel }]}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listWidth="120px"
+                    listMaxHeight="80px"
+                    singleLine
+                />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('li', longLabel).then(($item) => {
+            const item = $item[0];
+            const title = item.querySelector('.cell-textbox-title') as HTMLElement;
+            const list = item.closest('ul') as HTMLElement;
+
+            expect(title.scrollWidth).to.be.greaterThan(title.clientWidth);
+            expect(getComputedStyle(title).textOverflow).to.eq('ellipsis');
+            expect(Math.round(item.getBoundingClientRect().width)).to.eq(
+                Math.round(list.getBoundingClientRect().width),
+            );
+        });
+    });
+
+    it('cascade list does not shrink a wrapped item', () => {
+        const longLabel = 'Очень длинное название пункта списка которое не помещается';
+
+        const Component = () => (
+            <div style={{ width: '160px' }}>
+                <Combobox
+                    id="combobox"
+                    items={[{ value: 'long', label: longLabel }]}
+                    label="Label"
+                    placeholder="Placeholder"
+                    listWidth="120px"
+                    listMaxHeight="80px"
+                />
+            </div>
+        );
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.contains('li', longLabel).then(($item) => {
+            const itemBox = $item[0].getBoundingClientRect();
+            const title = $item[0].querySelector('.cell-textbox-title') as HTMLElement;
+            const titleBox = title.getBoundingClientRect();
+
+            expect(titleBox.height).to.be.greaterThan(30);
+            expect(itemBox.height).to.be.greaterThan(titleBox.height);
+            expect(titleBox.bottom).to.be.at.most(itemBox.bottom + 1);
+        });
+    });
+
+    it('treeView ignores cascade selection styles', () => {
+        const treeItems = [
+            { value: 'europe', label: 'Европа' },
+            {
+                value: 'south_america',
+                label: 'Южная Америка',
+                items: [{ value: 'brazil', label: 'Бразилия' }],
+            },
+        ];
+        const Component = () => {
+            const [value, setValue] = useState('brazil');
+
+            return (
+                <div style={{ width: '300px' }}>
+                    <Combobox
+                        id="combobox"
+                        value={value}
+                        onChange={setValue}
+                        items={treeItems}
+                        label="Label"
+                        placeholder="Placeholder"
+                        treeView
+                    />
+                </div>
+            );
+        };
+
+        mount(<Component />);
+
+        cy.get('#combobox').click('bottomRight');
+        cy.get('.dropdown-item-is-selected').should('not.exist');
+        cy.get('.dropdown-item-is-ancestor').should('not.exist');
+        cy.get('[role="treeitem"]').then(($items) => {
+            const first = $items[0].getBoundingClientRect();
+            const second = $items[1].getBoundingClientRect();
+
+            expect(Math.round(second.top - first.bottom)).to.eq(0);
+        });
+
+        cy.contains('[role="treeitem"]', 'Южная Америка').click();
+        cy.contains('[role="treeitem"]', 'Бразилия').find('svg').filter(':visible').should('have.length.at.least', 1);
     });
 });
 

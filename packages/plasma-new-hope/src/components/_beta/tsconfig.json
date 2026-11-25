@@ -5,5 +5,5 @@
         "rootDir": "../.."
     },
     "include": ["."],
-    "exclude": ["./**/*.stories.tsx", "./**/*.component-test.tsx"]
+    "exclude": ["./**/*.stories.tsx", "./**/*.component-test.tsx", "./**/*.test.ts", "./**/*.test.tsx"]
 }

@@ -10,6 +10,7 @@ type SelectProps = ComponentProps<typeof Select>;
 const { meta: META, Single, Multiselect, Predefined, Common, SelectAll } = getSelectStories({
     component: Select,
     componentConfig: config,
+    disablePropsList: ['treeView', 'arrowPlacement'],
     defaultArgs: {
         appearance: 'default',
         hasDivider: false,

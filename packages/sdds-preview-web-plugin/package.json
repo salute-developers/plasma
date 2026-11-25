@@ -1,0 +1,52 @@
+{
+  "name": "@salutejs/sdds-preview-web-plugin",
+  "private": true,
+  "version": "0.1.0-dev.0",
+  "description": "DS Builder web preview plugin: renders plasma-new-hope components from the preview protocol payload",
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salute-developers/plasma.git",
+    "directory": "packages/sdds-preview-web-plugin"
+  },
+  "type": "module",
+  "scripts": {
+    "generate": "dsbuilder-web-generator api-meta --out public/api-meta.json && dsbuilder-web-generator manifests --out src/generated/component-manifests.json",
+    "predev": "npm run generate",
+    "dev": "vite",
+    "prebuild": "npm run generate",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "package": "node scripts/package.mjs",
+    "pretest": "npm run generate",
+    "test": "vitest run",
+    "pretest:watch": "npm run generate",
+    "test:watch": "vitest",
+    "lint": "../../node_modules/.bin/eslint ./src --ext .js,.ts,.tsx --quiet"
+  },
+  "dependencies": {
+    "@salutejs/plasma-b2c": "1.648.0-dev.0",
+    "@salutejs/plasma-icons": "1.260.0-dev.0",
+    "@salutejs/plasma-new-hope": "0.392.0-dev.0",
+    "@sddsjs/design-system-builder-generator": "0.2.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "styled-components": "5.3.11"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "24.10.1",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "@types/styled-components": "5.1.0",
+    "@vitejs/plugin-react-swc": "3.10.1",
+    "jsdom": "27.4.0",
+    "jszip": "3.10.1",
+    "typescript": "5.8.3",
+    "vite": "6.3.5",
+    "vitest": "4.1.12"
+  }
+}

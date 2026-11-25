@@ -90,7 +90,7 @@ export const IconButton = styled(IconButtonComponent)`
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 0.75rem;
+    left: var(${tokens.controlIconButtonOffset});
     z-index: 10;
 
     ${iconButtonTokens.iconButtonColor}: var(${tokens.controlIconButtonColor});
@@ -100,17 +100,29 @@ export const IconButton = styled(IconButtonComponent)`
     ${iconButtonTokens.iconButtonColorActive}: var(${tokens.controlIconButtonColorActive});
     ${iconButtonTokens.iconButtonBackgroundColorActive}: var(${tokens.controlIconButtonBackgroundColorActive});
 
-    ${iconButtonTokens.iconButtonHeight}: 2.5rem;
-    ${iconButtonTokens.iconButtonWidth}: 2.5rem;
-    ${iconButtonTokens.iconButtonPadding}: 1rem;
+    ${iconButtonTokens.iconButtonHeight}: var(${tokens.controlIconButtonHeight});
+    ${iconButtonTokens.iconButtonWidth}: var(${tokens.controlIconButtonWidth});
+    ${iconButtonTokens.iconButtonPadding}: var(${tokens.controlIconButtonPadding});
     ${iconButtonTokens.iconButtonRadius}: var(${tokens.controlIconButtonRadius});
 
     &.${classes.rightControlButton} {
         left: auto;
-        right: 0.75rem;
+        right: var(${tokens.controlIconButtonOffset});
     }
 `;
 
 export const ControlsWrapper = styled.div`
     position: relative;
+
+    &.${classes.outerControls} {
+        padding-inline: calc(var(${tokens.controlIconButtonWidth}) + var(${tokens.controlIconButtonOffset}));
+
+        .${classes.leftControlButton} {
+            left: 0;
+        }
+
+        .${classes.rightControlButton} {
+            right: 0;
+        }
+    }
 `;

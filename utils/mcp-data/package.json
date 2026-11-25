@@ -1,0 +1,28 @@
+{
+  "name": "@salutejs/sdds-mcp-data",
+  "version": "0.2.0-dev.0",
+  "description": "Генерация MCP-данных из документации вертикалей Plasma/SDDS.",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "sdds-mcp-data": "./src/cli.ts"
+  },
+  "scripts": {
+    "lint": "../../node_modules/.bin/eslint ./src ./tests --ext .ts --quiet",
+    "typecheck": "tsc --noEmit -p ./tsconfig.json",
+    "test": "node --test \"tests/**/*.test.ts\""
+  },
+  "dependencies": {
+    "gray-matter": "4.0.3",
+    "remark-mdx": "3.1.0",
+    "remark-parse": "11.0.0",
+    "unified": "11.0.5",
+    "unist-util-visit": "5.1.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1"
+  },
+  "author": "Salute Frontend Team <salute.developers@gmail.com>",
+  "license": "MIT"
+}

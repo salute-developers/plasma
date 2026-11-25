@@ -905,145 +905,6 @@ export function App() {
     }
 ```
 
-## TreeView и подсветка найденных элементов
-
-Данный пример показывает реализацию подсветки (highlighting) символов в найденных элементах в режиме `treeView`.
-
-```tsx live
-    import React, { useState } from 'react';
-    import { Combobox, ComboboxItemOption } from '@salutejs/sdds-dfa';
-
-    export function App() {
-        const items = [
-            {
-                value: 'asia',
-                label: 'Азия',
-                items: [
-                    {
-                        value: 'china',
-                        label: 'Китай',
-                        items: [
-                            {
-                                value: 'beijing',
-                                label: 'Пекин',
-                            },
-                            {
-                                value: 'shanghai',
-                                label: 'Шанхай',
-                            },
-                        ],
-                    },
-                    {
-                        value: 'japan',
-                        label: 'Япония',
-                        items: [
-                            {
-                                value: 'tokyo',
-                                label: 'Токио',
-                            },
-                            {
-                                value: 'osaka',
-                                label: 'Осака',
-                            },
-                        ],
-                    },
-                    {
-                        value: 'india',
-                        label: 'Индия',
-                        items: [
-                            {
-                                value: 'delhi',
-                                label: 'Дели',
-                            },
-                            {
-                                value: 'mumbai',
-                                label: 'Мумбаи',
-                            },
-                        ],
-                    },
-                    {
-                        value: 'south_korea',
-                        label: 'Южная Корея',
-                        items: [
-                            {
-                                value: 'seoul',
-                                label: 'Сеул',
-                            },
-                            {
-                                value: 'busan',
-                                label: 'Пусан',
-                            },
-                        ],
-                    },
-                    {
-                        value: 'thailand',
-                        label: 'Таиланд',
-                        items: [
-                            {
-                                value: 'bangkok',
-                                label: 'Бангкок',
-                            },
-                            {
-                                value: 'phuket',
-                                label: 'Пхукет',
-                            },
-                        ],
-                    },
-                ],
-            },
-            {
-                value: 'africa',
-                label: 'Африка',
-                disabled: true,
-            },
-        ];
-
-        const [textValue, setTextValue] = useState('');
-
-        function highlightText(label: string, highlight: string): React.ReactNode {
-            if (!highlight.trim()) return label;
-            const re = new RegExp('(' + highlight + ')', 'ig');
-            const parts = label.split(re);
-            return (
-                <>
-                    {parts.map((part, i) =>
-                        part.toLowerCase() === highlight.toLowerCase() ? (
-                            <mark key={i} style={{ backgroundColor: '#ffeb3b' }}>
-                                {part}
-                            </mark>
-                        ) : (
-                            <span key={i}>{part}</span>
-                        ),
-                    )}
-                </>
-            );
-        }
-
-        const renderItem = (item: ComboboxItemOption) => {
-            if (!textValue) return item.label;
-
-            return highlightText(item.label, textValue);
-        };
-
-        return (
-            <div style={{ display: 'flex', height: '400px' }}>
-                <div style={{ width: '300px' }}>
-                    <Combobox
-                        multiple
-                        treeView
-                        label="Введите 'Токио'"
-                        placeholder="Placeholder"
-                        items={items}
-                        listMaxHeight="300px"
-                        renderItem={renderItem}
-                        onChangeValue={setTextValue}
-                    />
-                </div>
-            </div>
-        );
-    }
-```
-
 ## Использование с React Hook Form и нативной формой
 
 :::caution Использование атрибута `name`
@@ -1242,10 +1103,173 @@ export function App() {
     </TabItem>
 </Tabs>
 
+## Сохранение поискового запроса
+
+В режиме `multiple` передайте `keepSearchOnSelect`, чтобы после выбора
+элемента сохранять введённый текст и фильтрацию списка.
+
+По умолчанию `keepSearchOnSelect` равен `false`: при изменении выбранных значений
+поиск очищается. Закрытие списка, Escape и Tab очищают поиск независимо от этого
+свойства. В режиме одиночного выбора свойство не влияет на поведение.
+
+```tsx live
+import React, { useState } from 'react';
+import { Combobox } from '@salutejs/sdds-dfa';
+
+export function App() {
+    const [value, setValue] = useState<string[]>([]);
+
+    const items = [
+        { value: 'north_america', label: 'Северная Америка' },
+        { value: 'south_america', label: 'Южная Америка' },
+        { value: 'europe', label: 'Европа' },
+    ];
+
+    return (
+        <div style={{ height: "300px" }}>
+            <div style={{ width: "300px" }}>
+                <Combobox
+                    multiple
+                    items={items}
+                    value={value}
+                    onChange={setValue}
+                    keepSearchOnSelect
+                    label="Регионы"
+                    placeholder="Поиск региона"
+                />
+            </div>
+        </div>
+    );
+}
+```
+
+## Использование renderTarget и renderItem для расширенного варианта Combobox
+
+`renderItem` и `renderTarget` рисуют одну и ту же ячейку: в списке и в поле. Поле собирается из `TextField`, поэтому `Combobox` сохраняет своё поведение: ввод фильтрует список, работает клавиатурная навигация. Текст поля приходит в `renderTarget` третьим аргументом — `textProps` с `textValue` и `onTextValueChange`; в Combobox это поисковый запрос.
+
+```tsx live
+import React, { useState } from 'react';
+import { BodyXS, Cell, Combobox, EmbedIconButton, TextField, textFieldTokens } from '@salutejs/sdds-dfa';
+import { IconPlasma, IconClose, IconDisclosureDown } from '@salutejs/plasma-icons';
+
+export function App() {
+    const items = [
+        {
+            value: 'north_america',
+            label: 'Северная Америка',
+            subtitle: ['23 государства', '24,25 млн км²'],
+            population: '580 млн',
+        },
+        {
+            value: 'south_america',
+            label: 'Южная Америка',
+            subtitle: ['12 государств', '17,84 млн км²'],
+            population: '430 млн',
+            items: [
+                {
+                    value: 'brazil',
+                    label: 'Бразилия',
+                    subtitle: ['27 штатов', '8,51 млн км²'],
+                    population: '203 млн',
+                },
+                {
+                    value: 'argentina',
+                    label: 'Аргентина',
+                    subtitle: ['24 провинции', '2,78 млн км²'],
+                    population: '46 млн',
+                },
+            ],
+        },
+    ];
+
+    const SubTitle = ({ items: subtitleItems }) => (
+        <BodyXS style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span>{subtitleItems.join(' • ')}</span>
+            <IconPlasma size="xs" color="inherit" />
+        </BodyXS>
+    );
+
+    const ContentRight = ({ population }) => (
+        <Cell view="default" title={population} subtitle={<BodyXS>Население</BodyXS>} />
+    );
+
+    const Region = ({ item, withPopulation = true }) => (
+        <Cell
+            view="default"
+            title={item.label}
+            subtitle={<SubTitle items={item.subtitle} />}
+            contentRight={withPopulation && item.population && <ContentRight population={item.population} />}
+        />
+    );
+
+    const [value, setValue] = useState('');
+
+    return (
+        <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '400px', height: '300px' }}>
+            <Combobox
+                items={items}
+                value={value}
+                onChange={setValue}
+                renderItem={(item) => <Region item={item} />}
+                renderTarget={(item, opened, textProps) => {
+                    const showCell = item && !opened && !textProps?.textValue;
+
+                    return (
+                        <TextField
+                            label="Title"
+                            placeholder={item ? null : 'Placeholder'}
+                            value={textProps?.textValue ?? ''}
+                            onChange={(event) => textProps?.onTextValueChange(event.target.value)}
+                            style={{ [textFieldTokens.height]: '62px' }}
+                            contentLeft={showCell ? <Region item={item} withPopulation={false} /> : null}
+                            contentRight={
+                                showCell ? (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <ContentRight population={item.population} />
+                                        <EmbedIconButton
+                                            size="m"
+                                            view="default"
+                                            aria-label="Очистить"
+                                            onMouseDown={(event) => event.preventDefault()}
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                setValue('');
+                                            }}
+                                        >
+                                            <IconClose size="s" color="inherit" />
+                                        </EmbedIconButton>
+                                    </div>
+                                ) : null
+                            }
+                        />
+                    );
+                }}
+            />
+        </div>
+    );
+}
+```
+
+### Контракт renderTarget
+
+`renderTarget?: (value, opened?, textProps?) => ReactNode`
+
+- `value` — выбранный элемент; `null`, если в одиночном режиме ничего не выбрано. В режиме `multiple` это массив выбранных, пустой выбор — `[]`;
+- `opened` — признак открытого списка;
+- `textProps` — `{ textValue, onTextValueChange }`, текст поля. В Combobox `textValue` содержит только поисковый запрос: стартует пустым и сбрасывается при выборе, закрытии списка, `Tab` и `Escape`; фильтрация и клавиатурная навигация работают поверх него.
+
+Что ядро делает само при кастомном target:
+
+- открывает закрытый список по клику — `onClick` прокидывается в обёртку target. Повторный клик список не закрывает. Закрытие — клик снаружи, `Tab`, `Escape` и выбор элемента при `closeAfterSelect`;
+- обеспечивает клавиатурную навигацию — `onKeyDown` прокидывается в обёртку target;
+- фильтрует список по `textValue` и управляет его жизненным циклом.
+
+На стороне пользователя остаются разметка поля, привязка текста поля (`value={textProps?.textValue}`, `onChange` → `onTextValueChange`) и логика очистки значения.
+
 ## Клавиатурная навигация
 
 Данный компонент соответствует требования W3C: [Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/) и частично [TreeView](https://www.w3.org/WAI/ARIA/apg/patterns/treeview/).
 
 ## API
 
-<PropsTable name="Combobox" />
+<PropsTable name="Combobox" exclude={['treeView', 'arrowPlacement']} />

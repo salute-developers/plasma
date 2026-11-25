@@ -22,6 +22,6 @@ export const tokens = {
     orientation: '--sdds-core-group-orientation',
     /** @styleType dimension */
     gap: '--sdds-core-group-gap',
-    /** @styleType dimension */
+    /** @styleType shape */
     segmentedRadius: '--sdds-core-group-segmented-radius',
 };

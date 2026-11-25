@@ -136,6 +136,12 @@ type HintProps =
            */
           hintTargetIcon?: ReactNode;
           /**
+           * Расположение иконки подсказки, когда отсутствует label
+           * или же он имеет labelPlacement='inner'.
+           * @default `outer`
+           */
+          hintTargetPlacement?: 'inner' | 'outer';
+          /**
            * Направление раскрытия тултипа.
            */
           hintPlacement?: PopoverPlacement | Array<PopoverPlacementBasic>;
@@ -165,6 +171,7 @@ type HintProps =
           hintView?: never;
           hintSize?: never;
           hintTargetIcon?: never;
+          hintTargetPlacement?: never;
           hintPlacement?: never;
           hintHasArrow?: never;
           hintOffset?: never;

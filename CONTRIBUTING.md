@@ -102,9 +102,42 @@ npm run test --workspace=@salutejs/sdds-api-tests
 // TODO: https://github.com/salute-developers/plasma/issues/438
 ```
 
+## Unit тесты
+
+Поведение компонента (колбэки, события, значения, фокус) проверяется unit-тестами, внешний вид — снимками Cypress. Проверки между ними не дублируются.
+
+-   `*.test.ts` — логика, выполняется в Node.
+-   `*.test.tsx` — поведение компонентов, выполняется в Chromium. Компоненты берутся из `src/examples/components`, поэтому тест запускается один раз, а не в каждой вертикали.
+
+Утилиты с DOM-измерениями также проверяются в `*.test.tsx`, с настоящими браузерными API. Unit-тесты подключают общую декларацию CSS Modules из `src/components/_beta/css-modules.d.ts`, которая описывает произвольные имена классов, включая классы beta-компонентов и тем. Unit-тесты beta-компонентов исключаются из сборки деклараций типов в `src/components/_beta/tsconfig.json`.
+
+Тесты лежат в папке `tests/` компонента в `packages/plasma-new-hope`: тест компонента — в её корне, тесты утилит и хуков повторяют структуру исходников. Cypress-тест (`*.component-test.tsx`) остаётся в корне компонента.
+
+```
+DatePicker/
+├── DatePicker.component-test.tsx
+├── utils/
+│   └── normalizeDates.ts
+└── tests/
+    ├── DatePicker.test.tsx
+    └── utils/
+        └── normalizeDates.test.ts
+```
+
+Перед первым запуском установите Chromium: `npx playwright install chromium`.
+
+```sh
+npm run unit:run                 # все тесты
+npm run unit:run -- DatePicker   # тесты одного компонента
+```
+
 ## Cypress тесты
 
-При изменении поведения или внешнего вида компонента добавляйте или обновляйте соответствующие компонентные тесты.
+При изменении внешнего вида компонента добавляйте или обновляйте снимки.
+
+Тесты beta-компонентов с CSS Modules могут импортировать компонент напрямую из ядра. В `cypress/webpack.config.ts` файлы `*.module.css` подключаются с default export классов, как в Vite и beta-сборке; остальные CSS-файлы остаются глобальными.
+
+Сборка beta (`npm run build:beta --workspace=@salutejs/plasma-new-hope`) выпускает CSS рядом с модулем компонента. `emitCssModulesPlugin` в `rollup.beta.config.mjs` пересчитывает ссылки `url(...)` на emitted assets относительно этого CSS. При добавлении SVG или других CSS-ресурсов проверяйте, что эти ссылки существуют в обеих сборках, ESM и CJS.
 
 ### Запуск через Docker
 
@@ -128,7 +161,31 @@ PACKAGE_NAME=plasma-web COMPONENTS=Button,Checkbox npm run cy:run
 PACKAGE_NAME=plasma-web COMPONENTS=Button BROWSER=webkit npm run cy:run
 ```
 
-CI также запускает Chromium и WebKit; матрицы описаны в `.github/workflows/cypress.yml`.
+В PR CI автоматически запускает только Chromium (`.github/workflows/cypress.yml`). WebKit запускается:
+
+-   по комментарию `/test-webkit` в открытом PR из этого же репозитория — для изменённых компонентов, как и в автоматической проверке. Команда доступна пользователям с правами `write`, `maintain` или `admin`; результат появится в статусе `Cypress WebKit` и в ответном комментарии. Комментарий обрабатывает `.github/workflows/cypress-webkit-request.yml`: после проверки прав автора и PR он запускает `.github/workflows/cypress-webkit.yml` через `workflow_dispatch` и передаёт head SHA PR. Если к старту тестов PR изменился, повторите `/test-webkit` для новой ревизии. Повторный `/test-webkit` отменяет идущий прогон, другие комментарии в PR его не прерывают;
+-   ежедневно в 00:00 UTC для всех пакетов из `PACKAGES_CYPRESS`, кроме `sdds-insol-next`, `sdds-netology`, `sdds-bizcom` и `sdds-dfa` (`.github/workflows/cypress-by-cron-every-day.yml`);
+-   автоматически в release-PR в `master` (`.github/workflows/cypress-release-branch.yml`).
+
+Chromium запускается с окном `1280×900`. Перед `cy.screenshot()` размер окна автоматически подстраивается под текущий viewport: для больших viewport окно увеличивается с запасом по высоте под панель браузера, для обычных возвращается к `1280×900`. Сам viewport и размеры эталонных снимков задаются тестами, как и раньше. При неизменном размере повторных CDP-запросов нет. Подстройка работает при прямом запуске и в Docker; WebKit используют прежнее поведение.
+
+### Генерация тестового runtime
+
+При запуске webpack автоматически создаётся `cypress/.generated/<PACKAGE_NAME>/testRuntime.<hash>.js`. Он подключает только CJS-сборку выбранной вертикали, её тему и конфиги компонентов. Например, Netology использует тему Plasma B2C, а OS и FinAI — свои внешние пакеты тем. Для Plasma B2C сохраняется порядок подключения типографики и цветов.
+
+Генерация работает при запуске через Docker и при локальной отладке. Файлы не хранятся в git; пересборка Docker-образа не нужна, поскольку runtime создаётся внутри смонтированного репозитория. Перед запуском должны быть собраны выбранная вертикаль и её зависимости. После изменения тестовых утилит пересоберите их:
+
+```sh
+npm run build --workspace=@salutejs/plasma-cy-utils
+```
+
+`COMPONENTS` ограничивает spec-файлы; конфиги остальных компонентов выбранной вертикали остаются доступны для использования в тестах. После добавления нового файла конфигурации компонента перезапустите Cypress.
+
+При изменении генератора, webpack-конфигурации или размера окна выполните `npm run test:cy-scripts`: проверяются выбор вертикали, темы и движка стилей, загрузка конфигов, исключение других вертикалей из webpack-сборки и подстройка окна Chromium под viewport.
+
+### Ожидания в тестах
+
+В компонентных тестах ожидайте проверяемое состояние через `.should()`, а не фиксированную паузу. Для конечных CSS-анимаций и переходов, включая псевдоэлементы, используйте `expectNoRunningAnimations` из `cypress/support/assertions.ts`. Бесконечные анимации этот helper игнорирует. Для TimePickerGrid helper `expectTimeItemsAtTop` проверяет конечное положение выбранных значений в прокручиваемых колонках. Паузы в отключённых сценариях Carousel пока сохраняются: там проверяется течение времени и требуется отдельная работа над самими сценариями.
 
 ### Обновление снимков
 

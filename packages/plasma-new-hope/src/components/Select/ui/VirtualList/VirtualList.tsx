@@ -2,6 +2,7 @@ import React, { useRef, CSSProperties } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber } from 'src/utils';
 
+import { tokens } from '../../Select.tokens';
 import { VirtualScrollContainer } from '../../Select.styles';
 import type { ItemOption } from '../../Select.types';
 import { Item } from '../Inner/ui';
@@ -54,6 +55,10 @@ export const VirtualList: React.FC<Props> = ({ items, listMaxHeight, onScroll })
                             key={virtualRow.key as React.Key}
                             data-index={virtualRow.index}
                             ref={virtualizer.measureElement}
+                            style={{
+                                paddingBottom:
+                                    virtualRow.index < items.length - 1 ? `var(${tokens.listGap}, 0)` : undefined,
+                            }}
                         >
                             <Item
                                 item={items[virtualRow.index]}

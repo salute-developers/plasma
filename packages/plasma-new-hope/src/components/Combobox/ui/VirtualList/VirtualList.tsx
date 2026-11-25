@@ -3,6 +3,7 @@ import type { ReactNode, UIEvent } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { getHeightAsNumber } from 'src/utils';
 
+import { tokens } from '../../Combobox.tokens';
 import { VirtualScrollContainer } from '../../Combobox.styles';
 
 interface Props<T> {
@@ -11,9 +12,17 @@ interface Props<T> {
     listMaxHeight?: CSSProperties['height'];
     onScroll?: (e: UIEvent<HTMLElement>) => void;
     estimateSize?: number;
+    rowGap?: string;
 }
 
-export function VirtualList<T>({ items, listMaxHeight, onScroll, estimateSize = 48, renderItem }: Props<T>) {
+export function VirtualList<T>({
+    items,
+    listMaxHeight,
+    onScroll,
+    estimateSize = 48,
+    renderItem,
+    rowGap = `var(${tokens.listGap}, 0)`,
+}: Props<T>) {
     const parentRef = useRef<HTMLDivElement>(null);
 
     const virtualizer = useVirtualizer({
@@ -55,6 +64,9 @@ export function VirtualList<T>({ items, listMaxHeight, onScroll, estimateSize = 
                             key={virtualRow.key as React.Key}
                             data-index={virtualRow.index}
                             ref={virtualizer.measureElement}
+                            style={{
+                                paddingBottom: virtualRow.index < items.length - 1 ? rowGap : undefined,
+                            }}
                         >
                             {renderItem(items[virtualRow.index], virtualRow.index)}
                         </div>

@@ -59,6 +59,11 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
      */
     controlArrowsDisabled?: boolean;
     /**
+     * Положение стрелок управления.
+     * @default inner
+     */
+    controlArrowsPlacement?: 'inner' | 'outer';
+    /**
      * Отступ между слайдами.
      * @default 20px
      */
@@ -141,6 +146,41 @@ export interface CarouselNewProps extends HTMLAttributes<HTMLDivElement> {
                     <Carousel gap="16px">
                         {items.map((item) => (
                             <StyledCard key={item}>{item}</StyledCard>
+                        ))}
+                    </Carousel>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+    <TabItem value="control-arrows-placement" label="Положение стрелок">
+        `controlArrowsPlacement` задаёт положение стрелок:
+
+        - `inner` (по умолчанию) — поверх слайдов;
+        - `outer` — по бокам от области слайдов.
+
+        ```tsx live
+        import React from 'react';
+        import { Carousel } from '@salutejs/{{ package }}';
+
+        export function App() {
+            return (
+                <div style={{ width: '100%', maxWidth: 600 }}>
+                    <Carousel controlArrowsPlacement="outer" defaultIndex={1} fullWidth>
+                        {['Первый слайд', 'Второй слайд', 'Третий слайд'].map((slide) => (
+                            <div
+                                key={slide}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    height: 180,
+                                    border: '1px solid #d6d6d6',
+                                    borderRadius: 12,
+                                }}
+                            >
+                                {slide}
+                            </div>
                         ))}
                     </Carousel>
                 </div>

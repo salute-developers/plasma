@@ -66,10 +66,11 @@ export function App() {
 + `"default"` – по умолчанию;
 + `"accent"` – акцентная;
 + `"secondary"` – вторичная;
-+ `"clear"` – без цветового сопровождения.
 + `"positive"` – успешное завершение;
 + `"warning"` – предупреждение;
 + `"negative"` – ошибка;
++ `"info"` – информационная;
++ `"gradient"` – градиентная.
 
 Для применения градиентного цвета к иконке необходимо передать ей нужный градиент в свойтсво `color`
 
@@ -90,9 +91,6 @@ export function App() {
             <EmbedIconButton size="s" view="secondary">
                 <IconClose color="inherit" />
             </EmbedIconButton>
-            <EmbedIconButton size="s" view="clear">
-                <IconClose color="inherit" />
-            </EmbedIconButton>
             <EmbedIconButton size="s" view="positive">
                 <IconClose color="inherit" />
             </EmbedIconButton>
@@ -100,6 +98,12 @@ export function App() {
                 <IconClose color="inherit" />
             </EmbedIconButton>
             <EmbedIconButton size="s" view="negative">
+                <IconClose color="inherit" />
+            </EmbedIconButton>
+            <EmbedIconButton size="s" view="info">
+                <IconClose color="inherit" />
+            </EmbedIconButton>
+            <EmbedIconButton size="s" view="gradient">
                 <IconClose color="inherit" />
             </EmbedIconButton>
             <EmbedIconButton size="s" view="negative">

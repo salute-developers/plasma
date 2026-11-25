@@ -1,0 +1,44 @@
+{
+    "props": {
+        "text": {
+            "name": "text",
+            "type": { "name": "string" },
+            "required": false,
+            "defaultValue": null,
+            "description": "Текст кнопки",
+            "parent": { "fileName": "src/Button.tsx", "name": "ButtonProps" }
+        },
+        "view": {
+            "name": "view",
+            "type": { "name": "enum", "raw": "\"default\" | \"accent\"" },
+            "required": true,
+            "defaultValue": { "value": "default" },
+            "description": "Вид кнопки",
+            "parent": { "fileName": "src/Button.tsx", "name": "ButtonProps" }
+        },
+        "size": {
+            "name": "size",
+            "type": { "name": "string" },
+            "required": false,
+            "defaultValue": null,
+            "description": "Исключается через exclude",
+            "parent": { "fileName": "src/Button.tsx", "name": "ButtonProps" }
+        },
+        "title": {
+            "name": "title",
+            "type": { "name": "string" },
+            "required": false,
+            "defaultValue": null,
+            "description": "",
+            "parent": { "fileName": "node_modules/@types/react/index.d.ts", "name": "HTMLAttributes" }
+        },
+        "ref": {
+            "name": "ref",
+            "type": { "name": "Ref" },
+            "required": false,
+            "defaultValue": null,
+            "description": "Исключается по умолчанию",
+            "parent": { "fileName": "src/Button.tsx", "name": "ButtonProps" }
+        }
+    }
+}
