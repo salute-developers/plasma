@@ -1,16 +1,15 @@
-/* global Buffer, console, process */
 // Упаковка web-плагина превью в архив для публикации в ds-service DS Builder
-// (`dsbuilder preview-plugin publish --platform react --from <архив>`).
+// (`dsbuilder preview-plugin publish --platform react --channel dev --from <архив>`).
 //
 //   npm run package
 //
 // 1. Проверяет, что в пакете плагина и в пакетах plasma, которые попадают в бандл (ядро, plasma-b2c, plasma-icons),
 //    нет незакоммиченных изменений: `commit` в manifest должен описывать содержимое архива.
 // 2. Собирает плагин (`npm run build`).
-// 3. Дописывает в `dist/preview-plugin.json` `commit`, `version` (первые 12 символов `commit`), `plasmaNewHopeVersion`
-//    (версия установленного ядра) и `apiMetaSha256` (sha256 `dist/api-meta.json`); `public/preview-plugin.json` не меняется.
-// 4. Упаковывает `dist` в `archive/preview-web-plugin.zip` пакета и печатает блок происхождения для `local-dev/README.md`
-//    DS Builder (между `<!-- web-provenance:start -->` и `<!-- web-provenance:end -->`).
+// 3. Записывает в `dist/preview-plugin.json` коммит, ID сборки, координаты Core и SHA-256 меты.
+//    `public/preview-plugin.json` не меняется.
+// 4. Упаковывает `dist` в `archive/preview-web-plugin.zip` и печатает блок происхождения
+//    для `local-dev/README.md` DS Builder (между `<!-- web-provenance:start -->` и `<!-- web-provenance:end -->`).
 //
 // `PREVIEW_WEB_PLUGIN_ALLOW_DIRTY=1` пропускает проверку чистоты — только для проверки самой упаковки:
 // такой архив не публикуют, а блок происхождения помечает его как собранный с незакоммиченными правками.
@@ -19,7 +18,6 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-
 import JSZip from 'jszip';
 
 export const MANIFEST_FILE = 'preview-plugin.json';
@@ -32,6 +30,8 @@ export const PROVENANCE_END = '<!-- web-provenance:end -->';
 export const BUNDLED_WORKSPACE_PACKAGES = ['packages/plasma-new-hope', 'packages/plasma-b2c', 'packages/plasma-icons'];
 
 const COMMIT = /^[0-9a-f]{12,40}$/;
+const CORE_LIBRARY = 'plasma-new-hope';
+const PLATFORM = 'web';
 const SHA256 = /^[0-9a-f]{64}$/;
 const SEMVER = /^\d+\.\d+\.\d+([-+][0-9A-Za-z.-]+)?$/;
 /** Фиксированное время записей архива: одинаковый `dist` даёт одинаковый zip. */
@@ -39,6 +39,9 @@ const ZIP_ENTRY_DATE = new Date('2000-01-01T00:00:00Z');
 
 /** sha256 в нижнем регистре, шестнадцатеричная запись — как `sha256Hex` в ds-service. */
 export const sha256Hex = (bytes) => createHash('sha256').update(bytes).digest('hex');
+
+const buildId = (commit, coreVersion) =>
+    sha256Hex([commit, CORE_LIBRARY, PLATFORM, coreVersion].join('\n')).slice(0, BUILD_ID_LENGTH);
 
 /**
  * Версия установленного пакета: `node_modules/<name>/package.json` от каталога `from` вверх, как ищет пакеты Node.
@@ -53,8 +56,8 @@ export const installedPackageVersion = (name, from) => {
 };
 
 /**
- * Дописывает в `<distDir>/preview-plugin.json` `commit`, `version`, `plasmaNewHopeVersion` и `apiMetaSha256`;
- * остальные поля (`components` и т. д.) сохраняются.
+ * Записывает `commit`, `version`, `coreRelease`, `plasmaNewHopeVersion` и `apiMetaSha256`
+ * в `<distDir>/preview-plugin.json`, сохраняя остальные поля.
  *
  * @returns записанный manifest.
  */
@@ -65,10 +68,12 @@ export const enrichManifest = (distDir, commit, plasmaNewHopeVersion) => {
     const enriched = {
         ...manifest,
         commit,
-        version: commit.slice(0, BUILD_ID_LENGTH),
+        version: buildId(commit, plasmaNewHopeVersion),
+        coreRelease: { libraryId: CORE_LIBRARY, platform: PLATFORM, version: plasmaNewHopeVersion },
         plasmaNewHopeVersion,
         apiMetaSha256: sha256Hex(readFileSync(join(distDir, META_FILE))),
     };
+    delete enriched.channel;
     writeFileSync(manifestPath, `${JSON.stringify(enriched, null, 4)}\n`);
     return enriched;
 };
@@ -106,11 +111,18 @@ export const validateWebManifest = (manifest, files) => {
     }
     if (typeof manifest.commit !== 'string' || !COMMIT.test(manifest.commit)) {
         problems.push('commit должен быть sha коммита');
-    } else if (manifest.version !== manifest.commit.slice(0, BUILD_ID_LENGTH)) {
-        problems.push('version должна равняться первым 12 символам commit');
+    } else if (manifest.version !== buildId(manifest.commit, manifest.plasmaNewHopeVersion)) {
+        problems.push('version не соответствует коммиту и версии Core');
     }
     if (typeof manifest.plasmaNewHopeVersion !== 'string' || !SEMVER.test(manifest.plasmaNewHopeVersion)) {
         problems.push('plasmaNewHopeVersion должна быть семантической версией');
+    }
+    if (
+        manifest.coreRelease?.libraryId !== CORE_LIBRARY ||
+        manifest.coreRelease?.platform !== PLATFORM ||
+        manifest.coreRelease?.version !== manifest.plasmaNewHopeVersion
+    ) {
+        problems.push('coreRelease должен указывать plasma-new-hope/web с версией plasmaNewHopeVersion');
     }
     if (typeof manifest.apiMetaSha256 !== 'string' || !SHA256.test(manifest.apiMetaSha256)) {
         problems.push('apiMetaSha256 должна быть sha256 в нижнем регистре');

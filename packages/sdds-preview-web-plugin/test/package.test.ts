@@ -10,6 +10,7 @@ import {
     PROVENANCE_START,
     enrichManifest,
     formatProvenance,
+    sha256Hex,
     validateWebManifest,
     zipDirectory,
 } from '../scripts/package.mjs';
@@ -61,7 +62,10 @@ describe('упаковка web-плагина', () => {
         expect(Number.isInteger(manifest.protocolVersion) && manifest.protocolVersion >= 1).toBe(true);
         expect(manifest.commit).toMatch(/^[0-9a-f]{12,40}$/);
         expect(manifest.commit).toBe(COMMIT);
-        expect(manifest.version).toBe(COMMIT.slice(0, 12));
+        expect(manifest.version).toBe(
+            sha256Hex([COMMIT, 'plasma-new-hope', 'web', CORE_VERSION].join('\n')).slice(0, 12),
+        );
+        expect(manifest.coreRelease).toEqual({ libraryId: 'plasma-new-hope', platform: 'web', version: CORE_VERSION });
         expect(manifest.plasmaNewHopeVersion).toBe(CORE_VERSION);
         expect(manifest.apiMetaSha256).toMatch(/^[0-9a-f]{64}$/);
         expect(manifest.apiMetaSha256).toBe(sha256(files.get('api-meta.json')!));
@@ -131,8 +135,9 @@ describe('упаковка web-плагина', () => {
             ),
         ).toEqual([
             'platform должна быть web',
-            'version должна равняться первым 12 символам commit',
+            'version не соответствует коммиту и версии Core',
             'plasmaNewHopeVersion должна быть семантической версией',
+            'coreRelease должен указывать plasma-new-hope/web с версией plasmaNewHopeVersion',
             'sha256 файла api-meta.json не совпадает с apiMetaSha256',
             'файл entrypoint missing.html отсутствует в архиве',
         ]);
