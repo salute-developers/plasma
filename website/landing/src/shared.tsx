@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+import { builderGuides } from './builderGuides';
 import { publicPath } from './paths';
 import { routeManifest } from './routeManifest';
 import { newsEnabled } from './features';
@@ -99,6 +100,10 @@ const menus = {
             : []),
     ],
     '/docs': [
+        {
+            title: 'DS Builder: инструкции',
+            links: builderGuides.map((guide) => [guide.short, guide.route]),
+        },
         {
             title: 'Инструменты разработчика',
             links: [

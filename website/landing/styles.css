@@ -2812,3 +2812,8 @@ a.comp-card:hover .comp-card-art{
 .doc-step-list > li{padding-left:4px}
 .doc-step-list > li > b{display:block; color:var(--text-primary); font-weight:500; line-height:1.5}
 .article .doc-step-list > li > p{margin:8px 0 0; font-size:inherit; line-height:1.65; color:var(--text-paragraph)}
+
+/* Инструкции DS Builder: номер шага в цвет заголовка шага, переходы к соседним инструкциям внизу. */
+.guide-steps > li::marker{color:var(--text-primary); font-weight:500}
+.guide-foot a{color:var(--text-primary); text-decoration:none}
+.guide-foot a:hover{text-decoration:underline; text-underline-offset:3px}

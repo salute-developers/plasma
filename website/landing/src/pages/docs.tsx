@@ -1,4 +1,5 @@
 import { Header, SiteFooter, SiteLink } from '../shared';
+import { builderGuides } from '../builderGuides';
 import { publicPath } from '../paths';
 
 export default function DocsPage() {
@@ -765,6 +766,28 @@ export default function DocsPage() {
                                     <p>Термины системы: одно слово — одно значение</p>
                                 </span>
                             </SiteLink>
+                        </div>
+                    </div>
+
+                    <div className="doc-block">
+                        <div className="doc-block-head">
+                            <h2>DS Builder: инструкции</h2>
+
+                            <span>От плагина в макетах до кода дизайн-системы</span>
+                        </div>
+
+                        <div className="cat-cards">
+                            {builderGuides.map((guide, index) => (
+                                <SiteLink key={guide.route} className="cat-card" href={guide.route}>
+                                    <span className="doc-card-body">
+                                        <span className="cat-head">
+                                            <b>{guide.short}</b>
+                                            <span className="cat-count">шаг {index + 1}</span>
+                                        </span>
+                                        <p>{guide.summary}</p>
+                                    </span>
+                                </SiteLink>
+                            ))}
                         </div>
                     </div>
 
