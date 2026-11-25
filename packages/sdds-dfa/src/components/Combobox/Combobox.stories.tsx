@@ -10,6 +10,7 @@ type ComboboxProps = ComponentProps<typeof Combobox>;
 const { meta: META, Single, Multiple, SelectAll, AddItem } = getComboboxStories({
     component: Combobox,
     componentConfig: config,
+    disablePropsList: ['treeView', 'arrowPlacement'],
 });
 
 const meta: Meta<ComboboxProps> = {

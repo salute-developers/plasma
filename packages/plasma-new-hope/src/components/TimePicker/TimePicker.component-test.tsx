@@ -12,6 +12,7 @@ import {
 import { IconPlasma } from 'override/_Icon';
 import styled from 'styled-components';
 
+import { expectTimeItemsAtTop } from '../../../../../cypress/support/assertions';
 import type { ModalProps } from '../Modal/Modal.types';
 
 import type { TimePickerProps } from './TimePicker.types';
@@ -160,8 +161,7 @@ describeFn('TimePicker', () => {
         cy.get('input').first().click().type('1430');
         cy.get('input').first().should('have.value', '14:30');
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -299,8 +299,7 @@ describeFn('TimePicker', () => {
         cy.get('input').first().click();
         cy.contains('14').click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -311,8 +310,7 @@ describeFn('TimePicker', () => {
 
         cy.get('input').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -460,8 +458,7 @@ describeFn('TimePicker', () => {
 
         cy.get('input').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -472,8 +469,7 @@ describeFn('TimePicker', () => {
 
         cy.get('input').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -484,8 +480,7 @@ describeFn('TimePicker', () => {
 
         cy.get('input').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -496,8 +491,7 @@ describeFn('TimePicker', () => {
 
         cy.get('input').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });
@@ -847,8 +841,7 @@ describeFn('TimePicker', () => {
 
         cy.get('input').first().click();
 
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(350);
+        cy.get('[data-column][data-active="true"]').should(expectTimeItemsAtTop);
 
         cy.matchImageSnapshot();
     });

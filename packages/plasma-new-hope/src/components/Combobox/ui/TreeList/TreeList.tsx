@@ -77,6 +77,7 @@ const VirtualTreeList: React.FC<Props> = ({
                     items={items}
                     listMaxHeight={listMaxHeight}
                     onScroll={onScroll}
+                    rowGap="0"
                     renderItem={(item, index) => <Item item={item} pathToItem={[index]} />}
                 />
             )}

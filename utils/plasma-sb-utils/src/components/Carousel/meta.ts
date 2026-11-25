@@ -28,6 +28,7 @@ export const createMeta = ({
             scrollAlign: 'start',
             slides: 20,
             controlArrowsDisabled: false,
+            controlArrowsPlacement: 'inner',
             loop: false,
             autoPlay: false,
             autoPlayInterval: 5000,
@@ -63,6 +64,12 @@ export const createMeta = ({
             },
             controlArrowsDisabled: {
                 control: 'boolean',
+            },
+            controlArrowsPlacement: {
+                options: ['inner', 'outer'],
+                control: {
+                    type: 'inline-radio',
+                },
             },
             loop: {
                 control: 'boolean',

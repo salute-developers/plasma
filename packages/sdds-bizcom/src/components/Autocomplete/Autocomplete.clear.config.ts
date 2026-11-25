@@ -292,7 +292,7 @@ export const config = {
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -375,7 +375,7 @@ export const config = {
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -458,7 +458,7 @@ export const config = {
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};
@@ -541,7 +541,7 @@ export const config = {
                 ${tokens.textFieldHintTargetSize}: 2.375rem;
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyXS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyXS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyXS.fontStyle};

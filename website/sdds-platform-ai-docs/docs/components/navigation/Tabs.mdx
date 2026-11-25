@@ -51,7 +51,7 @@ export function App() {
             <Tabs view="filled" stretch size="m">
                 {items.map((_, i) => (
                     <TabItem
-                        view="secondary"
+                        view="clear"
                         key={`item:${i}`}
                         size="m"
                         selected={i === index}
@@ -140,7 +140,7 @@ export function App() {
                         view="divider"
                         orientation="vertical"
                         key={`item:${i}`}
-                        size="xs"
+                        size="s"
                         selected={i === leftIndex}
                         tabIndex={0}
                         onClick={() => setLeftIndex(i)}
@@ -156,7 +156,7 @@ export function App() {
                         view="divider"
                         orientation="vertical"
                         key={`item:${i}`}
-                        size="xs"
+                        size="s"
                         selected={i === rightIndex}
                         tabIndex={0}
                         onClick={() => setRightIndex(i)}
@@ -292,7 +292,7 @@ export function App() {
                     {dropdownItems.length > 0 && (
                         <div style={{ marginLeft: '1.75rem' }}>
                             <Dropdown size="m" items={dropdownItems} onItemSelect={(item) => setIndex(item.value)}>
-                                <IconTabItem key="item:ShowAll" view="divider" tabIndex={0} size="xs">
+                                <IconTabItem key="item:ShowAll" view="divider" tabIndex={0} size="s">
                                     <IconClock color="inherit" size="xs" />
                                 </IconTabItem>
                             </Dropdown>
@@ -386,7 +386,7 @@ export function App() {
             <Tabs view="filled" stretch size="m">
                 {items.map((_, i) => (
                     <TabItem
-                        view="secondary"
+                        view="clear"
                         key={`item:${i}`}
                         size="m"
                         selected={i === index}

@@ -118,7 +118,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
@@ -171,7 +176,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
@@ -224,7 +234,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
@@ -277,7 +292,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
                 ${tokens.textFieldHintIconColor}: ${textSecondary};
@@ -309,7 +329,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
 
@@ -340,7 +365,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
 
@@ -371,7 +401,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
 
@@ -402,7 +437,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
 
@@ -433,7 +473,12 @@ export const config = {
 
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.itemDisabledOpacity}: 0.4;
                 ${tokens.itemDisabledColor}: ${textPrimary};
 
@@ -462,7 +507,12 @@ export const config = {
                 ${tokens.buttonBackgroundColorHover}:${onDarkSurfaceSolidDefaultHover};
                 ${tokens.buttonBackgroundColorActive}:${onDarkSurfaceSolidDefaultActive};
 
-                ${tokens.itemBackgroundHover}: ${surfaceTransparentSecondary};
+                ${tokens.itemBackgroundHover}: ${surfaceTransparentPrimary};
+                ${tokens.itemBackgroundSelected}: ${surfaceTransparentSecondary};
+                ${tokens.itemSelectionSlotDisplay}: none;
+                ${tokens.itemBackgroundAncestor}: ${surfaceTransparentPrimary};
+                ${tokens.itemAncestorSelectionSlotDisplay}: none;
+                ${tokens.listGap}: 0.125rem;
                 ${tokens.disclosureIconColor}: ${textSecondary};
                 ${tokens.disclosureIconColorHover}: ${textSecondaryHover};
                 ${tokens.itemDisabledOpacity}: 0.4;
@@ -702,9 +752,9 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.875rem;
 
-                ${tokens.itemHeight}: 1.5rem;
-                ${tokens.itemPadding}: 1rem 0.875rem;
-                ${tokens.itemPaddingTight}: 0.75rem 0.875rem;
+                ${tokens.itemHeight}: 1.375rem;
+                ${tokens.itemPadding}: 1rem;
+                ${tokens.itemPaddingTight}: 0.8125rem 0.875rem;
                 ${tokens.itemBorderRadius}: 0.75rem;
                 ${tokens.itemIconMargin}: 0 0.5rem 0 0;
                 ${tokens.itemIconSize}: 1.5rem;
@@ -1104,7 +1154,7 @@ export const config = {
                 ${tokens.padding}: 0.125rem;
                 ${tokens.borderRadius}: 0.5rem;
 
-                ${tokens.itemHeight}: 1rem;
+                ${tokens.itemHeight}: 0.875rem;
                 ${tokens.itemPadding}: 0.5rem 0.375rem;
                 ${tokens.itemPaddingTight}: 0.25rem 0.375rem;
                 ${tokens.itemBorderRadius}: 0.375rem;

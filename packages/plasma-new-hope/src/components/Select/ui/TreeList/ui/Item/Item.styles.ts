@@ -122,6 +122,11 @@ export const IconWrapper = styled.div<{ variant: SelectProps['variant'] }>`
 export const StyledText = styled.div<{ color?: string }>`
     ${applyEllipsis()};
     flex: 1;
+    min-width: 0;
+
+    & * {
+        min-width: 0;
+    }
 `;
 
 export const Wrapper = styled.div<{ variant: SelectProps['variant'] }>`

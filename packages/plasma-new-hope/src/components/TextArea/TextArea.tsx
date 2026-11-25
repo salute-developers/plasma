@@ -51,7 +51,7 @@ const {
 } = classes;
 
 const base = css`
-    ${applyDynamicLabel};
+    ${applyDynamicLabel}
 
     position: relative;
     box-sizing: border-box;
@@ -133,6 +133,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             hintView = 'default',
             hintSize = 'm',
             hintTargetIcon,
+            hintTargetPlacement = 'outer',
             hintPlacement = 'auto',
             hintHasArrow,
             hintOffset = HINT_DEFAULT_OFFSET,
@@ -216,6 +217,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
         const hasRightContentClass = contentRight ? classes.hasRightContent : undefined;
         const hasDividerClass = hasDivider ? classes.hasDivider : undefined;
         const requiredPlacementClass = requiredPlacement === 'right' ? classes.requiredAlignRight : undefined;
+        const hasInnerHint = Boolean(!hasOuterLabel && hintText && hintTargetPlacement === 'inner');
 
         const handleHintShow = () => setIsHintVisible(true);
         const handleHintHide = () => setIsHintVisible(false);
@@ -338,6 +340,27 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
             </StyledOptionalText>
         ) : null;
 
+        const innerHint =
+            !hasOuterLabel && hintText && hintTargetPlacement === 'inner' ? (
+                <HintComponent
+                    ref={hintRef}
+                    hintText={hintText}
+                    hintTrigger={hintTrigger}
+                    isHintVisible={isHintVisible}
+                    hintTargetIcon={hintTargetIcon}
+                    hintPlacement={hintPlacement}
+                    hintHasArrow={hintHasArrow}
+                    hintOffset={hintOffset}
+                    hintWidth={hintWidth}
+                    hintContentLeft={hintContentLeft}
+                    size={size}
+                    handleHintShow={handleHintShow}
+                    handleHintHide={handleHintHide}
+                    handleHintClick={handleHintClick}
+                    isInnerLabel
+                />
+            ) : null;
+
         return (
             <Root
                 view={overriddenView}
@@ -413,7 +436,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             {required && hasRequiredIndicator && (
                                 <StyledIndicator className={cx(classes.innerLabelPlacement, requiredPlacementClass)} />
                             )}
-                            {hintText && (
+                            {hintText && hintTargetPlacement === 'outer' && (
                                 <StyledHintWrapper className={classes.innerLabelPlacement}>
                                     <HintComponent
                                         ref={hintRef}
@@ -445,11 +468,21 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                     >
                         {headerSlot && !clear && <StyledHeaderSlot>{headerSlot}</StyledHeaderSlot>}
 
-                        {contentRight && !hasHeader && <StyledContent>{contentRight}</StyledContent>}
+                        {(contentRight || innerHint) && !hasHeader && (
+                            <StyledContent>
+                                {contentRight}
+                                {innerHint}
+                            </StyledContent>
+                        )}
 
                         {hasHeader && (
                             <StyledContentWrapper className={styledContentWrapper} hasHeader={hasHeader}>
-                                {contentRight && <StyledContent hasHeader={hasHeader}>{contentRight}</StyledContent>}
+                                {(contentRight || innerHint) && (
+                                    <StyledContent hasHeader={hasHeader}>
+                                        {contentRight}
+                                        {innerHint}
+                                    </StyledContent>
+                                )}
                                 {headerSlot && placeholderLabel && (
                                     <StyledPlaceholder
                                         ref={placeholderRef}
@@ -467,6 +500,7 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                             className={cx(styledTextArea, hasRightContentClass)}
                             id={id}
                             hasContentRight={Boolean(contentRight)}
+                            hasInnerHint={hasInnerHint}
                             hasExplicitHeight={hasExplicitHeight}
                             ref={mergeRefs(outerRef, innerRef)}
                             disabled={disabled}
@@ -488,7 +522,8 @@ export const textAreaRoot = (Root: RootProps<HTMLTextAreaElement, TextAreaRootPr
                                 aria-hidden
                                 ref={hiddenRef}
                                 hasContentRight={Boolean(contentRight)}
-                                value={currentValue || ' '}
+                                hasInnerHint={hasInnerHint}
+                                value={value || uncontrolledValue || ' '}
                                 onChange={() => {}}
                                 defaultValue={defaultValue}
                                 cols={cols}

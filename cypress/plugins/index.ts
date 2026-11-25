@@ -26,7 +26,7 @@ export const setupNodeEvents = async (on: Cypress.PluginEvents, config: Cypress.
 
     on('before:browser:launch', (browser, launchOptions) => {
         if (browser.family === 'chromium') {
-            launchOptions.args.push('--window-size=3840,2160');
+            launchOptions.args.push('--window-size=1280,900');
             launchOptions.args.push('--disable-dev-shm-usage');
         }
 

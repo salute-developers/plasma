@@ -15,6 +15,11 @@ import { Cell, Combobox, ComboboxItemOption as ItemOption } from '@salutejs/plas
 
 type ComboboxProps = ComponentProps<typeof Combobox>;
 
+type TextValueProps = {
+    textValue: string;
+    onTextValueChange: (textValue: string) => void;
+};
+
 describe('Basics', () => {
     it('Common', () => {
         // @ts-expect-error
@@ -54,6 +59,7 @@ describe('Basics', () => {
             .toHaveProperty('portal')
             .toEqualTypeOf<string | RefObject<HTMLElement | null> | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('closeAfterSelect').toEqualTypeOf<boolean | undefined>();
+        expectTypeOf<ComboboxProps>().toHaveProperty('keepSearchOnSelect').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<ComboboxProps>().toHaveProperty('virtual').toEqualTypeOf<boolean | undefined>();
         expectTypeOf<ComboboxProps>()
             .toHaveProperty('onScroll')
@@ -85,6 +91,13 @@ describe('Basics', () => {
         expectTypeOf<ComboboxProps>()
             .toHaveProperty('renderItem')
             .toEqualTypeOf<((item: ItemOption) => ReactNode) | undefined>();
+        expectTypeOf<ComboboxProps>()
+            .toHaveProperty('renderTarget')
+            .toEqualTypeOf<
+                | ((value: ItemOption | null, opened?: boolean, textProps?: TextValueProps) => ReactNode)
+                | ((value: ItemOption[], opened?: boolean, textProps?: TextValueProps) => ReactNode)
+                | undefined
+            >();
         expectTypeOf<ComboboxProps>()
             .toHaveProperty('renderSelectionIcon')
             .toEqualTypeOf<((selected: boolean | 'indeterminate') => ReactNode) | undefined>();

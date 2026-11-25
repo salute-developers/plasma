@@ -1,4 +1,106 @@
 {
+    "0.378.0": {
+        "date": "2026-11-25",
+        "core": [
+            {
+                "component": "Slider",
+                "children": [
+                    {
+                        "text": "добавлено округление значения с учетом шага",
+                        "link": "https://github.com/salute-developers/plasma/pull/3407",
+                        "id": 3407
+                    },
+                    {
+                        "text": "добавлен выбор режима округления значения  `roundingMode`",
+                        "link": "https://github.com/salute-developers/plasma/pull/3412",
+                        "id": 3412
+                    }
+                ]
+            },
+            {
+                "component": "Popover",
+                "children": [
+                    {
+                        "text": "исправлен выход за край экрана при открытии",
+                        "link": "https://github.com/salute-developers/plasma/pull/3396",
+                        "id": 3396
+                    }
+                ]
+            },
+            {
+                "component": "Combobox",
+                "children": [
+                    {
+                        "text": "добавлено свойство `keepSearchOnSelect` для сохранения поискового запроса при выборе элемента",
+                        "link": "https://github.com/salute-developers/plasma/pull/3408",
+                        "id": 3408
+                    }
+                ]
+            },
+            {
+                "component": "Carousel",
+                "children": [
+                    {
+                        "text": "добавлено свойство `controlArrowsPlacement` для управления позицией стрелок",
+                        "link": "https://github.com/salute-developers/plasma/pull/3413",
+                        "id": 3413
+                    }
+                ]
+            },
+            {
+                "component": "Popover (Beta)",
+                "children": [
+                    {
+                        "text": "добавлено автоматическое ограничение ширины с прокруткой контента и CSS-переменные `--plasma-popover-target-width` и `--plasma-popover-available-width` для настройки ширины окна.",
+                        "link": "https://github.com/salute-developers/plasma/pull/3397",
+                        "id": 3397
+                    }
+                ]
+            },
+            {
+                "component": "Select, Combobox",
+                "children": [
+                    {
+                        "text": "добавлена возможность передать в `renderTarget` свойства `textValue` и `onTextValueChange` для тонкой настройки\n\nдобавлены токены стилей для выбранного элемента списка\n\nдобавлен токен отступа между элементами списка\n\nдобавлены токены отображения иконок выбранного элемента",
+                        "link": "https://github.com/salute-developers/plasma/pull/3399",
+                        "id": 3399
+                    }
+                ]
+            },
+            {
+                "component": "TextArea",
+                "children": [
+                    {
+                        "text": "добавлено свойство `hintTargetPlacement` для управления позицией Hint",
+                        "link": "https://github.com/salute-developers/plasma/pull/3425",
+                        "id": 3425
+                    }
+                ]
+            },
+            {
+                "component": "MCP",
+                "children": [
+                    {
+                        "text": "добавлены поля с описанием свойства компонентов",
+                        "link": "https://github.com/salute-developers/plasma/pull/3404",
+                        "id": 3404
+                    }
+                ]
+            }
+        ],
+        "lib": [
+            {
+                "component": "Select, Combobox",
+                "children": [
+                    {
+                        "text": "новый вид отображения элементов списка",
+                        "link": "https://github.com/salute-developers/plasma/pull/3399",
+                        "id": 3399
+                    }
+                ]
+            }
+        ]
+    },
     "0.376.0": {
         "date": "2026-11-11",
         "core": [

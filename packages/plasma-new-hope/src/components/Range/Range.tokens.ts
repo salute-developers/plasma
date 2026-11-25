@@ -272,7 +272,7 @@ export const tokens = {
     leftHelperColorSuccess: '--plasma-range-info-wrapper-left-helper--success',
     /** @styleType color */
     leftHelperColorEdited: '--plasma-range-info-wrapper-left-helper--edited',
-    /** @styleType color @styleProp leftHelperColor @styleState focused */
+    /** @styleType color */
     leftHelperColorFocus: '--plasma-range-info-wrapper-left-helper-color-focus',
 
     /** @styleType dimension */
@@ -355,7 +355,7 @@ export const tokens = {
     textFieldBackgroundEditedColor: '--plasma-range-textfield-background-color-edited',
     /** @styleType color @styleProp textFieldBackgroundEditedColor @styleState hovered */
     textFieldBackgroundEditedColorHover: '--plasma-range-textfield-background-color-edited-hover',
-    /** @styleType color @styleProp textFieldBackgroundEditedColor @styleState focused */
+    /** @styleType color */
     textFieldBackgroundEditedColorFocus: '--plasma-range-textfield-background-color-edited-focus',
 
     /** @styleType color */
@@ -364,25 +364,25 @@ export const tokens = {
     textFieldPlaceholderColorFocus: '--plasma-range-textfield__placeholder-color-focus',
     /** @styleType color @styleProp textFieldBorderColor @styleState hovered */
     textFieldBorderColorHover: '--plasma-range-textfield-border-color-hover',
-    /** @styleType color @styleProp textFieldBorderColor @styleState focused */
+    /** @styleType color */
     textFieldBorderColorFocus: '--plasma-range-textfield-border-color-focus',
     /** @styleType color */
     textFieldBorderColorError: '--plasma-range-textfield-border-color-error',
     /** @styleType color @styleProp textFieldBorderColorError @styleState hovered */
     textFieldBorderColorErrorHover: '--plasma-range-textfield-border-color-error-hover',
-    /** @styleType color @styleProp textFieldBorderColorError @styleState focused */
+    /** @styleType color */
     textFieldBorderColorErrorFocus: '--plasma-range-textfield-border-color-error-focus',
     /** @styleType color */
     textFieldBorderColorSuccess: '--plasma-range-textfield-border-color-success',
     /** @styleType color @styleProp textFieldBorderColorSuccess @styleState hovered */
     textFieldBorderColorSuccessHover: '--plasma-range-textfield-border-color-success-hover',
-    /** @styleType color @styleProp textFieldBorderColorSuccess @styleState focused */
+    /** @styleType color */
     textFieldBorderColorSuccessFocus: '--plasma-range-textfield-border-color-success-focus',
     /** @styleType color */
     textFieldBorderColorEdited: '--plasma-range-textfield-border-color-edited',
     /** @styleType color @styleProp textFieldBorderColorEdited @styleState hovered */
     textFieldBorderColorEditedHover: '--plasma-range-textfield-border-color-edited-hover',
-    /** @styleType color @styleProp textFieldBorderColorEdited @styleState focused */
+    /** @styleType color */
     textFieldBorderColorEditedFocus: '--plasma-range-textfield-border-color-edited-focus',
 
     /** @styleType color */

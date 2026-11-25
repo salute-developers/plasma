@@ -172,7 +172,7 @@ export const config = {
                 ${tokens.textFieldLabelLetterSpacing}: ${bodyS.letterSpacing};
                 ${tokens.textFieldLabelLineHeight}: ${bodyS.lineHeight};
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: ${bodyS.fontFamily};
                 ${tokens.textFieldLeftHelperFontSize}: ${bodyS.fontSize};
                 ${tokens.textFieldLeftHelperFontStyle}: ${bodyS.fontStyle};

@@ -264,7 +264,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.563rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -348,7 +348,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.312rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -432,7 +432,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: 0.062rem -2.188rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);
@@ -516,7 +516,7 @@ export const config = {
                 ${tokens.textFieldHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
                 ${tokens.textFieldClearHintInnerLabelPlacementOffset}: -0.188rem -1.938rem auto auto;
 
-                ${tokens.textFieldLeftHelperPadding}: 0.25rem 0 0 0;
+                ${tokens.textFieldLeftHelperOffset}: 0.25rem 0 0 0;
                 ${tokens.textFieldLeftHelperFontFamily}: var(--plasma-typo-body-xs-font-family);
                 ${tokens.textFieldLeftHelperFontSize}: var(--plasma-typo-body-xs-font-size);
                 ${tokens.textFieldLeftHelperFontStyle}: var(--plasma-typo-body-xs-font-style);

@@ -14,7 +14,7 @@
 ### Установка зависимостей
 
 ```bash
-$ npm install --save @salutejs/sdds-os @salutejs-ds/sdds_os
+$ npm install --save @salutejs/sdds-os @sddsjs/sdds_os@0.1.1
 ```
 
 Для работы со `styled-components`, необходимо установить
@@ -30,7 +30,7 @@ $ npm install --save styled-components@5.3.11
 ```jsx
 import styled from 'styled-components';
 import { Button } from '@salutejs/sdds-os';
-import { textAccent } from '@salutejs-ds/sdds_os';
+import { textAccent } from '@sddsjs/sdds_os';
 
 export const App = () => {
     const StyledP = styled.p`
@@ -116,6 +116,8 @@ export default function Home() {
 
 ## Подключение темы
 
+Доступен тенант `default` со светлой и тёмной темами — `sdds_os_default__light` и `sdds_os_default__dark`.
+
 Точкой входа является корень приложения:
 
 -   Если вы используете [Create React App](https://create-react-app.dev), делайте вызов внутри `src/index.tsx`.
@@ -137,7 +139,7 @@ export default function Home() {
 В файле, где происходит подключение всех стилей, например `index.css`
 
 ```css
-@import '@salutejs-вы/sdss_os/css/sdds_os__dark.css';
+@import '@sddsjs/sdds_os/css/sdds_os_default__dark.css';
 ```
 
 ```jsx
@@ -164,9 +166,9 @@ export default App;
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { Button, BodyL } from '@salutejs/sdds-os/styled-components';
-import { sdds_os__light } from '@salutejs-ds/sdds_os';
+import { sdds_os_default__light } from '@sddsjs/sdds_os';
 
-const Theme = createGlobalStyle(sdds_os__light);
+const Theme = createGlobalStyle(sdds_os_default__light);
 
 const App = () => {
     return (
@@ -195,7 +197,7 @@ export const backgroundPrimary = 'var(--background-primary, #000000)';
 ### Способы подключения
 
 ```tsx
-import { textPrimary, h5 } from '@salutejs-ds/sdds_os';
+import { textPrimary, h5 } from '@sddsjs/sdds_os';
 ```
 
 ### Использование
@@ -203,7 +205,7 @@ import { textPrimary, h5 } from '@salutejs-ds/sdds_os';
 ```jsx
 import React from 'react';
 import styled from 'styled-components';
-import { textAccent, backgroundPrimary, textL } from '@salutejs-ds/sdds_os';
+import { textAccent, backgroundPrimary, textL } from '@sddsjs/sdds_os';
 
 const AppStyled = styled.div`
     padding: 2rem;

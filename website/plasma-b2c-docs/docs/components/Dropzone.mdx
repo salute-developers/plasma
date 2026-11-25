@@ -107,7 +107,7 @@ export function App() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
                     {files.map((file, index) => (
                         <Chip
-                            view="clear"
+                            view="default"
                             key={index}
                             text={file.name}
                             onClickClose={() => setFiles((prev) => prev.filter((_, i) => i !== index))}
