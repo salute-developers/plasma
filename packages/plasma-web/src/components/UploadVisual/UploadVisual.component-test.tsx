@@ -1,1 +1,0 @@
-../../../../plasma-hope/src/components/UploadVisual/UploadVisual.component-test.tsx
