@@ -1,1 +1,0 @@
-../../../../plasma-hope/src/components/UploadAudio/UploadAudio.component-test.tsx
