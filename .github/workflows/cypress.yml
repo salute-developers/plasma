@@ -61,9 +61,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # [Note]
-        # Важно что бы массив был со значениями, где `""` экранируются, например -> ["\"b2c\""]
-        # Можно для этого использовать JSON.stringify()
+        # STATE содержит массивы для матриц без дополнительной десериализации.
         scope: ${{ fromJson(needs.state.outputs.STATE).PACKAGES_CYPRESS_RUN_PLASMA }}
 
     uses: ./.github/workflows/cypress-common.yml
