@@ -1,0 +1,60 @@
+.default,
+.positive,
+.warning,
+.negative {
+    --sdds-core-textfield-border-color: transparent;
+    --sdds-core-textfield-border-color-focus: var(--surface-accent);
+    --sdds-core-textfield-focus-color: var(--surface-accent);
+    --sdds-core-textfield-color: var(--text-primary);
+    --sdds-core-textfield-caret-color: var(--text-accent);
+    --sdds-core-textfield-content-after-opacity-readonly: 0.4;
+    --sdds-core-textfield-disabled-opacity: 0.4;
+    --sdds-core-textfield-placeholder-color: var(--text-secondary);
+    --sdds-core-textfield-content-color: var(--text-secondary);
+    --sdds-core-textfield-affix-color: var(--text-tertiary);
+    --sdds-core-textfield-label-color: var(--text-primary);
+    --sdds-core-textfield-inner-label-color: var(--text-secondary);
+    --sdds-core-textfield-title-caption-color: var(--text-secondary);
+    --sdds-core-textfield-indicator-color: var(--text-tertiary);
+    --sdds-core-textfield-required-color: var(--surface-negative);
+    --sdds-core-textfield-hint-color: var(--text-secondary);
+    --sdds-core-textfield-divider-color-focus: var(--surface-accent);
+    --sdds-core-textfield-background-color-disabled: var(--surface-read-only);
+    --sdds-core-textfield-background-color-readonly: var(--surface-read-only);
+}
+
+.default {
+    --sdds-core-textfield-background-color: var(--surface-transparent-primary);
+    --sdds-core-textfield-background-color-hover: var(--surface-transparent-primary-hover);
+    --sdds-core-textfield-background-color-focus: var(--surface-transparent-secondary);
+    --sdds-core-textfield-caption-color: var(--text-secondary);
+    --sdds-core-textfield-counter-color: var(--text-secondary);
+    --sdds-core-textfield-divider-color: var(--surface-transparent-tertiary);
+}
+
+.positive {
+    --sdds-core-textfield-background-color: var(--surface-transparent-positive);
+    --sdds-core-textfield-background-color-hover: var(--surface-transparent-positive-hover);
+    --sdds-core-textfield-background-color-focus: var(--surface-transparent-positive-active);
+    --sdds-core-textfield-caption-color: var(--text-positive);
+    --sdds-core-textfield-counter-color: var(--text-positive);
+    --sdds-core-textfield-divider-color: var(--surface-positive);
+}
+
+.warning {
+    --sdds-core-textfield-background-color: var(--surface-transparent-warning);
+    --sdds-core-textfield-background-color-hover: var(--surface-transparent-warning-hover);
+    --sdds-core-textfield-background-color-focus: var(--surface-transparent-warning-active);
+    --sdds-core-textfield-caption-color: var(--text-warning);
+    --sdds-core-textfield-counter-color: var(--text-warning);
+    --sdds-core-textfield-divider-color: var(--surface-warning);
+}
+
+.negative {
+    --sdds-core-textfield-background-color: var(--surface-transparent-negative);
+    --sdds-core-textfield-background-color-hover: var(--surface-transparent-negative-hover);
+    --sdds-core-textfield-background-color-focus: var(--surface-transparent-negative-active);
+    --sdds-core-textfield-caption-color: var(--text-negative);
+    --sdds-core-textfield-counter-color: var(--text-negative);
+    --sdds-core-textfield-divider-color: var(--surface-negative);
+}

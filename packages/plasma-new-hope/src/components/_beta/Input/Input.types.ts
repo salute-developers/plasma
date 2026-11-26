@@ -116,6 +116,10 @@ export type InputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> & {
          */
         value?: string;
         /**
+         * Размер триггера подсказки
+         */
+        size?: 's' | 'm';
+        /**
          * Способ открытия тултипа - наведение или клик мышью
          */
         trigger?: 'hover' | 'click';
