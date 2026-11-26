@@ -1,5 +1,7 @@
 import { BuilderGuide, Step, Steps } from '../BuilderGuide';
 
+const releases = 'https://github.com/salute-developers/design-system-builder/releases?q=tokens-plugin&expanded=true';
+
 export default function DocBuilderPluginsPage() {
     return (
         <BuilderGuide
@@ -8,26 +10,87 @@ export default function DocBuilderPluginsPage() {
             lead="Плагин DS Builder Tokens показывает токены темы прямо в редакторе макетов и переносит их в переменные и стили файла. Один и тот же плагин работает в Figma и Pixso."
         >
             <h2 id="install">Установка</h2>
-            <h3>Figma</h3>
             <p>
-                Плагин опубликован внутри организации Figma. Откройте меню плагинов в файле и найдите
-                «DS Builder Tokens» среди плагинов организации.
+                Плагин не опубликован в каталогах Figma и Pixso: он выходит архивами в{' '}
+                <a href={releases}>релизах DS Builder на GitHub</a>. Скачайте архив для своего редактора из последнего
+                релиза <code>tokens-plugin-v…</code>. Инструкция по установке также лежит в архиве в файле{' '}
+                <code>README.txt</code>.
             </p>
-            <h3>Pixso</h3>
+            <div className="doc-table-wrap">
+                <table className="doc-table">
+                    <thead>
+                        <tr>
+                            <th>Архив</th>
+                            <th>Редактор</th>
+                            <th>Сеть</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <code>ds-builder-tokens-figma-&lt;версия&gt;.zip</code>
+                            </td>
+                            <td>Приложение Figma на компьютере</td>
+                            <td>Не работает в сетях, где закрыт домен design-system-builder.ru</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <code>ds-builder-tokens-pixso-&lt;версия&gt;.zip</code>
+                            </td>
+                            <td>Pixso</td>
+                            <td>Работает и в сети Сбера</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 id="install-figma">Figma</h3>
+            <p>Импорт плагина из файла есть только в приложении Figma для компьютера, в браузерной версии его нет.</p>
             <Steps>
-                <Step title="Скачайте сборку плагина для Pixso.">
+                <Step title="Распакуйте архив в постоянную папку.">
+                    <p>Не удаляйте и не переносите её: Figma читает плагин из этой папки.</p>
+                </Step>
+                <Step title="Откройте любой файл в приложении Figma.">
                     <p>
-                        В архиве лежат <code>manifest.json</code>, <code>code.js</code> и <code>ui.html</code> — держите
-                        их в одной папке.
+                        Выберите Plugins → Development → Import plugin from manifest и укажите <code>manifest.json</code>{' '}
+                        из распакованной папки.
+                    </p>
+                </Step>
+                <Step title="Запустите плагин.">
+                    <p>Он находится в Plugins → Development → DS Builder Tokens.</p>
+                </Step>
+            </Steps>
+
+            <h3 id="install-pixso">Pixso</h3>
+            <Steps>
+                <Step title="Распакуйте архив в постоянную папку.">
+                    <p>
+                        Файлы <code>manifest.json</code>, <code>code.js</code> и <code>ui.html</code> должны лежать
+                        рядом.
                     </p>
                 </Step>
                 <Step title="Загрузите плагин.">
                     <p>
-                        В Pixso откройте «Плагины» → «Develop a plugin» → «Upload a plugin» и выберите{' '}
-                        <code>manifest.json</code>. Плагин появится на вкладке «Local plugin».
+                        Откройте файл в Pixso, выберите «Плагины» → «Develop a plugin» → «Upload a plugin» и укажите{' '}
+                        <code>manifest.json</code> из распакованной папки.
                     </p>
                 </Step>
+                <Step title="Запустите плагин.">
+                    <p>Он появится на вкладке «Local plugin».</p>
+                </Step>
             </Steps>
+
+            <h3 id="update">Обновление</h3>
+            <ul className="article-list">
+                <li>
+                    Figma: замените содержимое папки плагина файлами из нового архива. Импортировать плагин заново не
+                    нужно.
+                </li>
+                <li>
+                    Pixso: загрузите <code>manifest.json</code> из нового архива тем же способом. Если на вкладке «Local
+                    plugin» осталась прежняя версия, удалите её.
+                </li>
+            </ul>
 
             <h2 id="login">Вход</h2>
             <Steps>
