@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 /**
  * Define CI config
  * @typedef {object} json
@@ -94,11 +96,12 @@ module.exports = () => {
     const HAS_DEPLOY_WEBSITE = HAS_PACKAGES_DS_CHANGES || PROCESSED_DATA.includes('plasma-website');
 
     return {
-        RAW_DATA: JSON.stringify(rawData),
-        PACKAGES_DOCUMENTATIONS_RUN: JSON.stringify(PACKAGES_DOCUMENTATIONS_RUN),
-        PACKAGES_CYPRESS_RUN_PLASMA: JSON.stringify(PACKAGES_CYPRESS_RUN_PLASMA),
-        PACKAGES_CYPRESS_RUN_SDDS: JSON.stringify(PACKAGES_CYPRESS_RUN_SDDS),
-        PROCESSED_DATA: JSON.stringify(PROCESSED_DATA),
+        // change-detection.js serializes the entire STATE for GITHUB_OUTPUT.
+        RAW_DATA: rawData,
+        PACKAGES_DOCUMENTATIONS_RUN,
+        PACKAGES_CYPRESS_RUN_PLASMA,
+        PACKAGES_CYPRESS_RUN_SDDS,
+        PROCESSED_DATA,
         HAS_PACKAGES_CYPRESS_RUN:
             Boolean(PACKAGES_CYPRESS_RUN_PLASMA.length) || Boolean(PACKAGES_CYPRESS_RUN_SDDS.length),
         HAS_DEPLOY_WEBSITE,
