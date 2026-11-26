@@ -11,38 +11,11 @@ export default function DocBuilderPluginsPage() {
         >
             <h2 id="install">Установка</h2>
             <p>
-                Плагин не опубликован в каталогах Figma и Pixso: он выходит архивами в{' '}
-                <a href={releases}>релизах DS Builder на GitHub</a>. Скачайте архив для своего редактора из последнего
-                релиза <code>tokens-plugin-v…</code>. Инструкция по установке также лежит в архиве в файле{' '}
-                <code>README.txt</code>.
+                Плагин публикуется архивами в <a href={releases}>релизах DS Builder на GitHub</a>. Скачайте из последнего
+                релиза <code>tokens-plugin-v…</code> архив для своего редактора: <code>ds-builder-tokens-figma-…zip</code>{' '}
+                для Figma или <code>ds-builder-tokens-pixso-…zip</code> для Pixso. Инструкция по установке также лежит в
+                архиве в файле <code>README.txt</code>.
             </p>
-            <div className="doc-table-wrap">
-                <table className="doc-table">
-                    <thead>
-                        <tr>
-                            <th>Архив</th>
-                            <th>Редактор</th>
-                            <th>Сеть</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <code>ds-builder-tokens-figma-&lt;версия&gt;.zip</code>
-                            </td>
-                            <td>Приложение Figma на компьютере</td>
-                            <td>Не работает в сетях, где закрыт домен design-system-builder.ru</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <code>ds-builder-tokens-pixso-&lt;версия&gt;.zip</code>
-                            </td>
-                            <td>Pixso</td>
-                            <td>Работает и в сети Сбера</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
 
             <h3 id="install-figma">Figma</h3>
             <p>Импорт плагина из файла есть только в приложении Figma для компьютера, в браузерной версии его нет.</p>
