@@ -1,1 +1,0 @@
-../../../../plasma-hope/src/components/PreviewGallery/PreviewGallery.component-test.tsx
