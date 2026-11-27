@@ -38,9 +38,17 @@ npm run package   # архив для публикации в ds-service
 
 ## Архив для DS Builder
 
-`npm run package` собирается только из закоммиченного состояния пакета и пакетов plasma из бандла (ядро, `plasma-b2c`, `plasma-icons`). Он пишет `archive/preview-web-plugin.zip`: в `preview-plugin.json` дописываются `commit` (коммит plasma), `version`, `plasmaNewHopeVersion` и `apiMetaSha256`. В конце команда печатает блок происхождения.
+`npm run package` собирается только из закоммиченного состояния пакета и пакетов plasma из бандла (ядро, `plasma-b2c`, `plasma-icons`). Он пишет `archive/preview-web-plugin.zip`: в `preview-plugin.json` дописываются `commit` (коммит plasma), `version` (ID сборки), `coreRelease` (координаты Core), `plasmaNewHopeVersion` и `apiMetaSha256`. В конце команда печатает блок происхождения.
 
--   Стенды: `dsbuilder preview-plugin publish --platform react --from archive/preview-web-plugin.zip [--apply]`.
+Публикация архива в DS Builder с зарегистрированным Web Core:
+
+```bash
+dsbuilder preview-plugin publish --platform react --channel dev \
+    --from archive/preview-web-plugin.zip --api-url https://api.example.com --apply
+```
+
+Укажите `stable` для соответствующего зарегистрированного релиза. Канал задаётся при публикации.
+
 -   Локальный стенд DS Builder: скопировать архив в `local-dev/web-preview/preview-web-plugin.zip` и заменить напечатанным блоком `<!-- web-provenance:start -->…<!-- web-provenance:end -->` в `local-dev/README.md`.
 
 ## Совместимость с DS Builder
