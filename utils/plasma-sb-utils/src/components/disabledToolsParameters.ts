@@ -1,5 +1,6 @@
 /**
  * Globally hides the `Measure`, `Outline` and `Backgrounds` (incl. its grid) toolbar tools.
+ * Also disables saving and creating stories from the Controls panel UI.
  *
  * In Storybook 10 these are `type: 'tool'` toolbar items (not panels), so
  * `parameters: { measure: { disable: true } }` does NOT remove them — that key
@@ -16,6 +17,9 @@
  *   - backgrounds: ADDON_ID = 'storybook/background' (color switcher + grid live here)
  */
 export const disabledToolsParameters = {
+    controls: {
+        disableSaveFromUI: true,
+    },
     toolbar: {
         'storybook/measure-addon/tool': { hidden: true },
         'storybook/outline': { hidden: true },

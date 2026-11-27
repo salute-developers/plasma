@@ -21,6 +21,7 @@ export const InputHint = ({ hint, disabled }: InputHintProps) => {
     }
 
     const { _configClassName } = hint;
+    const Icon = hint.size === 's' ? InfoCircleOutline16 : InfoCircleOutline24;
 
     return (
         <Tooltip
@@ -40,18 +41,21 @@ export const InputHint = ({ hint, disabled }: InputHintProps) => {
                     aria-label={hint.value}
                     disabled={disabled}
                 >
-                    {hint.targetIcon ?? (
-                        <>
-                            <InfoCircleOutline16
-                                className={cls(styles.hintIcon16, classes.inputHintIcon)}
-                                aria-hidden="true"
-                            />
-                            <InfoCircleOutline24
-                                className={cls(styles.hintIcon24, classes.inputHintIcon)}
-                                aria-hidden="true"
-                            />
-                        </>
-                    )}
+                    {hint.targetIcon ??
+                        (hint.size ? (
+                            <Icon className={cls(styles.hintIcon, classes.inputHintIcon)} aria-hidden="true" />
+                        ) : (
+                            <>
+                                <InfoCircleOutline16
+                                    className={cls(styles.hintIcon, styles.hintIcon16, classes.inputHintIcon)}
+                                    aria-hidden="true"
+                                />
+                                <InfoCircleOutline24
+                                    className={cls(styles.hintIcon, styles.hintIcon24, classes.inputHintIcon)}
+                                    aria-hidden="true"
+                                />
+                            </>
+                        ))}
                 </button>
             }
         >

@@ -28,6 +28,7 @@
 
 .header {
     align-items: flex-start;
+    gap: var(--sdds-core-input-header-content-gap, var(--sdds-core-input-gap));
     padding-block-end: var(--sdds-core-input-header-gap);
     color: var(--sdds-core-input-label-color, inherit);
     font-size: var(--sdds-core-input-label-font-size, inherit);
@@ -54,6 +55,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.titleCaption,
+.helpers {
+    font-family: var(--sdds-core-input-helper-font-family, inherit);
+    font-style: var(--sdds-core-input-helper-font-style, inherit);
+    font-weight: var(--sdds-core-input-helper-font-weight, inherit);
 }
 
 .titleCaption {
@@ -168,6 +176,7 @@
     background: transparent;
     color: inherit;
     -webkit-text-fill-color: currentColor;
+    caret-color: var(--sdds-core-input-caret-color, currentColor);
     font: inherit;
     letter-spacing: inherit;
     overflow: hidden;
@@ -363,10 +372,6 @@
     color: var(--sdds-core-input-hint-color, inherit);
 }
 
-.header .hintTarget {
-    --sdds-core-input-hint-size: var(--sdds-core-input-header-hint-size);
-}
-
 .body > .hintTarget {
     position: absolute;
     inset-inline-start: calc(100% + var(--sdds-core-input-outer-hint-gap));
@@ -374,8 +379,7 @@
     transform: translateY(-50%);
 }
 
-.hintIcon16,
-.hintIcon24 {
+.hintIcon {
     width: 100%;
     height: 100%;
 }
@@ -463,6 +467,9 @@
     transform: translateY(0);
     color: var(--sdds-core-input-inner-label-color, inherit);
     font-size: var(--sdds-core-input-inner-label-font-size);
+    font-family: var(--sdds-core-input-inner-label-font-family, inherit);
+    font-style: var(--sdds-core-input-inner-label-font-style, inherit);
+    font-weight: var(--sdds-core-input-inner-label-font-weight, inherit);
     line-height: var(--sdds-core-input-inner-label-line-height);
     letter-spacing: var(--sdds-core-input-inner-label-letter-spacing, inherit);
 }
@@ -491,10 +498,6 @@
     .chipFull:not(:disabled):hover .chipRemove {
         color: var(--sdds-core-input-chip-remove-color-hover, var(--sdds-core-input-chip-remove-color, inherit));
     }
-
-    .hintTarget:not(:disabled):hover {
-        color: var(--sdds-core-input-action-color-hover, currentColor);
-    }
 }
 
 .chipFull:not(:disabled):active {
@@ -511,7 +514,16 @@
     cursor: default;
 }
 
-.root[data-disabled] {
+/* Прозрачность содержимого не затрагивает фон поля и хинт. */
+.root[data-disabled] .editor,
+.root[data-disabled] .contentBefore,
+.root[data-disabled] .contentAfter,
+.root[data-disabled] .header .label,
+.root[data-disabled] .header .indicator,
+.root[data-disabled] .titleCaption,
+.root[data-disabled] .field > .indicator,
+.root[data-disabled] .field::after,
+.root[data-disabled] .helpers {
     opacity: var(--sdds-core-input-disabled-opacity, 0.4);
 }
 
@@ -523,6 +535,10 @@
 
 .root[data-readonly] .field {
     background: var(--sdds-core-input-background-color-readonly, var(--sdds-core-input-background-color, transparent));
+}
+
+.root[data-disabled] .field {
+    background: var(--sdds-core-input-background-color-disabled, var(--sdds-core-input-background-color, transparent));
 }
 
 @media (prefers-reduced-motion: reduce) {
