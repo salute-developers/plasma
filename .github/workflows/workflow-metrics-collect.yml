@@ -1,0 +1,77 @@
+name: Collect Cypress workflow metrics
+
+on:
+    schedule:
+        - cron: '0 2 */2 * *'
+    workflow_dispatch:
+        inputs:
+            mode:
+                description: 'collect: update history; publish-existing: upload the committed archive without GitHub API'
+                type: choice
+                options:
+                    - collect
+                    - publish-existing
+                default: collect
+            from:
+                description: 'Start date, YYYY-MM-DD; empty continues the saved archive (at least 1.5 years)'
+                type: string
+                default: ''
+            to:
+                description: 'End date, YYYY-MM-DD; empty uses today in UTC'
+                type: string
+                default: ''
+            workflow:
+                description: 'Workflow category to collect'
+                type: choice
+                options:
+                    - all
+                    - cypress-by-cron-every-day.yml
+                    - cypress.yml
+                    - cypress-release-branch.yml
+                default: all
+            refresh_days:
+                description: 'Recheck recent days; increase to discover older reruns'
+                type: string
+                default: '7'
+            max_requests:
+                description: 'Total collection request budget (PAT usually allows 5000/hour)'
+                type: string
+                default: '4500'
+
+permissions:
+    contents: read
+    actions: read
+
+concurrency:
+    group: workflow-metrics-s3
+    cancel-in-progress: false
+
+jobs:
+    collect:
+        # Only trusted default-branch code receives deployment credentials.
+        if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        runs-on: ubuntu-22.04
+        timeout-minutes: 90
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  show-progress: false
+                  persist-credentials: false
+
+            - name: Collect or publish workflow metrics
+              uses: ./.github/actions/workflow-metrics
+              with:
+                  mode: ${{ inputs.mode || 'collect' }}
+                  from: ${{ inputs.from }}
+                  to: ${{ inputs.to }}
+                  workflow: ${{ inputs.workflow || 'all' }}
+                  refresh-days: ${{ inputs.refresh_days || '7' }}
+                  max-requests: ${{ inputs.max_requests || '4500' }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.WORKFLOW_METRICS_TOKEN }}
+                  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  AWS_ENDPOINT: ${{ secrets.AWS_ENDPOINT }}
+                  AWS_REGION: ${{ secrets.AWS_REGION }}
+                  AWS_S3_BUCKET_2: ${{ secrets.AWS_S3_BUCKET_2 }}
