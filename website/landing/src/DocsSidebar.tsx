@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
+import { builderGuides } from './builderGuides';
 import { SiteLink } from './shared';
 
 function DocsTreeLink({ href, className = undefined, children }) {
@@ -49,6 +50,17 @@ export function DocsSidebar() {
                             <DocsTreeLink href="/docs/glossary">Glossary</DocsTreeLink>
 
                             <DocsTreeLink href="/docs/icons">Icons</DocsTreeLink>
+                        </nav>
+                    </div>
+
+                    <div className="doc-tree-group">
+                        <h3>DS Builder: инструкции</h3>
+                        <nav className="tree-list">
+                            {builderGuides.map((guide) => (
+                                <DocsTreeLink key={guide.route} href={guide.route}>
+                                    {guide.short}
+                                </DocsTreeLink>
+                            ))}
                         </nav>
                     </div>
 
