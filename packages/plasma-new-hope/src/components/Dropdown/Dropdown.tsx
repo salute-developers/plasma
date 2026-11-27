@@ -44,6 +44,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                 closeOnOverlayClick = true,
                 itemRole = 'option',
                 disabled,
+                flip = true,
 
                 size,
                 view,
@@ -136,6 +137,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                         })}
                         zIndex={zIndex}
                         isInner={false}
+                        flip={flip}
                     >
                         <Root
                             className={cx(className, classes.dropdownRoot)}
@@ -159,6 +161,7 @@ export const dropdownRoot = (Root: RootProps<HTMLDivElement, Omit<DropdownProps,
                                             index={index}
                                             listWidth={listWidth}
                                             portal={listWrapperRef}
+                                            flip={flip}
                                         />
                                     ))}
                                 </Ul>

@@ -452,6 +452,21 @@ describeFn('Dropdown', () => {
         cy.matchImageSnapshot();
     });
 
+    it('prop: flip=false', () => {
+        cy.viewport(400, 400);
+
+        mount(
+            <div style={{ width: '300px' }}>
+                <Dropdown items={items} flip={false} placement="top" closeOnOverlayClick={false}>
+                    <Button id="flip-false" text="flip false" />
+                </Dropdown>
+            </div>,
+        );
+
+        cy.get('#flip-false').click();
+        cy.matchImageSnapshot();
+    });
+
     it('prop: placement, alwaysOpened', () => {
         cy.viewport(500, 700);
 
