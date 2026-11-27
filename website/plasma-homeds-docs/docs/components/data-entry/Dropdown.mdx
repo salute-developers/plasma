@@ -266,6 +266,38 @@ type ItemOption = {
         ```
     </TabItem>
 
+    <TabItem value="flip" label="Flip">
+        Параметр `flip` включает коррекцию стороны открытия, если список не помещается в экран.<br />
+        Default value - `true`.<br />
+        При `flip={false}` список остаётся на стороне, заданной через `placement`.
+
+        ```tsx live
+        import React from 'react';
+        import { Button, Dropdown } from '@salutejs/plasma-homeds';
+
+        export function App() {
+            const items = [
+                { value: 'north_america', label: 'Северная Америка' },
+                { value: 'south_america', label: 'Южная Америка' },
+                { value: 'europe', label: 'Европа' },
+                { value: 'asia', label: 'Азия' },
+                { value: 'africa', label: 'Африка' },
+            ];
+
+            return (
+                <div style={{ display: "flex", gap: "32px" }}>
+                    <Dropdown items={items} placement="top" flip listWidth="200px">
+                        <Button text="flip: true" />
+                    </Dropdown>
+                    <Dropdown items={items} placement="top" flip={false} listWidth="200px">
+                        <Button text="flip: false" />
+                    </Dropdown>
+                </div>
+            );
+        }
+        ```
+    </TabItem>
+
     <TabItem value="trigger" label="Trigger">
         Параметр `trigger` принимает строку: `"click"` или `"hover"`.<br />
         Default value - `"click"`.<br />

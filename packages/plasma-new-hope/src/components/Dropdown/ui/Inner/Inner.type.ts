@@ -12,4 +12,5 @@ export interface DropdownInnerProps {
     trigger: DropdownProps['trigger'];
     listWidth: DropdownProps['listWidth'];
     portal: RefObject<HTMLElement>;
+    flip: DropdownProps['flip'];
 }

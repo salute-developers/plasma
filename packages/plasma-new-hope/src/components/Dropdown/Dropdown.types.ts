@@ -205,6 +205,11 @@ export type DropdownProps<T extends ItemOption = ItemOption> = {
      * Выпадающий список не активен.
      */
     disabled?: boolean;
+    /**
+     * Коррекция placement, если выпадающий список находится за пределами экрана.
+     * @default true
+     */
+    flip?: boolean;
 
     /**
      * Размер компонента.
@@ -224,6 +229,7 @@ export type FloatingPopoverProps = {
     placement: PlacementType;
     trigger: DropdownProps['trigger'];
     isInner: boolean;
+    flip?: DropdownProps['flip'];
     portal?: DropdownProps['portal'];
     offset?: [number, number];
     zIndex?: DropdownProps['zIndex'];

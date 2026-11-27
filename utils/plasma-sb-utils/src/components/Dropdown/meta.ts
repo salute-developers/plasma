@@ -34,6 +34,7 @@ export const createMeta = ({
             alwaysOpened: false,
             closeOnOverlayClick: true,
             closeOnSelect: true,
+            flip: true,
             ...defaultArgs,
         },
         argTypes: {
@@ -74,6 +75,9 @@ export const createMeta = ({
             },
             listWidth: {
                 control: { type: 'text' },
+            },
+            flip: {
+                control: { type: 'boolean' },
             },
 
             ...additionalArgTypes,

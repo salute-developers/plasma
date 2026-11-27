@@ -20,7 +20,22 @@ import { FloatingPopoverProps } from './Dropdown.types';
 const LIST_PADDING = 2;
 
 const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
-    ({ target, children, opened, onToggle, placement, portal, offset, isInner, trigger, zIndex }, ref) => {
+    (
+        {
+            target,
+            children,
+            opened,
+            onToggle,
+            placement,
+            portal,
+            offset,
+            isInner,
+            trigger,
+            zIndex,
+            flip: outsideFlip = true,
+        },
+        ref,
+    ) => {
         const { refs, floatingStyles, context } = useFloating({
             whileElementsMounted(referenceEl, floatingEl, update) {
                 return autoUpdate(referenceEl, floatingEl, update, {
@@ -38,7 +53,7 @@ const FloatingPopover = forwardRef<HTMLDivElement, FloatingPopoverProps>(
                     mainAxis: isInner ? LIST_PADDING * 2 : offset?.[1],
                     crossAxis: isInner ? -LIST_PADDING : offset?.[0],
                 }),
-                flip({ fallbackAxisSideDirection: 'end' }),
+                outsideFlip && flip({ fallbackAxisSideDirection: 'end' }),
                 shift(),
             ],
         });

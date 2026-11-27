@@ -18,6 +18,7 @@ const Inner: FC<DropdownInnerProps> = ({
     trigger,
     listWidth,
     portal,
+    flip,
 }) => {
     const handleToggle = (opened: boolean): void => {
         if (opened) {
@@ -56,6 +57,7 @@ const Inner: FC<DropdownInnerProps> = ({
                 }
                 isInner
                 portal={portal}
+                flip={flip}
             >
                 <ListWrapper ref={listWrapperRef} listWidth={listWidth}>
                     <Ul id={listId} role="group" listMaxHeight={item.listMaxHeight}>
@@ -72,6 +74,7 @@ const Inner: FC<DropdownInnerProps> = ({
                                 trigger={trigger}
                                 listWidth={listWidth}
                                 portal={listWrapperRef}
+                                flip={flip}
                             />
                         ))}
                     </Ul>
