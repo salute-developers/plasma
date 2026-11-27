@@ -33,6 +33,8 @@ describe('Beta TextField API', () => {
         expectTypeOf<Props>().not.toHaveProperty('indicator');
         expectTypeOf<typeof textFieldTokens>().toHaveProperty('caretColor').toEqualTypeOf<string>();
         expectTypeOf<typeof inputTokens>().toHaveProperty('caretColor').toEqualTypeOf<string>();
+        expectTypeOf<typeof textFieldTokens>().toHaveProperty('backgroundColorDisabled').toEqualTypeOf<string>();
+        expectTypeOf<typeof inputTokens>().toHaveProperty('backgroundColorDisabled').toEqualTypeOf<string>();
         expectTypeOf<typeof textFieldTokens>().toHaveProperty('headerContentGap').toEqualTypeOf<string>();
         expectTypeOf<typeof inputTokens>().toHaveProperty('headerContentGap').toEqualTypeOf<string>();
         expectTypeOf<typeof textFieldTokens>().toHaveProperty('hintSize').toEqualTypeOf<string>();
@@ -72,12 +74,17 @@ describe('Beta TextField API', () => {
         expectTypeOf<Props>().toHaveProperty('aria-label').toEqualTypeOf<string | undefined>();
     });
 
-    it('Indicator union', () => {
+    it('Indicators', () => {
         expectTypeOf<TextFieldProps>({ requiredIndicator: true, requiredPlacement: 'left' });
         expectTypeOf<TextFieldProps>({ optionalText: 'Необязательно' });
         expectTypeOf<TextFieldProps>({ requiredIndicator: false, optionalText: 'Необязательно' });
-        // @ts-expect-error Обязательное поле не может иметь подпись «необязательно».
         expectTypeOf<TextFieldProps>({ requiredIndicator: true, optionalText: 'Необязательно' });
+        const indicators: { requiredIndicator?: boolean; optionalText?: string } = {
+            requiredIndicator: true,
+            optionalText: 'Необязательно',
+        };
+        expectTypeOf<TextFieldProps>(indicators);
+        void (<TextField {...indicators} />);
         // @ts-expect-error API чипов остаётся во внутреннем Input.
         expectTypeOf<TextFieldProps>({ chips: { value: ['Чип'] } });
         // @ts-expect-error Скрытие placeholder при наличии чипов не входит в API TextField.
@@ -114,7 +121,6 @@ describe('Beta TextField API', () => {
                 optionalText="Необязательно"
             />
         );
-        // @ts-expect-error Взаимоисключение сохраняется и в JSX компонента с forwardRef.
         void (<TextField requiredIndicator optionalText="Необязательно" />);
     });
     it('Hint size', () => {
