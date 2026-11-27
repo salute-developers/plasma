@@ -1,1 +1,0 @@
-../../../../plasma-core/src/components/Typography/Typography.component-test.tsx
